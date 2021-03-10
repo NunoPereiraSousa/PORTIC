@@ -32,6 +32,10 @@ a:focus {
     justify-content: space-between;
   }
 
+  &-jc-sa {
+    justify-content: space-around;
+  }
+
   &-jc-c {
     justify-content: center;
   }
@@ -51,7 +55,7 @@ a:focus {
 
 // hides bellow iPadPro
 .hide-for-mobile {
-  @include breakpoint-down(tablet) {
+  @include breakpoint-down(iPadPro) {
     display: none;
   }
 }
@@ -59,6 +63,18 @@ a:focus {
 // hides above iPadPro
 .hide-above-phone {
   @include breakpoint-middle(desktop, smallPhone) {
+    display: none;
+  }
+}
+
+.show-tablet-hide-phone {
+  @include breakpoint-middle(iPadPro, tablet) {
+    display: block;
+  }
+}
+
+.hide-for-desktop {
+  @include breakpoint-up(iPadPro) {
     display: none;
   }
 }

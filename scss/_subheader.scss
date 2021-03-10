@@ -5,7 +5,7 @@
   z-index: 999;
   width: 100%;
   padding: 1rem 1.25rem;
-  background-color: $orange;
+  background-color: $black;
   color: $white;
   grid-template-columns: repeat(2, 1fr);
 
@@ -19,6 +19,7 @@
 
   @include breakpoint-up(desktop) {
     grid-template-columns: repeat(3, 1fr);
+    padding: 1.25rem 3.125rem;
   }
 
   &__contacts {
@@ -43,7 +44,8 @@
       justify-self: center;
     }
 
-    i {
+    a {
+      color: $white;
       margin-right: $_20px;
 
       &:last-child {

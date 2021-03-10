@@ -39,3 +39,9 @@ $breakpoint-down: (
     @content;
   }
 }
+
+@mixin breakpoint-width-height($max-width, $min-width2, $max-height) {
+  @media (max-width: $max-width) and (min-width: $min-width2) and (max-height: $max-height) {
+    @content;
+  }
+}

@@ -9,26 +9,36 @@
         <div class="navbar__hamburger__lines"></div>
         <div class="navbar__hamburger__lines"></div>
       </div>
-      <div class="navbar__mobile_menu">
+      <div class="navbar__mobile_menu grid hide-for-desktop">
         <div class="navbar__mobile_menu__info">
           <h1>portic</h1>
           <p>An open door towards the future</p>
           <hr />
         </div>
-        <div class="navbar__mobile_menu_links">
-          <a href="">Unities</a>
-          <a href="">Courses</a>
-          <a href="">Positions</a>
+        <div class="navbar__mobile_menu__links flex flex-fd-c">
           <a href="">Areas</a>
-          <a href="">Projects</a>
+          <a href="">Courses</a>
           <a href="">Media</a>
+          <a href="">Positions</a>
+          <a href="">Projects</a>
+          <a href="">Unities</a>
         </div>
-        <div class="navbar__mobile_menu_policy ">
+        <div class="navbar__mobile_menu__policy">
           <p>Privacy Policy & © Copy Right 2021</p>
         </div>
       </div>
+      <div class="navbar__desktop_menu hide-for-mobile">
+        <div class="navbar__desktop_menu__links flex">
+          <a href="">Areas</a>
+          <a href="">Courses</a>
+          <a href="">Media</a>
+          <a href="">Positions</a>
+          <a href="">Projects</a>
+          <a href="">Unities</a>
+        </div>
+      </div>
     </nav>
-    <!-- <div class="navbar__mobile_overlay"></div> -->
+    <div class="navbar__mobile_overlay"></div>
   </header>
 </template>
 
@@ -50,10 +60,10 @@ export default {
 
       navbar__mobile_menu.classList.toggle("open__overlay");
 
-      // let navbar__mobile_overlay = document.querySelector(
-      //   ".navbar__mobile_overlay"
-      // );
-      // navbar__mobile_overlay.classList.toggle("overlay_opened");
+      let navbar__mobile_overlay = document.querySelector(
+        ".navbar__mobile_overlay"
+      );
+      navbar__mobile_overlay.classList.toggle("overlay_opened");
     }
   }
 };

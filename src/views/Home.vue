@@ -3,28 +3,62 @@
     <div class="scene"></div>
     <!-- <div class="overlay"></div> -->
     <section class="landing">
-      <!-- <h1>
+      <h1>
         <span>Welcome to</span>
         <div>PORTIC</div>
       </h1>
       <hr />
       <h4>
-        <div>
+        <div class="hide-for-desktop">
+          Porto Research,
+        </div>
+        <div class="hide-for-desktop">
+          Technology
+        </div>
+        <div class="hide-for-desktop">
+          & Innovation Center.
+        </div>
+        <div class="hide-for-mobile">
           Porto Research, Technology
         </div>
-        <div>
+        <div class="hide-for-mobile">
           & Innovation Center.
         </div>
       </h4>
       <button>Know more about us</button>
-      <p>An open door towards the future</p>
+      <div class="landing__down flex flex-jc-c flex-ai-c hide-for-mobile">
+        <div class="landing__down__arrow">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <p>An open door towards the future</p>
+      </div>
+      <div class="landing__carousel hide-for-desktop">
+        <div class="carousel">
+          <div class="slide-track">
+            <div class="slide">
+              <p>An open door towards the future</p>
+            </div>
+            <div class="slide">
+              <p>An open door towards the future</p>
+            </div>
+            <div class="slide">
+              <p>An open door towards the future</p>
+            </div>
+            <div class="slide">
+              <p>An open door towards the future</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <section class="about">
       <h1>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem fugiat
         ut maxime nostrum dolorum sequi voluptate cupiditate rerum fuga? Tempora
         qui saepe excepturi enim alias sequi minima cum vitae cumque.
-      </h1> -->
+      </h1>
     </section>
   </div>
 </template>
@@ -50,7 +84,7 @@ export default {
 
     function init() {
       camera = new THREE.PerspectiveCamera(
-        80,
+        70,
         SCREEN_WIDTH / SCREEN_HEIGHT,
         1,
         3000
@@ -96,12 +130,13 @@ export default {
       renderer.setPixelRatio(window.devicePixelRatio);
 
       renderer.setClearColor(0xffffff, 1);
+      // renderer.setClearColor(0x081426, 1);
 
       threeJsScene.appendChild(renderer.domElement);
 
       controls = new OrbitControls(camera, renderer.domElement);
-      controls.minDistance = 100;
-      controls.maxDistance = 1000;
+      controls.minDistance = 500;
+      controls.maxDistance = 800;
       controls.enableRotate = true;
       controls.addEventListener("change", render);
 

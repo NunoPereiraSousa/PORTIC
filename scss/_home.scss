@@ -11,63 +11,158 @@
   z-index: 1;
   width: 100%;
   height: 100vh;
-  padding: 10vw 0 0 14vw;
+  padding: 14.1875rem 0 0 14vw;
   // display: flex;
   // flex-direction: column;
   // justify-content: center;
   // align-items: center;
 
   h1 {
-    // text-align: center;
     letter-spacing: 1px;
-    span {
-      color: #000000;
-      font-weight: 400;
-    }
     margin: 0;
-    color: #c94d24;
-    font-size: 70px;
+    color: $orange;
+    font-size: $_32px;
     font-family: "Porto Sans Stencil";
+    text-transform: uppercase;
+
+    span {
+      color: $black;
+    }
   }
 
   hr {
-    background-color: #c94d24;
+    background-color: $orange;
     width: 50px;
-    height: 8px;
+    height: 4px;
     border: none;
-    margin: 2rem 0 4rem;
+    margin: 1rem 0 2.875rem;
   }
 
   h4 {
     // text-align: center;
-    span {
-      color: #000000;
-    }
     margin: 0;
-    color: #000000;
-    font-size: 40px;
-    font-family: "Porto Sans Stencil";
-    font-weight: 400;
+    color: $black;
+    font-size: $_26px;
+    font-family: $portoSans;
+    font-weight: bold;
+
+    span {
+      color: $black;
+    }
   }
 
   button {
     cursor: pointer;
-    margin: 4rem 0;
-    background-color: #c94d24;
-    color: #ffffff;
-    font-size: 1.2rem;
-    border: none;
+    margin: 2.875rem 0;
     padding: 1rem 1.5rem;
+    background-color: $orange;
+    border: none;
     border-radius: 2px;
+    color: $white;
+    font-size: $_18px;
+    font-family: $portoSansStencil;
   }
 
-  p {
+  &__down {
+    width: 100%;
+    background-color: $lightGrey;
     position: absolute;
-    bottom: 20%;
-    left: 45%;
+    bottom: 0%;
+    left: 50%;
     transform: translateX(-50%);
-    font-size: 20px;
-    font-family: "Porto Sans Stencil";
-    font-weight: 400;
+
+    @include breakpoint-up(iPadPro) {
+      background-color: transparent;
+    }
+
+    &__arrow {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      margin-right: 1.625rem;
+      animation: arrow-down 2s ease-in-out infinite;
+
+      .line {
+        position: absolute;
+        width: 3px;
+        height: 20px;
+        background-color: $orange;
+
+        &:nth-child(1) {
+          top: 0%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        &:nth-child(2) {
+          transform-origin: 11px 3px;
+          height: 12px;
+          top: 50%;
+          left: 0%;
+          transform: translateY(-50%) rotate(-45deg);
+        }
+
+        &:nth-child(3) {
+          transform-origin: -8px 3px;
+          height: 12px;
+          top: 50%;
+          right: 0%;
+          transform: translateY(-50%) rotate(45deg);
+        }
+      }
+    }
+
+    p {
+      white-space: nowrap;
+      font-size: $_18px;
+      font-family: $portoSansStencil;
+      font-weight: 400;
+      color: $white;
+
+      @include breakpoint-up(iPadPro) {
+        color: $black;
+      }
+    }
+  }
+
+  &__carousel {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      width: fit-content;
+      height: fit-content;
+      padding: 0.75rem 1rem;
+
+      .slide-track {
+        animation: scroll 20s linear infinite;
+        display: flex;
+        width: calc(300px * 2);
+
+        .slide {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: fit-content;
+          width: 350px;
+
+          p {
+            white-space: nowrap;
+            font-size: $_18px;
+            font-family: $portoSansStencil;
+            font-weight: 400;
+            color: $black;
+            margin: 0 2rem;
+
+            @include breakpoint-up(iPadPro) {
+              color: $black;
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -5,21 +5,40 @@
   z-index: 5;
   width: 100%;
   padding: 1rem 1.25rem;
-  background-color: $white;
-  color: $white;
+  background-color: transparent;
   font-family: $portoSansStencil;
   box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: $white;
+  }
+
+  @include breakpoint-up(tablet) {
+    top: 4.125rem;
+  }
+
+  @include breakpoint-up(desktop) {
+    padding: 1rem 3.125rem;
+  }
+
+  @include breakpoint-down(iPadPro) {
+    background-color: $white;
+  }
 
   &__logo {
     width: fit-content;
 
     img {
       width: 5.25rem;
+
+      @include breakpoint-up(iPadPro) {
+        width: 9rem;
+      }
     }
   }
 
   &__hamburger {
-    width: 100%;
     height: 1.125rem;
     position: relative;
 
@@ -82,23 +101,26 @@
     }
   }
 
-  //   &__mobile_overlay {
-  //     position: absolute;
-  //     z-index: -1;
-  //     top: 0%;
-  //     left: 0%;
-  //     height: 100vh;
-  //     width: 100%;
-  //     background-color: rgba(0, 0, 0, 0.1);
-  //     transition: all 0.5s ease;
+  &__mobile_overlay {
+    position: fixed;
+    z-index: -1;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
 
-  //     &.overlay_opened {
-  //       z-index: 1;
-  //     }
-  //   }
+    &.overlay_opened {
+      z-index: 1;
+      opacity: 1;
+    }
+  }
 
   &__mobile_menu {
-    padding: 6.25rem 0 1.625rem;
+    grid-template-rows: min-content, 1fr, min-content;
+    padding: 6.25rem 1rem 1.625rem;
     background-color: $white;
     color: $black;
     width: 70vw;
@@ -108,6 +130,18 @@
     right: -100%;
     top: 0%;
     transition: all 0.5s ease;
+
+    @include breakpoint-down(phone) {
+      padding: 5.25rem 1rem 1.625rem;
+    }
+
+    @include breakpoint-up(largePhone) {
+      padding: 5.25rem 1rem 1.625rem;
+    }
+
+    @include breakpoint-up(tablet) {
+      padding: 8.25rem 1rem 1.625rem;
+    }
 
     &.open__overlay {
       right: 0%;
@@ -122,11 +156,139 @@
       h1 {
         text-transform: uppercase;
         color: $orange;
+        margin-bottom: 0;
+
+        @include breakpoint-down(smallPhone) {
+          font-size: $_22px;
+        }
+
+        @include breakpoint-up(tablet) {
+          font-size: $_26px;
+        }
       }
 
       p {
         font-family: $portoSans;
         font-style: italic;
+        font-size: $_17px;
+        margin: $_20px 0 $_30px;
+
+        @include breakpoint-down(smallPhone) {
+          font-size: $_16px;
+          margin: $_16px 0 $_24px;
+        }
+
+        @include breakpoint-up(largePhone) {
+          margin: $_12px 0 $_20px;
+        }
+
+        @include breakpoint-up(tablet) {
+          font-size: $_17px;
+        }
+      }
+
+      hr {
+        background-color: $orange;
+        border: none;
+        height: 2px;
+        width: $_60px;
+      }
+    }
+
+    &__links {
+      @include breakpoint-down(phone) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+      }
+
+      a {
+        &:first-child {
+          margin: 0;
+
+          //   @include breakpoint-up(largePhone) {
+          //     margin-top: $_30px;
+          //   }
+        }
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          @include breakpoint-down(phone) {
+            margin-top: 0;
+          }
+
+          @include breakpoint-width-height(41.6875em, 23.4375em, 41.75em) {
+            margin-top: 0;
+          }
+        }
+
+        text-align: center;
+        color: $black;
+        margin-top: $_30px;
+        font-size: $_20px;
+        font-family: $portoSans;
+
+        @include breakpoint-down(phone) {
+          margin-top: $_20px;
+          font-size: $_17px;
+        }
+
+        @include breakpoint-width-height(41.6875em, 23.4375em, 41.75em) {
+          margin-top: $_30px;
+        }
+
+        @include breakpoint-up(tablet) {
+          font-size: $_20px;
+        }
+      }
+    }
+
+    &__policy {
+      width: 100%;
+      //   position: absolute;
+      //   bottom: 10%;
+      //   left: 50%;
+      //   transform: translateX(-50%);
+
+      @include breakpoint-width-height(41.6875em, 23.4375em, 41.75em) {
+        align-self: flex-start;
+      }
+
+      p {
+        text-align: center;
+        font-size: $_14px;
+        color: $grey;
+        font-weight: lighter;
+
+        @include breakpoint-down(phone) {
+          font-size: $_14px;
+        }
+
+        @include breakpoint-up(tablet) {
+          font-size: $_16px;
+        }
+      }
+    }
+  }
+
+  &__desktop_menu {
+    &__links {
+      a {
+        text-transform: uppercase;
+        margin-right: $_60px;
+        font-size: $_20px;
+        color: $black;
+
+        &:last-child {
+          @include breakpoint-up(iPadPro) {
+            margin-right: 0;
+          }
+        }
+
+        @include breakpoint-up(iPadPro) {
+          margin-right: $_40px;
+          font-size: $_18px;
+        }
       }
     }
   }
