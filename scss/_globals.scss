@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: $portoSans;
+  font-size: $_16px;
+  line-height: 1.4;
+}
+
+a,
+a:visited,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+
+  &-fd-c {
+    flex-direction: column;
+  }
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-jc-fe {
+    justify-content: flex-end;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+.grid {
+  display: grid;
+}
+
+// hides bellow iPadPro
+.hide-for-mobile {
+  @include breakpoint-down(iPadPro) {
+    display: none;
+  }
+}
+
+// hides above iPadPro
+.hide-for-desktop {
+  @include breakpoint-up(iPadPro) {
+    display: none;
+  }
+}
+
+.scene,
+canvas {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: -1;
+}

@@ -1,0 +1,34 @@
+.subheader {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background-color: $black;
+  color: $white;
+
+  @include breakpoint-up(tablet) {
+    padding: 1.25rem;
+  }
+
+  @include breakpoint-up(iPadPro) {
+    padding: 1.25rem 1.5rem;
+  }
+
+  &__email {
+    i {
+      margin-right: $_14px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__socials {
+    i {
+      margin-right: $_20px;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
