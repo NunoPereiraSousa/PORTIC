@@ -1,7 +1,11 @@
 .subheader {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 999;
   width: 100%;
   padding: 1rem 1.25rem;
-  background-color: $black;
+  background-color: $orange;
   color: $white;
   grid-template-columns: repeat(2, 1fr);
 
@@ -34,6 +38,20 @@
     }
   }
 
+  &__socials {
+    @include breakpoint-up(desktop) {
+      justify-self: center;
+    }
+
+    i {
+      margin-right: $_20px;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
   &__languages {
     justify-self: end;
 
@@ -42,7 +60,6 @@
       font-size: $_15px;
 
       &:first-child {
-        // border-right: 1px solid $white;
         padding-right: $_14px;
       }
 
@@ -61,20 +78,6 @@
       border: none;
       width: 1px;
       height: 10px;
-    }
-  }
-
-  &__socials {
-    @include breakpoint-up(desktop) {
-      justify-self: center;
-    }
-
-    i {
-      margin-right: $_20px;
-
-      &:last-child {
-        margin: 0;
-      }
     }
   }
 }

@@ -87,9 +87,13 @@ canvas {
 }
 
 .subheader {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 999;
   width: 100%;
   padding: 1rem 1.25rem;
-  background-color: #080808;
+  background-color: #c94d24;
   color: #ffffff;
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
@@ -132,6 +136,21 @@ canvas {
   margin: 0;
 }
 
+@media (min-width: 75em) {
+  .subheader__socials {
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+}
+
+.subheader__socials i {
+  margin-right: 1.25rem;
+}
+
+.subheader__socials i:last-child {
+  margin: 0;
+}
+
 .subheader__languages {
   -ms-grid-column-align: end;
       justify-self: end;
@@ -163,19 +182,132 @@ canvas {
   height: 10px;
 }
 
-@media (min-width: 75em) {
-  .subheader__socials {
-    -ms-grid-column-align: center;
-        justify-self: center;
+.navbar {
+  position: fixed;
+  top: 3.625rem;
+  left: 0%;
+  z-index: 5;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background-color: #ffffff;
+  color: #ffffff;
+  font-family: "Porto Sans Stencil";
+  -webkit-box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.05);
+}
+
+.navbar__logo {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.navbar__logo img {
+  width: 5.25rem;
+}
+
+.navbar__hamburger {
+  width: 100%;
+  height: 1.125rem;
+  position: relative;
+}
+
+.navbar__hamburger__lines {
+  height: 2px;
+  background-color: #080808;
+  position: absolute;
+  z-index: 999;
+  right: 0%;
+  border-radius: 4px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform-origin: -0.5px center;
+          transform-origin: -0.5px center;
+}
+
+@media (max-width: 23.375em) {
+  .navbar__hamburger__lines {
+    height: 2px;
   }
 }
 
-.subheader__socials i {
-  margin-right: 1.25rem;
+.navbar__hamburger__lines.open {
+  background-color: #080808;
+  -webkit-transform-origin: -2.55px center;
+          transform-origin: -2.55px center;
 }
 
-.subheader__socials i:last-child {
-  margin: 0;
+.navbar__hamburger__lines:nth-child(1).open {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.navbar__hamburger__lines:nth-child(1), .navbar__hamburger__lines:nth-child(3) {
+  width: 1.5rem;
+}
+
+.navbar__hamburger__lines:nth-child(1).open, .navbar__hamburger__lines:nth-child(3).open {
+  height: 2px;
+  width: 1.25rem;
+}
+
+@media (max-width: 23.375em) {
+  .navbar__hamburger__lines:nth-child(1).open, .navbar__hamburger__lines:nth-child(3).open {
+    height: 2px;
+  }
+}
+
+.navbar__hamburger__lines:nth-child(2) {
+  top: 50%;
+  width: 1.75rem;
+}
+
+.navbar__hamburger__lines:nth-child(2).open {
+  opacity: 0;
+  -webkit-transform: translateX(15%);
+          transform: translateX(15%);
+}
+
+.navbar__hamburger__lines:nth-child(3) {
+  top: 100%;
+}
+
+.navbar__hamburger__lines:nth-child(3).open {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.navbar__mobile_menu {
+  padding: 6.25rem 0 1.625rem;
+  background-color: #ffffff;
+  color: #080808;
+  width: 70vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+  right: -100%;
+  top: 0%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.navbar__mobile_menu.open__overlay {
+  right: 0%;
+}
+
+.navbar__mobile_menu__info h1,
+.navbar__mobile_menu__info p {
+  text-align: center;
+}
+
+.navbar__mobile_menu__info h1 {
+  text-transform: uppercase;
+  color: #c94d24;
+}
+
+.navbar__mobile_menu__info p {
+  font-family: "Porto Sans";
+  font-style: italic;
 }
 
 .overlay {
