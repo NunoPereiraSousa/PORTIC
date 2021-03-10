@@ -33,3 +33,9 @@ $breakpoint-down: (
     @content;
   }
 }
+
+@mixin breakpoint-middle($size, $size2) {
+  @media (max-width: map-get($map: $breakpoint-down, $key: $size)) and (min-width: map-get($map: $breakpoint-up, $key: $size2)) {
+    @content;
+  }
+}

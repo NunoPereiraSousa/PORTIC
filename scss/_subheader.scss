@@ -3,6 +3,7 @@
   padding: 1rem 1.25rem;
   background-color: $black;
   color: $white;
+  grid-template-columns: repeat(2, 1fr);
 
   @include breakpoint-up(tablet) {
     padding: 1.25rem;
@@ -12,9 +13,20 @@
     padding: 1.25rem 1.5rem;
   }
 
-  &__email {
+  @include breakpoint-up(desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__contacts {
+    justify-self: start;
+
     i {
       margin-right: $_14px;
+      font-size: $_15px;
+
+      &.fa-phone-volume {
+        margin-left: $_40px;
+      }
     }
 
     p {
@@ -22,7 +34,41 @@
     }
   }
 
+  &__languages {
+    justify-self: end;
+
+    p {
+      margin: 0;
+      font-size: $_15px;
+
+      &:first-child {
+        // border-right: 1px solid $white;
+        padding-right: $_14px;
+      }
+
+      &:last-child {
+        padding-left: $_14px;
+      }
+
+      &.selected {
+        opacity: 0.69;
+      }
+    }
+
+    hr {
+      transform: rotate(180deg);
+      background-color: $white;
+      border: none;
+      width: 1px;
+      height: 10px;
+    }
+  }
+
   &__socials {
+    @include breakpoint-up(desktop) {
+      justify-self: center;
+    }
+
     i {
       margin-right: $_20px;
 

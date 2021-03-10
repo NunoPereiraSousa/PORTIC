@@ -51,14 +51,14 @@ a:focus {
 
 // hides bellow iPadPro
 .hide-for-mobile {
-  @include breakpoint-down(iPadPro) {
+  @include breakpoint-down(tablet) {
     display: none;
   }
 }
 
 // hides above iPadPro
-.hide-for-desktop {
-  @include breakpoint-up(iPadPro) {
+.hide-above-phone {
+  @include breakpoint-middle(desktop, smallPhone) {
     display: none;
   }
 }
