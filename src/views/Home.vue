@@ -25,7 +25,7 @@
           & Innovation Center.
         </div>
       </h4>
-      <button>Know more about us</button>
+      <button class="hide-for-desktop">Know more about us</button>
       <div class="landing__down flex flex-jc-c flex-ai-c hide-for-mobile">
         <div class="landing__down__arrow">
           <div class="line"></div>
@@ -130,7 +130,7 @@ export default {
       renderer.setPixelRatio(window.devicePixelRatio);
 
       renderer.setClearColor(0xffffff, 1);
-      // renderer.setClearColor(0x081426, 1);
+      renderer.setClearColor(0x081426, 1);
 
       threeJsScene.appendChild(renderer.domElement);
 

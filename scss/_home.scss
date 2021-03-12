@@ -13,6 +13,14 @@
   height: 100vh;
   padding: calc(12.1875rem + 2vw) 0 0 14vw;
 
+  @include breakpoint-up(iPadPro) {
+    padding: calc(20.1875rem + 2vw) 0 0 14vw;
+  }
+
+  @include breakpoint-up(desktop) {
+    padding: calc(12.1875rem + 2vw) 0 0 14vw;
+  }
+
   h1 {
     letter-spacing: 1px;
     margin: 0;
@@ -22,11 +30,19 @@
     text-transform: uppercase;
 
     span {
-      color: $black;
+      color: $white;
     }
 
     @include breakpoint-down(phone) {
       font-size: $_28px;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_60px;
+    }
+
+    @include breakpoint-up(desktop) {
+      font-size: $_46px;
     }
   }
 
@@ -40,12 +56,16 @@
     @include breakpoint-down(phone) {
       margin: 1rem 0 1.875rem;
     }
+
+    @include breakpoint-up(iPadPro) {
+      margin: 1rem 0 2.875rem;
+    }
   }
 
   h4 {
     // text-align: center;
     margin: 0;
-    color: $black;
+    color: $white;
     font-size: $_26px;
     font-family: $portoSans;
     font-weight: bold;
@@ -56,6 +76,14 @@
 
     @include breakpoint-down(phone) {
       font-size: $_22px;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_40px;
+    }
+
+    @include breakpoint-up(desktop) {
+      font-size: $_30px;
     }
   }
 
@@ -73,13 +101,27 @@
     @include breakpoint-down(phone) {
       font-size: $_16px;
     }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_24px;
+      padding: 1.5rem 1.75rem;
+    }
+
+    @include breakpoint-up(desktop) {
+      font-size: $_28px;
+    }
+
+    @include breakpoint-up(desktop) {
+      font-size: $_18px;
+      padding: 1rem 1.75rem;
+    }
   }
 
   &__down {
     width: 100%;
     background-color: $lightGrey;
     position: absolute;
-    bottom: 0%;
+    bottom: 4%;
     left: 50%;
     transform: translateX(-50%);
 
@@ -132,7 +174,7 @@
       color: $white;
 
       @include breakpoint-up(iPadPro) {
-        color: $black;
+        color: $white;
       }
     }
   }

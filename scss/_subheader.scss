@@ -19,11 +19,21 @@
 
   @include breakpoint-up(desktop) {
     grid-template-columns: repeat(3, 1fr);
-    padding: 1.25rem 3.125rem;
+    padding: 0.75rem 5rem;
   }
 
   &__contacts {
     justify-self: start;
+
+    .email,
+    .phone {
+      cursor: pointer;
+
+      &:hover i,
+      &:hover p {
+        color: $orange;
+      }
+    }
 
     i {
       margin-right: $_14px;
@@ -35,6 +45,7 @@
     }
 
     p {
+      font-size: $_15px;
       margin: 0;
     }
   }
@@ -45,11 +56,16 @@
     }
 
     a {
+      font-size: $_15px;
       color: $black;
       margin-right: $_20px;
 
       &:last-child {
         margin: 0;
+      }
+
+      &:hover {
+        color: $orange;
       }
     }
   }
@@ -60,6 +76,7 @@
     p {
       margin: 0;
       font-size: $_15px;
+      cursor: pointer;
 
       &:first-child {
         padding-right: $_14px;
@@ -71,6 +88,12 @@
 
       &.selected {
         opacity: 0.69;
+      }
+
+      &:not(.selected) {
+        &:hover {
+          color: $orange;
+        }
       }
     }
 

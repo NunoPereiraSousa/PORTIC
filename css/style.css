@@ -61,6 +61,10 @@ body {
   line-height: 1.4;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 a,
 a:visited,
 a:hover,
@@ -178,13 +182,25 @@ canvas {
   .subheader {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
-    padding: 1.25rem 3.125rem;
+    padding: 0.75rem 5rem;
   }
 }
 
 .subheader__contacts {
   -ms-grid-column-align: start;
       justify-self: start;
+}
+
+.subheader__contacts .email,
+.subheader__contacts .phone {
+  cursor: pointer;
+}
+
+.subheader__contacts .email:hover i,
+.subheader__contacts .email:hover p,
+.subheader__contacts .phone:hover i,
+.subheader__contacts .phone:hover p {
+  color: #c94d24;
 }
 
 .subheader__contacts i {
@@ -197,6 +213,7 @@ canvas {
 }
 
 .subheader__contacts p {
+  font-size: 0.9375rem;
   margin: 0;
 }
 
@@ -208,12 +225,17 @@ canvas {
 }
 
 .subheader__socials a {
+  font-size: 0.9375rem;
   color: #080808;
   margin-right: 1.25rem;
 }
 
 .subheader__socials a:last-child {
   margin: 0;
+}
+
+.subheader__socials a:hover {
+  color: #c94d24;
 }
 
 .subheader__languages {
@@ -224,6 +246,7 @@ canvas {
 .subheader__languages p {
   margin: 0;
   font-size: 0.9375rem;
+  cursor: pointer;
 }
 
 .subheader__languages p:first-child {
@@ -236,6 +259,10 @@ canvas {
 
 .subheader__languages p.selected {
   opacity: 0.69;
+}
+
+.subheader__languages p:not(.selected):hover {
+  color: #c94d24;
 }
 
 .subheader__languages hr {
@@ -254,29 +281,29 @@ canvas {
   z-index: 999;
   width: 100%;
   padding: 1rem 1.25rem;
-  background-color: #080808;
+  background-color: transparent;
   font-family: "Porto Sans Stencil";
-  -webkit-box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 1px 10px 0 rgba(255, 255, 255, 0.05);
+          box-shadow: 0px 1px 10px 0 rgba(255, 255, 255, 0.05);
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
 @media (min-width: 48em) {
   .navbar {
-    top: 4.125rem;
-  }
-}
-
-@media (min-width: 75em) {
-  .navbar {
-    padding: 1rem 10rem;
+    top: 3.125rem;
   }
 }
 
 @media (max-width: 63.9375em) {
   .navbar {
     background-color: #080808;
+  }
+}
+
+@media (min-width: 75em) {
+  .navbar {
+    padding: 1rem 5rem;
   }
 }
 
@@ -577,6 +604,7 @@ canvas {
 }
 
 .navbar__desktop_menu__links a {
+  position: relative;
   text-transform: uppercase;
   margin-right: 3.75rem;
   font-size: 1.25rem;
@@ -592,8 +620,25 @@ canvas {
 @media (min-width: 64em) {
   .navbar__desktop_menu__links a {
     margin-right: 3.125rem;
-    font-size: 1.0625rem;
+    font-size: 1rem;
   }
+}
+
+.navbar__desktop_menu__links a::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -15%;
+  bottom: -5%;
+  background-color: #c94d24;
+  width: 0;
+  height: 120%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.navbar__desktop_menu__links a:hover::after {
+  width: 64%;
 }
 
 @keyframes arrow-down {
@@ -635,6 +680,18 @@ canvas {
   padding: calc(12.1875rem + 2vw) 0 0 14vw;
 }
 
+@media (min-width: 64em) {
+  .landing {
+    padding: calc(20.1875rem + 2vw) 0 0 14vw;
+  }
+}
+
+@media (min-width: 75em) {
+  .landing {
+    padding: calc(12.1875rem + 2vw) 0 0 14vw;
+  }
+}
+
 .landing h1 {
   letter-spacing: 1px;
   margin: 0;
@@ -645,12 +702,24 @@ canvas {
 }
 
 .landing h1 span {
-  color: #080808;
+  color: #ffffff;
 }
 
 @media (max-width: 23.375em) {
   .landing h1 {
     font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .landing h1 {
+    font-size: 3.75rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .landing h1 {
+    font-size: 2.875rem;
   }
 }
 
@@ -668,9 +737,15 @@ canvas {
   }
 }
 
+@media (min-width: 64em) {
+  .landing hr {
+    margin: 1rem 0 2.875rem;
+  }
+}
+
 .landing h4 {
   margin: 0;
-  color: #080808;
+  color: #ffffff;
   font-size: 1.625rem;
   font-family: "Porto Sans";
   font-weight: bold;
@@ -683,6 +758,18 @@ canvas {
 @media (max-width: 23.375em) {
   .landing h4 {
     font-size: 1.375rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .landing h4 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .landing h4 {
+    font-size: 1.875rem;
   }
 }
 
@@ -704,11 +791,31 @@ canvas {
   }
 }
 
+@media (min-width: 64em) {
+  .landing button {
+    font-size: 1.5rem;
+    padding: 1.5rem 1.75rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .landing button {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .landing button {
+    font-size: 1.125rem;
+    padding: 1rem 1.75rem;
+  }
+}
+
 .landing__down {
   width: 100%;
   background-color: #666666;
   position: absolute;
-  bottom: 0%;
+  bottom: 4%;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -773,7 +880,7 @@ canvas {
 
 @media (min-width: 64em) {
   .landing__down p {
-    color: #080808;
+    color: #ffffff;
   }
 }
 
