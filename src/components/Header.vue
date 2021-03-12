@@ -15,13 +15,33 @@
           <p>An open door towards the future</p>
           <hr />
         </div>
-        <div class="navbar__mobile_menu__links flex flex-fd-c">
+        <div class="navbar__mobile_menu__links">
           <a href="">Areas</a>
           <a href="">Courses</a>
           <a href="">Media</a>
           <a href="">Positions</a>
           <a href="">Projects</a>
           <a href="">Unities</a>
+        </div>
+        <div class="navbar__mobile_menu__socials grid">
+          <a href="">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-flickr"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-facebook-square"></i>
+          </a>
         </div>
         <div class="navbar__mobile_menu__policy">
           <p>Privacy Policy & © Copy Right 2021</p>

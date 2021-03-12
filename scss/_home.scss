@@ -11,11 +11,7 @@
   z-index: 1;
   width: 100%;
   height: 100vh;
-  padding: 14.1875rem 0 0 14vw;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
+  padding: calc(12.1875rem + 2vw) 0 0 14vw;
 
   h1 {
     letter-spacing: 1px;
@@ -28,6 +24,10 @@
     span {
       color: $black;
     }
+
+    @include breakpoint-down(phone) {
+      font-size: $_28px;
+    }
   }
 
   hr {
@@ -36,6 +36,10 @@
     height: 4px;
     border: none;
     margin: 1rem 0 2.875rem;
+
+    @include breakpoint-down(phone) {
+      margin: 1rem 0 1.875rem;
+    }
   }
 
   h4 {
@@ -49,6 +53,10 @@
     span {
       color: $black;
     }
+
+    @include breakpoint-down(phone) {
+      font-size: $_22px;
+    }
   }
 
   button {
@@ -61,6 +69,10 @@
     color: $white;
     font-size: $_18px;
     font-family: $portoSansStencil;
+
+    @include breakpoint-down(phone) {
+      font-size: $_16px;
+    }
   }
 
   &__down {
@@ -138,9 +150,9 @@
       padding: 0.75rem 1rem;
 
       .slide-track {
-        animation: scroll 20s linear infinite;
+        animation: scroll 8s linear infinite;
         display: flex;
-        width: calc(300px * 2);
+        width: calc(300px * 4);
 
         .slide {
           display: flex;
