@@ -1,5 +1,5 @@
 .navbar {
-  position: fixed;
+  position: absolute;
   top: 3.625rem;
   left: 0%;
   z-index: 999;
@@ -15,11 +15,11 @@
   // }
 
   @include breakpoint-up(tablet) {
-    top: 3.125rem;
+    top: 4.125rem;
   }
 
   @include breakpoint-down(iPadPro) {
-    background-color: $black;
+    // background-color: $black;
   }
 
   @include breakpoint-up(desktop) {

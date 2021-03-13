@@ -1,7 +1,7 @@
 <template>
   <header class="subheader grid">
     <div class="subheader__contacts flex flex-jc-sb flex-ai-c">
-      <div class="hide-for-mobile email flex flex-jc-sb flex-ai-c">
+      <div class="email flex flex-jc-sb flex-ai-c">
         <i class="fa fa-envelope"></i>
         <p>portic@portic.ipp.pt</p>
       </div>

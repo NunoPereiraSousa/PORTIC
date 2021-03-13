@@ -54,23 +54,103 @@
       </div>
     </section>
     <section class="about">
-      <h1>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem fugiat
-        ut maxime nostrum dolorum sequi voluptate cupiditate rerum fuga? Tempora
-        qui saepe excepturi enim alias sequi minima cum vitae cumque.
+      <h1 class="about__title hide-for-desktop">
+        <div class="line">
+          <div><span>Lorem</span> ipsum dolor sit</div>
+        </div>
+        <div class="line">
+          <div>
+            amet consectetur
+          </div>
+        </div>
+        <div class="line">
+          <div>
+            cumque libero quam.
+          </div>
+        </div>
+        <div class="line">
+          <div>
+            error dolores quam
+          </div>
+        </div>
+        <div class="line">
+          <div>
+            cumque libero daww.
+          </div>
+        </div>
+        <div class="line">
+          <div>
+            ccumque libero quam.
+          </div>
+        </div>
       </h1>
+      <h1
+        class="about__title hide-for-mobile flex flex-ai-c flex-jc-c flex-fd-c"
+      >
+        <div class="line">
+          <div><span>Lorem</span> ipsum dolor sit amet</div>
+        </div>
+        <div class="line">
+          <div>
+            consectetur cumque libero aliquam.
+          </div>
+        </div>
+        <div class="line">
+          <div>
+            error dolores quam dolor
+          </div>
+        </div>
+        <div class="line">
+          <div>
+            cumque libero aliquam.
+          </div>
+        </div>
+      </h1>
+    </section>
+    <section class="news">
+      <h1 class="news__title">
+        Discover our news and releases
+      </h1>
+      <div class="news__cards">
+        <NewsCard
+          image="../../assets/news1.png"
+          title="Lorem ipsum dolor amet elit, sed consectetur  eiusmod."
+          desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+          date="05 de março"
+        />
+        <NewsCard
+          image="../../assets/news2.png"
+          title="Lorem ipsum dolor amet elit, sed consectetur  eiusmod."
+          desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+          date="05 de março"
+        />
+        <NewsCard
+          image="../../assets/news3.png"
+          title="Lorem ipsum dolor amet elit, sed consectetur  eiusmod."
+          desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+          date="05 de março"
+        />
+        <div class="flex flex-ai-c flex-jc-c">
+          <button>
+            All news
+          </button>
+        </div>
+      </div>
     </section>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import NewsCard from "@/components/NewsCard.vue";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export default {
   name: "Home",
-  components: {},
+  components: {
+    NewsCard
+  },
   mounted() {
     const SCREEN_WIDTH = window.innerWidth,
       SCREEN_HEIGHT = window.innerHeight,
