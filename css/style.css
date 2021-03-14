@@ -1020,10 +1020,41 @@ canvas {
   font-weight: 400;
 }
 
+@media (min-width: 75em) {
+  .news__title {
+    font-size: 2.5rem;
+  }
+}
+
+.news__cards {
+  row-gap: 3.75rem;
+}
+
+@media (min-width: 64em) {
+  .news__cards {
+    padding: 0 0 0 4vw;
+  }
+}
+
+@media (min-width: 75em) {
+  .news__cards {
+    padding: 0 0 0 8vw;
+  }
+}
+
 .news__cards__card {
+  border-top: 1px solid #ffffff;
+  padding-top: 1.625rem;
+}
+
+.news__cards__card:first-child {
   margin-top: 2.5rem;
-  border-bottom: 1px solid #ffffff;
-  padding-bottom: 1.625rem;
+}
+
+@media (min-width: 75em) {
+  .news__cards__card:first-child {
+    margin-top: 6.875rem;
+  }
 }
 
 @media (min-width: 48em) {
@@ -1035,20 +1066,40 @@ canvas {
   }
 }
 
+@media (min-width: 64em) {
+  .news__cards__card {
+    width: 84%;
+    padding-bottom: 3.125rem;
+  }
+}
+
 .news__cards__card img {
-  max-height: 12.375rem;
+  height: 12.375rem;
   width: 100%;
 }
 
-@media (min-width: 48em) {
+@media (max-width: 23.375em) {
   .news__cards__card img {
     height: 10.375rem;
     width: 100%;
   }
 }
 
+@media (min-width: 48em) {
+  .news__cards__card img {
+    height: 10.375rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .news__cards__card img {
+    height: 19.625rem;
+    width: 32.75rem;
+  }
+}
+
 .news__cards__card h2 {
-  margin: 0;
+  margin: 1rem 0 0 0;
   position: relative;
   text-decoration: underline;
   font-family: "Porto Sans Stencil";
@@ -1058,22 +1109,64 @@ canvas {
   font-weight: 400;
 }
 
+@media (min-width: 48em) {
+  .news__cards__card h2 {
+    margin: 0;
+  }
+}
+
+@media (min-width: 75em) {
+  .news__cards__card h2 {
+    font-size: 1.625rem;
+  }
+}
+
 .news__cards__card p {
-  margin: 0;
+  margin: 1rem 0 0 0;
   font-family: "Porto Sans";
   font-size: 1rem;
   line-height: 1.5;
+}
+
+@media (min-width: 48em) {
+  .news__cards__card p {
+    margin: 0;
+  }
+}
+
+@media (min-width: 75em) {
+  .news__cards__card p {
+    font-size: 1.25rem;
+    margin: auto 0 0 0;
+    line-height: 1.7;
+  }
 }
 
 .news__cards__card p.date {
   font-size: 0.9375rem;
   font-style: italic;
   color: #999999;
+  margin: 2rem 0 0 0;
+}
+
+@media (min-width: 75em) {
+  .news__cards__card p.date {
+    font-size: 1rem;
+  }
 }
 
 .news__cards__card a {
   position: relative;
   color: #c94d24;
+  margin: 2rem 0 0 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+@media (min-width: 75em) {
+  .news__cards__card a {
+    font-size: 1rem;
+  }
 }
 
 .news__cards__card a::before {
@@ -1084,6 +1177,16 @@ canvas {
   background-color: #c94d24;
   height: 2px;
   width: 16px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.news__cards__card a:hover::before {
+  left: -32px;
+}
+
+.news__cards__card a:hover {
+  letter-spacing: 0.4px;
 }
 
 .news button {
@@ -1091,8 +1194,24 @@ canvas {
   border: 1px solid #ffffff;
   font-size: 0.9375rem;
   color: #ffffff;
-  margin: 4rem auto;
   padding: 0.85rem 3rem;
   border-radius: 2px;
+  font-weight: lighter;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+@media (min-width: 75em) {
+  .news button {
+    font-size: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+.news button:hover {
+  border: 1px solid #080808;
+  color: #080808;
+  background-color: #ffffff;
 }
 /*# sourceMappingURL=style.css.map */

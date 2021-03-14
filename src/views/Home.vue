@@ -111,7 +111,7 @@
       <h1 class="news__title">
         Discover our news and releases
       </h1>
-      <div class="news__cards">
+      <div class="news__cards grid">
         <NewsCard
           image="../../assets/news1.png"
           title="Lorem ipsum dolor amet elit, sed consectetur  eiusmod."
