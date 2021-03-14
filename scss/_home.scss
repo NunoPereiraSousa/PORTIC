@@ -545,8 +545,8 @@
       box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
       border-radius: 8px;
       border-top: 3px solid $orange;
-      padding-top: $_26px;
       padding: calc(calc(4.325rem / 2) + calc(3.125rem / 8)) 1.25rem 3.125rem;
+      margin: 30px 5px 15px;
 
       img {
         border-radius: 50%;
@@ -586,6 +586,30 @@
       p {
         letter-spacing: 0.4px;
         margin: 0;
+      }
+    }
+
+    .glide__track + div {
+      display: flex;
+      justify-content: center;
+
+      button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $white;
+        border: none;
+        box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05),
+          -1px -1px 10px 0px rgba(0, 0, 0, 0.05);
+        margin: 0 10px;
+
+        .left__arrow {
+          width: 20px;
+        }
+
+        .right__arrow {
+          width: 20px;
+        }
       }
     }
   }
