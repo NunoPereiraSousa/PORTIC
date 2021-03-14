@@ -327,6 +327,10 @@
         padding-bottom: $_50px;
       }
 
+      @include breakpoint-up(large) {
+        column-gap: 0;
+      }
+
       img {
         height: 12.375rem;
         width: 100%;
@@ -343,6 +347,11 @@
         @include breakpoint-up(desktop) {
           height: 19.625rem;
           width: 32.75rem;
+        }
+
+        @include breakpoint-up(large) {
+          height: 21.625rem;
+          width: 94%;
         }
       }
 
@@ -363,6 +372,10 @@
         @include breakpoint-up(desktop) {
           font-size: $_26px;
         }
+
+        @include breakpoint-up(large) {
+          font-size: $_28px;
+        }
       }
 
       p {
@@ -381,6 +394,10 @@
           line-height: 1.7;
         }
 
+        @include breakpoint-up(large) {
+          font-size: $_22px;
+        }
+
         &.date {
           font-size: $_15px;
           font-style: italic;
@@ -389,6 +406,10 @@
 
           @include breakpoint-up(desktop) {
             font-size: $_16px;
+          }
+
+          @include breakpoint-up(large) {
+            font-size: $_18px;
           }
         }
       }
