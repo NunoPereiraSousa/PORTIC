@@ -21,6 +21,10 @@
     padding: calc(12.1875rem + 2vw) 0 0 14vw;
   }
 
+  @include breakpoint-up(large) {
+    padding: calc(14.1875rem + 2vw) 0 0 14vw;
+  }
+
   h1 {
     letter-spacing: 1px;
     margin: 0;
@@ -44,6 +48,10 @@
     @include breakpoint-up(desktop) {
       font-size: $_46px;
     }
+
+    @include breakpoint-up(large) {
+      font-size: $_60px;
+    }
   }
 
   hr {
@@ -60,6 +68,10 @@
     @include breakpoint-up(iPadPro) {
       margin: 1rem 0 2.875rem;
     }
+
+    @include breakpoint-up(large) {
+      height: 6px;
+    }
   }
 
   h4 {
@@ -68,7 +80,7 @@
     color: $white;
     font-size: $_26px;
     font-family: $portoSans;
-    font-weight: bold;
+    font-weight: 400;
 
     span {
       color: $black;
@@ -84,6 +96,11 @@
 
     @include breakpoint-up(desktop) {
       font-size: $_30px;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_34px;
+      line-height: 1.6;
     }
   }
 
@@ -176,6 +193,11 @@
       @include breakpoint-up(iPadPro) {
         color: $white;
       }
+
+      @include breakpoint-up(large) {
+        font-size: $_20px;
+        letter-spacing: 0.4px;
+      }
     }
   }
 
@@ -208,7 +230,7 @@
             font-size: $_18px;
             font-family: $portoSansStencil;
             font-weight: 400;
-            color: $black;
+            color: $white;
             margin: 0 2rem;
 
             @include breakpoint-up(iPadPro) {
@@ -234,6 +256,10 @@
 
   @include breakpoint-up(desktop) {
     padding: calc(6.1875rem + 2vw) 8vw;
+  }
+
+  @include breakpoint-up(large) {
+    padding: calc(10.1875rem + 2vw) 8vw;
   }
 
   &__title {
@@ -358,7 +384,7 @@
       h2 {
         margin: 1rem 0 0 0;
         position: relative;
-        text-decoration: underline;
+        // text-decoration: underline;
         font-family: $portoSansStencil;
         font-size: $_17px;
         line-height: 1.5;
@@ -466,6 +492,101 @@
       border: 1px solid $black;
       color: $black;
       background-color: $white;
+    }
+  }
+}
+
+.testimonials {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  // height: 100vh;
+  padding: calc(2.1875rem + 2vw) 8vw calc(6.1875rem + 2vw);
+  color: $black;
+
+  @include breakpoint-up(iPadPro) {
+    padding: calc(8.1875rem + 2vw) 8vw;
+  }
+
+  @include breakpoint-up(desktop) {
+    padding: calc(6.1875rem + 2vw) 8vw;
+  }
+
+  &__title {
+    font-size: $_20px;
+    font-weight: 400;
+
+    @include breakpoint-up(desktop) {
+      font-size: $_40px;
+    }
+  }
+
+  &__cards {
+    row-gap: $_60px;
+
+    @include breakpoint-up(iPadPro) {
+      padding: 0 0 0 4vw;
+    }
+
+    @include breakpoint-up(desktop) {
+      padding: 0 0 0 8vw;
+    }
+
+    &__card {
+      &:first-child {
+        margin-top: calc(40px + 2.325rem);
+
+        @include breakpoint-up(desktop) {
+          margin-top: $_110px;
+        }
+      }
+
+      position: relative;
+      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      border-top: 3px solid $orange;
+      padding-top: $_26px;
+      padding: calc(calc(4.325rem / 2) + calc(3.125rem / 8)) 1.25rem 3.125rem;
+
+      img {
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: calc(4.325rem / -2);
+        transform: translateX(-50%);
+        width: 4.325rem;
+        box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      h3,
+      h4 {
+        text-align: center;
+        font-size: $_17px;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+      }
+
+      h3 {
+        font-family: $portoSerif;
+        margin: 1.25rem 0 0.5rem;
+      }
+
+      h4 {
+        margin: 0 0 1.875rem 0;
+        font-family: $portoSans;
+        font-style: italic;
+        color: $grey;
+      }
+
+      &__text {
+        max-height: 8.75rem;
+        overflow-y: scroll;
+      }
+
+      p {
+        letter-spacing: 0.4px;
+        margin: 0;
+      }
     }
   }
 }

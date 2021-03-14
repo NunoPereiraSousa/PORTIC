@@ -137,19 +137,38 @@
         </div>
       </div>
     </section>
+    <section class="testimonials">
+      <h1 class="testimonials__title">
+        Clients who placed their trust in us
+      </h1>
+      <div class="testimonials__cards grid">
+        <TestimonialCard
+          name="Alex Poporov"
+          company="Apple inc"
+          content="Lorem ipsum dolor sit amet, consectetur 
+                    adipiscing elit, sed do eiusmod tempor 
+                    incididunt. Lorem ipsum dolor sit amet, 
+                    adipiscing elit, sed do eiusmod tempor 
+                    incididunt. Lorem ipsum dolor sit amet, 
+                    adipiscing elit, sed do eiusmod tempor."
+        />
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import NewsCard from "@/components/NewsCard.vue";
+import TestimonialCard from "@/components/TestimonialCard.vue";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export default {
   name: "Home",
   components: {
-    NewsCard
+    NewsCard,
+    TestimonialCard
   },
   mounted() {
     const SCREEN_WIDTH = window.innerWidth,
