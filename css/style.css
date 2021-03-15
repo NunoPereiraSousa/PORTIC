@@ -656,6 +656,111 @@ canvas {
   }
 }
 
+.footer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: calc(2.1875rem + 2vw) 8vw calc(6.1875rem + 2vw);
+  color: #ffffff;
+  background-color: #080808;
+}
+
+@media (min-width: 64em) {
+  .footer {
+    padding: calc(8.1875rem + 2vw) 8vw;
+  }
+}
+
+@media (min-width: 75em) {
+  .footer {
+    padding: calc(6.1875rem + 2vw) 8vw;
+  }
+}
+
+.footer .title {
+  color: #c94d24;
+  font-family: "Porto Serif";
+  font-weight: 400;
+  font-size: 1.25rem;
+  margin: 0 0 2.5rem;
+}
+
+.footer__timezones {
+  margin-bottom: 2.5rem;
+}
+
+.footer__timezones__worldwide {
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+}
+
+.footer__timezones__worldwide h2 {
+  font-weight: 400;
+  font-size: 1.0625rem;
+  margin: 0;
+}
+
+.footer__timezones__worldwide h2 sup {
+  font-size: 0.875rem;
+  margin-left: 5px;
+}
+
+.footer__timezones__worldwide h4 {
+  font-weight: 400;
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+.footer__directions {
+  margin-bottom: 2.5rem;
+}
+
+.footer__directions__info {
+  font-size: 1.0625rem;
+}
+
+.footer__directions__info:first-child {
+  margin: 0;
+}
+
+.footer__links {
+  margin-bottom: 2.5rem;
+}
+
+.footer__links__info p:first-child {
+  margin: 0 0 1rem;
+}
+
+.footer__links__info a {
+  font-size: 1.0625rem;
+  color: #ffffff;
+  margin: 1rem 0;
+}
+
+.footer__socials {
+  margin-bottom: 2.5rem;
+}
+
+.footer__socials div {
+  -ms-grid-columns: 1.25rem 1fr;
+      grid-template-columns: 1.25rem 1fr;
+  margin: 1rem 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer__socials__media i {
+  font-size: 1.25rem;
+}
+
+.footer__socials__media p {
+  font-size: 1.0625rem;
+  margin: 0 0 0 30px;
+}
+
 .overlay {
   width: 100%;
   height: 100vh;
@@ -1054,6 +1159,7 @@ canvas {
 .news__title {
   font-size: 1.25rem;
   font-weight: 400;
+  text-align: center;
 }
 
 @media (min-width: 75em) {
@@ -1069,12 +1175,6 @@ canvas {
 @media (min-width: 64em) {
   .news__cards {
     padding: 0 0 0 4vw;
-  }
-}
-
-@media (min-width: 75em) {
-  .news__cards {
-    padding: 0 0 0 8vw;
   }
 }
 
@@ -1305,6 +1405,7 @@ canvas {
 .testimonials__title {
   font-size: 1.25rem;
   font-weight: 400;
+  text-align: center;
 }
 
 @media (min-width: 75em) {
@@ -1319,13 +1420,13 @@ canvas {
 
 @media (min-width: 64em) {
   .testimonials__cards {
-    padding: 0 0 0 4vw;
+    padding: 0 6vw;
   }
 }
 
-@media (min-width: 75em) {
+@media (min-width: 120em) {
   .testimonials__cards {
-    padding: 0 0 0 8vw;
+    padding: 0 10vw;
   }
 }
 
@@ -1346,6 +1447,13 @@ canvas {
 @media (min-width: 75em) {
   .testimonials__cards__card:first-child {
     margin-top: 6.875rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .testimonials__cards__card {
+    -webkit-box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -1383,7 +1491,7 @@ canvas {
 
 .testimonials__cards__card__text {
   max-height: 8.75rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .testimonials__cards__card p {
@@ -1409,13 +1517,46 @@ canvas {
   -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -1px -1px 10px 0px rgba(0, 0, 0, 0.05);
           box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -1px -1px 10px 0px rgba(0, 0, 0, 0.05);
   margin: 0 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
-.testimonials__cards .glide__track + div button .left__arrow {
-  width: 20px;
+.testimonials__cards .glide__track + div button:focus {
+  outline: none;
 }
 
+.testimonials__cards .glide__track + div button:hover {
+  -webkit-box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.08), -2px -2px 10px 0px rgba(0, 0, 0, 0.08);
+          box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.08), -2px -2px 10px 0px rgba(0, 0, 0, 0.08);
+}
+
+.testimonials__cards .glide__track + div button:hover .left__arrow,
+.testimonials__cards .glide__track + div button:hover .right__arrow {
+  fill: #c94d24;
+}
+
+.testimonials__cards .glide__track + div button .left__arrow,
 .testimonials__cards .glide__track + div button .right__arrow {
   width: 20px;
+}
+
+@media (min-width: 64em) {
+  .testimonials__cards .glide__track + div button .left__arrow,
+  .testimonials__cards .glide__track + div button .right__arrow {
+    margin-top: 5px;
+  }
+}
+
+@media (min-width: 48em) {
+  .testimonials__cards .glide__track + div button {
+    margin: 1.875rem 1.25rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .testimonials__cards .glide__track + div button {
+    margin: 1.875rem 10px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

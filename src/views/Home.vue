@@ -143,6 +143,7 @@
       </h1>
       <div class="testimonials__cards">
         <vue-glide
+          :startAt="1"
           :gap="40"
           :breakpoints="{
             450: {
@@ -157,7 +158,7 @@
           }"
           :rewind="false"
           :bound="true"
-          :focusAt="'center'"
+          :infinite="false"
         >
           <vue-glide-slide v-for="i in 10" :key="i">
             <TestimonialCard
@@ -197,6 +198,7 @@
         </vue-glide>
       </div>
     </section>
+    <Footer />
   </div>
 </template>
 
@@ -204,6 +206,7 @@
 // @ is an alias to /src
 import NewsCard from "@/components/NewsCard.vue";
 import TestimonialCard from "@/components/TestimonialCard.vue";
+import Footer from "@/components/Footer.vue";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Glide, GlideSlide } from "vue-glide-js";
@@ -213,6 +216,7 @@ export default {
   components: {
     NewsCard,
     TestimonialCard,
+    Footer,
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide
   },

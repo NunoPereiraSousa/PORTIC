@@ -1,0 +1,100 @@
+.footer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: calc(2.1875rem + 2vw) 8vw calc(6.1875rem + 2vw);
+  color: $white;
+  background-color: $black;
+
+  @include breakpoint-up(iPadPro) {
+    padding: calc(8.1875rem + 2vw) 8vw;
+  }
+
+  @include breakpoint-up(desktop) {
+    padding: calc(6.1875rem + 2vw) 8vw;
+  }
+  .title {
+    color: $orange;
+    font-family: $portoSerif;
+    font-weight: 400;
+    font-size: $_20px;
+    margin: 0 0 $_40px;
+  }
+
+  &__timezones {
+    margin-bottom: $_40px;
+
+    &__worldwide {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+
+      h2 {
+        font-weight: 400;
+        font-size: $_17px;
+        margin: 0;
+
+        sup {
+          font-size: $_14px;
+          margin-left: 5px;
+        }
+      }
+
+      h4 {
+        font-weight: 400;
+        margin-top: 5px;
+        font-size: $_16px;
+      }
+    }
+  }
+
+  &__directions {
+    margin-bottom: $_40px;
+
+    &__info {
+      font-size: $_17px;
+
+      &:first-child {
+        margin: 0;
+      }
+    }
+  }
+
+  &__links {
+    margin-bottom: $_40px;
+
+    &__info {
+      p {
+        &:first-child {
+          margin: 0 0 1rem;
+        }
+      }
+
+      a {
+        font-size: $_17px;
+        color: $white;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  &__socials {
+    margin-bottom: $_40px;
+
+    div {
+      grid-template-columns: $_20px 1fr;
+      margin: 1rem 0;
+      align-items: center;
+    }
+
+    &__media {
+      i {
+        font-size: $_20px;
+      }
+
+      p {
+        font-size: $_17px;
+        margin: 0 0 0 30px;
+      }
+    }
+  }
+}
