@@ -2005,4 +2005,93 @@ canvas {
   height: 0%;
   width: 100%;
 }
+
+.projects_catalog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: calc(10.1875rem + 2vw) 0;
+}
+
+.projects_catalog h3,
+.projects_catalog h1,
+.projects_catalog p {
+  font-weight: 400;
+}
+
+.projects_catalog h3 {
+  font-size: 1.125rem;
+}
+
+.projects_catalog h3 span {
+  margin: 0 0.625rem;
+  font-size: 0.6875rem;
+  vertical-align: middle;
+}
+
+.projects_catalog h1 {
+  font-family: "Porto Sans Stencil";
+  font-size: 2rem;
+}
+
+.projects_catalog p {
+  color: #666666;
+}
+
+.projects_catalog__filters {
+  margin-top: 40px;
+  justify-items: center;
+  row-gap: 2rem;
+}
+
+.projects_catalog__filters input {
+  padding: 0.75rem 1rem;
+}
+
+.projects_catalog__filters h2 {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.projects_catalog__filters__sorting::after {
+  content: "+ +";
+  position: absolute;
+  bottom: -100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.projects_catalog__filters__institutions::before {
+  content: "";
+  position: absolute;
+  bottom: -40%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #080808;
+}
+
+.projects_catalog__filters__institutions::after {
+  content: "";
+  position: absolute;
+  bottom: -70%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #080808;
+}
 /*# sourceMappingURL=style.css.map */
