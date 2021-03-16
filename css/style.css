@@ -44,6 +44,74 @@
   }
 }
 
+@-webkit-keyframes visible {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    visibility: hidden;
+  }
+  99% {
+    visibility: visible;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes visible {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    visibility: hidden;
+  }
+  99% {
+    visibility: visible;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes hide {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  1% {
+    visibility: visible;
+  }
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes hide {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  1% {
+    visibility: visible;
+  }
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -684,6 +752,40 @@ canvas {
   100% {
     -webkit-transform: translateX(calc(-300px * 2));
             transform: translateX(calc(-300px * 2));
+  }
+}
+
+@keyframes visible {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    visibility: hidden;
+  }
+  99% {
+    visibility: visible;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  1% {
+    visibility: visible;
+  }
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    display: none;
+    opacity: 0;
   }
 }
 
@@ -1869,7 +1971,7 @@ canvas {
 
 .projects__grid__card__normal_state h1 {
   color: #c94d24;
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-family: "Porto Sans Stencil";
   margin-bottom: 100px;
 }
@@ -2029,7 +2131,7 @@ canvas {
   vertical-align: middle;
 }
 
-.projects_catalog h1 {
+.projects_catalog__title {
   font-family: "Porto Sans Stencil";
   font-size: 2rem;
 }
@@ -2058,6 +2160,10 @@ canvas {
   font-weight: 400;
 }
 
+.projects_catalog__filters__sorting {
+  margin-bottom: 2rem !important;
+}
+
 .projects_catalog__filters__sorting::after {
   content: "+ +";
   position: absolute;
@@ -2065,6 +2171,10 @@ canvas {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+.projects_catalog__filters__institutions {
+  margin-bottom: 2rem !important;
 }
 
 .projects_catalog__filters__institutions::before {
@@ -2093,5 +2203,26 @@ canvas {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid #080808;
+}
+
+.projects_catalog__filters__categories {
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05), -2px -2px 10px rgba(0, 0, 0, 0.05);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05), -2px -2px 10px rgba(0, 0, 0, 0.05);
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+  width: 100%;
+  display: none;
+}
+
+.projects_catalog__filters__categories div {
+  width: 100%;
+  justify-items: center;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+}
+
+.projects_catalog__filters__categories.opened {
+  margin: 0;
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */

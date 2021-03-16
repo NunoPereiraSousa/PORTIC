@@ -20,7 +20,7 @@
     }
   }
 
-  h1 {
+  &__title {
     font-family: $portoSansStencil;
     font-size: $_32px;
   }
@@ -47,7 +47,7 @@
     }
 
     &__sorting {
-      //   margin-bottom: 1.1rem !important;
+      margin-bottom: 2rem !important;
 
       &::after {
         content: "+ +";
@@ -59,6 +59,7 @@
     }
 
     &__institutions {
+      margin-bottom: 2rem !important;
       &::before {
         content: "";
         position: absolute;
@@ -83,6 +84,27 @@
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
         border-top: 4px solid $black;
+      }
+    }
+
+    &__categories {
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05),
+        -2px -2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      width: 100%;
+      display: none;
+
+      & div {
+        width: 100%;
+        justify-items: center;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      //   animation: hide 0.6s ease forwards;
+
+      &.opened {
+        margin: 0;
+        display: block;
       }
     }
   }
