@@ -2,7 +2,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: calc(10.1875rem + 2vw) 0;
+  padding: calc(10.1875rem + 2vw) 0 0;
 
   h3,
   h1,
@@ -17,16 +17,40 @@
       margin: 0 0.625rem;
       font-size: 0.6875rem;
       vertical-align: middle;
+
+      @include breakpoint-up(iPadPro) {
+        font-size: 0.8rem;
+        vertical-align: middle;
+      }
+    }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_22px;
+      margin: 1rem 0;
     }
   }
 
   &__title {
     font-family: $portoSansStencil;
     font-size: $_32px;
+
+    @include breakpoint-down(phone) {
+      margin: 1rem 0;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_50px;
+      margin: 0.8rem 0;
+    }
   }
 
-  p {
+  &__quote {
     color: $lightGrey;
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_18px;
+      letter-spacing: 0.3px;
+    }
   }
 
   &__filters {
@@ -34,16 +58,74 @@
     justify-items: center;
     row-gap: 2rem;
 
-    input {
-      padding: 0.75rem 1rem;
+    @include breakpoint-down(phone) {
+      row-gap: 3rem;
     }
 
-    h2 {
+    @include breakpoint-up(iPadPro) {
+      grid-template-columns: repeat(3, 1fr);
+      margin: 6rem 0 6rem;
+    }
+
+    input {
+      padding: 0.75rem 1rem;
+      border-radius: 2px;
+
+      &:active {
+        border: 1.5px solid $orange;
+      }
+
+      &:focus {
+        outline: none;
+        border: 1.5px solid $orange;
+      }
+
+      @include breakpoint-up(iPadPro) {
+        border: 1.5px solid $black;
+        padding: 0.75rem 1rem;
+        justify-self: end;
+        height: fit-content;
+        font-size: $_18px;
+      }
+    }
+
+    ::placeholder {
+      font-size: $_14px;
+      letter-spacing: 0.3px;
+      font-family: $portoSans;
+    }
+
+    button {
       position: relative;
       width: fit-content;
+      background-color: transparent;
+      border: none;
       margin: 0;
       font-size: $_18px;
       font-weight: 400;
+      cursor: pointer;
+      transition: all 0.4s ease;
+
+      &:focus {
+        outline: none !important;
+      }
+
+      &:hover {
+        letter-spacing: 0.5px;
+      }
+
+      &:not(.projects_catalog__filters__sorting):hover::after {
+        border-top: 4px solid $orange;
+      }
+
+      &:not(.projects_catalog__filters__sorting):hover::before {
+        border-bottom: 4px solid $orange;
+      }
+
+      &:hover::after,
+      &:hover::before {
+        color: $orange;
+      }
     }
 
     &__sorting {
@@ -60,6 +142,7 @@
 
     &__institutions {
       margin-bottom: 2rem !important;
+
       &::before {
         content: "";
         position: absolute;
@@ -85,6 +168,10 @@
         border-right: 4px solid transparent;
         border-top: 4px solid $black;
       }
+
+      @include breakpoint-up(iPadPro) {
+        justify-self: flex-start;
+      }
     }
 
     &__categories {
@@ -99,12 +186,23 @@
         width: 100%;
         justify-items: center;
         grid-template-columns: repeat(4, 1fr);
+
+        @include breakpoint-up(iPadPro) {
+          grid-template-columns: repeat(6, 1fr);
+        }
       }
-      //   animation: hide 0.6s ease forwards;
+
+      @include breakpoint-up(iPadPro) {
+        font-size: $_18px;
+      }
 
       &.opened {
         margin: 0;
         display: block;
+
+        @include breakpoint-up(iPadPro) {
+          margin-bottom: 6rem;
+        }
       }
     }
   }

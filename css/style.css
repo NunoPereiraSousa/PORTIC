@@ -358,7 +358,7 @@ canvas {
 .subheader__languages hr {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
-  background-color: #080808;
+  background-color: #ffffff;
   border: none;
   width: 1px;
   height: 10px;
@@ -421,7 +421,7 @@ canvas {
 
 .navbar__hamburger__lines {
   height: 2px;
-  background-color: #ffffff;
+  background-color: #080808;
   position: absolute;
   z-index: 999;
   right: 0%;
@@ -1864,7 +1864,7 @@ canvas {
   }
 }
 
-@media (min-width: 120em) {
+@media (min-width: 75em) {
   .projects__grid {
     -ms-grid-columns: (1fr)[5];
         grid-template-columns: repeat(5, 1fr);
@@ -1938,8 +1938,9 @@ canvas {
   }
 }
 
-@media (min-width: 120em) {
+@media (min-width: 75em) {
   .projects__grid__card {
+    padding: 3rem;
     border-bottom: 2px solid;
     border-right: 2px solid;
   }
@@ -1951,12 +1952,6 @@ canvas {
   }
   .projects__grid__card:not(:nth-child(5n)) {
     border-right: 2px solid;
-  }
-}
-
-@media (min-width: 75em) {
-  .projects__grid__card {
-    padding: 3.75rem 3.75rem;
   }
 }
 
@@ -2016,7 +2011,7 @@ canvas {
   left: 0%;
   z-index: 2;
   height: 100%;
-  padding: 3.75rem 3.75rem;
+  padding: 3rem;
 }
 
 .projects__grid__card__hovered_state h1,
@@ -2112,7 +2107,7 @@ canvas {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: calc(10.1875rem + 2vw) 0;
+  padding: calc(10.1875rem + 2vw) 0 0;
 }
 
 .projects_catalog h3,
@@ -2131,13 +2126,47 @@ canvas {
   vertical-align: middle;
 }
 
+@media (min-width: 64em) {
+  .projects_catalog h3 span {
+    font-size: 0.8rem;
+    vertical-align: middle;
+  }
+}
+
+@media (min-width: 64em) {
+  .projects_catalog h3 {
+    font-size: 1.375rem;
+    margin: 1rem 0;
+  }
+}
+
 .projects_catalog__title {
   font-family: "Porto Sans Stencil";
   font-size: 2rem;
 }
 
-.projects_catalog p {
+@media (max-width: 23.375em) {
+  .projects_catalog__title {
+    margin: 1rem 0;
+  }
+}
+
+@media (min-width: 64em) {
+  .projects_catalog__title {
+    font-size: 3.125rem;
+    margin: 0.8rem 0;
+  }
+}
+
+.projects_catalog__quote {
   color: #666666;
+}
+
+@media (min-width: 64em) {
+  .projects_catalog__quote {
+    font-size: 1.125rem;
+    letter-spacing: 0.3px;
+  }
 }
 
 .projects_catalog__filters {
@@ -2146,18 +2175,104 @@ canvas {
   row-gap: 2rem;
 }
 
-.projects_catalog__filters input {
-  padding: 0.75rem 1rem;
+@media (max-width: 23.375em) {
+  .projects_catalog__filters {
+    row-gap: 3rem;
+  }
 }
 
-.projects_catalog__filters h2 {
+@media (min-width: 64em) {
+  .projects_catalog__filters {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    margin: 6rem 0 6rem;
+  }
+}
+
+.projects_catalog__filters input {
+  padding: 0.75rem 1rem;
+  border-radius: 2px;
+}
+
+.projects_catalog__filters input:active {
+  border: 1.5px solid #c94d24;
+}
+
+.projects_catalog__filters input:focus {
+  outline: none;
+  border: 1.5px solid #c94d24;
+}
+
+@media (min-width: 64em) {
+  .projects_catalog__filters input {
+    border: 1.5px solid #080808;
+    padding: 0.75rem 1rem;
+    -ms-grid-column-align: end;
+        justify-self: end;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    font-size: 1.125rem;
+  }
+}
+
+.projects_catalog__filters ::-webkit-input-placeholder {
+  font-size: 0.875rem;
+  letter-spacing: 0.3px;
+  font-family: "Porto Sans";
+}
+
+.projects_catalog__filters :-ms-input-placeholder {
+  font-size: 0.875rem;
+  letter-spacing: 0.3px;
+  font-family: "Porto Sans";
+}
+
+.projects_catalog__filters ::-ms-input-placeholder {
+  font-size: 0.875rem;
+  letter-spacing: 0.3px;
+  font-family: "Porto Sans";
+}
+
+.projects_catalog__filters ::placeholder {
+  font-size: 0.875rem;
+  letter-spacing: 0.3px;
+  font-family: "Porto Sans";
+}
+
+.projects_catalog__filters button {
   position: relative;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  background-color: transparent;
+  border: none;
   margin: 0;
   font-size: 1.125rem;
   font-weight: 400;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.projects_catalog__filters button:focus {
+  outline: none !important;
+}
+
+.projects_catalog__filters button:hover {
+  letter-spacing: 0.5px;
+}
+
+.projects_catalog__filters button:not(.projects_catalog__filters__sorting):hover::after {
+  border-top: 4px solid #c94d24;
+}
+
+.projects_catalog__filters button:not(.projects_catalog__filters__sorting):hover::before {
+  border-bottom: 4px solid #c94d24;
+}
+
+.projects_catalog__filters button:hover::after, .projects_catalog__filters button:hover::before {
+  color: #c94d24;
 }
 
 .projects_catalog__filters__sorting {
@@ -2205,6 +2320,12 @@ canvas {
   border-top: 4px solid #080808;
 }
 
+@media (min-width: 64em) {
+  .projects_catalog__filters__institutions {
+    justify-self: flex-start;
+  }
+}
+
 .projects_catalog__filters__categories {
   -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05), -2px -2px 10px rgba(0, 0, 0, 0.05);
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05), -2px -2px 10px rgba(0, 0, 0, 0.05);
@@ -2221,8 +2342,27 @@ canvas {
       grid-template-columns: repeat(4, 1fr);
 }
 
+@media (min-width: 64em) {
+  .projects_catalog__filters__categories div {
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 64em) {
+  .projects_catalog__filters__categories {
+    font-size: 1.125rem;
+  }
+}
+
 .projects_catalog__filters__categories.opened {
   margin: 0;
   display: block;
+}
+
+@media (min-width: 64em) {
+  .projects_catalog__filters__categories.opened {
+    margin-bottom: 6rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
