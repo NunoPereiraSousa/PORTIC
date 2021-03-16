@@ -5,6 +5,7 @@
   padding: calc(2.1875rem + 2vw) 8vw 0;
   color: $white;
   background-color: $black;
+  margin-top: calc(6.1875rem + 2vw);
 
   @include breakpoint-up(tablet) {
     grid-template-columns: 1fr 1fr;
@@ -97,10 +98,6 @@
 
         &:nth-child(even) {
           margin-left: 2rem;
-
-          @include breakpoint-up(desktop) {
-            margin-left: 2rem;
-          }
         }
       }
 
@@ -125,6 +122,10 @@
 
       @include breakpoint-up(desktop) {
         grid-template-columns: 1fr;
+      }
+
+      .second__cells {
+        margin-left: 2rem;
       }
 
       a {

@@ -2,12 +2,14 @@
   position: absolute;
   top: 3.625rem;
   left: 0%;
-  z-index: 999;
+  z-index: 50;
   width: 100%;
   padding: 1rem 1.25rem;
   background-color: transparent;
+  // background-color: $black;
   font-family: $portoSansStencil;
-  box-shadow: 0px 1px 10px 0 rgba(255, 255, 255, 0.05);
+  // box-shadow: 0px 1px 10px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.5s ease;
 
   // &:hover {
@@ -23,7 +25,12 @@
   }
 
   @include breakpoint-up(desktop) {
-    padding: 1rem 5rem;
+    padding: 0.4rem 5rem;
+    top: 3.125rem;
+  }
+
+  @include breakpoint-up(large) {
+    padding: 0.75rem 5rem;
   }
 
   &__logo {
@@ -285,7 +292,8 @@
         text-transform: uppercase;
         margin-right: $_60px;
         font-size: $_20px;
-        color: $white;
+        // color: $white;
+        color: $black;
 
         &:last-child {
           @include breakpoint-up(iPadPro) {

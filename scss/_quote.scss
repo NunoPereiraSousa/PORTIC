@@ -1,0 +1,50 @@
+.quote {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  // height: 100vh;
+  padding: calc(6.1875rem + 2vw) 8vw;
+
+  @include breakpoint-up(iPadPro) {
+    padding: calc(8.1875rem + 2vw) 8vw;
+  }
+
+  @include breakpoint-up(desktop) {
+    padding: calc(6.1875rem + 2vw) 8vw;
+  }
+
+  @include breakpoint-up(large) {
+    padding: calc(10.1875rem + 4vw) 8vw calc(10.1875rem + 1vw);
+  }
+
+  &__title {
+    font-size: $_28px;
+    font-family: $portoSerif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    width: fit-content;
+    margin: auto;
+    text-align: left;
+
+    div {
+      margin-right: auto;
+    }
+
+    span {
+      color: $orange;
+    }
+
+    @include breakpoint-up(tablet) {
+      font-size: $_50px;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_60px;
+    }
+
+    @include breakpoint-up(desktop) {
+      font-size: $_54px;
+      line-height: 1.5;
+    }
+  }
+}

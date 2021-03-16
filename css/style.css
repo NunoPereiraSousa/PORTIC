@@ -151,6 +151,13 @@ canvas {
   z-index: -1;
 }
 
+@media (min-width: 75em) {
+  .scene,
+  canvas {
+    top: 5%;
+  }
+}
+
 .subheader {
   position: absolute;
   top: 0%;
@@ -159,7 +166,8 @@ canvas {
   width: 100%;
   padding: 1rem 1.25rem;
   background-color: #ffffff;
-  color: #080808;
+  background-color: #080808;
+  color: #ffffff;
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
 }
@@ -225,6 +233,7 @@ canvas {
 .subheader__socials a {
   font-size: 0.9375rem;
   color: #080808;
+  color: #ffffff;
   margin-right: 1.25rem;
 }
 
@@ -276,13 +285,13 @@ canvas {
   position: absolute;
   top: 3.625rem;
   left: 0%;
-  z-index: 999;
+  z-index: 50;
   width: 100%;
   padding: 1rem 1.25rem;
   background-color: transparent;
   font-family: "Porto Sans Stencil";
-  -webkit-box-shadow: 0px 1px 10px 0 rgba(255, 255, 255, 0.05);
-          box-shadow: 0px 1px 10px 0 rgba(255, 255, 255, 0.05);
+  -webkit-box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
@@ -295,7 +304,14 @@ canvas {
 
 @media (min-width: 75em) {
   .navbar {
-    padding: 1rem 5rem;
+    padding: 0.4rem 5rem;
+    top: 3.125rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .navbar {
+    padding: 0.75rem 5rem;
   }
 }
 
@@ -600,7 +616,7 @@ canvas {
   text-transform: uppercase;
   margin-right: 3.75rem;
   font-size: 1.25rem;
-  color: #ffffff;
+  color: #080808;
 }
 
 @media (min-width: 64em) {
@@ -663,6 +679,7 @@ canvas {
   padding: calc(2.1875rem + 2vw) 8vw 0;
   color: #ffffff;
   background-color: #080808;
+  margin-top: calc(6.1875rem + 2vw);
 }
 
 @media (min-width: 48em) {
@@ -784,12 +801,6 @@ canvas {
   margin-left: 2rem;
 }
 
-@media (min-width: 75em) {
-  .footer__links__info p:nth-child(even) {
-    margin-left: 2rem;
-  }
-}
-
 .footer__links__info a {
   font-size: 1.0625rem;
   color: #ffffff;
@@ -819,6 +830,10 @@ canvas {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
+}
+
+.footer__socials__media .second__cells {
+  margin-left: 2rem;
 }
 
 .footer__socials__media a {
@@ -904,14 +919,6 @@ canvas {
   }
 }
 
-.overlay {
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0);
-}
-
 .landing {
   position: relative;
   z-index: 1;
@@ -928,7 +935,7 @@ canvas {
 
 @media (min-width: 75em) {
   .landing {
-    padding: calc(12.1875rem + 2vw) 0 0 14vw;
+    padding: calc(13.1875rem + 2vw) 0 0 14vw;
   }
 }
 
@@ -948,7 +955,7 @@ canvas {
 }
 
 .landing h1 span {
-  color: #ffffff;
+  color: #080808;
 }
 
 @media (max-width: 23.375em) {
@@ -1003,7 +1010,7 @@ canvas {
 
 .landing h4 {
   margin: 0;
-  color: #ffffff;
+  color: #080808;
   font-size: 1.625rem;
   font-family: "Porto Sans";
   font-weight: 400;
@@ -1140,12 +1147,12 @@ canvas {
   font-size: 1.125rem;
   font-family: "Porto Sans Stencil";
   font-weight: 400;
-  color: #ffffff;
+  color: #080808;
 }
 
 @media (min-width: 64em) {
   .landing__down p {
-    color: #ffffff;
+    color: #080808;
   }
 }
 
@@ -1204,7 +1211,7 @@ canvas {
   font-size: 1.125rem;
   font-family: "Porto Sans Stencil";
   font-weight: 400;
-  color: #ffffff;
+  color: #080808;
   margin: 0 2rem;
 }
 
@@ -1214,7 +1221,7 @@ canvas {
   }
 }
 
-.about {
+.quote {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -1222,24 +1229,24 @@ canvas {
 }
 
 @media (min-width: 64em) {
-  .about {
+  .quote {
     padding: calc(8.1875rem + 2vw) 8vw;
   }
 }
 
 @media (min-width: 75em) {
-  .about {
+  .quote {
     padding: calc(6.1875rem + 2vw) 8vw;
   }
 }
 
 @media (min-width: 120em) {
-  .about {
-    padding: calc(10.1875rem + 2vw) 8vw;
+  .quote {
+    padding: calc(10.1875rem + 4vw) 8vw calc(10.1875rem + 1vw);
   }
 }
 
-.about__title {
+.quote__title {
   font-size: 1.75rem;
   font-family: "Porto Serif";
   font-weight: 400;
@@ -1251,31 +1258,39 @@ canvas {
   text-align: left;
 }
 
-.about__title div {
+.quote__title div {
   margin-right: auto;
 }
 
-.about__title span {
+.quote__title span {
   color: #c94d24;
 }
 
 @media (min-width: 48em) {
-  .about__title {
+  .quote__title {
     font-size: 3.125rem;
   }
 }
 
 @media (min-width: 64em) {
-  .about__title {
+  .quote__title {
     font-size: 3.75rem;
   }
 }
 
 @media (min-width: 75em) {
-  .about__title {
+  .quote__title {
     font-size: 3.375rem;
     line-height: 1.5;
   }
+}
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .news {
@@ -1529,19 +1544,19 @@ canvas {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: calc(2.1875rem + 2vw) 8vw calc(6.1875rem + 2vw);
+  padding: calc(2.1875rem + 2vw) 8vw 0;
   color: #080808;
 }
 
 @media (min-width: 64em) {
   .testimonials {
-    padding: calc(8.1875rem + 2vw) 8vw;
+    padding: calc(8.1875rem + 2vw) 8vw 0;
   }
 }
 
 @media (min-width: 75em) {
   .testimonials {
-    padding: calc(6.1875rem + 2vw) 8vw;
+    padding: calc(6.1875rem + 2vw) 8vw 0;
   }
 }
 
@@ -1701,5 +1716,49 @@ canvas {
   .testimonials__cards .glide__track + div button {
     margin: 1.875rem 10px;
   }
+}
+
+.projects__grid {
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.projects__grid__card {
+  padding: 1.875rem 1.5rem;
+}
+
+.projects__grid__card:nth-child(odd) {
+  border-right: 1px solid #080808;
+  border-bottom: 1px solid #080808;
+}
+
+.projects__grid__card:nth-child(odd):first-child {
+  border-top: 1px solid #080808;
+}
+
+.projects__grid__card:nth-child(even) {
+  border-bottom: 1px solid #080808;
+}
+
+.projects__grid__card:nth-child(even):nth-child(2) {
+  border-top: 1px solid #080808;
+}
+
+.projects__grid__card h1,
+.projects__grid__card h3 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.projects__grid__card h1 {
+  color: #c94d24;
+  font-size: 1.5rem;
+  font-family: "Porto Sans Stencil";
+  margin-bottom: 100px;
+}
+
+.projects__grid__card h3 {
+  color: #080808;
+  font-size: 1.125rem;
 }
 /*# sourceMappingURL=style.css.map */

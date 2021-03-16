@@ -2,111 +2,8 @@
   <div class="home">
     <div class="scene"></div>
     <!-- <div class="overlay"></div> -->
-    <section class="landing">
-      <h1>
-        <span>Welcome to</span>
-        <div>PORTIC</div>
-      </h1>
-      <hr />
-      <h4>
-        <div class="hide-for-desktop">
-          Porto Research,
-        </div>
-        <div class="hide-for-desktop">
-          Technology
-        </div>
-        <div class="hide-for-desktop">
-          & Innovation Center.
-        </div>
-        <div class="hide-for-mobile">
-          Porto Research, Technology
-        </div>
-        <div class="hide-for-mobile">
-          & Innovation Center.
-        </div>
-      </h4>
-      <button class="hide-for-desktop">Know more about us</button>
-      <div class="landing__down flex flex-jc-c flex-ai-c hide-for-mobile">
-        <div class="landing__down__arrow">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-        <p>An open door towards the future</p>
-      </div>
-      <div class="landing__carousel hide-for-desktop">
-        <div class="carousel">
-          <div class="slide-track">
-            <div class="slide">
-              <p>An open door towards the future</p>
-            </div>
-            <div class="slide">
-              <p>An open door towards the future</p>
-            </div>
-            <div class="slide">
-              <p>An open door towards the future</p>
-            </div>
-            <div class="slide">
-              <p>An open door towards the future</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="about">
-      <h1 class="about__title hide-for-desktop">
-        <div class="line">
-          <div><span>Lorem</span> ipsum dolor sit</div>
-        </div>
-        <div class="line">
-          <div>
-            amet consectetur
-          </div>
-        </div>
-        <div class="line">
-          <div>
-            cumque libero quam.
-          </div>
-        </div>
-        <div class="line">
-          <div>
-            error dolores quam
-          </div>
-        </div>
-        <div class="line">
-          <div>
-            cumque libero daww.
-          </div>
-        </div>
-        <div class="line">
-          <div>
-            ccumque libero quam.
-          </div>
-        </div>
-      </h1>
-      <h1
-        class="about__title hide-for-mobile flex flex-ai-c flex-jc-c flex-fd-c"
-      >
-        <div class="line">
-          <div><span>Lorem</span> ipsum dolor sit amet</div>
-        </div>
-        <div class="line">
-          <div>
-            consectetur cumque libero aliquam.
-          </div>
-        </div>
-        <div class="line">
-          <div>
-            error dolores quam dolor
-          </div>
-        </div>
-        <div class="line">
-          <div>
-            cumque libero aliquam.
-          </div>
-        </div>
-      </h1>
-    </section>
+    <Intro extra="" keyword="PORTIC" />
+    <Quote />
     <section class="news">
       <h1 class="news__title">
         Discover our news and releases
@@ -204,6 +101,8 @@
 
 <script>
 // @ is an alias to /src
+import Intro from "@/components/Intro.vue";
+import Quote from "@/components/Quote.vue";
 import NewsCard from "@/components/NewsCard.vue";
 import TestimonialCard from "@/components/TestimonialCard.vue";
 import Footer from "@/components/Footer.vue";
@@ -213,6 +112,8 @@ import { background } from "../../js/background";
 export default {
   name: "Home",
   components: {
+    Intro,
+    Quote,
     NewsCard,
     TestimonialCard,
     Footer,

@@ -1,0 +1,44 @@
+.projects {
+  &__grid {
+    grid-template-columns: 1fr 1fr;
+
+    &__card {
+      padding: 1.875rem 1.5rem;
+
+      &:nth-child(odd) {
+        border-right: 1px solid $black;
+        border-bottom: 1px solid $black;
+
+        &:first-child {
+          border-top: 1px solid $black;
+        }
+      }
+
+      &:nth-child(even) {
+        border-bottom: 1px solid $black;
+
+        &:nth-child(2) {
+          border-top: 1px solid $black;
+        }
+      }
+
+      h1,
+      h3 {
+        margin: 0;
+        font-weight: 400;
+      }
+
+      h1 {
+        color: $orange;
+        font-size: $_24px;
+        font-family: $portoSansStencil;
+        margin-bottom: 100px;
+      }
+
+      h3 {
+        color: $black;
+        font-size: $_18px;
+      }
+    }
+  }
+}

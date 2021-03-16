@@ -6,7 +6,8 @@
   width: 100%;
   padding: 1rem 1.25rem;
   background-color: $white;
-  color: $black;
+  background-color: $black;
+  color: $white;
   grid-template-columns: repeat(2, 1fr);
 
   @include breakpoint-up(tablet) {
@@ -58,6 +59,7 @@
     a {
       font-size: $_15px;
       color: $black;
+      color: $white;
       margin-right: $_20px;
 
       &:last-child {

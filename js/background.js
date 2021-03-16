@@ -60,7 +60,7 @@ export function background() {
     renderer.setPixelRatio(window.devicePixelRatio);
 
     renderer.setClearColor(0xffffff, 1);
-    renderer.setClearColor(0x081426, 1);
+    // renderer.setClearColor(0x081426, 1);
 
     threeJsScene.appendChild(renderer.domElement);
 
