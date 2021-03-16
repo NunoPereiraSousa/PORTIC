@@ -56,9 +56,7 @@ export default {
     notHover(element) {
       this.selectedItem = element.target;
 
-      this.selectedItem.classList.contains("hovered")
-        ? this.selectedItem.classList.remove("hovered")
-        : this.selectedItem.classList.add("hovered");
+      this.selectedItem.classList.remove("hovered");
     }
   }
 };

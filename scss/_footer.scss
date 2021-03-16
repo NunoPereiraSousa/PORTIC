@@ -126,6 +126,10 @@
 
       .second__cells {
         margin-left: 2rem;
+
+        @include breakpoint-up(large) {
+          margin-left: 0;
+        }
       }
 
       a {

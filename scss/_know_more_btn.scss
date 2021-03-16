@@ -20,8 +20,8 @@
   }
 
   &:hover {
-    border: 1px solid $black;
-    color: $black;
-    background-color: $white;
+    border: 1px solid $black !important;
+    color: $black !important;
+    background-color: $white !important;
   }
 }

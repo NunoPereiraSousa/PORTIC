@@ -851,6 +851,12 @@ canvas {
   margin-left: 2rem;
 }
 
+@media (min-width: 120em) {
+  .footer__socials__media .second__cells {
+    margin-left: 0;
+  }
+}
+
 .footer__socials__media a {
   margin: 0 0 1rem;
   -ms-grid-columns: 20px 1fr;
@@ -1325,9 +1331,9 @@ canvas {
 }
 
 .know__more:hover {
-  border: 1px solid #080808;
-  color: #080808;
-  background-color: #ffffff;
+  border: 1px solid #080808 !important;
+  color: #080808 !important;
+  background-color: #ffffff !important;
 }
 
 .overlay {
