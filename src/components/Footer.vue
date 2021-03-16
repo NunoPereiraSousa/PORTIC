@@ -2,35 +2,35 @@
   <div>
     <section class="footer grid">
       <div class="footer__timezones">
-        <h1 class="footer__timezones__title title">Saturday, March 15th</h1>
+        <h1 class="footer__timezones__title title">{{ today }}</h1>
         <div class="footer__timezones__worldwide grid">
           <div class="footer__timezones__times">
             <h2>
-              12:10
-              <sup>AM</sup>
-            </h2>
-            <p>USA</p>
-          </div>
-          <div class="footer__timezones__times">
-            <h2>
-              01:12
-              <sup>AM</sup>
-            </h2>
-            <p>SINGAPORE</p>
-          </div>
-          <div class="footer__timezones__times">
-            <h2>
-              05:10
+              {{ londonTime }}
               <sup>PM</sup>
             </h2>
             <p>LON</p>
           </div>
           <div class="footer__timezones__times">
             <h2>
-              08:13
+              {{ usaTime }}
               <sup>AM</sup>
             </h2>
-            <p>QATAR</p>
+            <p>USA</p>
+          </div>
+          <div class="footer__timezones__times">
+            <h2>
+              {{ australianTime }}
+              <sup>AM</sup>
+            </h2>
+            <p>AUSTRALIA</p>
+          </div>
+          <div class="footer__timezones__times">
+            <h2>
+              {{ japaneseTime }}
+              <sup>AM</sup>
+            </h2>
+            <p>JAPAN</p>
           </div>
         </div>
       </div>
@@ -114,7 +114,204 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => {
+    return {
+      today: "",
+      japaneseTime: "",
+      australianTime: "",
+      usaTime: "",
+      londonTime: "",
+      weekDays: [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ]
+    };
+  },
+  mounted() {
+    this.getTodaysDay();
+
+    this.updateTimes = setInterval(
+      this.setJapaneseTime(),
+      this.setAustralianTime(),
+      this.setUsaTime(),
+      this.setLondonTime(),
+      1000
+    );
+  },
+  destroyed() {
+    clearInterval(this.updateTimes);
+  },
+  computed: {},
+  methods: {
+    getDateTime() {
+      let dateTime = new Date();
+      return dateTime;
+    },
+    convertTime(time, timezone) {
+      return new Date(
+        (typeof time === "string"
+          ? new Date(time)
+          : time
+        ).toLocaleString("en-US", { timeZone: timezone })
+      );
+    },
+    setHoursOnTimezone(timezone) {
+      return this.convertTime(this.getDateTime(), timezone).getHours() < 10
+        ? `0${this.convertTime(this.getDateTime(), timezone).getHours()}`
+        : this.convertTime(this.getDateTime(), timezone).getHours();
+    },
+    setMinutesOnTimezone(timezone) {
+      return this.convertTime(this.getDateTime(), timezone).getMinutes() < 10
+        ? `0${this.convertTime(this.getDateTime(), timezone).getMinutes()}`
+        : this.convertTime(this.getDateTime(), timezone).getMinutes();
+    },
+    setJapaneseTime() {
+      let hours = this.setHoursOnTimezone("Asia/Tokyo");
+
+      let minutes = this.setMinutesOnTimezone("Asia/Tokyo");
+
+      this.japaneseTime = `${hours}:${minutes}`;
+    },
+    setAustralianTime() {
+      let hours = this.setHoursOnTimezone("Australia/Sydney");
+
+      let minutes = this.setMinutesOnTimezone("Australia/Sydney");
+
+      this.australianTime = `${hours}:${minutes}`;
+    },
+    setUsaTime() {
+      let hours = this.setHoursOnTimezone("America/New_York");
+
+      let minutes = this.setMinutesOnTimezone("America/New_York");
+
+      this.usaTime = `${hours}:${minutes}`;
+    },
+    setLondonTime() {
+      let hours = this.setHoursOnTimezone("Europe/London");
+
+      let minutes = this.setMinutesOnTimezone("Europe/London");
+
+      this.londonTime = `${hours}:${minutes}`;
+    },
+    getTodaysDay() {
+      let today = this.getDateTime();
+
+      let dayName = "";
+      let weekDayName = "";
+      let weekDayNumber = "";
+
+      // let daysArr = today.getDay();
+
+      switch (today.getDay()) {
+        case 0:
+          dayName = "Sunday";
+          break;
+        case 1:
+          dayName = "Monday";
+          break;
+        case 2:
+          dayName = "Tuesday";
+          break;
+        case 3:
+          dayName = "Wednesday";
+          break;
+        case 4:
+          dayName = "Thursday";
+          break;
+        case 5:
+          dayName = "Friday";
+          break;
+        case 6:
+          dayName = "Saturday";
+          break;
+      }
+
+      switch (today.getMonth()) {
+        case 0:
+          weekDayName = "January";
+          break;
+        case 1:
+          weekDayName = "February";
+          break;
+        case 2:
+          weekDayName = "March";
+          break;
+        case 3:
+          weekDayName = "April";
+          break;
+        case 4:
+          weekDayName = "May";
+          break;
+        case 5:
+          weekDayName = "June";
+          break;
+        case 6:
+          weekDayName = "July";
+          break;
+        case 7:
+          weekDayName = "August";
+          break;
+        case 8:
+          weekDayName = "September";
+          break;
+        case 9:
+          weekDayName = "October";
+          break;
+        case 10:
+          weekDayName = "November";
+          break;
+        case 11:
+          weekDayName = "December";
+          break;
+      }
+
+      // if (
+      //   (today.getDate() > 3 && today.getDate() < 21) ||
+      //   (today.getDate() > 23 && today.getDate() < 31)
+      // ) {
+      //   weekDayNumber += `${today.getDate()}th`;
+      // }
+
+      switch (today.getDate()) {
+        case 1:
+          weekDayNumber = `${today.getDate()}st`;
+          break;
+        case 2:
+          weekDayNumber = `${today.getDate()}nd`;
+          break;
+        case 3:
+          weekDayNumber = `${today.getDate()}rd`;
+          break;
+        case 21:
+          weekDayNumber = `${today.getDate()}st`;
+          break;
+        case 22:
+          weekDayNumber = `${today.getDate()}nd`;
+          break;
+        case 23:
+          weekDayNumber = `${today.getDate()}rd`;
+          break;
+        case 31:
+          weekDayNumber = `${today.getDate()}st`;
+          break;
+        default:
+          weekDayNumber = `${today.getDate()}th`;
+      }
+
+      console.log(dayName);
+      console.log(weekDayName);
+      console.log(weekDayNumber);
+
+      this.today = `${dayName}, ${weekDayName} ${weekDayNumber}`;
+    }
+  }
+};
 </script>
 
 <style></style>
