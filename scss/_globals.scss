@@ -101,3 +101,11 @@ canvas {
     top: 5%;
   }
 }
+
+.overflow {
+  overflow: hidden;
+
+  &__project__line {
+    transform: translateY(100%);
+  }
+}

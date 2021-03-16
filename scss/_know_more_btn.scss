@@ -12,7 +12,11 @@
 
   @include breakpoint-up(desktop) {
     font-size: $_16px;
-    margin-top: 2rem;
+    margin-top: 5.75rem;
+  }
+
+  @include breakpoint-up(desktop) {
+    margin-top: 6.75rem;
   }
 
   &:hover {

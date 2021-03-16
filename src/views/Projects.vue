@@ -4,7 +4,13 @@
     <Intro extra="our " keyword="Projects" />
     <Quote />
     <div class="projects__grid grid">
-      <ProjectCard v-for="i in 12" :key="i" :counter="i" />
+      <ProjectCard
+        v-for="i in 12"
+        :key="i"
+        :counter="i"
+        @mouseover.native="onHover"
+        @mouseleave.native="notHover"
+      />
     </div>
 
     <KnowMoreBtn
@@ -23,6 +29,7 @@ import ProjectCard from "@/components/ProjectCard.vue";
 import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
 import Footer from "@/components/Footer.vue";
 import { background } from "../../js/background";
+// import gsap from "gsap";
 
 export default {
   components: {
@@ -32,8 +39,27 @@ export default {
     KnowMoreBtn,
     Footer
   },
+  data: () => {
+    return {
+      selectedItem: null
+    };
+  },
   mounted() {
     background();
+  },
+  methods: {
+    onHover(element) {
+      this.selectedItem = element.target;
+
+      this.selectedItem.classList.toggle("hovered");
+    },
+    notHover(element) {
+      this.selectedItem = element.target;
+
+      this.selectedItem.classList.contains("hovered")
+        ? this.selectedItem.classList.remove("hovered")
+        : this.selectedItem.classList.add("hovered");
+    }
   }
 };
 </script>

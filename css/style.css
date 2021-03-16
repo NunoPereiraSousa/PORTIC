@@ -164,6 +164,15 @@ canvas {
   }
 }
 
+.overflow {
+  overflow: hidden;
+}
+
+.overflow__project__line {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
 .subheader {
   position: absolute;
   top: 0%;
@@ -1305,7 +1314,13 @@ canvas {
 @media (min-width: 75em) {
   .know__more {
     font-size: 1rem;
-    margin-top: 2rem;
+    margin-top: 5.75rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .know__more {
+    margin-top: 6.75rem;
   }
 }
 
@@ -1741,17 +1756,33 @@ canvas {
   }
 }
 
+@media (min-width: 120em) {
+  .projects__grid {
+    -ms-grid-columns: (1fr)[5];
+        grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 .projects__grid__card {
   padding: 1.875rem 1.5rem;
   position: relative;
 }
 
-.projects__grid__card.not_hovered {
+.projects__grid__card:not(.hovered) {
   border-color: #080808;
 }
 
-.projects__grid__card.hovered {
-  border-color: #ffffff !important;
+.projects__grid__card.hovered .projects__grid__card__normal_state {
+  visibility: hidden;
+}
+
+.projects__grid__card.hovered .projects__grid__card__hovered_state {
+  visibility: visible;
+}
+
+.projects__grid__card.hovered .projects__grid__card__hovered_state
+.projects__grid__card__hovered_state__overlay {
+  height: 100%;
 }
 
 @media (max-width: 47.9375em) {
@@ -1799,20 +1830,35 @@ canvas {
   }
 }
 
+@media (min-width: 120em) {
+  .projects__grid__card {
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+  }
+  .projects__grid__card:nth-child(-n + 5) {
+    border-top: 2px solid;
+  }
+  .projects__grid__card:nth-child(5n) {
+    border-right: 0;
+  }
+  .projects__grid__card:not(:nth-child(5n)) {
+    border-right: 2px solid;
+  }
+}
+
 @media (min-width: 75em) {
   .projects__grid__card {
     padding: 3.75rem 3.75rem;
   }
 }
 
-.projects__grid__card__normal_state {
-  visibility: hidden;
-}
-
 .projects__grid__card__normal_state h1,
 .projects__grid__card__normal_state h3 {
   margin: 0;
   font-weight: 400;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .projects__grid__card__normal_state h1 {
@@ -1835,6 +1881,12 @@ canvas {
   }
 }
 
+@media (min-width: 120em) {
+  .projects__grid__card__normal_state h1 {
+    margin-bottom: 200px;
+  }
+}
+
 .projects__grid__card__normal_state h3 {
   color: #080808;
   font-size: 1.125rem;
@@ -1844,6 +1896,10 @@ canvas {
   .projects__grid__card__normal_state h3 {
     font-size: 1.5rem;
   }
+}
+
+.projects__grid__card__hovered_state {
+  visibility: hidden;
 }
 
 .projects__grid__card__hovered_state .position {
@@ -1859,6 +1915,9 @@ canvas {
 .projects__grid__card__hovered_state p {
   margin: 0;
   font-weight: 400;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .projects__grid__card__hovered_state h1 {
@@ -1867,23 +1926,47 @@ canvas {
   margin-bottom: 1rem;
 }
 
+@media (min-width: 120em) {
+  .projects__grid__card__hovered_state h1 {
+    margin-bottom: 1.5rem;
+    font-size: 1.875rem;
+  }
+}
+
 .projects__grid__card__hovered_state p {
   color: #ffffff;
   font-size: 1.25rem;
   line-height: 1.5;
 }
 
+@media (min-width: 120em) {
+  .projects__grid__card__hovered_state p {
+    line-height: 1.7;
+    font-size: 1.375rem;
+  }
+}
+
+.projects__grid__card__hovered_state .top_children {
+  opacity: 0;
+}
+
 .projects__grid__card__hovered_state a {
   position: relative;
   color: #ffffff;
   margin-left: 2rem;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 
 @media (min-width: 75em) {
   .projects__grid__card__hovered_state a {
     font-size: 1rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .projects__grid__card__hovered_state a {
+    line-height: 1.7;
+    font-size: 1.125rem;
+    font-style: italic;
   }
 }
 
@@ -1895,8 +1978,6 @@ canvas {
   background-color: #c94d24;
   height: 2px;
   width: 16px;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 
 .projects__grid__card__hovered_state a:hover::before {
@@ -1908,12 +1989,14 @@ canvas {
 }
 
 .projects__grid__card__hovered_state__overlay {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   background-color: #080808;
   position: absolute;
   bottom: 0%;
   left: 0%;
   z-index: -1;
-  height: 100%;
+  height: 0%;
   width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

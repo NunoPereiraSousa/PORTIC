@@ -304,10 +304,6 @@ export default {
           weekDayNumber = `${today.getDate()}th`;
       }
 
-      console.log(dayName);
-      console.log(weekDayName);
-      console.log(weekDayNumber);
-
       this.today = `${dayName}, ${weekDayName} ${weekDayNumber}`;
     }
   }
