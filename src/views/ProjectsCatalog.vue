@@ -13,13 +13,15 @@
         class="flex flex-jc-sa flex-ai-c hide-for-desktop"
         style="width: 100%"
       >
-        <h2 class="projects_catalog__filters__sorting">Finance sorting</h2>
-        <h2
+        <button class="projects_catalog__filters__sorting">
+          Finance sorting
+        </button>
+        <button
           class="projects_catalog__filters__institutions"
           @click="showFilters"
         >
           Institutions
-        </h2>
+        </button>
       </div>
       <div class="hide-for-mobile">
         <button class="projects_catalog__filters__sorting">

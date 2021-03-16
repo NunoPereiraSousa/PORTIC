@@ -1,6 +1,8 @@
 .projects {
   &__grid {
     grid-template-columns: 1fr 1fr;
+    row-gap: 1.4rem;
+    column-gap: 1.4rem;
 
     @include breakpoint-up(tablet) {
       grid-template-columns: repeat(3, 1fr);
@@ -12,11 +14,19 @@
 
     @include breakpoint-up(desktop) {
       grid-template-columns: repeat(5, 1fr);
+      row-gap: 2rem;
+      column-gap: 2rem;
+    }
+
+    @include breakpoint-up(large) {
+      grid-template-columns: repeat(5, 1fr);
     }
 
     &__card {
       padding: 1.875rem 1.5rem;
       position: relative;
+      box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.05),
+        0 -3px 20px 0px rgba(0, 0, 0, 0.05);
 
       &:not(.hovered) {
         border-color: $black;
@@ -36,71 +46,65 @@
         height: 100%;
       }
 
-      @include breakpoint-down(tablet) {
-        &:nth-child(odd) {
-          border-right: 1px solid;
-          border-bottom: 1px solid;
+      // @include breakpoint-down(tablet) {
+      //   &:nth-child(odd) {
+      //     border-right: 1px solid;
+      //     border-bottom: 1px solid;
 
-          &:first-child {
-            border-top: 1px solid;
-          }
-        }
+      //     &:first-child {
+      //       border-top: 1px solid;
+      //     }
+      //   }
 
-        &:nth-child(even) {
-          border-bottom: 1px solid;
+      //   &:nth-child(even) {
+      //     border-bottom: 1px solid;
 
-          &:nth-child(2) {
-            border-top: 1px solid;
-          }
-        }
-      }
+      //     &:nth-child(2) {
+      //       border-top: 1px solid;
+      //     }
+      //   }
+      // }
 
-      @include breakpoint-up(tablet) {
-        border-bottom: 1px solid;
-        border-right: 1px solid;
+      // @include breakpoint-up(tablet) {
+      //   border-bottom: 1px solid;
+      //   border-right: 1px solid;
 
-        &:nth-child(-n + 3) {
-          border-top: 1px solid;
-        }
+      //   &:nth-child(-n + 3) {
+      //     border-top: 1px solid;
+      //   }
 
-        &:not(:nth-child(3n)) {
-          border-right: 1px solid;
-        }
-      }
+      //   &:not(:nth-child(3n)) {
+      //     border-right: 1px solid;
+      //   }
+      // }
 
-      @include breakpoint-up(iPadPro) {
-        border-bottom: 2px solid;
-        border-right: 2px solid;
+      // @include breakpoint-up(iPadPro) {
+      //   border-bottom: 2px solid;
+      //   border-right: 2px solid;
 
-        &:nth-child(-n + 4) {
-          border-top: 2px solid;
-        }
+      //   &:nth-child(-n + 4) {
+      //     border-top: 2px solid;
+      //   }
 
-        &:nth-child(4n) {
-          border-right: 0;
-        }
+      //   &:nth-child(4n) {
+      //     border-right: 0;
+      //   }
 
-        &:not(:nth-child(4n)) {
-          border-right: 2px solid;
-        }
-      }
+      //   &:not(:nth-child(4n)) {
+      //     border-right: 2px solid;
+      //   }
+      // }
 
       @include breakpoint-up(desktop) {
+        padding: 3rem 2.5rem;
+        box-shadow: 0 4px 30px 0px rgba(0, 0, 0, 0.05),
+          0 -4px 30px 0px rgba(0, 0, 0, 0.05);
+      }
+
+      @include breakpoint-up(large) {
         padding: 3rem;
-        border-bottom: 2px solid;
-        border-right: 2px solid;
-
-        &:nth-child(-n + 5) {
-          border-top: 2px solid;
-        }
-
-        &:nth-child(5n) {
-          border-right: 0;
-        }
-
-        &:not(:nth-child(5n)) {
-          border-right: 2px solid;
-        }
+        box-shadow: 0 6px 30px 0px rgba(0, 0, 0, 0.05),
+          0 -6px 30px 0px rgba(0, 0, 0, 0.05);
       }
 
       &__normal_state {
@@ -122,8 +126,8 @@
           }
 
           @include breakpoint-up(desktop) {
-            font-size: $_30px;
-            margin-bottom: 170px;
+            font-size: $_26px;
+            margin-bottom: 140px;
           }
 
           @include breakpoint-up(large) {
@@ -150,7 +154,7 @@
           left: 0%;
           z-index: 2;
           height: 100%;
-          padding: 3rem;
+          padding: 3rem 2.5rem;
         }
 
         h1,
@@ -176,9 +180,13 @@
           font-size: $_20px;
           line-height: 1.5;
 
+          @include breakpoint-up(desktop) {
+            font-size: $_18px;
+          }
+
           @include breakpoint-up(large) {
             line-height: 1.7;
-            font-size: $_22px;
+            font-size: $_20px;
           }
         }
 
