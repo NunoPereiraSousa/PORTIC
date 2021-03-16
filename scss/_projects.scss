@@ -2,42 +2,181 @@
   &__grid {
     grid-template-columns: 1fr 1fr;
 
+    @include breakpoint-up(tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint-up(iPadPro) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
     &__card {
       padding: 1.875rem 1.5rem;
+      position: relative;
 
-      &:nth-child(odd) {
-        border-right: 1px solid $black;
-        border-bottom: 1px solid $black;
+      &.not_hovered {
+        border-color: $black;
+      }
 
-        &:first-child {
-          border-top: 1px solid $black;
+      &.hovered {
+        border-color: $white !important;
+      }
+
+      @include breakpoint-down(tablet) {
+        &:nth-child(odd) {
+          border-right: 1px solid;
+          border-bottom: 1px solid;
+
+          &:first-child {
+            border-top: 1px solid;
+          }
+        }
+
+        &:nth-child(even) {
+          border-bottom: 1px solid;
+
+          &:nth-child(2) {
+            border-top: 1px solid;
+          }
         }
       }
 
-      &:nth-child(even) {
-        border-bottom: 1px solid $black;
+      @include breakpoint-up(tablet) {
+        border-bottom: 1px solid;
+        border-right: 1px solid;
 
-        &:nth-child(2) {
-          border-top: 1px solid $black;
+        &:nth-child(-n + 3) {
+          border-top: 1px solid;
+        }
+
+        &:not(:nth-child(3n)) {
+          border-right: 1px solid;
         }
       }
 
-      h1,
-      h3 {
-        margin: 0;
-        font-weight: 400;
+      @include breakpoint-up(iPadPro) {
+        border-bottom: 2px solid;
+        border-right: 2px solid;
+
+        &:nth-child(-n + 4) {
+          border-top: 2px solid;
+        }
+
+        &:nth-child(4n) {
+          border-right: 0;
+        }
+
+        &:not(:nth-child(4n)) {
+          border-right: 2px solid;
+        }
       }
 
-      h1 {
-        color: $orange;
-        font-size: $_24px;
-        font-family: $portoSansStencil;
-        margin-bottom: 100px;
+      @include breakpoint-up(desktop) {
+        padding: 3.75rem 3.75rem;
       }
 
-      h3 {
-        color: $black;
-        font-size: $_18px;
+      &__normal_state {
+        visibility: hidden;
+
+        h1,
+        h3 {
+          margin: 0;
+          font-weight: 400;
+        }
+
+        h1 {
+          color: $orange;
+          font-size: $_24px;
+          font-family: $portoSansStencil;
+          margin-bottom: 100px;
+
+          @include breakpoint-down(phone) {
+            font-size: $_22px;
+          }
+
+          @include breakpoint-up(desktop) {
+            font-size: $_30px;
+            margin-bottom: 170px;
+          }
+        }
+
+        h3 {
+          color: $black;
+          font-size: $_18px;
+
+          @include breakpoint-up(desktop) {
+            font-size: $_24px;
+          }
+        }
+      }
+
+      &__hovered_state {
+        .position {
+          position: absolute;
+          top: 0;
+          left: 0%;
+          z-index: 2;
+          height: 100%;
+          padding: 3.75rem 3.75rem;
+        }
+
+        h1,
+        p {
+          margin: 0;
+          font-weight: 400;
+        }
+
+        h1 {
+          font-size: $_24px;
+          color: $orange;
+          margin-bottom: 1rem;
+        }
+
+        p {
+          color: $white;
+          font-size: $_20px;
+          line-height: 1.5;
+        }
+
+        a {
+          position: relative;
+          color: $white;
+          margin-left: 2rem;
+          transition: all 0.5s ease;
+
+          @include breakpoint-up(desktop) {
+            font-size: $_16px;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: calc(50% - 1px);
+            left: -30px;
+            background-color: $orange;
+            height: 2px;
+            width: 16px;
+            transition: all 0.5s ease;
+          }
+
+          &:hover::before {
+            left: -32px;
+          }
+
+          &:hover {
+            letter-spacing: 0.4px;
+          }
+        }
+
+        &__overlay {
+          background-color: $black;
+          position: absolute;
+          bottom: 0%;
+          left: 0%;
+          z-index: -1;
+          height: 100%;
+          width: 100%;
+        }
       }
     }
   }

@@ -180,29 +180,6 @@
       }
     }
   }
-
-  button {
-    background-color: transparent;
-    border: 1px solid $white;
-    font-size: $_15px;
-    color: $white;
-    padding: 0.85rem 3rem;
-    border-radius: 2px;
-    font-weight: lighter;
-    cursor: pointer;
-    transition: all 0.1s ease;
-
-    @include breakpoint-up(desktop) {
-      font-size: $_16px;
-      margin-top: 2rem;
-    }
-
-    &:hover {
-      border: 1px solid $black;
-      color: $black;
-      background-color: $white;
-    }
-  }
 }
 
 .testimonials {
