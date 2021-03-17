@@ -1404,7 +1404,7 @@ canvas {
 
 @media (min-width: 75em) {
   .quote__title {
-    font-size: 3.375rem;
+    font-size: 3.125rem;
     line-height: 1.5;
   }
 }
@@ -2392,12 +2392,11 @@ canvas {
 
 .areas {
   width: 100%;
-  padding: calc(10.1875rem + 2vw) 0.5rem 0;
 }
 
 @media (min-width: 75em) {
-  .areas {
-    padding: calc(10.1875rem + 2vw) 3rem 0;
+  .areas__grid {
+    padding: 0 14vw;
   }
 }
 
