@@ -2389,4 +2389,77 @@ canvas {
     margin-bottom: 6rem;
   }
 }
+
+.areas {
+  width: 100%;
+  padding: calc(10.1875rem + 2vw) 0.5rem 0;
+}
+
+@media (min-width: 75em) {
+  .areas {
+    padding: calc(10.1875rem + 2vw) 3rem 0;
+  }
+}
+
+.areas__grid__card {
+  padding: 1.5rem 1.875rem;
+  border-top: 1px solid rgba(153, 153, 153, 0.3);
+}
+
+.areas__grid__card__title {
+  font-size: 1.25rem;
+  font-family: "Porto Sans Stencil";
+  font-weight: 400;
+}
+
+.areas__grid__card__button {
+  position: relative;
+  background-color: #080808;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  height: 1.625rem;
+  width: 1.625rem;
+}
+
+.areas__grid__card__button:focus {
+  outline: none;
+}
+
+.areas__grid__card__button__lines {
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background-color: #ffffff;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.areas__grid__card__button__lines:nth-child(1) {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.areas__grid__card__button__lines:nth-child(2) {
+  -webkit-transform: translate(-50%, -50%) rotate(90deg);
+          transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.areas__grid__card__button__lines.minus:nth-child(1) {
+  height: 0;
+}
+
+.areas__grid__card__content {
+  margin: 1.5rem 0 2.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.areas__grid__card__content__paragraph {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  line-height: 1.6;
+}
 /*# sourceMappingURL=style.css.map */

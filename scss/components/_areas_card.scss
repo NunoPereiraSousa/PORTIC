@@ -1,0 +1,66 @@
+.areas__grid__card {
+  padding: 1.5rem 1.875rem;
+  border-top: 1px solid rgba($color: $grey, $alpha: 0.3);
+
+  &__title {
+    font-size: $_20px;
+    font-family: $portoSansStencil;
+    font-weight: 400;
+  }
+
+  &__button {
+    position: relative;
+    background-color: $black;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    height: 1.625rem;
+    width: 1.625rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    &__lines {
+      position: absolute;
+      width: 2px;
+      height: 10px;
+      background-color: $white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &:nth-child(1) {
+        transition: all 0.5s ease;
+      }
+
+      &:nth-child(2) {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+
+      &.minus {
+        &:nth-child(1) {
+          height: 0;
+        }
+      }
+    }
+  }
+
+  &__content {
+    margin: 1.5rem 0 2.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+
+    // display: none;
+
+    // &.closed {
+    //   height: 0;
+    // }
+
+    &__paragraph {
+      margin: 0;
+      font-size: $_16px;
+      letter-spacing: 0.2px;
+      line-height: 1.6;
+    }
+  }
+}
