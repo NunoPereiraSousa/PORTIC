@@ -29,9 +29,9 @@
         />
       </div>
       <KnowMoreBtn
-        backgroundColor="transparent"
-        color="#ffffff"
-        border="1px solid #ffffff"
+        type="know__more dark"
+        content="news"
+        route="ProjectsCatalog"
       />
     </section>
     <section class="testimonials">

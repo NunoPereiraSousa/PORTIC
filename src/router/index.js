@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import Areas from "../views/Areas.vue";
 import Home from "../views/Home.vue";
 import Projects from "../views/Projects.vue";
 import ProjectsCatalog from "../views/ProjectsCatalog.vue";
@@ -13,6 +14,11 @@ const routes = [
     component: Home
   },
   {
+    path: "/areas",
+    name: "Areas",
+    component: Areas
+  },
+  {
     path: "/projects",
     name: "Projects",
     component: Projects
@@ -20,7 +26,8 @@ const routes = [
   {
     path: "/projects-catalog",
     name: "ProjectsCatalog",
-    component: ProjectsCatalog
+    component: ProjectsCatalog,
+    props: true
   }
 ];
 

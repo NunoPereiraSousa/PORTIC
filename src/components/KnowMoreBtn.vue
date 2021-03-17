@@ -1,13 +1,6 @@
 <template>
   <div class="flex flex-ai-c flex-jc-c">
-    <button
-      class="know__more"
-      :style="{
-        'background-color': backgroundColor,
-        color: color,
-        border: border
-      }"
-    >
+    <button :class="type">
       All news
     </button>
   </div>
@@ -16,7 +9,7 @@
 <script>
 export default {
   name: "KnowMoreBtn",
-  props: ["backgroundColor", "color", "border"]
+  props: ["type"]
 };
 </script>
 

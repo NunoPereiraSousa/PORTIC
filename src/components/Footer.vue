@@ -144,7 +144,7 @@ export default {
       1000
     );
   },
-  destroyed() {
+  unmounted() {
     clearInterval(this.updateTimes);
   },
   computed: {},

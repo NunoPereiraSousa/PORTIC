@@ -13,11 +13,7 @@
       />
     </div>
 
-    <KnowMoreBtn
-      backgroundColor="transparent"
-      color="#080808"
-      border="1px solid #080808"
-    />
+    <KnowMoreBtn type="know__more light" />
     <Footer />
   </div>
 </template>

@@ -1,0 +1,42 @@
+.know__more {
+  margin-top: 3.75rem;
+  font-size: $_15px;
+  padding: 0.85rem 3rem;
+  border-radius: 2px;
+  font-weight: lighter;
+  cursor: pointer;
+  transition: all 0.1s ease;
+
+  &.light {
+    background-color: transparent;
+    border: 1.5px solid $black;
+    color: $black;
+
+    &:hover {
+      border: 1.5px solid $black;
+      color: $white;
+      background-color: $black;
+    }
+  }
+
+  &.dark {
+    background-color: transparent;
+    border: 1.5px solid $white;
+    color: $white;
+
+    &:hover {
+      border: 1.5px solid $white;
+      color: $black;
+      background-color: $white;
+    }
+  }
+
+  @include breakpoint-up(desktop) {
+    font-size: $_16px;
+    margin-top: 5.75rem;
+  }
+
+  @include breakpoint-up(desktop) {
+    margin-top: 6.75rem;
+  }
+}

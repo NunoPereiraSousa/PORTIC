@@ -127,7 +127,7 @@
       .second__cells {
         margin-left: 2rem;
 
-        @include breakpoint-up(large) {
+        @include breakpoint-up(desktop) {
           margin-left: 0;
         }
       }
