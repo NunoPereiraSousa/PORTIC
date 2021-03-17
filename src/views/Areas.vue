@@ -16,6 +16,7 @@
         />
       </div>
     </section>
+    <Footer />
   </div>
 </template>
 
@@ -23,12 +24,14 @@
 import Intro from "@/components/Intro.vue";
 import Quote from "@/components/Quote.vue";
 import AreasCard from "@/components/AreasCard.vue";
+import Footer from "@/components/Footer.vue";
 import { background } from "../../js/background";
 export default {
   components: {
     Intro,
     Quote,
-    AreasCard
+    AreasCard,
+    Footer
   },
   mounted() {
     background();
