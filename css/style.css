@@ -1870,6 +1870,7 @@ canvas {
 
 @media (min-width: 75em) {
   .projects__grid {
+    padding: 0 3rem;
     -ms-grid-columns: (1fr)[5];
         grid-template-columns: repeat(5, 1fr);
     row-gap: 2rem;
@@ -1880,6 +1881,7 @@ canvas {
 
 @media (min-width: 120em) {
   .projects__grid {
+    padding: 0 5rem;
     -ms-grid-columns: (1fr)[5];
         grid-template-columns: repeat(5, 1fr);
   }
