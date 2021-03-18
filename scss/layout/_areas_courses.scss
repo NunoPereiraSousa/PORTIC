@@ -1,9 +1,45 @@
 .areas {
   width: 100%;
+  padding: 5rem 1rem 0;
+
+  @include breakpoint-up(tablet) {
+    padding: 6rem 4rem 0;
+  }
+
+  @include breakpoint-up(desktop) {
+    padding: 10rem 1rem 0;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: $_22px;
+    font-weight: 400;
+
+    @include breakpoint-up(desktop) {
+      font-size: $_26px;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_34px;
+    }
+  }
 
   &__grid {
+    margin-top: 2rem;
+    row-gap: 2rem;
+
+    @include breakpoint-down(phone) {
+      row-gap: 0;
+    }
+
+    @include breakpoint-up(large) {
+      margin-top: 6rem;
+    }
+
     @include breakpoint-up(desktop) {
-      padding: 0 14vw;
+      padding: 0 5rem;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16rem;
     }
   }
 }

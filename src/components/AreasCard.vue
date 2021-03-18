@@ -1,5 +1,5 @@
 <template>
-  <div
+  <!-- <div
     class="areas__grid__card"
     :id="card_id"
     @click="expand(index)"
@@ -15,6 +15,15 @@
     <div class="areas__grid__card__content" v-if="show">
       <p class="areas__grid__card__content__paragraph">{{ areaDesc }}</p>
     </div>
+  </div> -->
+  <div class="areas__grid__card">
+    <h2 class="areas__grid__card__title">{{ areaName }}</h2>
+    <p class="areas__grid__card__paragraph">{{ areaDesc }}</p>
+    <button class="areas__grid__card__button">
+      <router-link :to="{ name: 'ProjectsCatalog' }">
+        Know more about Area xpto
+      </router-link>
+    </button>
   </div>
 </template>
 
@@ -26,22 +35,22 @@ export default {
       type: String,
       required: true
     },
-    button_id: {
-      type: Number,
-      required: true
-    },
+    // button_id: {
+    //   type: Number,
+    //   required: true
+    // },
     areaDesc: {
       type: String,
       required: true
-    },
-    card_id: {
-      type: String,
-      required: true
-    },
-    index: {
-      type: Number,
-      required: true
     }
+    // card_id: {
+    //   type: String,
+    //   required: true
+    // },
+    // index: {
+    //   type: Number,
+    //   required: true
+    // }
   },
   data: () => {
     return {
