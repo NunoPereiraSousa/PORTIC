@@ -5,6 +5,10 @@
   height: 100vh;
   padding: calc(14.1875rem + 2vw) 0 0 14vw;
 
+  @include breakpoint-down(phone) {
+    padding: calc(11.1875rem + 2vw) 0 0 14vw;
+  }
+
   @include breakpoint-up(iPadPro) {
     padding: calc(20.1875rem + 2vw) 0 0 14vw;
   }
@@ -30,7 +34,7 @@
     }
 
     @include breakpoint-down(phone) {
-      font-size: $_28px;
+      font-size: $_26px;
     }
 
     @include breakpoint-up(iPadPro) {
@@ -79,7 +83,7 @@
     }
 
     @include breakpoint-down(phone) {
-      font-size: $_22px;
+      font-size: $_20px;
     }
 
     @include breakpoint-up(iPadPro) {
@@ -109,6 +113,7 @@
 
     @include breakpoint-down(phone) {
       font-size: $_16px;
+      margin: 1.875rem 0;
     }
 
     @include breakpoint-up(iPadPro) {
@@ -195,7 +200,7 @@
 
   &__carousel {
     position: absolute;
-    bottom: 0%;
+    bottom: 3%;
     left: 0%;
 
     .carousel {

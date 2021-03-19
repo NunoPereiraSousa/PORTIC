@@ -30,7 +30,7 @@
       </div>
       <KnowMoreBtn
         type="know__more dark"
-        content="news"
+        text="All news"
         route="ProjectsCatalog"
       />
     </section>

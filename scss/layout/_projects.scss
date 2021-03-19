@@ -1,8 +1,14 @@
 .projects {
   &__grid {
+    padding: 0 0.5rem;
     grid-template-columns: 1fr 1fr;
     row-gap: 1.4rem;
     column-gap: 1.4rem;
+
+    @include breakpoint-down(phone) {
+      column-gap: 1rem;
+      row-gap: 1rem;
+    }
 
     @include breakpoint-up(tablet) {
       grid-template-columns: repeat(3, 1fr);

@@ -2,7 +2,7 @@
   <div class="projects">
     <div class="scene"></div>
     <Intro extra="our " keyword="Projects" />
-    <Quote />
+    <MainTitle className="main__title" text="Explore our projects" />
     <div class="projects__grid grid">
       <ProjectCard
         v-for="i in 12"
@@ -13,14 +13,14 @@
       />
     </div>
 
-    <KnowMoreBtn type="know__more light" />
+    <KnowMoreBtn type="know__more light" text="See all Projects" />
     <Footer />
   </div>
 </template>
 
 <script>
 import Intro from "@/components/Intro.vue";
-import Quote from "@/components/Quote.vue";
+import MainTitle from "@/components/MainTitle.vue";
 import ProjectCard from "@/components/ProjectCard.vue";
 import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
 import Footer from "@/components/Footer.vue";
@@ -30,7 +30,7 @@ import { background } from "../../js/background";
 export default {
   components: {
     Intro,
-    Quote,
+    MainTitle,
     ProjectCard,
     KnowMoreBtn,
     Footer

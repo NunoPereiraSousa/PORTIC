@@ -2,9 +2,10 @@
   <div>
     <div class="scene"></div>
     <Intro extra="our " keyword="Areas" />
+    <MainTitle className="main__title" text="Explore our projects:" />
     <section class="areas">
       <!-- <Quote /> -->
-      <h1 class="areas__title">Explore our Areas of Actuation:</h1>
+
       <div class="areas__grid grid">
         <!-- <AreasCard
           v-for="i in 6"
@@ -30,14 +31,14 @@
 
 <script>
 import Intro from "@/components/Intro.vue";
-// import Quote from "@/components/Quote.vue";
+import MainTitle from "@/components/MainTitle.vue";
 import AreasCard from "@/components/AreasCard.vue";
 import Footer from "@/components/Footer.vue";
 import { background } from "../../js/background";
 export default {
   components: {
     Intro,
-    // Quote,
+    MainTitle,
     AreasCard,
     Footer
   },

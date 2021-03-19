@@ -1,10 +1,10 @@
 .projects_catalog {
   width: 100%;
-  padding: calc(10.1875rem + 2vw) 0.5rem 0;
+  // padding: calc(10.1875rem + 2vw) 0.5rem 0;
 
-  @include breakpoint-up(desktop) {
-    padding: calc(10.1875rem + 2vw) 3rem 0;
-  }
+  // @include breakpoint-up(desktop) {
+  //   padding: calc(10.1875rem + 2vw) 3rem 0;
+  // }
 
   h3,
   h1,

@@ -10,6 +10,10 @@
   color: $white;
   grid-template-columns: repeat(2, 1fr);
 
+  @include breakpoint-down(phone) {
+    padding: 0.75rem 1.25rem;
+  }
+
   @include breakpoint-up(tablet) {
     padding: 1.25rem;
   }

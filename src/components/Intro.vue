@@ -24,7 +24,7 @@
         & Innovation Center.
       </div>
     </h4>
-    <button class="hide-for-desktop">Know more about us</button>
+    <button class="hide-for-desktop hide-for-mobile">Know more about us</button>
     <div class="landing__down flex flex-jc-c flex-ai-c hide-for-mobile">
       <div class="landing__down__arrow">
         <div class="line"></div>

@@ -136,13 +136,12 @@ export default {
   mounted() {
     this.getTodaysDay();
 
-    this.updateTimes = setInterval(
+    this.updateTimes = setInterval(() => {
       this.setJapaneseTime(),
-      this.setAustralianTime(),
-      this.setUsaTime(),
-      this.setLondonTime(),
-      1000
-    );
+        this.setAustralianTime(),
+        this.setUsaTime(),
+        this.setLondonTime();
+    }, 1000);
   },
   unmounted() {
     clearInterval(this.updateTimes);
