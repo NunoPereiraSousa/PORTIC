@@ -6,6 +6,7 @@ import Home from "../views/Home.vue";
 import Media from "../views/Media.vue";
 import Projects from "../views/Projects.vue";
 import ProjectsCatalog from "../views/ProjectsCatalog.vue";
+import Unities from "../views/Unities.vue";
 
 Vue.use(VueRouter);
 
@@ -40,6 +41,11 @@ const routes = [
     name: "ProjectsCatalog",
     component: ProjectsCatalog,
     props: true
+  },
+  {
+    path: "/unities",
+    name: "Unities",
+    component: Unities
   }
 ];
 

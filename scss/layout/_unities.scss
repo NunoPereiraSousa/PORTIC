@@ -1,0 +1,21 @@
+.principles {
+  margin-top: calc(4.1875rem + 2vw);
+  background-color: $black;
+  color: $white;
+  padding: 0 2rem calc(6.1875rem + 2vw);
+
+  ul {
+    margin: 0;
+  }
+
+  button {
+    background-color: transparent !important;
+    // border: 1.5px solid $white !important;
+    box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, 0.05),
+      -1px -1px 10px 0px rgba(255, 255, 255, 0.05) !important;
+
+    svg {
+      fill: $white;
+    }
+  }
+}

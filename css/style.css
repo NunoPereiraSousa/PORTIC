@@ -1979,7 +1979,7 @@ canvas {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: calc(6.1875rem + 2vw) 8vw calc(6.1875rem + 2vw);
+  padding: calc(6.1875rem + 2vw) 0 calc(6.1875rem + 2vw);
 }
 
 @media (max-width: 23.375em) {
@@ -2319,6 +2319,7 @@ canvas {
 
 .testimonials__cards__card {
   position: relative;
+  z-index: -5;
   -webkit-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
@@ -2381,22 +2382,22 @@ canvas {
   overflow-y: auto;
 }
 
-.testimonials__cards__card p {
+.testimonials__cards__card__text p {
   letter-spacing: 0.4px;
   margin: 0;
 }
 
-.testimonials__cards .glide__track {
+.glide__track {
   cursor: -webkit-grab;
   cursor: grab;
 }
 
-.testimonials__cards .glide__track:active {
+.glide__track:active {
   cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 
-.testimonials__cards .glide__track + div {
+.glide__track + div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2405,7 +2406,7 @@ canvas {
           justify-content: center;
 }
 
-.testimonials__cards .glide__track + div button {
+.glide__track + div button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -2419,40 +2420,41 @@ canvas {
   transition: all 0.25s ease;
 }
 
-.testimonials__cards .glide__track + div button:focus {
+.glide__track + div button:focus {
   outline: none;
 }
 
-.testimonials__cards .glide__track + div button:hover {
+.glide__track + div button:hover {
   -webkit-box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.08), -2px -2px 10px 0px rgba(0, 0, 0, 0.08);
           box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.08), -2px -2px 10px 0px rgba(0, 0, 0, 0.08);
 }
 
-.testimonials__cards .glide__track + div button:hover .left__arrow,
-.testimonials__cards .glide__track + div button:hover .right__arrow {
+.glide__track + div button:hover .left__arrow,
+.glide__track + div button:hover .right__arrow {
   fill: #c94d24;
 }
 
-.testimonials__cards .glide__track + div button .left__arrow,
-.testimonials__cards .glide__track + div button .right__arrow {
+.glide__track + div button .left__arrow,
+.glide__track + div button .right__arrow {
   width: 20px;
+  margin-top: 4px;
 }
 
 @media (min-width: 64em) {
-  .testimonials__cards .glide__track + div button .left__arrow,
-  .testimonials__cards .glide__track + div button .right__arrow {
+  .glide__track + div button .left__arrow,
+  .glide__track + div button .right__arrow {
     margin-top: 5px;
   }
 }
 
 @media (min-width: 48em) {
-  .testimonials__cards .glide__track + div button {
+  .glide__track + div button {
     margin: 1.875rem 1.25rem;
   }
 }
 
 @media (min-width: 64em) {
-  .testimonials__cards .glide__track + div button {
+  .glide__track + div button {
     margin: 1.875rem 10px;
   }
 }
@@ -3414,5 +3416,56 @@ canvas {
   .media__grid__card__info__title {
     font-size: 1.25rem;
   }
+}
+
+.principles {
+  margin-top: calc(4.1875rem + 2vw);
+  background-color: #080808;
+  color: #ffffff;
+  padding: 0 2rem calc(6.1875rem + 2vw);
+}
+
+.principles ul {
+  margin: 0;
+}
+
+.principles button {
+  background-color: transparent !important;
+  -webkit-box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, 0.05), -1px -1px 10px 0px rgba(255, 255, 255, 0.05) !important;
+          box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, 0.05), -1px -1px 10px 0px rgba(255, 255, 255, 0.05) !important;
+}
+
+.principles button svg {
+  fill: #ffffff;
+}
+
+.unities__card {
+  position: relative;
+  z-index: -5;
+  border-radius: 8px;
+  padding: 1.25rem 0;
+  margin-bottom: 2rem;
+}
+
+.unities__card__subtitle, .unities__card__title {
+  font-weight: 400;
+  font-family: "Porto Sans Stencil";
+}
+
+.unities__card__subtitle {
+  margin: 0;
+  color: #999999;
+}
+
+.unities__card__title {
+  margin-top: 8px;
+  color: #ffffff;
+  font-size: 1.375rem;
+}
+
+.unities__card__desc {
+  margin-top: 30px;
+  line-height: 1.7;
+  letter-spacing: 0.4px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,9 +1,9 @@
 <template>
   <header>
     <nav class="navbar flex flex-jc-sb flex-ai-c">
-      <a href="" class="navbar__logo"
-        ><img src="../assets/logo.png" alt="PORTIC"
-      /></a>
+      <router-link class="navbar__logo" :to="{ name: 'Home' }">
+        <img src="../assets/logo.png" alt="PORTIC" />
+      </router-link>
       <div class="navbar__hamburger hide-for-desktop" @click="toggleNavbar">
         <div class="navbar__hamburger__lines"></div>
         <div class="navbar__hamburger__lines"></div>
@@ -16,12 +16,37 @@
           <hr />
         </div>
         <div class="navbar__mobile_menu__links">
-          <a href="">Areas</a>
-          <a href="">Courses</a>
-          <a href="">Media</a>
+          <router-link
+            class="navbar__mobile_menu__links__link"
+            :to="{ name: 'Areas' }"
+          >
+            Areas
+          </router-link>
+          <router-link
+            class="navbar__mobile_menu__links__link"
+            :to="{ name: 'Courses' }"
+          >
+            Courses
+          </router-link>
+          <router-link
+            class="navbar__mobile_menu__links__link"
+            :to="{ name: 'Media' }"
+          >
+            Media
+          </router-link>
           <a href="">Positions</a>
-          <a href="">Projects</a>
-          <a href="">Unities</a>
+          <router-link
+            class="navbar__mobile_menu__links__link"
+            :to="{ name: 'Projects' }"
+          >
+            Projects
+          </router-link>
+          <router-link
+            class="navbar__mobile_menu__links__link"
+            :to="{ name: 'Unities' }"
+          >
+            Unities
+          </router-link>
         </div>
         <div class="navbar__mobile_menu__socials grid">
           <a href="">
@@ -62,7 +87,9 @@
           <router-link :to="{ name: 'Projects' }">
             Projects
           </router-link>
-          <a href="">Unities</a>
+          <router-link :to="{ name: 'Unities' }">
+            Unities
+          </router-link>
         </div>
       </div>
     </nav>
@@ -92,6 +119,21 @@ export default {
         ".navbar__mobile_overlay"
       );
       navbar__mobile_overlay.classList.toggle("overlay_opened");
+
+      let navbar__mobile_menu__links__link = document.querySelectorAll(
+        ".navbar__mobile_menu__links__link"
+      );
+
+      navbar__mobile_menu__links__link.forEach(link => {
+        link.addEventListener("click", () => {
+          navbar__mobile_overlay.classList.toggle("overlay_opened");
+          navbar__mobile_menu.classList.toggle("open__overlay");
+
+          lines.forEach(line => {
+            line.classList.toggle("open");
+          });
+        });
+      });
     }
   }
 };
