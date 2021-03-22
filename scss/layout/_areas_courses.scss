@@ -1,29 +1,25 @@
 .areas {
   width: 100%;
 
-  @include breakpoint-up(tablet) {
-    padding: 6rem 4rem 0;
-  }
-
-  @include breakpoint-up(desktop) {
-    padding: 10rem 1rem 0;
-  }
-
   &__grid {
-    row-gap: 2rem;
+    // row-gap: 2rem;
 
     @include breakpoint-down(phone) {
       row-gap: 0;
     }
 
-    @include breakpoint-up(large) {
-      margin-top: 6rem;
+    @include breakpoint-up(tablet) {
+      padding: 0 8vw;
     }
 
     @include breakpoint-up(desktop) {
-      padding: 0 5rem;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 16rem;
+      padding: 0 11vw;
+      grid-template-columns: 1fr;
+      // column-gap: 16rem;
+    }
+
+    @include breakpoint-up(large) {
+      margin-top: 6rem;
     }
   }
 }

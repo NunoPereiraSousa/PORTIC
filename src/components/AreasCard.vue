@@ -1,12 +1,18 @@
 <template>
-  <!-- <div
+  <div
     class="areas__grid__card"
     :id="card_id"
     @click="expand(index)"
     v-on:click="show = !show"
   >
     <div class="flex flex-ai-c flex-jc-sb">
-      <h2 class="areas__grid__card__title">{{ areaName }}</h2>
+      <div class="flex flex-ai-fe flex-jc-sb">
+        <h5 class="areas__grid__card__sub_title" v-if="counter < 10">
+          Area 0{{ counter }}
+        </h5>
+        <h5 class="areas__grid__card__sub_title" v-else>Area {{ counter }}</h5>
+        <h2 class="areas__grid__card__title">{{ areaName }}</h2>
+      </div>
       <button class="areas__grid__card__button" :id="button_id">
         <div class="areas__grid__card__button__lines"></div>
         <div class="areas__grid__card__button__lines"></div>
@@ -15,8 +21,8 @@
     <div class="areas__grid__card__content" v-if="show">
       <p class="areas__grid__card__content__paragraph">{{ areaDesc }}</p>
     </div>
-  </div> -->
-  <div class="areas__grid__card">
+  </div>
+  <!-- <div class="areas__grid__card">
     <h2 class="areas__grid__card__title">{{ areaName }}</h2>
     <p class="areas__grid__card__paragraph">{{ areaDesc }}</p>
     <button class="areas__grid__card__button">
@@ -24,7 +30,7 @@
         Know more about Area xpto
       </router-link>
     </button>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -35,22 +41,26 @@ export default {
       type: String,
       required: true
     },
-    // button_id: {
-    //   type: Number,
-    //   required: true
-    // },
+    button_id: {
+      type: Number,
+      required: true
+    },
     areaDesc: {
       type: String,
       required: true
+    },
+    counter: {
+      type: Number,
+      required: true
+    },
+    card_id: {
+      type: String,
+      required: true
+    },
+    index: {
+      type: Number,
+      required: true
     }
-    // card_id: {
-    //   type: String,
-    //   required: true
-    // },
-    // index: {
-    //   type: Number,
-    //   required: true
-    // }
   },
   data: () => {
     return {

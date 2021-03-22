@@ -12,6 +12,14 @@
 
     @include breakpoint-up(tablet) {
       grid-template-columns: repeat(3, 1fr);
+      row-gap: 0;
+      column-gap: 0;
+    }
+
+    @include breakpoint-up(tablet) {
+      // padding: 0 4vw !important;
+
+      padding: 0;
     }
 
     @include breakpoint-up(iPadPro) {
@@ -21,234 +29,11 @@
     @include breakpoint-up(desktop) {
       padding: 0 3rem;
       grid-template-columns: repeat(5, 1fr);
-      row-gap: 2rem;
-      column-gap: 2rem;
     }
 
     @include breakpoint-up(large) {
       padding: 0 5rem;
       grid-template-columns: repeat(5, 1fr);
-    }
-
-    &__card {
-      padding: 1.875rem 1.5rem;
-      position: relative;
-      box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.05),
-        0 -3px 20px 0px rgba(0, 0, 0, 0.05);
-
-      &:not(.hovered) {
-        border-color: $black;
-      }
-
-      &.hovered .projects__grid__card__normal_state {
-        visibility: hidden;
-      }
-
-      &.hovered .projects__grid__card__hovered_state {
-        visibility: visible;
-      }
-
-      &.hovered
-        .projects__grid__card__hovered_state
-        .projects__grid__card__hovered_state__overlay {
-        height: 100%;
-      }
-
-      // @include breakpoint-down(tablet) {
-      //   &:nth-child(odd) {
-      //     border-right: 1px solid;
-      //     border-bottom: 1px solid;
-
-      //     &:first-child {
-      //       border-top: 1px solid;
-      //     }
-      //   }
-
-      //   &:nth-child(even) {
-      //     border-bottom: 1px solid;
-
-      //     &:nth-child(2) {
-      //       border-top: 1px solid;
-      //     }
-      //   }
-      // }
-
-      // @include breakpoint-up(tablet) {
-      //   border-bottom: 1px solid;
-      //   border-right: 1px solid;
-
-      //   &:nth-child(-n + 3) {
-      //     border-top: 1px solid;
-      //   }
-
-      //   &:not(:nth-child(3n)) {
-      //     border-right: 1px solid;
-      //   }
-      // }
-
-      // @include breakpoint-up(iPadPro) {
-      //   border-bottom: 2px solid;
-      //   border-right: 2px solid;
-
-      //   &:nth-child(-n + 4) {
-      //     border-top: 2px solid;
-      //   }
-
-      //   &:nth-child(4n) {
-      //     border-right: 0;
-      //   }
-
-      //   &:not(:nth-child(4n)) {
-      //     border-right: 2px solid;
-      //   }
-      // }
-
-      @include breakpoint-up(desktop) {
-        padding: 3rem 2.5rem;
-        box-shadow: 0 4px 30px 0px rgba(0, 0, 0, 0.05),
-          0 -4px 30px 0px rgba(0, 0, 0, 0.05);
-      }
-
-      @include breakpoint-up(large) {
-        padding: 3rem;
-        box-shadow: 0 6px 30px 0px rgba(0, 0, 0, 0.05),
-          0 -6px 30px 0px rgba(0, 0, 0, 0.05);
-      }
-
-      &__normal_state {
-        h1,
-        h3 {
-          margin: 0;
-          font-weight: 400;
-          width: fit-content;
-        }
-
-        h1 {
-          color: $orange;
-          font-size: $_22px;
-          font-family: $portoSansStencil;
-          margin-bottom: 100px;
-
-          @include breakpoint-down(phone) {
-            font-size: $_22px;
-          }
-
-          @include breakpoint-up(desktop) {
-            font-size: $_26px;
-            margin-bottom: 140px;
-          }
-
-          @include breakpoint-up(large) {
-            margin-bottom: 200px;
-          }
-        }
-
-        h3 {
-          color: $black;
-          font-size: $_18px;
-
-          @include breakpoint-up(desktop) {
-            font-size: $_24px;
-          }
-        }
-      }
-
-      &__hovered_state {
-        visibility: hidden;
-
-        .position {
-          position: absolute;
-          top: 0;
-          left: 0%;
-          z-index: 2;
-          height: 100%;
-          padding: 3rem 2.5rem;
-        }
-
-        h1,
-        p {
-          margin: 0;
-          font-weight: 400;
-          width: fit-content;
-        }
-
-        h1 {
-          font-size: $_24px;
-          color: $orange;
-          margin-bottom: 1rem;
-
-          @include breakpoint-up(large) {
-            margin-bottom: 1.5rem;
-            font-size: $_30px;
-          }
-        }
-
-        p {
-          color: $white;
-          font-size: $_20px;
-          line-height: 1.5;
-
-          @include breakpoint-up(desktop) {
-            font-size: $_18px;
-          }
-
-          @include breakpoint-up(large) {
-            line-height: 1.7;
-            font-size: $_20px;
-          }
-        }
-
-        .top_children {
-          opacity: 0;
-        }
-
-        a {
-          position: relative;
-          color: $white;
-          margin-left: 2rem;
-          //   transition: all 0.5s ease;
-
-          @include breakpoint-up(desktop) {
-            font-size: $_16px;
-          }
-
-          @include breakpoint-up(large) {
-            line-height: 1.7;
-            font-size: $_18px;
-            font-style: italic;
-          }
-
-          &::before {
-            content: "";
-            position: absolute;
-            bottom: calc(50% - 1px);
-            left: -30px;
-            background-color: $orange;
-            height: 2px;
-            width: 16px;
-            // transition: all 0.5s ease;
-          }
-
-          &:hover::before {
-            left: -32px;
-          }
-
-          &:hover {
-            letter-spacing: 0.4px;
-          }
-        }
-
-        &__overlay {
-          transition: all 0.5s ease;
-          background-color: $black;
-          position: absolute;
-          bottom: 0%;
-          left: 0%;
-          z-index: -1;
-          height: 0%;
-          width: 100%;
-        }
-      }
     }
   }
 }
