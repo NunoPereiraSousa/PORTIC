@@ -16,6 +16,9 @@
       title4="Title 4"
       text4="Lorem ipsum dolor sit amet, consectetur
       enim ad minim veniam, quis nostrud."
+      categoryDescription="Here goes some text about the projects and strategies PORTIC
+      adotps in the projects ipsum dolor sit amet, consectetur 
+      eiusmod tempor incididunt ut labore et dolore magna aliqua."
     />
     <MainTitle className="main__title" text="Explore our projects" />
     <div class="projects__grid grid">
@@ -39,7 +42,7 @@ import MainTitle from "@/components/MainTitle.vue";
 import ProjectCard from "@/components/ProjectCard.vue";
 import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
 import Footer from "@/components/Footer.vue";
-import { background } from "../../js/background";
+// import { background } from "../../js/background";
 // import gsap from "gsap";
 
 export default {
@@ -56,7 +59,7 @@ export default {
     };
   },
   mounted() {
-    background();
+    // background();
   },
   methods: {
     onHover(element) {
