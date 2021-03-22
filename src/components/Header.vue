@@ -49,19 +49,17 @@
       </div>
       <div class="navbar__desktop_menu hide-for-mobile">
         <div class="navbar__desktop_menu__links flex">
-          <a href="">
-            <router-link :to="{ name: 'Areas' }">
-              Areas
-            </router-link></a
-          >
-          <a href="">Courses</a>
+          <router-link :to="{ name: 'Areas' }">
+            Areas
+          </router-link>
+          <router-link :to="{ name: 'Courses' }">
+            Courses
+          </router-link>
           <a href="">Media</a>
           <a href="">Positions</a>
-          <a href="">
-            <router-link :to="{ name: 'Projects' }">
-              Projects
-            </router-link>
-          </a>
+          <router-link :to="{ name: 'Projects' }">
+            Projects
+          </router-link>
           <a href="">Unities</a>
         </div>
       </div>

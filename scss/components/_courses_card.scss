@@ -1,15 +1,24 @@
 .courses__grid__card {
-  padding: 1.5rem 1.875rem;
+  padding: 2rem 1.875rem;
   border-top: 1px solid rgba($color: $grey, $alpha: 0.3);
+
+  transition: all 0.2s ease;
+  cursor: pointer;
 
   &:last-child {
     border-bottom: 1px solid rgba($color: $grey, $alpha: 0.3);
+  }
+
+  &:hover {
+    background-color: rgba($color: $grey, $alpha: 0.15);
+    border-top: 2px solid rgba($color: $orange, $alpha: 1);
   }
 
   &__title {
     font-size: $_20px;
     font-family: $portoSansStencil;
     font-weight: 400;
+    color: $orange;
   }
 
   &__button {
@@ -38,7 +47,8 @@
       }
 
       &:nth-child(2) {
-        transform: translate(-50%, -50%) rotate(90deg);
+        transform: translate(calc(-50% + 0.25px), calc(-50% - 0.25px))
+          rotate(90deg);
       }
 
       &.minus {
@@ -50,7 +60,7 @@
   }
 
   &__content {
-    margin: 2.5rem 0;
+    margin: 2rem 0;
     max-height: 300px;
     overflow-y: auto;
 
@@ -74,6 +84,10 @@
       column-gap: 2rem;
       grid-template-columns: 1fr 1fr;
       margin-bottom: 1rem;
+
+      @include breakpoint-up(iPadPro) {
+        width: fit-content !important;
+      }
 
       .know__more {
         margin-top: 0 !important;

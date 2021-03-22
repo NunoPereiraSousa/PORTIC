@@ -15,7 +15,7 @@
   }
 
   @include breakpoint-up(iPadPro) {
-    padding: calc(20.1875rem + 2vw) 0 0 14vw;
+    padding: calc(14.1875rem + 2vw) 8vw !important;
   }
 
   @include breakpoint-up(desktop) {
@@ -73,7 +73,7 @@
         text-shadow: 3px 3px 6px rgba($color: $black, $alpha: 0.16);
       }
 
-      @include breakpoint-up(desktop) {
+      @include breakpoint-up(iPadPro) {
         font-size: $_50px;
         margin-top: 40px;
       }
@@ -241,10 +241,12 @@
 
       transition: all 0.25s ease;
       cursor: pointer;
-      box-shadow: 0 3px 10px 0px rgba($color: $black, $alpha: 0.2);
+      box-shadow: 0 3px 10px 0px rgba($color: $black, $alpha: 0.1),
+        0 -3px 10px 0px rgba($color: $black, $alpha: 0.1);
 
       &:hover {
-        box-shadow: 0 3px 10px 0px rgba($color: $black, $alpha: 0.4);
+        box-shadow: 0 3px 14px 0px rgba($color: $black, $alpha: 0.15),
+          0 -3px 14px 0px rgba($color: $black, $alpha: 0.15);
       }
 
       &:hover svg {
