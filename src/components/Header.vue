@@ -55,7 +55,9 @@
           <router-link :to="{ name: 'Courses' }">
             Courses
           </router-link>
-          <a href="">Media</a>
+          <router-link :to="{ name: 'Media' }">
+            Media
+          </router-link>
           <a href="">Positions</a>
           <router-link :to="{ name: 'Projects' }">
             Projects

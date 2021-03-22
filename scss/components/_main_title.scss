@@ -39,6 +39,11 @@
     width: 25%;
     background-color: $orange;
     box-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.13);
+
+    @include breakpoint-up(large) {
+      bottom: 0;
+      width: 12.5%;
+    }
   }
 
   @include breakpoint-up(desktop) {
