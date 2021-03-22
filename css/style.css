@@ -1364,6 +1364,136 @@ canvas {
   }
 }
 
+.sub_page_intro {
+  width: 100%;
+  padding: calc(12.1875rem + 2vw) 14vw;
+}
+
+@media (max-width: 23.375em) {
+  .sub_page_intro {
+    padding: calc(11.1875rem + 2vw) 0 0 14vw;
+  }
+}
+
+@media (min-width: 64em) {
+  .sub_page_intro {
+    padding: calc(20.1875rem + 2vw) 0 0 14vw;
+  }
+}
+
+@media (min-width: 75em) {
+  .sub_page_intro {
+    padding: calc(13.1875rem + 2vw) 0 0 14vw;
+  }
+}
+
+@media (min-width: 120em) {
+  .sub_page_intro {
+    padding: calc(14.1875rem + 2vw) 0 0 14vw;
+  }
+}
+
+.sub_page_intro__paragraphs {
+  font-size: 1.125rem;
+}
+
+.sub_page_intro__paragraphs p {
+  text-shadow: 3px 3px 3px rgba(8, 8, 8, 0.16);
+}
+
+.sub_page_intro__paragraphs p:first-child {
+  margin: 0;
+}
+
+.sub_page_intro__paragraphs p:last-child {
+  margin: 0.75rem 0;
+}
+
+.sub_page_intro__title {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+
+.sub_page_intro__title h1 {
+  position: relative;
+  margin-top: 0;
+  font-weight: 400;
+  text-shadow: 6px 4px 6px rgba(8, 8, 8, 0.15);
+}
+
+.sub_page_intro__title h1::after {
+  content: "";
+  margin-top: 12px;
+  display: block;
+  width: 3rem;
+  background: #c94d24;
+  border-bottom: 5px solid #c94d24;
+  text-shadow: 3px 3px 6px rgba(8, 8, 8, 0.16);
+}
+
+.sub_page_intro__stats {
+  margin-top: 2rem;
+}
+
+.sub_page_intro__stats:last-child {
+  margin: 0;
+}
+
+.sub_page_intro__stats__card {
+  padding: 0 1.75rem;
+}
+
+.sub_page_intro__stats__card:nth-child(1) {
+  position: relative;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.sub_page_intro__stats__card:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  width: 3px;
+  height: 90%;
+  background: #999999;
+}
+
+.sub_page_intro__stats__card:nth-child(2) {
+  position: relative;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.sub_page_intro__stats__card:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  width: 3px;
+  height: 90%;
+  background: #999999;
+}
+
+.sub_page_intro__stats__card:nth-child(3) {
+  position: relative;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.sub_page_intro__stats__card:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  width: 3px;
+  height: 90%;
+  background: #999999;
+}
+
 .quote {
   position: relative;
   z-index: 1;
