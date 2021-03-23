@@ -17,18 +17,21 @@
         </div>
         <div class="navbar__mobile_menu__links">
           <router-link
+            @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
             :to="{ name: 'Areas' }"
           >
             Areas
           </router-link>
           <router-link
+            @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
             :to="{ name: 'Courses' }"
           >
             Courses
           </router-link>
           <router-link
+            @click.native="closeNavbarOnPageTransition()"
             class="navbar__mobile_menu__links__link"
             :to="{ name: 'Media' }"
           >
@@ -36,12 +39,14 @@
           </router-link>
           <a href="">Positions</a>
           <router-link
+            @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
             :to="{ name: 'Projects' }"
           >
             Projects
           </router-link>
           <router-link
+            @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
             :to="{ name: 'Unities' }"
           >
@@ -119,21 +124,22 @@ export default {
         ".navbar__mobile_overlay"
       );
       navbar__mobile_overlay.classList.toggle("overlay_opened");
+    },
+    closeNavbarOnPageTransition() {
+      let lines = document.querySelectorAll(".navbar__hamburger__lines");
 
-      let navbar__mobile_menu__links__link = document.querySelectorAll(
-        ".navbar__mobile_menu__links__link"
+      lines.forEach(line => {
+        line.classList.toggle("open");
+      });
+
+      let navbar__mobile_menu = document.querySelector(".navbar__mobile_menu");
+
+      let navbar__mobile_overlay = document.querySelector(
+        ".navbar__mobile_overlay"
       );
 
-      navbar__mobile_menu__links__link.forEach(link => {
-        link.addEventListener("click", () => {
-          navbar__mobile_overlay.classList.toggle("overlay_opened");
-          navbar__mobile_menu.classList.toggle("open__overlay");
-
-          lines.forEach(line => {
-            line.classList.toggle("open");
-          });
-        });
-      });
+      navbar__mobile_menu.classList.toggle("open__overlay");
+      navbar__mobile_overlay.classList.toggle("overlay_opened");
     }
   }
 };

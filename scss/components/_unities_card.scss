@@ -1,0 +1,157 @@
+.unities__grid__card {
+  &:hover {
+    @include breakpoint-up(desktop) {
+      border-top: 1.5px solid $orange;
+    }
+  }
+
+  @include breakpoint-up(iPadPro) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    border-top: 1.5px solid $grey;
+    padding-top: 2rem;
+    width: 94%;
+  }
+
+  &__image {
+    @include breakpoint-up(iPadPro) {
+      order: 2;
+    }
+
+    img {
+      height: 13rem;
+      width: 100%;
+
+      @include breakpoint-down(phone) {
+        height: auto;
+        width: 100%;
+      }
+
+      @include breakpoint-up(tablet) {
+        height: 26.875rem;
+      }
+
+      @include breakpoint-up(iPadPro) {
+        height: 100%;
+        width: 100%;
+      }
+
+      @include breakpoint-up(large) {
+        height: 24.625rem;
+        width: 100%;
+      }
+    }
+  }
+
+  &__info {
+    padding: 1rem 0;
+
+    @include breakpoint-down(phone) {
+      padding: 1rem 0;
+    }
+
+    @include breakpoint-up(tablet) {
+      padding: 2rem 1rem;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      order: 1;
+      padding: 0;
+    }
+
+    h4,
+    h3,
+    h2 {
+      font-weight: 400;
+
+      margin: 0;
+    }
+
+    h4 {
+      color: $lightGrey;
+      font-size: $_15px;
+
+      @include breakpoint-down(phone) {
+        font-size: $_14px;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: $_16px;
+      }
+    }
+
+    h2 {
+      color: $orange;
+      font-size: $_20px;
+      text-shadow: 2px 2px 4px rgba($color: $black, $alpha: 0.14);
+
+      @include breakpoint-down(phone) {
+        font-size: $_18px;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: $_22px;
+      }
+    }
+
+    p {
+      font-size: $_17px;
+      color: $black;
+      line-height: 1.7;
+
+      margin: 2.5rem 0;
+
+      @include breakpoint-down(phone) {
+        font-size: $_16px;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: $_20px;
+      }
+    }
+
+    &__button {
+      align-self: flex-end;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+      &:hover div {
+        background-color: rgba($color: $orange, $alpha: 1);
+        border: 1.5px solid $orange;
+      }
+
+      div {
+        box-shadow: 2px 4px 10px rgba($color: $black, $alpha: 0.05),
+          -2px -4px 10px rgba($color: $black, $alpha: 0.05);
+        width: 50px;
+        height: 50px;
+        background-color: rgba($color: $orange, $alpha: 0.75);
+        border: 1.5px solid transparent;
+        border-radius: 50%;
+
+        transition: all 0.25s ease;
+
+        margin-right: 30px;
+
+        svg {
+          width: 20px;
+          height: 20px;
+          fill: $white;
+
+          @include breakpoint-up(iPadPro) {
+            margin-bottom: 1px;
+          }
+        }
+      }
+
+      h3 {
+        color: $orange;
+        font-size: $_16px;
+      }
+    }
+  }
+}

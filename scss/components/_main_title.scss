@@ -42,7 +42,7 @@
 
     @include breakpoint-up(large) {
       bottom: 0;
-      width: 12.5%;
+      width: 10%;
     }
   }
 
@@ -51,7 +51,7 @@
   }
 
   @include breakpoint-up(large) {
-    padding: calc(2.1875rem + 2vw) 8vw 2rem;
+    padding: 0 8vw 2rem;
     font-size: $_34px;
   }
 }

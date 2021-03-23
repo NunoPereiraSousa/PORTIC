@@ -82,6 +82,21 @@
     </section>
     <section class="unities">
       <MainTitle className="main__title" text="Explore our unities" />
+
+      <div class="unities__grid grid">
+        <UnitiesCard
+          v-for="i in 3"
+          :key="i"
+          :counter="i"
+          unityName="Porto Design Factory"
+          unityDesc="Porto Design Factory A Porto Design Factory é um laboratório de ideias com 
+                    base no trabalho interdisciplinar, na investigação aplicada e na colaboração 
+                    industrial. Aqui, os alunos das mais diferentes áreas cooperam no 
+                    desenvolvimento de projetos inovadores com a ambição de promover uma 
+                    mentalidade empreendedora através de um modelo de educação baseado na 
+                    aprendizagem orientada para a resolução de problemas. "
+        />
+      </div>
     </section>
     <Footer />
   </div>
@@ -91,6 +106,7 @@
 import SubPageIntro from "@/components/SubPageIntro.vue";
 import MainTitle from "@/components/MainTitle.vue";
 import PrincipleCard from "@/components/Unities/PrincipleCard.vue";
+import UnitiesCard from "@/components/Unities/UnitiesCard.vue";
 import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
 
@@ -100,6 +116,7 @@ export default {
     SubPageIntro,
     MainTitle,
     PrincipleCard,
+    UnitiesCard,
     Footer,
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide
