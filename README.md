@@ -1,8 +1,10 @@
 # PORTIC
 
+![PORTIC](https://www.ipp.pt/noticias/portic-obtem-2m20ac-de-financiamento-de-i-d-para-o-p-porto-em-2020/image_large)
+
 🦉 Hey there!
 
-In this repository you can find the front-end section of the mobile app **Dutify**:
+In this repository you can find the front-end for the PORTIC website:
 
 ## Table of contents
 
