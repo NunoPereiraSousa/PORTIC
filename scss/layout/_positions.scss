@@ -1,0 +1,33 @@
+.positions {
+  &__find_program {
+    padding: 0 2rem calc(6.1875rem + 2vw);
+
+    &__title {
+      padding: calc(6.1875rem + 2vw) 2rem calc(4.1875rem + 2vw);
+
+      text-align: center;
+      font-weight: 400;
+    }
+
+    &__info {
+      line-height: 1.5;
+    }
+  }
+
+  &__come_prepared {
+    background-color: $black;
+    padding: calc(6.1875rem + 2vw) 2rem;
+
+    &__grid {
+      row-gap: 3rem;
+    }
+  }
+
+  &__available {
+    padding: calc(6.1875rem + 2vw) 2rem 0;
+
+    &__grid {
+      row-gap: 3rem;
+    }
+  }
+}

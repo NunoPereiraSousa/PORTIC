@@ -1,0 +1,127 @@
+.positions__available__card {
+  box-shadow: 0px 6px 20px rgba($color: $black, $alpha: 0.06);
+  padding: 2rem 2rem;
+
+  row-gap: 2rem;
+
+  &__header {
+    position: relative;
+    width: fit-content;
+    padding-bottom: 1rem;
+    margin: 0;
+
+    font-size: $_18px;
+    font-weight: 400;
+    text-shadow: 2px 2px 3px rgba($color: $black, $alpha: 0.2);
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0%;
+      left: 0%;
+      background-color: $orange;
+      height: 3px;
+      width: 40px;
+      box-shadow: 2px 2px 3px rgba($color: $black, $alpha: 0.2);
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &__container {
+      position: relative;
+      margin-right: 1rem;
+    }
+
+    &__lines {
+      position: absolute;
+      width: 1.5px;
+      height: 8px;
+      background-color: $grey;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &:nth-child(1) {
+        transition: all 0.5s ease;
+      }
+
+      &:nth-child(2) {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+
+      &.minus {
+        &:nth-child(1) {
+          height: 0;
+        }
+      }
+    }
+
+    &__header {
+      white-space: nowrap;
+      color: $grey;
+      font-weight: 400;
+
+      margin: 0;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0 calc(1rem + 3.5px);
+    list-style: none;
+
+    font-size: $_17px;
+
+    li {
+      margin: 1rem 0;
+      letter-spacing: 0.1px;
+
+      &:first-child {
+        margin: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        content: "\2022";
+        color: $orange;
+        border: none;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &__info {
+    p {
+      font-size: $_16px;
+      line-height: 1.6;
+
+      a {
+        text-decoration: underline;
+        color: $orange;
+      }
+    }
+  }
+
+  &__apply_btn {
+    background-color: $orange;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    color: $white;
+    letter-spacing: 0.1px;
+    font-size: $_14px;
+  }
+}

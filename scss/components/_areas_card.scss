@@ -71,7 +71,7 @@
       }
 
       &:nth-child(2) {
-        transform: translate(calc(-50% + 0.5px), -50%) rotate(90deg);
+        transform: translate(-50%, -50%) rotate(90deg);
       }
 
       &.minus {

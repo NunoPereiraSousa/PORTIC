@@ -1,0 +1,16 @@
+.positions__come_prepared__grid__card {
+  h2,
+  p {
+    font-weight: 400;
+  }
+
+  h2 {
+    color: $white;
+    font-size: $_18px;
+  }
+
+  p {
+    color: $lightGrey;
+    line-height: 1.5;
+  }
+}

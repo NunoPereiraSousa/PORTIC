@@ -4,6 +4,7 @@ import Areas from "../views/Areas.vue";
 import Courses from "../views/Courses.vue";
 import Home from "../views/Home.vue";
 import Media from "../views/Media.vue";
+import Positions from "../views/Positions.vue";
 import Projects from "../views/Projects.vue";
 import ProjectsCatalog from "../views/ProjectsCatalog.vue";
 import Unities from "../views/Unities.vue";
@@ -30,6 +31,11 @@ const routes = [
     path: "/media",
     name: "Media",
     component: Media
+  },
+  {
+    path: "/positions",
+    name: "Positions",
+    component: Positions
   },
   {
     path: "/projects",

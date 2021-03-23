@@ -37,7 +37,13 @@
           >
             Media
           </router-link>
-          <a href="">Positions</a>
+          <router-link
+            @click.native="closeNavbarOnPageTransition()"
+            class="navbar__mobile_menu__links__link"
+            :to="{ name: 'Positions' }"
+          >
+            Positions
+          </router-link>
           <router-link
             @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
@@ -88,7 +94,9 @@
           <router-link :to="{ name: 'Media' }">
             Media
           </router-link>
-          <a href="">Positions</a>
+          <router-link :to="{ name: 'Positions' }">
+            Positions
+          </router-link>
           <router-link :to="{ name: 'Projects' }">
             Projects
           </router-link>
