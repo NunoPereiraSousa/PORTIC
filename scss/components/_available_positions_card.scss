@@ -23,6 +23,7 @@
     grid-template-columns: minmax(30vw, 1fr) minmax(30vw, 1fr) min-content;
 
     row-gap: 0;
+    padding: 2.875rem;
   }
 
   &__header {
@@ -48,6 +49,7 @@
 
     @include breakpoint-up(iPadPro) {
       font-size: $_20px;
+      text-shadow: 2px 2px 4px rgba($color: $black, $alpha: 0.2);
     }
 
     @include breakpoint-up(large) {

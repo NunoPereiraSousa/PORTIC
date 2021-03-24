@@ -3749,6 +3749,13 @@ canvas {
   line-height: 1.5;
 }
 
+@media (min-width: 64em) {
+  .positions__find_program__info {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
 @media (min-width: 120em) {
   .positions__find_program__info {
     font-size: 1.375rem;
@@ -3958,6 +3965,7 @@ canvas {
         grid-template-columns: minmax(30vw, 1fr) minmax(30vw, 1fr) -webkit-min-content;
         grid-template-columns: minmax(30vw, 1fr) minmax(30vw, 1fr) min-content;
     row-gap: 0;
+    padding: 2.875rem;
   }
 }
 
@@ -3988,6 +3996,7 @@ canvas {
 @media (min-width: 64em) {
   .positions__available__card__header {
     font-size: 1.25rem;
+    text-shadow: 2px 2px 4px rgba(8, 8, 8, 0.2);
   }
 }
 
