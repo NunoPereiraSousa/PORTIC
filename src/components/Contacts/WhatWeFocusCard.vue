@@ -1,0 +1,54 @@
+<template>
+  <div class="what_we_focus__card">
+    <div class="flex flex-ai-c flex-jc-sb">
+      <h2>{{ text }}</h2>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="50.846"
+        height="46.69"
+        viewBox="0 0 50.846 46.69"
+      >
+        <g id="checkmark" transform="translate(0.5 0.5)">
+          <path
+            id="Path_58"
+            data-name="Path 58"
+            d="M22.845,45.7A22.845,22.845,0,1,1,35.169,3.62a1.559,1.559,0,0,1-1.684,2.623,19.727,19.727,0,1,0,9.09,16.611c0-.65-.031-1.294-.091-1.927a1.558,1.558,0,1,1,3.1-.3q.106,1.1.106,2.228A22.872,22.872,0,0,1,22.845,45.7Zm0,0"
+            transform="translate(0 -0.008)"
+            fill="#1bd24c"
+            stroke="#00e676"
+            stroke-width="1"
+          />
+          <path
+            id="Path_59"
+            data-name="Path 59"
+            d="M160.242,47.308a1.546,1.546,0,0,1-1.1-.457L149.8,37.505a1.558,1.558,0,1,1,2.2-2.2l8.245,8.245L181.987,21.8a1.558,1.558,0,1,1,2.2,2.2L161.345,46.853a1.561,1.561,0,0,1-1.1.455Zm0,0"
+            transform="translate(-134.801 -19.27)"
+            fill="#1bd24c"
+            stroke="#00e676"
+            stroke-width="1"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+</template>
+
+<script>
+import { Glide, GlideSlide } from "vue-glide-js";
+
+export default {
+  name: "WhatWeFocusCard",
+  props: {
+    text: {
+      type: String,
+      required: true
+    }
+  },
+  components: {
+    [Glide.name]: Glide,
+    [GlideSlide.name]: GlideSlide
+  }
+};
+</script>
+
+<style></style>

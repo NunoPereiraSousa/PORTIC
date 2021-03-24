@@ -1,0 +1,201 @@
+.contacts {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  // &__strokes {
+  //   position: relative;
+  //   z-index: -1;
+  //   width: 100%;
+  //   height: 100vh;
+
+  //   @include breakpoint-down(phone) {
+  //     height: auto;
+  //     width: 100%;
+  //   }
+  //   // padding: calc(14.1875rem + 2vw) 0 0 14vw;
+
+  //   grid-template-columns: 1fr 1fr 1fr;
+
+  //   div {
+  //     height: 100%;
+
+  //     border-right: 1px solid rgba($color: $black, $alpha: 0.21);
+  //   }
+
+  //   // @include breakpoint-down(phone) {
+  //   //   padding: calc(11.1875rem + 2vw) 0 0 14vw;
+  //   // }
+
+  //   // @include breakpoint-up(iPadPro) {
+  //   //   padding: calc(20.1875rem + 2vw) 0 0 14vw;
+  //   // }
+
+  //   // @include breakpoint-up(desktop) {
+  //   //   padding: calc(13.1875rem + 2vw) 0 0 14vw;
+  //   // }
+
+  //   // @include breakpoint-up(large) {
+  //   //   padding: calc(14.1875rem + 2vw) 0 0 14vw;
+  //   // }
+  // }
+
+  &__intro {
+    position: relative;
+    // position: absolute;
+    // left: 0%;
+    // top: 0%;
+    // right: 0%;
+    padding: calc(12.1875rem + 2vw) 14vw calc(6.1875rem + 2vw);
+
+    &::before,
+    &::after {
+      content: "";
+      background-color: rgba($color: $black, $alpha: 0.21);
+      height: 100%;
+      width: 1px;
+      position: absolute;
+      z-index: -1;
+      top: 0%;
+    }
+
+    &::before {
+      left: 25%;
+    }
+
+    &::after {
+      right: 25%;
+    }
+
+    @include breakpoint-down(phone) {
+      padding: calc(10.1875rem + 2vw) 14vw calc(6.1875rem + 2vw);
+    }
+
+    &__grid {
+      row-gap: 4rem;
+
+      text-align: center;
+
+      &__entrance {
+        row-gap: 4rem;
+
+        &__circle {
+          justify-self: center;
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          background-color: $black;
+          //   border: 1.5px solid $black;
+          //   background-color: rgba($color: $white, $alpha: 0.5);
+        }
+      }
+
+      h1,
+      h3,
+      h4 {
+        margin: 0;
+      }
+
+      h1 {
+        font-family: $portoSansStencil;
+        color: $black;
+        color: $orange;
+        font-weight: 800;
+        font-size: $_26px;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      h3,
+      h4 {
+        font-weight: 400;
+      }
+
+      h3 {
+        color: $black;
+        margin-top: 1rem;
+      }
+
+      h4 {
+        color: $white;
+        font-size: $_16px;
+        line-height: 1.6;
+
+        span {
+          color: $orange;
+        }
+      }
+    }
+
+    &__socials {
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+      row-gap: 1rem;
+
+      a {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        border: 1px solid $grey;
+        color: $black;
+        background-color: $white;
+      }
+    }
+  }
+
+  &__write {
+    position: fixed;
+    right: 50%;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: $orange;
+  }
+
+  &__what_we_focus {
+    background-color: $black;
+  }
+
+  &__what_we_focus,
+  &__testimonials {
+    padding: calc(6.1875rem + 2vw) 2rem;
+
+    @include breakpoint-up(tablet) {
+      padding: calc(6.1875rem + 2vw) 8vw;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      padding: calc(6.1875rem + 2vw) 11vw;
+    }
+  }
+
+  &__testimonials {
+    position: relative;
+    z-index: 999;
+    touch-action: pan-y !important;
+    padding-top: calc(5.1875rem + 2vw);
+
+    &__title,
+    &__subtitle {
+      margin: 0;
+
+      text-align: center;
+      font-weight: 400;
+    }
+
+    &__title {
+      padding: 0 2rem calc(2.1875rem + 2vw);
+      text-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.2);
+
+      @include breakpoint-up(large) {
+        font-size: $_40px;
+      }
+    }
+
+    &__subtitle {
+      color: $grey;
+      line-height: 1.6;
+      font-size: $_17px;
+    }
+  }
+}

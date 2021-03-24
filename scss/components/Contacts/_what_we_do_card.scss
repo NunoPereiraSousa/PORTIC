@@ -1,0 +1,15 @@
+.what_we_focus__card {
+  border-bottom: 1px solid $white;
+  padding: 2rem 1rem;
+
+  h2 {
+    font-size: $_16px;
+    font-weight: 400;
+    color: $white;
+  }
+
+  svg {
+    height: 1.625rem;
+    width: 1.625rem;
+  }
+}

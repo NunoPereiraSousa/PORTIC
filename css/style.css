@@ -127,8 +127,6 @@ body {
   font-family: "Porto Sans";
   font-size: 1rem;
   line-height: 1.4;
-  -ms-touch-action: pan-y !important;
-      touch-action: pan-y !important;
 }
 
 a,
@@ -2333,7 +2331,15 @@ canvas {
 
 .testimonials__cards__card {
   position: relative;
-  z-index: -5;
+  z-index: -1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 20rem;
   -webkit-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
@@ -2362,6 +2368,7 @@ canvas {
 .testimonials__cards__card img {
   border-radius: 50%;
   position: absolute;
+  z-index: 2;
   left: 50%;
   top: calc(4.325rem / -2);
   -webkit-transform: translateX(-50%);
@@ -2391,19 +2398,22 @@ canvas {
   color: #999999;
 }
 
-.testimonials__cards__card__text {
-  max-height: 8.75rem;
-  overflow-y: auto;
-}
-
 .testimonials__cards__card__text p {
   letter-spacing: 0.4px;
   margin: 0;
 }
 
+.glide {
+  position: relative;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .glide__track {
   cursor: -webkit-grab;
   cursor: grab;
+  overflow: hidden;
 }
 
 .glide__track:active {
@@ -2471,6 +2481,10 @@ canvas {
   .glide__track + div button {
     margin: 1.875rem 10px;
   }
+}
+
+.glide__track {
+  overflow: hidden;
 }
 
 .projects__grid {
@@ -4182,5 +4196,186 @@ canvas {
     white-space: nowrap;
     font-size: 0.9375rem;
   }
+}
+
+.contacts {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.contacts__intro {
+  position: relative;
+  padding: calc(12.1875rem + 2vw) 14vw calc(6.1875rem + 2vw);
+}
+
+.contacts__intro::before, .contacts__intro::after {
+  content: "";
+  background-color: rgba(8, 8, 8, 0.21);
+  height: 100%;
+  width: 1px;
+  position: absolute;
+  z-index: -1;
+  top: 0%;
+}
+
+.contacts__intro::before {
+  left: 25%;
+}
+
+.contacts__intro::after {
+  right: 25%;
+}
+
+@media (max-width: 23.375em) {
+  .contacts__intro {
+    padding: calc(10.1875rem + 2vw) 14vw calc(6.1875rem + 2vw);
+  }
+}
+
+.contacts__intro__grid {
+  row-gap: 4rem;
+  text-align: center;
+}
+
+.contacts__intro__grid__entrance {
+  row-gap: 4rem;
+}
+
+.contacts__intro__grid__entrance__circle {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #080808;
+}
+
+.contacts__intro__grid h1,
+.contacts__intro__grid h3,
+.contacts__intro__grid h4 {
+  margin: 0;
+}
+
+.contacts__intro__grid h1 {
+  font-family: "Porto Sans Stencil";
+  color: #080808;
+  color: #c94d24;
+  font-weight: 800;
+  font-size: 1.625rem;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.contacts__intro__grid h3,
+.contacts__intro__grid h4 {
+  font-weight: 400;
+}
+
+.contacts__intro__grid h3 {
+  color: #080808;
+  margin-top: 1rem;
+}
+
+.contacts__intro__grid h4 {
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.contacts__intro__grid h4 span {
+  color: #c94d24;
+}
+
+.contacts__intro__socials {
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  row-gap: 1rem;
+}
+
+.contacts__intro__socials a {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #999999;
+  color: #080808;
+  background-color: #ffffff;
+}
+
+.contacts__write {
+  position: fixed;
+  right: 50%;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: #c94d24;
+}
+
+.contacts__what_we_focus {
+  background-color: #080808;
+}
+
+.contacts__what_we_focus, .contacts__testimonials {
+  padding: calc(6.1875rem + 2vw) 2rem;
+}
+
+@media (min-width: 48em) {
+  .contacts__what_we_focus, .contacts__testimonials {
+    padding: calc(6.1875rem + 2vw) 8vw;
+  }
+}
+
+@media (min-width: 64em) {
+  .contacts__what_we_focus, .contacts__testimonials {
+    padding: calc(6.1875rem + 2vw) 11vw;
+  }
+}
+
+.contacts__testimonials {
+  position: relative;
+  z-index: 999;
+  -ms-touch-action: pan-y !important;
+      touch-action: pan-y !important;
+  padding-top: calc(5.1875rem + 2vw);
+}
+
+.contacts__testimonials__title, .contacts__testimonials__subtitle {
+  margin: 0;
+  text-align: center;
+  font-weight: 400;
+}
+
+.contacts__testimonials__title {
+  padding: 0 2rem calc(2.1875rem + 2vw);
+  text-shadow: 3px 3px 4px rgba(8, 8, 8, 0.2);
+}
+
+@media (min-width: 120em) {
+  .contacts__testimonials__title {
+    font-size: 2.5rem;
+  }
+}
+
+.contacts__testimonials__subtitle {
+  color: #999999;
+  line-height: 1.6;
+  font-size: 1.0625rem;
+}
+
+.what_we_focus__card {
+  border-bottom: 1px solid #ffffff;
+  padding: 2rem 1rem;
+}
+
+.what_we_focus__card h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.what_we_focus__card svg {
+  height: 1.625rem;
+  width: 1.625rem;
 }
 /*# sourceMappingURL=style.css.map */
