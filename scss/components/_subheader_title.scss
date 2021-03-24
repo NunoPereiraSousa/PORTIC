@@ -31,8 +31,9 @@
     box-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.13);
 
     @include breakpoint-up(large) {
-      bottom: 0;
-      width: 10%;
+      left: 0.75%;
+      width: 16%;
+      height: 4.5px;
     }
   }
 
@@ -42,6 +43,6 @@
   }
 
   @include breakpoint-up(large) {
-    font-size: $_34px;
+    font-size: $_36px;
   }
 }

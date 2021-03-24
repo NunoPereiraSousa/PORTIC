@@ -777,11 +777,12 @@ canvas {
 
 .navbar__desktop_menu__links a::after {
   content: "";
+  display: block;
   position: absolute;
   z-index: -1;
   left: -15%;
   bottom: -5%;
-  background-color: #c94d24;
+  background-color: transparent;
   opacity: 0.85;
   width: 0;
   height: 120%;
@@ -791,6 +792,7 @@ canvas {
 
 .navbar__desktop_menu__links a:hover::after {
   width: 64%;
+  background-color: #c94d24;
 }
 
 @keyframes arrow-down {
@@ -3737,11 +3739,12 @@ canvas {
   padding: calc(6.1875rem + 2vw) 2rem calc(4.1875rem + 2vw);
   text-align: center;
   font-weight: 400;
+  text-shadow: 3px 3px 4px rgba(8, 8, 8, 0.2);
 }
 
 @media (min-width: 120em) {
   .positions__find_program__title {
-    font-size: 2.125rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -3873,8 +3876,9 @@ canvas {
 
 @media (min-width: 120em) {
   .sub__header__title::after {
-    bottom: 0;
-    width: 10%;
+    left: 0.75%;
+    width: 16%;
+    height: 4.5px;
   }
 }
 
@@ -3887,7 +3891,7 @@ canvas {
 
 @media (min-width: 120em) {
   .sub__header__title {
-    font-size: 2.125rem;
+    font-size: 2.25rem;
   }
 }
 
@@ -3932,13 +3936,11 @@ canvas {
 }
 
 .positions__available__card {
+  width: 100%;
   -webkit-box-shadow: 0px 6px 20px rgba(8, 8, 8, 0.03), 0px -6px 20px rgba(8, 8, 8, 0.03);
           box-shadow: 0px 6px 20px rgba(8, 8, 8, 0.03), 0px -6px 20px rgba(8, 8, 8, 0.03);
   padding: 2rem 2rem;
   row-gap: 2rem;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
@@ -3976,7 +3978,7 @@ canvas {
   width: fit-content;
   padding-bottom: 1rem;
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 400;
   text-shadow: 2px 2px 3px rgba(8, 8, 8, 0.2);
 }
@@ -4108,9 +4110,13 @@ canvas {
   margin-left: -1em;
 }
 
+.positions__available__card__info {
+  overflow: hidden;
+}
+
 .positions__available__card__info p {
-  font-size: 1rem;
   line-height: 1.6;
+  word-wrap: break-word;
   margin: 0;
 }
 
@@ -4153,6 +4159,9 @@ canvas {
 }
 
 .positions__available__card__apply_btn {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;

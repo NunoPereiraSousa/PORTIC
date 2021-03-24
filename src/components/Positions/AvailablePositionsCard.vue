@@ -22,7 +22,7 @@
 
     <button
       class="positions__available__card__button flex flex-ai-c hide-above-tablet"
-      @click="hide = !hide"
+      @click="toggleInfo(index)"
     >
       <div class="positions__available__card__button__container">
         <div class="positions__available__card__button__lines"></div>
@@ -71,16 +71,9 @@ export default {
       hide: true
     };
   },
-  mounted() {
-    // console.log(this.positions);
-  },
   methods: {
     toggleInfo(index) {
       this.hide = !this.hide;
-
-      // let lines = document.querySelectorAll(
-      //   ".positions__available__card__button__lines"
-      // );
 
       let lines = document.querySelectorAll(
         `#card_${index} .positions__available__card__button__lines`
@@ -93,8 +86,6 @@ export default {
       let textArr = document.querySelectorAll(
         `#card_${index} .positions__available__card__info`
       );
-
-      console.log(textArr);
 
       textArr.forEach(item => {
         item.classList.toggle("opened");

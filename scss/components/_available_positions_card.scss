@@ -1,11 +1,12 @@
 .positions__available__card {
+  width: 100%;
+
   box-shadow: 0px 6px 20px rgba($color: $black, $alpha: 0.03),
     0px -6px 20px rgba($color: $black, $alpha: 0.03);
   padding: 2rem 2rem;
 
   row-gap: 2rem;
 
-  width: fit-content;
   transition: all 0.25s ease;
 
   @include breakpoint-up(tablet) {
@@ -32,7 +33,7 @@
     padding-bottom: 1rem;
     margin: 0;
 
-    font-size: $_18px;
+    font-size: $_20px;
     font-weight: 400;
     text-shadow: 2px 2px 3px rgba($color: $black, $alpha: 0.2);
 
@@ -154,9 +155,11 @@
   }
 
   &__info {
+    overflow: hidden;
+
     p {
-      font-size: $_16px;
       line-height: 1.6;
+      word-wrap: break-word;
 
       margin: 0;
 
@@ -187,6 +190,7 @@
   }
 
   &__apply_btn {
+    width: fit-content;
     height: fit-content;
     background-color: $orange;
     border: none;

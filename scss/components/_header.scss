@@ -312,11 +312,12 @@
 
         &::after {
           content: "";
+          display: block;
           position: absolute;
           z-index: -1;
           left: -15%;
           bottom: -5%;
-          background-color: $orange;
+          background-color: transparent;
           opacity: 0.85;
           width: 0;
           height: 120%;
@@ -325,6 +326,7 @@
 
         &:hover::after {
           width: 64%;
+          background-color: $orange;
         }
       }
     }
