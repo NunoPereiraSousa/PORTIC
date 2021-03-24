@@ -7,10 +7,26 @@
 
       text-align: center;
       font-weight: 400;
+
+      @include breakpoint-up(large) {
+        font-size: $_34px;
+      }
     }
 
     &__info {
       line-height: 1.5;
+
+      @include breakpoint-up(large) {
+        font-size: $_22px;
+      }
+    }
+
+    @include breakpoint-up(tablet) {
+      padding: 0 8vw calc(6.1875rem + 2vw);
+    }
+
+    @include breakpoint-up(iPadPro) {
+      padding: 0 11vw calc(6.1875rem + 2vw);
     }
   }
 
@@ -20,11 +36,39 @@
 
     &__grid {
       row-gap: 3rem;
+
+      @include breakpoint-up(tablet) {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 4rem;
+        row-gap: 4rem;
+      }
+
+      @include breakpoint-up(iPadPro) {
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 4rem;
+        row-gap: 4rem;
+      }
+    }
+
+    @include breakpoint-up(tablet) {
+      padding: calc(6.1875rem + 2vw) 8vw;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      padding: calc(6.1875rem + 2vw) 11vw;
     }
   }
 
   &__available {
     padding: calc(6.1875rem + 2vw) 2rem 0;
+
+    @include breakpoint-up(tablet) {
+      padding: calc(6.1875rem + 2vw) 8vw 0;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      padding: calc(6.1875rem + 2vw) 11vw 0;
+    }
 
     &__grid {
       row-gap: 3rem;

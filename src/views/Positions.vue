@@ -60,6 +60,8 @@
         <AvailablePositionsCard
           v-for="position in positions"
           :key="position.id"
+          :card_id="`card_${position.id}`"
+          :index="position.id"
           :title="position.title"
           :categories="position.categories"
           :content="position.content"

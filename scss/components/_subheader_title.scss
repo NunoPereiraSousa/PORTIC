@@ -36,12 +36,12 @@
     }
   }
 
-  @include breakpoint-up(desktop) {
+  @include breakpoint-up(iPadPro) {
     font-size: $_30px;
+    margin: 0 0 5rem;
   }
 
   @include breakpoint-up(large) {
-    padding: 0 8vw 2rem;
     font-size: $_34px;
   }
 }

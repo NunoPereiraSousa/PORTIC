@@ -7,10 +7,27 @@
   h2 {
     color: $white;
     font-size: $_18px;
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_22px;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_24px;
+    }
   }
 
   p {
     color: $lightGrey;
     line-height: 1.5;
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_18px;
+      line-height: 1.7;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_20px;
+    }
   }
 }

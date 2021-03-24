@@ -1,8 +1,29 @@
 .positions__available__card {
-  box-shadow: 0px 6px 20px rgba($color: $black, $alpha: 0.06);
+  box-shadow: 0px 6px 20px rgba($color: $black, $alpha: 0.03),
+    0px -6px 20px rgba($color: $black, $alpha: 0.03);
   padding: 2rem 2rem;
 
   row-gap: 2rem;
+
+  width: fit-content;
+  transition: all 0.25s ease;
+
+  @include breakpoint-up(tablet) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, min-content);
+  }
+
+  &:hover {
+    box-shadow: 0px 6px 30px rgba($color: $black, $alpha: 0.05),
+      0px -6px 30px rgba($color: $black, $alpha: 0.05);
+  }
+
+  @include breakpoint-up(iPadPro) {
+    border-radius: 4px;
+    grid-template-columns: minmax(30vw, 1fr) minmax(30vw, 1fr) min-content;
+
+    row-gap: 0;
+  }
 
   &__header {
     position: relative;
@@ -24,14 +45,32 @@
       width: 40px;
       box-shadow: 2px 2px 3px rgba($color: $black, $alpha: 0.2);
     }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_20px;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_22px;
+    }
   }
 
   &__button {
     background-color: transparent;
     border: none;
 
+    cursor: pointer;
+
     &:focus {
       outline: none;
+    }
+
+    @include breakpoint-up(tablet) {
+      margin-top: 2rem;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_15px;
     }
 
     &__container {
@@ -47,6 +86,11 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+
+      @include breakpoint-up(iPadPro) {
+        width: 1.5px;
+        height: 10px;
+      }
 
       &:nth-child(1) {
         transition: all 0.5s ease;
@@ -79,6 +123,10 @@
 
     font-size: $_17px;
 
+    @include breakpoint-up(iPadPro) {
+      font-size: $_18px;
+    }
+
     li {
       margin: 1rem 0;
       letter-spacing: 0.1px;
@@ -108,14 +156,36 @@
       font-size: $_16px;
       line-height: 1.6;
 
+      margin: 0;
+
+      @include breakpoint-up(iPadPro) {
+        font-size: $_17px;
+        line-height: 1.7;
+      }
+
       a {
         text-decoration: underline;
         color: $orange;
       }
     }
+
+    &.opened {
+      @include breakpoint-up(iPadPro) {
+        margin-top: 2rem;
+      }
+    }
+
+    @include breakpoint-up(tablet) {
+      grid-area: 3 / 1 / 4 / 3;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      grid-area: 2 / 1 / 3 / 4;
+    }
   }
 
   &__apply_btn {
+    height: fit-content;
     background-color: $orange;
     border: none;
     border-radius: 6px;
@@ -123,5 +193,12 @@
     color: $white;
     letter-spacing: 0.1px;
     font-size: $_14px;
+    cursor: pointer;
+
+    @include breakpoint-up(iPadPro) {
+      justify-self: center;
+      white-space: nowrap;
+      font-size: $_15px;
+    }
   }
 }
