@@ -2,14 +2,48 @@
   border-bottom: 1px solid $white;
   padding: 2rem 1rem;
 
+  cursor: pointer;
+
+  &:hover h2 {
+    color: $orange;
+  }
+
+  @include breakpoint-up(tablet) {
+    padding: 2rem 1.25rem;
+  }
+
+  @include breakpoint-up(iPadPro) {
+    padding: 2rem 4rem;
+  }
+
   h2 {
     font-size: $_16px;
     font-weight: 400;
     color: $white;
+
+    transition: all 0.3s ease;
+
+    @include breakpoint-up(tablet) {
+      font-size: $_18px;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_22px;
+    }
   }
 
   svg {
     height: 1.625rem;
     width: 1.625rem;
+
+    @include breakpoint-up(tablet) {
+      height: 1.8rem;
+      width: 1.8rem;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      height: 2.4rem;
+      width: 2.4rem;
+    }
   }
 }

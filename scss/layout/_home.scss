@@ -241,6 +241,7 @@
 
       @include breakpoint-up(desktop) {
         box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
+        padding: calc(calc(4.325rem / 2) + calc(3.125rem / 8)) 2rem 3.125rem;
       }
 
       img {
@@ -281,7 +282,7 @@
         // overflow-y: auto;
 
         p {
-          letter-spacing: 0.4px;
+          letter-spacing: 0.3px;
           margin: 0;
         }
       }

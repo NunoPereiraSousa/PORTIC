@@ -3,49 +3,35 @@
   width: 100%;
   height: 100%;
 
-  // &__strokes {
-  //   position: relative;
-  //   z-index: -1;
-  //   width: 100%;
-  //   height: 100vh;
+  &__write {
+    position: fixed;
+    z-index: 550;
+    bottom: 6.5%;
+    right: 3%;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: $orange;
 
-  //   @include breakpoint-down(phone) {
-  //     height: auto;
-  //     width: 100%;
-  //   }
-  //   // padding: calc(14.1875rem + 2vw) 0 0 14vw;
+    box-shadow: 0 6px 20px 0px rgba($color: $black, $alpha: 0.08),
+      0 -6px 20px 0px rgba($color: $black, $alpha: 0.08);
 
-  //   grid-template-columns: 1fr 1fr 1fr;
+    cursor: pointer;
+    transition: all 0.5s ease;
 
-  //   div {
-  //     height: 100%;
+    &:hover {
+      box-shadow: 0 6px 20px 0px rgba($color: $black, $alpha: 0.1),
+        0 -6px 20px 0px rgba($color: $black, $alpha: 0.1);
+      transform: scale(1.1);
+    }
 
-  //     border-right: 1px solid rgba($color: $black, $alpha: 0.21);
-  //   }
-
-  //   // @include breakpoint-down(phone) {
-  //   //   padding: calc(11.1875rem + 2vw) 0 0 14vw;
-  //   // }
-
-  //   // @include breakpoint-up(iPadPro) {
-  //   //   padding: calc(20.1875rem + 2vw) 0 0 14vw;
-  //   // }
-
-  //   // @include breakpoint-up(desktop) {
-  //   //   padding: calc(13.1875rem + 2vw) 0 0 14vw;
-  //   // }
-
-  //   // @include breakpoint-up(large) {
-  //   //   padding: calc(14.1875rem + 2vw) 0 0 14vw;
-  //   // }
-  // }
+    &:hover svg {
+      animation: twink 1s ease infinite;
+    }
+  }
 
   &__intro {
-    position: relative;
-    // position: absolute;
-    // left: 0%;
-    // top: 0%;
-    // right: 0%;
+    // position: relative;
     padding: calc(12.1875rem + 2vw) 14vw calc(6.1875rem + 2vw);
 
     &::before,
@@ -57,36 +43,73 @@
       position: absolute;
       z-index: -1;
       top: 0%;
+
+      @include breakpoint-up(iPadPro) {
+        width: 1.5px;
+        background-color: rgba($color: $black, $alpha: 0.25);
+      }
     }
 
     &::before {
       left: 25%;
+
+      @include breakpoint-up(iPadPro) {
+        left: 30%;
+      }
     }
 
     &::after {
       right: 25%;
+
+      @include breakpoint-up(iPadPro) {
+        right: 30%;
+      }
     }
 
     @include breakpoint-down(phone) {
       padding: calc(10.1875rem + 2vw) 14vw calc(6.1875rem + 2vw);
     }
 
+    @include breakpoint-up(tablet) {
+      padding: calc(14.1875rem + 2vw) 0 calc(6.1875rem + 2vw);
+    }
+
+    @include breakpoint-up(iPadPro) {
+      padding: calc(11.5875rem + 2vw) 0 calc(6.1875rem + 2vw);
+    }
+
     &__grid {
       row-gap: 4rem;
 
       text-align: center;
+      position: relative;
+
+      @include breakpoint-up(tablet) {
+        grid-template-columns: 25vw 50vw 25vw;
+      }
+
+      @include breakpoint-up(iPadPro) {
+        grid-template-columns: 30vw 40vw 30vw;
+      }
 
       &__entrance {
         row-gap: 4rem;
 
+        @include breakpoint-up(iPadPro) {
+          row-gap: 5rem;
+        }
+
         &__circle {
           justify-self: center;
-          width: 200px;
-          height: 200px;
+          width: 12.5rem;
+          height: 12.5rem;
           border-radius: 50%;
           background-color: $black;
-          //   border: 1.5px solid $black;
-          //   background-color: rgba($color: $white, $alpha: 0.5);
+
+          @include breakpoint-up(iPadPro) {
+            width: 15rem;
+            height: 15rem;
+          }
         }
       }
 
@@ -104,6 +127,10 @@
         font-size: $_26px;
         letter-spacing: 0.4px;
         text-transform: uppercase;
+
+        @include breakpoint-up(iPadPro) {
+          font-size: $_30px;
+        }
       }
 
       h3,
@@ -114,6 +141,10 @@
       h3 {
         color: $black;
         margin-top: 1rem;
+
+        @include breakpoint-up(iPadPro) {
+          font-size: $_22px;
+        }
       }
 
       h4 {
@@ -124,6 +155,11 @@
         span {
           color: $orange;
         }
+
+        @include breakpoint-up(iPadPro) {
+          font-size: $_18px;
+          line-height: 1.8;
+        }
       }
     }
 
@@ -132,24 +168,39 @@
       justify-items: center;
       row-gap: 1rem;
 
+      @include breakpoint-up(iPadPro) {
+        row-gap: 2.25rem;
+      }
+
       a {
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 2.5rem;
+        height: 2.5rem;
         border: 1px solid $grey;
         color: $black;
         background-color: $white;
+
+        transition: all 0.3s ease;
+
+        &:hover {
+          font-size: $_22px;
+          color: $orange;
+          border: 1.5px solid $orange;
+        }
+
+        @include breakpoint-up(iPadPro) {
+          width: 4rem;
+          height: 4rem;
+          font-size: $_20px;
+        }
+      }
+
+      @include breakpoint-up(tablet) {
+        align-self: center;
+        justify-self: center;
+        grid-template-columns: 1fr;
       }
     }
-  }
-
-  &__write {
-    position: fixed;
-    right: 50%;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: $orange;
   }
 
   &__what_we_focus {
@@ -157,7 +208,9 @@
   }
 
   &__what_we_focus,
-  &__testimonials {
+  &__testimonials,
+  &__form,
+  &__map {
     padding: calc(6.1875rem + 2vw) 2rem;
 
     @include breakpoint-up(tablet) {
@@ -171,9 +224,8 @@
 
   &__testimonials {
     position: relative;
-    z-index: 999;
-    touch-action: pan-y !important;
     padding-top: calc(5.1875rem + 2vw);
+    background-color: $white;
 
     &__title,
     &__subtitle {
@@ -187,8 +239,12 @@
       padding: 0 2rem calc(2.1875rem + 2vw);
       text-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.2);
 
+      @include breakpoint-up(iPadPro) {
+        font-size: $_30px;
+      }
+
       @include breakpoint-up(large) {
-        font-size: $_40px;
+        font-size: $_36px;
       }
     }
 
@@ -196,6 +252,179 @@
       color: $grey;
       line-height: 1.6;
       font-size: $_17px;
+
+      @include breakpoint-up(tablet) {
+        font-size: $_19px;
+        padding: 0 20vw;
+      }
+    }
+  }
+
+  &__form {
+    background-color: $black;
+
+    @include breakpoint-up(iPadPro) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__contacts {
+      row-gap: 2rem;
+
+      @include breakpoint-up(iPadPro) {
+        grid-auto-rows: min-content;
+        row-gap: 3rem;
+      }
+
+      h3,
+      h2 {
+        font-weight: 400;
+        margin: 0;
+      }
+
+      h3 {
+        color: rgba($color: $white, $alpha: 0.48);
+        font-weight: 100;
+
+        @include breakpoint-up(tablet) {
+          font-size: $_22px;
+        }
+      }
+
+      h2 {
+        color: $white;
+        font-size: $_18px;
+        font-family: $portoSerif;
+
+        @include breakpoint-up(tablet) {
+          font-size: $_20px;
+        }
+
+        &:last-child {
+          margin-top: 1rem;
+        }
+      }
+
+      &__socials {
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 1rem;
+
+        @include breakpoint-up(tablet) {
+          column-gap: 2rem;
+          grid-template-columns: repeat(6, min-content);
+        }
+
+        a {
+          width: fit-content;
+          color: $white;
+
+          @include breakpoint-up(tablet) {
+            font-size: $_18px;
+          }
+        }
+      }
+    }
+
+    &__form {
+      form {
+        margin-top: 4rem;
+        row-gap: 2rem;
+
+        @include breakpoint-up(iPadPro) {
+          margin-top: 0;
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 2rem;
+          row-gap: 3rem;
+        }
+
+        h1 {
+          color: $white;
+          font-size: $_26px;
+          font-weight: 400;
+
+          @include breakpoint-up(iPadPro) {
+            margin-top: 0;
+            grid-area: 1 / 1 / 2 / 3;
+            font-size: $_30px;
+          }
+        }
+
+        input:not(.submit_btn),
+        textarea {
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid $white;
+          padding: 1rem 1.25rem 1rem 0;
+        }
+
+        #surnameTxt {
+          @include breakpoint-up(iPadPro) {
+            // grid-area: ;
+          }
+        }
+
+        #contentTxt {
+          @include breakpoint-up(iPadPro) {
+            grid-area: 4 / 1 / 5 / 3;
+          }
+        }
+
+        .submit_btn {
+          width: fit-content;
+          margin-left: auto;
+          background-color: $white;
+          border-radius: 36px;
+          border: none;
+          padding: 0.75rem 2.25rem;
+          font-size: $_15px;
+
+          cursor: pointer;
+
+          @include breakpoint-up(iPadPro) {
+            margin-right: auto;
+            margin-left: 0;
+            font-size: $_17px;
+          }
+        }
+
+        ::placeholder {
+          color: $white;
+          font-family: $portoSans;
+          letter-spacing: 0.4px;
+          font-size: $_15px;
+
+          @include breakpoint-up(iPadPro) {
+            font-size: $_17px;
+          }
+        }
+      }
+    }
+  }
+
+  &__map {
+    position: relative;
+    background-color: $white;
+
+    h3,
+    h4 {
+      font-weight: 400;
+    }
+
+    h4 {
+      color: $grey;
+
+      @include breakpoint-up(tablet) {
+        font-size: $_18px;
+        margin: 1rem 0;
+      }
+    }
+
+    h3 {
+      color: $black;
+
+      @include breakpoint-up(tablet) {
+        font-size: $_20px;
+        margin: 1rem 0;
+      }
     }
   }
 }

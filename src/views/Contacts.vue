@@ -5,8 +5,36 @@
       <div></div>
       <div></div>
     </div>
+    <div class="contacts__write flex flex-ai-c flex-jc-c">
+      <svg
+        id="edit"
+        xmlns="http://www.w3.org/2000/svg"
+        width="19.556"
+        height="19.556"
+        viewBox="0 0 19.556 19.556"
+      >
+        <g id="Group_56" data-name="Group 56">
+          <g id="Group_55" data-name="Group 55">
+            <path
+              id="Path_56"
+              data-name="Path 56"
+              d="M0,79.916v4.075H4.075L16.1,71.968l-4.075-4.075Z"
+              transform="translate(0 -64.435)"
+              fill="#ffffff"
+            />
+            <path
+              id="Path_57"
+              data-name="Path 57"
+              d="M264.729,2.855,262.192.318a1.089,1.089,0,0,0-1.538,0l-1.988,1.988,4.075,4.075,1.988-1.988A1.089,1.089,0,0,0,264.729,2.855Z"
+              transform="translate(-245.491 0)"
+              fill="#ffffff"
+            />
+          </g>
+        </g>
+      </svg>
+    </div>
     <section class="contacts__intro">
-      <div class="contacts__intro__grid grid">
+      <div class="contacts__intro__grid grid hide-above-tablet">
         <div class="contacts__intro__grid__entrance grid">
           <div>
             <h1>Portic</h1>
@@ -41,6 +69,54 @@
           <a href="" class="flex flex-ai-c flex-jc-c">
             <i class="fab fa-flickr"></i>
           </a>
+          <a href="" class="flex flex-ai-c flex-jc-c">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="" class="flex flex-ai-c flex-jc-c">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="flex flex-ai-c flex-jc-c">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+        </div>
+      </div>
+      <div class="contacts__intro__grid grid hide-below-tablet">
+        <div class="contacts__intro__socials grid">
+          <a href="" class="flex flex-ai-c flex-jc-c">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="flex flex-ai-c flex-jc-c">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="flex flex-ai-c flex-jc-c">
+            <i class="fab fa-flickr"></i>
+          </a>
+        </div>
+        <div class="contacts__intro__grid__entrance grid">
+          <div>
+            <h1>Portic</h1>
+            <h3>An open door towards the future</h3>
+          </div>
+          <div
+            class="contacts__intro__grid__entrance__circle flex flex-ai-c flex-jc-c"
+          >
+            <h4>
+              <div>
+                Porto Research,
+              </div>
+              <div>
+                Technology &
+              </div>
+              <div>
+                Innovation Center
+              </div>
+              <div>
+                <span>Politécnico do Porto</span>
+              </div>
+            </h4>
+          </div>
+        </div>
+        <div class="contacts__intro__socials grid">
           <a href="" class="flex flex-ai-c flex-jc-c">
             <i class="fab fa-youtube"></i>
           </a>
@@ -127,34 +203,60 @@
         </template>
       </vue-glide>
     </section>
-    <!-- <div class="contacts__write flex flex-ai-c flex-jc-c">
-      <svg
-        id="edit"
-        xmlns="http://www.w3.org/2000/svg"
-        width="19.556"
-        height="19.556"
-        viewBox="0 0 19.556 19.556"
-      >
-        <g id="Group_56" data-name="Group 56">
-          <g id="Group_55" data-name="Group 55">
-            <path
-              id="Path_56"
-              data-name="Path 56"
-              d="M0,79.916v4.075H4.075L16.1,71.968l-4.075-4.075Z"
-              transform="translate(0 -64.435)"
-              fill="#ffffff"
-            />
-            <path
-              id="Path_57"
-              data-name="Path 57"
-              d="M264.729,2.855,262.192.318a1.089,1.089,0,0,0-1.538,0l-1.988,1.988,4.075,4.075,1.988-1.988A1.089,1.089,0,0,0,264.729,2.855Z"
-              transform="translate(-245.491 0)"
-              fill="#ffffff"
-            />
-          </g>
-        </g>
-      </svg>
-    </div> -->
+    <section class="contacts__form grid">
+      <div class="contacts__form__contacts grid">
+        <h3>Connect with us anytime, anywhere</h3>
+        <div>
+          <h2>(+351) 919 554 127</h2>
+          <h2>portic@portic.ipp.pt</h2>
+        </div>
+        <div class="contacts__form__contacts__socials grid">
+          <a href="">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-flickr"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+        </div>
+      </div>
+      <div class="contacts__form__form ">
+        <form class="grid">
+          <h1>Let's start</h1>
+
+          <input type="text" id="nameTxt" placeholder="Name*" />
+          <input type="text" id="surnameTxt" placeholder="Surname*" />
+          <input type="text" id="emailTxt" placeholder="E-mail*" />
+          <input
+            type="text"
+            id="phoneNumberTxt"
+            placeholder="Contact/ Phone number *"
+          />
+          <textarea
+            id="contentTxt"
+            placeholder="Tell us something *"
+            cols="30"
+            rows="3"
+          ></textarea>
+          <input type="submit" value="Send" class="submit_btn" />
+        </form>
+      </div>
+    </section>
+    <section class="contacts__map">
+      <h4>09:00 - 19:00</h4>
+      <h3>Rua Arquitecto Lobão Vital 172, 4200-374 Porto</h3>
+    </section>
     <Footer />
   </div>
 </template>
