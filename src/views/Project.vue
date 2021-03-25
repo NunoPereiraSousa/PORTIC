@@ -3,9 +3,10 @@
     <div class="project">
       <section class="project__entry">
         <div class="project__entry__grid grid">
-          <div>
-            <h1>Project Ferrovia 4.0</h1>
-          </div>
+          <h1>
+            <div>Project</div>
+            <div>Ferrovia 4.0</div>
+          </h1>
 
           <div class="project__entry__grid__circle flex flex-ai-c flex-jc-c">
             <h4>
@@ -23,8 +24,8 @@
 
           <div class="project__entry__grid__contacts">
             <h3>
-              For enquires or more information please contact by phone number or
-              email
+              <div>For enquires or more information please</div>
+              <div>contact by phone number or email</div>
             </h3>
 
             <h2>(+351) 919 554 127</h2>
@@ -101,6 +102,30 @@
           />
         </div>
       </section>
+      <section class="project__team">
+        <SubHeaderTitle text="Project Team" />
+
+        <div class="project__team__grid grid">
+          <TeamCard
+            v-for="i in 5"
+            :key="i"
+            image="https://upload.wikimedia.org/wikipedia/commons/f/f0/Fredrick_Douglass_Housing_Project_Towers_2010.jpg"
+            name="Anna Mendiev"
+            position="Art Director"
+          />
+        </div>
+      </section>
+      <section class="project__contacts">
+        <SubHeaderTitle text="Contacts" />
+
+        <p>
+          For enquires or more information please contact by phone number or
+          email
+        </p>
+
+        <h3>(+351) 919 554 127</h3>
+        <h3>portic@portic.ipp.pt</h3>
+      </section>
     </div>
     <Footer />
   </div>
@@ -110,6 +135,7 @@
 import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
 import Slide from "@/components/Project/Slide.vue";
 import NewsCard from "@/components/NewsCard.vue";
+import TeamCard from "@/components/Project/TeamCard.vue";
 import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
 
@@ -119,6 +145,7 @@ export default {
     SubHeaderTitle,
     Slide,
     NewsCard,
+    TeamCard,
     Footer,
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide

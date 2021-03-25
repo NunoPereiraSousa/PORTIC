@@ -2,19 +2,21 @@
   &__entry,
   &__objective,
   &__gallery,
-  &__news {
+  &__news,
+  &__team,
+  &__contacts {
     padding: 0 8vw calc(6.1875rem + 2vw);
 
     @include breakpoint-down(phone) {
-      padding: calc(10.1875rem + 2vw) 14vw calc(6.1875rem + 2vw);
+      padding: calc(10.1875rem + 2vw) 8vw calc(6.1875rem + 2vw);
     }
 
     @include breakpoint-up(tablet) {
-      padding: calc(14.1875rem + 2vw) 0 calc(6.1875rem + 2vw);
+      padding: calc(14.1875rem + 2vw) 8vw calc(6.1875rem + 2vw);
     }
 
     @include breakpoint-up(iPadPro) {
-      padding: calc(11.5875rem + 2vw) 0 calc(6.1875rem + 2vw);
+      padding: calc(11.5875rem + 2vw) 8vw calc(6.1875rem + 2vw);
     }
   }
 
@@ -23,8 +25,46 @@
     // height: fit-content;
     text-align: center;
 
+    @include breakpoint-up(iPadPro) {
+      padding: calc(11.5875rem + 2vw) 0 calc(6.1875rem + 2vw);
+    }
+
     &__grid {
       row-gap: 4rem;
+
+      @include breakpoint-up(iPadPro) {
+        grid-template-columns: 36vw 28vw 36vw;
+        align-items: center;
+        justify-items: center;
+        height: 56vh;
+      }
+
+      &::before,
+      &::after {
+        @include breakpoint-up(iPadPro) {
+          content: "";
+          background-color: rgba($color: $black, $alpha: 0.21);
+          height: 100%;
+          width: 1px;
+          position: absolute;
+          z-index: -1;
+          top: 0%;
+          width: 1px;
+          background-color: rgba($color: $black, $alpha: 1);
+        }
+      }
+
+      &::before {
+        @include breakpoint-up(iPadPro) {
+          left: 36%;
+        }
+      }
+
+      &::after {
+        @include breakpoint-up(iPadPro) {
+          right: 36%;
+        }
+      }
 
       h1,
       h3,
@@ -37,6 +77,12 @@
       h1 {
         font-family: $portoSerif;
         font-size: $_30px;
+
+        @include breakpoint-up(iPadPro) {
+          font-size: $_60px;
+          text-align: left;
+          justify-self: center;
+        }
       }
 
       &__circle {
@@ -47,22 +93,33 @@
         background-color: $black;
 
         @include breakpoint-up(iPadPro) {
-          width: 15rem;
-          height: 15rem;
+          width: 16rem;
+          height: 16rem;
         }
 
         h4 {
           color: $white;
           text-transform: uppercase;
           line-height: 2;
+
+          @include breakpoint-up(iPadPro) {
+            font-size: $_22px;
+          }
         }
       }
 
       &__contacts {
         h3 {
           color: $grey;
+          font-weight: lighter;
 
           font-size: $_18px;
+
+          @include breakpoint-up(iPadPro) {
+            text-align: left;
+            font-size: $_24px;
+            line-height: 1.7;
+          }
         }
 
         h2 {
@@ -83,17 +140,39 @@
           &:first-of-type {
             margin-top: 2rem;
             font-size: $_19px;
+
+            @include breakpoint-up(iPadPro) {
+              font-size: $_26px;
+              margin-top: 3rem;
+            }
+          }
+
+          @include breakpoint-up(iPadPro) {
+            margin: 0;
+            text-align: left;
+            font-size: $_26px;
+          }
+
+          &:last-child {
+            @include breakpoint-up(iPadPro) {
+              margin-top: 1rem;
+            }
           }
         }
       }
     }
 
     &__carousel {
+      background-color: $white;
       position: relative;
       width: fit-content;
 
       padding: 0.75rem 0;
       margin-top: 4rem;
+
+      @include breakpoint-up(iPadPro) {
+        padding: 1rem 0;
+      }
 
       .slide-track {
         animation: carousel 20s linear infinite;
@@ -120,6 +199,8 @@
   }
 
   &__objective {
+    padding-top: 0;
+
     p {
       line-height: 1.6;
       font-size: $_17px;
@@ -161,6 +242,13 @@
           }
         }
       }
+
+      .glide__track + div button {
+        @include breakpoint-up(tablet) {
+          margin-left: 0.6rem;
+          margin-right: 0.6rem;
+        }
+      }
     }
   }
 
@@ -178,6 +266,55 @@
       h2,
       p {
         color: $white;
+      }
+    }
+  }
+
+  &__team {
+    padding-top: calc(5.1875rem + 2vw);
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 3rem;
+      justify-items: start;
+
+      @include breakpoint-up(tablet) {
+        margin-top: 4rem;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+
+  &__contacts {
+    padding-top: calc(3.1875rem + 2vw);
+    padding-bottom: 0;
+
+    p {
+      font-size: $_18px;
+    }
+
+    h3 {
+      width: fit-content;
+
+      font-weight: 400;
+      font-family: $portoSerif;
+
+      &:last-child {
+        margin-top: 1rem;
+      }
+
+      &:not(:first-of-type)::after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 100%;
+        border-bottom: 1px solid $black;
+        padding-top: 0.4rem;
+      }
+
+      &:first-of-type {
+        margin-top: 2rem;
+        font-size: $_19px;
       }
     }
   }

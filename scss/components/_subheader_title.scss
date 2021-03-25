@@ -9,7 +9,7 @@
   font-family: $portoSansStencil;
   color: $black;
 
-  text-shadow: 6px 4px 4px rgba($color: $black, $alpha: 0.13);
+  text-shadow: 6px 4px 4px rgba($color: $black, $alpha: 0.075);
 
   &.light {
     color: $white;
@@ -26,13 +26,13 @@
     left: 0%;
     bottom: 0%;
     height: 3.5px;
-    width: 25%;
+    width: 30px;
     background-color: $orange;
     box-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.13);
 
     @include breakpoint-up(large) {
       left: 0.75%;
-      width: 16%;
+      width: 26px;
       height: 4.5px;
     }
   }
