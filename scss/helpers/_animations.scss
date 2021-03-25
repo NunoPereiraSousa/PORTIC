@@ -63,3 +63,12 @@
     transform: rotate(15deg);
   }
 }
+
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-125px * 6));
+  }
+}

@@ -6,6 +6,7 @@ import Courses from "../views/Courses.vue";
 import Home from "../views/Home.vue";
 import Media from "../views/Media.vue";
 import Positions from "../views/Positions.vue";
+import Project from "../views/Project.vue";
 import Projects from "../views/Projects.vue";
 import ProjectsCatalog from "../views/ProjectsCatalog.vue";
 import Unities from "../views/Unities.vue";
@@ -52,6 +53,12 @@ const routes = [
     path: "/projects-catalog",
     name: "ProjectsCatalog",
     component: ProjectsCatalog,
+    props: true
+  },
+  {
+    path: "/project/:name",
+    name: "Project",
+    component: Project,
     props: true
   },
   {

@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: "NewsCard",
   props: ["image", "title", "desc", "date"]
 };
 </script>

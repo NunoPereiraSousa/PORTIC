@@ -1,0 +1,184 @@
+.project {
+  &__entry,
+  &__objective,
+  &__gallery,
+  &__news {
+    padding: 0 8vw calc(6.1875rem + 2vw);
+
+    @include breakpoint-down(phone) {
+      padding: calc(10.1875rem + 2vw) 14vw calc(6.1875rem + 2vw);
+    }
+
+    @include breakpoint-up(tablet) {
+      padding: calc(14.1875rem + 2vw) 0 calc(6.1875rem + 2vw);
+    }
+
+    @include breakpoint-up(iPadPro) {
+      padding: calc(11.5875rem + 2vw) 0 calc(6.1875rem + 2vw);
+    }
+  }
+
+  &__entry {
+    padding-top: calc(12.1875rem + 2vw);
+    // height: fit-content;
+    text-align: center;
+
+    &__grid {
+      row-gap: 4rem;
+
+      h1,
+      h3,
+      h2,
+      h4 {
+        font-weight: 400;
+        margin: 0;
+      }
+
+      h1 {
+        font-family: $portoSerif;
+        font-size: $_30px;
+      }
+
+      &__circle {
+        justify-self: center;
+        width: 12.5rem;
+        height: 12.5rem;
+        border-radius: 50%;
+        background-color: $black;
+
+        @include breakpoint-up(iPadPro) {
+          width: 15rem;
+          height: 15rem;
+        }
+
+        h4 {
+          color: $white;
+          text-transform: uppercase;
+          line-height: 2;
+        }
+      }
+
+      &__contacts {
+        h3 {
+          color: $grey;
+
+          font-size: $_18px;
+        }
+
+        h2 {
+          margin: auto;
+          margin-top: 0.5rem;
+          width: fit-content;
+
+          font-size: $_20px;
+
+          &:not(:first-of-type)::after {
+            content: "";
+            display: block;
+            height: 1px;
+            width: 100%;
+            border-bottom: 1px solid $black;
+          }
+
+          &:first-of-type {
+            margin-top: 2rem;
+            font-size: $_19px;
+          }
+        }
+      }
+    }
+
+    &__carousel {
+      position: relative;
+      width: fit-content;
+
+      padding: 0.75rem 0;
+      margin-top: 4rem;
+
+      .slide-track {
+        animation: carousel 20s linear infinite;
+        display: flex;
+        width: calc(125px * 12);
+
+        .slide {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100px;
+          width: 125px;
+
+          font-size: $_20px;
+
+          text-shadow: 2px 2px 4px rgba($color: $black, $alpha: 0.12);
+
+          span {
+            color: $orange;
+          }
+        }
+      }
+    }
+  }
+
+  &__objective {
+    p {
+      line-height: 1.6;
+      font-size: $_17px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__gallery {
+    padding-top: calc(6.1875rem + 2vw);
+
+    &__grid {
+      cursor: grab;
+
+      img {
+        width: 100%;
+      }
+
+      .glide__bullet {
+        margin-top: 1rem;
+        transform: scaleX(0.7);
+        width: 0.5rem;
+        height: 0.5rem;
+        background-color: $grey;
+        box-shadow: none;
+
+        &:hover {
+          background-color: $orange;
+        }
+
+        &--active {
+          background-color: $orange;
+
+          &:focus,
+          &:active {
+            background-color: $orange;
+          }
+        }
+      }
+    }
+  }
+
+  &__gallery,
+  &__news {
+    background-color: $black;
+  }
+
+  &__news {
+    padding-top: calc(3.1875rem + 2vw);
+
+    &__grid {
+      row-gap: 3.75rem;
+
+      h2,
+      p {
+        color: $white;
+      }
+    }
+  }
+}
