@@ -5,7 +5,7 @@
 
   &__write {
     position: fixed;
-    z-index: 550;
+    z-index: 100;
     bottom: 6.5%;
     right: 3%;
     border-radius: 50%;
@@ -27,6 +27,147 @@
 
     &:hover svg {
       animation: twink 1s ease infinite;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    z-index: -1;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all 0.6s ease;
+
+    &.overlay_opened {
+      z-index: 989;
+      opacity: 1;
+    }
+  }
+
+  &__side_form {
+    background-color: $orange;
+
+    position: fixed;
+    z-index: 990;
+    right: -100%;
+    top: 0%;
+    bottom: 0%;
+    height: 100vh;
+    width: 34vw;
+
+    padding: 4rem 3rem;
+    transition: all 0.6s ease;
+
+    &.opened {
+      right: 0%;
+    }
+
+    h1 {
+      position: relative;
+
+      text-align: center;
+      color: $white;
+      margin-top: 0;
+      font-size: $_30px;
+      font-weight: 400;
+
+      padding-bottom: 1rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0%;
+        transform: translateX(-50%);
+        background-color: $white;
+        height: 3px;
+        width: 40px;
+      }
+    }
+
+    form {
+      // margin-top: 4rem;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 2rem;
+      row-gap: 3rem;
+
+      input:not(.submit_btn),
+      textarea {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $white;
+        padding: 1rem 1.25rem 1rem 0;
+      }
+
+      #contentTxt {
+        grid-area: 3 / 1 / 4 / 3;
+      }
+
+      .submit_btn {
+        width: fit-content;
+        background-color: $white;
+        border-radius: 36px;
+        border: none;
+        padding: 0.75rem 2.25rem;
+        margin-right: auto;
+        font-size: $_17px;
+
+        cursor: pointer;
+      }
+
+      ::placeholder {
+        color: $white;
+        font-family: $portoSans;
+        letter-spacing: 0.4px;
+        font-size: $_17px;
+      }
+    }
+
+    &__back {
+      // position: absolute;
+      position: relative;
+      align-self: flex-end;
+      border-radius: 50%;
+      background-color: $white;
+      width: 50px;
+      height: 50px;
+
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+      cursor: pointer;
+
+      .arrow {
+        position: absolute;
+        top: 50%;
+        left: 54%;
+        transform: translate(-50%, -50%) rotate(180deg);
+        width: 34%;
+        height: 3px;
+        background-color: $black;
+
+        &::after,
+        &::before {
+          content: "";
+          position: absolute;
+          width: 60%;
+          left: 60%;
+          height: 3px;
+          background-color: $black;
+        }
+
+        &::after {
+          top: -3px;
+          transform: rotate(45deg);
+        }
+
+        &::before {
+          top: 3px;
+          transform: rotate(-45deg);
+        }
+      }
     }
   }
 

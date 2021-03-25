@@ -31,14 +31,14 @@
             Courses
           </router-link>
           <router-link
-            @click.native="closeNavbarOnPageTransition()"
+            @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
             :to="{ name: 'Media' }"
           >
             Media
           </router-link>
           <router-link
-            @click.native="closeNavbarOnPageTransition()"
+            @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
             :to="{ name: 'Positions' }"
           >
@@ -57,6 +57,13 @@
             :to="{ name: 'Unities' }"
           >
             Unities
+          </router-link>
+          <router-link
+            @click.native="closeNavbarOnPageTransition"
+            class="navbar__mobile_menu__links__link"
+            :to="{ name: 'Contacts' }"
+          >
+            About Us
           </router-link>
         </div>
         <div class="navbar__mobile_menu__socials grid">
@@ -102,6 +109,9 @@
           </router-link>
           <router-link :to="{ name: 'Unities' }">
             Unities
+          </router-link>
+          <router-link :to="{ name: 'Contacts' }">
+            About Us
           </router-link>
         </div>
       </div>

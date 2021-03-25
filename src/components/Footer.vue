@@ -104,7 +104,7 @@
       </div>
     </section>
     <div class="scroll_up">
-      <div class="flex flex-ai-c flex-jc-fe">
+      <div class="flex flex-ai-c flex-jc-fe" @click="scrollTop">
         <p>Back to top</p>
         <i class="fas fa-chevron-up"></i>
       </div>
@@ -297,6 +297,9 @@ export default {
       }
 
       this.today = `${dayName}, ${weekDayName} ${weekDayNumber}`;
+    },
+    scrollTop() {
+      document.querySelector(".subheader").scrollIntoView();
     }
   }
 };

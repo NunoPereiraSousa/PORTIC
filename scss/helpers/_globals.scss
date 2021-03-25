@@ -12,7 +12,8 @@ body {
   font-family: $portoSans;
   font-size: $_16px;
   line-height: 1.4;
-  // touch-action: pan-y !important;
+  touch-action: pan-y !important;
+  scroll-behavior: smooth;
 }
 
 // ::-webkit-scrollbar {

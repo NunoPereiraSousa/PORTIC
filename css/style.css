@@ -141,6 +141,9 @@ body {
   font-family: "Porto Sans";
   font-size: 1rem;
   line-height: 1.4;
+  -ms-touch-action: pan-y !important;
+      touch-action: pan-y !important;
+  scroll-behavior: smooth;
 }
 
 a,
@@ -281,7 +284,7 @@ canvas {
   position: absolute;
   top: 0%;
   left: 0%;
-  z-index: 999;
+  z-index: 988;
   width: 100%;
   padding: 1rem 1.25rem;
   background-color: #ffffff;
@@ -4241,7 +4244,7 @@ canvas {
 
 .contacts__write {
   position: fixed;
-  z-index: 550;
+  z-index: 100;
   bottom: 6.5%;
   right: 3%;
   border-radius: 50%;
@@ -4265,6 +4268,174 @@ canvas {
 .contacts__write:hover svg {
   -webkit-animation: twink 1s ease infinite;
           animation: twink 1s ease infinite;
+}
+
+.contacts__overlay {
+  position: fixed;
+  z-index: -1;
+  top: 0%;
+  left: 0%;
+  opacity: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+
+.contacts__overlay.overlay_opened {
+  z-index: 989;
+  opacity: 1;
+}
+
+.contacts__side_form {
+  background-color: #c94d24;
+  position: fixed;
+  z-index: 990;
+  right: -100%;
+  top: 0%;
+  bottom: 0%;
+  height: 100vh;
+  width: 34vw;
+  padding: 4rem 3rem;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+
+.contacts__side_form.opened {
+  right: 0%;
+}
+
+.contacts__side_form h1 {
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 0;
+  font-size: 1.875rem;
+  font-weight: 400;
+  padding-bottom: 1rem;
+}
+
+.contacts__side_form h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #ffffff;
+  height: 3px;
+  width: 40px;
+}
+
+.contacts__side_form form {
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+  row-gap: 3rem;
+}
+
+.contacts__side_form form input:not(.submit_btn),
+.contacts__side_form form textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  padding: 1rem 1.25rem 1rem 0;
+}
+
+.contacts__side_form form #contentTxt {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 3 / 1 / 4 / 3;
+}
+
+.contacts__side_form form .submit_btn {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #ffffff;
+  border-radius: 36px;
+  border: none;
+  padding: 0.75rem 2.25rem;
+  margin-right: auto;
+  font-size: 1.0625rem;
+  cursor: pointer;
+}
+
+.contacts__side_form form ::-webkit-input-placeholder {
+  color: #ffffff;
+  font-family: "Porto Sans";
+  letter-spacing: 0.4px;
+  font-size: 1.0625rem;
+}
+
+.contacts__side_form form :-ms-input-placeholder {
+  color: #ffffff;
+  font-family: "Porto Sans";
+  letter-spacing: 0.4px;
+  font-size: 1.0625rem;
+}
+
+.contacts__side_form form ::-ms-input-placeholder {
+  color: #ffffff;
+  font-family: "Porto Sans";
+  letter-spacing: 0.4px;
+  font-size: 1.0625rem;
+}
+
+.contacts__side_form form ::placeholder {
+  color: #ffffff;
+  font-family: "Porto Sans";
+  letter-spacing: 0.4px;
+  font-size: 1.0625rem;
+}
+
+.contacts__side_form__back {
+  position: relative;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border-radius: 50%;
+  background-color: #ffffff;
+  width: 50px;
+  height: 50px;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.contacts__side_form__back .arrow {
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  -webkit-transform: translate(-50%, -50%) rotate(180deg);
+          transform: translate(-50%, -50%) rotate(180deg);
+  width: 34%;
+  height: 3px;
+  background-color: #080808;
+}
+
+.contacts__side_form__back .arrow::after, .contacts__side_form__back .arrow::before {
+  content: "";
+  position: absolute;
+  width: 60%;
+  left: 60%;
+  height: 3px;
+  background-color: #080808;
+}
+
+.contacts__side_form__back .arrow::after {
+  top: -3px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.contacts__side_form__back .arrow::before {
+  top: 3px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .contacts__intro {

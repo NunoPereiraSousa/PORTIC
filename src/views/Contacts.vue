@@ -1,11 +1,9 @@
 <template>
   <div class="contacts">
-    <div class="contacts__strokes grid">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="contacts__write flex flex-ai-c flex-jc-c">
+    <div
+      class="contacts__write flex flex-ai-c flex-jc-c hide-for-mobile"
+      @click="toggleForm"
+    >
       <svg
         id="edit"
         xmlns="http://www.w3.org/2000/svg"
@@ -32,6 +30,35 @@
           </g>
         </g>
       </svg>
+    </div>
+    <div class="contacts__overlay hide-for-mobile" @click="closeForm"></div>
+    <div class="contacts__side_form flex flex-fd-c flex-jc-sb hide-for-mobile">
+      <h1>Contact us easily</h1>
+
+      <form class="grid">
+        <input type="text" id="nameTxt" placeholder="Name*" />
+        <input type="text" id="surnameTxt" placeholder="Surname*" />
+        <input type="text" id="emailTxt" placeholder="E-mail*" />
+        <input
+          type="text"
+          id="phoneNumberTxt"
+          placeholder="Contact/ Phone number *"
+        />
+        <textarea
+          id="contentTxt"
+          placeholder="Tell us something *"
+          cols="30"
+          rows="3"
+        ></textarea>
+        <input type="submit" value="Send" class="submit_btn" />
+      </form>
+
+      <div
+        class="contacts__side_form__back flex flex-ai-c flex-jc-c"
+        @click="closeForm"
+      >
+        <div class="arrow"></div>
+      </div>
     </div>
     <section class="contacts__intro">
       <div class="contacts__intro__grid grid hide-above-tablet">
@@ -125,7 +152,7 @@
             </h4>
           </div>
         </div>
-        <div class="contacts__intro__socials hide-for-desktop">
+        <div class="contacts__intro__socials grid hide-for-desktop">
           <a href="" class="flex flex-ai-c flex-jc-c">
             <i class="fab fa-youtube"></i>
           </a>
@@ -319,8 +346,26 @@ export default {
       position: { lat: 41.176586, lng: -8.60563 },
       map: this.map
     });
+  },
+  methods: {
+    toggleForm() {
+      let contacts__side_form = document.querySelector(".contacts__side_form");
 
-    // return map;
+      contacts__side_form.classList.toggle("opened");
+
+      let contacts__overlay = document.querySelector(".contacts__overlay");
+
+      contacts__overlay.classList.toggle("overlay_opened");
+    },
+    closeForm() {
+      let contacts__side_form = document.querySelector(".contacts__side_form");
+
+      contacts__side_form.classList.toggle("opened");
+
+      let contacts__overlay = document.querySelector(".contacts__overlay");
+
+      contacts__overlay.classList.toggle("overlay_opened");
+    }
   }
 };
 </script>
