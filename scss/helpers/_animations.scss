@@ -72,3 +72,12 @@
     transform: translateX(calc(-125px * 6));
   }
 }
+
+@keyframes carouselDesktop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 6));
+  }
+}

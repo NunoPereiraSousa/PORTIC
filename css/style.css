@@ -148,6 +148,28 @@
   }
 }
 
+@-webkit-keyframes carouselDesktop {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(calc(-250px * 6));
+            transform: translateX(calc(-250px * 6));
+  }
+}
+
+@keyframes carouselDesktop {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(calc(-250px * 6));
+            transform: translateX(calc(-250px * 6));
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -517,6 +539,7 @@ canvas {
 }
 
 .navbar__hamburger {
+  width: 1.125rem;
   height: 1.125rem;
   position: relative;
 }
@@ -553,6 +576,7 @@ canvas {
 
 .navbar__hamburger__lines:nth-child(1), .navbar__hamburger__lines:nth-child(3) {
   width: 1.5rem;
+  top: 1%;
 }
 
 .navbar__hamburger__lines:nth-child(1).open, .navbar__hamburger__lines:nth-child(3).open {
@@ -909,6 +933,17 @@ canvas {
   100% {
     -webkit-transform: translateX(calc(-125px * 6));
             transform: translateX(calc(-125px * 6));
+  }
+}
+
+@keyframes carouselDesktop {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(calc(-250px * 6));
+            transform: translateX(calc(-250px * 6));
   }
 }
 
@@ -2260,7 +2295,7 @@ canvas {
 
 @media (min-width: 75em) {
   .news__cards__card h2 {
-    font-size: 1.625rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -3961,14 +3996,14 @@ canvas {
 @media (min-width: 120em) {
   .sub__header__title::after {
     left: 0.75%;
-    width: 26px;
+    width: 40px;
     height: 4.5px;
   }
 }
 
 @media (min-width: 64em) {
   .sub__header__title {
-    font-size: 1.875rem;
+    font-size: 2.125rem;
     margin: 0 0 5rem;
   }
 }
@@ -5143,6 +5178,18 @@ canvas {
         -ms-flex-align: center;
             align-items: center;
     justify-items: center;
+    height: 46vh;
+  }
+}
+
+@media (min-width: 120em) {
+  .project__entry__grid {
+    -ms-grid-columns: 36vw 28vw 36vw;
+        grid-template-columns: 36vw 28vw 36vw;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: center;
     height: 56vh;
   }
 }
@@ -5188,10 +5235,16 @@ canvas {
 
 @media (min-width: 64em) {
   .project__entry__grid h1 {
-    font-size: 3.75rem;
+    font-size: 3.125rem;
     text-align: left;
     -ms-grid-column-align: center;
         justify-self: center;
+  }
+}
+
+@media (min-width: 120em) {
+  .project__entry__grid h1 {
+    font-size: 3.75rem;
   }
 }
 
@@ -5206,6 +5259,13 @@ canvas {
 
 @media (min-width: 64em) {
   .project__entry__grid__circle {
+    width: 14rem;
+    height: 14rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .project__entry__grid__circle {
     width: 16rem;
     height: 16rem;
   }
@@ -5219,12 +5279,18 @@ canvas {
 
 @media (min-width: 64em) {
   .project__entry__grid__circle h4 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .project__entry__grid__circle h4 {
     font-size: 1.375rem;
   }
 }
 
 .project__entry__grid__contacts h3 {
-  color: #999999;
+  color: #666666;
   font-weight: lighter;
   font-size: 1.125rem;
 }
@@ -5232,8 +5298,14 @@ canvas {
 @media (min-width: 64em) {
   .project__entry__grid__contacts h3 {
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     line-height: 1.7;
+  }
+}
+
+@media (min-width: 120em) {
+  .project__entry__grid__contacts h3 {
+    font-size: 1.5rem;
   }
 }
 
@@ -5261,8 +5333,14 @@ canvas {
 
 @media (min-width: 64em) {
   .project__entry__grid__contacts h2:first-of-type {
-    font-size: 1.625rem;
+    font-size: 1.5rem;
     margin-top: 3rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .project__entry__grid__contacts h2:first-of-type {
+    font-size: 1.625rem;
   }
 }
 
@@ -5270,6 +5348,12 @@ canvas {
   .project__entry__grid__contacts h2 {
     margin: 0;
     text-align: left;
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .project__entry__grid__contacts h2 {
     font-size: 1.625rem;
   }
 }
@@ -5305,6 +5389,14 @@ canvas {
   width: calc(125px * 12);
 }
 
+@media (min-width: 64em) {
+  .project__entry__carousel .slide-track {
+    width: calc(250px * 12);
+    -webkit-animation: carouselDesktop 20s linear infinite;
+            animation: carouselDesktop 20s linear infinite;
+  }
+}
+
 .project__entry__carousel .slide-track .slide {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5325,6 +5417,26 @@ canvas {
   color: #c94d24;
 }
 
+.project__entry__carousel .slide-track .slide::after {
+  content: "";
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 10px;
+  width: 2px;
+  background-color: #c94d24;
+}
+
+@media (min-width: 64em) {
+  .project__entry__carousel .slide-track .slide {
+    width: 250px;
+    font-size: 1.375rem;
+    letter-spacing: 0.4px;
+  }
+}
+
 .project__objective {
   padding-top: 0;
 }
@@ -5336,6 +5448,13 @@ canvas {
 
 .project__objective p:last-child {
   margin-bottom: 0;
+}
+
+@media (min-width: 64em) {
+  .project__objective p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
 }
 
 .project__gallery {
@@ -5426,6 +5545,12 @@ canvas {
   font-size: 1.125rem;
 }
 
+@media (min-width: 64em) {
+  .project__contacts p {
+    font-size: 1.25rem;
+  }
+}
+
 .project__contacts h3 {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -5450,6 +5575,18 @@ canvas {
 .project__contacts h3:first-of-type {
   margin-top: 2rem;
   font-size: 1.1875rem;
+}
+
+@media (min-width: 64em) {
+  .project__contacts h3:first-of-type {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .project__contacts h3 {
+    font-size: 1.5rem;
+  }
 }
 
 .project__team__grid__card img {

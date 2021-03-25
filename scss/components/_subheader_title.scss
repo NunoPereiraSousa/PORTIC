@@ -32,13 +32,13 @@
 
     @include breakpoint-up(large) {
       left: 0.75%;
-      width: 26px;
+      width: 40px;
       height: 4.5px;
     }
   }
 
   @include breakpoint-up(iPadPro) {
-    font-size: $_30px;
+    font-size: $_34px;
     margin: 0 0 5rem;
   }
 

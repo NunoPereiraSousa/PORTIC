@@ -36,6 +36,13 @@
         grid-template-columns: 36vw 28vw 36vw;
         align-items: center;
         justify-items: center;
+        height: 46vh;
+      }
+
+      @include breakpoint-up(large) {
+        grid-template-columns: 36vw 28vw 36vw;
+        align-items: center;
+        justify-items: center;
         height: 56vh;
       }
 
@@ -79,9 +86,13 @@
         font-size: $_30px;
 
         @include breakpoint-up(iPadPro) {
-          font-size: $_60px;
+          font-size: $_50px;
           text-align: left;
           justify-self: center;
+        }
+
+        @include breakpoint-up(large) {
+          font-size: $_60px;
         }
       }
 
@@ -93,6 +104,11 @@
         background-color: $black;
 
         @include breakpoint-up(iPadPro) {
+          width: 14rem;
+          height: 14rem;
+        }
+
+        @include breakpoint-up(large) {
           width: 16rem;
           height: 16rem;
         }
@@ -103,6 +119,10 @@
           line-height: 2;
 
           @include breakpoint-up(iPadPro) {
+            font-size: $_18px;
+          }
+
+          @include breakpoint-up(large) {
             font-size: $_22px;
           }
         }
@@ -110,15 +130,19 @@
 
       &__contacts {
         h3 {
-          color: $grey;
+          color: $lightGrey;
           font-weight: lighter;
 
           font-size: $_18px;
 
           @include breakpoint-up(iPadPro) {
             text-align: left;
-            font-size: $_24px;
+            font-size: $_22px;
             line-height: 1.7;
+          }
+
+          @include breakpoint-up(large) {
+            font-size: $_24px;
           }
         }
 
@@ -142,14 +166,22 @@
             font-size: $_19px;
 
             @include breakpoint-up(iPadPro) {
-              font-size: $_26px;
+              font-size: $_24px;
               margin-top: 3rem;
+            }
+
+            @include breakpoint-up(large) {
+              font-size: $_26px;
             }
           }
 
           @include breakpoint-up(iPadPro) {
             margin: 0;
             text-align: left;
+            font-size: $_24px;
+          }
+
+          @include breakpoint-up(large) {
             font-size: $_26px;
           }
 
@@ -179,6 +211,11 @@
         display: flex;
         width: calc(125px * 12);
 
+        @include breakpoint-up(iPadPro) {
+          width: calc(250px * 12);
+          animation: carouselDesktop 20s linear infinite;
+        }
+
         .slide {
           display: flex;
           justify-content: center;
@@ -192,6 +229,23 @@
 
           span {
             color: $orange;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0%;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 10px;
+            width: 2px;
+            background-color: $orange;
+          }
+
+          @include breakpoint-up(iPadPro) {
+            width: 250px;
+            font-size: $_22px;
+            letter-spacing: 0.4px;
           }
         }
       }
@@ -207,6 +261,11 @@
 
       &:last-child {
         margin-bottom: 0;
+      }
+
+      @include breakpoint-up(iPadPro) {
+        font-size: $_20px;
+        line-height: 1.7;
       }
     }
   }
@@ -291,6 +350,10 @@
 
     p {
       font-size: $_18px;
+
+      @include breakpoint-up(iPadPro) {
+        font-size: $_20px;
+      }
     }
 
     h3 {
@@ -315,6 +378,14 @@
       &:first-of-type {
         margin-top: 2rem;
         font-size: $_19px;
+
+        @include breakpoint-up(iPadPro) {
+          font-size: $_24px;
+        }
+      }
+
+      @include breakpoint-up(iPadPro) {
+        font-size: $_24px;
       }
     }
   }

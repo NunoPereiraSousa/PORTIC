@@ -50,6 +50,7 @@
   }
 
   &__hamburger {
+    width: 1.125rem;
     height: 1.125rem;
     position: relative;
 
@@ -81,6 +82,7 @@
       &:nth-child(1),
       &:nth-child(3) {
         width: 1.5rem;
+        top: 1%;
 
         &.open {
           height: 2px;
