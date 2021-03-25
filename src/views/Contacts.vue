@@ -91,6 +91,15 @@
           <a href="" class="flex flex-ai-c flex-jc-c">
             <i class="fab fa-flickr"></i>
           </a>
+          <a href="" class="flex flex-ai-c flex-jc-c hide-for-tablet">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="" class="flex flex-ai-c flex-jc-c hide-for-tablet">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="flex flex-ai-c flex-jc-c hide-for-tablet">
+            <i class="fab fa-facebook-square"></i>
+          </a>
         </div>
         <div class="contacts__intro__grid__entrance grid">
           <div>
@@ -116,7 +125,7 @@
             </h4>
           </div>
         </div>
-        <div class="contacts__intro__socials grid">
+        <div class="contacts__intro__socials hide-for-desktop">
           <a href="" class="flex flex-ai-c flex-jc-c">
             <i class="fab fa-youtube"></i>
           </a>
@@ -126,6 +135,19 @@
           <a href="" class="flex flex-ai-c flex-jc-c">
             <i class="fab fa-facebook-square"></i>
           </a>
+        </div>
+        <div class="contacts__intro__desc grid hide-for-tablet">
+          <p>
+            <span>Porto Research, Technology & Innovation Center</span> seeks to
+            bring together several research centers and groups from P.PORTO in a
+            single physical space, forming a superstructure dedicated to
+            research, technology transfer, innovation and entrepreneurship.
+            Supported by a culture of applied research, transversal and with a
+            significant impact on society, P.PORTO has 24 research centers and
+            groups in a wide range of knowledge areas, from Engineering,
+            Business Sciences, Education, Sport, Arts, Health, Tourism, Media
+            and Design.
+          </p>
         </div>
       </div>
     </section>
@@ -256,6 +278,7 @@
     <section class="contacts__map">
       <h4>09:00 - 19:00</h4>
       <h3>Rua Arquitecto Lobão Vital 172, 4200-374 Porto</h3>
+      <div id="map" ref="map"></div>
     </section>
     <Footer />
   </div>
@@ -286,6 +309,18 @@ export default {
   },
   mounted() {
     this.focuses = this.getFocuses;
+
+    this.map = new window.google.maps.Map(document.getElementById("map"), {
+      center: { lat: 41.176586, lng: -8.60563 },
+      zoom: 18
+    });
+
+    new window.google.maps.Marker({
+      position: { lat: 41.176586, lng: -8.60563 },
+      map: this.map
+    });
+
+    // return map;
   }
 };
 </script>

@@ -98,6 +98,12 @@ a:focus {
   }
 }
 
+.hide-for-tablet {
+  @include breakpoint-down(iPadPro) {
+    display: none;
+  }
+}
+
 .hide-for-desktop {
   @include breakpoint-up(iPadPro) {
     display: none;

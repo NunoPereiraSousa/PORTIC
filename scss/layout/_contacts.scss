@@ -131,6 +131,10 @@
         @include breakpoint-up(iPadPro) {
           font-size: $_30px;
         }
+
+        @include breakpoint-up(large) {
+          font-size: $_34px;
+        }
       }
 
       h3,
@@ -144,6 +148,10 @@
 
         @include breakpoint-up(iPadPro) {
           font-size: $_22px;
+        }
+
+        @include breakpoint-up(large) {
+          font-size: $_24px;
         }
       }
 
@@ -163,13 +171,47 @@
       }
     }
 
+    &__desc {
+      text-align: left;
+      margin: 0 4rem;
+      align-self: center;
+
+      p {
+        margin: 0;
+        font-size: $_18px;
+        line-height: 1.8;
+
+        @include breakpoint-up(large) {
+          font-size: $_20px;
+        }
+
+        span {
+          color: $orange;
+        }
+      }
+    }
+
     &__socials {
       grid-template-columns: repeat(3, 1fr);
       justify-items: center;
       row-gap: 1rem;
 
+      @include breakpoint-up(tablet) {
+        align-self: center;
+        justify-self: center;
+        grid-template-columns: 1fr;
+      }
+
       @include breakpoint-up(iPadPro) {
         row-gap: 2.25rem;
+        column-gap: 2.25rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+      }
+
+      @include breakpoint-up(large) {
+        row-gap: 3.25rem;
+        column-gap: 5.25rem;
       }
 
       a {
@@ -180,10 +222,9 @@
         color: $black;
         background-color: $white;
 
-        transition: all 0.3s ease;
+        transition: all 0.15s ease;
 
         &:hover {
-          font-size: $_22px;
           color: $orange;
           border: 1.5px solid $orange;
         }
@@ -193,12 +234,11 @@
           height: 4rem;
           font-size: $_20px;
         }
-      }
 
-      @include breakpoint-up(tablet) {
-        align-self: center;
-        justify-self: center;
-        grid-template-columns: 1fr;
+        @include breakpoint-up(large) {
+          font-size: $_22px;
+          border: 1.5px solid $grey;
+        }
       }
     }
   }
@@ -425,6 +465,10 @@
         font-size: $_20px;
         margin: 1rem 0;
       }
+    }
+
+    #map {
+      height: 50vh;
     }
   }
 }

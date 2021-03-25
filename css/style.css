@@ -239,6 +239,12 @@ a:focus {
   }
 }
 
+@media (max-width: 63.9375em) {
+  .hide-for-tablet {
+    display: none;
+  }
+}
+
 @media (min-width: 64em) {
   .hide-for-desktop {
     display: none;
@@ -4381,6 +4387,12 @@ canvas {
   }
 }
 
+@media (min-width: 120em) {
+  .contacts__intro__grid h1 {
+    font-size: 2.125rem;
+  }
+}
+
 .contacts__intro__grid h3,
 .contacts__intro__grid h4 {
   font-weight: 400;
@@ -4394,6 +4406,12 @@ canvas {
 @media (min-width: 64em) {
   .contacts__intro__grid h3 {
     font-size: 1.375rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .contacts__intro__grid h3 {
+    font-size: 1.5rem;
   }
 }
 
@@ -4414,6 +4432,30 @@ canvas {
   }
 }
 
+.contacts__intro__desc {
+  text-align: left;
+  margin: 0 4rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.contacts__intro__desc p {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+@media (min-width: 120em) {
+  .contacts__intro__desc p {
+    font-size: 1.25rem;
+  }
+}
+
+.contacts__intro__desc p span {
+  color: #c94d24;
+}
+
 .contacts__intro__socials {
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
@@ -4421,9 +4463,35 @@ canvas {
   row-gap: 1rem;
 }
 
+@media (min-width: 48em) {
+  .contacts__intro__socials {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
 @media (min-width: 64em) {
   .contacts__intro__socials {
     row-gap: 2.25rem;
+    -webkit-column-gap: 2.25rem;
+            column-gap: 2.25rem;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (1fr)[3];
+        grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 120em) {
+  .contacts__intro__socials {
+    row-gap: 3.25rem;
+    -webkit-column-gap: 5.25rem;
+            column-gap: 5.25rem;
   }
 }
 
@@ -4434,12 +4502,11 @@ canvas {
   border: 1px solid #999999;
   color: #080808;
   background-color: #ffffff;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 .contacts__intro__socials a:hover {
-  font-size: 1.375rem;
   color: #c94d24;
   border: 1.5px solid #c94d24;
 }
@@ -4452,15 +4519,10 @@ canvas {
   }
 }
 
-@media (min-width: 48em) {
-  .contacts__intro__socials {
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    -ms-grid-column-align: center;
-        justify-self: center;
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+@media (min-width: 120em) {
+  .contacts__intro__socials a {
+    font-size: 1.375rem;
+    border: 1.5px solid #999999;
   }
 }
 
@@ -4758,6 +4820,10 @@ canvas {
     font-size: 1.25rem;
     margin: 1rem 0;
   }
+}
+
+.contacts__map #map {
+  height: 50vh;
 }
 
 .what_we_focus__card {
