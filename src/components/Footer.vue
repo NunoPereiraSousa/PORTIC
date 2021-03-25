@@ -1,31 +1,31 @@
 <template>
-  <div>
-    <section class="footer grid">
-      <div class="footer__timezones">
-        <h1 class="footer__timezones__title title">{{ today }}</h1>
-        <div class="footer__timezones__worldwide grid">
-          <div class="footer__timezones__times">
+  <div class="footer">
+    <section class="footer__grid grid">
+      <div class="footer__grid__timezones">
+        <h1 class="footer__grid__timezones__title title">{{ today }}</h1>
+        <div class="footer__grid__timezones__worldwide grid">
+          <div class="footer__grid__timezones__times">
             <h2>
               {{ londonTime }}
               <sup>PM</sup>
             </h2>
             <p>LON</p>
           </div>
-          <div class="footer__timezones__times">
+          <div class="footer__grid__timezones__times">
             <h2>
               {{ usaTime }}
               <sup>AM</sup>
             </h2>
             <p>USA</p>
           </div>
-          <div class="footer__timezones__times">
+          <div class="footer__grid__timezones__times">
             <h2>
               {{ australianTime }}
               <sup>AM</sup>
             </h2>
             <p>AUSTRALIA</p>
           </div>
-          <div class="footer__timezones__times">
+          <div class="footer__grid__timezones__times">
             <h2>
               {{ japaneseTime }}
               <sup>AM</sup>
@@ -34,9 +34,11 @@
           </div>
         </div>
       </div>
-      <div class="footer__directions">
-        <h1 class="footer__directions__title title">How to get to PORTIC</h1>
-        <div class="footer__directions__info">
+      <div class="footer__grid__directions">
+        <h1 class="footer__grid__directions__title title">
+          How to get to PORTIC
+        </h1>
+        <div class="footer__grid__directions__info">
           <p>Rua Arquitecto Lobão Vital, 172</p>
           <p>4200-375 Porto</p>
           <p>Portugal</p>
@@ -44,9 +46,9 @@
           <p>portic@portic.ipp.pt</p>
         </div>
       </div>
-      <div class="footer__links">
-        <h1 class="footer__links__title title">Quick Links</h1>
-        <div class="footer__links__info grid">
+      <div class="footer__grid__links">
+        <h1 class="footer__grid__links__title title">Quick Links</h1>
+        <div class="footer__grid__links__info grid">
           <p>
             <a href="">Areas of Actuation</a>
           </p>
@@ -67,9 +69,9 @@
           </p>
         </div>
       </div>
-      <div class="footer__socials">
-        <h1 class="footer__socials__title title">Social Media</h1>
-        <div class="footer__socials__media grid">
+      <div class="footer__grid__socials">
+        <h1 class="footer__grid__socials__title title">Social Media</h1>
+        <div class="footer__grid__socials__media grid">
           <div class="first__cells">
             <a href="" class="grid">
               <i class="fab fa-instagram"></i>
@@ -205,8 +207,6 @@ export default {
       let weekDayName = "";
       let weekDayNumber = "";
 
-      // let daysArr = today.getDay();
-
       switch (today.getDay()) {
         case 0:
           dayName = "Sunday";
@@ -269,13 +269,6 @@ export default {
           weekDayName = "December";
           break;
       }
-
-      // if (
-      //   (today.getDate() > 3 && today.getDate() < 21) ||
-      //   (today.getDate() > 23 && today.getDate() < 31)
-      // ) {
-      //   weekDayNumber += `${today.getDate()}th`;
-      // }
 
       switch (today.getDate()) {
         case 1:

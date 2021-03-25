@@ -280,7 +280,7 @@
       <h3>Rua Arquitecto Lobão Vital 172, 4200-374 Porto</h3>
       <div id="map" ref="map"></div>
     </section>
-    <Footer />
+    <Footer class="no__margin" />
   </div>
 </template>
 

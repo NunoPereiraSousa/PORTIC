@@ -54,7 +54,7 @@
       left: 25%;
 
       @include breakpoint-up(iPadPro) {
-        left: 30%;
+        left: 34%;
       }
     }
 
@@ -62,7 +62,7 @@
       right: 25%;
 
       @include breakpoint-up(iPadPro) {
-        right: 30%;
+        right: 34%;
       }
     }
 
@@ -89,7 +89,7 @@
       }
 
       @include breakpoint-up(iPadPro) {
-        grid-template-columns: 30vw 40vw 30vw;
+        grid-template-columns: 34vw 32vw 34vw;
       }
 
       &__entrance {
@@ -468,7 +468,8 @@
     }
 
     #map {
-      height: 50vh;
+      margin: 2rem 0 0;
+      height: 60vh;
     }
   }
 }
