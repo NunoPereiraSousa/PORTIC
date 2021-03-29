@@ -239,16 +239,16 @@
             color: $orange;
           }
 
-          &::after {
-            content: "";
-            position: absolute;
-            right: 0%;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 10px;
-            width: 2px;
-            background-color: $orange;
-          }
+          // &::after {
+          //   content: "";
+          //   position: absolute;
+          //   right: 0%;
+          //   top: 50%;
+          //   transform: translateY(-50%);
+          //   height: 10px;
+          //   width: 2px;
+          //   background-color: $orange;
+          // }
 
           @include breakpoint-up(iPadPro) {
             width: 250px;

@@ -486,6 +486,8 @@ canvas {
   top: 0%;
   left: 0%;
   z-index: 999;
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
 }
 
 .navbar {
@@ -496,12 +498,22 @@ canvas {
   font-family: "Porto Sans Stencil";
   -webkit-box-shadow: 0px 1px 20px 0 rgba(255, 255, 255, 0.1);
           box-shadow: 0px 1px 20px 0 rgba(255, 255, 255, 0.1);
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 
 .navbar.scroll {
   background-color: #ffffff;
+  -webkit-box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scroll .navbar__hamburger__lines {
+  background-color: #080808;
+}
+
+.navbar.scroll .navbar__desktop_menu__links a {
+  position: relative;
+  z-index: 8;
+  color: #080808;
 }
 
 @media (min-width: 75em) {
@@ -839,7 +851,7 @@ canvas {
   content: "";
   display: block;
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   left: -15%;
   bottom: -5%;
   background-color: transparent;
@@ -5458,18 +5470,6 @@ canvas {
 
 .project__entry__carousel .slide-track .slide span {
   color: #c94d24;
-}
-
-.project__entry__carousel .slide-track .slide::after {
-  content: "";
-  position: absolute;
-  right: 0%;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  height: 10px;
-  width: 2px;
-  background-color: #c94d24;
 }
 
 @media (min-width: 64em) {

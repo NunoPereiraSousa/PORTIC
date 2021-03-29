@@ -23,9 +23,16 @@ export default {
     SubHeader,
     Header
   },
+  data: () => {
+    return {
+      previous__scroll__pos: null
+    };
+  },
   created() {
     gsap.registerPlugin(ScrollTrigger);
     window.addEventListener("scroll", this.handleScroll);
+
+    this.previous__scroll__pos = window.pageYOffset;
   },
   methods: {
     handleScroll() {
@@ -39,9 +46,18 @@ export default {
         toggleClass: {
           targets: navbar,
           className: "scroll"
-        },
-        markers: true
+        }
       });
+
+      let header = document.querySelector(".headers").offsetHeight;
+
+      let current__scroll__pos = window.pageYOffset;
+      if (this.previous__scroll__pos > current__scroll__pos) {
+        document.querySelector(".headers").style.top = "0px";
+      } else {
+        document.querySelector(".headers").style.top = `-${header}px`;
+      }
+      this.previous__scroll__pos = current__scroll__pos;
     }
   }
 };
