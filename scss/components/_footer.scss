@@ -90,6 +90,10 @@
         &:first-child {
           margin: 0;
         }
+
+        a {
+          color: $white;
+        }
       }
     }
 
@@ -99,18 +103,14 @@
       &__info {
         grid-template-columns: 1fr 1fr;
 
-        p {
+        a {
+          font-size: $_17px;
+          color: $white;
           margin: 0 0 1rem;
 
           &:nth-child(even) {
             margin-left: 2rem;
           }
-        }
-
-        a {
-          font-size: $_17px;
-          color: $white;
-          margin: 0 0;
 
           @include breakpoint-up(desktop) {
             font-size: $_16px;

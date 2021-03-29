@@ -42,31 +42,43 @@
           <p>Rua Arquitecto Lobão Vital, 172</p>
           <p>4200-375 Porto</p>
           <p>Portugal</p>
-          <p>(+351) 22 557 1020</p>
-          <p>portic@portic.ipp.pt</p>
+          <p>
+            <a href="tel:+351225571020">(+351) 22 557 1020</a>
+          </p>
+          <p>
+            <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
+          </p>
+          <p>
+            <a href="mailto:communication@portic.ipp.pt"
+              >communication@portic.ipp.pt</a
+            >
+          </p>
         </div>
       </div>
       <div class="footer__grid__links">
         <h1 class="footer__grid__links__title title">Quick Links</h1>
         <div class="footer__grid__links__info grid">
-          <p>
-            <a href="">Areas of Actuation</a>
-          </p>
-          <p>
-            <a href="">Courses</a>
-          </p>
-          <p>
-            <a href="">Media</a>
-          </p>
-          <p>
-            <a href="">Positions</a>
-          </p>
-          <p>
-            <a href="">Projects</a>
-          </p>
-          <p>
-            <a href="">Unities</a>
-          </p>
+          <router-link :to="{ name: 'Areas' }">
+            Areas
+          </router-link>
+          <router-link :to="{ name: 'Courses' }">
+            Courses
+          </router-link>
+          <router-link :to="{ name: 'Media' }">
+            Media
+          </router-link>
+          <router-link :to="{ name: 'Positions' }">
+            Positions
+          </router-link>
+          <router-link :to="{ name: 'Projects' }">
+            Projects
+          </router-link>
+          <router-link :to="{ name: 'Unities' }">
+            Unities
+          </router-link>
+          <router-link :to="{ name: 'Contacts' }">
+            About Us
+          </router-link>
         </div>
       </div>
       <div class="footer__grid__socials">

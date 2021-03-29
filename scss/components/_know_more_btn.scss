@@ -12,10 +12,18 @@
     border: 1.5px solid $black;
     color: $black;
 
+    a {
+      color: $black;
+      transition: all 0.1s ease;
+    }
+
     &:hover {
       border: 1.5px solid $black;
-      color: $white;
       background-color: $black;
+    }
+
+    &:hover a {
+      color: $white;
     }
   }
 

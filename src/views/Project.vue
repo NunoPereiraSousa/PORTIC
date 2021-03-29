@@ -4,7 +4,7 @@
       <section class="project__entry">
         <div class="project__entry__grid grid">
           <h1>
-            <div>Project</div>
+            <a>Project</a>
             <div>Ferrovia 4.0</div>
           </h1>
 
@@ -28,8 +28,12 @@
               <div>contact by phone number or email</div>
             </h3>
 
-            <h2>(+351) 919 554 127</h2>
-            <h2>portic@portic.ipp.pt</h2>
+            <h2>
+              <a href="tel:+351919554127">(+351) 919 554 127</a>
+            </h2>
+            <h2>
+              <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
+            </h2>
           </div>
         </div>
         <div class="project__entry__carousel">
@@ -39,7 +43,7 @@
         </div>
       </section>
       <section class="project__objective">
-        <SubHeaderTitle text="Objectives" />
+        <SubHeaderTitle text="Description" />
         <p>
           The overall objective of the project is to develop different
           components, tools and systems, to be tested on rolling stock and real
@@ -123,8 +127,12 @@
           email
         </p>
 
-        <h3>(+351) 919 554 127</h3>
-        <h3>portic@portic.ipp.pt</h3>
+        <h3>
+          <a href="tel:+351919554127">(+351) 919 554 127</a>
+        </h3>
+        <h3>
+          <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
+        </h3>
       </section>
     </div>
     <Footer />

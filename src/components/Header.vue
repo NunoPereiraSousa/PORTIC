@@ -116,14 +116,27 @@
         </div>
       </div>
     </nav>
-    <div class="navbar__mobile_overlay"></div>
+    <!-- <div class="navbar__mobile_overlay hide-for-desktop"></div> -->
   </header>
 </template>
 
 <script>
 export default {
   name: "Navbar",
+  // mounted() {
+  //   window.addEventListener("scroll", this.handleScroll);
+  // },
   methods: {
+    // handleScroll() {
+    //   var prevScrollpos = window.pageYOffset;
+    //   var currentScrollPos = window.pageYOffset;
+    //   if (prevScrollpos > currentScrollPos) {
+    //     document.querySelector(".navbar").style.top = "3rem";
+    //   } else {
+    //     document.querySelector(".navbar").style.top = "-50px";
+    //   }
+    //   prevScrollpos = currentScrollPos;
+    // },
     toggleNavbar() {
       let lines = document.querySelectorAll(".navbar__hamburger__lines");
 

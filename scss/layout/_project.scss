@@ -190,6 +190,14 @@
               margin-top: 1rem;
             }
           }
+
+          a {
+            color: $black;
+          }
+
+          &:hover a {
+            color: $orange;
+          }
         }
       }
     }
@@ -319,6 +327,10 @@
   &__news {
     padding-top: calc(3.1875rem + 2vw);
 
+    .news__cards__card {
+      margin-top: 0;
+    }
+
     &__grid {
       row-gap: 3.75rem;
 
@@ -341,6 +353,16 @@
         margin-top: 4rem;
         grid-template-columns: repeat(4, 1fr);
       }
+
+      @include breakpoint-up(iPadPro) {
+        margin-top: 4rem;
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      @include breakpoint-up(large) {
+        margin-top: 4rem;
+        grid-template-columns: repeat(6, 1fr);
+      }
     }
   }
 
@@ -350,16 +372,19 @@
 
     p {
       font-size: $_18px;
+      color: $grey;
+      margin-bottom: 2.5rem;
 
       @include breakpoint-up(iPadPro) {
         font-size: $_20px;
       }
     }
 
-    h3 {
+    a {
       width: fit-content;
 
       font-weight: 400;
+      color: $black;
       font-family: $portoSerif;
 
       &:last-child {

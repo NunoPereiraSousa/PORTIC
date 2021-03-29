@@ -1,8 +1,10 @@
 .subheader {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  z-index: 988;
+  // position: absolute;
+  // top: 0%;
+  // left: 0%;
+  // z-index: 988;
+  position: relative;
+  z-index: 999;
   width: 100%;
   padding: 1rem 1.25rem;
   background-color: $white;
