@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar flex flex-jc-sb flex-ai-c">
+    <nav class="navbar flex flex-jc-sb flex-ai-c" :class="theme">
       <router-link class="navbar__logo" :to="{ name: 'Home' }">
         <img src="../assets/logo.png" alt="PORTIC" />
       </router-link>
@@ -126,6 +126,12 @@ export default {
   // mounted() {
   //   window.addEventListener("scroll", this.handleScroll);
   // },
+  props: {
+    theme: {
+      type: String,
+      required: true
+    }
+  },
   methods: {
     // handleScroll() {
     //   var prevScrollpos = window.pageYOffset;

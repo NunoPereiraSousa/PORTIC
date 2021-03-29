@@ -500,17 +500,29 @@ canvas {
           box-shadow: 0px 1px 20px 0 rgba(255, 255, 255, 0.1);
 }
 
-.navbar.scroll {
+.navbar.normal {
   background-color: #ffffff;
   -webkit-box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
-.navbar.scroll .navbar__hamburger__lines {
+.navbar.normal .navbar__desktop_menu__links a {
+  position: relative;
+  z-index: 8;
+  color: #080808;
+}
+
+.navbar.scroll.transparent {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scroll.transparent .navbar__hamburger__lines {
   background-color: #080808;
 }
 
-.navbar.scroll .navbar__desktop_menu__links a {
+.navbar.scroll.transparent .navbar__desktop_menu__links a {
   position: relative;
   z-index: 8;
   color: #080808;

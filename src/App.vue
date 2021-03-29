@@ -6,7 +6,10 @@
     </div> -->
     <div class="headers">
       <SubHeader />
-      <Header />
+      <div v-if="this.$route.name === 'Home'">
+        <Header theme="transparent" />
+      </div>
+      <div v-else><Header theme="normal" /></div>
     </div>
     <router-view />
   </div>
