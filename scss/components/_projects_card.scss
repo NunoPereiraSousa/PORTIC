@@ -4,6 +4,8 @@
   //   box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.05),
   //     0 -3px 20px 0px rgba(0, 0, 0, 0.05);
 
+  cursor: pointer;
+
   &:not(.hovered) {
     border-color: $black;
   }
@@ -123,7 +125,7 @@
       }
 
       @include breakpoint-up(desktop) {
-        font-size: $_22px;
+        font-size: $_20px;
         margin-bottom: 140px;
       }
 
@@ -137,7 +139,7 @@
       font-size: $_18px;
 
       @include breakpoint-up(desktop) {
-        font-size: $_24px;
+        font-size: $_22px;
       }
     }
   }
@@ -167,7 +169,7 @@
       margin-bottom: 1rem;
 
       @include breakpoint-up(desktop) {
-        font-size: $_22px;
+        font-size: $_20px;
       }
 
       @include breakpoint-up(large) {

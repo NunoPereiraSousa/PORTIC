@@ -9,14 +9,18 @@ export function animate() {
   timeline
     .to(".intro_div", {
       y: "15%",
-      delay: 0.3,
+      delay: 1.75,
       stagger: 0.15,
       duration: 0.8
     })
-    .to(".intro_line", {
-      width: "50px",
-      duration: 0.65
-    })
+    .to(
+      ".intro_line",
+      {
+        width: "50px",
+        duration: 0.65
+      },
+      "-=0.2"
+    )
     .to(
       ".intro_div2",
       {
@@ -24,7 +28,7 @@ export function animate() {
         stagger: 0.25,
         duration: 0.65
       },
-      "-=0.4"
+      "-=0.2"
     )
     .to(
       ".intro_div3",
@@ -46,7 +50,7 @@ export function animate() {
     .to(
       ".intro_div",
       {
-        textShadow: "5px 5px 4px rgba(0, 0, 0, 0.3)",
+        textShadow: "4px 4px 5px rgba(0, 0, 0, 0.25)",
         duration: 0.5
       },
       "-=1"

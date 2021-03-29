@@ -1,7 +1,9 @@
 <template>
   <div class="flex flex-ai-c flex-jc-c">
     <button :class="type">
-      {{ text }}
+      <router-link :to="{ name: whereTo }">
+        {{ text }}
+      </router-link>
     </button>
   </div>
 </template>
@@ -15,6 +17,10 @@ export default {
       required: true
     },
     text: {
+      type: String,
+      required: true
+    },
+    whereTo: {
       type: String,
       required: true
     }

@@ -31,7 +31,11 @@
       />
     </div>
 
-    <KnowMoreBtn type="know__more light" text="See all Projects" />
+    <KnowMoreBtn
+      type="know__more light"
+      text="See all Projects"
+      whereTo="ProjectsCatalog"
+    />
     <Footer />
   </div>
 </template>

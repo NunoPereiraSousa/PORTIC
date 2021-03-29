@@ -5,29 +5,19 @@
         <div><span>Lorem</span> ipsum dolor sit</div>
       </div>
       <div class="line">
-        <div>
-          amet consectetur
-        </div>
+        amet consectetur
       </div>
       <div class="line">
-        <div>
-          cumque libero quam.
-        </div>
+        cumque libero quam.
       </div>
       <div class="line">
-        <div>
-          error dolores quam
-        </div>
+        error dolores quam
       </div>
       <div class="line">
-        <div>
-          cumque libero daww.
-        </div>
+        cumque libero daww.
       </div>
       <div class="line">
-        <div>
-          ccumque libero quam.
-        </div>
+        ccumque libero quam.
       </div>
     </h1>
     <h1 class="quote__title hide-for-mobile flex flex-ai-c flex-jc-c flex-fd-c">
@@ -35,19 +25,13 @@
         <div><span>Lorem</span> ipsum dolor sit amet</div>
       </div>
       <div class="line">
-        <div>
-          consectetur cumque libero aliquam.
-        </div>
+        consectetur cumque libero aliquam.
       </div>
       <div class="line">
-        <div>
-          error dolores quam dolor
-        </div>
+        error dolores quam dolor
       </div>
       <div class="line">
-        <div>
-          cumque libero aliquam.
-        </div>
+        cumque libero aliquam.
       </div>
     </h1>
   </section>

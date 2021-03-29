@@ -28,11 +28,11 @@
           date="05 de março"
         />
       </div>
-      <KnowMoreBtn
+      <!-- <KnowMoreBtn
         type="know__more dark"
         text="All news"
         route="ProjectsCatalog"
-      />
+      /> -->
     </section>
     <section class="testimonials">
       <h1 class="testimonials__title">
@@ -104,7 +104,7 @@
 import Intro from "@/components/Intro.vue";
 import Quote from "@/components/Quote.vue";
 import NewsCard from "@/components/NewsCard.vue";
-import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
+// import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
 import TestimonialCard from "@/components/TestimonialCard.vue";
 import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
@@ -115,7 +115,7 @@ export default {
   components: {
     Intro,
     Quote,
-    KnowMoreBtn,
+    // KnowMoreBtn,
     NewsCard,
     TestimonialCard,
     Footer,
