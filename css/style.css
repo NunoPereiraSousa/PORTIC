@@ -318,7 +318,10 @@ canvas {
   overflow: hidden;
 }
 
-.overflow__project__line {
+.intro_div,
+.intro_div2,
+.intro_div3,
+.carousel_line {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
 }
@@ -1278,7 +1281,7 @@ canvas {
 
 .landing hr {
   background-color: #c94d24;
-  width: 50px;
+  width: 0;
   height: 4px;
   border: none;
   margin: 1rem 0 2.875rem;
@@ -1299,6 +1302,7 @@ canvas {
 @media (min-width: 120em) {
   .landing hr {
     height: 6px;
+    margin: 1.5rem 0 2.875rem;
   }
 }
 
@@ -1501,7 +1505,7 @@ canvas {
   width: 350px;
 }
 
-.landing__carousel .carousel .slide-track .slide p {
+.landing__carousel .carousel .slide-track .slide h4 {
   white-space: nowrap;
   font-size: 1.125rem;
   font-family: "Porto Sans Stencil";
@@ -1511,7 +1515,7 @@ canvas {
 }
 
 @media (min-width: 64em) {
-  .landing__carousel .carousel .slide-track .slide p {
+  .landing__carousel .carousel .slide-track .slide h4 {
     color: #080808;
   }
 }

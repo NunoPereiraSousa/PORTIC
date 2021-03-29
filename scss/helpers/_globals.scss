@@ -128,7 +128,14 @@ canvas {
 .overflow {
   overflow: hidden;
 
-  &__project__line {
-    transform: translateY(100%);
-  }
+  // &__project__line {
+  //   transform: translateY(100%);
+  // }
+}
+
+.intro_div,
+.intro_div2,
+.intro_div3,
+.carousel_line {
+  transform: translateY(100%);
 }
