@@ -3,7 +3,7 @@
     <!-- <div class="scene"></div> -->
     <!-- <Intro extra="our " keyword="Areas" /> -->
     <SubPageIntro
-      categoryTitle="Areas"
+      categoryTitle="Áreas"
       title1="Title 1"
       text1="Lorem ipsum dolor sit amet, consectetur
       enim ad minim veniam, quis nostrud."
@@ -20,28 +20,19 @@
       adotps in the projects ipsum dolor sit amet, consectetur 
       eiusmod tempor incididunt ut labore et dolore magna aliqua."
     />
-    <MainTitle className="main__title" text="Explore our areas" />
+    <MainTitle className="main__title" text="Explore as nossas áreas" />
     <section class="areas">
-      <!-- <Quote /> -->
-
       <div class="areas__grid grid">
         <AreasCard
-          v-for="i in 6"
-          :key="i"
-          :counter="i"
-          :index="i"
-          :button_id="i"
-          :card_id="`card_${i}`"
-          areaName="Industry 4.0"
-          areaDesc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          v-for="area in areas"
+          :key="area.id"
+          :counter="area.id"
+          :index="area.id"
+          :button_id="area.id"
+          :card_id="`card_${area.id}`"
+          :areaName="area.areaName"
+          :areaDesc="area.areaDesc"
         />
-
-        <!-- <AreasCard
-          v-for="i in 6"
-          :key="i"
-          areaName="Industry 4.0"
-          areaDesc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        /> -->
       </div>
     </section>
     <Footer />
@@ -49,12 +40,13 @@
 </template>
 
 <script>
-// import Intro from "@/components/Intro.vue";
+import { mapGetters } from "vuex";
+
 import SubPageIntro from "@/components/SubPageIntro.vue";
 import MainTitle from "@/components/MainTitle.vue";
 import AreasCard from "@/components/AreasCard.vue";
 import Footer from "@/components/Footer.vue";
-// import { background } from "../../js/background";
+
 export default {
   components: {
     // Intro,
@@ -63,8 +55,16 @@ export default {
     AreasCard,
     Footer
   },
+  data: () => {
+    return {
+      areas: null
+    };
+  },
   mounted() {
-    // background();
+    this.areas = this.getAreas;
+  },
+  computed: {
+    ...mapGetters(["getAreas"])
   }
 };
 </script>

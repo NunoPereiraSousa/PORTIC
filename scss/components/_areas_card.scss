@@ -14,6 +14,10 @@
     border-top: 2px solid rgba($color: $orange, $alpha: 1);
   }
 
+  @include breakpoint-up(iPadPro) {
+    padding: 2.85rem 2.875rem;
+  }
+
   // &:hover &__sub_title {
   //   color: $white;
   // }
@@ -37,12 +41,25 @@
     font-size: $_15px;
     margin-right: 40px;
     font-weight: 100;
+
+    @include breakpoint-up(iPadPro) {
+      margin-right: 60px;
+      font-size: $_18px;
+    }
   }
 
   &__title {
     font-size: $_20px;
     color: $orange;
     font-family: $portoSansStencil;
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_22px;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_24px;
+    }
   }
 
   &__button {
@@ -87,6 +104,10 @@
     max-height: 300px;
     overflow-y: auto;
 
+    @include breakpoint-up(iPadPro) {
+      margin: 4rem 0 0;
+    }
+
     // display: none;
 
     // &.closed {
@@ -98,6 +119,14 @@
       font-size: $_16px;
       letter-spacing: 0.2px;
       line-height: 1.6;
+
+      @include breakpoint-up(iPadPro) {
+        font-size: $_18px;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: $_22px;
+      }
     }
   }
 

@@ -3391,6 +3391,12 @@ button:focus {
   border-top: 2px solid #c94d24;
 }
 
+@media (min-width: 64em) {
+  .areas__grid__card {
+    padding: 2.85rem 2.875rem;
+  }
+}
+
 .areas__grid__card__sub_title, .areas__grid__card__title {
   font-weight: 400;
   margin: 0;
@@ -3403,10 +3409,29 @@ button:focus {
   font-weight: 100;
 }
 
+@media (min-width: 64em) {
+  .areas__grid__card__sub_title {
+    margin-right: 60px;
+    font-size: 1.125rem;
+  }
+}
+
 .areas__grid__card__title {
   font-size: 1.25rem;
   color: #c94d24;
   font-family: "Porto Sans Stencil";
+}
+
+@media (min-width: 64em) {
+  .areas__grid__card__title {
+    font-size: 1.375rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .areas__grid__card__title {
+    font-size: 1.5rem;
+  }
 }
 
 .areas__grid__card__button {
@@ -3453,11 +3478,29 @@ button:focus {
   overflow-y: auto;
 }
 
+@media (min-width: 64em) {
+  .areas__grid__card__content {
+    margin: 4rem 0 0;
+  }
+}
+
 .areas__grid__card__content__paragraph {
   margin: 0;
   font-size: 1rem;
   letter-spacing: 0.2px;
   line-height: 1.6;
+}
+
+@media (min-width: 64em) {
+  .areas__grid__card__content__paragraph {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .areas__grid__card__content__paragraph {
+    font-size: 1.375rem;
+  }
 }
 
 .media {

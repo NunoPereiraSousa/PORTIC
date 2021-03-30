@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { areas } from "../config/areas";
 import { focuses } from "../config/contacts";
 import { news } from "../config/home";
 import { positions, tips } from "../config/recruitment";
@@ -8,6 +9,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    areas: areas,
     positions: positions,
     tips: tips,
     focuses: focuses,
@@ -24,6 +26,7 @@ export default new Vuex.Store({
 
     getTips: state => state.tips,
     getFocuses: state => state.focuses,
-    getNews: state => state.news
+    getNews: state => state.news,
+    getAreas: state => state.areas
   }
 });
