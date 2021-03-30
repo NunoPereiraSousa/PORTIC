@@ -1,0 +1,211 @@
+.slide__panel {
+  padding: calc(3.1875rem + 2vw) 2rem 4rem;
+  background-color: $black;
+  overflow: hidden;
+
+  position: fixed;
+  z-index: 999;
+  right: -100%;
+  top: 0%;
+  bottom: 0%;
+  height: 100vh;
+  width: 100%;
+  // width: 34vw;
+  transition: all 0.6s ease;
+
+  ::-webkit-scrollbar {
+    width: 2px;
+    border-radius: 2px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba($color: $white, $alpha: 0.1);
+    border-radius: 2px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $white;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $white;
+  }
+
+  @include breakpoint-down(phone) {
+    padding: calc(2.1875rem + 2vw) 2rem 4rem;
+  }
+
+  @include breakpoint-up(tablet) {
+    width: 80%;
+    padding: calc(6.1875rem + 2vw) 8vw;
+  }
+
+  @include breakpoint-up(desktop) {
+    width: 40vw;
+    padding: calc(2.1875rem + 2vw) 4rem;
+  }
+
+  &.opened {
+    right: 0%;
+  }
+
+  h2 {
+    color: $orange;
+    font-weight: 400;
+    font-family: $portoSerif;
+    font-size: $_18px;
+
+    @include breakpoint-up(desktop) {
+      font-size: $_20px;
+    }
+  }
+
+  p {
+    margin: 2rem 0 0;
+    padding-right: 10px;
+    max-height: 64vh;
+    overflow-y: auto;
+
+    @include breakpoint-down(phone) {
+      max-height: 60vh;
+    }
+
+    font-size: $_17px;
+    letter-spacing: 0.25px;
+    line-height: 1.55;
+
+    @include breakpoint-up(desktop) {
+      padding-right: 20px;
+      line-height: 1.8;
+      font-size: $_18px;
+    }
+  }
+
+  &__back {
+    // margin-left: auto;
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    // position: relative;
+    align-self: flex-end;
+    border-radius: 50%;
+    background-color: $white;
+    width: 40px;
+    height: 40px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+    @include breakpoint-up(tablet) {
+      right: 8vw;
+      bottom: 8vw;
+      width: 50px;
+      height: 50px;
+    }
+
+    @include breakpoint-up(desktop) {
+      right: 4rem;
+      bottom: 2rem;
+      width: 40px;
+      height: 40px;
+    }
+
+    @include breakpoint-up(large) {
+      width: 50px;
+      height: 50px;
+    }
+
+    cursor: pointer;
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      left: 54%;
+      transform: translate(-50%, -50%) rotate(180deg);
+      width: 34%;
+      height: 2px;
+      background-color: $orange;
+
+      @include breakpoint-up(tablet) {
+        height: 3px;
+      }
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        width: 60%;
+        left: 60%;
+        height: 2px;
+        background-color: $orange;
+
+        @include breakpoint-up(tablet) {
+          height: 3px;
+        }
+
+        @include breakpoint-up(desktop) {
+          height: 2px;
+        }
+
+        @include breakpoint-up(large) {
+          height: 3px;
+        }
+      }
+
+      &::after {
+        top: -2px;
+        transform: rotate(45deg);
+
+        @include breakpoint-up(tablet) {
+          top: -3px;
+        }
+
+        @include breakpoint-up(desktop) {
+          top: -2px;
+        }
+
+        @include breakpoint-up(large) {
+          top: -3px;
+        }
+      }
+
+      &::before {
+        top: 2px;
+        transform: rotate(-45deg);
+
+        @include breakpoint-up(tablet) {
+          top: 3px;
+        }
+
+        @include breakpoint-up(desktop) {
+          top: 2px;
+        }
+
+        @include breakpoint-up(large) {
+          top: 3px;
+        }
+      }
+    }
+  }
+}
+
+.slide__panel__overlay {
+  position: fixed;
+  z-index: -999;
+  top: 0%;
+  left: 0%;
+  visibility: hidden;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.6s ease;
+
+  cursor: pointer;
+
+  &.overlay_opened {
+    z-index: 989;
+    visibility: visible;
+  }
+}

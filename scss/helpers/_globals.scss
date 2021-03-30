@@ -125,21 +125,10 @@ canvas {
   // }
 }
 
-.overflow {
-  overflow: hidden;
+button {
+  cursor: pointer;
 
-  // &__project__line {
-  //   transform: translateY(100%);
-  // }
-}
-
-.intro_div,
-.intro_div2,
-.intro_div3,
-.carousel_line,
-.navbar_div,
-.subheader_div,
-.quote_div,
-.quote_div2 {
-  transform: translateY(100%);
+  &:focus {
+    outline: none;
+  }
 }

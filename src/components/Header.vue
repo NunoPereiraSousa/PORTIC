@@ -157,10 +157,10 @@ export default {
 
       navbar__mobile_menu.classList.toggle("open__overlay");
 
-      let navbar__mobile_overlay = document.querySelector(
-        ".navbar__mobile_overlay"
-      );
-      navbar__mobile_overlay.classList.toggle("overlay_opened");
+      // let navbar__mobile_overlay = document.querySelector(
+      //   ".navbar__mobile_overlay"
+      // );
+      // navbar__mobile_overlay.classList.toggle("overlay_opened");
     },
     closeNavbarOnPageTransition() {
       let lines = document.querySelectorAll(".navbar__hamburger__lines");
@@ -171,12 +171,12 @@ export default {
 
       let navbar__mobile_menu = document.querySelector(".navbar__mobile_menu");
 
-      let navbar__mobile_overlay = document.querySelector(
-        ".navbar__mobile_overlay"
-      );
+      // let navbar__mobile_overlay = document.querySelector(
+      //   ".navbar__mobile_overlay"
+      // );
 
       navbar__mobile_menu.classList.toggle("open__overlay");
-      navbar__mobile_overlay.classList.toggle("overlay_opened");
+      // navbar__mobile_overlay.classList.toggle("overlay_opened");
     }
   }
 };

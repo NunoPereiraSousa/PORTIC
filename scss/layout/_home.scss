@@ -149,11 +149,16 @@
         }
       }
 
-      a {
+      button {
         position: relative;
         color: $orange;
         margin: 2rem 0 0 0;
+
+        background-color: transparent;
+        border: none;
         transition: all 0.5s ease;
+
+        cursor: pointer;
 
         @include breakpoint-up(desktop) {
           font-size: $_16px;
@@ -184,13 +189,12 @@
 
 .testimonials {
   position: relative;
-  z-index: 1;
   width: 100%;
   padding: calc(2.1875rem + 2vw) 8vw 0;
   color: $black;
 
   @include breakpoint-up(iPadPro) {
-    padding: calc(8.1875rem + 2vw) 8vw 0;
+    padding: calc(8.1875rem + 2vw) 6vw 0;
   }
 
   @include breakpoint-up(desktop) {
@@ -202,7 +206,7 @@
     font-weight: 400;
     text-align: center;
 
-    @include breakpoint-up(desktop) {
+    @include breakpoint-up(iPadPro) {
       font-size: $_40px;
     }
   }
@@ -211,6 +215,10 @@
     row-gap: $_60px;
 
     @include breakpoint-up(iPadPro) {
+      padding: 0 0;
+    }
+
+    @include breakpoint-up(desktop) {
       padding: 0 6vw;
     }
 
@@ -239,7 +247,7 @@
       padding: calc(calc(4.325rem / 2) + calc(3.125rem / 8)) 1.25rem 3.125rem;
       margin: 30px 5px 15px;
 
-      @include breakpoint-up(desktop) {
+      @include breakpoint-up(iPadPro) {
         box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
         padding: calc(calc(4.325rem / 2) + calc(3.125rem / 8)) 2rem 3.125rem;
       }
