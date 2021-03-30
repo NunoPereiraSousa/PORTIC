@@ -6,7 +6,7 @@
     v-on:click="show = !show"
   >
     <div class="flex flex-ai-c flex-jc-sb">
-      <h2 class="courses__grid__card__title">{{ areaName }}</h2>
+      <h2 class="courses__grid__card__title">{{ courseName }}</h2>
       <button class="courses__grid__card__button" :id="button_id">
         <div class="courses__grid__card__button__lines"></div>
         <div class="courses__grid__card__button__lines"></div>
@@ -14,7 +14,7 @@
     </div>
     <div v-if="show">
       <div class="courses__grid__card__content">
-        <p class="courses__grid__card__content__paragraph">{{ areaDesc }}</p>
+        <p class="courses__grid__card__content__paragraph">{{ courseDesc }}</p>
       </div>
 
       <div class="courses__grid__card__buttons flex flex-ai-c flex-jc-sb">
@@ -32,7 +32,7 @@ import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
 export default {
   name: "CoursesCard",
   props: {
-    areaName: {
+    courseName: {
       type: String,
       required: true
     },
@@ -40,7 +40,7 @@ export default {
       type: Number,
       required: true
     },
-    areaDesc: {
+    courseDesc: {
       type: String,
       required: true
     },
