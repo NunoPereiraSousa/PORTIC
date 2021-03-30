@@ -136,7 +136,7 @@
       </div>
       <div class="contacts__intro__grid grid hide-below-tablet">
         <div class="contacts__intro__grid__contacts grid">
-          <h3>Conecta-te connosco a qualquer momento</h3>
+          <h3>Conecte-se connosco a qualquer momento</h3>
           <div>
             <h2>(+351) 919 554 127</h2>
             <h2>portic@portic.ipp.pt</h2>
@@ -293,7 +293,7 @@
     </section>
     <section class="contacts__form grid">
       <div class="contacts__form__contacts grid">
-        <h3>Conecta-te connosco a qualquer momento</h3>
+        <h3>Conecte-se connosco a qualquer momento</h3>
         <div>
           <h2>(+351) 919 554 127</h2>
           <h2>portic@portic.ipp.pt</h2>

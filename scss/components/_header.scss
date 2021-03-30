@@ -23,6 +23,10 @@
     background-color: $white;
     box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
 
+    .navbar__hamburger__lines {
+      background-color: $black;
+    }
+
     .navbar__desktop_menu {
       &__links {
         a {
@@ -368,7 +372,7 @@
         }
 
         &:hover::after {
-          width: 64%;
+          width: 36px;
           background-color: $orange;
         }
       }

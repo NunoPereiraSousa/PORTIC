@@ -32,7 +32,7 @@
           {{ categoryDescription }}
         </p>
         <button class="flex flex-ai-c">
-          <span>Let's talk</span>
+          <span>Contacte-nos</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="22.41"
@@ -113,7 +113,7 @@
             {{ categoryDescription }}
           </p>
           <button class="flex flex-ai-c">
-            <span>Let's talk</span>
+            <span>Contacte-nos</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="22.41"

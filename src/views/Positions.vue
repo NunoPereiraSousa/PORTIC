@@ -3,10 +3,9 @@
     <!-- <div class="scene"></div> -->
     <!-- <Intro extra="our " keyword="Projects" /> -->
     <SubPageIntro
-      categoryTitle="Positions"
-      title1="Title 1"
-      text1="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
+      categoryTitle="Recrutamento"
+      :title1="`${this.nPositions} carreiras disponíveis`"
+      :text1="`Estão disponíveis carreiras nas áreas de ${this.positionNames}.`"
       title2="Title 2"
       text2="Lorem ipsum dolor sit amet, consectetur
       enim ad minim veniam, quis nostrud."
@@ -20,23 +19,19 @@
       adotps in the projects ipsum dolor sit amet, consectetur 
       eiusmod tempor incididunt ut labore et dolore magna aliqua."
     />
-    <!-- <MainTitle
-      className="main__title"
-      text="Everything starts with a small step"
-    /> -->
 
     <section class="positions__find_program">
       <h1 class="positions__find_program__title">
-        Everything starts with a small step
+        Tudo começa com um pequeno passo
       </h1>
 
       <SubHeaderTitle text="Find your program" />
 
       <p class="positions__find_program__info">
-        Our unique programs provide deep experiences for both interns and
-        full-time employees. If you can think on your feet and speak your mind,
-        you can help bring the power of conversation to people all over the
-        world.
+        Os nossos programas oferecem experiências únicas tanto para estagiários,
+        como para trabalhadores. Se consegue pensar de forma criativa e
+        trabalhadora, então consegue fazer chegar a sua voz a pessoas de todas
+        as partes do mundo.
       </p>
     </section>
 
@@ -49,13 +44,13 @@
           :key="tip.id"
           :counter="tip.id"
           :title="tip.title"
-          :desc="tip.content"
+          :desc="tip.desc"
         />
       </div>
     </section>
 
     <section class="positions__available">
-      <SubHeaderTitle text="Come prepared" />
+      <SubHeaderTitle text="Carreias disponíveis" />
       <div class="positions__available__grid grid">
         <AvailablePositionsCard
           v-for="position in positions"
@@ -93,15 +88,24 @@ export default {
   data: () => {
     return {
       tips: null,
-      positions: null
+      nPositions: 0,
+      positions: null,
+      positionNames: null
     };
   },
   mounted() {
     this.tips = this.getTips;
     this.positions = this.getPositions;
+    this.nPositions = this.getNPositions;
+    this.positionNames = this.getPositionsNames;
   },
   computed: {
-    ...mapGetters(["getPositions", "getTips"])
+    ...mapGetters([
+      "getPositions",
+      "getTips",
+      "getNPositions",
+      "getPositionsNames"
+    ])
   }
 };
 </script>

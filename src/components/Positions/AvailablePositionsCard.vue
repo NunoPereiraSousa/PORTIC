@@ -10,7 +10,7 @@
           <div class="positions__available__card__button__lines"></div>
           <div class="positions__available__card__button__lines"></div>
         </div>
-        <h4 class="positions__available__card__button__header">More details</h4>
+        <h4 class="positions__available__card__button__header">Saber mais</h4>
       </button>
     </div>
 
@@ -28,7 +28,7 @@
         <div class="positions__available__card__button__lines"></div>
         <div class="positions__available__card__button__lines"></div>
       </div>
-      <h4 class="positions__available__card__button__header">More details</h4>
+      <h4 class="positions__available__card__button__header">Saber mais</h4>
     </button>
 
     <div class="positions__available__card__info">
@@ -36,7 +36,7 @@
     </div>
 
     <button class="positions__available__card__apply_btn">
-      Apply now
+      Candidatar agora
     </button>
   </div>
 </template>
