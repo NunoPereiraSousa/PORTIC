@@ -86,7 +86,34 @@
             </h4>
           </div>
         </div>
-        <div class="contacts__intro__socials grid">
+        <div class="contacts__intro__grid__contacts grid">
+          <h3>Conecta-te connosco a qualquer momento</h3>
+          <div>
+            <h2>(+351) 919 554 127</h2>
+            <h2>portic@portic.ipp.pt</h2>
+          </div>
+          <div class="contacts__intro__grid__contacts__socials grid">
+            <a href="">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-flickr"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-facebook-square"></i>
+            </a>
+          </div>
+        </div>
+        <!-- <div class="contacts__intro__socials grid">
           <a href="" class="flex flex-ai-c flex-jc-c">
             <i class="fab fa-twitter"></i>
           </a>
@@ -105,28 +132,35 @@
           <a href="" class="flex flex-ai-c flex-jc-c">
             <i class="fab fa-facebook-square"></i>
           </a>
-        </div>
+        </div> -->
       </div>
       <div class="contacts__intro__grid grid hide-below-tablet">
-        <div class="contacts__intro__socials grid">
-          <a href="" class="flex flex-ai-c flex-jc-c">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="" class="flex flex-ai-c flex-jc-c">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="" class="flex flex-ai-c flex-jc-c">
-            <i class="fab fa-flickr"></i>
-          </a>
-          <a href="" class="flex flex-ai-c flex-jc-c hide-for-tablet">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a href="" class="flex flex-ai-c flex-jc-c hide-for-tablet">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="" class="flex flex-ai-c flex-jc-c hide-for-tablet">
-            <i class="fab fa-facebook-square"></i>
-          </a>
+        <div class="contacts__intro__grid__contacts grid">
+          <h3>Conecta-te connosco a qualquer momento</h3>
+          <div>
+            <h2>(+351) 919 554 127</h2>
+            <h2>portic@portic.ipp.pt</h2>
+          </div>
+          <div class="contacts__intro__grid__contacts__socials grid">
+            <a href="">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-flickr"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-facebook-square"></i>
+            </a>
+          </div>
         </div>
         <div class="contacts__intro__grid__entrance grid">
           <div>
@@ -165,21 +199,21 @@
         </div>
         <div class="contacts__intro__desc grid hide-for-tablet">
           <p>
-            <span>Porto Research, Technology & Innovation Center</span> seeks to
-            bring together several research centers and groups from P.PORTO in a
-            single physical space, forming a superstructure dedicated to
-            research, technology transfer, innovation and entrepreneurship.
-            Supported by a culture of applied research, transversal and with a
-            significant impact on society, P.PORTO has 24 research centers and
-            groups in a wide range of knowledge areas, from Engineering,
-            Business Sciences, Education, Sport, Arts, Health, Tourism, Media
-            and Design.
+            <span
+              >O PORTIC -Porto Research, Technology & Innovation Center </span
+            >visa agregar vários centros e grupos de investigação das escolas do
+            P.PORTO num único espaço físico, configurando uma superestrutura
+            dedicada à investigação, transferência de tecnologia, inovação e
+            empreendedorismo. Alojará ainda a Porto Global Hub que integra a
+            Porto Design Factory, a Porto Business Innovation e a Startup Porto
+            e que tem como visão ajudar a criação de projetos locais
+            sustentáveis para uma vida melhor.
           </p>
         </div>
       </div>
     </section>
     <section class="contacts__what_we_focus">
-      <SubHeaderTitle text="What we focus on" class="light" />
+      <SubHeaderTitle text="Focamo-nos em" class="light" />
 
       <div class="contacts__what_we_focus__grid grid">
         <WhatWeFocusCard
@@ -191,14 +225,19 @@
     </section>
     <section class="contacts__testimonials">
       <h1 class="contacts__testimonials__title">
-        … and what they say about us
+        … e agora o que dizem sobre nós
       </h1>
       <h3 class="contacts__testimonials__subtitle">
-        We provide our clients with a competitive edge and they give us the most
-        highly valued feedback in return.
+        Nós disponibilizamos aos nossos clientes os melhores serviços possíveis
+        e eles dão-nos incriveis feedbacks
       </h3>
 
-      <vue-glide
+      <h1 class="alert">
+        Estamos a coletar muitos testemunhos...
+        <span>coming soon!</span>
+      </h1>
+
+      <!-- <vue-glide
         :startAt="1"
         :gap="40"
         :breakpoints="{
@@ -250,11 +289,11 @@
             </svg>
           </button>
         </template>
-      </vue-glide>
+      </vue-glide> -->
     </section>
     <section class="contacts__form grid">
       <div class="contacts__form__contacts grid">
-        <h3>Connect with us anytime, anywhere</h3>
+        <h3>Conecta-te connosco a qualquer momento</h3>
         <div>
           <h2>(+351) 919 554 127</h2>
           <h2>portic@portic.ipp.pt</h2>
@@ -284,28 +323,28 @@
         <form class="grid">
           <h1>Let's start</h1>
 
-          <input type="text" id="nameTxt" placeholder="Name*" />
-          <input type="text" id="surnameTxt" placeholder="Surname*" />
+          <input type="text" id="nameTxt" placeholder="Nome*" />
+          <input type="text" id="surnameTxt" placeholder="Sobrenome*" />
           <input type="text" id="emailTxt" placeholder="E-mail*" />
           <input
             type="text"
             id="phoneNumberTxt"
-            placeholder="Contact/ Phone number *"
+            placeholder="Número de telemóvel *"
           />
           <textarea
             id="contentTxt"
-            placeholder="Tell us something *"
+            placeholder="Diz-nos algo *"
             cols="30"
             rows="3"
           ></textarea>
-          <input type="submit" value="Send" class="submit_btn" />
+          <input type="submit" value="Enviar" class="submit_btn" />
         </form>
       </div>
     </section>
     <section class="contacts__map">
       <h4>09:00 - 19:00</h4>
       <h3>Rua Arquitecto Lobão Vital 172, 4200-374 Porto</h3>
-      <div id="map" ref="map"></div>
+      <div id="map"></div>
     </section>
     <Footer class="no__margin" />
   </div>
@@ -314,7 +353,7 @@
 <script>
 import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
 import WhatWeFocusCard from "@/components/Contacts/WhatWeFocusCard.vue";
-import TestimonialCard from "@/components/TestimonialCard.vue";
+// import TestimonialCard from "@/components/TestimonialCard.vue";
 import Footer from "@/components/Footer.vue";
 import { mapGetters } from "vuex";
 
@@ -323,7 +362,7 @@ export default {
   components: {
     SubHeaderTitle,
     WhatWeFocusCard,
-    TestimonialCard,
+    // TestimonialCard,
     Footer
   },
   data: () => {
@@ -336,6 +375,8 @@ export default {
   },
   mounted() {
     this.focuses = this.getFocuses;
+
+    console.log(document.getElementById("map"));
 
     this.map = new window.google.maps.Map(document.getElementById("map"), {
       center: { lat: 41.176586, lng: -8.60563 },

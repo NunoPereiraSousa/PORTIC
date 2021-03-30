@@ -1,26 +1,26 @@
 export const focuses = [
   {
     id: 1,
-    text: "High quality of work"
+    text: "Elevada qualidade de trabalho"
   },
   {
     id: 2,
-    text: "Communication skills"
+    text: "Qualidade da comunicação"
   },
   {
     id: 3,
-    text: "Ability to ensure our client’s success"
+    text: "Assegurar o sucesso dos clientes"
   },
   {
     id: 4,
-    text: "Wide scope of technologies"
+    text: "Grande variedade de tecnologias"
   },
   {
     id: 5,
-    text: "Respect for immovable deadlines"
+    text: "Respeitamos as deadlines"
   },
   {
     id: 6,
-    text: "Proactivity and initiative"
+    text: "Iniciativa e proatividade"
   }
 ];

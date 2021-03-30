@@ -216,6 +216,10 @@
     }
 
     @include breakpoint-up(iPadPro) {
+      padding: calc(16.5875rem + 2vw) 0 calc(6.1875rem + 2vw);
+    }
+
+    @include breakpoint-up(desktop) {
       padding: calc(11.5875rem + 2vw) 0 calc(6.1875rem + 2vw);
     }
 
@@ -238,6 +242,8 @@
 
         @include breakpoint-up(iPadPro) {
           row-gap: 5rem;
+          grid-template-rows: min-content min-content;
+          margin: auto 0;
         }
 
         &__circle {
@@ -308,6 +314,69 @@
         @include breakpoint-up(iPadPro) {
           font-size: $_18px;
           line-height: 1.8;
+        }
+      }
+
+      &__contacts {
+        row-gap: 2rem;
+
+        @include breakpoint-up(iPadPro) {
+          grid-auto-rows: min-content;
+          row-gap: 3rem;
+          margin: auto 0;
+        }
+
+        h3,
+        h2 {
+          font-weight: 400;
+          margin: 0;
+        }
+
+        h3 {
+          color: rgba($color: $black, $alpha: 0.75);
+          font-weight: 100;
+
+          @include breakpoint-up(tablet) {
+            font-size: $_22px;
+          }
+        }
+
+        h2 {
+          color: $black;
+          font-size: $_18px;
+          font-family: $portoSerif;
+
+          @include breakpoint-up(tablet) {
+            font-size: $_20px;
+          }
+
+          &:last-child {
+            margin-top: 1rem;
+          }
+        }
+
+        &__socials {
+          grid-template-columns: repeat(6, 1fr);
+          column-gap: 1rem;
+          margin-top: 1rem;
+
+          @include breakpoint-up(tablet) {
+            column-gap: 2rem;
+            grid-template-columns: repeat(6, min-content);
+          }
+
+          @include breakpoint-up(iPadPro) {
+            margin: auto;
+          }
+
+          a {
+            width: fit-content;
+            color: $black;
+
+            @include breakpoint-up(tablet) {
+              font-size: $_18px;
+            }
+          }
         }
       }
     }
@@ -414,6 +483,16 @@
 
       text-align: center;
       font-weight: 400;
+    }
+
+    .alert {
+      color: rgba($color: $black, $alpha: 0.5);
+      text-align: center;
+      margin: 2rem 0;
+
+      span {
+        color: $orange;
+      }
     }
 
     &__title {
