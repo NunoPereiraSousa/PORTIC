@@ -1,37 +1,19 @@
 <template>
   <section class="quote">
     <h1 class="quote__title hide-for-desktop">
-      <div class="line">
-        <div><span>Lorem</span> ipsum dolor sit</div>
-      </div>
-      <div class="line">
-        amet consectetur
-      </div>
-      <div class="line">
-        cumque libero quam.
-      </div>
-      <div class="line">
-        error dolores quam
-      </div>
-      <div class="line">
-        cumque libero daww.
-      </div>
-      <div class="line">
-        ccumque libero quam.
-      </div>
+      Conheça a nova super estrutura do Politécnico do Porto - o
+      <span>PORTIC</span> - Porto Research, Technology & Innovation Center
     </h1>
     <h1 class="quote__title hide-for-mobile flex flex-ai-c flex-jc-c flex-fd-c">
       <div class="line">
-        <div><span>Lorem</span> ipsum dolor sit amet</div>
+        <div>Conheça a nova super estrutura</div>
       </div>
       <div class="line">
-        consectetur cumque libero aliquam.
+        do Politécnico do Porto - o
       </div>
+      <div class="line"><span>PORTIC </span>- Porto Research,</div>
       <div class="line">
-        error dolores quam dolor
-      </div>
-      <div class="line">
-        cumque libero aliquam.
+        Technology & Innovation Center
       </div>
     </h1>
   </section>

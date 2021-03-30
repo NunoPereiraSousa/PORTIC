@@ -2027,19 +2027,13 @@ button:focus {
 
 @media (min-width: 75em) {
   .quote {
-    padding: calc(12.1875rem + 2vw) 8vw calc(10.1875rem + 1vw);
-  }
-}
-
-@media (min-width: 120em) {
-  .quote {
-    padding: calc(10.1875rem + 4vw) 8vw calc(10.1875rem + 1vw);
+    padding: calc(8.1875rem + 2vw) 8vw calc(8.1875rem + 1vw);
   }
 }
 
 .quote__title {
   font-size: 1.75rem;
-  font-family: "Porto Serif";
+  font-family: "Porto Sans";
   font-weight: 400;
   letter-spacing: 1px;
   width: -webkit-fit-content;
@@ -2055,6 +2049,7 @@ button:focus {
 
 .quote__title span {
   color: #c94d24;
+  font-family: "Porto Sans Stencil";
 }
 
 @media (min-width: 48em) {
@@ -2066,13 +2061,20 @@ button:focus {
 @media (min-width: 64em) {
   .quote__title {
     font-size: 3.75rem;
+    line-height: 1.8;
   }
 }
 
 @media (min-width: 75em) {
   .quote__title {
     font-size: 2.5rem;
-    line-height: 1.5;
+    line-height: 1.8;
+  }
+}
+
+@media (min-width: 120em) {
+  .quote__title {
+    font-size: 3.125rem;
   }
 }
 
@@ -2290,6 +2292,8 @@ button:focus {
 .news__cards__card img {
   height: 12.375rem;
   width: 100%;
+  -o-object-fit: center;
+     object-fit: center;
 }
 
 @media (max-width: 23.375em) {
@@ -2314,7 +2318,7 @@ button:focus {
 
 @media (min-width: 120em) {
   .news__cards__card img {
-    height: 21.625rem;
+    height: 23.625rem;
     width: 94%;
   }
 }
@@ -2352,6 +2356,7 @@ button:focus {
   font-family: "Porto Sans";
   font-size: 1rem;
   line-height: 1.5;
+  font-weight: 100;
 }
 
 @media (min-width: 48em) {
@@ -2459,6 +2464,23 @@ button:focus {
   .testimonials__title {
     font-size: 2.5rem;
   }
+}
+
+.testimonials .alert {
+  color: rgba(8, 8, 8, 0.5);
+  text-align: center;
+  margin: 2rem 0;
+}
+
+@media (min-width: 75em) {
+  .testimonials .alert {
+    margin: 4rem 0;
+    font-size: 1.875rem;
+  }
+}
+
+.testimonials .alert span {
+  color: #c94d24;
 }
 
 .testimonials__cards {
@@ -5796,7 +5818,7 @@ button:focus {
 
 .slide__panel {
   padding: calc(3.1875rem + 2vw) 2rem 4rem;
-  background-color: #080808;
+  background-color: #ffffff;
   overflow: hidden;
   position: fixed;
   z-index: 999;
@@ -5807,9 +5829,6 @@ button:focus {
   width: 100%;
   -webkit-transition: all 0.6s ease;
   transition: all 0.6s ease;
-  /* Track */
-  /* Handle */
-  /* Handle on hover */
 }
 
 .slide__panel ::-webkit-scrollbar {
@@ -5818,16 +5837,16 @@ button:focus {
 }
 
 .slide__panel ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(8, 8, 8, 0.1);
   border-radius: 2px;
 }
 
 .slide__panel ::-webkit-scrollbar-thumb {
-  background: #ffffff;
+  background: #080808;
 }
 
 .slide__panel ::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
+  background: #080808;
 }
 
 @media (max-width: 23.375em) {
@@ -5863,7 +5882,7 @@ button:focus {
 
 @media (min-width: 75em) {
   .slide__panel h2 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -5872,6 +5891,7 @@ button:focus {
   padding-right: 10px;
   max-height: 64vh;
   overflow-y: auto;
+  color: #080808;
   font-size: 1.0625rem;
   letter-spacing: 0.25px;
   line-height: 1.55;

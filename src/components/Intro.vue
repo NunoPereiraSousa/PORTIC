@@ -1,7 +1,7 @@
 <template>
   <section class="landing">
     <h1>
-      <span>Welcome to</span>
+      <span>Bem-vindo ao</span>
       <div>
         <span>{{ extra }}</span
         >{{ keyword }}

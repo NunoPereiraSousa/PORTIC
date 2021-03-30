@@ -1,6 +1,6 @@
 .slide__panel {
   padding: calc(3.1875rem + 2vw) 2rem 4rem;
-  background-color: $black;
+  background-color: $white;
   overflow: hidden;
 
   position: fixed;
@@ -10,7 +10,7 @@
   bottom: 0%;
   height: 100vh;
   width: 100%;
-  // width: 34vw;
+
   transition: all 0.6s ease;
 
   ::-webkit-scrollbar {
@@ -18,20 +18,17 @@
     border-radius: 2px;
   }
 
-  /* Track */
   ::-webkit-scrollbar-track {
-    background: rgba($color: $white, $alpha: 0.1);
+    background: rgba($color: $black, $alpha: 0.1);
     border-radius: 2px;
   }
 
-  /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: $white;
+    background: $black;
   }
 
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: $white;
+    background: $black;
   }
 
   @include breakpoint-down(phone) {
@@ -59,7 +56,7 @@
     font-size: $_18px;
 
     @include breakpoint-up(desktop) {
-      font-size: $_20px;
+      font-size: $_24px;
     }
   }
 
@@ -68,6 +65,7 @@
     padding-right: 10px;
     max-height: 64vh;
     overflow-y: auto;
+    color: $black;
 
     @include breakpoint-down(phone) {
       max-height: 60vh;

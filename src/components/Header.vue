@@ -19,51 +19,51 @@
           <router-link
             @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
-            :to="{ name: 'Areas' }"
+            :to="{ name: 'Contacts' }"
           >
-            Areas
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__links__link"
-            :to="{ name: 'Courses' }"
-          >
-            Courses
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__links__link"
-            :to="{ name: 'Media' }"
-          >
-            Media
+            Sobre nós
           </router-link>
           <router-link
             @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
             :to="{ name: 'Positions' }"
           >
-            Positions
+            Recrutamento
+          </router-link>
+          <router-link
+            @click.native="closeNavbarOnPageTransition"
+            class="navbar__mobile_menu__links__link"
+            :to="{ name: 'Areas' }"
+          >
+            Áreas
+          </router-link>
+          <router-link
+            @click.native="closeNavbarOnPageTransition"
+            class="navbar__mobile_menu__links__link"
+            :to="{ name: 'Courses' }"
+          >
+            Cursos
+          </router-link>
+          <router-link
+            @click.native="closeNavbarOnPageTransition"
+            class="navbar__mobile_menu__links__link"
+            :to="{ name: 'Media' }"
+          >
+            Mídia
           </router-link>
           <router-link
             @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
             :to="{ name: 'Projects' }"
           >
-            Projects
+            Projetos
           </router-link>
           <router-link
             @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
             :to="{ name: 'Unities' }"
           >
-            Unities
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__links__link"
-            :to="{ name: 'Contacts' }"
-          >
-            About Us
+            Unidades
           </router-link>
         </div>
         <div class="navbar__mobile_menu__socials grid">
@@ -92,26 +92,26 @@
       </div>
       <div class="navbar__desktop_menu hide-for-mobile">
         <div class="navbar__desktop_menu__links flex">
-          <router-link :to="{ name: 'Areas' }">
-            Areas
-          </router-link>
-          <router-link :to="{ name: 'Courses' }">
-            Courses
-          </router-link>
-          <router-link :to="{ name: 'Media' }">
-            Media
+          <router-link :to="{ name: 'Contacts' }">
+            Sobre nós
           </router-link>
           <router-link :to="{ name: 'Positions' }">
-            Positions
+            Recrutamento
+          </router-link>
+          <router-link :to="{ name: 'Areas' }">
+            Áreas
+          </router-link>
+          <router-link :to="{ name: 'Courses' }">
+            Cursos
+          </router-link>
+          <router-link :to="{ name: 'Media' }">
+            Mídia
           </router-link>
           <router-link :to="{ name: 'Projects' }">
-            Projects
+            Projetos
           </router-link>
           <router-link :to="{ name: 'Unities' }">
-            Unities
-          </router-link>
-          <router-link :to="{ name: 'Contacts' }">
-            About Us
+            Unidades
           </router-link>
         </div>
       </div>
@@ -123,9 +123,6 @@
 <script>
 export default {
   name: "Navbar",
-  // mounted() {
-  //   window.addEventListener("scroll", this.handleScroll);
-  // },
   props: {
     theme: {
       type: String,
@@ -133,16 +130,6 @@ export default {
     }
   },
   methods: {
-    // handleScroll() {
-    //   var prevScrollpos = window.pageYOffset;
-    //   var currentScrollPos = window.pageYOffset;
-    //   if (prevScrollpos > currentScrollPos) {
-    //     document.querySelector(".navbar").style.top = "3rem";
-    //   } else {
-    //     document.querySelector(".navbar").style.top = "-50px";
-    //   }
-    //   prevScrollpos = currentScrollPos;
-    // },
     toggleNavbar() {
       let lines = document.querySelectorAll(".navbar__hamburger__lines");
 
@@ -181,6 +168,3 @@ export default {
   }
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>

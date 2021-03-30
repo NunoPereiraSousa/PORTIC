@@ -69,6 +69,7 @@
       img {
         height: 12.375rem;
         width: 100%;
+        object-fit: center;
 
         @include breakpoint-down(phone) {
           height: 10.375rem;
@@ -85,7 +86,7 @@
         }
 
         @include breakpoint-up(large) {
-          height: 21.625rem;
+          height: 23.625rem;
           width: 94%;
         }
       }
@@ -118,6 +119,7 @@
         font-family: $portoSans;
         font-size: $_16px;
         line-height: 1.5;
+        font-weight: 100;
 
         @include breakpoint-up(tablet) {
           margin: 0;
@@ -208,6 +210,21 @@
 
     @include breakpoint-up(iPadPro) {
       font-size: $_40px;
+    }
+  }
+
+  .alert {
+    color: rgba($color: $black, $alpha: 0.5);
+    text-align: center;
+    margin: 2rem 0;
+
+    @include breakpoint-up(desktop) {
+      margin: 4rem 0;
+      font-size: $_30px;
+    }
+
+    span {
+      color: $orange;
     }
   }
 

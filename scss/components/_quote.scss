@@ -10,16 +10,12 @@
   }
 
   @include breakpoint-up(desktop) {
-    padding: calc(12.1875rem + 2vw) 8vw calc(10.1875rem + 1vw);
-  }
-
-  @include breakpoint-up(large) {
-    padding: calc(10.1875rem + 4vw) 8vw calc(10.1875rem + 1vw);
+    padding: calc(8.1875rem + 2vw) 8vw calc(8.1875rem + 1vw);
   }
 
   &__title {
     font-size: $_28px;
-    font-family: $portoSerif;
+    font-family: $portoSans;
     font-weight: 400;
     letter-spacing: 1px;
     width: fit-content;
@@ -32,6 +28,7 @@
 
     span {
       color: $orange;
+      font-family: $portoSansStencil;
     }
 
     @include breakpoint-up(tablet) {
@@ -40,11 +37,16 @@
 
     @include breakpoint-up(iPadPro) {
       font-size: $_60px;
+      line-height: 1.8;
     }
 
     @include breakpoint-up(desktop) {
       font-size: $_40px;
-      line-height: 1.5;
+      line-height: 1.8;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_50px;
     }
   }
 }
