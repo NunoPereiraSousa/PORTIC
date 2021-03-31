@@ -3093,6 +3093,7 @@ button:focus {
   font-size: 1.375rem;
   font-family: "Porto Sans Stencil";
   margin-bottom: 100px;
+  white-space: nowrap;
 }
 
 @media (max-width: 23.375em) {

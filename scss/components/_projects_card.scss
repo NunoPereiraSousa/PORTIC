@@ -120,6 +120,8 @@
       font-family: $portoSansStencil;
       margin-bottom: 100px;
 
+      white-space: nowrap;
+
       @include breakpoint-down(phone) {
         font-size: $_22px;
       }

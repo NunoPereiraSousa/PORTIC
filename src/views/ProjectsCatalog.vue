@@ -9,12 +9,20 @@
         </p>
       </div>
       <div class="projects_catalog__filters grid">
-        <input type="text" id="projectTxt" placeholder="Search project" />
+        <input
+          type="text"
+          id="projectTxt"
+          placeholder="Search project"
+          v-model="projectTxt"
+        />
         <div
           class="flex flex-jc-sa flex-ai-c hide-for-desktop"
           style="width: 100%"
         >
-          <button class="projects_catalog__filters__sorting">
+          <button
+            class="projects_catalog__filters__sorting"
+            @click="order = !order"
+          >
             Finance sorting
           </button>
           <button
@@ -25,7 +33,10 @@
           </button>
         </div>
         <div class="hide-for-mobile">
-          <button class="projects_catalog__filters__sorting">
+          <button
+            class="projects_catalog__filters__sorting"
+            @click="order = !order"
+          >
             Finance sorting
           </button>
         </div>
@@ -52,9 +63,11 @@
       </div>
       <div class="projects__grid grid" style="width: 100%">
         <ProjectCard
-          v-for="i in 12"
-          :key="i"
-          :counter="i"
+          v-for="project in orderBudget"
+          :key="project.id"
+          :counter="project.id"
+          :initials="project.initials"
+          :title="project.title"
           @mouseover.native="onHover"
           @mouseleave.native="notHover"
         />
@@ -67,12 +80,50 @@
 <script>
 import ProjectCard from "@/components/ProjectCard.vue";
 import Footer from "@/components/Footer.vue";
+
+import { mapGetters } from "vuex";
+
 export default {
   components: {
     ProjectCard,
     Footer
   },
-  mounted() {},
+  data: () => {
+    return {
+      selectedItem: null,
+      projects: null,
+      order: false,
+      projectTxt: ""
+    };
+  },
+  created() {
+    this.projects = this.getProjects;
+  },
+  computed: {
+    ...mapGetters(["getProjects"]),
+    orderBudget() {
+      const arr = this.getProjects;
+
+      if (!this.order && this.projectTxt != null) {
+        return (
+          arr,
+          this.projects.filter(project => {
+            let filterSearch = true;
+
+            if (this.projectTxt != "") {
+              filterSearch = project.initials
+                .toLowerCase()
+                .includes(this.projectTxt.toLowerCase());
+            }
+
+            return filterSearch;
+          })
+        );
+      } else {
+        return [...arr].sort(this.compareBudget);
+      }
+    }
+  },
   methods: {
     showFilters() {
       document
@@ -88,7 +139,13 @@ export default {
       this.selectedItem = element.target;
 
       this.selectedItem.classList.remove("hovered");
-    }
+    },
+    compareBudget(a, b) {
+      if (a.overallBudget < b.overallBudget) return -1;
+      if (a.overallBudget > b.overallBudget) return 1;
+      else return 0;
+    },
+    toggleSortIcons() {}
   }
 };
 </script>
