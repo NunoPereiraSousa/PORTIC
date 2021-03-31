@@ -4,6 +4,8 @@ import { areas } from "../config/areas";
 import { focuses } from "../config/contacts";
 import { courses } from "../config/courses";
 import { news } from "../config/home";
+import { medias } from "../config/media";
+import { projects } from "../config/projects";
 import { positions, tips } from "../config/recruitment";
 
 Vue.use(Vuex);
@@ -15,7 +17,9 @@ export default new Vuex.Store({
     positions: positions,
     tips: tips,
     focuses: focuses,
-    news: news
+    news: news,
+    medias: medias,
+    projects: projects
   },
   mutations: {},
   actions: {},
@@ -30,6 +34,8 @@ export default new Vuex.Store({
     getFocuses: state => state.focuses,
     getNews: state => state.news,
     getAreas: state => state.areas,
-    getCourses: state => state.courses
+    getCourses: state => state.courses,
+    getMedias: state => state.medias,
+    getProjects: state => state.projects
   }
 });

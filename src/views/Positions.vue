@@ -25,7 +25,7 @@
         Tudo começa com um pequeno passo
       </h1>
 
-      <SubHeaderTitle text="Find your program" />
+      <SubHeaderTitle text="Encontra o que mais procuras" />
 
       <p class="positions__find_program__info">
         Os nossos programas oferecem experiências únicas tanto para estagiários,
@@ -36,7 +36,7 @@
     </section>
 
     <section class="positions__come_prepared">
-      <SubHeaderTitle text="Come prepared" class="light" />
+      <SubHeaderTitle text="Vem preparado" class="light" />
 
       <div class="positions__come_prepared__grid grid">
         <ComePreparedCard

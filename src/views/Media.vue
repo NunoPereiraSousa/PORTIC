@@ -1,7 +1,7 @@
 <template>
   <div>
     <SubPageIntro
-      categoryTitle="Medias"
+      categoryTitle="Mídia"
       title1="Title 1"
       text1="Lorem ipsum dolor sit amet, consectetur
       enim ad minim veniam, quis nostrud."
@@ -18,15 +18,16 @@
       adotps in the projects ipsum dolor sit amet, consectetur 
       eiusmod tempor incididunt ut labore et dolore magna aliqua."
     />
-    <MainTitle className="main__title" text="Explore our medias" />
+    <MainTitle className="main__title" text="Assista aos nossos mídias" />
     <section class="media">
       <div class="media__grid grid">
         <!-- :videoURL="convertToYoutubeURL(medias.url)" -->
         <MediaCard
-          v-for="i in 4"
-          :key="i"
-          :counter="i"
-          title="Portuguese Minister of Labour, Solidarity and Social Security, Ana Godinho, visits PORTIC."
+          v-for="media in medias"
+          :key="media.id"
+          :counter="media.id"
+          :videoURL="convertToYoutubeURL(media.videoURL)"
+          :title="media.title"
         />
       </div>
     </section>
@@ -35,6 +36,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import SubPageIntro from "@/components/SubPageIntro.vue";
 import MainTitle from "@/components/MainTitle.vue";
 import MediaCard from "@/components/MediaCard.vue";
@@ -47,13 +50,22 @@ export default {
     MediaCard,
     Footer
   },
+  data: () => {
+    return {
+      medias: null
+    };
+  },
   mounted() {
+    this.medias = this.getMedias;
     this.convertToYoutubeURL();
+  },
+  computed: {
+    ...mapGetters(["getMedias"])
   },
   // https://www.youtube.com/watch?v=t4-8lJ0ALNU
   methods: {
     convertToYoutubeURL(url) {
-      url = "https://www.youtube.com/watch?v=t4-8lJ0ALNU";
+      // url = "https://www.youtube.com/watch?v=t4-8lJ0ALNU";
 
       let urlArr = url.split("/");
 

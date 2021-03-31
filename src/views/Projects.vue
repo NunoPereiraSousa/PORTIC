@@ -23,9 +23,11 @@
     <MainTitle className="main__title" text="Explore our projects" />
     <div class="projects__grid grid">
       <ProjectCard
-        v-for="i in 12"
-        :key="i"
-        :counter="i"
+        v-for="project in projects"
+        :key="project.id"
+        :counter="project.id"
+        :initials="project.initials"
+        :title="project.title"
         @mouseover.native="onHover"
         @mouseleave.native="notHover"
       />
@@ -46,6 +48,7 @@ import MainTitle from "@/components/MainTitle.vue";
 import ProjectCard from "@/components/ProjectCard.vue";
 import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
 import Footer from "@/components/Footer.vue";
+import { mapGetters } from "vuex";
 // import { background } from "../../js/background";
 // import gsap from "gsap";
 
@@ -59,11 +62,15 @@ export default {
   },
   data: () => {
     return {
-      selectedItem: null
+      selectedItem: null,
+      projects: null
     };
   },
   mounted() {
-    // background();
+    this.projects = this.getProjects;
+  },
+  computed: {
+    ...mapGetters(["getProjects"])
   },
   methods: {
     onHover(element) {
