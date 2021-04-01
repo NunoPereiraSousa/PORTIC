@@ -33,6 +33,7 @@ export default new Vuex.Store({
     getTips: state => state.tips,
     getFocuses: state => state.focuses,
     getNews: state => state.news,
+    getNewsById: state => id => state.news.find(n => n.id == id),
     getAreas: state => state.areas,
     getCourses: state => state.courses,
     getMedias: state => state.medias,

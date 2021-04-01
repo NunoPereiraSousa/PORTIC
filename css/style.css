@@ -5939,6 +5939,7 @@ button:focus {
   padding-right: 10px;
   max-height: 64vh;
   overflow-y: auto;
+  overflow-x: hidden;
   color: #080808;
   font-size: 1.0625rem;
   letter-spacing: 0.25px;

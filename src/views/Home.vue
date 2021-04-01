@@ -16,12 +16,14 @@
           :title="news.title"
           :desc="news.desc"
           :date="news.date"
+          :id="news.id"
+          :slideId="`slide${news.id}`"
         />
       </div>
-      <SlidePanel
+      <!-- <SlidePanel
         title="Lorem ipsum dolor amet elit, sed consectetur  eiusmod."
-        content="O objectivo do evento é discutir e compreender o impacto das tecnologias do futuro no mercado de trabalho, com especial atenção ao papel da inovação e às perspetivas das organizações, dos empregados e da sociedade. Technological advances can bring many benefits for our society with significant impact in the way we communicate, work and live. These advances had led us to the fourth industrial revolution or Industry 4.0, where technologies, such as large-scale machine-to-machine communication (M2M), the internet of things (IoT), artificial intelligence (AI) and automation have disrupted the labour market, making us more efficient, more productive and more cost-efficient. But, would these advances make us more dispensable? Would they increase the control over employees’ performance? How will they affect the decision-making process of an organisation? Os avanços tecnológicos podem trazer muitos benefícios para a sociedade com um impacto significativo na forma como comunicamos, trabalhamos e vivemos. Estes avanços levaram-nos à quarta revolução industrial ou Indústria 4.0, onde tecnologias como a comunicação em grande escala, a Internet das coisas (IoT) e a inteligência artificial (IA) alteraram o mercado de trabalho, tornando-nos mais eficientes, mais produtivos e mais rentáveis. Mas, será que estes avanços tornam os trabalhadores mais dispensáveis? Aumentariam eles o controlo sobre o desempenho dos empregados? Como irão afetar o processo de tomada de decisão de uma organização? A conferência LABOURTECH 2021, aborda os impactos positivos e negativos das tecnologias do futuro no mercado de trabalho e o papel da inovação na Indústria 4.0. Além do mais serão apresentados os resultados adquiridos durante os 30 meses de execução do projeto HubIT. A conferência LABOURTECH 2021 irá juntar reconhecidos especialistas das mais diversas áreas de atuação. Qualquer pessoa pode participar com uma inscrição online aqui (gratuita). Os participantes terão a oportunidade de fazer perguntas durante a sessão e até mesmo de trabalhar em rede com outros participantes. Consulte aqui a agenda do evento."
-      />
+        :content="newsContent"
+      /> -->
       <!-- <KnowMoreBtn
         type="know__more dark"
         text="All news"
@@ -104,11 +106,10 @@
 <script>
 import { mapGetters } from "vuex";
 
-// @ is an alias to /src
 import Intro from "@/components/Intro.vue";
 import Quote from "@/components/Quote.vue";
 import NewsCard from "@/components/NewsCard.vue";
-import SlidePanel from "@/components/SlidePanel.vue";
+// import SlidePanel from "@/components/SlidePanel.vue";
 // import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
 // import TestimonialCard from "@/components/TestimonialCard.vue";
 import Footer from "@/components/Footer.vue";
@@ -122,7 +123,7 @@ export default {
     Quote,
     // KnowMoreBtn,
     NewsCard,
-    SlidePanel,
+    // SlidePanel,
     // TestimonialCard,
     Footer,
     [Glide.name]: Glide,
@@ -130,15 +131,25 @@ export default {
   },
   data: () => {
     return {
-      newsArr: null
+      newsArr: null,
+      newsContent: null
     };
   },
+  created() {},
   mounted() {
     background();
     this.newsArr = this.getNews;
+    this.newsContent = this.getNewsById;
   },
   computed: {
-    ...mapGetters(["getNews"])
+    ...mapGetters(["getNews", "getNewsById"])
+  },
+  methods: {
+    getNewsContent() {
+      console.log(this.newsContent);
+
+      // return this.newsContent;
+    }
   }
 };
 </script>
