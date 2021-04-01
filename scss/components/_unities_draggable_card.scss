@@ -42,6 +42,7 @@
     margin-top: 1.875rem;
     line-height: 1.7;
     letter-spacing: 0.4px;
+    color: $lightGrey;
 
     @include breakpoint-up(large) {
       margin-top: 3.125rem;

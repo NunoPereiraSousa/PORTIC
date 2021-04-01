@@ -2164,6 +2164,7 @@ button:focus {
   width: -moz-fit-content;
   width: fit-content;
   margin: auto;
+  padding-bottom: 0.6rem;
   text-align: center;
   font-size: 1.625rem;
   font-weight: 400;
@@ -2182,6 +2183,12 @@ button:focus {
   background-color: #c94d24;
   -webkit-box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.13);
           box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.13);
+}
+
+@media (min-width: 48em) {
+  .main__title::after {
+    width: 14%;
+  }
 }
 
 @media (min-width: 120em) {
@@ -3779,6 +3786,7 @@ button:focus {
   margin-top: 1.875rem;
   line-height: 1.7;
   letter-spacing: 0.4px;
+  color: #666666;
 }
 
 @media (min-width: 120em) {
@@ -6097,7 +6105,7 @@ button:focus {
   z-index: -999;
   top: 0%;
   left: 0%;
-  visibility: hidden;
+  opacity: 0;
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.3);
@@ -6108,6 +6116,6 @@ button:focus {
 
 .slide__panel__overlay.overlay_opened {
   z-index: 989;
-  visibility: visible;
+  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */

@@ -121,9 +121,6 @@
         <i class="fas fa-chevron-up"></i>
       </div>
     </div>
-    <div class="finance__logos flex flex-ai-c flex-jc-c">
-      <img src="../../assets/financing-logos.png" alt="Finance Logos" />
-    </div>
   </div>
 </template>
 

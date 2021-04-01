@@ -1,7 +1,7 @@
 <template>
   <div class="unities__grid__card grid">
     <div class="unities__grid__card__image">
-      <img src="../../../assets/porto_design_factory.jpg" alt="" />
+      <img :src="imageUrl" alt="" />
     </div>
     <div class="unities__grid__card__info grid">
       <div class="flex flex-ai-c flex-jc-sb">
@@ -13,7 +13,7 @@
       <p class="unities__grid__card__info__description">{{ unityDesc }}</p>
       <div class="unities__grid__card__info__button">
         <div class="flex flex-ai-c">
-          <button class="flex flex-ai-c flex-jc-sb">
+          <button class="flex flex-ai-c flex-jc-sb" @click="openSlide(id)">
             <div class="flex flex-ai-c flex-jc-c">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +40,10 @@ export default {
       type: Number,
       required: true
     },
+    imageUrl: {
+      type: String,
+      required: true
+    },
     unityName: {
       type: String,
       required: true
@@ -47,6 +51,27 @@ export default {
     unityDesc: {
       type: String,
       required: true
+    },
+    id: {
+      type: Number,
+      required: true
+    }
+  },
+  methods: {
+    openSlide(id) {
+      console.log(id);
+      this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
+
+      let slide__panel = document.querySelector(".slide__panel");
+      slide__panel.classList.toggle("opened");
+      let headerHeight = document.querySelector(".headers").offsetHeight;
+      document.querySelector(".headers").style.top = `-${headerHeight}px`;
+      document.querySelector(".headers").style.zIndex = 0;
+      let slide__panel__overlay = document.querySelector(
+        `.slide__panel__overlay`
+      );
+
+      slide__panel__overlay.classList.toggle("overlay_opened");
     }
   }
 };

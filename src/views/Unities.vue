@@ -42,17 +42,15 @@
         :bound="true"
         :infinite="false"
       >
-        <vue-glide-slide v-for="i in 5" :key="i">
+        <vue-glide-slide
+          v-for="principle in teamWorkPrinciples"
+          :key="principle.id"
+        >
           <PrincipleCard
-            :counter="i"
+            :counter="principle.id"
             :length="5"
-            title="Team Work"
-            description="Lorem ipsum dolor sit amet, consectetur 
-                    adipiscing elit, sed do eiusmod tempor 
-                    incididunt. Lorem ipsum dolor sit amet, 
-                    adipiscing elit, sed do eiusmod tempor 
-                    incididunt. Lorem ipsum dolor sit amet, 
-                    adipiscing elit, sed do eiusmod tempor."
+            :title="principle.title"
+            :desc="principle.desc"
         /></vue-glide-slide>
         <template slot="control">
           <button data-glide-dir="<">
@@ -85,26 +83,27 @@
 
       <div class="unities__grid grid">
         <UnitiesCard
-          v-for="i in 3"
-          :key="i"
-          :counter="i"
-          unityName="Porto Design Factory"
-          unityDesc="Porto Design Factory A Porto Design Factory é um laboratório de ideias com 
-                    base no trabalho interdisciplinar, na investigação aplicada e na colaboração 
-                    industrial. Aqui, os alunos das mais diferentes áreas cooperam no 
-                    desenvolvimento de projetos inovadores com a ambição de promover uma 
-                    mentalidade empreendedora através de um modelo de educação baseado na 
-                    aprendizagem orientada para a resolução de problemas. "
+          v-for="unity in unities"
+          :key="unity.id"
+          :counter="unity.id"
+          :imageUrl="unity.imageUrl"
+          :unityName="unity.unityName"
+          :unityDesc="unity.unityDesc"
+          :id="unity.id"
+          @click.native="getUnityId"
         />
       </div>
+      <SlidePanel :title="unitySelectedTitle" :content="unitySelectedContent" />
     </section>
     <Footer />
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import SubPageIntro from "@/components/SubPageIntro.vue";
 import MainTitle from "@/components/MainTitle.vue";
+import SlidePanel from "@/components/SlidePanel.vue";
 import PrincipleCard from "@/components/Unities/PrincipleCard.vue";
 import UnitiesCard from "@/components/Unities/UnitiesCard.vue";
 import Footer from "@/components/Footer.vue";
@@ -117,9 +116,43 @@ export default {
     MainTitle,
     PrincipleCard,
     UnitiesCard,
+    SlidePanel,
     Footer,
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide
+  },
+  data: () => {
+    return {
+      unities: null,
+      teamWorkPrinciples: null,
+      unitySelectedTitle: null,
+      unitySelectedContent: null
+    };
+  },
+  created() {
+    this.unities = this.getUnities;
+    this.teamWorkPrinciples = this.getTeamWorkPrinciples;
+  },
+  computed: {
+    ...mapGetters([
+      "getUnities",
+      "getTeamWorkPrinciples",
+      "getUnityById",
+      "getSelectedUnityId"
+    ])
+  },
+  methods: {
+    getUnityId() {
+      let unityId = this.getSelectedUnityId;
+
+      if (unityId != null) this.getSelectedUnity(unityId);
+    },
+    getSelectedUnity(id) {
+      let unity = this.getUnityById(id);
+
+      this.unitySelectedTitle = unity.unityName;
+      this.unitySelectedContent = unity.content;
+    }
   }
 };
 </script>

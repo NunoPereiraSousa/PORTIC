@@ -17,14 +17,10 @@
           :desc="news.desc"
           :date="news.date"
           :id="news.id"
-          :slideId="`slide${news.id}`"
-          :slideOverlayId="`slideOverlay${news.id}`"
+          @click.native="getNewsId"
         />
       </div>
-      <!-- <SlidePanel
-        title="Lorem ipsum dolor amet elit, sed consectetur  eiusmod."
-        :content="newsContent"
-      /> -->
+      <SlidePanel :title="newsSelectedTitle" :content="newsSelectedContent" />
       <!-- <KnowMoreBtn
         type="know__more dark"
         text="All news"
@@ -110,7 +106,7 @@ import { mapGetters } from "vuex";
 import Intro from "@/components/Intro.vue";
 import Quote from "@/components/Quote.vue";
 import NewsCard from "@/components/NewsCard.vue";
-// import SlidePanel from "@/components/SlidePanel.vue";
+import SlidePanel from "@/components/SlidePanel.vue";
 // import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
 // import TestimonialCard from "@/components/TestimonialCard.vue";
 import Footer from "@/components/Footer.vue";
@@ -124,7 +120,7 @@ export default {
     Quote,
     // KnowMoreBtn,
     NewsCard,
-    // SlidePanel,
+    SlidePanel,
     // TestimonialCard,
     Footer,
     [Glide.name]: Glide,
@@ -133,7 +129,8 @@ export default {
   data: () => {
     return {
       newsArr: null,
-      newsContent: null
+      newsSelectedTitle: null,
+      newsSelectedContent: null
     };
   },
   created() {},
@@ -143,13 +140,21 @@ export default {
     this.newsContent = this.getNewsById;
   },
   computed: {
-    ...mapGetters(["getNews", "getNewsById"])
+    ...mapGetters(["getNews", "getNewsById", "getSelectedNewsId"])
   },
   methods: {
-    getNewsContent() {
-      console.log(this.newsContent);
+    getNewsId() {
+      let newsId = this.getSelectedNewsId;
 
-      // return this.newsContent;
+      if (newsId != null) {
+        this.getSelectedNews(newsId);
+      }
+    },
+    getSelectedNews(id) {
+      let news = this.getNewsById(id);
+
+      this.newsSelectedTitle = news.title;
+      this.newsSelectedContent = news.content;
     }
   }
 };

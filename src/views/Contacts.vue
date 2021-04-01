@@ -186,7 +186,7 @@
             </h4>
           </div>
         </div>
-        <div class="contacts__intro__socials grid hide-for-desktop">
+        <!-- <div class="contacts__intro__socials grid hide-for-desktop">
           <a href="" class="flex flex-ai-c flex-jc-c">
             <i class="fab fa-youtube"></i>
           </a>
@@ -196,7 +196,7 @@
           <a href="" class="flex flex-ai-c flex-jc-c">
             <i class="fab fa-facebook-square"></i>
           </a>
-        </div>
+        </div> -->
         <div class="contacts__intro__desc grid hide-for-tablet">
           <p>
             <span

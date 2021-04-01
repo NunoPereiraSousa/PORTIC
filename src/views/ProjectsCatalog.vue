@@ -26,10 +26,10 @@
             Finance sorting
           </button>
           <button
-            class="projects_catalog__filters__institutions"
-            @click="showFilters"
+            class="projects_catalog__filters__sorting"
+            @click="order2 = !order2"
           >
-            Institutions
+            Name sorting
           </button>
         </div>
         <div class="hide-for-mobile">
@@ -40,16 +40,24 @@
             Finance sorting
           </button>
         </div>
-        <div class="hide-for-mobile" style="justify-self: start;">
+        <div class="hide-for-mobile">
+          <button
+            class="projects_catalog__filters__sorting"
+            @click="order2 = !order2"
+          >
+            Name sorting
+          </button>
+        </div>
+        <!-- <div class="hide-for-mobile" style="justify-self: start;">
           <button
             class="projects_catalog__filters__institutions"
             @click="showFilters"
           >
             Institutions
           </button>
-        </div>
+        </div> -->
       </div>
-      <div class="projects_catalog__filters__categories">
+      <!-- <div class="projects_catalog__filters__categories">
         <div class="grid">
           <p>Lorem</p>
           <p>Lorem</p>
@@ -60,7 +68,7 @@
           <p>Lorem</p>
           <p>Lorem</p>
         </div>
-      </div>
+      </div> -->
       <div class="projects__grid grid" style="width: 100%">
         <ProjectCard
           v-for="project in orderBudget"
@@ -93,6 +101,7 @@ export default {
       selectedItem: null,
       projects: null,
       order: false,
+      order2: false,
       projectTxt: ""
     };
   },
@@ -122,6 +131,44 @@ export default {
       } else {
         return [...arr].sort(this.compareBudget);
       }
+
+      // if (!this.order2 && this.projectTxt != null) {
+      //   return (
+      //     arr,
+      //     this.projects.filter(project => {
+      //       let filterSearch = true;
+
+      //       if (this.projectTxt != "") {
+      //         filterSearch = project.initials
+      //           .toLowerCase()
+      //           .includes(this.projectTxt.toLowerCase());
+      //       }
+
+      //       return filterSearch;
+      //     })
+      //   );
+      // } else {
+      //   return [...arr].sort(this.compareName);
+      // }
+
+      // if (!this.order && this.projectTxt != null) {
+      //   return (
+      //     arr,
+      //     this.projects.filter(project => {
+      //       let filterSearch = true;
+
+      //       if (this.projectTxt != "") {
+      //         filterSearch = project.initials
+      //           .toLowerCase()
+      //           .includes(this.projectTxt.toLowerCase());
+      //       }
+
+      //       return filterSearch;
+      //     })
+      //   );
+      // } else {
+      //   return [...arr].sort(this.compareBudget);
+      // }
     }
   },
   methods: {
@@ -143,6 +190,11 @@ export default {
     compareBudget(a, b) {
       if (a.overallBudget < b.overallBudget) return -1;
       if (a.overallBudget > b.overallBudget) return 1;
+      else return 0;
+    },
+    compareName(a, b) {
+      if (a.initials < b.initials) return -1;
+      if (a.initials > b.initials) return 1;
       else return 0;
     },
     toggleSortIcons() {}

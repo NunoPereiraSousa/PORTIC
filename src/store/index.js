@@ -7,6 +7,7 @@ import { news } from "../config/home";
 import { medias } from "../config/media";
 import { projects } from "../config/projects";
 import { positions, tips } from "../config/recruitment";
+import { teamWorkPrinciples, unities } from "../config/unities";
 
 Vue.use(Vuex);
 
@@ -18,10 +19,21 @@ export default new Vuex.Store({
     tips: tips,
     focuses: focuses,
     news: news,
+    selectedNewsId: null,
+    selectedUnityId: null,
     medias: medias,
-    projects: projects
+    projects: projects,
+    unities: unities,
+    teamWorkPrinciples: teamWorkPrinciples
   },
-  mutations: {},
+  mutations: {
+    SET_SELECTED_NEWS_ID(state, payload) {
+      state.selectedNewsId = payload.id;
+    },
+    SET_SELECTED_UNITY_ID(state, payload) {
+      state.selectedUnityId = payload.id;
+    }
+  },
   actions: {},
   modules: {},
   getters: {
@@ -34,9 +46,14 @@ export default new Vuex.Store({
     getFocuses: state => state.focuses,
     getNews: state => state.news,
     getNewsById: state => id => state.news.find(n => n.id == id),
+    getSelectedNewsId: state => state.selectedNewsId,
     getAreas: state => state.areas,
     getCourses: state => state.courses,
     getMedias: state => state.medias,
-    getProjects: state => state.projects
+    getProjects: state => state.projects,
+    getUnities: state => state.unities,
+    getUnityById: state => id => state.unities.find(unity => unity.id === id),
+    getSelectedUnityId: state => state.selectedUnityId,
+    getTeamWorkPrinciples: state => state.teamWorkPrinciples
   }
 });

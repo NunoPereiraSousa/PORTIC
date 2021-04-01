@@ -2,7 +2,7 @@
   <div class="unities__card">
     <h4 class="unities__card__subtitle">0{{ counter }}/0{{ length }}</h4>
     <h2 class="unities__card__title">{{ title }}</h2>
-    <p class="unities__card__desc">{{ description }}</p>
+    <p class="unities__card__desc">{{ desc }}</p>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
       type: String,
       required: true
     },
-    description: {
+    desc: {
       type: String,
       required: true
     }
