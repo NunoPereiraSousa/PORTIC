@@ -14,21 +14,24 @@
     </div>
     <div v-if="show">
       <div class="courses__grid__card__content">
-        <p class="courses__grid__card__content__paragraph">{{ courseDesc }}</p>
+        <p
+          class="courses__grid__card__content__paragraph"
+          v-html="courseDesc"
+        ></p>
       </div>
 
-      <div class="courses__grid__card__buttons flex flex-ai-c flex-jc-sb">
+      <!-- <div class="courses__grid__card__buttons flex flex-ai-c flex-jc-sb">
         <div class="grid">
           <KnowMoreBtn type="know__more light" text="Application" />
           <KnowMoreBtn type="know__more light" text="Notice" />
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
-import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
+// import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
 export default {
   name: "CoursesCard",
   props: {
@@ -54,7 +57,7 @@ export default {
     }
   },
   components: {
-    KnowMoreBtn
+    // KnowMoreBtn
   },
   data: () => {
     return {

@@ -3288,6 +3288,30 @@ button:focus {
   cursor: pointer;
 }
 
+.courses__grid__card ::-webkit-scrollbar {
+  width: 2px;
+  border-radius: 2px;
+}
+
+@media (min-width: 75em) {
+  .courses__grid__card ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+.courses__grid__card ::-webkit-scrollbar-track {
+  background: rgba(8, 8, 8, 0.1);
+  border-radius: 2px;
+}
+
+.courses__grid__card ::-webkit-scrollbar-thumb {
+  background: #080808;
+}
+
+.courses__grid__card ::-webkit-scrollbar-thumb:hover {
+  background: #080808;
+}
+
 .courses__grid__card:last-child {
   border-bottom: 1px solid rgba(153, 153, 153, 0.3);
 }
@@ -3306,8 +3330,8 @@ button:focus {
 
 .courses__grid__card__button {
   position: relative;
-  background-color: #080808;
-  border: 1px solid transparent;
+  background-color: transparent;
+  border: 2px solid #080808;
   border-radius: 50%;
   height: 1.625rem;
   width: 1.625rem;
@@ -3321,7 +3345,7 @@ button:focus {
   position: absolute;
   width: 2px;
   height: 10px;
-  background-color: #ffffff;
+  background-color: #080808;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -3344,8 +3368,21 @@ button:focus {
 
 .courses__grid__card__content {
   margin: 2rem 0;
-  max-height: 300px;
+  max-height: 60vh;
   overflow-y: auto;
+  padding-right: 10px;
+}
+
+@media (min-width: 75em) {
+  .courses__grid__card__content {
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 120em) {
+  .courses__grid__card__content {
+    max-height: 450px;
+  }
 }
 
 .courses__grid__card__content__paragraph {
@@ -3353,6 +3390,52 @@ button:focus {
   font-size: 1rem;
   letter-spacing: 0.2px;
   line-height: 1.6;
+}
+
+.courses__grid__card__content__paragraph span {
+  color: #c94d24;
+}
+
+.courses__grid__card__content__paragraph h2 {
+  font-weight: 400;
+  margin: 0;
+  font-size: 1.125rem;
+  color: #999999;
+}
+
+@media (min-width: 120em) {
+  .courses__grid__card__content__paragraph h2 {
+    font-size: 1.25rem;
+  }
+}
+
+.courses__grid__card__content__paragraph a {
+  color: #c94d24;
+  text-decoration: underline;
+}
+
+.courses__grid__card__content__paragraph ul {
+  padding: 0;
+}
+
+.courses__grid__card__content__paragraph ul li {
+  list-style: none;
+}
+
+.courses__grid__card__content__paragraph ul li::before {
+  content: "- ";
+  margin-right: 10px;
+}
+
+.courses__grid__card__content__paragraph img {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+@media (min-width: 120em) {
+  .courses__grid__card__content__paragraph {
+    font-size: 1.125rem;
+  }
 }
 
 .courses__grid__card__buttons div {
@@ -3936,7 +4019,7 @@ button:focus {
 
 @media (min-width: 120em) {
   .unities__grid__card__info p {
-    font-size: 1.25rem;
+    font-size: 1.625rem;
   }
 }
 
