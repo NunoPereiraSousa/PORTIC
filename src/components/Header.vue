@@ -129,6 +129,9 @@ export default {
       required: true
     }
   },
+  created() {
+    window.addEventListener("scroll", {});
+  },
   methods: {
     toggleNavbar() {
       let lines = document.querySelectorAll(".navbar__hamburger__lines");
@@ -136,6 +139,9 @@ export default {
       lines.forEach(line => {
         line.classList.toggle("open");
       });
+
+      document.querySelector(".headers").style.top = "0";
+      document.querySelector(".headers").style.zIndex = "999";
 
       // let title = document.querySelector(".header__title");
       // title.classList.toggle("change__color");

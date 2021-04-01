@@ -195,7 +195,7 @@
   z-index: -999;
   top: 0%;
   left: 0%;
-  opacity: 0;
+  visibility: hidden;
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.3);
@@ -205,6 +205,6 @@
 
   &.overlay_opened {
     z-index: 989;
-    opacity: 1;
+    visibility: visible;
   }
 }

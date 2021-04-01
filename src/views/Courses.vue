@@ -2,7 +2,7 @@
   <div>
     <!-- <div class="scene"></div> -->
     <SubPageIntro
-      categoryTitle="Courses"
+      categoryTitle="Cursos"
       title1="Title 1"
       text1="Lorem ipsum dolor sit amet, consectetur
       enim ad minim veniam, quis nostrud."
@@ -19,7 +19,7 @@
       adotps in the projects ipsum dolor sit amet, consectetur 
       eiusmod tempor incididunt ut labore et dolore magna aliqua."
     />
-    <MainTitle className="main__title" text="Explore our courses" />
+    <MainTitle className="main__title" text="Explore os nossos cursos" />
     <section class="courses">
       <!-- <Intro extra="our " keyword="courses" /> -->
       <div class="courses__grid grid">
