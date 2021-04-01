@@ -76,6 +76,7 @@
           :counter="project.id"
           :initials="project.initials"
           :title="project.title"
+          :projectInitials="project.initials"
           @mouseover.native="onHover"
           @mouseleave.native="notHover"
           @click.native="setSelectedProject(project.initials)"

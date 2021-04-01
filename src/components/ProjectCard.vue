@@ -15,7 +15,9 @@
           </p>
         </div>
         <div class="bottom">
-          <button>Know more</button>
+          <button @click="setSelectedProject(projectInitials)">
+            Know more
+          </button>
         </div>
       </div>
     </div>
@@ -37,6 +39,22 @@ export default {
     counter: {
       type: Number,
       required: true
+    },
+    projectInitials: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    setSelectedProject(name) {
+      console.log(name);
+      this.$store.commit("SET_SELECTED_PROJECT", {
+        initials: name
+      });
+      this.$router.push({
+        name: "Project",
+        params: { name: name }
+      });
     }
   }
 };
