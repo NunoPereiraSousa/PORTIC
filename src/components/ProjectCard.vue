@@ -15,7 +15,7 @@
           </p>
         </div>
         <div class="bottom">
-          <a href="">Know more</a>
+          <button>Know more</button>
         </div>
       </div>
     </div>

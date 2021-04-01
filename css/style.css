@@ -3171,7 +3171,6 @@ button:focus {
 @media (min-width: 120em) {
   .projects__grid__card__hovered_state h1 {
     margin-bottom: 1.5rem;
-    font-size: 1.875rem;
   }
 }
 
@@ -3198,27 +3197,28 @@ button:focus {
   opacity: 0;
 }
 
-.projects__grid__card__hovered_state a {
+.projects__grid__card__hovered_state button {
   position: relative;
   color: #ffffff;
   margin-left: 2rem;
+  background-color: transparent;
+  border: none;
 }
 
 @media (min-width: 75em) {
-  .projects__grid__card__hovered_state a {
+  .projects__grid__card__hovered_state button {
     font-size: 1rem;
   }
 }
 
 @media (min-width: 120em) {
-  .projects__grid__card__hovered_state a {
+  .projects__grid__card__hovered_state button {
     line-height: 1.7;
-    font-size: 1.125rem;
-    font-style: italic;
+    font-size: 1.0625rem;
   }
 }
 
-.projects__grid__card__hovered_state a::before {
+.projects__grid__card__hovered_state button::before {
   content: "";
   position: absolute;
   bottom: calc(50% - 1px);
@@ -3228,11 +3228,11 @@ button:focus {
   width: 16px;
 }
 
-.projects__grid__card__hovered_state a:hover::before {
+.projects__grid__card__hovered_state button:hover::before {
   left: -32px;
 }
 
-.projects__grid__card__hovered_state a:hover {
+.projects__grid__card__hovered_state button:hover {
   letter-spacing: 0.4px;
 }
 

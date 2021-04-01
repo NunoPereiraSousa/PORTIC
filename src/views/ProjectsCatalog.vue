@@ -78,6 +78,7 @@
           :title="project.title"
           @mouseover.native="onHover"
           @mouseleave.native="notHover"
+          @click.native="setSelectedProject(project.initials)"
         />
       </div>
     </section>
@@ -197,7 +198,15 @@ export default {
       if (a.initials > b.initials) return 1;
       else return 0;
     },
-    toggleSortIcons() {}
+    setSelectedProject(name) {
+      this.$store.commit("SET_SELECTED_PROJECT", {
+        initials: name
+      });
+      this.$router.push({
+        name: "Project",
+        params: { name: name }
+      });
+    }
   }
 };
 </script>

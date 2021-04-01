@@ -176,7 +176,6 @@
 
       @include breakpoint-up(large) {
         margin-bottom: 1.5rem;
-        font-size: $_30px;
       }
     }
 
@@ -199,10 +198,13 @@
       opacity: 0;
     }
 
-    a {
+    button {
       position: relative;
       color: $white;
       margin-left: 2rem;
+
+      background-color: transparent;
+      border: none;
       //   transition: all 0.5s ease;
 
       @include breakpoint-up(desktop) {
@@ -211,8 +213,7 @@
 
       @include breakpoint-up(large) {
         line-height: 1.7;
-        font-size: $_18px;
-        font-style: italic;
+        font-size: $_17px;
       }
 
       &::before {

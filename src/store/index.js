@@ -23,6 +23,7 @@ export default new Vuex.Store({
     selectedUnityId: null,
     medias: medias,
     projects: projects,
+    selectedProject: null,
     unities: unities,
     teamWorkPrinciples: teamWorkPrinciples
   },
@@ -32,6 +33,13 @@ export default new Vuex.Store({
     },
     SET_SELECTED_UNITY_ID(state, payload) {
       state.selectedUnityId = payload.id;
+    },
+    SET_SELECTED_PROJECT(state, payload) {
+      state.selectedProject = payload.initials;
+      localStorage.setItem(
+        "project_name",
+        JSON.stringify(state.selectedProject)
+      );
     }
   },
   actions: {},
@@ -51,6 +59,9 @@ export default new Vuex.Store({
     getCourses: state => state.courses,
     getMedias: state => state.medias,
     getProjects: state => state.projects,
+    getSelectedProject: state => state.selectedProject,
+    getProjectByName: state => initials =>
+      state.projects.find(p => p.initials === initials),
     getUnities: state => state.unities,
     getUnityById: state => id => state.unities.find(unity => unity.id === id),
     getSelectedUnityId: state => state.selectedUnityId,

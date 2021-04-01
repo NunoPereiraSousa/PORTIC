@@ -5,7 +5,7 @@
         <div class="project__entry__grid grid">
           <h1>
             <a>Project</a>
-            <div>Ferrovia 4.0</div>
+            <div>{{ project.initials }}</div>
           </h1>
 
           <div class="project__entry__grid__circle flex flex-ai-c flex-jc-c">
@@ -45,21 +45,10 @@
       <section class="project__objective">
         <SubHeaderTitle text="Description" />
         <p>
-          The overall objective of the project is to develop different
-          components, tools and systems, to be tested on rolling stock and real
-          infrastructures, which are oriented towards the economic and
-          ecological sustainability of the railway system, to reduce operating
-          and maintenance costs; for reliable information systems to support
-          decision-making in asset management and for the creation of security
-          systems capable of monitoring the infrastructure and triggering alerts
-          and protection / intervention measures. It is also the ambition of the
-          project to ensure that cybersecurity technologies and methodologies
-          are incorporated into the structure of information and communication
-          technologies of the railway system, in order to avoid unwanted
-          intrusions.
+          {{ project.description }}
         </p>
-        <p><b>Overall budget: </b>1 166 146 €</p>
-        <p><b>PORTIC budget: </b>818 077 €</p>
+        <p><b>Overall budget: </b>{{ project.overallBudget }}</p>
+        <p><b>PORTIC budget: </b>{{ project.porticBudget }}</p>
       </section>
       <section class="project__gallery">
         <SubHeaderTitle text="The gallery" class="light" />
@@ -146,6 +135,7 @@ import NewsCard from "@/components/NewsCard.vue";
 import TeamCard from "@/components/Project/TeamCard.vue";
 import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Project",
@@ -157,6 +147,54 @@ export default {
     Footer,
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide
+  },
+  data: () => {
+    return {
+      projects: null,
+      projectName: null,
+      initials: null,
+      project: {
+        id: null,
+        initials: null,
+        title: null,
+        overallBudget: null,
+        porticBudget: null,
+        description: null
+      }
+    };
+  },
+  computed: {
+    ...mapGetters(["getSelectedProject", "getProjectByName"])
+  },
+  created() {
+    if (JSON.parse(localStorage.getItem("project_name"))) {
+      this.$store.commit("SET_SELECTED_PROJECT", {
+        initials: JSON.parse(localStorage.getItem("project_name"))
+      });
+
+      this.projectName = this.getSelectedProject;
+
+      this.projects = this.getProjectByName(this.projectName);
+
+      this.fetchData();
+    }
+  },
+  methods: {
+    fetchData() {
+      this.project.id = this.projects.id;
+      this.project.initials = this.projects.initials;
+      this.project.title = this.projects.title;
+      this.project.overallBudget = this.formatCurrency(
+        this.projects.overallBudget
+      );
+      this.project.porticBudget = this.formatCurrency(
+        this.projects.porticBudget
+      );
+      this.project.description = this.projects.description;
+    },
+    formatCurrency(n) {
+      return `${n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}€`;
+    }
   }
 };
 </script>
