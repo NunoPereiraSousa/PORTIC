@@ -18,6 +18,7 @@
           :date="news.date"
           :id="news.id"
           :slideId="`slide${news.id}`"
+          :slideOverlayId="`slideOverlay${news.id}`"
         />
       </div>
       <!-- <SlidePanel

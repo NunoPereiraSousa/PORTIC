@@ -22,7 +22,11 @@
           <div class="arrow"></div>
         </div>
       </div>
-      <div class="slide__panel__overlay" @click="closeForm"></div>
+      <div
+        :id="slideOverlayId"
+        class="slide__panel__overlay"
+        @click="closeForm(id)"
+      ></div>
     </div>
   </div>
 </template>
@@ -31,7 +35,7 @@
 import { mapGetters } from "vuex";
 export default {
   name: "NewsCard",
-  props: ["image", "title", "desc", "date", "id", "slideId"],
+  props: ["image", "title", "desc", "date", "id", "slideId", "slideOverlayId"],
   data: () => {
     return {
       slideTitle: null,
@@ -48,9 +52,8 @@ export default {
       let headerHeight = document.querySelector(".headers").offsetHeight;
       document.querySelector(".headers").style.top = `-${headerHeight}px`;
       document.querySelector(".headers").style.zIndex = 0;
-      let slide__panel__overlay = document.querySelector(
-        ".slide__panel__overlay"
-      );
+      let slide__panel__overlay = document.querySelector(`#slideOverlay${id}`);
+
       slide__panel__overlay.classList.toggle("overlay_opened");
 
       this.setText(id);
@@ -64,6 +67,8 @@ export default {
       console.log(this.slideTitle);
     },
     closeForm(id) {
+      id = this.getNewsById(id).id;
+
       let slide__panel = document.querySelector(`#slide${id} .slide__panel`);
 
       slide__panel.classList.toggle("opened");
@@ -71,9 +76,7 @@ export default {
       document.querySelector(".headers").style.top = 0;
       document.querySelector(".headers").style.zIndex = "990";
 
-      let slide__panel__overlay = document.querySelector(
-        ".slide__panel__overlay"
-      );
+      let slide__panel__overlay = document.querySelector(`#slideOverlay${id}`);
 
       slide__panel__overlay.classList.toggle("overlay_opened");
     }

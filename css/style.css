@@ -2309,7 +2309,7 @@ button:focus {
 
 @media (min-width: 48em) {
   .news__cards__card img {
-    height: 10.375rem;
+    height: 12.375rem;
   }
 }
 
@@ -6101,8 +6101,8 @@ button:focus {
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-  -webkit-transition: all 0.6s ease;
-  transition: all 0.6s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
