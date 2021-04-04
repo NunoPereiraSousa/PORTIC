@@ -58,26 +58,26 @@
       <div class="footer__grid__links">
         <h1 class="footer__grid__links__title title">Quick Links</h1>
         <div class="footer__grid__links__info grid">
-          <router-link :to="{ name: 'Areas' }">
-            Areas
-          </router-link>
-          <router-link :to="{ name: 'Courses' }">
-            Courses
-          </router-link>
-          <router-link :to="{ name: 'Media' }">
-            Media
+          <router-link :to="{ name: 'Contacts' }">
+            Sobre nós
           </router-link>
           <router-link :to="{ name: 'Positions' }">
-            Positions
+            Recrutamento
+          </router-link>
+          <router-link :to="{ name: 'Areas' }">
+            Áreas
+          </router-link>
+          <router-link :to="{ name: 'Courses' }">
+            Cursos
+          </router-link>
+          <router-link :to="{ name: 'Media' }">
+            Mídia
           </router-link>
           <router-link :to="{ name: 'Projects' }">
-            Projects
+            Projetos
           </router-link>
           <router-link :to="{ name: 'Unities' }">
-            Unities
-          </router-link>
-          <router-link :to="{ name: 'Contacts' }">
-            About Us
+            Unidades
           </router-link>
         </div>
       </div>

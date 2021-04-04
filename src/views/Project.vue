@@ -38,7 +38,13 @@
         </div>
         <div class="project__entry__carousel">
           <div class="slide-track">
-            <Slide v-for="i in 12" :key="i" slideText="Isep" />
+            <div v-for="i in 2" :key="i" class="flex">
+              <Slide
+                v-for="(partner, index) in projects.partners"
+                :key="index"
+                :slideText="partner"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -153,6 +159,7 @@ export default {
       projects: null,
       projectName: null,
       initials: null,
+      duplicatePartnersLength: null,
       project: {
         id: null,
         initials: null,
@@ -176,8 +183,17 @@ export default {
 
       this.projects = this.getProjectByName(this.projectName);
 
+      this.duplicatePartnersLength = this.projects.partners.length * 2;
+
+      console.log(this.duplicatePartnersLength);
+
+      console.log(this.projects);
+
       this.fetchData();
     }
+  },
+  mounted() {
+    this.changeCarousel();
   },
   methods: {
     fetchData() {
@@ -194,6 +210,40 @@ export default {
     },
     formatCurrency(n) {
       return `${n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}€`;
+    },
+    changeCarousel() {
+      let nPartners = this.projects.partners.length;
+
+      console.log(window.innerWidth > 1200);
+
+      let slideTrack = document.querySelector(".slide-track");
+      let slide = document.querySelectorAll(".slide");
+
+      if (window.innerWidth >= 1024 && window.innerWidth < 1500) {
+        slideTrack.style.width = `calc(250px * ${nPartners * 2})`;
+
+        slideTrack.style.animation = `carouselDesktop${nPartners} 20s linear infinite`;
+
+        slide.forEach(s => {
+          s.style.width = "250px";
+        });
+      } else if (window.innerWidth >= 1500) {
+        slideTrack.style.width = `calc(350px * ${nPartners * 2})`;
+
+        slideTrack.style.animation = `carouselDesktopBig${nPartners} 20s linear infinite`;
+
+        slide.forEach(s => {
+          s.style.width = "350px";
+        });
+      } else {
+        slideTrack.style.width = `calc(125px * ${nPartners * 2})`;
+
+        slideTrack.style.animation = `carousel${nPartners} 20s linear infinite`;
+
+        slide.forEach(s => {
+          s.style.width = "125px";
+        });
+      }
     }
   }
 };

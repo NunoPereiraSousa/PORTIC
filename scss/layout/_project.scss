@@ -215,23 +215,23 @@
       }
 
       .slide-track {
-        animation: carousel 20s linear infinite;
+        // animation: carousel 20s linear infinite;
         display: flex;
-        width: calc(125px * 12);
+        // width: calc(125px * 12);
 
-        @include breakpoint-up(iPadPro) {
-          width: calc(250px * 12);
-          animation: carouselDesktop 20s linear infinite;
-        }
+        // @include breakpoint-up(iPadPro) {
+        //   width: calc(250px * 12);
+        //   animation: carouselDesktop 20s linear infinite;
+        // }
 
         .slide {
           display: flex;
           justify-content: center;
           align-items: center;
           height: 100px;
-          width: 125px;
+          // margin: 0 1rem;
 
-          font-size: $_20px;
+          font-size: $_16px;
 
           text-shadow: 2px 2px 4px rgba($color: $black, $alpha: 0.12);
 

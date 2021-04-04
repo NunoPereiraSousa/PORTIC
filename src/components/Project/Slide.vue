@@ -1,6 +1,8 @@
 <template>
   <div class="slide">
-    <span v-if="text === 'PORTIC'">{{ slideText.toUpperCase() }}</span>
+    <span v-if="slideText == 'PORTIC/P.PORTO'">{{
+      slideText.toUpperCase()
+    }}</span>
     <div v-else>{{ slideText.toUpperCase() }}</div>
   </div>
 </template>
@@ -13,11 +15,6 @@ export default {
       type: String,
       required: true
     }
-  },
-  data: () => {
-    return {
-      text: null
-    };
   }
 };
 </script>

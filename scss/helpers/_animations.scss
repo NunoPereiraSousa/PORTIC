@@ -64,7 +64,25 @@
   }
 }
 
-@keyframes carousel {
+@keyframes carousel4 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-125px * 4));
+  }
+}
+
+@keyframes carousel5 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-125px * 5));
+  }
+}
+
+@keyframes carousel6 {
   0% {
     transform: translateX(0);
   }
@@ -73,11 +91,145 @@
   }
 }
 
-@keyframes carouselDesktop {
+@keyframes carousel7 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-125px * 7));
+  }
+}
+
+@keyframes carousel8 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-125px * 8));
+  }
+}
+
+@keyframes carousel9 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-125px * 9));
+  }
+}
+
+@keyframes carousel10 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-125px * 10));
+  }
+}
+
+@keyframes carouselDesktop5 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 5));
+  }
+}
+
+@keyframes carouselDesktop6 {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(calc(-250px * 6));
+  }
+}
+
+@keyframes carouselDesktop7 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+@keyframes carouselDesktop8 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 8));
+  }
+}
+
+@keyframes carouselDesktop9 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 9));
+  }
+}
+
+@keyframes carouselDesktop10 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 10));
+  }
+}
+@keyframes carouselDesktopBig5 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 5));
+  }
+}
+
+@keyframes carouselDesktopBig6 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 6));
+  }
+}
+
+@keyframes carouselDesktopBig7 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 7));
+  }
+}
+
+@keyframes carouselDesktopBig8 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 8));
+  }
+}
+
+@keyframes carouselDesktopBig9 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 9));
+  }
+}
+
+@keyframes carouselDesktopBig10 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 10));
   }
 }
