@@ -180,6 +180,16 @@
     transform: translateX(calc(-250px * 10));
   }
 }
+
+@keyframes carouselDesktopBig4 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 5));
+  }
+}
+
 @keyframes carouselDesktopBig5 {
   0% {
     transform: translateX(0);

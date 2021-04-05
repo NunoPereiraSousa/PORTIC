@@ -412,6 +412,28 @@
   }
 }
 
+@-webkit-keyframes carouselDesktopBig4 {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(calc(-350px * 5));
+            transform: translateX(calc(-350px * 5));
+  }
+}
+
+@keyframes carouselDesktopBig4 {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(calc(-350px * 5));
+            transform: translateX(calc(-350px * 5));
+  }
+}
+
 @-webkit-keyframes carouselDesktopBig5 {
   0% {
     -webkit-transform: translateX(0);
@@ -647,13 +669,13 @@ a:focus {
   }
 }
 
-@media (max-width: 47.9375em) {
+@media (max-width: 63.9375em) {
   .hide-below-tablet {
     display: none;
   }
 }
 
-@media (min-width: 48em) {
+@media (min-width: 64em) {
   .hide-above-tablet {
     display: none;
   }
@@ -1455,6 +1477,17 @@ button:focus {
   100% {
     -webkit-transform: translateX(calc(-250px * 10));
             transform: translateX(calc(-250px * 10));
+  }
+}
+
+@keyframes carouselDesktopBig4 {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(calc(-350px * 5));
+            transform: translateX(calc(-350px * 5));
   }
 }
 
@@ -5643,14 +5676,7 @@ button:focus {
   position: relative;
 }
 
-@media (min-width: 48em) {
-  .contacts__intro__grid {
-    -ms-grid-columns: 25vw 50vw 25vw;
-        grid-template-columns: 25vw 50vw 25vw;
-  }
-}
-
-@media (min-width: 64em) {
+@media (min-width: 75em) {
   .contacts__intro__grid {
     -ms-grid-columns: 34vw 32vw 34vw;
         grid-template-columns: 34vw 32vw 34vw;
@@ -5800,12 +5826,20 @@ button:focus {
   margin-top: 1rem;
 }
 
+.contacts__intro__grid__contacts h2 a {
+  color: #080808;
+}
+
+.contacts__intro__grid__contacts h2 a:hover {
+  color: #c94d24;
+}
+
 .contacts__intro__grid__contacts__socials {
   -ms-grid-columns: (1fr)[6];
       grid-template-columns: repeat(6, 1fr);
   -webkit-column-gap: 1rem;
           column-gap: 1rem;
-  margin-top: 1rem;
+  margin: 1rem auto 0;
 }
 
 @media (min-width: 48em) {
@@ -5835,6 +5869,10 @@ button:focus {
   .contacts__intro__grid__contacts__socials a {
     font-size: 1.125rem;
   }
+}
+
+.contacts__intro__grid__contacts__socials a:hover {
+  color: #c94d24;
 }
 
 .contacts__intro__desc {
@@ -6044,7 +6082,6 @@ button:focus {
 }
 
 .contacts__form__contacts h2 {
-  color: #ffffff;
   font-size: 1.125rem;
   font-family: "Porto Serif";
 }
@@ -6057,6 +6094,14 @@ button:focus {
 
 .contacts__form__contacts h2:last-child {
   margin-top: 1rem;
+}
+
+.contacts__form__contacts h2:hover a {
+  color: #999999;
+}
+
+.contacts__form__contacts h2 a {
+  color: #ffffff;
 }
 
 .contacts__form__contacts__socials {
@@ -6087,6 +6132,10 @@ button:focus {
   .contacts__form__contacts__socials a {
     font-size: 1.125rem;
   }
+}
+
+.contacts__form__contacts__socials a:hover {
+  color: #999999;
 }
 
 .contacts__form__form form {

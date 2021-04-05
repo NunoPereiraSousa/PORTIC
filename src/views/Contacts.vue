@@ -89,8 +89,12 @@
         <div class="contacts__intro__grid__contacts grid">
           <h3>Conecta-te connosco a qualquer momento</h3>
           <div>
-            <h2>(+351) 919 554 127</h2>
-            <h2>portic@portic.ipp.pt</h2>
+            <h2>
+              <a href="tel:+351919554127">(+351) 919 554 127</a>
+            </h2>
+            <h2>
+              <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
+            </h2>
           </div>
           <div class="contacts__intro__grid__contacts__socials grid">
             <a href="">
@@ -138,8 +142,12 @@
         <div class="contacts__intro__grid__contacts grid">
           <h3>Conecte-se connosco a qualquer momento</h3>
           <div>
-            <h2>(+351) 919 554 127</h2>
-            <h2>portic@portic.ipp.pt</h2>
+            <h2>
+              <a href="tel:+351919554127">(+351) 919 554 127</a>
+            </h2>
+            <h2>
+              <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
+            </h2>
           </div>
           <div class="contacts__intro__grid__contacts__socials grid">
             <a href="">
@@ -295,8 +303,12 @@
       <div class="contacts__form__contacts grid">
         <h3>Conecte-se connosco a qualquer momento</h3>
         <div>
-          <h2>(+351) 919 554 127</h2>
-          <h2>portic@portic.ipp.pt</h2>
+          <h2>
+            <a href="tel:+351919554127">(+351) 919 554 127</a>
+          </h2>
+          <h2>
+            <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
+          </h2>
         </div>
         <div class="contacts__form__contacts__socials grid">
           <a href="">
@@ -376,11 +388,10 @@ export default {
   mounted() {
     this.focuses = this.getFocuses;
 
-    console.log(document.getElementById("map"));
-
     this.map = new window.google.maps.Map(document.getElementById("map"), {
-      center: { lat: 41.176586, lng: -8.60563 },
-      zoom: 18
+      center: new window.google.maps.LatLng(41.176586, -8.60563),
+      zoom: 18,
+      mapTypeId: "roadmap"
     });
 
     new window.google.maps.Marker({
