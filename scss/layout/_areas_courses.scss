@@ -1,3 +1,119 @@
+.areas_information {
+  background-color: $black;
+  margin-top: calc(4.1875rem + 2vw);
+  padding: calc(6.1875rem + 2vw) 2rem;
+
+  @include breakpoint-up(tablet) {
+    padding: calc(6.1875rem + 2vw) 8vw;
+  }
+
+  @include breakpoint-up(desktop) {
+    padding: calc(6.1875rem + 2vw) 11vw;
+  }
+
+  @include breakpoint-up(large) {
+    padding: calc(6.1875rem + 2vw) 10vw;
+  }
+
+  &__info {
+    line-height: 1.7;
+    font-size: $_18px;
+
+    color: $white;
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_18px;
+      line-height: 1.7;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_22px;
+    }
+  }
+
+  &__icons {
+    margin-top: 4rem;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    justify-items: center;
+
+    @include breakpoint-up(tablet) {
+      margin-top: 6rem;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      grid-template-columns: 1fr 1fr 1fr;
+      row-gap: 3rem;
+    }
+
+    @include breakpoint-up(desktop) {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 6rem;
+    }
+
+    @include breakpoint-up(large) {
+      column-gap: 8rem;
+    }
+
+    &__card {
+      width: 100%;
+
+      img {
+        width: 2.5rem;
+        height: auto;
+
+        @include breakpoint-up(tablet) {
+          width: 2.875rem;
+        }
+
+        @include breakpoint-up(large) {
+          width: 3.125rem;
+        }
+      }
+
+      h4 {
+        width: fit-content;
+        text-align: center;
+        font-weight: 400;
+        color: $grey;
+
+        @include breakpoint-up(tablet) {
+          font-size: $_17px;
+        }
+
+        @include breakpoint-up(large) {
+          font-size: $_18px;
+        }
+      }
+
+      &:hover h4 {
+        color: $white;
+      }
+    }
+  }
+}
+
+.areas {
+  padding: calc(6.1875rem + 2vw) 0 0;
+
+  .sub__header__title {
+    margin-left: 2rem;
+
+    @include breakpoint-up(tablet) {
+      margin-left: 8vw;
+    }
+
+    @include breakpoint-up(desktop) {
+      margin-left: 11vw;
+    }
+
+    @include breakpoint-up(large) {
+      margin-left: 10vw;
+    }
+  }
+}
+
 .areas,
 .courses {
   width: 100%;

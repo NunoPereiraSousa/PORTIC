@@ -25,12 +25,12 @@
           >
             Finance sorting
           </button>
-          <button
+          <!-- <button
             class="projects_catalog__filters__sorting"
             @click="order2 = !order2"
           >
             Name sorting
-          </button>
+          </button> -->
         </div>
         <div class="hide-for-mobile">
           <button
@@ -40,14 +40,14 @@
             Finance sorting
           </button>
         </div>
-        <div class="hide-for-mobile">
+        <!-- <div class="hide-for-mobile">
           <button
             class="projects_catalog__filters__sorting"
             @click="order2 = !order2"
           >
             Name sorting
           </button>
-        </div>
+        </div> -->
         <!-- <div class="hide-for-mobile" style="justify-self: start;">
           <button
             class="projects_catalog__filters__institutions"

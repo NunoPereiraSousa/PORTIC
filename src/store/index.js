@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { areas } from "../config/areas";
+import { areas, iconCards } from "../config/areas";
 import { focuses } from "../config/contacts";
 import { courses } from "../config/courses";
 import { news } from "../config/home";
@@ -14,6 +14,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     areas: areas,
+    iconCards: iconCards,
     courses: courses,
     positions: positions,
     tips: tips,
@@ -56,6 +57,7 @@ export default new Vuex.Store({
     getNewsById: state => id => state.news.find(n => n.id == id),
     getSelectedNewsId: state => state.selectedNewsId,
     getAreas: state => state.areas,
+    getIconCards: state => state.iconCards,
     getCourses: state => state.courses,
     getMedias: state => state.medias,
     getProjects: state => state.projects,

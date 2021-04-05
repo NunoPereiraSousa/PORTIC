@@ -6,7 +6,7 @@
     v-on:click="show = !show"
   >
     <div class="flex flex-ai-c flex-jc-sb">
-      <div class="flex flex-ai-fe flex-jc-sb">
+      <div class="flex flex-ai-c flex-jc-sb">
         <h5 class="areas__grid__card__sub_title" v-if="counter < 10">
           Area 0{{ counter }}
         </h5>

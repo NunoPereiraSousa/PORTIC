@@ -3376,8 +3376,8 @@ button:focus {
 
 @media (min-width: 64em) {
   .projects_catalog__filters {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
     margin: 6rem 0 3rem;
   }
 }
@@ -3401,8 +3401,6 @@ button:focus {
   .projects_catalog__filters input {
     border: 1.5px solid #080808;
     padding: 0.75rem 1rem;
-    -ms-grid-column-align: end;
-        justify-self: end;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -3829,6 +3827,161 @@ button:focus {
   width: 100%;
 }
 
+.areas_information {
+  background-color: #080808;
+  margin-top: calc(4.1875rem + 2vw);
+  padding: calc(6.1875rem + 2vw) 2rem;
+}
+
+@media (min-width: 48em) {
+  .areas_information {
+    padding: calc(6.1875rem + 2vw) 8vw;
+  }
+}
+
+@media (min-width: 75em) {
+  .areas_information {
+    padding: calc(6.1875rem + 2vw) 11vw;
+  }
+}
+
+@media (min-width: 120em) {
+  .areas_information {
+    padding: calc(6.1875rem + 2vw) 10vw;
+  }
+}
+
+.areas_information__info {
+  line-height: 1.7;
+  font-size: 1.125rem;
+  color: #ffffff;
+}
+
+@media (min-width: 64em) {
+  .areas_information__info {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 120em) {
+  .areas_information__info {
+    font-size: 1.375rem;
+  }
+}
+
+.areas_information__icons {
+  margin-top: 4rem;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+  row-gap: 2rem;
+  justify-items: center;
+}
+
+@media (min-width: 48em) {
+  .areas_information__icons {
+    margin-top: 6rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .areas_information__icons {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 3rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .areas_information__icons {
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+    -webkit-column-gap: 6rem;
+            column-gap: 6rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .areas_information__icons {
+    -webkit-column-gap: 8rem;
+            column-gap: 8rem;
+  }
+}
+
+.areas_information__icons__card {
+  width: 100%;
+}
+
+.areas_information__icons__card img {
+  width: 2.5rem;
+  height: auto;
+}
+
+@media (min-width: 48em) {
+  .areas_information__icons__card img {
+    width: 2.875rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .areas_information__icons__card img {
+    width: 3.125rem;
+  }
+}
+
+.areas_information__icons__card h4 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  font-weight: 400;
+  color: #999999;
+}
+
+@media (min-width: 48em) {
+  .areas_information__icons__card h4 {
+    font-size: 1.0625rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .areas_information__icons__card h4 {
+    font-size: 1.125rem;
+  }
+}
+
+.areas_information__icons__card:hover h4 {
+  color: #ffffff;
+}
+
+.areas {
+  padding: calc(6.1875rem + 2vw) 0 0;
+}
+
+.areas .sub__header__title {
+  margin-left: 2rem;
+}
+
+@media (min-width: 48em) {
+  .areas .sub__header__title {
+    margin-left: 8vw;
+  }
+}
+
+@media (min-width: 75em) {
+  .areas .sub__header__title {
+    margin-left: 11vw;
+  }
+}
+
+@media (min-width: 120em) {
+  .areas .sub__header__title {
+    margin-left: 10vw;
+  }
+}
+
 .areas,
 .courses {
   width: 100%;
@@ -4060,7 +4213,6 @@ button:focus {
 }
 
 .areas__grid__card:hover {
-  background-color: rgba(153, 153, 153, 0.15);
   border-top: 2px solid #c94d24;
 }
 
@@ -4077,9 +4229,10 @@ button:focus {
 
 .areas__grid__card__sub_title {
   color: #080808;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   margin-right: 40px;
   font-weight: 100;
+  white-space: nowrap;
 }
 
 @media (min-width: 64em) {
@@ -4090,7 +4243,7 @@ button:focus {
 }
 
 .areas__grid__card__title {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: #c94d24;
   font-family: "Porto Sans Stencil";
 }
@@ -4110,7 +4263,7 @@ button:focus {
 .areas__grid__card__button {
   position: relative;
   background-color: transparent;
-  border: 2px solid #080808;
+  border: none;
   border-radius: 50%;
   height: 1.625rem;
   width: 1.625rem;
@@ -4123,7 +4276,7 @@ button:focus {
 .areas__grid__card__button__lines {
   position: absolute;
   width: 1.5px;
-  height: 10px;
+  height: 12px;
   background-color: #080808;
   top: 50%;
   left: 50%;

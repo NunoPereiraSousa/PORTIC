@@ -20,8 +20,26 @@
       adotps in the projects ipsum dolor sit amet, consectetur 
       eiusmod tempor incididunt ut labore et dolore magna aliqua."
     />
-    <MainTitle className="main__title" text="Explore as nossas áreas" />
+    <section class="areas_information">
+      <SubHeaderTitle text="As áreas de atuação" class="light" />
+
+      <p class="areas_information__info">
+        O Porto Research, Technology & Innovation Center inclui unidades e
+        grupos com atividades em diferentes níveis de conhecimento e inovação,
+        como também em áreas de conhecimento.
+      </p>
+
+      <div class="areas_information__icons grid">
+        <IconCard
+          v-for="card in iconCards"
+          :key="card.id"
+          :icon="card.icon"
+          :content="card.content"
+        />
+      </div>
+    </section>
     <section class="areas">
+      <SubHeaderTitle text="Explore as nossas áreas" />
       <div class="areas__grid grid">
         <AreasCard
           v-for="area in areas"
@@ -43,28 +61,32 @@
 import { mapGetters } from "vuex";
 
 import SubPageIntro from "@/components/SubPageIntro.vue";
-import MainTitle from "@/components/MainTitle.vue";
+import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
 import AreasCard from "@/components/AreasCard.vue";
+import IconCard from "@/components/Areas/IconCard.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
     // Intro,
     SubPageIntro,
-    MainTitle,
+    SubHeaderTitle,
     AreasCard,
+    IconCard,
     Footer
   },
   data: () => {
     return {
-      areas: null
+      areas: null,
+      iconCards: null
     };
   },
-  mounted() {
+  created() {
     this.areas = this.getAreas;
+    this.iconCards = this.getIconCards;
   },
   computed: {
-    ...mapGetters(["getAreas"])
+    ...mapGetters(["getAreas", "getIconCards"])
   }
 };
 </script>

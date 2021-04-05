@@ -10,7 +10,7 @@
   }
 
   &:hover {
-    background-color: rgba($color: $grey, $alpha: 0.15);
+    // background-color: rgba($color: $grey, $alpha: 0.15);
     border-top: 2px solid rgba($color: $orange, $alpha: 1);
   }
 
@@ -38,9 +38,11 @@
 
   &__sub_title {
     color: $black;
-    font-size: $_15px;
+    font-size: $_14px;
     margin-right: 40px;
     font-weight: 100;
+
+    white-space: nowrap;
 
     @include breakpoint-up(iPadPro) {
       margin-right: 60px;
@@ -49,7 +51,7 @@
   }
 
   &__title {
-    font-size: $_20px;
+    font-size: $_18px;
     color: $orange;
     font-family: $portoSansStencil;
 
@@ -65,7 +67,8 @@
   &__button {
     position: relative;
     background-color: transparent;
-    border: 2px solid $black;
+    // border: 1.5px solid $black;
+    border: none;
     border-radius: 50%;
     height: 1.625rem;
     width: 1.625rem;
@@ -77,7 +80,7 @@
     &__lines {
       position: absolute;
       width: 1.5px;
-      height: 10px;
+      height: 12px;
       background-color: $black;
       top: 50%;
       left: 50%;

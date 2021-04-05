@@ -1,3 +1,42 @@
+export const iconCards = [
+  {
+    id: 1,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617631847/search_hrzogf.svg",
+    content: "Procura e desenvolvimento"
+  },
+  {
+    id: 2,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617631847/tech_d6nn8n.svg",
+    content: "Tecnologia e partilha de conhecimentos"
+  },
+  {
+    id: 3,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617631847/creativity_j2l2kf.svg",
+    content: "Inovação e criatividade"
+  },
+  {
+    id: 4,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617631847/business_r0kk4o.svg",
+    content: "Empreendedorismo"
+  },
+  {
+    id: 5,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617632283/incubator_czhyjd.svg",
+    content: "Incubação tecnológica"
+  },
+  {
+    id: 6,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617632374/startup_oma7dm.svg",
+    content: "Startups e spin-offs"
+  }
+];
+
 export const areas = [
   {
     id: 1,
