@@ -1,7 +1,11 @@
 <template>
   <div class="projects__grid__card">
     <div class="projects__grid__card__normal_state">
-      <h1>{{ initials }}</h1>
+      <div>
+        <h1>{{ initials }}</h1>
+        <p>{{ formatBudget(overallBudget) }}</p>
+        <!-- <p>PORTIC budget: {{ porticBudget }}</p> -->
+      </div>
       <h3 v-if="counter < 10">Project 0{{ counter }}</h3>
       <h3 v-else>Project {{ counter }}</h3>
     </div>
@@ -43,7 +47,15 @@ export default {
     projectInitials: {
       type: String,
       required: true
+    },
+    overallBudget: {
+      type: Number,
+      required: true
     }
+    // porticBudget: {
+    //   type: Number,
+    //   required: false
+    // }
   },
   methods: {
     setSelectedProject(name) {
@@ -55,6 +67,9 @@ export default {
         name: "Project",
         params: { name: name }
       });
+    },
+    formatBudget(n) {
+      return `${n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}€`;
     }
   }
 };

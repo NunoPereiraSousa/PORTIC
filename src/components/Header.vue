@@ -54,7 +54,7 @@
           <router-link
             @click.native="closeNavbarOnPageTransition"
             class="navbar__mobile_menu__links__link"
-            :to="{ name: 'Projects' }"
+            :to="{ name: 'ProjectsCatalog' }"
           >
             Projetos
           </router-link>
@@ -107,7 +107,7 @@
           <router-link :to="{ name: 'Media' }">
             Mídia
           </router-link>
-          <router-link :to="{ name: 'Projects' }">
+          <router-link :to="{ name: 'ProjectsCatalog' }">
             Projetos
           </router-link>
           <router-link :to="{ name: 'Unities' }">

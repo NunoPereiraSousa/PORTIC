@@ -77,6 +77,7 @@
           :initials="project.initials"
           :title="project.title"
           :projectInitials="project.initials"
+          :overallBudget="project.overallBudget"
           @mouseover.native="onHover"
           @mouseleave.native="notHover"
           @click.native="setSelectedProject(project.initials)"
@@ -109,6 +110,8 @@ export default {
   },
   created() {
     this.projects = this.getProjects;
+
+    console.log(this.projects);
   },
   computed: {
     ...mapGetters(["getProjects"]),
@@ -190,8 +193,8 @@ export default {
       this.selectedItem.classList.remove("hovered");
     },
     compareBudget(a, b) {
-      if (a.overallBudget < b.overallBudget) return -1;
-      if (a.overallBudget > b.overallBudget) return 1;
+      if (a.overallBudget > b.overallBudget) return -1;
+      if (a.overallBudget < b.overallBudget) return 1;
       else return 0;
     },
     compareName(a, b) {

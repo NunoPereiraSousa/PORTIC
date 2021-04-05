@@ -43,7 +43,7 @@
       bottom: 0%;
       left: 0%;
       background-color: $orange;
-      height: 3px;
+      height: 2px;
       width: 40px;
       box-shadow: 2px 2px 3px rgba($color: $black, $alpha: 0.2);
     }
@@ -73,7 +73,7 @@
     }
 
     @include breakpoint-up(iPadPro) {
-      font-size: $_15px;
+      font-size: $_16px;
     }
 
     &__container {
@@ -164,7 +164,7 @@
       margin: 0;
 
       @include breakpoint-up(iPadPro) {
-        font-size: $_17px;
+        font-size: $_20px;
         line-height: 1.7;
       }
 
@@ -172,11 +172,15 @@
         text-decoration: underline;
         color: $orange;
       }
+
+      li {
+        margin: 0;
+      }
     }
 
     &.opened {
       @include breakpoint-up(iPadPro) {
-        margin-top: 2rem;
+        margin-top: 3rem;
       }
     }
 
@@ -204,7 +208,7 @@
     @include breakpoint-up(iPadPro) {
       justify-self: center;
       white-space: nowrap;
-      font-size: $_15px;
+      font-size: $_16px;
     }
   }
 }

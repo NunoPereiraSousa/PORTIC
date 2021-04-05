@@ -73,7 +73,7 @@
           <router-link :to="{ name: 'Media' }">
             Mídia
           </router-link>
-          <router-link :to="{ name: 'Projects' }">
+          <router-link :to="{ name: 'ProjectsCatalog' }">
             Projetos
           </router-link>
           <router-link :to="{ name: 'Unities' }">
@@ -214,98 +214,98 @@ export default {
 
       let dayName = "";
       let weekDayName = "";
-      let weekDayNumber = "";
+      let weekDayNumber = today.getDate();
 
       switch (today.getDay()) {
         case 0:
-          dayName = "Sunday";
+          dayName = "Domingo";
           break;
         case 1:
-          dayName = "Monday";
+          dayName = "Segunda";
           break;
         case 2:
-          dayName = "Tuesday";
+          dayName = "Terça";
           break;
         case 3:
-          dayName = "Wednesday";
+          dayName = "Quarta";
           break;
         case 4:
-          dayName = "Thursday";
+          dayName = "Quinta";
           break;
         case 5:
-          dayName = "Friday";
+          dayName = "Sexta";
           break;
         case 6:
-          dayName = "Saturday";
+          dayName = "Sábado";
           break;
       }
 
       switch (today.getMonth()) {
         case 0:
-          weekDayName = "January";
+          weekDayName = "janeiro";
           break;
         case 1:
-          weekDayName = "February";
+          weekDayName = "fevereiro";
           break;
         case 2:
-          weekDayName = "March";
+          weekDayName = "março";
           break;
         case 3:
-          weekDayName = "April";
+          weekDayName = "abril";
           break;
         case 4:
-          weekDayName = "May";
+          weekDayName = "maio";
           break;
         case 5:
-          weekDayName = "June";
+          weekDayName = "junho";
           break;
         case 6:
-          weekDayName = "July";
+          weekDayName = "julho";
           break;
         case 7:
-          weekDayName = "August";
+          weekDayName = "agosto";
           break;
         case 8:
-          weekDayName = "September";
+          weekDayName = "setembro";
           break;
         case 9:
-          weekDayName = "October";
+          weekDayName = "outubro";
           break;
         case 10:
-          weekDayName = "November";
+          weekDayName = "novembro";
           break;
         case 11:
-          weekDayName = "December";
+          weekDayName = "dezembro";
           break;
       }
 
-      switch (today.getDate()) {
-        case 1:
-          weekDayNumber = `${today.getDate()}st`;
-          break;
-        case 2:
-          weekDayNumber = `${today.getDate()}nd`;
-          break;
-        case 3:
-          weekDayNumber = `${today.getDate()}rd`;
-          break;
-        case 21:
-          weekDayNumber = `${today.getDate()}st`;
-          break;
-        case 22:
-          weekDayNumber = `${today.getDate()}nd`;
-          break;
-        case 23:
-          weekDayNumber = `${today.getDate()}rd`;
-          break;
-        case 31:
-          weekDayNumber = `${today.getDate()}st`;
-          break;
-        default:
-          weekDayNumber = `${today.getDate()}th`;
-      }
+      // switch (today.getDate()) {
+      //   case 1:
+      //     weekDayNumber = `${today.getDate()}st`;
+      //     break;
+      //   case 2:
+      //     weekDayNumber = `${today.getDate()}nd`;
+      //     break;
+      //   case 3:
+      //     weekDayNumber = `${today.getDate()}rd`;
+      //     break;
+      //   case 21:
+      //     weekDayNumber = `${today.getDate()}st`;
+      //     break;
+      //   case 22:
+      //     weekDayNumber = `${today.getDate()}nd`;
+      //     break;
+      //   case 23:
+      //     weekDayNumber = `${today.getDate()}rd`;
+      //     break;
+      //   case 31:
+      //     weekDayNumber = `${today.getDate()}st`;
+      //     break;
+      //   default:
+      //     weekDayNumber = `${today.getDate()}th`;
+      // }
 
-      this.today = `${dayName}, ${weekDayName} ${weekDayNumber}`;
+      this.today = `${dayName}, ${weekDayNumber} de ${weekDayName}.`;
     },
     scrollTop() {
       document.querySelector(".subheader").scrollIntoView();

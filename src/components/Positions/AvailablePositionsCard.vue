@@ -14,7 +14,7 @@
       </button>
     </div>
 
-    <ul>
+    <ul class="categories">
       <li v-for="category in categories" :key="category.id">
         {{ category }}
       </li>
@@ -35,9 +35,13 @@
       <p v-html="content" v-if="!hide"></p>
     </div>
 
-    <button class="positions__available__card__apply_btn">
+    <a
+      class="positions__available__card__apply_btn"
+      href="https://portal.ipp.pt/concursos/sc/pessoal/"
+      target="_blank"
+    >
       Candidatar agora
-    </button>
+    </a>
   </div>
 </template>
 
