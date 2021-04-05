@@ -19,9 +19,27 @@
       adotps in the projects ipsum dolor sit amet, consectetur 
       eiusmod tempor incididunt ut labore et dolore magna aliqua."
     />
-    <MainTitle className="main__title" text="Explore os nossos cursos" />
+    <section class="courses_information">
+      <SubHeaderTitle text="Foco nos nossos cursos" class="light" />
+
+      <p class="areas_information__info">
+        A Porto Design Factory oferece vários programas educativos, diversos em
+        duração, objetivos ou até mesmo em metodologias pedagógicas, que podem
+        envolver estudantes de cursos de licenciatura, mestrado, pós-graduação,
+        doutoramento e pós-doc ou até mesmo profissionais e empreendedores.
+      </p>
+
+      <div class="areas_information__icons grid">
+        <IconCard
+          v-for="card in iconCoursesCards"
+          :key="card.id"
+          :icon="card.icon"
+          :content="card.content"
+        />
+      </div>
+    </section>
     <section class="courses">
-      <!-- <Intro extra="our " keyword="courses" /> -->
+      <SubHeaderTitle text="Explore os nossos cursos" />
       <div class="courses__grid grid">
         <CoursesCard
           v-for="course in courses"
@@ -42,27 +60,31 @@
 import { mapGetters } from "vuex";
 
 import SubPageIntro from "@/components/SubPageIntro.vue";
-import MainTitle from "@/components/MainTitle.vue";
+import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
+import IconCard from "@/components/IconCard.vue";
 import CoursesCard from "@/components/CoursesCard.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
     SubPageIntro,
-    MainTitle,
+    SubHeaderTitle,
+    IconCard,
     CoursesCard,
     Footer
   },
   data: () => {
     return {
-      courses: null
+      courses: null,
+      iconCoursesCards: null
     };
   },
   mounted() {
     this.courses = this.getCourses;
+    this.iconCoursesCards = this.getIconCoursesCards;
   },
   computed: {
-    ...mapGetters(["getCourses"])
+    ...mapGetters(["getCourses", "getIconCoursesCards"])
   }
 };
 </script>

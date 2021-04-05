@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import { areas, iconCards } from "../config/areas";
 import { focuses } from "../config/contacts";
-import { courses } from "../config/courses";
+import { courses, iconCoursesCards } from "../config/courses";
 import { news } from "../config/home";
 import { medias } from "../config/media";
 import { projects } from "../config/projects";
@@ -16,6 +16,7 @@ export default new Vuex.Store({
     areas: areas,
     iconCards: iconCards,
     courses: courses,
+    iconCoursesCards: iconCoursesCards,
     positions: positions,
     tips: tips,
     focuses: focuses,
@@ -59,6 +60,7 @@ export default new Vuex.Store({
     getAreas: state => state.areas,
     getIconCards: state => state.iconCards,
     getCourses: state => state.courses,
+    getIconCoursesCards: state => state.iconCoursesCards,
     getMedias: state => state.medias,
     getProjects: state => state.projects,
     getSelectedProject: state => state.selectedProject,

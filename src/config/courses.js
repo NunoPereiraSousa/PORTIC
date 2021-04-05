@@ -1,3 +1,44 @@
+export const iconCoursesCards = [
+  {
+    id: 1,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617634611/student_ztlb3m.svg",
+    content: "Licenciatura, mestrado, pós-graduação, doutoramento e pós-doc."
+  },
+  {
+    id: 2,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617634750/diversity_jvvzc9.svg",
+    content:
+      "Engenharia, design, comunicação, ciências empresariais, educação, etc."
+  },
+  {
+    id: 3,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617634611/international_mztona.svg",
+    content:
+      "Propostas feitas por parceiros empresariais nacionais e internacionais."
+  },
+  {
+    id: 4,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617634611/companies_rpdciu.svg",
+    content: "Contacto com empresas e clientes."
+  },
+  {
+    id: 5,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617634777/prototype_c9buxe.svg",
+    content: "Processos de needfinding, idealização e prototipagem."
+  },
+  {
+    id: 6,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617634808/new-product_km7iag.svg",
+    content: "Lançamento de produtos e serviços para o mercado."
+  }
+];
+
 export const courses = [
   {
     id: 1,
@@ -46,6 +87,7 @@ export const courses = [
       <br>
       <br>
       <span>Objetivos pedagógicos</span>
+      <br>
       O SQUAD desenvolverá as competências técnicas, criativas e estratégicas dos alunos para liderar a mudança nesta indústria em evolução. Os alunos irão explorar o UX design (e campos relacionados, tais como design de serviços e UI), compreensão do comportamento humano, pesquisa rigorosa, tecnologias digitais e prototipagem, gestão de projetos, negócios e como construir uma equipa efetiva.
       <br>
       <br>

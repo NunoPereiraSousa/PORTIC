@@ -3827,50 +3827,58 @@ button:focus {
   width: 100%;
 }
 
-.areas_information {
+.areas_information,
+.courses_information {
   background-color: #080808;
   margin-top: calc(4.1875rem + 2vw);
   padding: calc(6.1875rem + 2vw) 2rem;
 }
 
 @media (min-width: 48em) {
-  .areas_information {
+  .areas_information,
+  .courses_information {
     padding: calc(6.1875rem + 2vw) 8vw;
   }
 }
 
 @media (min-width: 75em) {
-  .areas_information {
+  .areas_information,
+  .courses_information {
     padding: calc(6.1875rem + 2vw) 11vw;
   }
 }
 
 @media (min-width: 120em) {
-  .areas_information {
+  .areas_information,
+  .courses_information {
     padding: calc(6.1875rem + 2vw) 10vw;
   }
 }
 
-.areas_information__info {
+.areas_information__info,
+.courses_information__info {
   line-height: 1.7;
   font-size: 1.125rem;
   color: #ffffff;
 }
 
 @media (min-width: 64em) {
-  .areas_information__info {
+  .areas_information__info,
+  .courses_information__info {
     font-size: 1.125rem;
     line-height: 1.7;
   }
 }
 
 @media (min-width: 120em) {
-  .areas_information__info {
+  .areas_information__info,
+  .courses_information__info {
     font-size: 1.375rem;
   }
 }
 
-.areas_information__icons {
+.areas_information__icons,
+.courses_information__icons {
   margin-top: 4rem;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
@@ -3881,13 +3889,15 @@ button:focus {
 }
 
 @media (min-width: 48em) {
-  .areas_information__icons {
+  .areas_information__icons,
+  .courses_information__icons {
     margin-top: 6rem;
   }
 }
 
 @media (min-width: 64em) {
-  .areas_information__icons {
+  .areas_information__icons,
+  .courses_information__icons {
     -ms-grid-columns: 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr;
     row-gap: 3rem;
@@ -3895,7 +3905,8 @@ button:focus {
 }
 
 @media (min-width: 75em) {
-  .areas_information__icons {
+  .areas_information__icons,
+  .courses_information__icons {
     -ms-grid-columns: (1fr)[6];
         grid-template-columns: repeat(6, 1fr);
     -webkit-column-gap: 6rem;
@@ -3904,34 +3915,40 @@ button:focus {
 }
 
 @media (min-width: 120em) {
-  .areas_information__icons {
+  .areas_information__icons,
+  .courses_information__icons {
     -webkit-column-gap: 8rem;
             column-gap: 8rem;
   }
 }
 
-.areas_information__icons__card {
+.areas_information__icons__card,
+.courses_information__icons__card {
   width: 100%;
 }
 
-.areas_information__icons__card img {
+.areas_information__icons__card img,
+.courses_information__icons__card img {
   width: 2.5rem;
   height: auto;
 }
 
 @media (min-width: 48em) {
-  .areas_information__icons__card img {
+  .areas_information__icons__card img,
+  .courses_information__icons__card img {
     width: 2.875rem;
   }
 }
 
 @media (min-width: 120em) {
-  .areas_information__icons__card img {
+  .areas_information__icons__card img,
+  .courses_information__icons__card img {
     width: 3.125rem;
   }
 }
 
-.areas_information__icons__card h4 {
+.areas_information__icons__card h4,
+.courses_information__icons__card h4 {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -3941,50 +3958,54 @@ button:focus {
 }
 
 @media (min-width: 48em) {
-  .areas_information__icons__card h4 {
+  .areas_information__icons__card h4,
+  .courses_information__icons__card h4 {
     font-size: 1.0625rem;
   }
 }
 
 @media (min-width: 120em) {
-  .areas_information__icons__card h4 {
+  .areas_information__icons__card h4,
+  .courses_information__icons__card h4 {
     font-size: 1.125rem;
   }
 }
 
-.areas_information__icons__card:hover h4 {
+.areas_information__icons__card:hover h4,
+.courses_information__icons__card:hover h4 {
   color: #ffffff;
 }
 
-.areas {
+.areas,
+.courses {
   padding: calc(6.1875rem + 2vw) 0 0;
+  width: 100%;
 }
 
-.areas .sub__header__title {
+.areas .sub__header__title,
+.courses .sub__header__title {
   margin-left: 2rem;
 }
 
 @media (min-width: 48em) {
-  .areas .sub__header__title {
+  .areas .sub__header__title,
+  .courses .sub__header__title {
     margin-left: 8vw;
   }
 }
 
 @media (min-width: 75em) {
-  .areas .sub__header__title {
+  .areas .sub__header__title,
+  .courses .sub__header__title {
     margin-left: 11vw;
   }
 }
 
 @media (min-width: 120em) {
-  .areas .sub__header__title {
+  .areas .sub__header__title,
+  .courses .sub__header__title {
     margin-left: 10vw;
   }
-}
-
-.areas,
-.courses {
-  width: 100%;
 }
 
 @media (max-width: 23.375em) {
@@ -4023,6 +4044,12 @@ button:focus {
   cursor: pointer;
 }
 
+@media (min-width: 64em) {
+  .courses__grid__card {
+    padding: 2.85rem 2.875rem;
+  }
+}
+
 .courses__grid__card ::-webkit-scrollbar {
   width: 2px;
   border-radius: 2px;
@@ -4040,11 +4067,11 @@ button:focus {
 }
 
 .courses__grid__card ::-webkit-scrollbar-thumb {
-  background: #080808;
+  background: rgba(8, 8, 8, 0.4);
 }
 
 .courses__grid__card ::-webkit-scrollbar-thumb:hover {
-  background: #080808;
+  background: rgba(8, 8, 8, 0.4);
 }
 
 .courses__grid__card:last-child {
@@ -4052,21 +4079,33 @@ button:focus {
 }
 
 .courses__grid__card:hover {
-  background-color: rgba(153, 153, 153, 0.15);
   border-top: 2px solid #c94d24;
 }
 
 .courses__grid__card__title {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-family: "Porto Sans Stencil";
   font-weight: 400;
   color: #c94d24;
+  margin: 0;
+}
+
+@media (min-width: 64em) {
+  .courses__grid__card__title {
+    font-size: 1.375rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .courses__grid__card__title {
+    font-size: 1.5rem;
+  }
 }
 
 .courses__grid__card__button {
   position: relative;
   background-color: transparent;
-  border: 2px solid #080808;
+  border: none;
   border-radius: 50%;
   height: 1.625rem;
   width: 1.625rem;
@@ -4079,7 +4118,7 @@ button:focus {
 .courses__grid__card__button__lines {
   position: absolute;
   width: 2px;
-  height: 10px;
+  height: 12px;
   background-color: #080808;
   top: 50%;
   left: 50%;
@@ -4101,6 +4140,18 @@ button:focus {
   height: 0;
 }
 
+@media (min-width: 64em) {
+  .courses__grid__card__button__lines {
+    height: 0.75rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .courses__grid__card__button__lines {
+    height: 1rem;
+  }
+}
+
 .courses__grid__card__content {
   margin: 2rem 0;
   max-height: 60vh;
@@ -4108,15 +4159,24 @@ button:focus {
   padding-right: 10px;
 }
 
+@media (min-width: 64em) {
+  .courses__grid__card__content {
+    margin: 4rem 0 0;
+  }
+}
+
 @media (min-width: 75em) {
   .courses__grid__card__content {
-    padding-right: 20px;
+    padding-right: 0;
+    overflow-y: hidden;
+    max-height: none;
   }
 }
 
 @media (min-width: 120em) {
   .courses__grid__card__content {
     max-height: 450px;
+    padding-right: 28px;
   }
 }
 
@@ -4125,6 +4185,19 @@ button:focus {
   font-size: 1rem;
   letter-spacing: 0.2px;
   line-height: 1.6;
+}
+
+@media (min-width: 64em) {
+  .courses__grid__card__content__paragraph {
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 120em) {
+  .courses__grid__card__content__paragraph {
+    font-size: 1.375rem;
+  }
 }
 
 .courses__grid__card__content__paragraph span {
@@ -4275,7 +4348,7 @@ button:focus {
 
 .areas__grid__card__button__lines {
   position: absolute;
-  width: 1.5px;
+  width: 2px;
   height: 12px;
   background-color: #080808;
   top: 50%;
@@ -4298,6 +4371,18 @@ button:focus {
   height: 0;
 }
 
+@media (min-width: 64em) {
+  .areas__grid__card__button__lines {
+    height: 0.75rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .areas__grid__card__button__lines {
+    height: 1rem;
+  }
+}
+
 .areas__grid__card__content {
   margin: 2rem 0 0;
   max-height: 300px;
@@ -4307,6 +4392,14 @@ button:focus {
 @media (min-width: 64em) {
   .areas__grid__card__content {
     margin: 4rem 0 0;
+  }
+}
+
+@media (min-width: 75em) {
+  .areas__grid__card__content {
+    padding-right: 0;
+    overflow-y: hidden;
+    max-height: none;
   }
 }
 
@@ -4320,6 +4413,7 @@ button:focus {
 @media (min-width: 64em) {
   .areas__grid__card__content__paragraph {
     font-size: 1.125rem;
+    line-height: 1.65;
   }
 }
 

@@ -79,7 +79,7 @@
 
     &__lines {
       position: absolute;
-      width: 1.5px;
+      width: 2px;
       height: 12px;
       background-color: $black;
       top: 50%;
@@ -99,6 +99,14 @@
           height: 0;
         }
       }
+
+      @include breakpoint-up(iPadPro) {
+        height: 0.75rem;
+      }
+
+      @include breakpoint-up(large) {
+        height: 1rem;
+      }
     }
   }
 
@@ -109,6 +117,12 @@
 
     @include breakpoint-up(iPadPro) {
       margin: 4rem 0 0;
+    }
+
+    @include breakpoint-up(desktop) {
+      padding-right: 0;
+      overflow-y: hidden;
+      max-height: none;
     }
 
     // display: none;
@@ -125,6 +139,7 @@
 
       @include breakpoint-up(iPadPro) {
         font-size: $_18px;
+        line-height: 1.65;
       }
 
       @include breakpoint-up(large) {

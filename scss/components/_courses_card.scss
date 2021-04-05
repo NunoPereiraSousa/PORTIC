@@ -5,6 +5,10 @@
   transition: all 0.2s ease;
   cursor: pointer;
 
+  @include breakpoint-up(iPadPro) {
+    padding: 2.85rem 2.875rem;
+  }
+
   ::-webkit-scrollbar {
     width: 2px;
     border-radius: 2px;
@@ -20,11 +24,11 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: $black;
+    background: rgba($color: $black, $alpha: 0.4);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: $black;
+    background: rgba($color: $black, $alpha: 0.4);
   }
 
   &:last-child {
@@ -32,21 +36,32 @@
   }
 
   &:hover {
-    background-color: rgba($color: $grey, $alpha: 0.15);
+    // background-color: rgba($color: $grey, $alpha: 0.15);
     border-top: 2px solid rgba($color: $orange, $alpha: 1);
   }
 
   &__title {
-    font-size: $_20px;
+    font-size: $_18px;
     font-family: $portoSansStencil;
     font-weight: 400;
     color: $orange;
+
+    margin: 0;
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_22px;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_24px;
+    }
   }
 
   &__button {
     position: relative;
     background-color: transparent;
-    border: 2px solid $black;
+    border: none;
+    // border: 2px solid $black;
     border-radius: 50%;
     height: 1.625rem;
     width: 1.625rem;
@@ -58,7 +73,7 @@
     &__lines {
       position: absolute;
       width: 2px;
-      height: 10px;
+      height: 12px;
       background-color: $black;
       top: 50%;
       left: 50%;
@@ -78,6 +93,14 @@
           height: 0;
         }
       }
+
+      @include breakpoint-up(iPadPro) {
+        height: 0.75rem;
+      }
+
+      @include breakpoint-up(large) {
+        height: 1rem;
+      }
     }
   }
 
@@ -87,12 +110,19 @@
     overflow-y: auto;
     padding-right: 10px;
 
+    @include breakpoint-up(iPadPro) {
+      margin: 4rem 0 0;
+    }
+
     @include breakpoint-up(desktop) {
-      padding-right: 20px;
+      padding-right: 0;
+      overflow-y: hidden;
+      max-height: none;
     }
 
     @include breakpoint-up(large) {
       max-height: 450px;
+      padding-right: 28px;
     }
 
     &__paragraph {
@@ -100,6 +130,15 @@
       font-size: $_16px;
       letter-spacing: 0.2px;
       line-height: 1.6;
+
+      @include breakpoint-up(iPadPro) {
+        font-size: $_18px;
+        line-height: 1.65;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: $_22px;
+      }
 
       span {
         color: $orange;

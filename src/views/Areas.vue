@@ -63,7 +63,7 @@ import { mapGetters } from "vuex";
 import SubPageIntro from "@/components/SubPageIntro.vue";
 import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
 import AreasCard from "@/components/AreasCard.vue";
-import IconCard from "@/components/Areas/IconCard.vue";
+import IconCard from "@/components/IconCard.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
