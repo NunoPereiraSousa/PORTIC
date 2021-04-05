@@ -37,7 +37,7 @@
       cursor: pointer;
 
       &:hover i,
-      &:hover p {
+      &:hover a {
         color: $orange;
       }
     }
@@ -55,9 +55,10 @@
       }
     }
 
-    p {
+    a {
       font-size: $_15px;
       margin: 0;
+      color: $white;
 
       @include breakpoint-up(desktop) {
         font-size: $_14px;

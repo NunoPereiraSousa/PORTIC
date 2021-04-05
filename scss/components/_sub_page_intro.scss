@@ -85,7 +85,8 @@
   }
 
   &__stats {
-    margin: 2rem 0 6rem;
+    margin: 2rem 2rem 6rem 0;
+    overflow: hidden;
 
     @include breakpoint-up(desktop) {
       margin: 0;
@@ -217,6 +218,7 @@
     p {
       font-size: $_18px;
       line-height: 1.6;
+      white-space: normal;
 
       @include breakpoint-up(iPadPro) {
         margin: 0;
@@ -226,6 +228,11 @@
       @include breakpoint-up(large) {
         font-size: $_18px;
       }
+    }
+
+    svg.bottom__arrow {
+      width: 40px;
+      transform: rotate(-90deg);
     }
 
     button {

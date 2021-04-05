@@ -3,12 +3,12 @@
     <div class="subheader__contacts flex flex-jc-sb flex-ai-c">
       <div class="email flex flex-jc-sb flex-ai-c">
         <i class="fa fa-envelope"></i>
-        <p>portic@portic.ipp.pt</p>
+        <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
       </div>
 
       <div class="hide-for-mobile phone flex flex-jc-sb flex-ai-c">
         <i class="fas fa-phone-volume"></i>
-        <p>(+351) 22 557 1020</p>
+        <a href="tel:+351225571020">(+351) 22 557 1020</a>
       </div>
     </div>
     <div class="subheader__socials flex flex-jc-sb flex-ai-c hide-above-phone">
