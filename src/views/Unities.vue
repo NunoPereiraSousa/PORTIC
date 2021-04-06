@@ -1,22 +1,18 @@
 <template>
   <div>
     <SubPageIntro
-      categoryTitle="Unities"
-      title1="Title 1"
-      text1="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title2="Title 2"
-      text2="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title3="Title 3"
-      text3="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title4="Title 4"
-      text4="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      categoryDescription="Here goes some text about the projects and strategies PORTIC
-      adotps in the projects ipsum dolor sit amet, consectetur 
-      eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      categoryTitle="Unidades"
+      title1="Número de cursos"
+      :text1="
+        `O centro PORTIC incorpora um número total de ${$store.getters.getNUnities} unidades.`
+      "
+      title2="Um único foco"
+      text2="As nossas unidades trabalham com foco em diversas áreas."
+      title3="Aplicação de métodos inovadores"
+      text3="Promovem a mentalidade empreendedora e o conhecimento em diversas tecnologias."
+      title4="Anos de profissionalismo e responsabilidade"
+      text4="As unidades trabalham com os melhores rofissionais de diferentes áreas."
+      categoryDescription="Mais abaixo disponibilizamos informações acerca das unidades PORTIC, assim como os seus principais princípios."
     />
     <section class="principles">
       <MainTitle

@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!-- <div class="scene"></div> -->
-    <!-- <Intro extra="our " keyword="Areas" /> -->
     <SubPageIntro
       categoryTitle="Áreas"
       title1="Número de áreas"
@@ -12,12 +10,9 @@
       text2="Focamo-nos numa grande diversidade de tecnologias e áreas de atuação."
       title3="Estruturas integradas"
       text3="A super estrutura PORTIC incorpora várias estruturas do Instituto Politécnico do Porto - IPP."
-      title4="Estruturas englobantes"
-      text4="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      categoryDescription="Here goes some text about the projects and strategies PORTIC
-      adotps in the projects ipsum dolor sit amet, consectetur 
-      eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      title4="Cooperação entre áreas e estruturas"
+      text4="Em prol do seu desenvolvimento, existe uma grande cooperação entre estruturas e parceiros."
+      categoryDescription="Mais abaixo disponibilizamos informações acerca das categorias e áreas envolventes ao PORTIC."
     />
     <section class="areas_information">
       <SubHeaderTitle text="As áreas de atuação" class="light" />

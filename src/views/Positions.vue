@@ -5,19 +5,14 @@
     <SubPageIntro
       categoryTitle="Recrutamento"
       :title1="`${this.nPositions} carreiras disponíveis`"
-      :text1="`Estão disponíveis carreiras nas áreas de ${this.positionNames}.`"
-      title2="Title 2"
-      text2="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title3="Title 3"
-      text3="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title4="Title 4"
-      text4="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      categoryDescription="Here goes some text about the projects and strategies PORTIC
-      adotps in the projects ipsum dolor sit amet, consectetur 
-      eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      text1="Encontre as carreiras disponíveis nas secções mais abaixo apresentadas."
+      title2="Formamos profissionais de alto nível"
+      text2="Recrutamos, formamos e empregamos profissionais de diversas áreas."
+      title3="Uma porta para o futuro"
+      text3="Oferecemos carrieras únicas em prol de condições de alto nível."
+      title4="Não hexite em contactar connosco"
+      text4="Não encontra a carreira que procura? Contacte-nos na mesma."
+      categoryDescription="Mais abaixo disponibilizamos informações acerca das candidaturas, processos, e carreiras disponíveis no PORTIC. Não perca as nossas excelenetes oportunidades!"
     />
 
     <section class="positions__find_program">

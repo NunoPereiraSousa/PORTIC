@@ -3,21 +3,17 @@
     <!-- <div class="scene"></div> -->
     <SubPageIntro
       categoryTitle="Cursos"
-      title1="Title 1"
-      text1="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title2="Title 2"
-      text2="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title3="Title 3"
-      text3="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title4="Title 4"
-      text4="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      categoryDescription="Here goes some text about the projects and strategies PORTIC
-      adotps in the projects ipsum dolor sit amet, consectetur 
-      eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      title1="Número de cursos"
+      :text1="
+        `O centro PORTIC incorpora um número total de ${$store.getters.getNCourses} cursos.`
+      "
+      title2="Cursos focados em diversas áreas"
+      text2="Os nossos cursos oferecem oportunidades em diferentes áreas de atuação."
+      title3="Oportunidades nacionais e internacionais"
+      text3="Possibilidade de cooperação com diversas entidades nacionais e internacionais."
+      title4="Enrequecimento de conhecimento"
+      text4="Através dos cursos, os alunos enriquessem o seu portfolio e seus conhecimentos."
+      categoryDescription="Mais abaixo disponibilizamos informações acerca dos cursos que o PORTIC oferece, assim como informações relativas às categorias e áreas envolventes destes mesmos cursos."
     />
     <section class="courses_information">
       <SubHeaderTitle text="Foco nos nossos cursos" class="light" />

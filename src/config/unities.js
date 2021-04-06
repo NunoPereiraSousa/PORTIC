@@ -7,7 +7,7 @@ export const teamWorkPrinciples = [
   },
   {
     id: 2,
-    title: "Excelenete comunicação",
+    title: "Excelente comunicação",
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas integer eget aliquet nibh praesent tristique. In ante metus dictum at tempor. Quis enim lobortis scelerisque fermentum dui faucibus in. Molestie at elementum eu facilisis sed odio. "
   },

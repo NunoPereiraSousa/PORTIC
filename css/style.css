@@ -4509,7 +4509,6 @@ button:focus {
   border-radius: 10px;
   background-color: #ffffff;
   position: relative;
-  padding: 2rem;
   -webkit-box-shadow: 0 15px 16px rgba(153, 153, 153, 0.1), 0 -15px 16px rgba(153, 153, 153, 0.1);
           box-shadow: 0 15px 16px rgba(153, 153, 153, 0.1), 0 -15px 16px rgba(153, 153, 153, 0.1);
 }
@@ -4543,7 +4542,7 @@ button:focus {
   height: 12rem;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
 @media (max-width: 63.9375em) {
@@ -4575,7 +4574,7 @@ button:focus {
 
 @media (min-width: 64em) {
   .media__grid__card__info {
-    padding: 0;
+    padding: 0 2rem;
   }
 }
 

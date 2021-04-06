@@ -61,13 +61,16 @@ export default new Vuex.Store({
     getNAreas: state => state.areas.length,
     getIconCards: state => state.iconCards,
     getCourses: state => state.courses,
+    getNCourses: state => state.courses.length,
     getIconCoursesCards: state => state.iconCoursesCards,
     getMedias: state => state.medias,
+    getNMedias: state => state.medias.length,
     getProjects: state => state.projects,
     getSelectedProject: state => state.selectedProject,
     getProjectByName: state => initials =>
       state.projects.find(p => p.initials === initials),
     getUnities: state => state.unities,
+    getNUnities: state => state.unities.length,
     getUnityById: state => id => state.unities.find(unity => unity.id === id),
     getSelectedUnityId: state => state.selectedUnityId,
     getTeamWorkPrinciples: state => state.teamWorkPrinciples

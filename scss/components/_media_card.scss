@@ -3,7 +3,7 @@
   background-color: $white;
 
   position: relative;
-  padding: 2rem;
+  // padding: 2rem;
   box-shadow: 0 15px 16px rgba($color: $grey, $alpha: 0.1),
     0 -15px 16px rgba($color: $grey, $alpha: 0.1);
 
@@ -38,7 +38,7 @@
     height: 12rem;
     transition: all 0.25s ease;
 
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 
     @include breakpoint-down(iPadPro) {
       border-radius: 10px 10px 0 0;
@@ -62,7 +62,7 @@
     padding: 0 1rem;
 
     @include breakpoint-up(iPadPro) {
-      padding: 0;
+      padding: 0 2rem;
     }
 
     &__subtitle,

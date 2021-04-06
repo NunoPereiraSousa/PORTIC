@@ -2,21 +2,17 @@
   <div>
     <SubPageIntro
       categoryTitle="Mídia"
-      title1="Title 1"
-      text1="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title2="Title 2"
-      text2="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title3="Title 3"
-      text3="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title4="Title 4"
-      text4="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      categoryDescription="Here goes some text about the projects and strategies PORTIC
-      adotps in the projects ipsum dolor sit amet, consectetur 
-      eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      title1="Número de mídias"
+      :text1="
+        `O centro PORTIC incorpora um número total de ${$store.getters.getNMedias} mídias.`
+      "
+      title2="Conheça a história do PORTIC"
+      text2="Disponibilizamos um vídeo onde pode conhecer de mais perto a nossa super estrutura."
+      title3="Relembrar eventos importantes"
+      text3="Fizemos parte de eventos importantes englobando diversas entidades."
+      title4="Acompanhe os nossos passos através do digital"
+      text4="Siga passo a passo a estrutura PORTIC."
+      categoryDescription="Mais abaixo disponibilizamos vídeos onde pode acompanhar passo a passo a nossa super estrutura e eventos importantes que vão acontecendo."
     />
     <MainTitle className="main__title" text="Assista aos nossos mídias" />
     <section class="media">
