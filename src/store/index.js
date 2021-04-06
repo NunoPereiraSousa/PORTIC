@@ -58,6 +58,7 @@ export default new Vuex.Store({
     getNewsById: state => id => state.news.find(n => n.id == id),
     getSelectedNewsId: state => state.selectedNewsId,
     getAreas: state => state.areas,
+    getNAreas: state => state.areas.length,
     getIconCards: state => state.iconCards,
     getCourses: state => state.courses,
     getIconCoursesCards: state => state.iconCoursesCards,

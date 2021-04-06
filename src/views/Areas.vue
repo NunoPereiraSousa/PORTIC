@@ -4,16 +4,15 @@
     <!-- <Intro extra="our " keyword="Areas" /> -->
     <SubPageIntro
       categoryTitle="Áreas"
-      title1="Title 1"
-      text1="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title2="Title 2"
-      text2="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title3="Title 3"
-      text3="Lorem ipsum dolor sit amet, consectetur
-      enim ad minim veniam, quis nostrud."
-      title4="Title 4"
+      title1="Número de áreas"
+      :text1="
+        `O centro PORTIC incorpora um número total de ${$store.getters.getNAreas} áreas.`
+      "
+      title2="Foco em diverentes áreas"
+      text2="Focamo-nos numa grande diversidade de tecnologias e áreas de atuação."
+      title3="Estruturas integradas"
+      text3="A super estrutura PORTIC incorpora várias estruturas do Instituto Politécnico do Porto - IPP."
+      title4="Estruturas englobantes"
       text4="Lorem ipsum dolor sit amet, consectetur
       enim ad minim veniam, quis nostrud."
       categoryDescription="Here goes some text about the projects and strategies PORTIC
