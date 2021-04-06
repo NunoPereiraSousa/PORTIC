@@ -12,22 +12,31 @@
       </div>
     </div>
     <div class="subheader__socials flex flex-jc-sb flex-ai-c hide-above-phone">
-      <a href="">
+      <a href="https://twitter.com/politecnico" target="_blank">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="">
+      <a href="https://www.instagram.com/politecnicodoporto/" target="_blank">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="">
+      <a
+        href="https://www.flickr.com/people/politecnicodoporto/"
+        target="_blank"
+      >
         <i class="fab fa-flickr"></i>
       </a>
-      <a href="">
+      <a
+        href="https://www.youtube.com/channel/UCa0njrkoyEd8kwjIVPE5pNg"
+        target="_blank"
+      >
         <i class="fab fa-youtube"></i>
       </a>
-      <a href="">
+      <a
+        href="https://www.linkedin.com/company/portic-pporto/mycompany/"
+        target="_blank"
+      >
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="">
+      <a href="https://www.facebook.com/porticpporto" target="_blank">
         <i class="fab fa-facebook-square"></i>
       </a>
     </div>

@@ -24,15 +24,19 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: $black;
+    background: rgba($color: $black, $alpha: 0.2);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: $black;
+    background: rgba($color: $black, $alpha: 0.2);
   }
 
   @include breakpoint-down(phone) {
     padding: calc(2.1875rem + 2vw) 2rem 4rem;
+  }
+
+  @include breakpoint-width-height(667px, 375px, 667px) {
+    padding: 2rem 2rem 4rem;
   }
 
   @include breakpoint-up(tablet) {
@@ -52,8 +56,14 @@
   h2 {
     color: $orange;
     font-weight: 400;
-    font-family: $portoSerif;
+    font-family: $portoSansStencil;
     font-size: $_18px;
+
+    @include breakpoint-up(iPadPro) {
+      padding-right: 20px;
+      line-height: 1.7;
+      font-size: $_24px;
+    }
 
     @include breakpoint-up(desktop) {
       font-size: $_24px;
@@ -72,14 +82,38 @@
       max-height: 60vh;
     }
 
-    font-size: $_17px;
+    font-size: $_16px;
     letter-spacing: 0.25px;
     line-height: 1.55;
+
+    @include breakpoint-up(tablet) {
+      padding-right: 20px;
+      line-height: 1.7;
+      font-size: $_17px;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      padding-right: 20px;
+      line-height: 1.7;
+      font-size: $_20px;
+    }
 
     @include breakpoint-up(desktop) {
       padding-right: 20px;
       line-height: 1.8;
       font-size: $_18px;
+    }
+  }
+
+  &__author {
+    position: absolute;
+    left: 2rem;
+    bottom: calc(2rem + 10px);
+
+    @include breakpoint-up(tablet) {
+      left: 8vw;
+
+      bottom: calc(8vw + 12.5px);
     }
   }
 

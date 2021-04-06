@@ -25,7 +25,7 @@
         Tudo começa com um pequeno passo
       </h1>
 
-      <SubHeaderTitle text="Encontra o que mais procuras" />
+      <SubHeaderTitle text="Encontre o que mais procura" />
 
       <p class="positions__find_program__info">
         Os nossos programas oferecem experiências únicas tanto para estagiários,

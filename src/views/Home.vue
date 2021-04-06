@@ -20,7 +20,11 @@
           @click.native="getNewsId"
         />
       </div>
-      <SlidePanel :title="newsSelectedTitle" :content="newsSelectedContent" />
+      <SlidePanel
+        :title="newsSelectedTitle"
+        :content="newsSelectedContent"
+        :author="author"
+      />
       <!-- <KnowMoreBtn
         type="know__more dark"
         text="All news"
@@ -130,7 +134,8 @@ export default {
     return {
       newsArr: null,
       newsSelectedTitle: null,
-      newsSelectedContent: null
+      newsSelectedContent: null,
+      author: null
     };
   },
   created() {},
@@ -155,6 +160,7 @@ export default {
 
       this.newsSelectedTitle = news.title;
       this.newsSelectedContent = news.content;
+      this.author = news.author;
     }
   }
 };

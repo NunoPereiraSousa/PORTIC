@@ -120,11 +120,6 @@
       max-height: none;
     }
 
-    @include breakpoint-up(large) {
-      max-height: 450px;
-      padding-right: 28px;
-    }
-
     &__paragraph {
       margin: 0;
       font-size: $_16px;

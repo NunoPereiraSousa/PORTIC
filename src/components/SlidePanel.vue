@@ -3,11 +3,16 @@
     <div class="slide__panel">
       <h2>{{ title }}</h2>
       <p>{{ content }}</p>
-      <div
-        class="slide__panel__back flex flex-ai-c flex-jc-c"
-        @click="closeForm"
-      >
-        <div class="arrow"></div>
+      <div class="flex flex-ai-c flex-jc-sb">
+        <p class="slide__panel__author" v-if="author != null">
+          <small>Autor: {{ author }}</small>
+        </p>
+        <div
+          class="slide__panel__back flex flex-ai-c flex-jc-c"
+          @click="closeForm"
+        >
+          <div class="arrow"></div>
+        </div>
       </div>
     </div>
     <div class="slide__panel__overlay" @click="closeForm"></div>
@@ -23,6 +28,10 @@ export default {
       required: false
     },
     content: {
+      type: String,
+      required: false
+    },
+    author: {
       type: String,
       required: false
     }

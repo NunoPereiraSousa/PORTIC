@@ -85,31 +85,55 @@
         <h1 class="footer__grid__socials__title title">Social Media</h1>
         <div class="footer__grid__socials__media grid">
           <div class="first__cells">
-            <a href="" class="grid">
-              <i class="fab fa-instagram"></i>
-              <p>Instagram</p>
-            </a>
-            <a href="" class="grid">
+            <a
+              href="https://twitter.com/politecnico"
+              target="_blank"
+              class="grid"
+            >
               <i class="fab fa-twitter"></i>
               <p>Twitter</p>
             </a>
-            <a href="" class="grid">
-              <i class="fab fa-facebook-square"></i>
-              <p>Facebook</p>
+            <a
+              href="https://www.instagram.com/politecnicodoporto/"
+              target="_blank"
+              class="grid"
+            >
+              <i class="fab fa-instagram"></i>
+              <p>Instagram</p>
+            </a>
+            <a
+              href="https://www.flickr.com/people/politecnicodoporto/"
+              target="_blank"
+              class="grid"
+            >
+              <i class="fab fa-flickr"></i>
+              <p>Flickr</p>
             </a>
           </div>
           <div class="second__cells">
-            <a href="" class="grid">
-              <i class="fab fa-linkedin"></i>
-              <p>LinkedIn</p>
-            </a>
-            <a href="" class="grid">
+            <a
+              href="https://www.youtube.com/channel/UCa0njrkoyEd8kwjIVPE5pNg"
+              target="_blank"
+              class="grid"
+            >
               <i class="fab fa-youtube"></i>
               <p>YouTube</p>
             </a>
-            <a href="" class="grid">
-              <i class="fab fa-flickr"></i>
-              <p>Flickr</p>
+            <a
+              href="https://www.linkedin.com/company/portic-pporto/mycompany/"
+              target="_blank"
+              class="grid"
+            >
+              <i class="fab fa-linkedin"></i>
+              <p>LinkedIn</p>
+            </a>
+            <a
+              href="https://www.facebook.com/porticpporto"
+              target="_blank"
+              class="grid"
+            >
+              <i class="fab fa-facebook-square"></i>
+              <p>Facebook</p>
             </a>
           </div>
         </div>
@@ -308,7 +332,7 @@ export default {
       this.today = `${dayName}, ${weekDayNumber} de ${weekDayName}.`;
     },
     scrollTop() {
-      document.querySelector(".subheader").scrollIntoView();
+      window.scrollTo(0, 0);
     }
   }
 };

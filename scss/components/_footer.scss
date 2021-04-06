@@ -173,6 +173,8 @@
   color: $white;
   background-color: $black;
 
+  cursor: pointer;
+
   @include breakpoint-up(iPadPro) {
     padding: 0 calc(8.1875rem + 2vw) 2vw;
   }
