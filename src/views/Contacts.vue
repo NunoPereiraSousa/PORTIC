@@ -33,16 +33,16 @@
     </div>
     <div class="contacts__overlay hide-for-mobile" @click="closeForm"></div>
     <div class="contacts__side_form flex flex-fd-c flex-jc-sb hide-for-mobile">
-      <h1>Contact us easily</h1>
+      <h1>Contacte-nos facilmente</h1>
 
       <form class="grid">
-        <input type="text" id="nameTxt" placeholder="Name*" />
-        <input type="text" id="surnameTxt" placeholder="Surname*" />
+        <input type="text" id="nameTxt" placeholder="Nome*" />
+        <input type="text" id="surnameTxt" placeholder="Sobrenome*" />
         <input type="text" id="emailTxt" placeholder="E-mail*" />
         <input
           type="text"
           id="phoneNumberTxt"
-          placeholder="Contact/ Phone number *"
+          placeholder="Número de telemóvel*"
         />
         <textarea
           id="contentTxt"
@@ -50,7 +50,7 @@
           cols="30"
           rows="3"
         ></textarea>
-        <input type="submit" value="Send" class="submit_btn" />
+        <input type="submit" value="Enviar" class="submit_btn" />
       </form>
 
       <div
@@ -205,6 +205,7 @@
               </div>
             </h4>
           </div>
+          <p>scroll down</p>
         </div>
         <!-- <div class="contacts__intro__socials grid hide-for-desktop">
           <a href="" class="flex flex-ai-c flex-jc-c">
@@ -357,11 +358,11 @@
       </div>
       <div class="contacts__form__form ">
         <form class="grid">
-          <h1>Let's start</h1>
+          <h1>Contacte-nos</h1>
 
-          <input type="text" id="nameTxt" placeholder="Nome*" />
-          <input type="text" id="surnameTxt" placeholder="Sobrenome*" />
-          <input type="text" id="emailTxt" placeholder="E-mail*" />
+          <input type="text" id="nameTxt" placeholder="Nome *" />
+          <input type="text" id="surnameTxt" placeholder="Sobrenome *" />
+          <input type="text" id="emailTxt" placeholder="E-mail *" />
           <input
             type="text"
             id="phoneNumberTxt"
@@ -369,7 +370,7 @@
           />
           <textarea
             id="contentTxt"
-            placeholder="Diz-nos algo *"
+            placeholder="Diga-nos algo *"
             cols="30"
             rows="3"
           ></textarea>

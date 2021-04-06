@@ -21,7 +21,7 @@
     <section class="principles">
       <MainTitle
         className="main__title"
-        text="Our five guiding principles that we focus on."
+        text="Cinco princípios que temos em consideração"
       />
 
       <vue-glide

@@ -3,7 +3,7 @@
     <!-- <div class="scene"></div> -->
     <!-- <Intro extra="our " keyword="Projects" /> -->
     <SubPageIntro
-      categoryTitle="Projects"
+      categoryTitle="Projetos"
       title1="Title 1"
       text1="Lorem ipsum dolor sit amet, consectetur
       enim ad minim veniam, quis nostrud."
@@ -20,7 +20,7 @@
       adotps in the projects ipsum dolor sit amet, consectetur 
       eiusmod tempor incididunt ut labore et dolore magna aliqua."
     />
-    <MainTitle className="main__title" text="Explore our projects" />
+    <MainTitle className="main__title" text="Explore os nossos projetos" />
     <div class="projects__grid grid">
       <ProjectCard
         v-for="project in projects"

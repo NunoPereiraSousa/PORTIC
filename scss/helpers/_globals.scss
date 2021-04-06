@@ -87,13 +87,13 @@ a:focus {
 }
 
 .hide-below-tablet {
-  @include breakpoint-down(iPadPro) {
+  @include breakpoint-down(desktop) {
     display: none;
   }
 }
 
 .hide-above-tablet {
-  @include breakpoint-up(iPadPro) {
+  @include breakpoint-up(desktop) {
     display: none;
   }
 }

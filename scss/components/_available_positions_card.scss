@@ -168,6 +168,11 @@
         line-height: 1.7;
       }
 
+      @include breakpoint-up(iPadPro) {
+        font-size: $_17px;
+        line-height: 1.7;
+      }
+
       a {
         text-decoration: underline;
         color: $orange;

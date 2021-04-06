@@ -46,7 +46,7 @@
 
   @include breakpoint-up(desktop) {
     width: 40vw;
-    padding: calc(2.1875rem + 2vw) 4rem;
+    padding: 1.5rem 4rem;
   }
 
   &.opened {
@@ -66,7 +66,7 @@
     }
 
     @include breakpoint-up(desktop) {
-      font-size: $_24px;
+      font-size: $_22px;
     }
   }
 
@@ -112,8 +112,17 @@
 
     @include breakpoint-up(tablet) {
       left: 8vw;
-
       bottom: calc(8vw + 12.5px);
+    }
+
+    @include breakpoint-up(desktop) {
+      right: 4rem;
+      left: 4rem;
+      bottom: calc(2rem + 10px);
+    }
+
+    @include breakpoint-up(large) {
+      bottom: calc(2rem + 12.5px);
     }
   }
 

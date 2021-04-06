@@ -4,7 +4,7 @@
       <section class="project__entry">
         <div class="project__entry__grid grid">
           <h1>
-            <a>Project</a>
+            <a>Projeto</a>
             <div>{{ project.initials }}</div>
           </h1>
 
@@ -24,8 +24,8 @@
 
           <div class="project__entry__grid__contacts">
             <h3>
-              <div>For enquires or more information please</div>
-              <div>contact by phone number or email</div>
+              <div>Para requerimentos ou mais informação, por favor,</div>
+              <div>contacte-nos via e-mail ou contacto telefónico.</div>
             </h3>
 
             <h2>
@@ -49,12 +49,12 @@
         </div>
       </section>
       <section class="project__objective">
-        <SubHeaderTitle text="Description" />
+        <SubHeaderTitle text="Descrição" />
         <p>
           {{ project.description }}
         </p>
-        <p><b>Overall budget: </b>{{ project.overallBudget }}</p>
-        <p><b>PORTIC budget: </b>{{ project.porticBudget }}</p>
+        <p><b>Orçamento total: </b>{{ project.overallBudget }}</p>
+        <p><b>Orçamento PORTIC: </b>{{ project.porticBudget }}</p>
       </section>
       <section class="project__gallery">
         <SubHeaderTitle text="The gallery" class="light" />
@@ -118,8 +118,8 @@
         <SubHeaderTitle text="Contacts" />
 
         <p>
-          For enquires or more information please contact by phone number or
-          email
+          Para requerimentos ou mais informação, por favor, contacte-nos via
+          e-mail ou contacto telefónico.
         </p>
 
         <h3>
@@ -185,10 +185,6 @@ export default {
 
       this.duplicatePartnersLength = this.projects.partners.length * 2;
 
-      console.log(this.duplicatePartnersLength);
-
-      console.log(this.projects);
-
       this.fetchData();
     }
   },
@@ -213,8 +209,6 @@ export default {
     },
     changeCarousel() {
       let nPartners = this.projects.partners.length;
-
-      console.log(window.innerWidth > 1200);
 
       let slideTrack = document.querySelector(".slide-track");
       let slide = document.querySelectorAll(".slide");

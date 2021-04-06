@@ -2,17 +2,17 @@
   <div>
     <section class="projects_catalog">
       <div class="flex flex-jc-c flex-ai-c flex-fd-c">
-        <h3>PORTIC <span>&#9654;</span> Projects</h3>
-        <h1 class="projects_catalog__title">Projects</h1>
+        <h3>Projetos<span>&#9654;</span> PORTIC</h3>
+        <h1 class="projects_catalog__title">Projetos</h1>
         <p class="projects_catalog__quote">
-          These are the projects that our team was part of.
+          Estes são os projetos que fazemos parte.
         </p>
       </div>
       <div class="projects_catalog__filters grid">
         <input
           type="text"
           id="projectTxt"
-          placeholder="Search project"
+          placeholder="Pesquisar projeto"
           v-model="projectTxt"
         />
         <div
@@ -23,7 +23,7 @@
             class="projects_catalog__filters__sorting"
             @click="order = !order"
           >
-            Finance sorting
+            Filtrar por €
           </button>
           <!-- <button
             class="projects_catalog__filters__sorting"
@@ -37,7 +37,7 @@
             class="projects_catalog__filters__sorting"
             @click="order = !order"
           >
-            Finance sorting
+            Filtrar por €
           </button>
         </div>
         <!-- <div class="hide-for-mobile">
@@ -110,8 +110,6 @@ export default {
   },
   created() {
     this.projects = this.getProjects;
-
-    console.log(this.projects);
   },
   computed: {
     ...mapGetters(["getProjects"]),

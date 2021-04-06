@@ -8,9 +8,9 @@
     <div class="flex flex-ai-c flex-jc-sb">
       <div class="flex flex-ai-c flex-jc-sb">
         <h5 class="areas__grid__card__sub_title" v-if="counter < 10">
-          Area 0{{ counter }}
+          Área 0{{ counter }}
         </h5>
-        <h5 class="areas__grid__card__sub_title" v-else>Area {{ counter }}</h5>
+        <h5 class="areas__grid__card__sub_title" v-else>Área {{ counter }}</h5>
         <h2 class="areas__grid__card__title">{{ areaName }}</h2>
       </div>
       <button class="areas__grid__card__button" :id="button_id">

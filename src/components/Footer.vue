@@ -36,7 +36,7 @@
       </div>
       <div class="footer__grid__directions">
         <h1 class="footer__grid__directions__title title">
-          How to get to PORTIC
+          Como chegar ao PORTIC
         </h1>
         <div class="footer__grid__directions__info">
           <p>Rua Arquitecto Lobão Vital, 172</p>
@@ -56,7 +56,7 @@
         </div>
       </div>
       <div class="footer__grid__links">
-        <h1 class="footer__grid__links__title title">Quick Links</h1>
+        <h1 class="footer__grid__links__title title">Links rápidos</h1>
         <div class="footer__grid__links__info grid">
           <router-link :to="{ name: 'Contacts' }">
             Sobre nós
@@ -82,7 +82,7 @@
         </div>
       </div>
       <div class="footer__grid__socials">
-        <h1 class="footer__grid__socials__title title">Social Media</h1>
+        <h1 class="footer__grid__socials__title title">Redes sociais</h1>
         <div class="footer__grid__socials__media grid">
           <div class="first__cells">
             <a
@@ -141,7 +141,7 @@
     </section>
     <div class="scroll_up">
       <div class="flex flex-ai-c flex-jc-fe" @click="scrollTop">
-        <p>Back to top</p>
+        <p>Voltar acima</p>
         <i class="fas fa-chevron-up"></i>
       </div>
     </div>
