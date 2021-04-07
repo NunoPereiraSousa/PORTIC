@@ -205,7 +205,6 @@
               </div>
             </h4>
           </div>
-          <p>scroll down</p>
         </div>
         <!-- <div class="contacts__intro__socials grid hide-for-desktop">
           <a href="" class="flex flex-ai-c flex-jc-c">

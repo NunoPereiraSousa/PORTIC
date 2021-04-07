@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   //   height: 100vh;
-  padding: calc(12.1875rem + 2vw) 2rem 2rem;
+  padding: calc(10.1875rem + 2vw) 2rem 2rem;
 
   //   row-gap: 1.25rem;
 
@@ -98,7 +98,7 @@
     }
 
     &__card {
-      padding: 0 1.75rem;
+      padding: 0 0 0 1.75rem;
 
       @for $i from 1 through 4 {
         &:nth-child(#{$i}) {
@@ -237,6 +237,7 @@
 
     button {
       padding: 16px 26px;
+      margin-top: 1rem;
 
       background-color: $orange;
       border: none;
@@ -248,12 +249,12 @@
 
       transition: all 0.25s ease;
       cursor: pointer;
-      box-shadow: 0 3px 10px 0px rgba($color: $black, $alpha: 0.1),
-        0 -3px 10px 0px rgba($color: $black, $alpha: 0.1);
+      box-shadow: 0 3px 10px 0px rgba($color: $black, $alpha: 0.05),
+        0 -3px 10px 0px rgba($color: $black, $alpha: 0.05);
 
       &:hover {
-        box-shadow: 0 3px 14px 0px rgba($color: $black, $alpha: 0.15),
-          0 -3px 14px 0px rgba($color: $black, $alpha: 0.15);
+        box-shadow: 0 3px 14px 0px rgba($color: $black, $alpha: 0.1),
+          0 -3px 14px 0px rgba($color: $black, $alpha: 0.1);
       }
 
       &:hover svg {
@@ -266,6 +267,7 @@
         justify-self: end;
         align-self: flex-start;
         font-size: $_14px;
+        margin-top: 0;
       }
 
       @include breakpoint-up(large) {

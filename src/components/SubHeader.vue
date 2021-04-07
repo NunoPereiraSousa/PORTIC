@@ -41,9 +41,10 @@
       </a>
     </div>
     <div class="subheader__languages flex flex-jc-sb flex-ai-c">
-      <p>EN</p>
+      <!-- <p>EN</p>
       <hr />
-      <p class="selected">PT</p>
+      <p class="selected">PT</p> -->
+      <p>PORTIC 2021</p>
     </div>
   </header>
 </template>

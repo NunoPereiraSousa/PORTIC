@@ -1,4 +1,4 @@
-import { courses, iconCoursesCards } from "../../config/areas";
+import { courses, iconCoursesCards } from "../../config/courses";
 
 export const coursesModule = {
   state: {

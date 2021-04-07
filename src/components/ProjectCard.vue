@@ -20,7 +20,7 @@
         </div>
         <div class="bottom">
           <button @click="setSelectedProject(projectInitials)">
-            Know more
+            Saber mais
           </button>
         </div>
       </div>

@@ -51,10 +51,6 @@
       border-top: 1px solid;
     }
 
-    // &:nth-child(3n - 2) {
-    //   border-left: 1px solid;
-    // }
-
     &:not(:nth-child(3n)) {
       border-right: 1px solid;
     }
@@ -67,10 +63,6 @@
     &:nth-child(-n + 4) {
       border-top: 2px solid;
     }
-
-    // &:nth-child(4n - 3) {
-    //   border-left: 2px solid;
-    // }
 
     &:not(:nth-child(4n)) {
       border-right: 2px solid;
@@ -156,7 +148,7 @@
       font-style: italic;
 
       @include breakpoint-up(desktop) {
-        font-size: $_22px;
+        font-size: $_20px;
       }
     }
   }
@@ -187,7 +179,7 @@
       margin-bottom: 1rem;
 
       @include breakpoint-up(desktop) {
-        font-size: $_20px;
+        font-size: $_18px;
       }
 
       @include breakpoint-up(large) {
@@ -224,7 +216,7 @@
       //   transition: all 0.5s ease;
 
       @include breakpoint-up(desktop) {
-        font-size: $_16px;
+        font-size: $_15px;
       }
 
       @include breakpoint-up(large) {

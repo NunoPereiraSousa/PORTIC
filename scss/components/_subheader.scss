@@ -26,7 +26,7 @@
 
   @include breakpoint-up(desktop) {
     grid-template-columns: repeat(3, 1fr);
-    padding: 0.5rem 5rem;
+    padding: 0.9rem 5rem;
   }
 
   &__contacts {
@@ -101,7 +101,7 @@
     p {
       margin: 0;
       font-size: $_15px;
-      cursor: pointer;
+      // cursor: pointer;
 
       &:first-child {
         padding-right: $_14px;
