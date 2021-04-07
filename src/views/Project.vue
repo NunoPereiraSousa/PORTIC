@@ -50,9 +50,7 @@
       </section>
       <section class="project__objective">
         <SubHeaderTitle text="Descrição" />
-        <p>
-          {{ project.description }}
-        </p>
+        <p v-html="project.description"></p>
         <p><b>Orçamento total: </b>{{ project.overallBudget }}</p>
         <p><b>Orçamento PORTIC: </b>{{ project.porticBudget }}</p>
       </section>

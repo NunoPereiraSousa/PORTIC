@@ -3847,6 +3847,7 @@ button:focus {
   top: 0;
   left: 0%;
   z-index: 2;
+  width: 100%;
   height: 100%;
   padding: 2.5rem 2rem;
 }
@@ -6552,6 +6553,13 @@ button:focus {
   }
 }
 
+@media (min-width: 75em) {
+  .project__entry__grid h1 {
+    font-size: 2.75rem;
+    padding: 0 4rem;
+  }
+}
+
 @media (min-width: 120em) {
   .project__entry__grid h1 {
     font-size: 3.75rem;
@@ -6748,6 +6756,74 @@ button:focus {
   .project__objective p {
     font-size: 1.25rem;
     line-height: 1.7;
+  }
+}
+
+@media (min-width: 75em) {
+  .project__objective p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+}
+
+.project__objective p span {
+  color: #c94d24;
+}
+
+.project__objective p h2 {
+  font-weight: 400;
+  margin: 0;
+  font-size: 1.125rem;
+  color: #999999;
+}
+
+@media (min-width: 120em) {
+  .project__objective p h2 {
+    font-size: 1.25rem;
+  }
+}
+
+.project__objective p a {
+  color: #c94d24;
+  text-decoration: underline;
+}
+
+.project__objective p i {
+  color: rgba(8, 8, 8, 0.65);
+}
+
+.project__objective p u {
+  font-size: 115%;
+}
+
+.project__objective p ul {
+  padding: 0;
+  margin: 0;
+}
+
+.project__objective p ul li {
+  list-style: none;
+}
+
+.project__objective p ul li::before {
+  content: "- ";
+  margin-right: 10px;
+}
+
+.project__objective p img {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+@media (min-width: 48em) {
+  .project__objective p img {
+    width: 40%;
+  }
+}
+
+@media (min-width: 75em) {
+  .project__objective p img {
+    width: 20%;
   }
 }
 

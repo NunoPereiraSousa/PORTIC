@@ -91,6 +91,11 @@
           justify-self: center;
         }
 
+        @include breakpoint-up(desktop) {
+          font-size: $_44px;
+          padding: 0 4rem;
+        }
+
         @include breakpoint-up(large) {
           font-size: $_60px;
         }
@@ -274,6 +279,66 @@
       @include breakpoint-up(iPadPro) {
         font-size: $_20px;
         line-height: 1.7;
+      }
+
+      @include breakpoint-up(desktop) {
+        font-size: $_18px;
+        line-height: 1.6;
+      }
+
+      span {
+        color: $orange;
+      }
+
+      h2 {
+        font-weight: 400;
+        margin: 0;
+        font-size: $_18px;
+        color: $grey;
+
+        @include breakpoint-up(large) {
+          font-size: $_20px;
+        }
+      }
+
+      a {
+        color: $orange;
+        text-decoration: underline;
+      }
+
+      i {
+        color: rgba($color: $black, $alpha: 0.65);
+      }
+
+      u {
+        font-size: 115%;
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+          list-style: none;
+
+          &::before {
+            content: "- ";
+            margin-right: 10px;
+          }
+        }
+      }
+
+      img {
+        margin: 1rem 0;
+        width: 100%;
+
+        @include breakpoint-up(tablet) {
+          width: 40%;
+        }
+
+        @include breakpoint-up(desktop) {
+          width: 20%;
+        }
       }
     }
   }
