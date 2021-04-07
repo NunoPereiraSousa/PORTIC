@@ -55,7 +55,7 @@
         <p><b>Orçamento PORTIC: </b>{{ project.porticBudget }}</p>
       </section>
       <section class="project__gallery">
-        <SubHeaderTitle text="The gallery" class="light" />
+        <SubHeaderTitle text="Galeria de projeto" class="light" />
         <div class="project__gallery__grid">
           <vue-glide
             :bullet="true"
@@ -86,7 +86,7 @@
         </div>
       </section>
       <section class="project__news">
-        <SubHeaderTitle text="Latest News" class="light" />
+        <SubHeaderTitle text="Últimas notícias" class="light" />
 
         <div class="project__news__grid grid">
           <NewsCard
@@ -100,7 +100,7 @@
         </div>
       </section>
       <section class="project__team">
-        <SubHeaderTitle text="Project Team" />
+        <SubHeaderTitle text="Equipa de projeto" />
 
         <div class="project__team__grid grid">
           <TeamCard
@@ -113,7 +113,7 @@
         </div>
       </section>
       <section class="project__contacts">
-        <SubHeaderTitle text="Contacts" />
+        <SubHeaderTitle text="Contactos" />
 
         <p>
           Para requerimentos ou mais informação, por favor, contacte-nos via

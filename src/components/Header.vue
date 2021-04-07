@@ -2,7 +2,7 @@
   <header>
     <nav class="navbar flex flex-jc-sb flex-ai-c" :class="theme">
       <router-link class="navbar__logo" :to="{ name: 'Home' }">
-        <img src="../assets/logo.png" alt="PORTIC" />
+        <img src="../../assets/svg/PORTIC_LOGO.svg" alt="PORTIC" />
       </router-link>
       <div class="navbar__hamburger hide-for-desktop" @click="toggleNavbar">
         <div class="navbar__hamburger__lines"></div>

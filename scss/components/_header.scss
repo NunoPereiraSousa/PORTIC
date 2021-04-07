@@ -11,7 +11,7 @@
 .navbar {
   position: relative;
   width: 100%;
-  padding: 1rem 1.25rem;
+  padding: 0 1.25rem;
   // background-color: $white;
   background-color: transparent;
   font-family: $portoSansStencil;
@@ -85,10 +85,10 @@
     width: fit-content;
 
     img {
-      width: 5.25rem;
+      width: 4.25rem;
 
       @include breakpoint-up(iPadPro) {
-        width: 9rem;
+        width: 7rem;
       }
     }
   }
