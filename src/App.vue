@@ -40,6 +40,10 @@ export default {
   methods: {
     handleScroll() {
       let navbar = document.querySelector(".navbar");
+      let navbarLogo = document.querySelector("#logo");
+      // let header = document.querySelector(".headers").offsetHeight;
+      // let current__scroll__pos = window.pageYOffset;
+      // let headers = document.querySelector(".headers");
 
       ScrollTrigger.create({
         trigger: ".landing",
@@ -52,15 +56,18 @@ export default {
         }
       });
 
-      let header = document.querySelector(".headers").offsetHeight;
-
-      let current__scroll__pos = window.pageYOffset;
-      if (this.previous__scroll__pos > current__scroll__pos) {
-        document.querySelector(".headers").style.top = "0px";
+      if (navbar.classList.contains("scroll")) {
+        navbarLogo.src = "/img/PORTIC_LOGO_laranja.f448abb8.svg";
       } else {
-        document.querySelector(".headers").style.top = `-${header}px`;
+        navbarLogo.src = "/img/PORTIC_LOGO.78c408bf.svg";
       }
-      this.previous__scroll__pos = current__scroll__pos;
+
+      // if (this.previous__scroll__pos > current__scroll__pos) {
+      //   headers.style.top = "0px";
+      // } else {
+      //   headers.style.top = `-${header}px`;
+      // }
+      // this.previous__scroll__pos = current__scroll__pos;
     }
   }
 };

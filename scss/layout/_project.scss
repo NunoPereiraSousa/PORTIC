@@ -48,7 +48,7 @@
 
       &::before,
       &::after {
-        @include breakpoint-up(iPadPro) {
+        @include breakpoint-up(desktop) {
           content: "";
           background-color: rgba($color: $black, $alpha: 0.21);
           height: 100%;

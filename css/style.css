@@ -84,8 +84,22 @@
 
 @font-face {
   font-family: "Porto Serif";
-  src: url("../fonts/PortoSansStencil-Bold.woff") format("woff");
+  src: url("../fonts/PortoSansStencil-Regular.woff") format("woff");
   font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Serif";
+  src: url("../fonts/PortoSansStencil-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Serif";
+  src: url("../fonts/PortoSansStencil-Light.woff") format("woff");
+  font-weight: lighter;
   font-style: normal;
 }
 
@@ -6505,7 +6519,7 @@ button:focus {
   }
 }
 
-@media (min-width: 64em) {
+@media (min-width: 75em) {
   .project__entry__grid::before, .project__entry__grid::after {
     content: "";
     background-color: rgba(8, 8, 8, 0.21);
