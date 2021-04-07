@@ -1,3 +1,94 @@
+@font-face {
+  font-family: "Porto Sans";
+  src: url("../fonts/PortoSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Sans";
+  src: url("../fonts/PortoSans-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Porto Sans";
+  src: url("../fonts/PortoSans-Light.woff") format("woff");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Sans";
+  src: url("../fonts/PortoSans-LightItalic.woff") format("woff");
+  font-weight: lighter;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Porto Sans";
+  src: url("../fonts/PortoSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Sans";
+  src: url("../fonts/PortoSans-RegularItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Porto Serif";
+  src: url("../fonts/PortoSerif-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Serif";
+  src: url("../fonts/PortoSerif-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Porto Serif";
+  src: url("../fonts/PortoSerif-Light.woff") format("woff");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Serif";
+  src: url("../fonts/PortoSerif-LightItalic.woff") format("woff");
+  font-weight: lighter;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Porto Serif";
+  src: url("../fonts/PortoSerif-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Serif";
+  src: url("../fonts/PortoSerif-RegularItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Porto Serif";
+  src: url("../fonts/PortoSansStencil-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
 @-webkit-keyframes arrow-down {
   0%,
   100% {
