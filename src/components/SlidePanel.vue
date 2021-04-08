@@ -1,10 +1,8 @@
 <template>
   <div>
     <div class="slide__panel">
-      <h2>{{ title }}</h2>
-      <p>{{ content }}</p>
-      <div class="flex flex-ai-c flex-jc-sb">
-        <p class="slide__panel__author" v-if="author != null">
+      <div class="flex flex-ai-c flex-jc-sb slide__panel__actions">
+        <p class="slide__panel__actions__author" v-if="author != null">
           <small>Autor: {{ author }}</small>
         </p>
         <div
@@ -14,6 +12,8 @@
           <div class="arrow"></div>
         </div>
       </div>
+      <h2>{{ title }}</h2>
+      <p>{{ content }}</p>
     </div>
     <div class="slide__panel__overlay" @click="closeForm"></div>
   </div>

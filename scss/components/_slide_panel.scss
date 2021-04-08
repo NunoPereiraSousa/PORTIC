@@ -58,6 +58,7 @@
     font-weight: 400;
     font-family: $portoSansStencil;
     font-size: $_18px;
+    margin-top: 2.5rem;
 
     @include breakpoint-up(iPadPro) {
       padding-right: 20px;
@@ -83,7 +84,7 @@
     }
 
     @include breakpoint-width-height(812px, 375px, 812px) {
-      max-height: 56vh;
+      max-height: 58vh;
     }
 
     font-size: $_16px;
@@ -109,33 +110,33 @@
     }
   }
 
-  &__author {
-    position: absolute;
-    left: 2rem;
-    bottom: calc(4rem + 10px);
+  &__actions {
+    padding: 0 0 1.5rem 0;
 
-    @include breakpoint-up(tablet) {
-      left: 8vw;
-      bottom: calc(8vw + 12.5px);
-    }
+    border-bottom: 1px solid rgba($color: $grey, $alpha: 0.4);
 
-    @include breakpoint-up(desktop) {
-      right: 4rem;
-      left: 4rem;
-      bottom: calc(2rem + 10px);
-    }
+    &__author {
+      margin: 0 !important;
 
-    @include breakpoint-up(large) {
-      bottom: calc(2rem + 12.5px);
+      @include breakpoint-up(tablet) {
+        left: 8vw;
+        bottom: calc(8vw + 12.5px);
+      }
+
+      @include breakpoint-up(desktop) {
+        right: 4rem;
+        left: 4rem;
+        bottom: calc(2rem + 10px);
+      }
+
+      @include breakpoint-up(large) {
+        bottom: calc(2rem + 12.5px);
+      }
     }
   }
 
   &__back {
-    // margin-left: auto;
-    position: absolute;
-    right: 2rem;
-    bottom: 4rem;
-    // position: relative;
+    position: relative;
     align-self: flex-end;
     border-radius: 50%;
     background-color: $white;
@@ -145,15 +146,11 @@
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 
     @include breakpoint-up(tablet) {
-      right: 8vw;
-      bottom: 8vw;
       width: 50px;
       height: 50px;
     }
 
     @include breakpoint-up(desktop) {
-      right: 4rem;
-      bottom: 2rem;
       width: 40px;
       height: 40px;
     }

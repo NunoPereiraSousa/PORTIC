@@ -683,11 +683,13 @@ body {
   width: 100%;
   margin: 0;
   overflow-x: hidden;
+  overflow-y: scroll;
   font-family: "Porto Sans";
   font-size: 1rem;
   line-height: 1.4;
   -ms-touch-action: pan-y !important;
       touch-action: pan-y !important;
+  -webkit-overflow-scrolling: touch;
 }
 
 a,
@@ -1153,7 +1155,7 @@ button:focus {
   -ms-grid-rows: min-content, 1fr, min-content;
       grid-template-rows: -webkit-min-content, 1fr, -webkit-min-content;
       grid-template-rows: min-content, 1fr, min-content;
-  padding: 8.25rem 2rem 1.625rem;
+  padding: 9.25rem 2rem 1.625rem;
   background-color: #ffffff;
   color: #080808;
   width: 100%;
@@ -3005,7 +3007,7 @@ button:focus {
 }
 
 .news__title {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   font-weight: 400;
   text-align: center;
 }
@@ -3102,7 +3104,7 @@ button:focus {
   margin: 1rem 0 0 0;
   position: relative;
   font-family: "Porto Sans Stencil";
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   line-height: 1.5;
   letter-spacing: 0.4px;
   font-weight: 400;
@@ -3127,7 +3129,7 @@ button:focus {
 }
 
 .news__cards__card p {
-  margin: 1rem 0 0 0;
+  margin: 2rem 0 0 0;
   font-family: "Porto Sans";
   font-size: 1rem;
   line-height: 1.5;
@@ -7127,6 +7129,7 @@ button:focus {
   font-weight: 400;
   font-family: "Porto Sans Stencil";
   font-size: 1.125rem;
+  margin-top: 2.5rem;
 }
 
 @media (min-width: 64em) {
@@ -7163,7 +7166,7 @@ button:focus {
 
 @media (max-width: 812px) and (min-width: 375px) and (max-height: 812px) {
   .slide__panel p {
-    max-height: 56vh;
+    max-height: 58vh;
   }
 }
 
@@ -7191,21 +7194,24 @@ button:focus {
   }
 }
 
-.slide__panel__author {
-  position: absolute;
-  left: 2rem;
-  bottom: calc(4rem + 10px);
+.slide__panel__actions {
+  padding: 0 0 1.5rem 0;
+  border-bottom: 1px solid rgba(153, 153, 153, 0.4);
+}
+
+.slide__panel__actions__author {
+  margin: 0 !important;
 }
 
 @media (min-width: 48em) {
-  .slide__panel__author {
+  .slide__panel__actions__author {
     left: 8vw;
     bottom: calc(8vw + 12.5px);
   }
 }
 
 @media (min-width: 75em) {
-  .slide__panel__author {
+  .slide__panel__actions__author {
     right: 4rem;
     left: 4rem;
     bottom: calc(2rem + 10px);
@@ -7213,15 +7219,13 @@ button:focus {
 }
 
 @media (min-width: 120em) {
-  .slide__panel__author {
+  .slide__panel__actions__author {
     bottom: calc(2rem + 12.5px);
   }
 }
 
 .slide__panel__back {
-  position: absolute;
-  right: 2rem;
-  bottom: 4rem;
+  position: relative;
   -ms-flex-item-align: end;
       align-self: flex-end;
   border-radius: 50%;
@@ -7235,8 +7239,6 @@ button:focus {
 
 @media (min-width: 48em) {
   .slide__panel__back {
-    right: 8vw;
-    bottom: 8vw;
     width: 50px;
     height: 50px;
   }
@@ -7244,8 +7246,6 @@ button:focus {
 
 @media (min-width: 75em) {
   .slide__panel__back {
-    right: 4rem;
-    bottom: 2rem;
     width: 40px;
     height: 40px;
   }

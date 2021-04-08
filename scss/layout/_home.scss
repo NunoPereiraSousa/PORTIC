@@ -24,7 +24,7 @@
   }
 
   &__title {
-    font-size: $_20px;
+    font-size: $_22px;
     font-weight: 400;
     text-align: center;
 
@@ -96,7 +96,7 @@
         position: relative;
         // text-decoration: underline;
         font-family: $portoSansStencil;
-        font-size: $_17px;
+        font-size: $_18px;
         line-height: 1.5;
         letter-spacing: 0.4px;
         font-weight: 400;
@@ -115,7 +115,7 @@
       }
 
       p {
-        margin: 1rem 0 0 0;
+        margin: 2rem 0 0 0;
         font-family: $portoSans;
         font-size: $_16px;
         line-height: 1.5;
