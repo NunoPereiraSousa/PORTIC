@@ -103,13 +103,13 @@
       font-size: $_15px;
       // cursor: pointer;
 
-      &:first-child {
-        padding-right: $_14px;
-      }
+      // &:first-child {
+      //   padding-right: $_14px;
+      // }
 
-      &:last-child {
-        padding-left: $_14px;
-      }
+      // &:last-child {
+      //   padding-left: $_14px;
+      // }
 
       &.selected {
         opacity: 0.69;

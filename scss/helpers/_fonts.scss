@@ -1,4 +1,25 @@
 @font-face {
+  font-family: "Porto Sans Stencil";
+  src: url("../fonts/PortoSansStencil-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Sans Stencil";
+  src: url("../fonts/PortoSansStencil-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Sans Stencil";
+  src: url("../fonts/PortoSansStencil-Light.woff") format("woff");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Porto Sans";
   src: url("../fonts/PortoSans-Bold.woff") format("woff");
   font-weight: bold;
@@ -80,25 +101,4 @@
   src: url("../fonts/PortoSerif-RegularItalic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
-}
-
-@font-face {
-  font-family: "Porto Sans Stencil";
-  src: url("../fonts/PortoSansStencil-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Porto Sans Stencil";
-  src: url("../fonts/PortoSansStencil-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Porto Sans Stencil";
-  src: url("../fonts/PortoSansStencil-Light.woff") format("woff");
-  font-weight: lighter;
-  font-style: normal;
 }

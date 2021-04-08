@@ -149,7 +149,7 @@
         font-size: $_18px;
         letter-spacing: 0.3px;
         text-shadow: 2px 2px 4px rgba($color: $black, $alpha: 0.1);
-        font-family: $portoSansStencil;
+        font-family: $portoSans;
         font-weight: 400;
 
         &:nth-child(odd) {
@@ -225,6 +225,10 @@
         font-size: $_16px;
       }
 
+      @include breakpoint-up(desktop) {
+        font-size: $_17px;
+      }
+
       @include breakpoint-up(large) {
         font-size: $_18px;
       }
@@ -268,6 +272,10 @@
         align-self: flex-start;
         font-size: $_14px;
         margin-top: 0;
+      }
+
+      @include breakpoint-up(desktop) {
+        font-size: $_17px;
       }
 
       @include breakpoint-up(large) {

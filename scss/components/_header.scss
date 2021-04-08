@@ -360,7 +360,7 @@
         margin-right: $_60px;
         font-size: $_20px;
         color: $white;
-        // color: $black;
+        font-family: $portoSans;
 
         &.router-link-active {
           color: $orange !important;
@@ -398,6 +398,11 @@
         &:hover::after {
           width: 36px;
           background-color: $orange;
+        }
+
+        @include breakpoint-up(large) {
+          margin-right: $_60px;
+          font-size: $_17px;
         }
       }
     }

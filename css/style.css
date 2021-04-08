@@ -1,4 +1,25 @@
 @font-face {
+  font-family: "Porto Sans Stencil";
+  src: url("../fonts/PortoSansStencil-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Sans Stencil";
+  src: url("../fonts/PortoSansStencil-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Porto Sans Stencil";
+  src: url("../fonts/PortoSansStencil-Light.woff") format("woff");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Porto Sans";
   src: url("../fonts/PortoSans-Bold.woff") format("woff");
   font-weight: bold;
@@ -80,27 +101,6 @@
   src: url("../fonts/PortoSerif-RegularItalic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
-}
-
-@font-face {
-  font-family: "Porto Sans Stencil";
-  src: url("../fonts/PortoSansStencil-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Porto Sans Stencil";
-  src: url("../fonts/PortoSansStencil-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Porto Sans Stencil";
-  src: url("../fonts/PortoSansStencil-Light.woff") format("woff");
-  font-weight: lighter;
-  font-style: normal;
 }
 
 @-webkit-keyframes arrow-down {
@@ -950,14 +950,6 @@ button:focus {
   font-size: 0.9375rem;
 }
 
-.subheader__languages p:first-child {
-  padding-right: 0.875rem;
-}
-
-.subheader__languages p:last-child {
-  padding-left: 0.875rem;
-}
-
 .subheader__languages p.selected {
   opacity: 0.69;
 }
@@ -1376,6 +1368,7 @@ button:focus {
   margin-right: 3.75rem;
   font-size: 1.25rem;
   color: #ffffff;
+  font-family: "Porto Sans";
 }
 
 .navbar__desktop_menu__links a.router-link-active {
@@ -1417,6 +1410,13 @@ button:focus {
 .navbar__desktop_menu__links a:hover::after {
   width: 36px;
   background-color: #c94d24;
+}
+
+@media (min-width: 120em) {
+  .navbar__desktop_menu__links a {
+    margin-right: 3.75rem;
+    font-size: 1.0625rem;
+  }
 }
 
 @keyframes arrow-down {
@@ -2600,7 +2600,7 @@ button:focus {
   font-size: 1.125rem;
   letter-spacing: 0.3px;
   text-shadow: 2px 2px 4px rgba(8, 8, 8, 0.1);
-  font-family: "Porto Sans Stencil";
+  font-family: "Porto Sans";
   font-weight: 400;
 }
 
@@ -2694,6 +2694,12 @@ button:focus {
   }
 }
 
+@media (min-width: 75em) {
+  .sub_page_intro__extra_info p {
+    font-size: 1.0625rem;
+  }
+}
+
 @media (min-width: 120em) {
   .sub_page_intro__extra_info p {
     font-size: 1.125rem;
@@ -2747,6 +2753,12 @@ button:focus {
         align-self: flex-start;
     font-size: 0.875rem;
     margin-top: 0;
+  }
+}
+
+@media (min-width: 75em) {
+  .sub_page_intro__extra_info button {
+    font-size: 1.0625rem;
   }
 }
 
@@ -5186,7 +5198,6 @@ button:focus {
   padding: 0 0 1rem;
   margin: 0 0 3rem;
   font-size: 1.625rem;
-  font-weight: 400;
   font-family: "Porto Sans Stencil";
   color: #080808;
   text-shadow: 6px 4px 4px rgba(8, 8, 8, 0.075);
@@ -5639,6 +5650,7 @@ button:focus {
 .contacts__side_form form textarea {
   background-color: transparent;
   border: none;
+  border-radius: 0;
   border-bottom: 1px solid #ffffff;
   padding: 1rem 1.25rem 1rem 0;
 }
