@@ -83,21 +83,21 @@
 }
 
 @font-face {
-  font-family: "Porto Serif";
-  src: url("../fonts/PortoSansStencil-Regular.woff") format("woff");
+  font-family: "Porto Sans Stencil";
+  src: url("../fonts/PortoSansStencil-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Porto Serif";
+  font-family: "Porto Sans Stencil";
   src: url("../fonts/PortoSansStencil-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Porto Serif";
+  font-family: "Porto Sans Stencil";
   src: url("../fonts/PortoSansStencil-Light.woff") format("woff");
   font-weight: lighter;
   font-style: normal;
