@@ -40,7 +40,7 @@ export default {
   methods: {
     handleScroll() {
       let navbar = document.querySelector(".navbar");
-      let navbarLogo = document.querySelector("#logo");
+      // let navbarLogo = document.querySelector("#logo");
       // let header = document.querySelector(".headers").offsetHeight;
       // let current__scroll__pos = window.pageYOffset;
       // let headers = document.querySelector(".headers");
@@ -56,11 +56,11 @@ export default {
         }
       });
 
-      if (navbar.classList.contains("scroll")) {
-        navbarLogo.src = "/img/PORTIC_LOGO_laranja.f448abb8.svg";
-      } else {
-        navbarLogo.src = "/img/PORTIC_LOGO.78c408bf.svg";
-      }
+      // if (navbar.classList.contains("scroll")) {
+      //   navbarLogo.src = "/img/PORTIC_LOGO_laranja.f448abb8.svg";
+      // } else {
+      //   navbarLogo.src = "/img/PORTIC_LOGO.78c408bf.svg";
+      // }
 
       // if (this.previous__scroll__pos > current__scroll__pos) {
       //   headers.style.top = "0px";

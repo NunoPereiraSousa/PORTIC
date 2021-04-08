@@ -2,7 +2,11 @@
   <div>
     <section class="projects_catalog">
       <div class="flex flex-jc-c flex-ai-c flex-fd-c">
-        <h3>Projetos<span>&#9654;</span> PORTIC</h3>
+        <h3 class="flex flex-ai-c">
+          Projetos
+          <div id="triangle"></div>
+          PORTIC
+        </h3>
         <h1 class="projects_catalog__title">Projetos</h1>
         <p class="projects_catalog__quote">
           Estes são os projetos que fazemos parte.

@@ -61,14 +61,14 @@
 
           sup {
             font-size: $_14px;
-            margin-left: 5px;
+            margin-left: 2px;
           }
         }
 
         p {
           font-weight: 400;
           margin-top: 5px;
-          font-size: $_16px;
+          font-size: $_14px;
 
           @include breakpoint-up(desktop) {
             font-size: $_15px;

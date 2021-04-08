@@ -11,7 +11,7 @@
 .navbar {
   position: relative;
   width: 100%;
-  padding: 0.6rem 1.25rem;
+  padding: 0.1rem 1.25rem;
   // background-color: $white;
   background-color: transparent;
   font-family: $portoSansStencil;
@@ -78,9 +78,15 @@
   }
 
   &__hamburger {
-    width: 1.125rem;
+    width: 1.75rem;
     height: 1.125rem;
     position: relative;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &:focus {
+      outline: none;
+    }
 
     &__lines {
       height: 2px;
@@ -163,7 +169,7 @@
   &__mobile_menu {
     overflow-y: hidden;
     grid-template-rows: min-content, 1fr, min-content;
-    padding: 6.25rem 2rem 1.625rem;
+    padding: 8.25rem 2rem 1.625rem;
     background-color: $white;
     color: $black;
     width: 100%;
@@ -195,7 +201,7 @@
         min-content min-content min-content min-content
       );
 
-      row-gap: 4rem;
+      row-gap: 5rem;
     }
 
     @include breakpoint-up(largePhone) {

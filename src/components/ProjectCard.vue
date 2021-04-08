@@ -6,8 +6,8 @@
         <p>{{ formatBudget(overallBudget) }}</p>
         <!-- <p>PORTIC budget: {{ porticBudget }}</p> -->
       </div>
-      <h3 v-if="counter < 10">Project 0{{ counter }}</h3>
-      <h3 v-else>Project {{ counter }}</h3>
+      <h3 v-if="counter < 10">Projeto 0{{ counter }}</h3>
+      <h3 v-else>Projeto {{ counter }}</h3>
     </div>
     <div class="projects__grid__card__hovered_state hide-for-mobile">
       <div class="position flex flex-jc-sb flex-fd-c">

@@ -697,6 +697,14 @@ a:focus {
   text-decoration: none;
 }
 
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -986,7 +994,7 @@ button:focus {
 .navbar {
   position: relative;
   width: 100%;
-  padding: 0.6rem 1.25rem;
+  padding: 0.1rem 1.25rem;
   background-color: transparent;
   font-family: "Porto Sans Stencil";
   -webkit-box-shadow: 0px 1px 20px 0 rgba(255, 255, 255, 0.1);
@@ -1054,9 +1062,14 @@ button:focus {
 }
 
 .navbar__hamburger {
-  width: 1.125rem;
+  width: 1.75rem;
   height: 1.125rem;
   position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.navbar__hamburger:focus {
+  outline: none;
 }
 
 .navbar__hamburger__lines {
@@ -1148,7 +1161,7 @@ button:focus {
   -ms-grid-rows: min-content, 1fr, min-content;
       grid-template-rows: -webkit-min-content, 1fr, -webkit-min-content;
       grid-template-rows: min-content, 1fr, min-content;
-  padding: 6.25rem 2rem 1.625rem;
+  padding: 8.25rem 2rem 1.625rem;
   background-color: #ffffff;
   color: #080808;
   width: 100%;
@@ -1182,7 +1195,7 @@ button:focus {
     -ms-grid-rows: (min-content min-content min-content min-content)[4];
         grid-template-rows: repeat(4, -webkit-min-content -webkit-min-content -webkit-min-content -webkit-min-content);
         grid-template-rows: repeat(4, min-content min-content min-content min-content);
-    row-gap: 4rem;
+    row-gap: 5rem;
   }
 }
 
@@ -1775,13 +1788,13 @@ button:focus {
 
 .footer__grid__timezones__worldwide h2 sup {
   font-size: 0.875rem;
-  margin-left: 5px;
+  margin-left: 2px;
 }
 
 .footer__grid__timezones__worldwide p {
   font-weight: 400;
   margin-top: 5px;
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 @media (min-width: 75em) {
@@ -1955,7 +1968,7 @@ button:focus {
   z-index: 1;
   width: 100%;
   height: 100vh;
-  padding: calc(14.1875rem + 2vw) 0 0 14vw;
+  padding: calc(12.1875rem + 2vw) 0 0 14vw;
 }
 
 @media (max-width: 23.375em) {
@@ -2793,7 +2806,6 @@ button:focus {
 
 .quote__title span {
   color: #c94d24;
-  font-family: "Porto Sans Stencil";
 }
 
 @media (min-width: 48em) {
@@ -3417,6 +3429,7 @@ button:focus {
 }
 
 .projects__grid {
+  width: 100%;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
 }
@@ -3476,17 +3489,13 @@ button:focus {
   font-size: 1.125rem;
 }
 
-.projects_catalog h3 span {
-  margin: 0 0.625rem;
-  font-size: 0.6875rem;
-  vertical-align: middle;
-}
-
-@media (min-width: 64em) {
-  .projects_catalog h3 span {
-    font-size: 0.8rem;
-    vertical-align: middle;
-  }
+.projects_catalog h3 #triangle {
+  margin: 0 1rem;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid #080808;
 }
 
 @media (min-width: 64em) {
@@ -3499,13 +3508,7 @@ button:focus {
 .projects_catalog__title {
   font-family: "Porto Sans Stencil";
   font-size: 2rem;
-  margin: 1rem 0;
-}
-
-@media (max-width: 23.375em) {
-  .projects_catalog__title {
-    margin: 1rem 0;
-  }
+  margin: 0;
 }
 
 @media (min-width: 64em) {
@@ -3553,9 +3556,9 @@ button:focus {
 }
 
 .projects_catalog__filters input {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 2px;
-  border: 1.5px solid #080808;
+  border: 1px solid #080808;
 }
 
 .projects_catalog__filters input:active {
@@ -3836,15 +3839,8 @@ button:focus {
 
 .projects__grid__card__normal_state h1 {
   color: #c94d24;
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   font-family: "Porto Sans Stencil";
-  white-space: nowrap;
-}
-
-@media (max-width: 23.375em) {
-  .projects__grid__card__normal_state h1 {
-    font-size: 1.375rem;
-  }
 }
 
 @media (min-width: 75em) {
@@ -3854,7 +3850,7 @@ button:focus {
 }
 
 .projects__grid__card__normal_state p {
-  color: #999999;
+  color: #080808;
   margin-bottom: 60px;
 }
 
@@ -3872,7 +3868,7 @@ button:focus {
 }
 
 .projects__grid__card__normal_state h3 {
-  color: #080808;
+  color: #999999;
   font-size: 1.125rem;
   font-style: italic;
 }

@@ -15,15 +15,13 @@
   h3 {
     font-size: $_18px;
 
-    span {
-      margin: 0 0.625rem;
-      font-size: 0.6875rem;
-      vertical-align: middle;
-
-      @include breakpoint-up(iPadPro) {
-        font-size: 0.8rem;
-        vertical-align: middle;
-      }
+    #triangle {
+      margin: 0 1rem;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid $black;
     }
 
     @include breakpoint-up(iPadPro) {
@@ -35,11 +33,7 @@
   &__title {
     font-family: $portoSansStencil;
     font-size: $_32px;
-    margin: 1rem 0;
-
-    @include breakpoint-down(phone) {
-      margin: 1rem 0;
-    }
+    margin: 0;
 
     @include breakpoint-up(iPadPro) {
       font-size: $_50px;
@@ -75,9 +69,9 @@
     }
 
     input {
-      padding: 0.75rem 1rem;
+      padding: 0.75rem 1.5rem;
       border-radius: 2px;
-      border: 1.5px solid $black;
+      border: 1px solid $black;
 
       &:active {
         border: 1.5px solid $orange;

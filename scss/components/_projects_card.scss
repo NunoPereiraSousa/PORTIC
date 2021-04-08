@@ -108,28 +108,16 @@
 
     h1 {
       color: $orange;
-      font-size: $_22px;
+      font-size: $_20px;
       font-family: $portoSansStencil;
-      // margin-bottom: 60px;
-
-      white-space: nowrap;
-
-      @include breakpoint-down(phone) {
-        font-size: $_22px;
-      }
 
       @include breakpoint-up(desktop) {
         font-size: $_20px;
-        // margin-bottom: 140px;
-      }
-
-      @include breakpoint-up(large) {
-        // margin-bottom: 200px;
       }
     }
 
     p {
-      color: $grey;
+      color: $black;
       margin-bottom: 60px;
 
       @include breakpoint-up(desktop) {
@@ -143,7 +131,7 @@
     }
 
     h3 {
-      color: $black;
+      color: $grey;
       font-size: $_18px;
       font-style: italic;
 

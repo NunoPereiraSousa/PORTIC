@@ -86,9 +86,9 @@
             <i class="fab fa-facebook-square"></i>
           </a>
         </div>
-        <div class="navbar__mobile_menu__policy">
+        <!-- <div class="navbar__mobile_menu__policy">
           <p>Privacy Policy & © Copy Right 2021</p>
-        </div>
+        </div> -->
       </div>
       <div class="navbar__desktop_menu hide-for-mobile">
         <div class="navbar__desktop_menu__links flex">

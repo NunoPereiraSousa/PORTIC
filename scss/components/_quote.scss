@@ -28,7 +28,6 @@
 
     span {
       color: $orange;
-      font-family: $portoSansStencil;
     }
 
     @include breakpoint-up(tablet) {

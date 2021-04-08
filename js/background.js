@@ -65,8 +65,8 @@ export function background() {
     threeJsScene.appendChild(renderer.domElement);
 
     controls = new OrbitControls(camera, renderer.domElement);
-    controls.minDistance = 500;
-    controls.maxDistance = 800;
+    controls.minDistance = 600;
+    controls.maxDistance = 1000;
     controls.enableRotate = true;
     controls.addEventListener("change", render);
 

@@ -220,6 +220,7 @@ export default {
           s.style.width = "250px";
         });
       } else if (window.innerWidth >= 1500) {
+        console.log(1);
         slideTrack.style.width = `calc(350px * ${nPartners * 2})`;
 
         slideTrack.style.animation = `carouselDesktopBig${nPartners} 20s linear infinite`;
