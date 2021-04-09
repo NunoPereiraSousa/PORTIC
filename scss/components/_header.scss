@@ -1,7 +1,6 @@
 .headers {
   width: 100%;
   position: fixed;
-  // z-index: 998;
   top: 0%;
   left: 0%;
   z-index: 990;
@@ -11,13 +10,20 @@
 .navbar {
   position: relative;
   width: 100%;
-  padding: 0.1rem 1.25rem;
   // background-color: $white;
   background-color: transparent;
   font-family: $portoSansStencil;
-  box-shadow: 0px 1px 20px 0 rgba(255, 255, 255, 0.1);
-  // box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 0.1rem 1.25rem;
   // transition: all 0.5s ease;
+
+  // .top {
+  //   width: 100%;
+  //   padding: 0.1rem 1.25rem;
+
+  //   z-index: 999;
+  //   box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
+  // }
 
   &.normal {
     background-color: $white;
@@ -83,6 +89,7 @@
     position: relative;
 
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transition: all 0.5s ease;
 
     &:focus {
       outline: none;

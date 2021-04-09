@@ -145,6 +145,12 @@ export default {
       document.querySelector(".headers").style.top = "0";
       document.querySelector(".headers").style.zIndex = "999";
 
+      setTimeout(() => {
+        window.scroll(0, 0);
+      }, 500);
+
+      document.querySelector("#app").style.overflow = "hidden";
+
       // let title = document.querySelector(".header__title");
       // title.classList.toggle("change__color");
 
