@@ -97,6 +97,11 @@
             desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
             date="05 de março"
           />
+          <SlidePanel
+            :title="newsSelectedTitle"
+            :content="newsSelectedContent"
+            :author="author"
+          />
         </div>
       </section>
       <section class="project__team">
@@ -136,6 +141,7 @@
 import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
 import Slide from "@/components/Project/Slide.vue";
 import NewsCard from "@/components/NewsCard.vue";
+import SlidePanel from "@/components/SlidePanel.vue";
 import TeamCard from "@/components/Project/TeamCard.vue";
 import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
@@ -148,6 +154,7 @@ export default {
     Slide,
     NewsCard,
     TeamCard,
+    SlidePanel,
     Footer,
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide
@@ -165,11 +172,20 @@ export default {
         overallBudget: null,
         porticBudget: null,
         description: null
-      }
+      },
+      newsSelectedTitle: null,
+      newsSelectedContent: null,
+      author: null
     };
   },
   computed: {
-    ...mapGetters(["getSelectedProject", "getProjectByName"])
+    ...mapGetters([
+      "getSelectedProject",
+      "getProjectByName",
+      "getNews",
+      "getNewsById",
+      "getSelectedNewsId"
+    ])
   },
   created() {
     if (JSON.parse(localStorage.getItem("project_name"))) {
@@ -220,7 +236,6 @@ export default {
           s.style.width = "250px";
         });
       } else if (window.innerWidth >= 1500) {
-        console.log(1);
         slideTrack.style.width = `calc(350px * ${nPartners * 2})`;
 
         slideTrack.style.animation = `carouselDesktopBig${nPartners} 20s linear infinite`;
@@ -237,6 +252,20 @@ export default {
           s.style.width = "125px";
         });
       }
+    },
+    getNewsId() {
+      let newsId = this.getSelectedNewsId;
+
+      if (newsId != null) {
+        this.getSelectedNews(newsId);
+      }
+    },
+    getSelectedNews(id) {
+      let news = this.getNewsById(id);
+
+      this.newsSelectedTitle = news.title;
+      this.newsSelectedContent = news.content;
+      this.author = news.author;
     }
   }
 };

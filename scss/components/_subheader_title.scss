@@ -4,9 +4,10 @@
   padding: 0 0 1rem;
   margin: 0 0 3rem;
 
-  font-size: $_26px;
-  font-family: $portoSansStencil;
+  font-size: $_24px;
+  font-family: $portoSerif;
   color: $black;
+  font-weight: 500;
 
   text-shadow: 6px 4px 4px rgba($color: $black, $alpha: 0.075);
 
@@ -24,7 +25,7 @@
     position: absolute;
     left: 0%;
     bottom: 0%;
-    height: 3.5px;
+    height: 2.5px;
     width: 30px;
     background-color: $orange;
     box-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.13);

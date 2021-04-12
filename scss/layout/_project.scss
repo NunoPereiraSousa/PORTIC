@@ -353,13 +353,16 @@
         width: 100%;
       }
 
-      .glide__bullet {
+      button.glide__bullet {
         margin-top: 1rem;
-        transform: scaleX(0.7);
-        width: 0.5rem;
-        height: 0.5rem;
+        margin-right: 1rem;
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
         background-color: $grey;
         box-shadow: none;
+        border: none;
+        padding: 0;
 
         &:hover {
           background-color: $orange;
