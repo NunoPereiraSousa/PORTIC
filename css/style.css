@@ -992,7 +992,6 @@ button:focus {
   -webkit-box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 0.1rem 1.25rem;
-  overflow: hidden;
 }
 
 .navbar.normal {
@@ -1136,7 +1135,6 @@ button:focus {
 
 .navbar__mobile_overlay {
   position: fixed;
-  z-index: -999;
   top: 0%;
   left: 0%;
   opacity: 0;
