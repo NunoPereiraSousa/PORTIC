@@ -14,82 +14,86 @@
         <div class="navbar__hamburger__lines"></div>
         <div class="navbar__hamburger__lines"></div>
       </div>
-      <div class="navbar__mobile_menu grid hide-for-desktop">
-        <div class="navbar__mobile_menu__info">
-          <h1>portic</h1>
-          <p>An open door towards the future</p>
-          <hr />
-        </div>
-        <div class="navbar__mobile_menu__links">
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__links__link"
-            :to="{ name: 'Contacts' }"
-          >
-            Sobre nós
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__links__link"
-            :to="{ name: 'Positions' }"
-          >
-            Recrutamento
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__links__link"
-            :to="{ name: 'Areas' }"
-          >
-            Áreas
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__links__link"
-            :to="{ name: 'Courses' }"
-          >
-            Cursos
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__links__link"
-            :to="{ name: 'Media' }"
-          >
-            Mídia
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__links__link"
-            :to="{ name: 'ProjectsCatalog' }"
-          >
-            Projetos
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__links__link"
-            :to="{ name: 'Unities' }"
-          >
-            Unidades
-          </router-link>
-        </div>
-        <div class="navbar__mobile_menu__socials grid">
-          <a href="">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="">
-            <i class="fab fa-flickr"></i>
-          </a>
-          <a href="">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a href="">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="">
-            <i class="fab fa-facebook-square"></i>
-          </a>
+      <div
+        class="navbar__mobile_menu flex flex-ai-c flex-fd-c flex-jc-c hide-for-desktop"
+      >
+        <div class="navbar__mobile_menu__grid grid">
+          <div class="navbar__mobile_menu__grid__info">
+            <h1>portic</h1>
+            <p>An open door towards the future</p>
+            <hr />
+          </div>
+          <div class="navbar__mobile_menu__grid__links">
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Contacts' }"
+            >
+              Sobre nós
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Positions' }"
+            >
+              Recrutamento
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Areas' }"
+            >
+              Áreas
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Courses' }"
+            >
+              Cursos
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Media' }"
+            >
+              Mídia
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'ProjectsCatalog' }"
+            >
+              Projetos
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Unities' }"
+            >
+              Unidades
+            </router-link>
+          </div>
+          <div class="navbar__mobile_menu__grid__socials grid">
+            <a href="">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-flickr"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-facebook-square"></i>
+            </a>
+          </div>
         </div>
         <!-- <div class="navbar__mobile_menu__policy">
           <p>Privacy Policy & © Copy Right 2021</p>
