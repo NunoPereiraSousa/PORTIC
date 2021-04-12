@@ -181,7 +181,7 @@
         </div>
       </div>
     </nav>
-    <nav class="navbar phone_navbar hide-for-desktop">
+    <nav class="navbar phone_navbar hide-for-desktop" :class="theme">
       <div class="flex flex-ai-c flex-jc-sb">
         <router-link class="navbar__logo" :to="{ name: 'Home' }">
           <img
@@ -331,6 +331,12 @@ export default {
         navbar__toggle.style.display = "block";
         let height = navbar__toggle.clientHeight;
 
+        if (!navbar.classList.contains("normal")) {
+          navbar.style.backgroundColor = "#080808";
+        } else {
+          navbar.style.backgroundColor = "#ffffff";
+        }
+
         setTimeout(() => {
           navbar__toggle.style.height = `${height}px`;
           navbar__toggle.style.display = "";
@@ -351,7 +357,12 @@ export default {
         setTimeout(() => {
           navbar__toggle.classList = "navbar__toggle collapse";
           navbar__toggle.style.height = "";
+          navbar.style.backgroundColor = "transparent";
         }, 300);
+
+        setTimeout(() => {
+          navbar.style.backgroundColor = "";
+        }, 301);
       }
 
       // navbar__toggle.classList.toggle("open");
@@ -371,9 +382,45 @@ export default {
           line.classList.toggle("open");
         });
 
+        console.log(1);
+
         navbar.classList.toggle("open");
-        navbar__toggle.style.display = "none";
+
+        setTimeout(() => {
+          navbar__toggle.classList = "navbar__toggle collapse";
+          navbar__toggle.style.height = "";
+        }, 1);
+
+        setTimeout(() => {
+          navbar.style.backgroundColor = "transparent";
+        }, 300);
+
+        setTimeout(() => {
+          navbar.style.backgroundColor = "";
+        }, 301);
+      } else if (navbar.classList.contains("normal")) {
+        lines.forEach(line => {
+          line.classList.toggle("open");
+        });
+
+        console.log(1);
+
+        navbar.classList.toggle("open");
+
+        setTimeout(() => {
+          navbar__toggle.classList = "navbar__toggle collapse";
+          navbar__toggle.style.height = "";
+        }, 1);
+
+        setTimeout(() => {
+          navbar.style.backgroundColor = "transparent";
+        }, 300);
+
+        setTimeout(() => {
+          navbar.style.backgroundColor = "";
+        }, 301);
       }
+
       // navbar__mobile_overlay.classList.toggle("overlay_opened");
     }
   }

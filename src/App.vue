@@ -40,6 +40,7 @@ export default {
   methods: {
     handleScroll() {
       let navbar = document.querySelector(".navbar");
+      let phone_navbar = document.querySelector(".phone_navbar");
       // let navbarLogo = document.querySelector("#logo");
       // let header = document.querySelector(".headers").offsetHeight;
       // let current__scroll__pos = window.pageYOffset;
@@ -52,6 +53,17 @@ export default {
         end: "bottom top-=-80",
         toggleClass: {
           targets: navbar,
+          className: "scroll"
+        }
+      });
+
+      ScrollTrigger.create({
+        trigger: ".landing",
+        endTrigger: ".footer",
+        start: "bottom top-=-80",
+        end: "bottom top-=-80",
+        toggleClass: {
+          targets: phone_navbar,
           className: "scroll"
         }
       });

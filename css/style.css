@@ -1143,15 +1143,24 @@ button:focus {
 
 .navbar {
   width: 100%;
-  background-color: #ffffff;
+  background-color: transparent;
   font-family: "Porto Sans Stencil";
   -webkit-box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 0.1rem 1.25rem;
 }
 
-.navbar.normal {
+.navbar.phone_navbar {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.navbar.scroll {
   background-color: #ffffff;
+}
+
+.navbar.normal {
+  background-color: #ffffff !important;
   -webkit-box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
 }
@@ -1163,6 +1172,14 @@ button:focus {
 .navbar.normal .navbar__desktop_menu__links a {
   position: relative;
   z-index: 8;
+  color: #080808;
+}
+
+.navbar.normal .navbar__content {
+  background-color: #ffffff;
+}
+
+.navbar.normal .navbar__content a {
   color: #080808;
 }
 
@@ -1225,7 +1242,7 @@ button:focus {
 
 .navbar__hamburger__lines {
   height: 2px;
-  background-color: #080808;
+  background-color: #ffffff;
   position: absolute;
   z-index: 999;
   right: 0%;
@@ -1243,7 +1260,7 @@ button:focus {
 }
 
 .navbar__hamburger__lines.open {
-  background-color: #080808;
+  background-color: #ffffff;
   -webkit-transform-origin: -1.3px center;
           transform-origin: -1.3px center;
 }
@@ -1307,8 +1324,8 @@ button:focus {
 }
 
 .navbar__toggle {
-  -webkit-transition: height 400ms ease;
-  transition: height 400ms ease;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
 }
 
 .navbar__toggle.collapse {
@@ -1322,6 +1339,8 @@ button:focus {
 
 .navbar__toggle.open {
   display: block;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .navbar__content {
@@ -1329,14 +1348,14 @@ button:focus {
 }
 
 .navbar__content a {
-  color: #080808;
+  color: #ffffff;
   margin-top: 1.125rem;
   font-size: 1.125rem;
   font-family: "Porto Sans";
 }
 
 .navbar__content h3 {
-  color: #999999;
+  color: #c94d24;
   font-weight: 400;
   font-size: 0.9375rem;
   margin: 0 0 1.125rem;
@@ -1386,7 +1405,7 @@ button:focus {
 
 .navbar__content__socials a {
   font-size: 1.125rem;
-  color: #080808;
+  color: #ffffff;
   margin-right: 2rem;
 }
 
@@ -2083,7 +2102,7 @@ button:focus {
   z-index: 1;
   width: 100%;
   height: 100vh;
-  padding: calc(10.1875rem + 2vw) 0 0 14vw;
+  padding: calc(12.1875rem + 2vw) 0 0 14vw;
 }
 
 @media (max-width: 23.375em) {

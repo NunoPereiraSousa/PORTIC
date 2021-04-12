@@ -10,13 +10,22 @@
 .navbar {
   // position: relative;
   width: 100%;
-  background-color: $white;
+  background-color: transparent;
   font-family: $portoSansStencil;
   box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 0.1rem 1.25rem;
 
-  &.normal {
+  &.phone_navbar {
+    // background-color: $white;
+    transition: all 0.2s ease;
+  }
+
+  &.scroll {
     background-color: $white;
+  }
+
+  &.normal {
+    background-color: $white !important;
     box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
 
     .navbar__hamburger__lines {
@@ -30,6 +39,14 @@
           z-index: 8;
           color: $black;
         }
+      }
+    }
+
+    .navbar__content {
+      background-color: $white;
+
+      a {
+        color: $black;
       }
     }
   }
@@ -87,7 +104,7 @@
 
     &__lines {
       height: 2px;
-      background-color: $black;
+      background-color: $white;
       position: absolute;
       z-index: 999;
       right: 0%;
@@ -100,7 +117,7 @@
       }
 
       &.open {
-        background-color: $black;
+        background-color: $white;
         transform-origin: -1.3px center;
       }
 
@@ -162,7 +179,7 @@
   }
 
   &__toggle {
-    transition: height 400ms ease;
+    transition: all 400ms ease;
 
     &.collapse {
       display: none;
@@ -175,6 +192,7 @@
 
     &.open {
       display: block;
+      transition: all 0.2s ease;
     }
   }
 
@@ -182,14 +200,14 @@
     padding: 2rem 0;
 
     a {
-      color: $black;
+      color: $white;
       margin-top: $_18px;
       font-size: $_18px;
       font-family: $portoSans;
     }
 
     h3 {
-      color: $grey;
+      color: $orange;
       font-weight: 400;
       font-size: $_15px;
       margin: 0 0 $_18px;
@@ -240,7 +258,7 @@
     &__socials {
       a {
         font-size: $_18px;
-        color: $black;
+        color: $white;
 
         margin-right: 2rem;
 

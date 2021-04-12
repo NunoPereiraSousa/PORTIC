@@ -3,7 +3,7 @@
   z-index: 1;
   width: 100%;
   height: 100vh;
-  padding: calc(10.1875rem + 2vw) 0 0 14vw;
+  padding: calc(12.1875rem + 2vw) 0 0 14vw;
 
   @include breakpoint-down(phone) {
     padding: calc(11.1875rem + 2vw) 0 0 14vw;
