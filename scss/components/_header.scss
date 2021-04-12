@@ -8,9 +8,9 @@
 }
 
 .navbar {
-  position: relative;
+  // position: relative;
   width: 100%;
-  background-color: transparent;
+  background-color: $white;
   font-family: $portoSansStencil;
   box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 0.1rem 1.25rem;
@@ -87,7 +87,7 @@
 
     &__lines {
       height: 2px;
-      background-color: $white;
+      background-color: $black;
       position: absolute;
       z-index: 999;
       right: 0%;
@@ -101,7 +101,7 @@
 
       &.open {
         background-color: $black;
-        transform-origin: -1.4px center;
+        transform-origin: -1.3px center;
       }
 
       &:nth-child(1) {
@@ -161,197 +161,285 @@
     }
   }
 
-  &__mobile_menu {
-    overflow-y: hidden;
-    padding: 0 2rem;
-    background-color: $white;
-    color: $black;
-    width: 100%;
-    height: calc(100vh - 0.6rem);
-    position: absolute;
-    z-index: -999;
-    right: -100%;
-    top: 0;
-    transition: all 0.5s ease;
+  &__toggle {
+    transition: height 400ms ease;
 
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // flex-direction: column;
-
-    // @include breakpoint-down(phone) {
-    //   padding: 5.25rem 2rem 1.625rem;
-    // }
-
-    &__grid {
-      grid-template-rows: repeat(3, min-content);
-      row-gap: 5rem;
-
-      @include breakpoint-width-height(812px, 375px, 812px) {
-        row-gap: 5rem;
-      }
-
-      @include breakpoint-width-height(667px, 375px, 667px) {
-        row-gap: 4rem;
-      }
-
-      &__info {
-        h1,
-        p {
-          text-align: center;
-        }
-
-        h1 {
-          text-transform: uppercase;
-          color: $orange;
-          margin: 0;
-
-          @include breakpoint-down(smallPhone) {
-            font-size: $_22px;
-          }
-
-          @include breakpoint-up(tablet) {
-            font-size: $_30px;
-          }
-        }
-
-        p {
-          font-family: $portoSans;
-          font-style: italic;
-          font-size: $_17px;
-          margin: $_20px 0 $_30px;
-
-          @include breakpoint-down(smallPhone) {
-            font-size: $_16px;
-            margin: $_16px 0 $_24px;
-          }
-
-          @include breakpoint-up(largePhone) {
-            margin: $_12px 0 $_20px;
-          }
-
-          @include breakpoint-up(tablet) {
-            font-size: $_22px;
-          }
-        }
-
-        hr {
-          background-color: $orange;
-          border: none;
-          height: 2px;
-          width: $_60px;
-
-          @include breakpoint-up(tablet) {
-            margin: 2rem auto;
-          }
-        }
-      }
-
-      &__links {
-        height: fit-content;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: minmax(min-content, max-content);
-        align-items: center;
-        justify-items: center;
-        column-gap: 1.5rem;
-
-        @include breakpoint-up(tablet) {
-          column-gap: 2.5rem;
-        }
-
-        a {
-          text-align: left;
-          color: $black;
-          margin-top: $_30px;
-          font-size: $_18px;
-          font-family: $portoSans;
-          text-transform: uppercase;
-
-          &:nth-child(1),
-          &:nth-child(2) {
-            margin-top: 0;
-          }
-
-          @include breakpoint-down(phone) {
-            margin-top: $_20px;
-            font-size: $_17px;
-          }
-
-          @include breakpoint-width-height(41.6875em, 23.4375em, 41.75em) {
-            margin-top: $_30px;
-          }
-
-          @include breakpoint-width-height(667px, 375px, 667px) {
-            margin-top: $_20px;
-          }
-
-          @include breakpoint-up(tablet) {
-            font-size: $_20px;
-          }
-        }
-      }
-
-      &__socials {
-        grid-template-columns: repeat(6, 1fr);
-        justify-items: center;
-        align-items: center;
-        column-gap: 1.5rem;
-
-        @include breakpoint-up(tablet) {
-          column-gap: 2rem;
-        }
-
-        a {
-          font-size: $_18px;
-          color: $black;
-
-          @include breakpoint-up(tablet) {
-            font-size: $_22px;
-          }
-
-          &:last-child {
-            margin: 0;
-          }
-        }
-      }
-
-      &__policy {
-        //   position: absolute;
-        //   bottom: 10%;
-        //   left: 50%;
-        //   transform: translateX(-50%);
-
-        // @include breakpoint-width-height(41.6875em, 23.4375em, 41.75em) {
-        //   align-self: flex-start;
-        // }
-
-        p {
-          text-align: center;
-          font-size: $_14px;
-          color: $grey;
-          font-weight: lighter;
-          margin: 0;
-
-          @include breakpoint-down(phone) {
-            font-size: $_14px;
-          }
-
-          @include breakpoint-up(tablet) {
-            font-size: $_16px;
-          }
-        }
-      }
+    &.collapse {
+      display: none;
     }
 
-    @include breakpoint-up(tablet) {
-      // padding: 8.25rem 1rem 1.625rem;
+    &.collapsing {
+      height: 0;
+      overflow: hidden;
     }
 
-    &.open__overlay {
-      right: 0%;
+    &.open {
+      display: block;
     }
   }
+
+  &__content {
+    padding: 2rem 0;
+
+    a {
+      color: $black;
+      margin-top: $_18px;
+      font-size: $_18px;
+      font-family: $portoSans;
+    }
+
+    h3 {
+      color: $grey;
+      font-weight: 400;
+      font-size: $_15px;
+      margin: 0 0 $_18px;
+      font-family: $portoSansStencil;
+    }
+
+    hr {
+      background-color: rgba($color: $grey, $alpha: 0.5);
+      border: none;
+      height: 1px;
+      width: 100%;
+
+      margin: 1rem auto;
+    }
+
+    &__main_links {
+      a {
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        @include breakpoint-down(phone) {
+          margin-top: $_20px;
+          font-size: $_17px;
+        }
+
+        @include breakpoint-width-height(41.6875em, 23.4375em, 41.75em) {
+          margin-top: $_30px;
+        }
+
+        @include breakpoint-width-height(667px, 375px, 667px) {
+          margin-top: $_20px;
+        }
+
+        @include breakpoint-up(tablet) {
+          font-size: $_20px;
+        }
+      }
+
+      hr {
+        margin-top: 0;
+      }
+    }
+
+    &__sec_links {
+    }
+
+    &__socials {
+      a {
+        font-size: $_18px;
+        color: $black;
+
+        margin-right: 2rem;
+
+        @include breakpoint-up(tablet) {
+          font-size: $_22px;
+        }
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  // &__mobile_menu {
+  //   overflow-y: hidden;
+  //   padding: 0 2rem;
+  //   background-color: $white;
+  //   color: $black;
+  //   width: 100%;
+  //   height: calc(100vh - 0.6rem);
+  //   position: absolute;
+  //   z-index: -999;
+  //   right: -100%;
+  //   top: 0;
+  //   transition: all 0.5s ease;
+
+  //   &__grid {
+  //     grid-template-rows: repeat(3, min-content);
+  //     row-gap: 5rem;
+
+  //     margin-bottom: 3rem;
+
+  //     @include breakpoint-width-height(812px, 375px, 812px) {
+  //       row-gap: 5rem;
+  //     }
+
+  //     @include breakpoint-width-height(667px, 375px, 667px) {
+  //       row-gap: 4rem;
+  //       margin-bottom: 1rem;
+  //     }
+
+  //     &__info {
+  //       h1,
+  //       p {
+  //         text-align: center;
+  //       }
+
+  //       h1 {
+  //         text-transform: uppercase;
+  //         color: $orange;
+  //         margin: 0;
+
+  //         @include breakpoint-down(smallPhone) {
+  //           font-size: $_22px;
+  //         }
+
+  //         @include breakpoint-up(tablet) {
+  //           font-size: $_30px;
+  //         }
+  //       }
+
+  //       p {
+  //         font-family: $portoSans;
+  //         font-style: italic;
+  //         font-size: $_18px;
+  //         margin: $_12px 0 $_20px;
+
+  //         @include breakpoint-down(smallPhone) {
+  //           font-size: $_16px;
+  //           margin: $_16px 0 $_24px;
+  //         }
+
+  //         @include breakpoint-up(largePhone) {
+  //           margin: $_12px 0 $_20px;
+  //         }
+
+  //         @include breakpoint-up(tablet) {
+  //           font-size: $_22px;
+  //         }
+  //       }
+
+  //       hr {
+  //         background-color: $orange;
+  //         border: none;
+  //         height: 2px;
+  //         width: $_60px;
+
+  //         @include breakpoint-up(tablet) {
+  //           margin: 2rem auto;
+  //         }
+  //       }
+  //     }
+
+  //     &__links {
+  //       height: fit-content;
+  //       display: grid;
+  //       grid-template-columns: repeat(2, 1fr);
+  //       grid-auto-rows: minmax(min-content, max-content);
+  //       align-items: center;
+  //       justify-items: center;
+  //       column-gap: 1.5rem;
+
+  //       @include breakpoint-up(tablet) {
+  //         column-gap: 2.5rem;
+  //       }
+
+  //       a {
+  //         text-align: left;
+  //         color: $black;
+  //         margin-top: $_30px;
+  //         font-size: $_18px;
+  //         font-family: $portoSans;
+  //         text-transform: uppercase;
+
+  //         &:nth-child(1),
+  //         &:nth-child(2) {
+  //           margin-top: 0;
+  //         }
+
+  //         @include breakpoint-down(phone) {
+  //           margin-top: $_20px;
+  //           font-size: $_17px;
+  //         }
+
+  //         @include breakpoint-width-height(41.6875em, 23.4375em, 41.75em) {
+  //           margin-top: $_30px;
+  //         }
+
+  //         @include breakpoint-width-height(667px, 375px, 667px) {
+  //           margin-top: $_20px;
+  //         }
+
+  //         @include breakpoint-up(tablet) {
+  //           font-size: $_20px;
+  //         }
+  //       }
+  //     }
+
+  //     &__socials {
+  //       grid-template-columns: repeat(6, 1fr);
+  //       justify-items: center;
+  //       align-items: center;
+  //       column-gap: 1.5rem;
+
+  //       @include breakpoint-up(tablet) {
+  //         column-gap: 2rem;
+  //       }
+
+  //       a {
+  //         font-size: $_18px;
+  //         color: $black;
+
+  //         @include breakpoint-up(tablet) {
+  //           font-size: $_22px;
+  //         }
+
+  //         &:last-child {
+  //           margin: 0;
+  //         }
+  //       }
+  //     }
+
+  //     &__policy {
+  //       //   position: absolute;
+  //       //   bottom: 10%;
+  //       //   left: 50%;
+  //       //   transform: translateX(-50%);
+
+  //       // @include breakpoint-width-height(41.6875em, 23.4375em, 41.75em) {
+  //       //   align-self: flex-start;
+  //       // }
+
+  //       p {
+  //         text-align: center;
+  //         font-size: $_14px;
+  //         color: $grey;
+  //         font-weight: lighter;
+  //         margin: 0;
+
+  //         @include breakpoint-down(phone) {
+  //           font-size: $_14px;
+  //         }
+
+  //         @include breakpoint-up(tablet) {
+  //           font-size: $_16px;
+  //         }
+  //       }
+  //     }
+  //   }
+
+  //   @include breakpoint-up(tablet) {
+  //     // padding: 8.25rem 1rem 1.625rem;
+  //   }
+
+  //   &.open__overlay {
+  //     right: 0%;
+  //   }
+  // }
 
   &__desktop_menu {
     &__links {

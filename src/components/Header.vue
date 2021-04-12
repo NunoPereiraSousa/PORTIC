@@ -1,6 +1,9 @@
 <template>
   <header>
-    <nav class="navbar flex flex-jc-sb flex-ai-c" :class="theme">
+    <nav
+      class="navbar flex flex-jc-sb flex-ai-c hide-above-phone"
+      :class="theme"
+    >
       <router-link class="navbar__logo" :to="{ name: 'Home' }">
         <img
           src="../../assets/svg/PORTIC_LOGO.svg"
@@ -9,12 +12,65 @@
           @click="closeNavbarOnPageTransition"
         />
       </router-link>
-      <div class="navbar__hamburger hide-for-desktop" @click="toggleNavbar">
+      <!-- <div class="navbar__hamburger hide-for-desktop" @click="toggleNavbar">
         <div class="navbar__hamburger__lines"></div>
         <div class="navbar__hamburger__lines"></div>
         <div class="navbar__hamburger__lines"></div>
       </div>
-      <div
+      <div class="navbar__mobile_menu hide-for-desktop">
+        <div class="navbar__mobile_menu__links">
+          <router-link
+            @click.native="closeNavbarOnPageTransition"
+            class="navbar__mobile_menu__grid__links__link"
+            :to="{ name: 'Contacts' }"
+          >
+            Sobre nós
+          </router-link>
+          <router-link
+            @click.native="closeNavbarOnPageTransition"
+            class="navbar__mobile_menu__grid__links__link"
+            :to="{ name: 'Positions' }"
+          >
+            Recrutamento
+          </router-link>
+          <router-link
+            @click.native="closeNavbarOnPageTransition"
+            class="navbar__mobile_menu__grid__links__link"
+            :to="{ name: 'Areas' }"
+          >
+            Áreas
+          </router-link>
+          <router-link
+            @click.native="closeNavbarOnPageTransition"
+            class="navbar__mobile_menu__grid__links__link"
+            :to="{ name: 'Courses' }"
+          >
+            Cursos
+          </router-link>
+          <router-link
+            @click.native="closeNavbarOnPageTransition"
+            class="navbar__mobile_menu__grid__links__link"
+            :to="{ name: 'Media' }"
+          >
+            Mídia
+          </router-link>
+          <router-link
+            @click.native="closeNavbarOnPageTransition"
+            class="navbar__mobile_menu__grid__links__link"
+            :to="{ name: 'ProjectsCatalog' }"
+          >
+            Projetos
+          </router-link>
+          <router-link
+            @click.native="closeNavbarOnPageTransition"
+            class="navbar__mobile_menu__grid__links__link"
+            :to="{ name: 'Unities' }"
+          >
+            Unidades
+          </router-link>
+        </div>
+      </div> -->
+      <!-- <div
         class="navbar__mobile_menu flex flex-ai-c flex-fd-c flex-jc-c hide-for-desktop"
       >
         <div class="navbar__mobile_menu__grid grid">
@@ -95,10 +151,10 @@
             </a>
           </div>
         </div>
-        <!-- <div class="navbar__mobile_menu__policy">
+        <div class="navbar__mobile_menu__policy">
           <p>Privacy Policy & © Copy Right 2021</p>
-        </div> -->
-      </div>
+        </div>
+      </div> -->
       <div class="navbar__desktop_menu hide-for-mobile">
         <div class="navbar__desktop_menu__links flex">
           <router-link :to="{ name: 'Contacts' }">
@@ -122,6 +178,118 @@
           <router-link :to="{ name: 'Unities' }">
             Unidades
           </router-link>
+        </div>
+      </div>
+    </nav>
+    <nav class="navbar phone_navbar hide-for-desktop">
+      <div class="flex flex-ai-c flex-jc-sb">
+        <router-link class="navbar__logo" :to="{ name: 'Home' }">
+          <img
+            src="../../assets/svg/PORTIC_LOGO.svg"
+            alt="PORTIC"
+            id="logo"
+            @click="closeNavbarOnPageTransition"
+          />
+        </router-link>
+        <div class="navbar__hamburger hide-for-desktop" @click="toggleNavbar">
+          <div class="navbar__hamburger__lines"></div>
+          <div class="navbar__hamburger__lines"></div>
+          <div class="navbar__hamburger__lines"></div>
+        </div>
+      </div>
+      <div class="navbar__toggle collapse">
+        <div class="navbar__content flex flex-fd-c">
+          <div class="navbar__content__main_links flex flex-fd-c">
+            <h3>Links</h3>
+            <hr />
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Positions' }"
+            >
+              Recrutamento
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Areas' }"
+            >
+              Áreas
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Courses' }"
+            >
+              Cursos
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Media' }"
+            >
+              Mídia
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'ProjectsCatalog' }"
+            >
+              Projetos
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Unities' }"
+            >
+              Unidades
+            </router-link>
+          </div>
+          <div class="navbar__content__sec_links">
+            <hr />
+            <h3>Links secundários</h3>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Contacts' }"
+            >
+              Sobre nós
+            </router-link>
+          </div>
+          <div class="navbar__content__socials">
+            <hr />
+            <h3>Redes sociais</h3>
+            <a href="https://twitter.com/politecnico" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/politecnicodoporto/"
+              target="_blank"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.flickr.com/people/politecnicodoporto/"
+              target="_blank"
+            >
+              <i class="fab fa-flickr"></i>
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UCa0njrkoyEd8kwjIVPE5pNg"
+              target="_blank"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/portic-pporto/mycompany/"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/porticpporto" target="_blank">
+              <i class="fab fa-facebook-square"></i>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -149,44 +317,63 @@ export default {
       document.querySelector(".headers").style.top = "0";
       document.querySelector(".headers").style.zIndex = "999";
 
-      setTimeout(() => {
-        window.scroll(0, 0);
-      }, 500);
-
       document.querySelector("#app").style.overflow = "hidden";
 
-      // let title = document.querySelector(".header__title");
-      // title.classList.toggle("change__color");
+      // let navbar__mobile_menu = document.querySelector(".navbar__mobile_menu");
+      // navbar__mobile_menu.classList.toggle("open__overlay");
 
-      let navbar__mobile_menu = document.querySelector(".navbar__mobile_menu");
+      let navbar = document.querySelector(".phone_navbar");
 
-      navbar__mobile_menu.classList.toggle("open__overlay");
+      navbar.classList.toggle("open");
+      let navbar__toggle = document.querySelector(".navbar__toggle");
 
-      // if (navbar__mobile_menu.classList.contains("open__overlay")) {
-      //   document.querySelector(".navbar").style.backgroundColor = "#ffffff";
-      // } else {
-      //   document.querySelector(".navbar").style.backgroundColor = "transparent";
-      // }
+      if (navbar.classList.contains("open")) {
+        navbar__toggle.style.display = "block";
+        let height = navbar__toggle.clientHeight;
 
-      // let navbar__mobile_overlay = document.querySelector(
-      //   ".navbar__mobile_overlay"
-      // );
-      // navbar__mobile_overlay.classList.toggle("overlay_opened");
+        setTimeout(() => {
+          navbar__toggle.style.height = `${height}px`;
+          navbar__toggle.style.display = "";
+        }, 1);
+
+        navbar__toggle.classList = "navbar__toggle collapsing";
+
+        setTimeout(() => {
+          navbar__toggle.classList = "navbar__toggle open";
+        }, 300);
+      } else {
+        navbar__toggle.classList = "navbar__toggle collapsing";
+
+        setTimeout(() => {
+          navbar__toggle.style.height = "0px";
+        }, 1);
+
+        setTimeout(() => {
+          navbar__toggle.classList = "navbar__toggle collapse";
+          navbar__toggle.style.height = "";
+        }, 300);
+      }
+
+      // navbar__toggle.classList.toggle("open");
     },
     closeNavbarOnPageTransition() {
       let lines = document.querySelectorAll(".navbar__hamburger__lines");
 
-      lines.forEach(line => {
-        line.classList.toggle("open");
-      });
-
-      let navbar__mobile_menu = document.querySelector(".navbar__mobile_menu");
+      let navbar__toggle = document.querySelector(".navbar__toggle");
+      let navbar = document.querySelector(".phone_navbar");
 
       // let navbar__mobile_overlay = document.querySelector(
       //   ".navbar__mobile_overlay"
       // );
 
-      navbar__mobile_menu.classList.toggle("open__overlay");
+      if (navbar.classList.contains("open")) {
+        lines.forEach(line => {
+          line.classList.toggle("open");
+        });
+
+        navbar.classList.toggle("open");
+        navbar__toggle.style.display = "none";
+      }
       // navbar__mobile_overlay.classList.toggle("overlay_opened");
     }
   }
