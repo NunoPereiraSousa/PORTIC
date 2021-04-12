@@ -50,6 +50,8 @@ export default {
       );
 
       slide__panel__overlay.classList.toggle("overlay_opened");
+
+      document.body.classList.add("panel-open");
     }
   }
 };

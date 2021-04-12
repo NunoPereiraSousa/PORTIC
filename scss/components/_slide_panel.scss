@@ -2,9 +2,10 @@
   padding: calc(3.1875rem + 2vw) 2rem 4rem;
   background-color: $white;
   overflow: hidden;
+  outline: 0;
 
   position: fixed;
-  z-index: 999;
+  z-index: 1220;
   right: -100%;
   top: 0%;
   bottom: 0%;

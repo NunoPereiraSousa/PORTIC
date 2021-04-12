@@ -158,6 +158,12 @@ export default {
 
       navbar__mobile_menu.classList.toggle("open__overlay");
 
+      // if (navbar__mobile_menu.classList.contains("open__overlay")) {
+      //   document.querySelector(".navbar").style.backgroundColor = "#ffffff";
+      // } else {
+      //   document.querySelector(".navbar").style.backgroundColor = "transparent";
+      // }
+
       // let navbar__mobile_overlay = document.querySelector(
       //   ".navbar__mobile_overlay"
       // );
