@@ -683,7 +683,6 @@ body {
   width: 100%;
   margin: 0;
   overflow-x: hidden;
-  overflow-y: scroll;
   font-family: "Porto Sans";
   font-size: 1rem;
   line-height: 1.4;
@@ -993,6 +992,7 @@ button:focus {
   -webkit-box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 0.1rem 1.25rem;
+  overflow: hidden;
 }
 
 .navbar.normal {
@@ -7253,13 +7253,6 @@ button:focus {
   }
 }
 
-@media (min-width: 120em) {
-  .slide__panel__back {
-    width: 50px;
-    height: 50px;
-  }
-}
-
 .slide__panel__back .arrow {
   position: absolute;
   top: 52%;
@@ -7298,12 +7291,6 @@ button:focus {
   }
 }
 
-@media (min-width: 120em) {
-  .slide__panel__back .arrow::after, .slide__panel__back .arrow::before {
-    height: 3px;
-  }
-}
-
 .slide__panel__back .arrow::after {
   top: -2px;
   -webkit-transform: rotate(45deg);
@@ -7322,12 +7309,6 @@ button:focus {
   }
 }
 
-@media (min-width: 120em) {
-  .slide__panel__back .arrow::after {
-    top: -3px;
-  }
-}
-
 .slide__panel__back .arrow::before {
   top: 2px;
   -webkit-transform: rotate(-45deg);
@@ -7343,12 +7324,6 @@ button:focus {
 @media (min-width: 75em) {
   .slide__panel__back .arrow::before {
     top: 2px;
-  }
-}
-
-@media (min-width: 120em) {
-  .slide__panel__back .arrow::before {
-    top: 3px;
   }
 }
 

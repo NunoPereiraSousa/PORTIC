@@ -155,11 +155,6 @@
       height: 40px;
     }
 
-    @include breakpoint-up(large) {
-      width: 50px;
-      height: 50px;
-    }
-
     cursor: pointer;
 
     .arrow {
@@ -191,10 +186,6 @@
         @include breakpoint-up(desktop) {
           height: 2px;
         }
-
-        @include breakpoint-up(large) {
-          height: 3px;
-        }
       }
 
       &::after {
@@ -208,10 +199,6 @@
         @include breakpoint-up(desktop) {
           top: -2px;
         }
-
-        @include breakpoint-up(large) {
-          top: -3px;
-        }
       }
 
       &::before {
@@ -224,10 +211,6 @@
 
         @include breakpoint-up(desktop) {
           top: 2px;
-        }
-
-        @include breakpoint-up(large) {
-          top: 3px;
         }
       }
     }
