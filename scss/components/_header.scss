@@ -45,8 +45,12 @@
     .navbar__content {
       background-color: $white;
 
-      a {
-        color: $black;
+      &__main_links,
+      &__sec_links,
+      &__socials {
+        a {
+          color: $black;
+        }
       }
     }
   }
@@ -57,6 +61,18 @@
 
     .navbar__hamburger__lines {
       background-color: $black;
+    }
+
+    .navbar__content {
+      background-color: $white;
+
+      &__main_links,
+      &__sec_links,
+      &__socials {
+        a {
+          color: $black;
+        }
+      }
     }
 
     .navbar__desktop_menu {

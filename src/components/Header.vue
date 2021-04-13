@@ -319,9 +319,6 @@ export default {
 
       document.querySelector("#app").style.overflow = "hidden";
 
-      // let navbar__mobile_menu = document.querySelector(".navbar__mobile_menu");
-      // navbar__mobile_menu.classList.toggle("open__overlay");
-
       let navbar = document.querySelector(".phone_navbar");
 
       navbar.classList.toggle("open");
@@ -364,8 +361,6 @@ export default {
           navbar.style.backgroundColor = "";
         }, 301);
       }
-
-      // navbar__toggle.classList.toggle("open");
     },
     closeNavbarOnPageTransition() {
       let lines = document.querySelectorAll(".navbar__hamburger__lines");
@@ -373,16 +368,10 @@ export default {
       let navbar__toggle = document.querySelector(".navbar__toggle");
       let navbar = document.querySelector(".phone_navbar");
 
-      // let navbar__mobile_overlay = document.querySelector(
-      //   ".navbar__mobile_overlay"
-      // );
-
       if (navbar.classList.contains("open")) {
         lines.forEach(line => {
           line.classList.toggle("open");
         });
-
-        console.log("Contains Open");
 
         navbar.classList.toggle("open");
 
@@ -405,10 +394,6 @@ export default {
           }
         });
 
-        console.log("Contains Normal");
-
-        // navbar.classList.toggle("open");
-
         setTimeout(() => {
           navbar__toggle.classList = "navbar__toggle collapse";
           navbar__toggle.style.height = "";
@@ -422,8 +407,6 @@ export default {
           navbar.style.backgroundColor = "";
         }, 301);
       }
-
-      // navbar__mobile_overlay.classList.toggle("overlay_opened");
     }
   }
 };

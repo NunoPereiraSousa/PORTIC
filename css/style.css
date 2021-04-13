@@ -1179,7 +1179,7 @@ button:focus {
   background-color: #ffffff;
 }
 
-.navbar.normal .navbar__content a {
+.navbar.normal .navbar__content__main_links a, .navbar.normal .navbar__content__sec_links a, .navbar.normal .navbar__content__socials a {
   color: #080808;
 }
 
@@ -1191,6 +1191,14 @@ button:focus {
 
 .navbar.scroll.transparent .navbar__hamburger__lines {
   background-color: #080808;
+}
+
+.navbar.scroll.transparent .navbar__content {
+  background-color: #ffffff;
+}
+
+.navbar.scroll.transparent .navbar__content__main_links a, .navbar.scroll.transparent .navbar__content__sec_links a, .navbar.scroll.transparent .navbar__content__socials a {
+  color: #080808;
 }
 
 .navbar.scroll.transparent .navbar__desktop_menu__links a {
