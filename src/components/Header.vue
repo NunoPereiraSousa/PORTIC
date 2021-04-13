@@ -382,7 +382,7 @@ export default {
           line.classList.toggle("open");
         });
 
-        console.log(1);
+        console.log("Contains Open");
 
         navbar.classList.toggle("open");
 
@@ -400,12 +400,14 @@ export default {
         }, 301);
       } else if (navbar.classList.contains("normal")) {
         lines.forEach(line => {
-          line.classList.toggle("open");
+          if (line.classList.contains("open")) {
+            line.classList.toggle("open");
+          }
         });
 
-        console.log(1);
+        console.log("Contains Normal");
 
-        navbar.classList.toggle("open");
+        // navbar.classList.toggle("open");
 
         setTimeout(() => {
           navbar__toggle.classList = "navbar__toggle collapse";
