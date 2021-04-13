@@ -213,7 +213,7 @@
   }
 
   &__content {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
 
     a {
       color: $white;
@@ -240,8 +240,13 @@
     }
 
     &__main_links {
+      &__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
       a {
-        &:first-of-type {
+        &:first-of-type,
+        &:nth-child(2) {
           margin-top: 0;
         }
 
@@ -264,7 +269,7 @@
       }
 
       hr {
-        margin-top: 0;
+        margin: 0 0 $_18px;
       }
     }
 

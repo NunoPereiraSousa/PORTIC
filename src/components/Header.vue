@@ -202,48 +202,50 @@
           <div class="navbar__content__main_links flex flex-fd-c">
             <h3>Links</h3>
             <hr />
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'Positions' }"
-            >
-              Recrutamento
-            </router-link>
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'Areas' }"
-            >
-              Áreas
-            </router-link>
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'Courses' }"
-            >
-              Cursos
-            </router-link>
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'Media' }"
-            >
-              Mídia
-            </router-link>
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'ProjectsCatalog' }"
-            >
-              Projetos
-            </router-link>
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'Unities' }"
-            >
-              Unidades
-            </router-link>
+            <div class="navbar__content__main_links__grid grid">
+              <router-link
+                @click.native="closeNavbarOnPageTransition"
+                class="navbar__mobile_menu__grid__links__link"
+                :to="{ name: 'Positions' }"
+              >
+                Recrutamento
+              </router-link>
+              <router-link
+                @click.native="closeNavbarOnPageTransition"
+                class="navbar__mobile_menu__grid__links__link"
+                :to="{ name: 'Areas' }"
+              >
+                Áreas
+              </router-link>
+              <router-link
+                @click.native="closeNavbarOnPageTransition"
+                class="navbar__mobile_menu__grid__links__link"
+                :to="{ name: 'Courses' }"
+              >
+                Cursos
+              </router-link>
+              <router-link
+                @click.native="closeNavbarOnPageTransition"
+                class="navbar__mobile_menu__grid__links__link"
+                :to="{ name: 'Media' }"
+              >
+                Mídia
+              </router-link>
+              <router-link
+                @click.native="closeNavbarOnPageTransition"
+                class="navbar__mobile_menu__grid__links__link"
+                :to="{ name: 'ProjectsCatalog' }"
+              >
+                Projetos
+              </router-link>
+              <router-link
+                @click.native="closeNavbarOnPageTransition"
+                class="navbar__mobile_menu__grid__links__link"
+                :to="{ name: 'Unities' }"
+              >
+                Unidades
+              </router-link>
+            </div>
           </div>
           <div class="navbar__content__sec_links">
             <hr />
