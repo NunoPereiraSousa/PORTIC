@@ -41,10 +41,6 @@ export default {
     handleScroll() {
       let navbar = document.querySelector(".navbar");
       let phone_navbar = document.querySelector(".phone_navbar");
-      // let navbarLogo = document.querySelector("#logo");
-      // let header = document.querySelector(".headers").offsetHeight;
-      // let current__scroll__pos = window.pageYOffset;
-      // let headers = document.querySelector(".headers");
 
       ScrollTrigger.create({
         trigger: ".landing",
@@ -67,19 +63,6 @@ export default {
           className: "scroll"
         }
       });
-
-      // if (navbar.classList.contains("scroll")) {
-      //   navbarLogo.src = "/img/PORTIC_LOGO_laranja.f448abb8.svg";
-      // } else {
-      //   navbarLogo.src = "/img/PORTIC_LOGO.78c408bf.svg";
-      // }
-
-      // if (this.previous__scroll__pos > current__scroll__pos) {
-      //   headers.style.top = "0px";
-      // } else {
-      //   headers.style.top = `-${header}px`;
-      // }
-      // this.previous__scroll__pos = current__scroll__pos;
     }
   }
 };

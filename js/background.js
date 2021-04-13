@@ -27,9 +27,9 @@ export function background() {
 
     const parameters = [
       [0.25, 0xc94d24, 1],
-      [0.5, 0x808080, 1],
-      [0.75, 0xc94d24, 0.75],
-      [1, 0x808080, 0.5],
+      [0.5, 0x555555, 1],
+      [0.75, 0x555555, 0.75],
+      [1, 0x444444, 0.5],
       [1.25, 0xc94d24, 0.8],
       [3.0, 0xaaaaaa, 0.75],
       [3.5, 0xe3e3e3, 0.5],
@@ -65,8 +65,17 @@ export function background() {
     threeJsScene.appendChild(renderer.domElement);
 
     controls = new OrbitControls(camera, renderer.domElement);
-    controls.minDistance = 600;
-    controls.maxDistance = 1000;
+
+    if (window.innerWidth >= 1500) {
+      controls.minDistance = 400;
+      controls.maxDistance = 500;
+    } else {
+      controls.minDistance = 500;
+      controls.maxDistance = 800;
+    }
+
+    // controls.minDistance = 500;
+    // controls.maxDistance = 800;
     controls.enableRotate = true;
     controls.addEventListener("change", render);
 
