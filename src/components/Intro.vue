@@ -38,13 +38,13 @@
 
         <div class="landing__highlights__grid grid">
           <router-link :to="{ name: 'Areas' }">
-            — <span>Marketing</span>
+            Marketing
           </router-link>
           <router-link :to="{ name: 'Areas' }">
-            — <span>Marketing</span>
+            Porto Global Hub
           </router-link>
           <router-link :to="{ name: 'Areas' }">
-            — <span>Marketing</span>
+            Nasa
           </router-link>
         </div>
       </div>
@@ -52,15 +52,15 @@
       <div class="hide-for-mobile landing__highlights__desktop">
         <h1 class="landing__highlights__title">Destaques de hoje</h1>
 
-        <div class="landing__highlights__grid grid">
+        <div class="landing__highlights__desktop__grid grid">
           <router-link :to="{ name: 'Areas' }">
-            — <span>Marketing</span>
+            Marketing
           </router-link>
           <router-link :to="{ name: 'Areas' }">
-            — <span>Marketing</span>
+            Porto Global Hub
           </router-link>
           <router-link :to="{ name: 'Areas' }">
-            — <span>Marketing</span>
+            Nasa
           </router-link>
         </div>
       </div>

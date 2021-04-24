@@ -2182,7 +2182,7 @@ button:focus {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-@media (min-width: 75em) {
+@media (min-width: 64em) {
   .landing .overlay {
     height: 100vh;
   }
@@ -2204,7 +2204,7 @@ button:focus {
   background-size: cover;
 }
 
-@media (min-width: 75em) {
+@media (min-width: 64em) {
   .landing__image {
     height: 100vh;
     background-position: center;
@@ -2215,6 +2215,12 @@ button:focus {
   position: relative;
   z-index: 999;
   padding: calc(10rem + 2vw) 8vw;
+}
+
+@media (min-width: 64em) {
+  .landing__titles {
+    padding: 2rem 0;
+  }
 }
 
 @media (min-width: 75em) {
@@ -2394,16 +2400,25 @@ button:focus {
 }
 
 .landing__highlights__desktop {
-  background-color: white;
+  background-color: rgba(8, 8, 8, 0.75);
   position: absolute;
   right: 0%;
   bottom: 0%;
-  padding: 3rem 10rem 2rem 3rem;
+  padding: 3rem 4rem;
   border-radius: 10px 0 0 0;
+}
+
+@media (min-width: 75em) {
+  .landing__highlights__desktop__grid {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
 }
 
 .landing__highlights__grid {
   margin-top: 2rem;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
 }
 
 @media (min-width: 48em) {
@@ -2413,14 +2428,7 @@ button:focus {
   }
 }
 
-@media (min-width: 75em) {
-  .landing__highlights__grid {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-  }
-}
-
-.landing__highlights__grid a {
+.landing__highlights a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -2431,33 +2439,33 @@ button:focus {
 }
 
 @media (max-width: 23.375em) {
-  .landing__highlights__grid a {
+  .landing__highlights a {
     font-size: 1rem;
   }
 }
 
 @media (min-width: 64em) {
-  .landing__highlights__grid a {
+  .landing__highlights a {
     font-size: 1.5rem;
     padding: 1.5rem 0;
   }
 }
 
 @media (min-width: 75em) {
-  .landing__highlights__grid a {
+  .landing__highlights a {
     font-size: 1.75rem;
-    color: #080808;
+    color: #ffffff;
   }
 }
 
 @media (min-width: 75em) {
-  .landing__highlights__grid a {
+  .landing__highlights a {
     font-size: 1.125rem;
     padding: 1rem 0;
   }
 }
 
-.landing__highlights__grid a span {
+.landing__highlights a span {
   margin-left: 0.5rem;
 }
 
@@ -3091,11 +3099,14 @@ button:focus {
   z-index: 1;
   width: 100%;
   padding: calc(4.1875rem + 2vw) 8vw;
+  row-gap: 2rem;
 }
 
 @media (min-width: 64em) {
   .quote {
     padding: calc(8.1875rem + 2vw) 8vw;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -3140,8 +3151,9 @@ button:focus {
 
 @media (min-width: 75em) {
   .quote__title {
-    font-size: 2.5rem;
-    line-height: 1.8;
+    font-size: 2.25rem;
+    line-height: 1.4;
+    margin: 0;
   }
 }
 
@@ -3149,6 +3161,22 @@ button:focus {
   .quote__title {
     font-size: 3.125rem;
   }
+}
+
+.quote__paragraph {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+@media (min-width: 120em) {
+  .quote__paragraph {
+    font-size: 1.25rem;
+  }
+}
+
+.quote__paragraph span {
+  color: #c94d24;
 }
 
 .know__more {

@@ -5,8 +5,12 @@
   // height: 100vh;
   padding: calc(4.1875rem + 2vw) 8vw;
 
+  row-gap: 2rem;
+
   @include breakpoint-up(iPadPro) {
     padding: calc(8.1875rem + 2vw) 8vw;
+
+    grid-template-columns: 1fr 1fr;
   }
 
   @include breakpoint-up(desktop) {
@@ -40,12 +44,27 @@
     }
 
     @include breakpoint-up(desktop) {
-      font-size: $_40px;
-      line-height: 1.8;
+      font-size: $_36px;
+      line-height: 1.4;
+      margin: 0;
     }
 
     @include breakpoint-up(large) {
       font-size: $_50px;
+    }
+  }
+
+  &__paragraph {
+    margin: 0;
+    font-size: $_18px;
+    line-height: 1.8;
+
+    @include breakpoint-up(large) {
+      font-size: $_20px;
+    }
+
+    span {
+      color: $orange;
     }
   }
 }
