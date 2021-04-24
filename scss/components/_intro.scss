@@ -2,153 +2,276 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 100vh;
-  padding: calc(12.1875rem + 2vw) 0 0 14vw;
+  // height: 70vh;
+  height: auto;
+  padding: 0;
+
+  grid-template-rows: 60vh auto;
 
   @include breakpoint-down(phone) {
     padding: calc(11.1875rem + 2vw) 0 0 14vw;
   }
 
   @include breakpoint-up(iPadPro) {
-    padding: calc(20.1875rem + 2vw) 0 0 14vw;
+    padding: calc(12.1875rem + 2vw) 0 0 14vw;
+    // height: 80vh;
   }
 
   @include breakpoint-up(desktop) {
-    padding: calc(13.1875rem + 2vw) 0 0 14vw;
+    padding: 0;
+    height: 100vh;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
   }
 
-  @include breakpoint-up(large) {
-    padding: calc(14.1875rem + 2vw) 0 0 14vw;
-  }
-
-  h1 {
-    letter-spacing: 1px;
-    margin: 0;
-    color: $orange;
-    font-size: $_32px;
-    font-family: "Porto Sans Stencil";
-    text-transform: uppercase;
-
-    text-shadow: 5px 5px 4px rgba($color: $black, $alpha: 0.25);
-
-    span {
-      // color: $black;
-      color: $white;
-    }
-
-    @include breakpoint-down(phone) {
-      font-size: $_26px;
-    }
-
-    @include breakpoint-up(tablet) {
-      font-size: $_50px;
-    }
-
-    @include breakpoint-up(iPadPro) {
-      font-size: $_60px;
-    }
+  .overlay {
+    width: 100%;
+    height: 60vh;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.7);
 
     @include breakpoint-up(desktop) {
-      font-size: $_46px;
+      height: 100vh;
     }
 
-    @include breakpoint-up(large) {
-      font-size: $_60px;
+    // @include breakpoint-up(iPadPro) {
+    //   height: 84vh;
+    // }
+
+    // @include breakpoint-up(large) {
+    //   height: 80vh;
+    // }
+  }
+
+  &__image {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0;
+    z-index: -999;
+    width: 100vw;
+    height: 60vh;
+    padding: 0;
+
+    background-image: url("../assets/portic.jpg");
+    background-position: 20% 90%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include breakpoint-up(desktop) {
+      height: 100vh;
+      background-position: center;
     }
   }
 
-  hr {
-    background-color: $orange;
-    width: 50px;
-    height: 4px;
-    border: none;
-    margin: 1rem 0 2.875rem;
-    box-shadow: 4px 4px 4px rgba($color: $black, $alpha: 0.3);
+  &__titles {
+    position: relative;
+    z-index: 999;
+    padding: calc(10rem + 2vw) 8vw;
 
-    @include breakpoint-down(phone) {
-      margin: 1rem 0 1.875rem;
+    @include breakpoint-up(desktop) {
+      padding: calc(12rem + 2vw) 8vw;
     }
 
-    @include breakpoint-up(tablet) {
-      margin: 1.5rem 0 2.875rem;
+    h1 {
+      letter-spacing: 1px;
+      margin: 0;
+      color: $orange;
+      font-size: $_32px;
+      text-transform: uppercase;
+
+      text-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.15);
+
+      span {
+        // color: $black;
+        color: $white;
+      }
+
+      @include breakpoint-down(phone) {
+        font-size: $_26px;
+      }
+
+      @include breakpoint-up(tablet) {
+        font-size: $_50px;
+      }
+
+      @include breakpoint-up(iPadPro) {
+        font-size: $_60px;
+      }
+
+      @include breakpoint-up(desktop) {
+        font-size: $_40px;
+        font-weight: 500;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: $_60px;
+      }
     }
 
-    @include breakpoint-up(iPadPro) {
+    hr {
+      background-color: $orange;
+      width: 50px;
+      height: 4px;
+      border: none;
       margin: 1rem 0 2.875rem;
+      box-shadow: 4px 4px 4px rgba($color: $black, $alpha: 0.15);
+
+      @include breakpoint-down(phone) {
+        margin: 1rem 0 1.875rem;
+      }
+
+      @include breakpoint-up(tablet) {
+        margin: 1.5rem 0 2.875rem;
+      }
+
+      @include breakpoint-up(iPadPro) {
+        margin: 1rem 0 2.875rem;
+      }
+
+      @include breakpoint-up(large) {
+        height: 6px;
+        margin: 1.5rem 0 2.875rem;
+      }
     }
 
-    @include breakpoint-up(large) {
-      height: 6px;
-      margin: 1.5rem 0 2.875rem;
-    }
-  }
-
-  h4 {
-    // text-align: center;
-    margin: 0;
-    // color: $black;
-    color: $white;
-    font-size: $_26px;
-    font-family: $portoSans;
-    font-weight: 400;
-    text-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.3);
-
-    span {
-      // color: $black;
+    h4 {
+      margin: 0;
       color: $white;
-    }
+      font-size: $_22px;
+      font-family: $portoSans;
+      font-weight: 400;
+      text-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.15);
 
-    @include breakpoint-down(phone) {
-      font-size: $_20px;
-    }
+      span {
+        // color: $black;
+        color: $white;
+      }
 
-    @include breakpoint-up(tablet) {
-      font-size: $_30px;
-      line-height: 1.7;
-    }
+      @include breakpoint-down(phone) {
+        font-size: $_20px;
+      }
 
-    @include breakpoint-up(iPadPro) {
-      font-size: $_40px;
-    }
+      @include breakpoint-up(tablet) {
+        font-size: $_30px;
+        line-height: 1.7;
+      }
 
-    @include breakpoint-up(desktop) {
-      font-size: $_30px;
-    }
+      @include breakpoint-up(iPadPro) {
+        font-size: $_40px;
+      }
 
-    @include breakpoint-up(large) {
-      font-size: $_34px;
-      line-height: 1.6;
+      @include breakpoint-up(desktop) {
+        font-size: $_30px;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: $_34px;
+        line-height: 1.6;
+      }
     }
   }
 
-  button {
-    cursor: pointer;
-    margin: 2.875rem 0;
-    padding: 1rem 1.5rem;
-    background-color: $orange;
-    border: none;
-    border-radius: 2px;
-    color: $white;
-    font-size: $_18px;
-    font-family: $portoSansStencil;
-
-    @include breakpoint-down(phone) {
-      font-size: $_16px;
-      margin: 1.875rem 0;
-    }
-
-    @include breakpoint-up(iPadPro) {
-      font-size: $_24px;
-      padding: 1.5rem 1.75rem;
-    }
+  &__highlights {
+    position: relative;
+    z-index: 999;
+    margin: 5vh 8vw;
 
     @include breakpoint-up(desktop) {
-      font-size: $_28px;
+      margin: 0;
+      padding: calc(12rem + 2vw) 8vw;
     }
 
-    @include breakpoint-up(desktop) {
-      font-size: $_18px;
-      padding: 1rem 1.75rem;
+    h1 {
+      position: relative;
+
+      color: $orange;
+      font-weight: 500;
+      font-size: $_26px;
+
+      margin-bottom: 2rem;
+
+      @include breakpoint-up(tablet) {
+        font-size: $_34px;
+        margin-bottom: 4rem;
+      }
+
+      @include breakpoint-up(desktop) {
+        margin-top: 0;
+        font-size: $_22px;
+        margin-bottom: 3rem;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0%;
+        bottom: -30%;
+        height: 2.5px;
+        width: 30px;
+        background-color: $orange;
+      }
+    }
+
+    &__desktop {
+      background-color: rgba($color: $white, $alpha: 1);
+      position: absolute;
+      right: 0%;
+      bottom: 0%;
+
+      padding: 3rem 10rem 2rem 3rem;
+      border-radius: 10px 0 0 0;
+    }
+
+    &__grid {
+      margin-top: 2rem;
+
+      @include breakpoint-up(tablet) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      @include breakpoint-up(desktop) {
+        grid-template-columns: 1fr;
+      }
+
+      a {
+        width: fit-content;
+
+        cursor: pointer;
+        padding: 1rem 0;
+
+        color: $black;
+        font-size: $_18px;
+
+        @include breakpoint-down(phone) {
+          font-size: $_16px;
+        }
+
+        @include breakpoint-up(iPadPro) {
+          font-size: $_24px;
+          padding: 1.5rem 0;
+        }
+
+        @include breakpoint-up(desktop) {
+          font-size: $_28px;
+
+          color: $black;
+        }
+
+        @include breakpoint-up(desktop) {
+          font-size: $_18px;
+          padding: 1rem 0;
+        }
+
+        span {
+          margin-left: 0.5rem;
+        }
+      }
     }
   }
 
@@ -156,6 +279,7 @@
     width: 100%;
     background-color: $lightGrey;
     position: absolute;
+    z-index: 50;
     bottom: 4%;
     left: 50%;
     transform: translateX(-50%);
@@ -207,6 +331,7 @@
       font-family: $portoSansStencil;
       font-weight: 400;
       color: $black;
+      mix-blend-mode: difference;
 
       @include breakpoint-up(iPadPro) {
         // color: $black;

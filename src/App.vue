@@ -45,8 +45,8 @@ export default {
       ScrollTrigger.create({
         trigger: ".landing",
         endTrigger: ".footer",
-        start: "bottom top-=-80",
-        end: "bottom top-=-80",
+        start: "bottom top-=-400",
+        end: "bottom top-=-400",
         toggleClass: {
           targets: navbar,
           className: "scroll"

@@ -829,6 +829,12 @@ a {
   }
 }
 
+@media (max-width: 63.9375em) and (min-width: 20em) {
+  .hide-above-phone-iPadPro {
+    display: none;
+  }
+}
+
 @media (max-width: 63.9375em) and (min-width: 48em) {
   .show-tablet-hide-phone {
     display: block;
@@ -862,11 +868,25 @@ a {
 .scene,
 canvas {
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   position: absolute;
   top: 0%;
   left: 0%;
   z-index: -5;
+}
+
+@media (min-width: 64em) {
+  .scene,
+  canvas {
+    height: 86vh;
+  }
+}
+
+@media (min-width: 120em) {
+  .scene,
+  canvas {
+    height: 80vh;
+  }
 }
 
 button {
@@ -1148,6 +1168,15 @@ button:focus {
   -webkit-box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 0.1rem 1.25rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+@media (min-width: 75em) {
+  .navbar {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
 }
 
 .navbar.phone_navbar {
@@ -1250,7 +1279,7 @@ button:focus {
 
 .navbar__hamburger__lines {
   height: 2px;
-  background-color: #ffffff;
+  background-color: #080808;
   position: absolute;
   z-index: 999;
   right: 0%;
@@ -2114,8 +2143,10 @@ button:focus {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 100vh;
-  padding: calc(12.1875rem + 2vw) 0 0 14vw;
+  height: auto;
+  padding: 0;
+  -ms-grid-rows: 60vh auto;
+      grid-template-rows: 60vh auto;
 }
 
 @media (max-width: 23.375em) {
@@ -2126,189 +2157,315 @@ button:focus {
 
 @media (min-width: 64em) {
   .landing {
-    padding: calc(20.1875rem + 2vw) 0 0 14vw;
+    padding: calc(12.1875rem + 2vw) 0 0 14vw;
   }
 }
 
 @media (min-width: 75em) {
   .landing {
-    padding: calc(13.1875rem + 2vw) 0 0 14vw;
+    padding: 0;
+    height: 100vh;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
   }
 }
 
-@media (min-width: 120em) {
-  .landing {
-    padding: calc(14.1875rem + 2vw) 0 0 14vw;
+.landing .overlay {
+  width: 100%;
+  height: 60vh;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 75em) {
+  .landing .overlay {
+    height: 100vh;
   }
 }
 
-.landing h1 {
+.landing__image {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0;
+  z-index: -999;
+  width: 100vw;
+  height: 60vh;
+  padding: 0;
+  background-image: url("../assets/portic.jpg");
+  background-position: 20% 90%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 75em) {
+  .landing__image {
+    height: 100vh;
+    background-position: center;
+  }
+}
+
+.landing__titles {
+  position: relative;
+  z-index: 999;
+  padding: calc(10rem + 2vw) 8vw;
+}
+
+@media (min-width: 75em) {
+  .landing__titles {
+    padding: calc(12rem + 2vw) 8vw;
+  }
+}
+
+.landing__titles h1 {
   letter-spacing: 1px;
   margin: 0;
   color: #c94d24;
   font-size: 2rem;
-  font-family: "Porto Sans Stencil";
   text-transform: uppercase;
-  text-shadow: 5px 5px 4px rgba(8, 8, 8, 0.25);
+  text-shadow: 3px 3px 4px rgba(8, 8, 8, 0.15);
 }
 
-.landing h1 span {
+.landing__titles h1 span {
   color: #ffffff;
 }
 
 @media (max-width: 23.375em) {
-  .landing h1 {
+  .landing__titles h1 {
     font-size: 1.625rem;
   }
 }
 
 @media (min-width: 48em) {
-  .landing h1 {
+  .landing__titles h1 {
     font-size: 3.125rem;
   }
 }
 
 @media (min-width: 64em) {
-  .landing h1 {
+  .landing__titles h1 {
     font-size: 3.75rem;
   }
 }
 
 @media (min-width: 75em) {
-  .landing h1 {
-    font-size: 2.875rem;
+  .landing__titles h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
   }
 }
 
 @media (min-width: 120em) {
-  .landing h1 {
+  .landing__titles h1 {
     font-size: 3.75rem;
   }
 }
 
-.landing hr {
+.landing__titles hr {
   background-color: #c94d24;
   width: 50px;
   height: 4px;
   border: none;
   margin: 1rem 0 2.875rem;
-  -webkit-box-shadow: 4px 4px 4px rgba(8, 8, 8, 0.3);
-          box-shadow: 4px 4px 4px rgba(8, 8, 8, 0.3);
+  -webkit-box-shadow: 4px 4px 4px rgba(8, 8, 8, 0.15);
+          box-shadow: 4px 4px 4px rgba(8, 8, 8, 0.15);
 }
 
 @media (max-width: 23.375em) {
-  .landing hr {
+  .landing__titles hr {
     margin: 1rem 0 1.875rem;
   }
 }
 
 @media (min-width: 48em) {
-  .landing hr {
+  .landing__titles hr {
     margin: 1.5rem 0 2.875rem;
   }
 }
 
 @media (min-width: 64em) {
-  .landing hr {
+  .landing__titles hr {
     margin: 1rem 0 2.875rem;
   }
 }
 
 @media (min-width: 120em) {
-  .landing hr {
+  .landing__titles hr {
     height: 6px;
     margin: 1.5rem 0 2.875rem;
   }
 }
 
-.landing h4 {
+.landing__titles h4 {
   margin: 0;
   color: #ffffff;
-  font-size: 1.625rem;
+  font-size: 1.375rem;
   font-family: "Porto Sans";
   font-weight: 400;
-  text-shadow: 3px 3px 4px rgba(8, 8, 8, 0.3);
+  text-shadow: 3px 3px 4px rgba(8, 8, 8, 0.15);
 }
 
-.landing h4 span {
+.landing__titles h4 span {
   color: #ffffff;
 }
 
 @media (max-width: 23.375em) {
-  .landing h4 {
+  .landing__titles h4 {
     font-size: 1.25rem;
   }
 }
 
 @media (min-width: 48em) {
-  .landing h4 {
+  .landing__titles h4 {
     font-size: 1.875rem;
     line-height: 1.7;
   }
 }
 
 @media (min-width: 64em) {
-  .landing h4 {
+  .landing__titles h4 {
     font-size: 2.5rem;
   }
 }
 
 @media (min-width: 75em) {
-  .landing h4 {
+  .landing__titles h4 {
     font-size: 1.875rem;
   }
 }
 
 @media (min-width: 120em) {
-  .landing h4 {
+  .landing__titles h4 {
     font-size: 2.125rem;
     line-height: 1.6;
   }
 }
 
-.landing button {
-  cursor: pointer;
-  margin: 2.875rem 0;
-  padding: 1rem 1.5rem;
+.landing__highlights {
+  position: relative;
+  z-index: 999;
+  margin: 5vh 8vw;
+}
+
+@media (min-width: 75em) {
+  .landing__highlights {
+    margin: 0;
+    padding: calc(12rem + 2vw) 8vw;
+  }
+}
+
+.landing__highlights h1 {
+  position: relative;
+  color: #c94d24;
+  font-weight: 500;
+  font-size: 1.625rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 48em) {
+  .landing__highlights h1 {
+    font-size: 2.125rem;
+    margin-bottom: 4rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .landing__highlights h1 {
+    margin-top: 0;
+    font-size: 1.375rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.landing__highlights h1::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: -30%;
+  height: 2.5px;
+  width: 30px;
   background-color: #c94d24;
-  border: none;
-  border-radius: 2px;
-  color: #ffffff;
+}
+
+.landing__highlights__desktop {
+  background-color: white;
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  padding: 3rem 10rem 2rem 3rem;
+  border-radius: 10px 0 0 0;
+}
+
+.landing__highlights__grid {
+  margin-top: 2rem;
+}
+
+@media (min-width: 48em) {
+  .landing__highlights__grid {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 75em) {
+  .landing__highlights__grid {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.landing__highlights__grid a {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  padding: 1rem 0;
+  color: #080808;
   font-size: 1.125rem;
-  font-family: "Porto Sans Stencil";
 }
 
 @media (max-width: 23.375em) {
-  .landing button {
+  .landing__highlights__grid a {
     font-size: 1rem;
-    margin: 1.875rem 0;
   }
 }
 
 @media (min-width: 64em) {
-  .landing button {
+  .landing__highlights__grid a {
     font-size: 1.5rem;
-    padding: 1.5rem 1.75rem;
+    padding: 1.5rem 0;
   }
 }
 
 @media (min-width: 75em) {
-  .landing button {
+  .landing__highlights__grid a {
     font-size: 1.75rem;
+    color: #080808;
   }
 }
 
 @media (min-width: 75em) {
-  .landing button {
+  .landing__highlights__grid a {
     font-size: 1.125rem;
-    padding: 1rem 1.75rem;
+    padding: 1rem 0;
   }
+}
+
+.landing__highlights__grid a span {
+  margin-left: 0.5rem;
 }
 
 .landing__down {
   width: 100%;
   background-color: #666666;
   position: absolute;
+  z-index: 50;
   bottom: 4%;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -2370,6 +2527,7 @@ button:focus {
   font-family: "Porto Sans Stencil";
   font-weight: 400;
   color: #080808;
+  mix-blend-mode: difference;
 }
 
 @media (min-width: 64em) {
@@ -2932,7 +3090,7 @@ button:focus {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: calc(6.1875rem + 2vw) 8vw;
+  padding: calc(4.1875rem + 2vw) 8vw;
 }
 
 @media (min-width: 64em) {
@@ -3122,17 +3280,9 @@ button:focus {
   }
 }
 
-.overlay {
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0);
-}
-
 .news {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   padding: calc(2.1875rem + 2vw) 8vw calc(6.1875rem + 2vw);
   background-color: #080808;

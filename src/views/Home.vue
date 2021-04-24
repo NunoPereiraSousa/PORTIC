@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <div class="scene"></div>
-    <!-- <div class="overlay"></div> -->
+    <!-- <div class="scene"></div> -->
     <Intro extra="" keyword="PORTIC" />
     <Quote />
     <section class="news">
@@ -115,7 +114,7 @@ import SlidePanel from "@/components/SlidePanel.vue";
 // import TestimonialCard from "@/components/TestimonialCard.vue";
 import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
-import { background } from "../../js/background";
+// import { background } from "../../js/background";
 
 export default {
   name: "Home",
@@ -140,7 +139,7 @@ export default {
   },
   created() {},
   mounted() {
-    background();
+    // background();
     this.newsArr = this.getNews;
     this.newsContent = this.getNewsById;
   },

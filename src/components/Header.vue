@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav
-      class="navbar flex flex-jc-sb flex-ai-c hide-above-phone"
+      class="navbar flex flex-jc-sb flex-ai-c hide-above-phone-iPadPro"
       :class="theme"
     >
       <router-link class="navbar__logo" :to="{ name: 'Home' }">

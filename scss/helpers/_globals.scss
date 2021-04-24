@@ -91,6 +91,11 @@ a {
     display: none;
   }
 }
+.hide-above-phone-iPadPro {
+  @include breakpoint-middle(iPadPro, smallPhone) {
+    display: none;
+  }
+}
 
 .show-tablet-hide-phone {
   @include breakpoint-middle(iPadPro, tablet) {
@@ -125,11 +130,19 @@ a {
 .scene,
 canvas {
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   position: absolute;
   top: 0%;
   left: 0%;
   z-index: -5;
+
+  @include breakpoint-up(iPadPro) {
+    height: 86vh;
+  }
+
+  @include breakpoint-up(large) {
+    height: 80vh;
+  }
 
   // @include breakpoint-up(desktop) {
   //   top: 5%;

@@ -16,21 +16,21 @@
               {{ usaTime }}
               <sup>AM</sup>
             </h2>
-            <p>USA</p>
+            <p>WASHINGTON</p>
           </div>
           <div class="footer__grid__timezones__times">
             <h2>
               {{ australianTime }}
               <sup>AM</sup>
             </h2>
-            <p>AUSTRALIA</p>
+            <p>MELBOURNE</p>
           </div>
           <div class="footer__grid__timezones__times">
             <h2>
               {{ japaneseTime }}
               <sup>AM</sup>
             </h2>
-            <p>JAPAN</p>
+            <p>TOKIO</p>
           </div>
         </div>
       </div>

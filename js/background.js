@@ -31,10 +31,7 @@ export function background() {
       [0.75, 0x555555, 0.75],
       [1, 0x444444, 0.5],
       [1.25, 0xc94d24, 0.8],
-      [3.0, 0xaaaaaa, 0.75],
-      [3.5, 0xe3e3e3, 0.5],
-      [4.5, 0xe3e3e3, 0.25],
-      [5.5, 0xe3e3e3, 0.125]
+      [3.0, 0x444444, 0.75]
     ];
 
     const geometry = createGeometry();
@@ -68,7 +65,7 @@ export function background() {
 
     if (window.innerWidth >= 1500) {
       controls.minDistance = 400;
-      controls.maxDistance = 500;
+      controls.maxDistance = 900;
     } else {
       controls.minDistance = 500;
       controls.maxDistance = 800;
@@ -106,7 +103,7 @@ export function background() {
 
     const vertex = new THREE.Vector3();
 
-    for (let i = 0; i < 1500; i++) {
+    for (let i = 0; i < 900; i++) {
       vertex.x = Math.random() * 2 - 1;
       vertex.y = Math.random() * 2 - 1;
       vertex.z = Math.random() * 2 - 1;
@@ -170,7 +167,7 @@ export function background() {
         if (i < 5) {
           const scale =
             object.userData.originalScale *
-            (i / 5 + 1) *
+            (i / 3 + 1) *
             (1 + 0.5 * Math.sin(2 * time));
 
           object.scale.x = object.scale.y = object.scale.z = scale;
