@@ -2400,7 +2400,6 @@ button:focus {
 }
 
 .landing__highlights__desktop {
-  background-color: rgba(8, 8, 8, 0.75);
   position: absolute;
   right: 0%;
   bottom: 0%;
@@ -2408,11 +2407,35 @@ button:focus {
   border-radius: 10px 0 0 0;
 }
 
-@media (min-width: 75em) {
-  .landing__highlights__desktop__grid {
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-  }
+.landing__highlights__desktop__grid {
+  width: 100%;
+  row-gap: 2rem;
+}
+
+.landing__highlights__desktop__grid svg {
+  fill: #c94d24;
+  width: 30px;
+  height: auto;
+  margin-right: 1.5rem;
+}
+
+.landing__highlights__desktop__grid a {
+  -ms-grid-columns: min-content 1fr;
+      grid-template-columns: -webkit-min-content 1fr;
+      grid-template-columns: min-content 1fr;
+  text-align: left;
+  background-color: rgba(8, 8, 8, 0.5);
+  color: #ffffff;
+  border-radius: 30px;
+  width: 100%;
+  padding: 1rem 2.5rem;
+  font-size: 1.0625rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.landing__highlights__desktop__grid a:hover {
+  background-color: rgba(8, 8, 8, 0.8);
 }
 
 .landing__highlights__grid {
@@ -2428,7 +2451,7 @@ button:focus {
   }
 }
 
-.landing__highlights a {
+.landing__highlights__grid a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -2439,33 +2462,33 @@ button:focus {
 }
 
 @media (max-width: 23.375em) {
-  .landing__highlights a {
+  .landing__highlights__grid a {
     font-size: 1rem;
   }
 }
 
 @media (min-width: 64em) {
-  .landing__highlights a {
+  .landing__highlights__grid a {
     font-size: 1.5rem;
     padding: 1.5rem 0;
   }
 }
 
 @media (min-width: 75em) {
-  .landing__highlights a {
+  .landing__highlights__grid a {
     font-size: 1.75rem;
     color: #ffffff;
   }
 }
 
 @media (min-width: 75em) {
-  .landing__highlights a {
+  .landing__highlights__grid a {
     font-size: 1.125rem;
     padding: 1rem 0;
   }
 }
 
-.landing__highlights a span {
+.landing__highlights__grid a span {
   margin-left: 0.5rem;
 }
 

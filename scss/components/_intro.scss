@@ -223,7 +223,7 @@
     }
 
     &__desktop {
-      background-color: rgba($color: $black, $alpha: 0.75);
+      // background-color: rgba($color: $black, $alpha: 0.75);
       position: absolute;
       right: 0%;
       bottom: 0%;
@@ -232,8 +232,41 @@
       border-radius: 10px 0 0 0;
 
       &__grid {
-        @include breakpoint-up(desktop) {
-          grid-template-columns: 1fr 1fr;
+        // @include breakpoint-up(desktop) {
+        //   grid-template-columns: 1fr 1fr;
+        // }
+        width: 100%;
+
+        row-gap: 2rem;
+
+        svg {
+          fill: $orange;
+
+          width: 30px;
+          height: auto;
+
+          margin-right: 1.5rem;
+        }
+
+        a {
+          grid-template-columns: min-content 1fr;
+
+          text-align: left;
+          background-color: rgba($color: $black, $alpha: 0.5);
+          color: $white;
+
+          border-radius: 30px;
+
+          width: 100%;
+          padding: 1rem 2.5rem;
+
+          font-size: $_17px;
+
+          transition: all 0.5s;
+
+          &:hover {
+            background-color: rgba($color: $black, $alpha: 0.8);
+          }
         }
       }
     }
@@ -245,38 +278,38 @@
       @include breakpoint-up(tablet) {
         grid-template-columns: 1fr 1fr 1fr;
       }
-    }
 
-    a {
-      width: fit-content;
+      a {
+        width: fit-content;
 
-      cursor: pointer;
-      padding: 1rem 0;
-
-      color: $black;
-      font-size: $_18px;
-
-      @include breakpoint-down(phone) {
-        font-size: $_16px;
-      }
-
-      @include breakpoint-up(iPadPro) {
-        font-size: $_24px;
-        padding: 1.5rem 0;
-      }
-
-      @include breakpoint-up(desktop) {
-        font-size: $_28px;
-        color: $white;
-      }
-
-      @include breakpoint-up(desktop) {
-        font-size: $_18px;
+        cursor: pointer;
         padding: 1rem 0;
-      }
 
-      span {
-        margin-left: 0.5rem;
+        color: $black;
+        font-size: $_18px;
+
+        @include breakpoint-down(phone) {
+          font-size: $_16px;
+        }
+
+        @include breakpoint-up(iPadPro) {
+          font-size: $_24px;
+          padding: 1.5rem 0;
+        }
+
+        @include breakpoint-up(desktop) {
+          font-size: $_28px;
+          color: $white;
+        }
+
+        @include breakpoint-up(desktop) {
+          font-size: $_18px;
+          padding: 1rem 0;
+        }
+
+        span {
+          margin-left: 0.5rem;
+        }
       }
     }
   }
