@@ -1,6 +1,7 @@
 <template>
   <div class="news__cards__card grid">
-    <img :src="image" alt="News Image" />
+    <!-- <img :src="image" alt="News Image" /> -->
+    <div class="news__cards__card__image" :style="imageStyle"></div>
     <div class="news__cars__card__content flex flex-fd-c flex-jc-sb">
       <h2>{{ title }}</h2>
       <p>{{ desc }}</p>
@@ -24,7 +25,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getNews", "getNewsById"])
+    ...mapGetters(["getNews", "getNewsById"]),
+    imageStyle() {
+      return `background-image: url('${this.image}')`;
+    }
   },
   methods: {
     toggleNews(id) {

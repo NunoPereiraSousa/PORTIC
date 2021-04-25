@@ -1,8 +1,6 @@
 <template>
   <div class="unities__grid__card grid">
-    <div class="unities__grid__card__image">
-      <img :src="imageUrl" alt="" />
-    </div>
+    <div class="unities__grid__card__image" :style="imageStyle"></div>
     <div class="unities__grid__card__info grid">
       <div class="flex flex-ai-c flex-jc-sb">
         <h4 class="unities__grid__card__info__subtitle">
@@ -55,6 +53,11 @@ export default {
     id: {
       type: Number,
       required: true
+    }
+  },
+  computed: {
+    imageStyle() {
+      return `background-image: url('${this.imageUrl}')`;
     }
   },
   methods: {

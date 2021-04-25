@@ -57,10 +57,11 @@
         column-gap: 0;
       }
 
-      img {
+      &__image {
         height: 12.375rem;
-        width: 100%;
-        object-fit: center;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
 
         @include breakpoint-down(phone) {
           height: 10.375rem;
