@@ -2,8 +2,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  // height: 70vh;
-  height: auto;
+  height: 100vh;
   padding: 0;
 
   grid-template-rows: 60vh auto;
@@ -186,13 +185,82 @@
   }
 
   &__highlights {
-    position: relative;
+    position: absolute;
+    left: 8vw;
+    bottom: 2rem;
     z-index: 999;
-    margin: 5vh 8vw;
+
+    // padding: 0 8vw 2rem;
+
+    border-radius: 10px 0 0 0;
 
     @include breakpoint-up(desktop) {
-      margin: 0;
-      padding: calc(12rem + 2vw) 8vw;
+      left: 76%;
+      bottom: 7%;
+    }
+
+    @include breakpoint-up(large) {
+      left: 80%;
+      bottom: 7%;
+    }
+
+    &__grid {
+      width: 100%;
+
+      row-gap: 1.5rem;
+
+      a {
+        grid-template-columns: min-content 1fr;
+
+        text-align: left;
+        background-color: rgba($color: $white, $alpha: 0.2);
+        color: $white;
+
+        border-radius: 20px;
+
+        width: 100%;
+        padding: 1rem 1.2rem;
+
+        font-size: $_15px;
+
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: rgba($color: $orange, $alpha: 1);
+          color: $white;
+        }
+
+        &:hover svg path {
+          fill: $white;
+        }
+
+        @include breakpoint-up(desktop) {
+          padding: 1rem 2.5rem;
+          font-size: $_17px;
+          border-radius: 30px;
+          background-color: rgba($color: $white, $alpha: 1);
+          color: $black;
+
+          white-space: nowrap;
+        }
+
+        svg {
+          fill: $orange;
+
+          width: 20px;
+          height: auto;
+
+          margin-right: 0.75rem;
+          transition: all 0.2s;
+
+          @include breakpoint-up(desktop) {
+            margin-right: 1.5rem;
+            width: 30px;
+            color: $black;
+            fill: $orange;
+          }
+        }
+      }
     }
 
     h1 {
@@ -223,103 +291,6 @@
         height: 2.5px;
         width: 30px;
         background-color: $orange;
-      }
-    }
-
-    &__desktop {
-      // background-color: rgba($color: $black, $alpha: 0.75);
-      position: absolute;
-      right: 0%;
-      bottom: 0%;
-
-      padding: 3rem 4rem;
-      border-radius: 10px 0 0 0;
-
-      &__grid {
-        // @include breakpoint-up(desktop) {
-        //   grid-template-columns: 1fr 1fr;
-        // }
-        width: 100%;
-
-        row-gap: 2rem;
-
-        svg {
-          fill: $orange;
-
-          width: 30px;
-          height: auto;
-
-          margin-right: 1.5rem;
-          transition: all 0.2s;
-        }
-
-        a {
-          grid-template-columns: min-content 1fr;
-
-          text-align: left;
-          background-color: rgba($color: $white, $alpha: 1);
-          color: $black;
-
-          border-radius: 30px;
-
-          width: 100%;
-          padding: 1rem 2.5rem;
-
-          font-size: $_17px;
-
-          transition: all 0.2s;
-
-          &:hover {
-            background-color: rgba($color: $orange, $alpha: 1);
-            color: $white;
-          }
-
-          &:hover svg {
-            fill: $white;
-          }
-        }
-      }
-    }
-
-    &__grid {
-      margin-top: 2rem;
-      grid-template-columns: 1fr 1fr;
-
-      @include breakpoint-up(tablet) {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-
-      a {
-        width: fit-content;
-
-        cursor: pointer;
-        padding: 1rem 0;
-
-        color: $black;
-        font-size: $_18px;
-
-        @include breakpoint-down(phone) {
-          font-size: $_16px;
-        }
-
-        @include breakpoint-up(iPadPro) {
-          font-size: $_24px;
-          padding: 1.5rem 0;
-        }
-
-        @include breakpoint-up(desktop) {
-          font-size: $_28px;
-          color: $white;
-        }
-
-        @include breakpoint-up(desktop) {
-          font-size: $_18px;
-          padding: 1rem 0;
-        }
-
-        span {
-          margin-left: 0.5rem;
-        }
       }
     }
   }

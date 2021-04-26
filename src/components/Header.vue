@@ -155,28 +155,29 @@
           <p>Privacy Policy & © Copy Right 2021</p>
         </div>
       </div> -->
+
       <div class="navbar__desktop_menu hide-for-mobile">
         <div class="navbar__desktop_menu__links flex">
           <router-link :to="{ name: 'Contacts' }">
-            Sobre nós
-          </router-link>
-          <router-link :to="{ name: 'Positions' }">
-            Recrutamento
-          </router-link>
-          <router-link :to="{ name: 'Areas' }">
-            Áreas
-          </router-link>
-          <router-link :to="{ name: 'Courses' }">
-            Cursos
-          </router-link>
-          <router-link :to="{ name: 'Media' }">
-            Mídia
-          </router-link>
-          <router-link :to="{ name: 'ProjectsCatalog' }">
-            Projetos
+            {{ $t("navbar.items[0]") }}
           </router-link>
           <router-link :to="{ name: 'Unities' }">
-            Unidades
+            {{ $t("navbar.items[1]") }}
+          </router-link>
+          <router-link :to="{ name: 'Areas' }">
+            {{ $t("navbar.items[2]") }}
+          </router-link>
+          <router-link :to="{ name: 'Courses' }">
+            {{ $t("navbar.items[3]") }}
+          </router-link>
+          <router-link :to="{ name: 'ProjectsCatalog' }">
+            {{ $t("navbar.items[4]") }}
+          </router-link>
+          <router-link :to="{ name: 'Media' }">
+            {{ $t("navbar.items[5]") }}
+          </router-link>
+          <router-link :to="{ name: 'Positions' }">
+            {{ $t("navbar.items[6]") }}
           </router-link>
         </div>
       </div>

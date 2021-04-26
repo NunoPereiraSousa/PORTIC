@@ -1,15 +1,28 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
-import en from "./languages/en.json";
-import pt from "./languages/pt.json";
 Vue.use(VueI18n);
 
+function loadLocaleMessages() {
+  const locales = require.context(
+    "./locales",
+    true,
+    /[A-Za-z0-9-_,\s]+\.json$/i
+  );
+  const messages = {};
+  locales.keys().forEach(key => {
+    const matched = key.match(/([A-Za-z0-9-_]+)\./i);
+    if (matched && matched.length > 1) {
+      const locale = matched[1];
+      messages[locale] = locales(key);
+    }
+  });
+  return messages;
+}
+
 const i18n = new VueI18n({
-  locale: "pt",
-  messages: {
-    pt: pt,
-    en: en
-  }
+  locale: process.env.VUE_APP_I18N_LOCALE || "pt",
+  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || "pt",
+  messages: loadLocaleMessages()
 });
 
 export default i18n;

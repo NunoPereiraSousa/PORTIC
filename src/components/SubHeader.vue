@@ -41,9 +41,11 @@
       </a>
     </div>
     <div class="subheader__languages flex flex-jc-sb flex-ai-c">
-      <button @click="changeLangEN">EN</button>
+      <button class="en" @click="changeLangEN">EN</button>
       <hr />
-      <button @click="changeLangPT">PT</button>
+      <button class="pt selected" @click="changeLangPT">
+        PT
+      </button>
     </div>
   </header>
 </template>
@@ -53,16 +55,27 @@ export default {
   name: "SubHeader",
   data: () => {
     return {
-      en: "",
-      pt: ""
+      isDisabled: false
     };
   },
   methods: {
     changeLangEN() {
       this.$i18n.locale = "en";
+
+      let enBtn = document.querySelector(".en");
+      let ptBtn = document.querySelector(".pt");
+
+      ptBtn.classList.remove("selected");
+      enBtn.classList.add("selected");
     },
     changeLangPT() {
       this.$i18n.locale = "pt";
+
+      let enBtn = document.querySelector(".en");
+      let ptBtn = document.querySelector(".pt");
+
+      enBtn.classList.remove("selected");
+      ptBtn.classList.add("selected");
     }
   }
 };

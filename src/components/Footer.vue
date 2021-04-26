@@ -2,7 +2,15 @@
   <div class="footer">
     <section class="footer__grid grid">
       <div class="footer__grid__timezones">
-        <h1 class="footer__grid__timezones__title title">{{ today }}</h1>
+        <h1 class="footer__grid__timezones__title title">
+          {{
+            $t("footer.timezoneArea.title", {
+              weekDay: getWeekDay,
+              day: getDay,
+              month: getMonth
+            })
+          }}
+        </h1>
         <div class="footer__grid__timezones__worldwide grid">
           <div class="footer__grid__timezones__times">
             <h2>
@@ -30,7 +38,7 @@
               {{ japaneseTime }}
               <sup>AM</sup>
             </h2>
-            <p>TOKIO</p>
+            <p>TOKYO</p>
           </div>
         </div>
       </div>
@@ -59,25 +67,25 @@
         <h1 class="footer__grid__links__title title">Links rápidos</h1>
         <div class="footer__grid__links__info grid">
           <router-link :to="{ name: 'Contacts' }">
-            Sobre nós
-          </router-link>
-          <router-link :to="{ name: 'Positions' }">
-            Recrutamento
-          </router-link>
-          <router-link :to="{ name: 'Areas' }">
-            Áreas
-          </router-link>
-          <router-link :to="{ name: 'Courses' }">
-            Cursos
-          </router-link>
-          <router-link :to="{ name: 'Media' }">
-            Mídia
-          </router-link>
-          <router-link :to="{ name: 'ProjectsCatalog' }">
-            Projetos
+            {{ $t("navbar.items[0]") }}
           </router-link>
           <router-link :to="{ name: 'Unities' }">
-            Unidades
+            {{ $t("navbar.items[1]") }}
+          </router-link>
+          <router-link :to="{ name: 'Areas' }">
+            {{ $t("navbar.items[2]") }}
+          </router-link>
+          <router-link :to="{ name: 'Courses' }">
+            {{ $t("navbar.items[3]") }}
+          </router-link>
+          <router-link :to="{ name: 'ProjectsCatalog' }">
+            {{ $t("navbar.items[4]") }}
+          </router-link>
+          <router-link :to="{ name: 'Media' }">
+            {{ $t("navbar.items[5]") }}
+          </router-link>
+          <router-link :to="{ name: 'Positions' }">
+            {{ $t("navbar.items[6]") }}
           </router-link>
         </div>
       </div>
@@ -157,6 +165,9 @@ export default {
       australianTime: "",
       usaTime: "",
       londonTime: "",
+      weekDay: "",
+      day: "",
+      month: "",
       weekDays: [
         "Sunday",
         "Monday",
@@ -181,7 +192,142 @@ export default {
   unmounted() {
     clearInterval(this.updateTimes);
   },
-  computed: {},
+  computed: {
+    getWeekDay() {
+      let today = this.getDateTime();
+
+      let weekDay = "";
+
+      switch (today.getDay()) {
+        case 0:
+          this.$i18n.locale == "pt"
+            ? (weekDay = "Domingo")
+            : (weekDay = "Sunday");
+          break;
+        case 1:
+          this.$i18n.locale == "pt"
+            ? (weekDay = "Segunda")
+            : (weekDay = "Monday");
+          break;
+        case 2:
+          this.$i18n.locale == "pt"
+            ? (weekDay = "Terça")
+            : (weekDay = "Tuesday");
+          break;
+        case 3:
+          this.$i18n.locale == "pt"
+            ? (weekDay = "Quarta")
+            : (weekDay = "Wednesday");
+          break;
+        case 4:
+          this.$i18n.locale == "pt"
+            ? (weekDay = "Quinta")
+            : (weekDay = "Thursday");
+          break;
+        case 5:
+          this.$i18n.locale == "pt"
+            ? (weekDay = "Sexta")
+            : (weekDay = "Friday");
+          break;
+        case 6:
+          this.$i18n.locale == "pt"
+            ? (weekDay = "Sábado")
+            : (weekDay = "Saturday");
+          break;
+      }
+
+      return weekDay;
+    },
+    getMonth() {
+      let today = this.getDateTime();
+
+      let month = "";
+
+      switch (today.getMonth()) {
+        case 0:
+          this.$i18n.locale == "pt" ? (month = "janeiro") : (month = "January");
+          break;
+        case 1:
+          this.$i18n.locale == "pt"
+            ? (month = "fevereiro")
+            : (month = "February");
+          break;
+        case 2:
+          this.$i18n.locale == "pt" ? (month = "março") : (month = "March");
+          break;
+        case 3:
+          this.$i18n.locale == "pt" ? (month = "abril") : (month = "April");
+          break;
+        case 4:
+          this.$i18n.locale == "pt" ? (month = "maio") : (month = "May");
+          break;
+        case 5:
+          this.$i18n.locale == "pt" ? (month = "junho") : (month = "June");
+          break;
+        case 6:
+          this.$i18n.locale == "pt" ? (month = "julho") : (month = "July");
+          break;
+        case 7:
+          this.$i18n.locale == "pt" ? (month = "agosto") : (month = "August");
+          break;
+        case 8:
+          this.$i18n.locale == "pt"
+            ? (month = "setembro")
+            : (month = "September");
+          break;
+        case 9:
+          this.$i18n.locale == "pt" ? (month = "outubro") : (month = "October");
+          break;
+        case 10:
+          this.$i18n.locale == "pt"
+            ? (month = "novembro")
+            : (month = "November");
+          break;
+        case 11:
+          this.$i18n.locale == "pt"
+            ? (month = "dezembro")
+            : (month = "December");
+          break;
+      }
+
+      return month;
+    },
+    getDay() {
+      let today = this.getDateTime();
+
+      let day = today.getDate();
+
+      if (this.$i18n.locale == "en") {
+        switch (today.getDate()) {
+          case 1:
+            day = `${today.getDate()}st`;
+            break;
+          case 2:
+            day = `${today.getDate()}nd`;
+            break;
+          case 3:
+            day = `${today.getDate()}rd`;
+            break;
+          case 21:
+            day = `${today.getDate()}st`;
+            break;
+          case 22:
+            day = `${today.getDate()}nd`;
+            break;
+          case 23:
+            day = `${today.getDate()}rd`;
+            break;
+          case 31:
+            day = `${today.getDate()}st`;
+            break;
+          default:
+            day = `${today.getDate()}th`;
+        }
+      }
+
+      return day;
+    }
+  },
   methods: {
     getDateTime() {
       let dateTime = new Date();
@@ -233,76 +379,8 @@ export default {
 
       this.londonTime = `${hours}:${minutes}`;
     },
+
     getTodaysDay() {
-      let today = this.getDateTime();
-
-      let dayName = "";
-      let weekDayName = "";
-      let weekDayNumber = today.getDate();
-
-      switch (today.getDay()) {
-        case 0:
-          dayName = "Domingo";
-          break;
-        case 1:
-          dayName = "Segunda";
-          break;
-        case 2:
-          dayName = "Terça";
-          break;
-        case 3:
-          dayName = "Quarta";
-          break;
-        case 4:
-          dayName = "Quinta";
-          break;
-        case 5:
-          dayName = "Sexta";
-          break;
-        case 6:
-          dayName = "Sábado";
-          break;
-      }
-
-      switch (today.getMonth()) {
-        case 0:
-          weekDayName = "janeiro";
-          break;
-        case 1:
-          weekDayName = "fevereiro";
-          break;
-        case 2:
-          weekDayName = "março";
-          break;
-        case 3:
-          weekDayName = "abril";
-          break;
-        case 4:
-          weekDayName = "maio";
-          break;
-        case 5:
-          weekDayName = "junho";
-          break;
-        case 6:
-          weekDayName = "julho";
-          break;
-        case 7:
-          weekDayName = "agosto";
-          break;
-        case 8:
-          weekDayName = "setembro";
-          break;
-        case 9:
-          weekDayName = "outubro";
-          break;
-        case 10:
-          weekDayName = "novembro";
-          break;
-        case 11:
-          weekDayName = "dezembro";
-          break;
-      }
-
       // switch (today.getDate()) {
       //   case 1:
       //     weekDayNumber = `${today.getDate()}st`;
@@ -328,8 +406,7 @@ export default {
       //   default:
       //     weekDayNumber = `${today.getDate()}th`;
       // }
-
-      this.today = `${dayName}, ${weekDayNumber} de ${weekDayName}.`;
+      // this.today = `${dayName}, ${weekDayNumber} de ${weekDayName}.`;
     },
     scrollTop() {
       window.scrollTo(0, 0);

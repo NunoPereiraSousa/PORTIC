@@ -1,0 +1,31 @@
+{
+  "navbar": {
+    "items": [
+      "Sobre Nós",
+      "Unidades",
+      "Áreas",
+      "Cursos",
+      "Projetos",
+      "Medias",
+      "Recrutamento"
+    ]
+  },
+  "homepage": {
+    "landingPage": {
+      "welcome": "Bem-vindo ao",
+      "welcomeTo": " {institution}",
+      "description": "Porto Research, Technology {0}& Innovation Center."
+    }
+  },
+  "footer": {
+    "timezoneArea": {
+      "title": "{weekDay}, {day} de {month}."
+    },
+    "directions": {
+      "title": "Como chegar ao PORTIC"
+    },
+    "links": {
+      "title": "Links rápidos"
+    }
+  }
+}
