@@ -868,25 +868,11 @@ a {
 .scene,
 canvas {
   width: 100%;
-  height: 70vh;
+  height: 100vh;
   position: absolute;
   top: 0%;
   left: 0%;
   z-index: -5;
-}
-
-@media (min-width: 64em) {
-  .scene,
-  canvas {
-    height: 86vh;
-  }
-}
-
-@media (min-width: 120em) {
-  .scene,
-  canvas {
-    height: 80vh;
-  }
 }
 
 button {
@@ -1123,21 +1109,33 @@ button:focus {
       justify-self: end;
 }
 
-.subheader__languages p {
+.subheader__languages input {
   margin: 0;
   font-size: 0.9375rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
 }
 
-.subheader__languages p.selected {
+.subheader__languages input:first-child {
+  padding-right: 0.875rem;
+}
+
+.subheader__languages input:last-child {
+  padding-left: 0.875rem;
+}
+
+.subheader__languages input.selected {
   opacity: 0.69;
 }
 
-.subheader__languages p:not(.selected):hover {
+.subheader__languages input:not(.selected):hover {
   color: #c94d24;
 }
 
 @media (min-width: 75em) {
-  .subheader__languages p {
+  .subheader__languages input {
     font-size: 0.875rem;
   }
 }
@@ -2214,7 +2212,7 @@ button:focus {
 .landing__titles {
   position: relative;
   z-index: 999;
-  padding: calc(10rem + 2vw) 8vw;
+  padding: 12rem 8vw;
 }
 
 @media (min-width: 64em) {
@@ -2226,6 +2224,12 @@ button:focus {
 @media (min-width: 75em) {
   .landing__titles {
     padding: calc(12rem + 2vw) 8vw;
+  }
+}
+
+@media (min-width: 120em) {
+  .landing__titles {
+    padding: calc(14rem + 2vw) 8vw;
   }
 }
 
@@ -2417,6 +2421,8 @@ button:focus {
   width: 30px;
   height: auto;
   margin-right: 1.5rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .landing__highlights__desktop__grid a {
@@ -2424,18 +2430,23 @@ button:focus {
       grid-template-columns: -webkit-min-content 1fr;
       grid-template-columns: min-content 1fr;
   text-align: left;
-  background-color: rgba(8, 8, 8, 0.5);
-  color: #ffffff;
+  background-color: white;
+  color: #080808;
   border-radius: 30px;
   width: 100%;
   padding: 1rem 2.5rem;
   font-size: 1.0625rem;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .landing__highlights__desktop__grid a:hover {
-  background-color: rgba(8, 8, 8, 0.8);
+  background-color: #c94d24;
+  color: #ffffff;
+}
+
+.landing__highlights__desktop__grid a:hover svg {
+  fill: #ffffff;
 }
 
 .landing__highlights__grid {

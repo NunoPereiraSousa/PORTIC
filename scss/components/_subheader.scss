@@ -98,18 +98,21 @@
   &__languages {
     justify-self: end;
 
-    p {
+    input {
       margin: 0;
       font-size: $_15px;
-      // cursor: pointer;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      color: $white;
 
-      // &:first-child {
-      //   padding-right: $_14px;
-      // }
+      &:first-child {
+        padding-right: $_14px;
+      }
 
-      // &:last-child {
-      //   padding-left: $_14px;
-      // }
+      &:last-child {
+        padding-left: $_14px;
+      }
 
       &.selected {
         opacity: 0.69;

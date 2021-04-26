@@ -1,35 +1,18 @@
 <template>
   <section class="landing grid">
-    <div class="overlay"></div>
+    <!-- <div class="overlay"></div>
 
-    <div class="landing__image"></div>
+    <div class="landing__image"></div> -->
 
     <div class="landing__titles">
-      <h1 class=" ">
-        <span>Bem-vindo ao</span>
+      <h1>
+        <span>{{ $t("homepage.landingPage.welcome") }}</span>
         <div>
-          <span>{{ extra }}</span
-          >{{ keyword }}
+          {{ $t("homepage.landingPage.welcomeTo", { institution: keyword }) }}
         </div>
       </h1>
-      <hr class=" " />
-      <h4 class=" ">
-        <div class="hide-for-desktop">
-          Porto Research,
-        </div>
-        <div class="hide-for-desktop">
-          Technology
-        </div>
-        <div class="hide-for-desktop">
-          & Innovation Center.
-        </div>
-        <div class="hide-for-mobile">
-          Porto Research, Technology
-        </div>
-        <div class="hide-for-mobile">
-          & Innovation Center.
-        </div>
-      </h4>
+      <hr />
+      <h4 v-html="$t('homepage.landingPage.description')"></h4>
     </div>
 
     <div class="landing__highlights">
@@ -151,7 +134,12 @@
 <script>
 export default {
   name: "Intro",
-  props: ["extra", "keyword"]
+  props: {
+    keyword: {
+      type: String,
+      required: true
+    }
+  }
 };
 </script>
 

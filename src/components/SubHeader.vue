@@ -41,17 +41,30 @@
       </a>
     </div>
     <div class="subheader__languages flex flex-jc-sb flex-ai-c">
-      <!-- <p>EN</p>
+      <button @click="changeLangEN">EN</button>
       <hr />
-      <p class="selected">PT</p> -->
-      <p>PORTIC 2021</p>
+      <button @click="changeLangPT">PT</button>
     </div>
   </header>
 </template>
 
 <script>
 export default {
-  name: "SubHeader"
+  name: "SubHeader",
+  data: () => {
+    return {
+      en: "",
+      pt: ""
+    };
+  },
+  methods: {
+    changeLangEN() {
+      this.$i18n.locale = "en";
+    },
+    changeLangPT() {
+      this.$i18n.locale = "pt";
+    }
+  }
 };
 </script>
 
