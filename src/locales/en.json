@@ -22,11 +22,30 @@
       "title": "{weekDay}, {month} {day}."
     },
     "directions": {
-      "title": "Como chegar ao PORTIC"
+      "title": "How to ge to PORTIC"
     },
     "links": {
-      "title": "Links rápidos"
+      "title": "Quick links"
+    },
+    "socials": {
+      "title": "Social Media"
     }
   },
-  "areaKey": "Area"
+  "areas": {
+    "mainTitle": "Areas",
+    "secondTitle": "Actuation areas",
+    "thirdTitle": "Explore our areas",
+    "areaKey": "Area",
+    "areasInformation": "oPorto Research, Technology & Innovation Center includes unities and groups with different activities that involve different levels of knowledge and innovation, as well as, knowledge areas.",
+    "nAreas": "Number of areas",
+    "nAreasDesc": "PORTIC has a total of {n} areas.",
+    "areasFocus": "Focus in multiple areas",
+    "areasFocusDesc": "We focus in a big diversity of technologies and areas of actuation.",
+    "areasStructure": "Integrated infrastructures",
+    "areasStructureDesc": "The super-structure PORTIC incorporates multiple infrastructures of Instituto Politécnico do Porto - IPP.",
+    "areasCoop": "Cooperation among areas and infrastructures",
+    "areasCoopDesc": "As a consequence of its development, a cooperation exists among all the infrastructures and partners.",
+    "infoDesc": "Down on the page we give information about the categories and the areas that are part of PORTIC."
+  },
+  "contactBtn": "Contact us"
 }

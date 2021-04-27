@@ -32,7 +32,7 @@
           {{ categoryDescription }}
         </p>
         <button class="flex flex-ai-c">
-          <span>Contacte-nos</span>
+          <span>{{ $t("contactBtn") }}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="22.41"
@@ -113,7 +113,7 @@
             {{ categoryDescription }}
           </p>
           <button class="flex flex-ai-c">
-            <span>Contacte-nos</span>
+            <span>{{ $t("contactBtn") }}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="22.41"

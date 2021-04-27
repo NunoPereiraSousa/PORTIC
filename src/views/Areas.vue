@@ -1,31 +1,26 @@
 <template>
   <div>
     <SubPageIntro
-      categoryTitle="Áreas"
-      title1="Número de áreas"
-      :text1="
-        `O centro PORTIC incorpora um número total de ${$store.getters.getNAreas} áreas.`
-      "
-      title2="Foco em diverentes áreas"
-      text2="Focamo-nos numa grande diversidade de tecnologias e áreas de atuação."
-      title3="Estruturas integradas"
-      text3="A super estrutura PORTIC incorpora várias estruturas do Instituto Politécnico do Porto - IPP."
-      title4="Cooperação entre áreas e estruturas"
-      text4="Em prol do seu desenvolvimento, existe uma grande cooperação entre estruturas e parceiros."
-      categoryDescription="Mais abaixo disponibilizamos informações acerca das categorias e áreas envolventes ao PORTIC."
+      :categoryTitle="$t('areas.mainTitle')"
+      :title1="$t('areas.nAreas')"
+      :text1="$t('areas.nAreasDesc', { n: $store.getters.getNAreas })"
+      :title2="$t('areas.areasFocus')"
+      :text2="$t('areas.areasFocusDesc')"
+      :title3="$t('areas.areasStructure')"
+      :text3="$t('areas.areasStructureDesc')"
+      :title4="$t('areas.areasCoop')"
+      :text4="$t('areas.areasCoopDesc')"
+      :categoryDescription="$t('areas.infoDesc')"
     />
     <section class="areas_information">
-      <SubHeaderTitle text="As áreas de atuação" class="light" />
+      <SubHeaderTitle :text="$t('areas.secondTitle')" class="light" />
 
       <p class="areas_information__info">
-        O Porto Research, Technology & Innovation Center inclui unidades e
-        grupos com atividades em diferentes níveis de conhecimento e inovação,
-        como também em áreas de conhecimento.
+        {{ $t("areas.areasInformation") }}
       </p>
-
       <div class="areas_information__icons grid">
         <IconCard
-          v-for="card in iconCards"
+          v-for="card in getIcons"
           :key="card.id"
           :icon="card.icon"
           :content="card.content"
@@ -33,10 +28,10 @@
       </div>
     </section>
     <section class="areas">
-      <SubHeaderTitle text="Explore as nossas áreas" />
+      <SubHeaderTitle :text="$t('areas.thirdTitle')" />
       <div class="areas__grid grid">
         <AreasCard
-          v-for="area in setAreas"
+          v-for="area in getAreas"
           :key="area.id"
           :counter="area.id"
           :index="area.id"
@@ -78,12 +73,23 @@ export default {
     this.iconCards = this.getIconCards;
   },
   computed: {
-    ...mapGetters(["getAreasPT", "getAreasEN", "getIconCards"]),
-    setAreas() {
+    ...mapGetters([
+      "getAreasPT",
+      "getAreasEN",
+      "getIconCardsPT",
+      "getIconCardsEN"
+    ]),
+    getAreas() {
       let areasPT = this.getAreasPT;
       let areasEN = this.getAreasEN;
 
       return this.$i18n.locale == "pt" ? areasPT : areasEN;
+    },
+    getIcons() {
+      let iconsPT = this.getIconCardsPT;
+      let iconsEN = this.getIconCardsEN;
+
+      return this.$i18n.locale == "pt" ? iconsPT : iconsEN;
     }
   }
 };

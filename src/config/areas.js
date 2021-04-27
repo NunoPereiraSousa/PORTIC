@@ -1,4 +1,4 @@
-export const iconCards = [
+export const iconCardsPT = [
   {
     id: 1,
     icon:
@@ -28,6 +28,45 @@ export const iconCards = [
     icon:
       "https://res.cloudinary.com/dijkykn1j/image/upload/v1617632283/incubator_czhyjd.svg",
     content: "Incubação tecnológica"
+  },
+  {
+    id: 6,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617632374/startup_oma7dm.svg",
+    content: "Startups e spin-offs"
+  }
+];
+
+export const iconCardsEN = [
+  {
+    id: 1,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617631847/search_hrzogf.svg",
+    content: "Research and development"
+  },
+  {
+    id: 2,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617631847/tech_d6nn8n.svg",
+    content: "TEchnology and knowledge share"
+  },
+  {
+    id: 3,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617631847/creativity_j2l2kf.svg",
+    content: "Innovation and creativity"
+  },
+  {
+    id: 4,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617631847/business_r0kk4o.svg",
+    content: "Entrepreneurship"
+  },
+  {
+    id: 5,
+    icon:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1617632283/incubator_czhyjd.svg",
+    content: "Technological Incubation"
   },
   {
     id: 6,

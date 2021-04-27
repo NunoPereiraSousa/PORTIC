@@ -44,7 +44,7 @@
       </div>
       <div class="footer__grid__directions">
         <h1 class="footer__grid__directions__title title">
-          Como chegar ao PORTIC
+          {{ $t("footer.directions.title") }}
         </h1>
         <div class="footer__grid__directions__info">
           <p>Rua Arquitecto Lobão Vital, 172</p>
@@ -64,7 +64,9 @@
         </div>
       </div>
       <div class="footer__grid__links">
-        <h1 class="footer__grid__links__title title">Links rápidos</h1>
+        <h1 class="footer__grid__links__title title">
+          {{ $t("footer.links.title") }}
+        </h1>
         <div class="footer__grid__links__info grid">
           <router-link :to="{ name: 'Contacts' }">
             {{ $t("navbar.items[0]") }}
@@ -90,7 +92,9 @@
         </div>
       </div>
       <div class="footer__grid__socials">
-        <h1 class="footer__grid__socials__title title">Redes sociais</h1>
+        <h1 class="footer__grid__socials__title title">
+          {{ $t("footer.socials.title") }}
+        </h1>
         <div class="footer__grid__socials__media grid">
           <div class="first__cells">
             <a

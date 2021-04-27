@@ -9,10 +9,10 @@
       <div class="flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c flex-jc-sb">
           <h5 class="areas__grid__card__sub_title" v-if="counter < 10">
-            {{ $t("areaKey") }} 0{{ counter }}
+            {{ $t("areas.areaKey") }} 0{{ counter }}
           </h5>
           <h5 class="areas__grid__card__sub_title" v-else>
-            {{ $t("areaKey") }} {{ counter }}
+            {{ $t("areas.areaKey") }} {{ counter }}
           </h5>
           <h2 class="areas__grid__card__title">
             {{ areaName }}

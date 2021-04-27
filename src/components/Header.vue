@@ -207,61 +207,61 @@
               <router-link
                 @click.native="closeNavbarOnPageTransition"
                 class="navbar__mobile_menu__grid__links__link"
-                :to="{ name: 'Positions' }"
+                :to="{ name: 'Unities' }"
               >
-                Recrutamento
+                {{ $t("navbar.items[1]") }}
               </router-link>
               <router-link
                 @click.native="closeNavbarOnPageTransition"
                 class="navbar__mobile_menu__grid__links__link"
                 :to="{ name: 'Areas' }"
               >
-                Áreas
+                {{ $t("navbar.items[2]") }}
               </router-link>
               <router-link
                 @click.native="closeNavbarOnPageTransition"
                 class="navbar__mobile_menu__grid__links__link"
                 :to="{ name: 'Courses' }"
               >
-                Cursos
-              </router-link>
-              <router-link
-                @click.native="closeNavbarOnPageTransition"
-                class="navbar__mobile_menu__grid__links__link"
-                :to="{ name: 'Media' }"
-              >
-                Mídia
+                {{ $t("navbar.items[3]") }}
               </router-link>
               <router-link
                 @click.native="closeNavbarOnPageTransition"
                 class="navbar__mobile_menu__grid__links__link"
                 :to="{ name: 'ProjectsCatalog' }"
               >
-                Projetos
+                {{ $t("navbar.items[4]") }}
               </router-link>
               <router-link
                 @click.native="closeNavbarOnPageTransition"
                 class="navbar__mobile_menu__grid__links__link"
-                :to="{ name: 'Unities' }"
+                :to="{ name: 'Media' }"
               >
-                Unidades
+                {{ $t("navbar.items[5]") }}
+              </router-link>
+              <router-link
+                @click.native="closeNavbarOnPageTransition"
+                class="navbar__mobile_menu__grid__links__link"
+                :to="{ name: 'Positions' }"
+              >
+                {{ $t("navbar.items[6]") }}
               </router-link>
             </div>
           </div>
           <div class="navbar__content__sec_links">
             <hr />
-            <h3>Links secundários</h3>
+            <h3>{{ $t("footer.links.title") }}</h3>
             <router-link
               @click.native="closeNavbarOnPageTransition"
               class="navbar__mobile_menu__grid__links__link"
               :to="{ name: 'Contacts' }"
             >
-              Sobre nós
+              {{ $t("navbar.items[0]") }}
             </router-link>
           </div>
           <div class="navbar__content__socials">
             <hr />
-            <h3>Redes sociais</h3>
+            <h3>{{ $t("footer.socials.title") }}</h3>
             <a href="https://twitter.com/politecnico" target="_blank">
               <i class="fab fa-twitter"></i>
             </a>

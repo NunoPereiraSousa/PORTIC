@@ -1,10 +1,11 @@
-import { areasEN, areasPT, iconCards } from "../../config/areas";
+import { areasEN, areasPT, iconCardsEN, iconCardsPT } from "../../config/areas";
 
 export const areaModule = {
   state: {
     areasPT: areasPT,
     areasEN: areasEN,
-    iconCards: iconCards
+    iconCardsPT: iconCardsPT,
+    iconCardsEN: iconCardsEN
   },
   mutations: {},
   actions: {},
@@ -12,6 +13,7 @@ export const areaModule = {
     getAreasPT: state => state.areasPT,
     getAreasEN: state => state.areasEN,
     getNAreas: state => state.areasPT.length,
-    getIconCards: state => state.iconCards
+    getIconCardsPT: state => state.iconCardsPT,
+    getIconCardsEN: state => state.iconCardsEN
   }
 };
