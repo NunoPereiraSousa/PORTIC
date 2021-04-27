@@ -188,19 +188,29 @@ export default {
     ])
   },
   created() {
-    if (JSON.parse(localStorage.getItem("project_name"))) {
-      this.$store.commit("SET_SELECTED_PROJECT", {
-        initials: JSON.parse(localStorage.getItem("project_name"))
-      });
+    // if (JSON.parse(localStorage.getItem("project_name"))) {
+    //   this.$store.commit("SET_SELECTED_PROJECT", {
+    //     initials: JSON.parse(localStorage.getItem("project_name"))
+    //   });
 
-      this.projectName = this.getSelectedProject;
+    //   this.projectName = this.getSelectedProject;
 
-      this.projects = this.getProjectByName(this.projectName);
+    //   this.projects = this.getProjectByName(this.projectName);
 
-      this.duplicatePartnersLength = this.projects.partners.length * 2;
+    //   console.log(this.projects);
 
-      this.fetchData();
-    }
+    //   this.duplicatePartnersLength = this.projects.partners.length * 2;
+
+    //   this.fetchData();
+    // }
+
+    this.projectName = this.getSelectedProject;
+
+    this.projects = this.getProjectByName(this.projectName);
+
+    this.duplicatePartnersLength = this.projects.partners.length * 2;
+
+    this.fetchData();
   },
   mounted() {
     this.changeCarousel();

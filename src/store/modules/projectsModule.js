@@ -1,6 +1,8 @@
+// import createPersistedState from "vuex-persistedstate";
 import { projects } from "../../config/projects";
 
 export const projectsModule = {
+  // plugins: [createPersistedState()],
   state: {
     projects: projects,
     selectedProject: null
@@ -8,10 +10,10 @@ export const projectsModule = {
   mutations: {
     SET_SELECTED_PROJECT(state, payload) {
       state.selectedProject = payload.initials;
-      localStorage.setItem(
-        "project_name",
-        JSON.stringify(state.selectedProject)
-      );
+      // localStorage.setItem(
+      //   "project_name",
+      //   JSON.stringify(state.selectedProject)
+      // );
     }
   },
   actions: {},
