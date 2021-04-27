@@ -36,7 +36,7 @@
       <SubHeaderTitle text="Explore as nossas áreas" />
       <div class="areas__grid grid">
         <AreasCard
-          v-for="area in areas"
+          v-for="area in setAreas"
           :key="area.id"
           :counter="area.id"
           :index="area.id"
@@ -71,16 +71,20 @@ export default {
   },
   data: () => {
     return {
-      areas: null,
       iconCards: null
     };
   },
   created() {
-    this.areas = this.getAreas;
     this.iconCards = this.getIconCards;
   },
   computed: {
-    ...mapGetters(["getAreas", "getIconCards"])
+    ...mapGetters(["getAreasPT", "getAreasEN", "getIconCards"]),
+    setAreas() {
+      let areasPT = this.getAreasPT;
+      let areasEN = this.getAreasEN;
+
+      return this.$i18n.locale == "pt" ? areasPT : areasEN;
+    }
   }
 };
 </script>
