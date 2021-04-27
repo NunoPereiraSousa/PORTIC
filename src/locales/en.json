@@ -22,7 +22,7 @@
       "title": "{weekDay}, {month} {day}."
     },
     "directions": {
-      "title": "How to ge to PORTIC"
+      "title": "How to get to PORTIC"
     },
     "links": {
       "title": "Quick links"
@@ -46,6 +46,23 @@
     "areasCoop": "Cooperation among areas and infrastructures",
     "areasCoopDesc": "As a consequence of its development, a cooperation exists among all the infrastructures and partners.",
     "infoDesc": "Down on the page we give information about the categories and the areas that are part of PORTIC."
+  },
+  "aboutUs": {
+    "contactUs": "Connect with us anytime",
+    "contactUsTitle": "Contact us",
+    "contactUsTitle2": "Contact us easily",
+    "introduction": "O PORTIC -Porto Research, Technology & Innovation Center visa agregar vários centros e grupos de investigação das escolas do P.PORTO num único espaço físico, configurando uma superestrutura dedicada à investigação, transferência de tecnologia, inovação e empreendedorismo. Alojará ainda a Porto Global Hub que integra a Porto Design Factory, a Porto Business Innovation e a Startup Porto e que tem como visão ajudar a criação de projetos locais sustentáveis para uma vida melhor.",
+    "testimonialsTitle": "… and now what they say about us",
+    "testimonialsDesc": "We provide our clients the best services possible and they give us amazing feedback.",
+    "testimonialsSoon": "Collecting a lot of testimonials...",
+    "form": {
+      "name": "Name *",
+      "surname": "Surname *",
+      "email": "Email *",
+      "phone": "Phone number",
+      "content": "Tell us something *",
+      "submit": "Submit"
+    }
   },
   "contactBtn": "Contact us"
 }

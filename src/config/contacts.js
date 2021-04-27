@@ -1,4 +1,4 @@
-export const focuses = [
+export const focusesPT = [
   {
     id: 1,
     text: "Elevada qualidade de trabalho"
@@ -22,5 +22,32 @@ export const focuses = [
   {
     id: 6,
     text: "Iniciativa e proatividade"
+  }
+];
+
+export const focusesEN = [
+  {
+    id: 1,
+    text: "High quality of work"
+  },
+  {
+    id: 2,
+    text: "High quality of communication"
+  },
+  {
+    id: 3,
+    text: "Ensure client's success"
+  },
+  {
+    id: 4,
+    text: "Big variety of technologies"
+  },
+  {
+    id: 5,
+    text: "Deadlines measures"
+  },
+  {
+    id: 6,
+    text: "Initiative and proactivity"
   }
 ];

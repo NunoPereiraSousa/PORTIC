@@ -33,24 +33,40 @@
     </div>
     <div class="contacts__overlay hide-for-mobile" @click="closeForm"></div>
     <div class="contacts__side_form flex flex-fd-c flex-jc-sb hide-for-mobile">
-      <h1>Contacte-nos facilmente</h1>
+      <h1>{{ $t("aboutUs.contactUsTitle2") }}</h1>
 
       <form class="grid">
-        <input type="text" id="nameTxt" placeholder="Nome*" />
-        <input type="text" id="surnameTxt" placeholder="Sobrenome*" />
-        <input type="text" id="emailTxt" placeholder="E-mail*" />
+        <input
+          type="text"
+          id="nameTxt"
+          :placeholder="$t('aboutUs.form.name')"
+        />
+        <input
+          type="text"
+          id="surnameTxt"
+          :placeholder="$t('aboutUs.form.surname')"
+        />
+        <input
+          type="text"
+          id="emailTxt"
+          :placeholder="$t('aboutUs.form.email')"
+        />
         <input
           type="text"
           id="phoneNumberTxt"
-          placeholder="Número de telemóvel*"
+          :placeholder="$t('aboutUs.form.phone')"
         />
         <textarea
           id="contentTxt"
-          placeholder="Tell us something *"
+          :placeholder="$t('aboutUs.form.content')"
           cols="30"
           rows="3"
         ></textarea>
-        <input type="submit" value="Enviar" class="submit_btn" />
+        <input
+          type="submit"
+          :value="$t('aboutUs.form.submit')"
+          class="submit_btn"
+        />
       </form>
 
       <div
@@ -87,7 +103,7 @@
           </div>
         </div>
         <div class="contacts__intro__grid__contacts grid">
-          <h3>Conecta-te connosco a qualquer momento</h3>
+          <h3>{{ $t("aboutUs.contactUs") }}</h3>
           <div>
             <h2>
               <a href="tel:+351919554127">(+351) 919 554 127</a>
@@ -140,7 +156,7 @@
       </div>
       <div class="contacts__intro__grid grid hide-below-tablet">
         <div class="contacts__intro__grid__contacts grid">
-          <h3>Conecte-se connosco a qualquer momento</h3>
+          <h3>{{ $t("aboutUs.contactUs") }}</h3>
           <div>
             <h2>
               <a href="tel:+351919554127">(+351) 919 554 127</a>
@@ -219,15 +235,7 @@
         </div> -->
         <div class="contacts__intro__desc grid hide-for-tablet">
           <p>
-            <span
-              >O PORTIC -Porto Research, Technology & Innovation Center </span
-            >visa agregar vários centros e grupos de investigação das escolas do
-            P.PORTO num único espaço físico, configurando uma superestrutura
-            dedicada à investigação, transferência de tecnologia, inovação e
-            empreendedorismo. Alojará ainda a Porto Global Hub que integra a
-            Porto Design Factory, a Porto Business Innovation e a Startup Porto
-            e que tem como visão ajudar a criação de projetos locais
-            sustentáveis para uma vida melhor.
+            {{ $t("aboutUs.introduction") }}
           </p>
         </div>
       </div>
@@ -237,7 +245,7 @@
 
       <div class="contacts__what_we_focus__grid grid">
         <WhatWeFocusCard
-          v-for="focus in focuses"
+          v-for="focus in getFocuses"
           :key="focus.id"
           :text="focus.text"
         />
@@ -245,15 +253,14 @@
     </section>
     <section class="contacts__testimonials">
       <h1 class="contacts__testimonials__title">
-        … e agora o que dizem sobre nós
+        {{ $t("aboutUs.testimonialsTitle") }}
       </h1>
       <h3 class="contacts__testimonials__subtitle">
-        Nós disponibilizamos aos nossos clientes os melhores serviços possíveis
-        e eles dão-nos incriveis feedbacks
+        {{ $t("aboutUs.testimonialsDesc") }}
       </h3>
 
       <h1 class="alert">
-        Estamos a coletar muitos testemunhos...
+        {{ $t("aboutUs.testimonialsSoon") }}
         <span>coming soon!</span>
       </h1>
 
@@ -313,7 +320,7 @@
     </section>
     <section class="contacts__form grid">
       <div class="contacts__form__contacts grid">
-        <h3>Conecte-se connosco a qualquer momento</h3>
+        <h3>{{ $t("aboutUs.contactUs") }}</h3>
         <div>
           <h2>
             <a href="tel:+351919554127">(+351) 919 554 127</a>
@@ -357,19 +364,31 @@
       </div>
       <div class="contacts__form__form ">
         <form class="grid">
-          <h1>Contacte-nos</h1>
+          <h1>{{ $t("aboutUs.contactUsTitle") }}</h1>
 
-          <input type="text" id="nameTxt" placeholder="Nome *" />
-          <input type="text" id="surnameTxt" placeholder="Sobrenome *" />
-          <input type="text" id="emailTxt" placeholder="E-mail *" />
+          <input
+            type="text"
+            id="nameTxt"
+            :placeholder="$t('aboutUs.form.name')"
+          />
+          <input
+            type="text"
+            id="surnameTxt"
+            :placeholder="$t('aboutUs.form.surname')"
+          />
+          <input
+            type="text"
+            id="emailTxt"
+            :placeholder="$t('aboutUs.form.email')"
+          />
           <input
             type="text"
             id="phoneNumberTxt"
-            placeholder="Número de telemóvel *"
+            :placeholder="$t('aboutUs.form.phone')"
           />
           <textarea
             id="contentTxt"
-            placeholder="Diga-nos algo *"
+            :placeholder="$t('aboutUs.form.content')"
             cols="30"
             rows="3"
           ></textarea>
@@ -402,16 +421,9 @@ export default {
     Footer
   },
   data: () => {
-    return {
-      focuses: null
-    };
-  },
-  computed: {
-    ...mapGetters(["getFocuses"])
+    return {};
   },
   mounted() {
-    this.focuses = this.getFocuses;
-
     this.map = new window.google.maps.Map(document.getElementById("map"), {
       center: new window.google.maps.LatLng(41.176586, -8.60563),
       zoom: 18,
@@ -422,6 +434,15 @@ export default {
       position: { lat: 41.176586, lng: -8.60563 },
       map: this.map
     });
+  },
+  computed: {
+    ...mapGetters(["getFocusesPT", "getFocusesEN"]),
+    getFocuses() {
+      let focusesPT = this.getFocusesPT;
+      let focusesEN = this.getFocusesEN;
+
+      return this.$i18n.locale == "pt" ? focusesPT : focusesEN;
+    }
   },
   methods: {
     toggleForm() {

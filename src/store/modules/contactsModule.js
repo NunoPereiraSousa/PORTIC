@@ -1,8 +1,11 @@
-import { focuses } from "../../config/contacts";
+import { focusesEN, focusesPT } from "../../config/contacts";
 
 export const contactsModule = {
-  state: { focuses: focuses },
+  state: { focusesPT: focusesPT, focusesEN: focusesEN },
   mutations: {},
   actions: {},
-  getters: { getFocuses: state => state.focuses }
+  getters: {
+    getFocusesPT: state => state.focusesPT,
+    getFocusesEN: state => state.focusesEN
+  }
 };

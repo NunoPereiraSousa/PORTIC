@@ -44,7 +44,6 @@
 </template>
 
 <script>
-import locale from "@/locales/pt.json";
 import { mapGetters } from "vuex";
 
 export default {
@@ -52,14 +51,7 @@ export default {
   props: {
     areaName: {
       type: String,
-      required: true,
-      default: () => {
-        // this.$t("areas").forEach(item => {
-        //   console.log(item.title);
-        //   return item.title;
-        // });
-        this.setPTLang();
-      }
+      required: true
     },
     button_id: {
       type: Number,
@@ -84,23 +76,11 @@ export default {
   },
   data: () => {
     return {
-      show: false,
-      locale: locale
+      show: false
     };
   },
   computed: {
-    ...mapGetters(["getAreas"]),
-    setPTLang() {
-      let areas = this.getAreas;
-      let titles = areas.forEach(area => {
-        return area.areaNamePT;
-      });
-      console.log(titles);
-      return titles;
-    }
-  },
-  mounted() {
-    // console.log(this.locale);
+    ...mapGetters(["getAreas"])
   },
   methods: {
     expand(index) {
