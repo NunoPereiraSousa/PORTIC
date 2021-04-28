@@ -94,5 +94,21 @@
     "mediasTitle4Desc": "Siga passo a passo a estrutura PORTIC.",
     "infoDesc": "Mais abaixo disponibilizamos vídeos onde pode acompanhar passo a passo a nossa super estrutura e eventos importantes que vão acontecendo.",
     "title": "Assista aos nossos mídias"
+  },
+  "unities": {
+    "unitiesKey": "Unidades",
+    "nUnities": "Número de unidades",
+    "nUnitiesDesc": "O centro PORTIC incorpora um número total de {n} unidades.",
+    "unitiesTitle2": "Um único foco",
+    "unitiesTitle2Desc": "As nossas unidades trabalham com foco em diversas áreas.",
+    "unitiesTitle3": "Aplicação de métodos inovadores",
+    "unitiesTitle3Desc": "Promovem a mentalidade empreendedora e o conhecimento em diversas tecnologias.",
+    "unitiesTitle4": "Anos de profissionalismo e responsabilidade",
+    "unitiesTitle4Desc": "As unidades trabalham com os melhores profissionais de diferentes áreas.",
+    "infoDesc": "Mais abaixo disponibilizamos informações acerca das unidades PORTIC, assim como os seus principais princípios.",
+    "title": "Explore as nossas unidades",
+    "principles": {
+      "title": "Cinco princípios que temos em consideração"
+    }
   }
 }

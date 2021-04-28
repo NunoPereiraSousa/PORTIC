@@ -1,23 +1,21 @@
 <template>
   <div>
     <SubPageIntro
-      categoryTitle="Unidades"
-      title1="Número de cursos"
-      :text1="
-        `O centro PORTIC incorpora um número total de ${$store.getters.getNUnities} unidades.`
-      "
-      title2="Um único foco"
-      text2="As nossas unidades trabalham com foco em diversas áreas."
-      title3="Aplicação de métodos inovadores"
-      text3="Promovem a mentalidade empreendedora e o conhecimento em diversas tecnologias."
-      title4="Anos de profissionalismo e responsabilidade"
-      text4="As unidades trabalham com os melhores rofissionais de diferentes áreas."
-      categoryDescription="Mais abaixo disponibilizamos informações acerca das unidades PORTIC, assim como os seus principais princípios."
+      :categoryTitle="$t('unities.unitiesKey')"
+      :title1="$t('unities.nUnities')"
+      :text1="$t('unities.nUnitiesDesc', { n: $store.getters.getNUnities })"
+      :title2="$t('unities.unitiesTitle2')"
+      :text2="$t('unities.unitiesTitle2Desc')"
+      :title3="$t('unities.unitiesTitle3')"
+      :text3="$t('unities.unitiesTitle3Desc')"
+      :title4="$t('unities.unitiesTitle4')"
+      :text4="$t('unities.unitiesTitle4Desc')"
+      :categoryDescription="$t('unities.infoDesc')"
     />
     <section class="principles">
       <MainTitle
         className="main__title"
-        text="Cinco princípios que temos em consideração"
+        :text="$t('unities.principles.title')"
       />
 
       <vue-glide
@@ -39,7 +37,7 @@
         :infinite="false"
       >
         <vue-glide-slide
-          v-for="principle in teamWorkPrinciples"
+          v-for="principle in getTeamWorkPrinciples"
           :key="principle.id"
         >
           <PrincipleCard
@@ -75,7 +73,7 @@
       </vue-glide>
     </section>
     <section class="unities">
-      <MainTitle className="main__title" text="Explore our unities" />
+      <MainTitle className="main__title" :text="$t('unities.title')" />
 
       <div class="unities__grid grid">
         <UnitiesCard
@@ -127,15 +125,21 @@ export default {
   },
   created() {
     this.unities = this.getUnities;
-    this.teamWorkPrinciples = this.getTeamWorkPrinciples;
   },
   computed: {
     ...mapGetters([
       "getUnities",
-      "getTeamWorkPrinciples",
+      "getTeamWorkPrinciplesPT",
+      "getTeamWorkPrinciplesEN",
       "getUnityById",
       "getSelectedUnityId"
-    ])
+    ]),
+    getTeamWorkPrinciples() {
+      let twPT = this.getTeamWorkPrinciplesPT;
+      let twEN = this.getTeamWorkPrinciplesEN;
+
+      return this.$i18n.locale == "pt" ? twPT : twEN;
+    }
   },
   methods: {
     getUnityId() {

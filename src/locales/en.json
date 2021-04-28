@@ -75,7 +75,7 @@
     "coursesTitle3Desc": "Possibility of corporate with different national and international clients.",
     "coursesTitle4": "Knowledge enrichment",
     "coursesTitle4Desc": "With our courses, students build a strong portfolio with the knowledge acquired.",
-    "infoDesc": "Down on the page we give information about the courses that PORTIC is part of, and information about the categories and areas that the courses are part of.",
+    "infoDesc": "Down on the page we provide information about the courses that PORTIC is part of, and information about the categories and areas that the courses are part of.",
     "icons": {
       "title": "Our courses focuses",
       "desc": "Porto Design Factory offers many educational programs, with different durations, goals and pedagogic methodologies, that groups Bachelor’s Degrees students, Master Degrees students, Doctoral Degree e After-doctoral Degree, or even professional technicians and employees."
@@ -84,15 +84,31 @@
   "medias": {
     "video": "Video",
     "mediasKey": "Medias",
-    "nMedias": "PORTIC has a total of {n} medias",
-    "nMediasDesc": "O centro PORTIC incorpora um número total de {n} cursos.",
+    "nMedias": "Number of medias",
+    "nMediasDesc": "PORTIC has a total of {n} medias.",
     "mediasTitle2": "Know PORTIC's history",
-    "mediasTitle2Desc": "We have a video where yo can know more about the PORTIC large infrastructure.",
+    "mediasTitle2Desc": "We have a video where you can know more about the PORTIC large infrastructure.",
     "mediasTitle3": "Remember important ecents",
     "mediasTitle3Desc": "We were part of important events that involve many companies.",
     "mediasTitle4": "Follow our footsteps by our digital channels",
     "mediasTitle4Desc": "Follow step by step out history and footprint.",
-    "infoDesc": "Down on the page we give access to all the videos where you can follow our footprint and the PORTIC large infrastructure, as well as, important events.",
+    "infoDesc": "Down on the page we provide access to all the videos where you can follow our footprint and the PORTIC large infrastructure, as well as, important events.",
     "title": "Watch our videos"
+  },
+  "unities": {
+    "unitiesKey": "Unities",
+    "nUnities": "Number of unities",
+    "nUnitiesDesc": "PORTIC has a total of {n} unities.",
+    "unitiesTitle2": "One single focus",
+    "unitiesTitle2Desc": "We aim our work in different areas, with different goals.",
+    "unitiesTitle3": "We work with innovative methods",
+    "unitiesTitle3Desc": "We promote the entrepreneurial mindset and skills in other areas.",
+    "unitiesTitle4": "Years of professionalism and responsibility",
+    "unitiesTitle4Desc": "Our unities work with the best professionals of different areas.",
+    "infoDesc": "Down on the page we provide information about unities that belong to PORTIC, as well as its main focuses, history and goals.",
+    "title": "Explore our unities",
+    "principles": {
+      "title": "Five principles that we have in mind"
+    }
   }
 }

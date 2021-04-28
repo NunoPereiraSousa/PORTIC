@@ -1,4 +1,4 @@
-export const teamWorkPrinciples = [
+export const teamWorkPrinciplesPT = [
   {
     id: 1,
     title: "Trabalho em equipa",
@@ -26,6 +26,39 @@ export const teamWorkPrinciples = [
   {
     id: 5,
     title: "Expectativas elevadas",
+    desc:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas integer eget aliquet nibh praesent tristique."
+  }
+];
+
+export const teamWorkPrinciplesEN = [
+  {
+    id: 1,
+    title: "Team work",
+    desc:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    id: 2,
+    title: "Excellent communication",
+    desc:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas integer eget aliquet nibh praesent tristique. In ante metus dictum at tempor. Quis enim lobortis scelerisque fermentum dui faucibus in. Molestie at elementum eu facilisis sed odio. "
+  },
+  {
+    id: 3,
+    title: "Responsability",
+    desc:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+  },
+  {
+    id: 4,
+    title: "Autonomy",
+    desc:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas integer eget aliquet nibh praesent tristique. In ante metus dictum at tempor."
+  },
+  {
+    id: 5,
+    title: "High expectations",
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas integer eget aliquet nibh praesent tristique."
   }
