@@ -10,7 +10,9 @@
           <div class="positions__available__card__button__lines"></div>
           <div class="positions__available__card__button__lines"></div>
         </div>
-        <h4 class="positions__available__card__button__header">Saber mais</h4>
+        <h4 class="positions__available__card__button__header">
+          {{ $t("careers.card.knowMore") }}
+        </h4>
       </button>
     </div>
 
@@ -28,7 +30,9 @@
         <div class="positions__available__card__button__lines"></div>
         <div class="positions__available__card__button__lines"></div>
       </div>
-      <h4 class="positions__available__card__button__header">Saber mais</h4>
+      <h4 class="positions__available__card__button__header">
+        {{ $t("careers.card.knowMore") }}
+      </h4>
     </button>
 
     <div class="positions__available__card__info">
@@ -40,7 +44,7 @@
       href="https://portal.ipp.pt/concursos/sc/pessoal/"
       target="_blank"
     >
-      Candidatar agora
+      {{ $t("careers.card.btnText") }}
     </a>
   </div>
 </template>

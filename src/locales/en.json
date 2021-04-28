@@ -110,5 +110,26 @@
     "principles": {
       "title": "Five principles that we have in mind"
     }
+  },
+  "careers": {
+    "careersKey": "Careers",
+    "nCareers": "{n} available careers",
+    "nCareersDesc": "Find the available careers in the sections down below.",
+    "careersTitle2": "High level professionals",
+    "careersTitle2Desc": "We recruit, teach and employ professionals from different areas.",
+    "careersTitle3": "A door towards the future",
+    "careersTitle3Desc": "We offer unique careers with high level conditions of work.",
+    "careersTitle4": "Don't hesitate in contacting us",
+    "careersTitle4Desc": "Don't you find the career you're looking for? Don't worry, contact us.",
+    "infoDesc": "Down on the page we provide information about the recruitment process, and the available careers at PORTIC. Don't miss our amazing opportunities!",
+    "mainTitle": "Everything starts with a small step",
+    "title": "Find what you're looking for",
+    "desc": "Our programs offer unique experiences not only for interns, but also to employees. If you can think on your feet and speak your mind, you can help bring the power of conversation to people all over the world.",
+    "title2": "Come prepared",
+    "title3": "Available careers",
+    "card": {
+      "knowMore": "Know more",
+      "btnText": "Apply now"
+    }
   }
 }

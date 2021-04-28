@@ -1,4 +1,4 @@
-export const tips = [
+export const tipsPT = [
   {
     id: 1,
     title: "Aperfeiçoar o teu CV",
@@ -14,7 +14,7 @@ export const tips = [
     id: 3,
     title: "Venha com perguntas",
     desc:
-      "Prepare perguntas acera do PORTIC, a posição que está a concorrer a, ou a equipa com que vai trabalhar. Assim, conseguimos perceber que está interessado e entusiasmado/a em trabalhar connosco."
+      "Prepare perguntas acerca do PORTIC, a posição que está a concorrer a, ou a equipa com que vai trabalhar. Assim, conseguimos perceber que está interessado e entusiasmado/a em trabalhar connosco."
   },
   {
     id: 4,
@@ -27,6 +27,38 @@ export const tips = [
     title: "Diga-nos porquê",
     desc:
       "Nós gostaríamos de saber o porquê de ser querer candidatar ao PORTIC - e quanto mais específico for, melhor."
+  }
+];
+
+export const tipsEN = [
+  {
+    id: 1,
+    title: "Refine your resume",
+    desc: "Your resume should be clean, succinct, and easy to read."
+  },
+  {
+    id: 2,
+    title: "Do your research",
+    desc:
+      "Show us you have a solid understanding of PORTIC and our products. In this website you can find more information in the 'About Us' page, and about our projects in 'Projects' page."
+  },
+  {
+    id: 3,
+    title: "Come with questions",
+    desc:
+      "Have some questions ready about PORTIC, the role you’re applying for, or the team you’ll be working with. It lets us know you’re interested and enthusiastic about working with us."
+  },
+  {
+    id: 4,
+    title: "Think Aloud",
+    desc:
+      "By verbalizing your thoughts, your interviewer can understand your approach to a problem and jump in to guide you when needed."
+  },
+  {
+    id: 5,
+    title: "Tell us why",
+    desc:
+      "We’d love to know why you want to intern with us — and the more thorough and specific the answer, the better."
   }
 ];
 

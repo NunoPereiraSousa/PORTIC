@@ -3,39 +3,36 @@
     <!-- <div class="scene"></div> -->
     <!-- <Intro extra="our " keyword="Projects" /> -->
     <SubPageIntro
-      categoryTitle="Recrutamento"
-      :title1="`${this.nPositions} carreiras disponíveis`"
-      text1="Encontre as carreiras disponíveis nas secções mais abaixo apresentadas."
-      title2="Formamos profissionais de alto nível"
-      text2="Recrutamos, formamos e empregamos profissionais de diversas áreas."
-      title3="Uma porta para o futuro"
-      text3="Oferecemos carrieras únicas em prol de condições de alto nível."
-      title4="Não hexite em contactar connosco"
-      text4="Não encontra a carreira que procura? Contacte-nos na mesma."
-      categoryDescription="Mais abaixo disponibilizamos informações acerca das candidaturas, processos, e carreiras disponíveis no PORTIC. Não perca as nossas excelenetes oportunidades!"
+      :categoryTitle="$t('careers.careersKey')"
+      :title1="$t('careers.nCareers', { n: $store.getters.getNPositions })"
+      :text1="$t('careers.nCareersDesc')"
+      :title2="$t('careers.careersTitle2')"
+      :text2="$t('careers.careersTitle2Desc')"
+      :title3="$t('careers.careersTitle3')"
+      :text3="$t('careers.careersTitle3Desc')"
+      :title4="$t('careers.careersTitle4')"
+      :text4="$t('careers.careersTitle4Desc')"
+      :categoryDescription="$t('careers.infoDesc')"
     />
 
     <section class="positions__find_program">
       <h1 class="positions__find_program__title">
-        Tudo começa com um pequeno passo
+        {{ $t("careers.mainTitle") }}
       </h1>
 
-      <SubHeaderTitle text="Encontre o que mais procura" />
+      <SubHeaderTitle :text="$t('careers.title')" />
 
       <p class="positions__find_program__info">
-        Os nossos programas oferecem experiências únicas tanto para estagiários,
-        como para trabalhadores. Se consegue pensar de forma criativa e
-        trabalhadora, então consegue fazer chegar a sua voz a pessoas de todas
-        as partes do mundo.
+        {{ $t("careers.desc") }}
       </p>
     </section>
 
     <section class="positions__come_prepared">
-      <SubHeaderTitle text="Vem preparado" class="light" />
+      <SubHeaderTitle :text="$t('careers.title2')" class="light" />
 
       <div class="positions__come_prepared__grid grid">
         <ComePreparedCard
-          v-for="tip in tips"
+          v-for="tip in getTips"
           :key="tip.id"
           :counter="tip.id"
           :title="tip.title"
@@ -45,7 +42,7 @@
     </section>
 
     <section class="positions__available">
-      <SubHeaderTitle text="Carreias disponíveis" />
+      <SubHeaderTitle :text="$t('careers.title3')" />
       <div class="positions__available__grid grid">
         <AvailablePositionsCard
           v-for="position in positions"
@@ -97,10 +94,17 @@ export default {
   computed: {
     ...mapGetters([
       "getPositions",
-      "getTips",
+      "getTipsPT",
+      "getTipsEN",
       "getNPositions",
       "getPositionsNames"
-    ])
+    ]),
+    getTips() {
+      let tipsPT = this.getTipsPT;
+      let tipsEN = this.getTipsEN;
+
+      return this.$i18n.locale == "pt" ? tipsPT : tipsEN;
+    }
   }
 };
 </script>

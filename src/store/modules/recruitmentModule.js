@@ -1,9 +1,10 @@
-import { positions, tips } from "../../config/recruitment";
+import { positions, tipsEN, tipsPT } from "../../config/recruitment";
 
 export const recruitmentModule = {
   state: {
     positions: positions,
-    tips: tips
+    tipsPT: tipsPT,
+    tipsEN: tipsEN
   },
   mutations: {},
   actions: {},
@@ -12,6 +13,7 @@ export const recruitmentModule = {
     getNPositions: state => state.positions.length,
     getPositionsNames: state =>
       state.positions.map(position => position.categories),
-    getTips: state => state.tips
+    getTipsPT: state => state.tipsPT,
+    getTipsEN: state => state.tipsEN
   }
 };

@@ -110,5 +110,26 @@
     "principles": {
       "title": "Cinco princípios que temos em consideração"
     }
+  },
+  "careers": {
+    "careersKey": "Recrutamento",
+    "nCareers": "{n} carreiras disponíveis",
+    "nCarrersDesc": "Encontre as carreiras disponíveis nas secções mais abaixo apresentadas.",
+    "careersTitle2": "Formamos profissionais de alto nível",
+    "careersTitle2Desc": "Recrutamos, formamos e empregamos profissionais de diversas áreas.",
+    "careersTitle3": "Uma porta para o futuro",
+    "careersTitle3Desc": "Oferecemos carrieras únicas em prol de condições de alto nível.",
+    "careersTitle4": "Não hexite em contactar connosco",
+    "careersTitle4Desc": "Não encontra a carreira que procura? Contacte-nos na mesma.",
+    "infoDesc": "Mais abaixo disponibilizamos informações acerca das candidaturas, processos, e carreiras disponíveis no PORTIC. Não perca as nossas excelentes oportunidades!",
+    "mainTitle": "Tudo começa com um pequeno passo",
+    "title": "Encontre o que mais procura",
+    "desc": "Os nossos programas oferecem experiências únicas tanto para estagiários, como para trabalhadores. Se consegue pensar de forma criativa e trabalhadora, então consegue fazer chegar a sua voz a pessoas de todas as partes do mundo.",
+    "title2": "Vem preparado",
+    "title3": "Carreiras disponíveis",
+    "card": {
+      "knowMore": "Saber mais",
+      "btnText": "Candidatar agora"
+    }
   }
 }
