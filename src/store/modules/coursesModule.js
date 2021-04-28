@@ -1,15 +1,24 @@
-import { courses, iconCoursesCards } from "../../config/courses";
+import {
+  coursesEN,
+  coursesPT,
+  iconCoursesCardsEN,
+  iconCoursesCardsPT
+} from "../../config/courses";
 
 export const coursesModule = {
   state: {
-    courses: courses,
-    iconCoursesCards: iconCoursesCards
+    coursesPT: coursesPT,
+    coursesEN: coursesEN,
+    iconCoursesCardsEN: iconCoursesCardsEN,
+    iconCoursesCardsPT: iconCoursesCardsPT
   },
   mutations: {},
   actions: {},
   getters: {
-    getCourses: state => state.courses,
-    getNCourses: state => state.courses.length,
-    getIconCoursesCards: state => state.iconCoursesCards
+    getCoursesPT: state => state.coursesPT,
+    getCoursesEN: state => state.coursesEN,
+    getNCourses: state => state.coursesPT.length,
+    getIconCoursesCardsEN: state => state.iconCoursesCardsEN,
+    getIconCoursesCardsPT: state => state.iconCoursesCardsPT
   }
 };

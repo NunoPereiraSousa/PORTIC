@@ -64,5 +64,21 @@
       "submit": "Submit"
     }
   },
-  "contactBtn": "Contact us"
+  "contactBtn": "Contact us",
+  "courses": {
+    "courseKey": "Courses",
+    "nCourses": "Number of courses",
+    "nCoursesDesc": "PORTIC has a total of {n} courses.",
+    "coursesTitle2": "Courses focused in many areas.",
+    "coursesTitle2Desc": "Our courses offer multiple opportunities in different areas.",
+    "coursesTitle3": "National and international opportunities",
+    "coursesTitle3Desc": "Possibility of corporate with different national and international clients.",
+    "coursesTitle4": "Knowledge enrichment",
+    "coursesTitle4Desc": "With our courses, students build a strong portfolio with the knowledge acquired.",
+    "infoDesc": "Down on the page we give information about the courses that PORTIC is part of, and information about the categories and areas that the courses are part of.",
+    "icons": {
+      "title": "Our courses focuses",
+      "desc": "Porto Design Factory offers many educational programs, with different durations, goals and pedagogic methodologies, that groups Bachelor’s Degrees students, Master Degrees students, Doctoral Degree e After-doctoral Degree, or even professional technicians and employees."
+    }
+  }
 }

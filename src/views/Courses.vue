@@ -2,32 +2,27 @@
   <div>
     <!-- <div class="scene"></div> -->
     <SubPageIntro
-      categoryTitle="Cursos"
-      title1="Número de cursos"
-      :text1="
-        `O centro PORTIC incorpora um número total de ${$store.getters.getNCourses} cursos.`
-      "
-      title2="Cursos focados em diversas áreas"
-      text2="Os nossos cursos oferecem oportunidades em diferentes áreas de atuação."
-      title3="Oportunidades nacionais e internacionais"
-      text3="Possibilidade de cooperação com diversas entidades nacionais e internacionais."
-      title4="Enrequecimento de conhecimento"
-      text4="Através dos cursos, os alunos enriquessem o seu portfolio e seus conhecimentos."
-      categoryDescription="Mais abaixo disponibilizamos informações acerca dos cursos que o PORTIC oferece, assim como informações relativas às categorias e áreas envolventes destes mesmos cursos."
+      :categoryTitle="$t('courses.courseKey')"
+      :title1="$t('courses.nCourses')"
+      :text1="$t('courses.nCoursesDesc', { n: $store.getters.getNCourses })"
+      :title2="$t('courses.coursesTitle2')"
+      :text2="$t('courses.coursesTitle2Desc')"
+      :title3="$t('courses.coursesTitle3')"
+      :text3="$t('courses.coursesTitle3Desc')"
+      :title4="$t('courses.coursesTitle4')"
+      :text4="$t('courses.coursesTitle4Desc')"
+      :categoryDescription="$t('courses.infoDesc')"
     />
     <section class="courses_information">
-      <SubHeaderTitle text="Foco nos nossos cursos" class="light" />
+      <SubHeaderTitle :text="$t('courses.icons.title')" class="light" />
 
       <p class="areas_information__info">
-        A Porto Design Factory oferece vários programas educativos, diversos em
-        duração, objetivos ou até mesmo em metodologias pedagógicas, que podem
-        envolver estudantes de cursos de licenciatura, mestrado, pós-graduação,
-        doutoramento e pós-doc ou até mesmo profissionais e empreendedores.
+        {{ $t("courses.icons.desc") }}
       </p>
 
       <div class="areas_information__icons grid">
         <IconCard
-          v-for="card in iconCoursesCards"
+          v-for="card in getCoursesIcons"
           :key="card.id"
           :icon="card.icon"
           :content="card.content"
@@ -38,7 +33,7 @@
       <SubHeaderTitle text="Explore os nossos cursos" />
       <div class="courses__grid grid">
         <CoursesCard
-          v-for="course in courses"
+          v-for="course in getCourses"
           :key="course.id"
           :index="course.id"
           :button_id="course.id"
@@ -69,18 +64,25 @@ export default {
     CoursesCard,
     Footer
   },
-  data: () => {
-    return {
-      courses: null,
-      iconCoursesCards: null
-    };
-  },
-  mounted() {
-    this.courses = this.getCourses;
-    this.iconCoursesCards = this.getIconCoursesCards;
-  },
   computed: {
-    ...mapGetters(["getCourses", "getIconCoursesCards"])
+    ...mapGetters([
+      "getCoursesPT",
+      "getCoursesEN",
+      "getIconCoursesCardsPT",
+      "getIconCoursesCardsEN"
+    ]),
+    getCoursesIcons() {
+      let iconCoursesPT = this.getIconCoursesCardsPT;
+      let iconCoursesEN = this.getIconCoursesCardsEN;
+
+      return this.$i18n.locale == "pt" ? iconCoursesPT : iconCoursesEN;
+    },
+    getCourses() {
+      let coursesPT = this.getCoursesPT;
+      let coursesEN = this.getCoursesEN;
+
+      return this.$i18n.locale == "pt" ? coursesPT : coursesEN;
+    }
   }
 };
 </script>

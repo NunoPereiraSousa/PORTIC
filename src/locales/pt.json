@@ -64,5 +64,22 @@
       "submit": "Enviar"
     }
   },
-  "contactBtn": "Contacte-nos"
+  "contactBtn": "Contacte-nos",
+  "courses": {
+    "courseKey": "Cursos",
+    "coursesInformation": "A Porto Design Factory oferece vários programas educativos, diversos em duração, objetivos ou até mesmo em metodologias pedagógicas, que podem envolver estudantes de cursos de licenciatura, mestrado, pós-graduação, doutoramento e pós-doc ou até mesmo profissionais e empreendedores.",
+    "nCourses": "Número de cursos",
+    "nCoursesDesc": "O centro PORTIC incorpora um número total de {n} cursos.",
+    "coursesTitle2": "Cursos focados em diversas áreas",
+    "coursesTitle2Desc": "Os nossos cursos oferecem oportunidades em diferentes áreas de atuação.",
+    "coursesTitle3": "Oportunidades nacionais e internacionais",
+    "coursesTitle3Desc": "Possibilidade de cooperação com diversas entidades nacionais e internacionais.",
+    "coursesTitle4": "Enrequecimento de conhecimento",
+    "coursesTitle4Desc": "Através dos cursos, os alunos enriquessem o seu portfolio e seus conhecimentos.",
+    "infoDesc": "Mais abaixo disponibilizamos informações acerca dos cursos que o PORTIC oferece, assim como informações relativas às categorias e áreas envolventes destes mesmos cursos.",
+    "icons": {
+      "title": "Foco nos nossos cursos",
+      "desc": "A Porto Design Factory oferece vários programas educativos, diversos em duração, objetivos ou até mesmo em metodologias pedagógicas, que podem envolver estudantes de cursos de licenciatura, mestrado, pós-graduação, doutoramento e pós-doc ou até mesmo profissionais e empreendedores."
+    }
+  }
 }

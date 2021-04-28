@@ -5139,13 +5139,34 @@ button:focus {
 }
 
 .principles button {
-  background-color: transparent !important;
-  -webkit-box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, 0.025), -1px -1px 10px 0px rgba(255, 255, 255, 0.025) !important;
-          box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, 0.025), -1px -1px 10px 0px rgba(255, 255, 255, 0.025) !important;
+  -webkit-box-shadow: 2px 4px 10px rgba(8, 8, 8, 0.05), -2px -4px 10px rgba(8, 8, 8, 0.05);
+          box-shadow: 2px 4px 10px rgba(8, 8, 8, 0.05), -2px -4px 10px rgba(8, 8, 8, 0.05);
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 1.5px solid transparent;
+  border-radius: 50%;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  margin-right: 30px;
+}
+
+@media (min-width: 64em) {
+  .principles button {
+    margin-top: 2rem;
+  }
 }
 
 .principles button svg {
+  width: 20px;
+  height: 20px;
   fill: #ffffff;
+}
+
+@media (min-width: 64em) {
+  .principles button svg {
+    margin-bottom: 1px;
+  }
 }
 
 .unities__grid {
