@@ -1,13 +1,15 @@
-import { medias } from "../../config/media";
+import { mediasEN, mediasPT } from "../../config/media";
 
 export const mediaModule = {
   state: {
-    medias: medias
+    mediasPT: mediasPT,
+    mediasEN: mediasEN
   },
   mutations: {},
   actions: {},
   getters: {
-    getMedias: state => state.medias,
-    getNMedias: state => state.medias.length
+    getMediasPT: state => state.mediasPT,
+    getMediasEN: state => state.mediasEN,
+    getNMedias: state => state.mediasPT.length
   }
 };

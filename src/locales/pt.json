@@ -67,7 +67,6 @@
   "contactBtn": "Contacte-nos",
   "courses": {
     "courseKey": "Cursos",
-    "coursesInformation": "A Porto Design Factory oferece vários programas educativos, diversos em duração, objetivos ou até mesmo em metodologias pedagógicas, que podem envolver estudantes de cursos de licenciatura, mestrado, pós-graduação, doutoramento e pós-doc ou até mesmo profissionais e empreendedores.",
     "nCourses": "Número de cursos",
     "nCoursesDesc": "O centro PORTIC incorpora um número total de {n} cursos.",
     "coursesTitle2": "Cursos focados em diversas áreas",
@@ -81,5 +80,19 @@
       "title": "Foco nos nossos cursos",
       "desc": "A Porto Design Factory oferece vários programas educativos, diversos em duração, objetivos ou até mesmo em metodologias pedagógicas, que podem envolver estudantes de cursos de licenciatura, mestrado, pós-graduação, doutoramento e pós-doc ou até mesmo profissionais e empreendedores."
     }
+  },
+  "medias": {
+    "video": "Vídeo",
+    "mediasKey": "Medias",
+    "nMedias": "Número de medias",
+    "nMediasDesc": "O centro PORTIC incorpora um número total de {n} cursos.",
+    "mediasTitle2": "Conheça a história do PORTIC",
+    "mediasTitle2Desc": "Disponibilizamos um vídeo onde pode conhecer de mais perto a nossa super estrutura.",
+    "mediasTitle3": "Relembrar eventos importantes",
+    "mediasTitle3Desc": "Fizemos parte de eventos importantes englobando diversas entidades.",
+    "mediasTitle4": "Acompanhe os nossos passos através do digital",
+    "mediasTitle4Desc": "Siga passo a passo a estrutura PORTIC.",
+    "infoDesc": "Mais abaixo disponibilizamos vídeos onde pode acompanhar passo a passo a nossa super estrutura e eventos importantes que vão acontecendo.",
+    "title": "Assista aos nossos mídias"
   }
 }

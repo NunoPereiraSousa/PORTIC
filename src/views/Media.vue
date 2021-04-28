@@ -1,25 +1,23 @@
 <template>
   <div>
     <SubPageIntro
-      categoryTitle="Mídia"
-      title1="Número de mídias"
-      :text1="
-        `O centro PORTIC incorpora um número total de ${$store.getters.getNMedias} mídias.`
-      "
-      title2="Conheça a história do PORTIC"
-      text2="Disponibilizamos um vídeo onde pode conhecer de mais perto a nossa super estrutura."
-      title3="Relembrar eventos importantes"
-      text3="Fizemos parte de eventos importantes englobando diversas entidades."
-      title4="Acompanhe os nossos passos através do digital"
-      text4="Siga passo a passo a estrutura PORTIC."
-      categoryDescription="Mais abaixo disponibilizamos vídeos onde pode acompanhar passo a passo a nossa super estrutura e eventos importantes que vão acontecendo."
+      :categoryTitle="$t('medias.mediasKey')"
+      :title1="$t('medias.nMedias')"
+      :text1="$t('medias.nMediasDesc', { n: $store.getters.getNMedias })"
+      :title2="$t('medias.mediasTitle2')"
+      :text2="$t('medias.mediasTitle2Desc')"
+      :title3="$t('medias.mediasTitle3')"
+      :text3="$t('medias.mediasTitle3Desc')"
+      :title4="$t('medias.mediasTitle4')"
+      :text4="$t('medias.mediasTitle4Desc')"
+      :categoryDescription="$t('medias.infoDesc')"
     />
-    <MainTitle className="main__title" text="Assista aos nossos mídias" />
+    <MainTitle className="main__title" :text="$t('medias.title')" />
     <section class="media">
       <div class="media__grid grid">
         <!-- :videoURL="convertToYoutubeURL(medias.url)" -->
         <MediaCard
-          v-for="media in medias"
+          v-for="media in getMedias"
           :key="media.id"
           :counter="media.id"
           :videoURL="convertToYoutubeURL(media.videoURL)"
@@ -46,17 +44,17 @@ export default {
     MediaCard,
     Footer
   },
-  data: () => {
-    return {
-      medias: null
-    };
-  },
   mounted() {
-    this.medias = this.getMedias;
     this.convertToYoutubeURL();
   },
   computed: {
-    ...mapGetters(["getMedias"])
+    ...mapGetters(["getMediasPT", "getMediasEN"]),
+    getMedias() {
+      let mediasPT = this.getMediasPT;
+      let mediasEN = this.getMediasEN;
+
+      return this.$i18n.locale == "pt" ? mediasPT : mediasEN;
+    }
   },
   // https://www.youtube.com/watch?v=t4-8lJ0ALNU
   methods: {
