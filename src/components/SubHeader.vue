@@ -43,7 +43,7 @@
     <div class="subheader__languages flex flex-jc-sb flex-ai-c">
       <button class="en" @click="changeLangEN">EN</button>
       <hr />
-      <button class="pt selected" @click="changeLangPT">
+      <button class="pt" @click="changeLangPT">
         PT
       </button>
     </div>
@@ -58,6 +58,9 @@ export default {
       isDisabled: false
     };
   },
+  mounted() {
+    this.getLang();
+  },
   methods: {
     changeLangEN() {
       this.$i18n.locale = "en";
@@ -67,6 +70,8 @@ export default {
 
       ptBtn.classList.remove("selected");
       enBtn.classList.add("selected");
+
+      this.$store.commit("SET_LOCALE", this.$i18n.locale);
     },
     changeLangPT() {
       this.$i18n.locale = "pt";
@@ -76,6 +81,18 @@ export default {
 
       enBtn.classList.remove("selected");
       ptBtn.classList.add("selected");
+
+      this.$store.commit("SET_LOCALE", this.$i18n.locale);
+    },
+    getLang() {
+      let enBtn = document.querySelector(".en");
+      let ptBtn = document.querySelector(".pt");
+
+      if (this.$i18n.locale == "en") {
+        enBtn.classList.add("selected");
+      } else {
+        ptBtn.classList.add("selected");
+      }
     }
   }
 };

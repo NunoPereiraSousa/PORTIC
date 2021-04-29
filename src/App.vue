@@ -20,6 +20,7 @@ import SubHeader from "@/components/SubHeader.vue";
 import Header from "@/components/Header.vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -28,7 +29,8 @@ export default {
   },
   data: () => {
     return {
-      previous__scroll__pos: null
+      previous__scroll__pos: null,
+      currLang: ""
     };
   },
   created() {
@@ -36,6 +38,12 @@ export default {
     window.addEventListener("scroll", this.handleScroll);
 
     this.previous__scroll__pos = window.pageYOffset;
+
+    this.currLang = this.getCurrLang;
+    this.getLang();
+  },
+  computed: {
+    ...mapGetters(["getCurrLang"])
   },
   methods: {
     handleScroll() {
@@ -63,6 +71,11 @@ export default {
           className: "scroll"
         }
       });
+    },
+    getLang() {
+      this.$i18n.locale = this.currLang;
+
+      this.$store.commit("SET_LOCALE", this.$i18n.locale);
     }
   }
 };

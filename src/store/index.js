@@ -5,6 +5,7 @@ import createPersistedState from "vuex-persistedstate";
 import { areaModule } from "./modules/areasModule";
 import { contactsModule } from "./modules/contactsModule";
 import { coursesModule } from "./modules/coursesModule";
+import { langModule } from "./modules/langModule";
 import { mediaModule } from "./modules/mediaModule";
 import { newsModule } from "./modules/newsModule";
 import { projectsModule } from "./modules/projectsModule";
@@ -25,6 +26,7 @@ export default new Vuex.Store({
     areaModule,
     contactsModule,
     coursesModule,
+    langModule,
     mediaModule,
     newsModule,
     projectsModule,
@@ -34,7 +36,7 @@ export default new Vuex.Store({
   getters: {},
   plugins: [
     createPersistedState({
-      paths: ["projectsModule.selectedProject"],
+      paths: ["projectsModule.selectedProject", "langModule.lang"],
       storage: {
         getItem: key => Cookies.get(key),
         setItem: (key, value) =>
