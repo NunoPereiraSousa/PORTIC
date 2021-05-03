@@ -3,7 +3,7 @@
     <DashboardHeader />
     <div class="flex flex-ai-c admin_home__panel">
       <div class="admin_home__panel__grid grid">
-        <div class="admin_home__panel__card">
+        <div class="admin_home__panel__card intro">
           <div class="flex flex-ai-c flex-jc-sb">
             <h2>Bem-vindo Nuno.</h2>
             <a href="tel:+">
@@ -37,7 +37,7 @@
               v-for="(weather, i) in weatherBroadcast.slice(0, 5)"
               :key="i"
               :temp="weather.temp"
-              :day="weather.day"
+              :day="weather.days[i].day"
               :icon="weather.icon"
             />
           </div>
@@ -80,7 +80,8 @@ export default {
     return {
       weather: "",
       temperature: "",
-      weatherBroadcast: []
+      weatherBroadcast: [],
+      days: []
     };
   },
   mounted() {
@@ -99,19 +100,22 @@ export default {
 
     this.weather = this.getWeather;
 
-    console.log(this.weather);
+    let broadcastArr = this.weather.daily;
 
-    let broadcast = this.weather.daily;
+    this.convertWeekDaysArr().forEach(d => {
+      this.days.push({
+        day: d
+      });
+    });
+    console.log(this.days);
 
-    for (const daily of broadcast) {
+    for (const daily of broadcastArr) {
       this.weatherBroadcast.push({
-        day: "Hoje",
         icon: this.getWeatherIcon(daily.weather[0].icon),
-        temp: daily.temp.max
+        temp: Math.round(daily.temp.max),
+        days: this.days
       });
     }
-
-    console.log(this.weatherBroadcast);
 
     this.temperature = Math.round(this.getWeather.current.temp);
   },
@@ -119,7 +123,56 @@ export default {
     ...mapGetters(["getWeather"])
   },
   methods: {
-    getWeatherBroadcast() {},
+    getFiveWeekDay() {
+      let now = new Date();
+
+      let currDayNum = now.getDay();
+
+      let futureNum = currDayNum + 5;
+
+      let weekDay = [];
+
+      for (let i = 0; i < 5; i++) {
+        let number = now.getDay() + i;
+
+        if (number < futureNum) {
+          weekDay.push(number);
+        }
+      }
+
+      return weekDay;
+    },
+    convertWeekDaysArr() {
+      let arr = [];
+      for (let day of this.getFiveWeekDay()) {
+        switch (day) {
+          case 0:
+            arr.push("Dom");
+            break;
+          case 1:
+            arr.push("Seg");
+            break;
+          case 2:
+            arr.push("Ter");
+            break;
+          case 3:
+            arr.push("Qua");
+            break;
+          case 4:
+            arr.push("Qui");
+            break;
+          case 5:
+            arr.push("Sex");
+            break;
+          case 6:
+            arr.push("Sáb");
+            break;
+        }
+      }
+      arr[0] = "Hoje";
+
+      return arr;
+    },
     getWeatherIcon(icon) {
       return `http://openweathermap.org/img/w/${icon}.png`;
     },

@@ -7,7 +7,6 @@ export const weatherModule = {
   mutations: {
     SET_WEATHER(state, payload) {
       state.weather = payload.weather;
-      //   console.log(payload.weather);
     }
   },
   actions: {
