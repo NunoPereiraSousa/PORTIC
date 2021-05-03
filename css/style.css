@@ -3363,7 +3363,7 @@ button:focus {
 
 @media (min-width: 75em) {
   .news__cards__card:first-child {
-    margin-top: 6.875rem;
+    margin-top: 1.25rem;
   }
 }
 
@@ -7696,5 +7696,132 @@ button:focus {
   z-index: 991;
   opacity: 1;
   visibility: visible;
+}
+
+.admin_home__panel__grid {
+  padding: 4.125rem 3.25rem;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  row-gap: 3.125rem;
+  -webkit-column-gap: 3.125rem;
+          column-gap: 3.125rem;
+}
+
+.admin_home__panel__card {
+  position: relative;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 2.125rem 4.375rem;
+  background-color: rgba(8, 8, 8, 0.02);
+  border-radius: 50px;
+}
+
+.admin_home__panel__card h2 {
+  margin: 0;
+  margin-bottom: 24px;
+  color: #c94d24;
+  font-weight: 400;
+  font-size: 1.375rem;
+}
+
+.admin_home__panel__card a {
+  color: #999999;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.admin_home__panel__card p {
+  margin: 0;
+  margin-right: 14vw;
+  margin-bottom: 50px;
+  font-size: 1.0625rem;
+}
+
+.admin_home__panel__card img#svg {
+  position: absolute;
+  right: 0;
+  bottom: 0%;
+  width: 34%;
+}
+
+.admin_home__panel__card h4 {
+  color: #999999;
+  font-weight: 400;
+}
+
+.admin_home__panel__card.weather hr {
+  margin: 0 2rem;
+}
+
+.admin_home__panel__card.weather h1,
+.admin_home__panel__card.weather h3,
+.admin_home__panel__card.weather p {
+  margin: 0;
+}
+
+.admin_home__panel__card.weather .temperature h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.875rem;
+}
+
+.admin_home__panel__card.weather .temperature h3 {
+  font-weight: 100;
+}
+
+.admin_home__panel__card.weather .day p,
+.admin_home__panel__card.weather .day h3 {
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 1.0625rem;
+}
+
+.admin_nav {
+  height: 100vh;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: fixed;
+  z-index: 1;
+  top: 0%;
+  left: 0%;
+  padding: 4rem 2.375rem;
+  background-color: #1e1e1e;
+}
+
+.admin_nav__link {
+  color: #ffffff;
+}
+
+.admin_nav__link svg {
+  margin-right: 2.125rem;
+  fill: #ffffff;
+  height: 20px;
+  width: 20px;
+}
+
+.broadcast {
+  margin-top: 4rem;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.broadcast__card {
+  padding: 14px 8px;
+  border-radius: 23px;
+  background-color: rgba(8, 8, 8, 0.02);
+}
+
+.broadcast__card img {
+  width: 26px;
+  margin: 16px 0;
+}
+
+.broadcast__card p {
+  font-size: 15px;
+  font-weight: 400;
 }
 /*# sourceMappingURL=style.css.map */

@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Areas from "../views/Areas.vue";
 import Contacts from "../views/Contacts.vue";
 import Courses from "../views/Courses.vue";
+import DashboardHome from "../views/Dashboard/DashboardHome.vue";
 import Home from "../views/Home.vue";
 import Media from "../views/Media.vue";
 import Positions from "../views/Positions.vue";
@@ -65,6 +66,11 @@ const routes = [
     path: "/unities",
     name: "Unities",
     component: Unities
+  },
+  {
+    path: "/dashboard",
+    name: "DashboardHome",
+    component: DashboardHome
   }
 ];
 

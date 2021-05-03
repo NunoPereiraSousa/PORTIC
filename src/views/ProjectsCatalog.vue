@@ -136,7 +136,7 @@ export default {
           })
         );
       } else {
-        return [...arr].sort(this.compareBudget);
+        return [...arr].sort(this.compareName);
       }
 
       // if (!this.order2 && this.projectTxt != null) {

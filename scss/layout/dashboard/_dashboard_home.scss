@@ -1,0 +1,94 @@
+.admin_home {
+  &__panel {
+    // height: 100vh;
+
+    &__grid {
+      padding: 4.125rem 3.25rem;
+      grid-template-columns: 2fr 1fr;
+
+      row-gap: 3.125rem;
+      column-gap: 3.125rem;
+    }
+
+    &__card {
+      position: relative;
+      height: fit-content;
+      padding: 2.125rem 4.375rem;
+      background-color: $admin_grey;
+
+      border-radius: 50px;
+
+      h2 {
+        margin: 0;
+        margin-bottom: 24px;
+
+        color: $orange;
+
+        font-weight: 400;
+        font-size: $_22px;
+      }
+
+      a {
+        color: $grey;
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
+
+      p {
+        margin: 0;
+        margin-right: 14vw;
+        margin-bottom: 50px;
+        font-size: $_17px;
+      }
+
+      img#svg {
+        position: absolute;
+        right: 0;
+        bottom: 0%;
+
+        width: 34%;
+      }
+
+      h4 {
+        color: $grey;
+        font-weight: 400;
+      }
+
+      &.weather {
+        // grid-template-columns: 1fr 1fr;
+
+        hr {
+          // transform: rotate(90deg);
+          margin: 0 2rem;
+        }
+
+        h1,
+        h3,
+        p {
+          margin: 0;
+        }
+
+        .temperature {
+          h1 {
+            margin: 0;
+            font-weight: 400;
+            font-size: $_30px;
+          }
+
+          h3 {
+            font-weight: 100;
+          }
+        }
+
+        .day {
+          p,
+          h3 {
+            white-space: nowrap;
+            font-weight: 400;
+            font-size: $_17px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 import Vue from "vue";
 import Vuex from "vuex";
 import createPersistedState from "vuex-persistedstate";
+import { adminModule } from "./modules/adminModule";
 import { areaModule } from "./modules/areasModule";
 import { contactsModule } from "./modules/contactsModule";
 import { coursesModule } from "./modules/coursesModule";
@@ -11,6 +12,7 @@ import { newsModule } from "./modules/newsModule";
 import { projectsModule } from "./modules/projectsModule";
 import { recruitmentModule } from "./modules/recruitmentModule";
 import { unityModule } from "./modules/unitiesModule";
+import { weatherModule } from "./modules/weatherModule";
 
 Vue.use(Vuex);
 
@@ -23,6 +25,7 @@ export default new Vuex.Store({
   mutations: {},
   actions: {},
   modules: {
+    adminModule,
     areaModule,
     contactsModule,
     coursesModule,
@@ -31,7 +34,8 @@ export default new Vuex.Store({
     newsModule,
     projectsModule,
     recruitmentModule,
-    unityModule
+    unityModule,
+    weatherModule
   },
   getters: {},
   plugins: [

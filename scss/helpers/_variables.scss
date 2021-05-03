@@ -4,6 +4,12 @@ $orange: #c94d24;
 $lightGrey: #666666;
 $grey: #999999;
 
+$admin_black: #1e1e1e;
+$admin_grey: rgba(
+  $color: $black,
+  $alpha: 0.02
+);
+
 $portoSans: "Porto Sans";
 $portoSansStencil: "Porto Sans Stencil";
 $portoSerif: "Porto Serif";

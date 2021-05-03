@@ -1,0 +1,37 @@
+.admin_nav {
+  height: 100vh;
+  width: fit-content;
+  position: fixed;
+  z-index: 1;
+  top: 0%;
+  left: 0%;
+
+  padding: 4rem 2.375rem;
+
+  background-color: $admin_black;
+
+  &__link {
+    color: $white;
+
+    svg {
+      margin-right: 2.125rem;
+      fill: $white;
+
+      height: 20px;
+      width: 20px;
+    }
+
+    // &.selected {
+    //   svg {
+    //     fill: $orange !important;
+    //   }
+    // }
+
+    // &.router-link-active {
+    //   svg,
+    //   path {
+    //     fill: $orange;
+    //   }
+    // }
+  }
+}

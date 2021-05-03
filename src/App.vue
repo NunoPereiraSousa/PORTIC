@@ -5,11 +5,21 @@
       <router-link to="/about">About</router-link>
     </div> -->
     <div class="headers">
-      <SubHeader />
       <div v-if="this.$route.name === 'Home'">
+        <SubHeader />
         <Header theme="transparent" />
       </div>
-      <div v-else><Header theme="normal" /></div>
+      <!-- <div v-if="this.$route.name === 'DashboardHome'">
+        <DashboardHeader />
+      </div> -->
+      <div
+        v-if="
+          this.$route.name !== 'Home' && this.$route.name !== 'DashboardHome'
+        "
+      >
+        <SubHeader />
+        <Header theme="normal" />
+      </div>
     </div>
     <router-view />
   </div>
@@ -18,6 +28,7 @@
 <script>
 import SubHeader from "@/components/SubHeader.vue";
 import Header from "@/components/Header.vue";
+// import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { mapGetters } from "vuex";
@@ -26,6 +37,7 @@ export default {
   components: {
     SubHeader,
     Header
+    // DashboardHeader
   },
   data: () => {
     return {

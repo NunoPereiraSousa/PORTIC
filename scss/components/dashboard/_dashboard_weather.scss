@@ -1,0 +1,24 @@
+.broadcast {
+  margin-top: 4rem;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 20px;
+
+  &__card {
+    padding: 14px 8px;
+
+    border-radius: 23px;
+
+    background-color: rgba($color: $black, $alpha: 0.02);
+
+    img {
+      width: 26px;
+
+      margin: 16px 0;
+    }
+
+    p {
+      font-size: 15px;
+      font-weight: 400;
+    }
+  }
+}
