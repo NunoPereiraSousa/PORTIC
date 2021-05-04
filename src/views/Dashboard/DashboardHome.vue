@@ -43,7 +43,16 @@
           </div>
         </div>
         <div class="admin_home__panel__card barChart">
-          <BarChart />
+          <BarChart
+            :data="[
+              $store.getters.getNAreas,
+              $store.getters.getNCourses,
+              $store.getters.getNMedias,
+              $store.getters.getNProjects,
+              $store.getters.getNAreas,
+              $store.getters.getNUnities
+            ]"
+          />
         </div>
         <div class="admin_home__panel__card barChart">
           <PieChart />

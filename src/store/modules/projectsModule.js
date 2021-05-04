@@ -19,6 +19,7 @@ export const projectsModule = {
   actions: {},
   getters: {
     getProjects: state => state.projects,
+    getNProjects: state => state.projects.length,
     getSelectedProject: state => state.selectedProject,
     getProjectByName: state => initials =>
       state.projects.find(p => p.initials === initials)
