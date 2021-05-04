@@ -42,23 +42,11 @@
             />
           </div>
         </div>
-        <div class="admin_home__panel__card">
-          <h2>Bem-vindo Nuno.</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-            quos vero ullam! Alias est perspiciatis rerum, eveniet velit
-            asperiores facilis dignissimos quis. Incidunt a ipsa consequuntur
-            consectetur dolorum, impedit accusamus?
-          </p>
+        <div class="admin_home__panel__card barChart">
+          <BarChart />
         </div>
-        <div class="admin_home__panel__card">
-          <!-- <h2>Bem-vindo Nuno.</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-            quos vero ullam! Alias est perspiciatis rerum, eveniet velit
-            asperiores facilis dignissimos quis. Incidunt a ipsa consequuntur
-            consectetur dolorum, impedit accusamus?
-          </p> -->
+        <div class="admin_home__panel__card barChart">
+          <PieChart />
         </div>
       </div>
     </div>
@@ -68,13 +56,17 @@
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardWeather from "@/components/Dashboard/DashboardWeather.vue";
+import BarChart from "@/components/Dashboard/BarChart.vue";
+import PieChart from "@/components/Dashboard/PieChart.vue";
 
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     DashboardHeader,
-    DashboardWeather
+    DashboardWeather,
+    BarChart,
+    PieChart
   },
   data: () => {
     return {
@@ -107,7 +99,6 @@ export default {
         day: d
       });
     });
-    console.log(this.days);
 
     for (const daily of broadcastArr) {
       this.weatherBroadcast.push({
