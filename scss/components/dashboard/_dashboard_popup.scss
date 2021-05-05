@@ -1,0 +1,57 @@
+.admin_delete_popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: $white;
+  border-radius: 24px;
+
+  padding: 56px 100px;
+
+  text-align: center;
+  font-family: $portoSans;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.4s;
+
+  &.show_popup {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: $_17px;
+  }
+
+  p {
+    font-size: $_18px;
+    color: $grey;
+
+    margin-bottom: 4rem;
+  }
+
+  &__confirm,
+  &__cancel {
+    padding: 10px 30px;
+
+    border-radius: 10px;
+    font-size: $_15px;
+  }
+
+  &__confirm {
+    margin-right: 40px;
+    border: 2px solid $orange;
+    background-color: $orange;
+    color: $white;
+  }
+
+  &__cancel {
+    border: 2px solid $orange;
+    background-color: transparent;
+    color: $black;
+  }
+}

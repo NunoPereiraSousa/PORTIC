@@ -5,15 +5,23 @@ export const areaModule = {
     areasPT: areasPT,
     areasEN: areasEN,
     iconCardsPT: iconCardsPT,
-    iconCardsEN: iconCardsEN
+    iconCardsEN: iconCardsEN,
+    selectedId: null
   },
-  mutations: {},
+  mutations: {
+    SET_SELECTED_AREA_ID(state, payload) {
+      state.selectedId = payload.id;
+      console.log(state.selectedId);
+    }
+  },
   actions: {},
   getters: {
     getAreasPT: state => state.areasPT,
     getAreasEN: state => state.areasEN,
     getNAreas: state => state.areasPT.length,
     getIconCardsPT: state => state.iconCardsPT,
-    getIconCardsEN: state => state.iconCardsEN
+    getIconCardsEN: state => state.iconCardsEN,
+    getSelectedAreaByID: state => state.selectedId,
+    getAreaByID: state => id => state.areasPT.find(n => n.id == id)
   }
 };

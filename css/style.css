@@ -7954,6 +7954,25 @@ button:focus {
   /* Handle on hover */
 }
 
+.admin_areas__panel__overlay {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 998;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(8, 8, 8, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.admin_areas__panel__overlay.show_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
 .admin_areas__panel__tools {
   padding: 3rem;
 }
@@ -8063,5 +8082,58 @@ button:focus {
 .admin_areas__panel__grid__card__remove {
   background-color: #ffe6e6;
   color: #ff1010;
+}
+
+.admin_delete_popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 56px 100px;
+  text-align: center;
+  font-family: "Porto Sans";
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.admin_delete_popup.show_popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_delete_popup h2 {
+  font-weight: 400;
+  font-size: 1.0625rem;
+}
+
+.admin_delete_popup p {
+  font-size: 1.125rem;
+  color: #999999;
+  margin-bottom: 4rem;
+}
+
+.admin_delete_popup__confirm, .admin_delete_popup__cancel {
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+}
+
+.admin_delete_popup__confirm {
+  margin-right: 40px;
+  border: 2px solid #c94d24;
+  background-color: #c94d24;
+  color: #ffffff;
+}
+
+.admin_delete_popup__cancel {
+  border: 2px solid #c94d24;
+  background-color: transparent;
+  color: #080808;
 }
 /*# sourceMappingURL=style.css.map */

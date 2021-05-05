@@ -2,7 +2,9 @@
   <div class="admin_areas flex">
     <DashboardHeader />
     <div class="admin_areas__panel">
+      <div class="admin_areas__panel__overlay" @click="closePopup"></div>
       <DashboardTopHeader />
+      <DashboardAreasPopup :areaName="areaName" />
 
       <div class="admin_areas__panel__tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
@@ -57,6 +59,7 @@
         <DashboardAreasCard
           v-for="area in $store.getters.getAreasPT"
           :key="area.id"
+          :id="area.id"
           :counter="area.id"
           :areaName="area.areaName"
         />
@@ -69,12 +72,16 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardAreasCard from "@/components/Dashboard/DashboardAreasCard.vue";
+import DashboardAreasPopup from "@/components/Dashboard/DashboardAreasPopup.vue";
+
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
-    DashboardAreasCard
+    DashboardAreasCard,
+    DashboardAreasPopup
   },
   data: () => {
     return {
@@ -88,6 +95,34 @@ export default {
     document.querySelector(
       ".admin_areas__panel"
     ).style.paddingLeft = `${navbar_width}px`;
+  },
+  computed: {
+    ...mapGetters(["getSelectedAreaByID", "getAreaByID"]),
+    areaName() {
+      let id = this.getSelectedAreaByID;
+
+      let area = this.getAreaByID(id);
+
+      let name;
+
+      if (area) {
+        name = area.areaName;
+      }
+
+      return name;
+    }
+  },
+  methods: {
+    closePopup() {
+      let admin_areas__panel__overlay = document.querySelector(
+        ".admin_areas__panel__overlay"
+      );
+
+      let admin_delete_popup = document.querySelector(".admin_delete_popup");
+
+      admin_areas__panel__overlay.classList.toggle("show_overlay");
+      admin_delete_popup.classList.toggle("show_popup");
+    }
   }
 };
 </script>

@@ -12,7 +12,10 @@
       <button class="admin_areas__panel__grid__card__edit">
         Editar
       </button>
-      <button class="admin_areas__panel__grid__card__remove">
+      <button
+        class="admin_areas__panel__grid__card__remove"
+        @click="showPopup(id)"
+      >
         Remover
       </button>
     </div>
@@ -20,6 +23,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "DashboardAreasCard",
   props: {
@@ -30,6 +35,31 @@ export default {
     counter: {
       type: Number,
       required: true
+    },
+    id: {
+      type: Number,
+      required: false
+    }
+  },
+  computed: {
+    ...mapGetters(["getSelectedAreaByID", "getAreaByID"])
+  },
+  methods: {
+    showPopup(areaId) {
+      let admin_areas__panel__overlay = document.querySelector(
+        ".admin_areas__panel__overlay"
+      );
+
+      let admin_delete_popup = document.querySelector(".admin_delete_popup");
+
+      admin_areas__panel__overlay.classList.toggle("show_overlay");
+      admin_delete_popup.classList.toggle("show_popup");
+
+      // AREA ID LOGIC
+
+      this.$store.commit("SET_SELECTED_AREA_ID", {
+        id: areaId
+      });
     }
   }
 };
