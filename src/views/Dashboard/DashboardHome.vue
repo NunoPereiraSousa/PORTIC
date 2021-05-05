@@ -37,7 +37,7 @@
               v-for="(weather, i) in weatherBroadcast.slice(0, 5)"
               :key="i"
               :temp="weather.temp"
-              :day="weather.days[i].day"
+              :day="weather.days[i]"
               :icon="weather.icon"
             />
           </div>
@@ -93,6 +93,8 @@ export default {
     ).style.paddingLeft = `${navbar_width}px`;
   },
   async created() {
+    console.clear();
+
     try {
       await this.$store.dispatch("setWeather");
     } catch (error) {
@@ -104,9 +106,7 @@ export default {
     let broadcastArr = this.weather.daily;
 
     this.convertWeekDaysArr().forEach(d => {
-      this.days.push({
-        day: d
-      });
+      this.days.push(d);
     });
 
     for (const daily of broadcastArr) {
@@ -133,7 +133,7 @@ export default {
       let weekDay = [];
 
       for (let i = 0; i < 5; i++) {
-        let number = now.getDay() + i;
+        let number = now.getDay();
 
         if (number < futureNum) {
           weekDay.push(number);
