@@ -18,6 +18,10 @@
 
       border-radius: 50px;
 
+      @include breakpoint-up(large) {
+        padding: 4.75rem 5.125rem;
+      }
+
       h2 {
         margin: 0;
         margin-bottom: 24px;
@@ -26,12 +30,22 @@
 
         font-weight: 400;
         font-size: $_22px;
+
+        @include breakpoint-up(large) {
+          font-size: $_26px;
+          margin-bottom: 3rem;
+        }
       }
 
       a {
         color: $grey;
-        font-size: 14px;
+        font-size: $_14px;
         margin-bottom: 24px;
+
+        @include breakpoint-up(large) {
+          font-size: $_16px;
+          margin-bottom: 3rem;
+        }
       }
 
       p {
@@ -39,6 +53,11 @@
         margin-right: 14vw;
         margin-bottom: 50px;
         font-size: $_17px;
+
+        @include breakpoint-up(large) {
+          line-height: 1.6;
+          font-size: $_20px;
+        }
       }
 
       img#svg {
@@ -47,15 +66,31 @@
         bottom: 0%;
 
         width: 34%;
+
+        @include breakpoint-up(large) {
+          width: 26%;
+          right: 1.125rem;
+          bottom: 0;
+        }
       }
 
       h4 {
         color: $grey;
         font-weight: 400;
+
+        @include breakpoint-up(large) {
+          line-height: 1.6;
+          font-size: $_18px;
+        }
       }
 
       &.weather {
         padding: 3.75rem 3.125rem;
+
+        @include breakpoint-up(large) {
+          padding: 4.75rem 5.125rem;
+        }
+
         hr {
           margin: 0 2rem;
         }
@@ -90,7 +125,6 @@
 
       &.barChart div {
         height: 50vh;
-        // position: relative;
 
         canvas {
           width: 100%;

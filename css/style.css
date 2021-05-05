@@ -7715,6 +7715,12 @@ button:focus {
   border-radius: 50px;
 }
 
+@media (min-width: 120em) {
+  .admin_home__panel__card {
+    padding: 4.75rem 5.125rem;
+  }
+}
+
 .admin_home__panel__card h2 {
   margin: 0;
   margin-bottom: 24px;
@@ -7723,10 +7729,24 @@ button:focus {
   font-size: 1.375rem;
 }
 
+@media (min-width: 120em) {
+  .admin_home__panel__card h2 {
+    font-size: 1.625rem;
+    margin-bottom: 3rem;
+  }
+}
+
 .admin_home__panel__card a {
   color: #999999;
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-bottom: 24px;
+}
+
+@media (min-width: 120em) {
+  .admin_home__panel__card a {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
 }
 
 .admin_home__panel__card p {
@@ -7736,6 +7756,13 @@ button:focus {
   font-size: 1.0625rem;
 }
 
+@media (min-width: 120em) {
+  .admin_home__panel__card p {
+    line-height: 1.6;
+    font-size: 1.25rem;
+  }
+}
+
 .admin_home__panel__card img#svg {
   position: absolute;
   right: 0;
@@ -7743,13 +7770,34 @@ button:focus {
   width: 34%;
 }
 
+@media (min-width: 120em) {
+  .admin_home__panel__card img#svg {
+    width: 26%;
+    right: 1.125rem;
+    bottom: 0;
+  }
+}
+
 .admin_home__panel__card h4 {
   color: #999999;
   font-weight: 400;
 }
 
+@media (min-width: 120em) {
+  .admin_home__panel__card h4 {
+    line-height: 1.6;
+    font-size: 1.125rem;
+  }
+}
+
 .admin_home__panel__card.weather {
   padding: 3.75rem 3.125rem;
+}
+
+@media (min-width: 120em) {
+  .admin_home__panel__card.weather {
+    padding: 4.75rem 5.125rem;
+  }
 }
 
 .admin_home__panel__card.weather hr {

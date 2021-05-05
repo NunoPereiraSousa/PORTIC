@@ -17,7 +17,9 @@
             consectetur dolorum, impedit accusamus?
           </p>
 
-          <h4>Terça-feira, dia 13 de abril de 2021.</h4>
+          <h4>
+            {{ getWeekDay() }}, dia {{ getDay() }} de abril de {{ getYear() }}.
+          </h4>
           <img src="../../../assets/remote_team.png" id="svg" alt="Image" />
         </div>
         <div class="admin_home__panel__card weather grid">
@@ -93,8 +95,6 @@ export default {
     ).style.paddingLeft = `${navbar_width}px`;
   },
   async created() {
-    console.clear();
-
     try {
       await this.$store.dispatch("setWeather");
     } catch (error) {
@@ -214,6 +214,12 @@ export default {
       }
 
       return weekDay;
+    },
+    getDay() {
+      return new Date().getDate();
+    },
+    getYear() {
+      return new Date().getFullYear();
     }
   }
 };
