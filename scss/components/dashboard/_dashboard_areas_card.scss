@@ -1,0 +1,46 @@
+.admin_areas__panel__grid__card {
+  width: 100%;
+  padding: 2.25rem 50px;
+
+  background-color: rgba($color: $black, $alpha: 0.02);
+  border-radius: 26px;
+
+  h5,
+  h2 {
+    font-weight: 400;
+    margin: 0;
+  }
+
+  h5 {
+    font-size: $_16px;
+    margin-right: 50px;
+  }
+
+  h2 {
+    color: $orange;
+    font-size: $_20px;
+  }
+
+  &__edit,
+  &__remove {
+    width: 120px;
+    border-radius: 12px;
+    border: none;
+
+    padding: 12px 30px;
+
+    font-family: $portoSans;
+    font-size: $_17px;
+  }
+
+  &__edit {
+    margin-right: 30px;
+    background-color: $admin_yellow;
+    color: $admin_orange;
+  }
+
+  &__remove {
+    background-color: $admin_pink;
+    color: $admin_red;
+  }
+}

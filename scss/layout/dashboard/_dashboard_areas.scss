@@ -1,0 +1,79 @@
+.admin_areas__panel {
+  width: 100%;
+
+  &__tools {
+    padding: 3rem;
+
+    input {
+      padding: 12px 26px;
+      margin-right: 3.125rem;
+      border-radius: 10px;
+      font-family: $portoSans;
+      font-size: $_15px;
+      border: 2px solid $black;
+    }
+
+    p {
+      color: $orange;
+      margin-right: 2.5rem;
+
+      font-size: $_18px;
+
+      svg {
+        margin-right: 0.6rem;
+      }
+    }
+
+    button {
+      background-color: rgba($color: $black, $alpha: 0.02);
+      border: none;
+      border-radius: 1.625rem;
+
+      padding: 0.84375rem 1.625rem;
+      margin-right: 3.125rem;
+
+      font-size: $_16px;
+      font-family: $portoSans;
+      letter-spacing: 0.2px;
+    }
+
+    select {
+      padding: 6px 16px;
+
+      border-radius: 10px;
+      border: 2px solid $orange;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__grid {
+    padding: 0 3rem 0 3rem;
+
+    max-height: 60vh;
+    overflow-y: auto;
+
+    row-gap: 2.25rem;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    margin-right: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $black, $alpha: 0.1);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba($color: $black, $alpha: 0.1);
+  }
+}

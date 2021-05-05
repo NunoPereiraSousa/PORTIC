@@ -1,5 +1,5 @@
 <template>
-  <div class="admin_home flex ">
+  <div class="admin_home flex">
     <DashboardHeader />
     <div class="flex flex-ai-c admin_home__panel">
       <div class="admin_home__panel__grid grid">
