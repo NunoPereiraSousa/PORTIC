@@ -1,0 +1,19 @@
+.quill-editor {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.ql-editor {
+  font-family: $portoSans;
+}
+
+.ql-container {
+  height: fit-content !important;
+}
+
+.ql-editor.ql-blank::before {
+  content: "Inserir texto aqui";
+  font-size: $_15px;
+  font-family: $portoSans;
+}

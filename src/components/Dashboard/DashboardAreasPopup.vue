@@ -1,9 +1,11 @@
 <template>
   <div class="admin_areas__popup admin_delete_popup">
-    <h2>Tem a certeza que pretende eliminar a área:</h2>
-    <p>{{ areaName }}</p>
+    <h2>
+      Tem a certeza que pretende eliminar a área <br />
+      <span>{{ areaName }}</span>
+    </h2>
 
-    <div class="flex flex-ai-c">
+    <div class="flex flex-ai-c flex-jc-sb">
       <button class="admin_delete_popup__confirm">Confimar</button>
       <button class="admin_delete_popup__cancel" @click="closePopup">
         Cancelar

@@ -1,5 +1,7 @@
 <template>
-  <div class="admin_areas__slider grid">
+  <div
+    class="admin_areas__slider admin_areas__add_slider admin_add_slider grid"
+  >
     <div class="admin_areas__slider__header flex flex-jc-sb flex-ai-c">
       <div
         class="admin_areas__slider__header__languages flex flex-jc-sb flex-ai-c"
@@ -12,7 +14,7 @@
       </div>
       <div>
         <h3>
-          Área <span>{{ areaName }}</span>
+          Adicionar área
         </h3>
       </div>
     </div>
@@ -36,19 +38,9 @@
 </template>
 
 <script>
-import { quillEditor } from "vue-quill-editor";
 export default {
-  name: "DashboardAreaSlider",
-  props: {
-    areaName: {
-      type: String,
-      required: false
-    }
-  },
-  components: {
-    quillEditor
-  },
-  data() {
+  name: "AddAreaSlider",
+  data: () => {
     return {
       content: "",
       editorOption: {
@@ -94,7 +86,10 @@ export default {
       let editor = document.querySelector(".admin_areas__slider__editor");
       let height = editor.offsetHeight;
 
+      console.log(height);
+
       let toolbarArr = document.querySelectorAll(".ql-toolbar");
+
       let textAreaArr = document.querySelectorAll(".ql-editor");
 
       textAreaArr.forEach(el => {
@@ -104,14 +99,11 @@ export default {
       });
     },
     closeSlider() {
-      let admin_areas__panel__overlay_slide = document.querySelector(
-        ".admin_areas__panel__overlay_slide"
-      );
+      let slider = document.querySelector(".open_add_area_slider");
+      let overlay = document.querySelector(".admin_areas__panel__overlay_add");
 
-      let admin_areas__slider = document.querySelector(".admin_areas__slider");
-
-      admin_areas__panel__overlay_slide.classList.toggle("show_overlay_slide");
-      admin_areas__slider.classList.toggle("show_slider");
+      slider.classList.toggle("open_add_area_slider");
+      overlay.classList.toggle("open_add_area_overlay");
     },
     save() {
       console.log(this.content);

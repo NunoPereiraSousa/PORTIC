@@ -4,9 +4,15 @@
     <div class="admin_areas__panel">
       <div class="admin_areas__panel__overlay" @click="closePopup"></div>
       <div class="admin_areas__panel__overlay_slide" @click="closeSlider"></div>
+      <div
+        class="admin_areas__panel__overlay_add"
+        @click="closeAddSlider"
+      ></div>
+
       <DashboardTopHeader />
       <DashboardAreasPopup :areaName="areaName" />
       <DashboardAreaSlider :areaName="areaName" />
+      <AddAreaSlider />
 
       <div class="admin_areas__panel__tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
@@ -76,6 +82,7 @@ import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardAreasCard from "@/components/Dashboard/DashboardAreasCard.vue";
 import DashboardAreasPopup from "@/components/Dashboard/DashboardAreasPopup.vue";
 import DashboardAreaSlider from "@/components/Dashboard/DashboardAreaSlider.vue";
+import AddAreaSlider from "@/components/Dashboard/AddSlider/AddAreaSlider.vue";
 
 import { mapGetters } from "vuex";
 
@@ -85,7 +92,8 @@ export default {
     DashboardTopHeader,
     DashboardAreasCard,
     DashboardAreasPopup,
-    DashboardAreaSlider
+    DashboardAreaSlider,
+    AddAreaSlider
   },
   data: () => {
     return {
@@ -136,6 +144,13 @@ export default {
 
       overlay.classList.toggle("show_overlay_slide");
       slider.classList.toggle("show_slider");
+    },
+    closeAddSlider() {
+      let slider = document.querySelector(".admin_areas__slider");
+      let overlay = document.querySelector(".admin_areas__panel__overlay_add");
+
+      slider.classList.toggle("open_add_area_slider");
+      overlay.classList.toggle("open_add_area_overlay");
     }
   }
 };

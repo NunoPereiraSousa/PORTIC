@@ -7947,6 +7947,28 @@ button:focus {
   fill: #ffffff;
 }
 
+.quill-editor {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.ql-editor {
+  font-family: "Porto Sans";
+}
+
+.ql-container {
+  height: -webkit-fit-content !important;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+}
+
+.ql-editor.ql-blank::before {
+  content: "Inserir texto aqui";
+  font-size: 0.9375rem;
+  font-family: "Porto Sans";
+}
+
 .admin_areas__panel {
   width: 100%;
   /* Track */
@@ -7954,7 +7976,7 @@ button:focus {
   /* Handle on hover */
 }
 
-.admin_areas__panel__overlay, .admin_areas__panel__overlay_slide {
+.admin_areas__panel__overlay, .admin_areas__panel__overlay_slide, .admin_areas__panel__overlay_add {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -7974,6 +7996,11 @@ button:focus {
 }
 
 .admin_areas__panel__overlay_slide.show_overlay_slide {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_areas__panel__overlay_add.open_add_area_overlay {
   opacity: 1;
   visibility: visible;
 }
@@ -8114,13 +8141,22 @@ button:focus {
 
 .admin_delete_popup h2 {
   font-weight: 400;
-  font-size: 1.0625rem;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 4rem;
 }
 
-.admin_delete_popup p {
-  font-size: 1.125rem;
-  color: #999999;
-  margin-bottom: 4rem;
+.admin_delete_popup h2 span {
+  color: #c94d24;
+  font-weight: 500;
+}
+
+.admin_delete_popup hr {
+  margin: 2rem auto 4rem;
+  background-color: #999999;
+  height: 1.5px;
+  width: 12%;
+  border: none;
 }
 
 .admin_delete_popup__confirm, .admin_delete_popup__cancel {
@@ -8153,12 +8189,16 @@ button:focus {
   background-color: #ffffff;
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
-  -ms-grid-rows: min-content min-content 1fr min-content;
-      grid-template-rows: -webkit-min-content -webkit-min-content 1fr -webkit-min-content;
-      grid-template-rows: min-content min-content 1fr min-content;
+  -ms-grid-rows: min-content min-content min-content 1fr min-content;
+      grid-template-rows: -webkit-min-content -webkit-min-content -webkit-min-content 1fr -webkit-min-content;
+      grid-template-rows: min-content min-content min-content 1fr min-content;
 }
 
 .admin_areas__slider.show_slider {
+  right: 0%;
+}
+
+.admin_areas__slider.open_add_area_slider {
   right: 0%;
 }
 
@@ -8213,43 +8253,33 @@ button:focus {
 }
 
 .admin_areas__slider__divider {
-  margin: 2.8rem auto 3rem;
+  margin: 2.8rem auto 2rem;
   border: none;
   background-color: rgba(8, 8, 8, 0.15);
   width: 100%;
   height: 1px;
 }
 
+.admin_areas__slider__input {
+  margin: 0 0 2rem;
+}
+
+.admin_areas__slider__input input {
+  padding: 12px 26px;
+  margin-right: 3.125rem;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
 .admin_areas__slider__editor {
   height: 100%;
-}
-
-.admin_areas__slider__editor .quill-editor {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.admin_areas__slider__editor .ql-editor {
-  font-family: "Porto Sans";
-}
-
-.admin_areas__slider__editor .ql-container {
-  height: -webkit-fit-content !important;
-  height: -moz-fit-content !important;
-  height: fit-content !important;
-}
-
-.admin_areas__slider__editor .ql-editor.ql-blank::before {
-  content: "Inserir texto aqui";
-  font-size: 0.9375rem;
-  font-family: "Porto Sans";
 }
 
 .admin_areas__slider__footer {
   width: 100%;
   background-color: #ffffff;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .admin_areas__slider__footer__confirm, .admin_areas__slider__footer__cancel {

@@ -24,14 +24,26 @@
 
   h2 {
     font-weight: 400;
-    font-size: $_17px;
-  }
+    font-size: $_20px;
 
-  p {
-    font-size: $_18px;
-    color: $grey;
+    line-height: 1.8;
 
     margin-bottom: 4rem;
+
+    span {
+      // text-decoration: 2px underline $orange;
+      color: $orange;
+      font-weight: 500;
+    }
+  }
+
+  hr {
+    margin: 2rem auto 4rem;
+
+    background-color: $grey;
+    height: 1.5px;
+    width: 12%;
+    border: none;
   }
 
   &__confirm,
