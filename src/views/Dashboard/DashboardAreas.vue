@@ -18,11 +18,11 @@
         <div class="flex flex-ai-c">
           <input v-model="areaTxt" type="text" placeholder="Pesquisar..." />
 
-          <div class="admin_areas__panel__tools__btns">
+          <!-- <div class="admin_areas__panel__tools__btns">
             <button>Estatísticas</button>
             <button>Informações</button>
             <button>Áreas</button>
-          </div>
+          </div> -->
         </div>
 
         <div class="flex flex-ai-c">
@@ -165,7 +165,7 @@ export default {
       slider.classList.toggle("show_slider");
     },
     closeAddSlider() {
-      let slider = document.querySelector(".admin_areas__slider");
+      let slider = document.querySelector(".admin_areas__add_slider");
       let overlay = document.querySelector(".admin_areas__panel__overlay_add");
 
       slider.classList.toggle("open_add_area_slider");
