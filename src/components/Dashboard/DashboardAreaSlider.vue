@@ -1,5 +1,5 @@
 <template>
-  <div class="admin_areas__slider">
+  <div class="admin_areas__slider grid">
     <div class="admin_areas__slider__header flex flex-jc-sb flex-ai-c">
       <div
         class="admin_areas__slider__header__languages flex flex-jc-sb flex-ai-c"
@@ -48,7 +48,6 @@ export default {
   data() {
     return {
       content: "",
-      colors: ["#fff5df", "#ffffff", "#000000"],
       editorOption: {
         modules: {
           toolbar: [
@@ -85,9 +84,20 @@ export default {
     };
   },
   mounted() {
-    console.log(this.editorOption);
+    this.styleEditorHeight();
   },
   methods: {
+    styleEditorHeight() {
+      let editor = document.querySelector(".admin_areas__slider__editor");
+      let height = editor.offsetHeight;
+
+      let toolbar = document.querySelector(".ql-toolbar");
+      let toolbarHeight = toolbar.offsetHeight;
+
+      let textArea = document.querySelector(".ql-editor");
+
+      textArea.style.height = `${height - toolbarHeight}px`;
+    },
     closeSlider() {
       let admin_areas__panel__overlay_slide = document.querySelector(
         ".admin_areas__panel__overlay_slide"

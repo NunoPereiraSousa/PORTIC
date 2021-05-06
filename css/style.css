@@ -8151,12 +8151,19 @@ button:focus {
   height: 100vh;
   width: 50vw;
   background-color: #ffffff;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  -ms-grid-rows: min-content min-content 1fr min-content;
+      grid-template-rows: -webkit-min-content -webkit-min-content 1fr -webkit-min-content;
+      grid-template-rows: min-content min-content 1fr min-content;
 }
 
 .admin_areas__slider.show_slider {
   right: 0%;
+}
+
+.admin_areas__slider__header {
+  width: 100%;
 }
 
 .admin_areas__slider__header h3 {
@@ -8218,23 +8225,31 @@ button:focus {
 }
 
 .admin_areas__slider__editor .quill-editor {
-  height: auto;
+  height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .admin_areas__slider__editor .ql-editor {
   font-family: "Porto Sans";
-  height: 50vh;
+}
+
+.admin_areas__slider__editor .ql-container {
+  height: -webkit-fit-content !important;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+}
+
+.admin_areas__slider__editor .ql-editor.ql-blank::before {
+  content: "Inserir texto aqui";
+  font-size: 0.9375rem;
+  font-family: "Porto Sans";
 }
 
 .admin_areas__slider__footer {
   width: 100%;
   background-color: #ffffff;
-  position: absolute;
-  bottom: 0%;
-  left: 0;
-  padding: 2.5rem 5.625rem;
+  margin-top: 3rem;
 }
 
 .admin_areas__slider__footer__confirm, .admin_areas__slider__footer__cancel {

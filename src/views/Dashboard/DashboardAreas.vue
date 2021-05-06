@@ -6,7 +6,7 @@
       <div class="admin_areas__panel__overlay_slide" @click="closeSlider"></div>
       <DashboardTopHeader />
       <DashboardAreasPopup :areaName="areaName" />
-      <DashboardAreaSlider />
+      <DashboardAreaSlider :areaName="areaName" />
 
       <div class="admin_areas__panel__tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">

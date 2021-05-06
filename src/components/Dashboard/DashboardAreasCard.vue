@@ -9,7 +9,10 @@
       </h2>
     </div>
     <div class="flex flex-ai-c">
-      <button class="admin_areas__panel__grid__card__edit" @click="openSlider">
+      <button
+        class="admin_areas__panel__grid__card__edit"
+        @click="openSlider(id)"
+      >
         Editar
       </button>
       <button
@@ -45,7 +48,7 @@ export default {
     ...mapGetters(["getSelectedAreaByID", "getAreaByID"])
   },
   methods: {
-    openSlider() {
+    openSlider(areaId) {
       let overlay = document.querySelector(
         ".admin_areas__panel__overlay_slide"
       );
@@ -54,6 +57,12 @@ export default {
 
       overlay.classList.toggle("show_overlay_slide");
       slider.classList.toggle("show_slider");
+
+      // AREA ID LOGIC
+
+      this.$store.commit("SET_SELECTED_AREA_ID", {
+        id: areaId
+      });
     },
     showPopup(areaId) {
       let admin_areas__panel__overlay = document.querySelector(

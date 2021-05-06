@@ -9,13 +9,16 @@
   width: 50vw;
   background-color: $white;
 
-  transition: all 0.4s;
+  transition: all 0.6s;
+
+  grid-template-rows: min-content min-content 1fr min-content;
 
   &.show_slider {
     right: 0%;
   }
 
   &__header {
+    width: 100%;
     h3 {
       font-family: $portoSans;
       font-weight: 400;
@@ -79,14 +82,23 @@
     height: 100%;
 
     .quill-editor {
-      height: auto;
+      height: 100%;
       overflow-y: auto;
       overflow-x: hidden;
     }
 
     .ql-editor {
       font-family: $portoSans;
-      height: 50vh;
+    }
+
+    .ql-container {
+      height: fit-content !important;
+    }
+
+    .ql-editor.ql-blank::before {
+      content: "Inserir texto aqui";
+      font-size: $_15px;
+      font-family: $portoSans;
     }
   }
 
@@ -94,11 +106,13 @@
     width: 100%;
     background-color: $white;
 
-    position: absolute;
-    bottom: 0%;
-    left: 0;
+    margin-top: 3rem;
 
-    padding: 2.5rem 5.625rem;
+    // position: absolute;
+    // bottom: 0%;
+    // left: 0;
+
+    // padding: 2.5rem 5.625rem;
 
     &__confirm,
     &__cancel {
