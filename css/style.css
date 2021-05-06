@@ -8015,7 +8015,12 @@ button:focus {
   border-radius: 10px;
   font-family: "Porto Sans";
   font-size: 0.9375rem;
-  border: 2px solid #080808;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_areas__panel__tools input:focus {
+  outline: none;
+  border: 1px solid #c94d24;
 }
 
 .admin_areas__panel__tools p {

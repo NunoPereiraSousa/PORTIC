@@ -16,7 +16,7 @@
 
       <div class="admin_areas__panel__tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
-          <input type="text" placeholder="Pesquisar..." />
+          <input v-model="areaTxt" type="text" placeholder="Pesquisar..." />
 
           <div class="admin_areas__panel__tools__btns">
             <button>Estatísticas</button>
@@ -65,7 +65,7 @@
 
       <div class="admin_areas__panel__grid grid">
         <DashboardAreasCard
-          v-for="area in $store.getters.getAreasPT"
+          v-for="area in searchFilter"
           :key="area.id"
           :id="area.id"
           :counter="area.id"
@@ -98,8 +98,13 @@ export default {
   data: () => {
     return {
       selectedInput: "",
-      institution: ""
+      institution: "",
+      areaTxt: "",
+      areas: ""
     };
+  },
+  created() {
+    this.areas = this.getAreasPT;
   },
   mounted() {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;
@@ -109,7 +114,7 @@ export default {
     ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
-    ...mapGetters(["getSelectedAreaByID", "getAreaByID"]),
+    ...mapGetters(["getSelectedAreaByID", "getAreaByID", "getAreasPT"]),
     areaName() {
       let id = this.getSelectedAreaByID;
 
@@ -122,8 +127,22 @@ export default {
       }
 
       return name;
+    },
+    searchFilter() {
+      return this.areas.filter(area => {
+        let search = true;
+
+        if (this.areaTxt != "") {
+          search = area.areaName
+            .toLowerCase()
+            .includes(this.areaTxt.toLowerCase());
+        }
+
+        return search;
+      });
     }
   },
+
   methods: {
     closePopup() {
       let admin_areas__panel__overlay = document.querySelector(

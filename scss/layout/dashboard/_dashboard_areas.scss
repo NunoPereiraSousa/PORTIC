@@ -47,7 +47,12 @@
       border-radius: 10px;
       font-family: $portoSans;
       font-size: $_15px;
-      border: 2px solid $black;
+      border: 1px solid rgba($color: $black, $alpha: 0.3);
+
+      &:focus {
+        outline: none;
+        border: 1px solid rgba($color: $orange, $alpha: 1);
+      }
     }
 
     p {
