@@ -7954,7 +7954,7 @@ button:focus {
   /* Handle on hover */
 }
 
-.admin_areas__panel__overlay {
+.admin_areas__panel__overlay, .admin_areas__panel__overlay_slide {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -7969,6 +7969,11 @@ button:focus {
 }
 
 .admin_areas__panel__overlay.show_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_areas__panel__overlay_slide.show_overlay_slide {
   opacity: 1;
   visibility: visible;
 }
@@ -8132,6 +8137,122 @@ button:focus {
 }
 
 .admin_delete_popup__cancel {
+  border: 2px solid #c94d24;
+  background-color: transparent;
+  color: #080808;
+}
+
+.admin_areas__slider {
+  position: fixed;
+  z-index: 999;
+  top: 0%;
+  right: -50vw;
+  padding: 30px 60px;
+  height: 100vh;
+  width: 50vw;
+  background-color: #ffffff;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.admin_areas__slider.show_slider {
+  right: 0%;
+}
+
+.admin_areas__slider__header h3 {
+  font-family: "Porto Sans";
+  font-weight: 400;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.admin_areas__slider__header h3 span {
+  color: #c94d24;
+}
+
+.admin_areas__slider__header__languages button {
+  margin: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #080808;
+  font-family: "Porto Sans";
+}
+
+.admin_areas__slider__header__languages button:first-child {
+  padding-right: 0.875rem;
+}
+
+.admin_areas__slider__header__languages button:last-child {
+  padding-left: 0.875rem;
+}
+
+.admin_areas__slider__header__languages button.selected {
+  color: #c94d24;
+}
+
+.admin_areas__slider__header__languages button:not(.selected):hover {
+  color: #c94d24;
+}
+
+.admin_areas__slider__header__languages hr {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  background-color: #080808;
+  border: none;
+  width: 1px;
+  height: 10px;
+}
+
+.admin_areas__slider__divider {
+  margin: 2.8rem auto 3rem;
+  border: none;
+  background-color: rgba(8, 8, 8, 0.15);
+  width: 100%;
+  height: 1px;
+}
+
+.admin_areas__slider__editor {
+  height: 100%;
+}
+
+.admin_areas__slider__editor .quill-editor {
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.admin_areas__slider__editor .ql-editor {
+  font-family: "Porto Sans";
+  height: 50vh;
+}
+
+.admin_areas__slider__footer {
+  width: 100%;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 0%;
+  left: 0;
+  padding: 2.5rem 5.625rem;
+}
+
+.admin_areas__slider__footer__confirm, .admin_areas__slider__footer__cancel {
+  width: 120px;
+  padding: 10px 0;
+  border-radius: 10px;
+  font-size: 1.0625rem;
+  font-family: "Porto Sans";
+}
+
+.admin_areas__slider__footer__confirm {
+  margin-right: 40px;
+  border: 2px solid #c94d24;
+  background-color: #c94d24;
+  color: #ffffff;
+}
+
+.admin_areas__slider__footer__cancel {
   border: 2px solid #c94d24;
   background-color: transparent;
   color: #080808;

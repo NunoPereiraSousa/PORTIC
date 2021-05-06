@@ -1,7 +1,8 @@
 .admin_areas__panel {
   width: 100%;
 
-  &__overlay {
+  &__overlay,
+  &__overlay_slide {
     position: fixed;
     top: 0%;
     left: 0%;
@@ -13,8 +14,17 @@
     visibility: hidden;
 
     transition: all 0.4s;
+  }
 
+  &__overlay {
     &.show_overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__overlay_slide {
+    &.show_overlay_slide {
       opacity: 1;
       visibility: visible;
     }

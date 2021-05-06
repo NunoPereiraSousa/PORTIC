@@ -1,0 +1,126 @@
+.admin_areas__slider {
+  position: fixed;
+  z-index: 999;
+  top: 0%;
+  right: -50vw;
+
+  padding: 30px 60px;
+  height: 100vh;
+  width: 50vw;
+  background-color: $white;
+
+  transition: all 0.4s;
+
+  &.show_slider {
+    right: 0%;
+  }
+
+  &__header {
+    h3 {
+      font-family: $portoSans;
+      font-weight: 400;
+      font-size: $_20px;
+
+      margin: 0;
+
+      span {
+        color: $orange;
+      }
+    }
+
+    &__languages {
+      button {
+        margin: 0;
+        font-size: $_16px;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        color: $black;
+        font-family: $portoSans;
+
+        &:first-child {
+          padding-right: $_14px;
+        }
+
+        &:last-child {
+          padding-left: $_14px;
+        }
+
+        &.selected {
+          color: $orange;
+        }
+
+        &:not(.selected) {
+          &:hover {
+            color: $orange;
+          }
+        }
+      }
+
+      hr {
+        transform: rotate(180deg);
+        background-color: $black;
+        border: none;
+        width: 1px;
+        height: 10px;
+      }
+    }
+  }
+
+  &__divider {
+    margin: 2.8rem auto 3rem;
+    border: none;
+    background-color: rgba($color: $black, $alpha: 0.15);
+    width: 100%;
+    height: 1px;
+  }
+
+  &__editor {
+    height: 100%;
+
+    .quill-editor {
+      height: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .ql-editor {
+      font-family: $portoSans;
+      height: 50vh;
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    background-color: $white;
+
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+
+    padding: 2.5rem 5.625rem;
+
+    &__confirm,
+    &__cancel {
+      width: 120px;
+      padding: 10px 0;
+
+      border-radius: 10px;
+      font-size: $_17px;
+      font-family: $portoSans;
+    }
+
+    &__confirm {
+      margin-right: 40px;
+      border: 2px solid $orange;
+      background-color: $orange;
+      color: $white;
+    }
+
+    &__cancel {
+      border: 2px solid $orange;
+      background-color: transparent;
+      color: $black;
+    }
+  }
+}
