@@ -1,6 +1,6 @@
 <template>
   <div
-    class="admin_areas__slider admin_areas__add_slider admin_add_slider grid"
+    class="admin_courses__slider admin_courses__add_slider admin_add_slider grid"
   >
     <div class="admin_add_slider__header flex flex-jc-sb flex-ai-c">
       <div
@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: "AddAreaSlider",
+  name: "AddCourseSlider",
   data: () => {
     return {
       content: "",
@@ -86,8 +86,6 @@ export default {
       let editor = document.querySelector(".admin_add_slider__editor");
       let height = editor.offsetHeight;
 
-      console.log(editor);
-
       let toolbarArr = document.querySelectorAll(".ql-toolbar");
 
       let textAreaArr = document.querySelectorAll(".ql-editor");
@@ -99,11 +97,13 @@ export default {
       });
     },
     closeSlider() {
-      let slider = document.querySelector(".open_add_area_slider");
-      let overlay = document.querySelector(".admin_areas__panel__overlay_add");
+      let slider = document.querySelector(".admin_courses__add_slider");
+      let overlay = document.querySelector(
+        ".admin_courses__panel__overlay_add"
+      );
 
-      slider.classList.toggle("open_add_area_slider");
-      overlay.classList.toggle("open_add_area_overlay");
+      slider.classList.toggle("open_add_course_slider");
+      overlay.classList.toggle("open_add_course_overlay");
     },
     save() {
       console.log(this.content);

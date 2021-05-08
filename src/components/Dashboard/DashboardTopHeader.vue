@@ -42,11 +42,11 @@
         Removidos
       </button>
 
-      <button
-        class="top_header__actions__add flex flex-ai-c"
-        @click="openAddSlider"
-      >
-        <div v-if="$route.name == 'DashboardAreas'">
+      <div v-if="$route.name == 'DashboardAreas'">
+        <button
+          class="top_header__actions__add flex flex-ai-c"
+          @click="openAddSlider"
+        >
           <svg
             id="shape"
             xmlns="http://www.w3.org/2000/svg"
@@ -82,10 +82,32 @@
               </g>
             </g>
           </svg>
-        </div>
 
-        Adicionar
-      </button>
+          Adicionar
+        </button>
+      </div>
+
+      <div v-else-if="$route.name == 'DashboardCourses'">
+        <button
+          class="top_header__actions__add flex flex-ai-c"
+          @click="openAddCoursesSlider"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25.233"
+            height="20.103"
+            viewBox="0 0 25.233 20.103"
+          >
+            <path
+              id="graduation-hat"
+              d="M23.649,64.474v-6.75l.281-.081c1.077-.324,1.3-.871,1.3-1.273s-.226-.951-1.3-1.276l-9.218-2.765a7.588,7.588,0,0,0-2.095-.264,7.589,7.589,0,0,0-2.1.264L1.3,55.094c-1.077.324-1.3.871-1.3,1.273s.226.95,1.3,1.273l3.447,1.034V64.4c0,.692.45,1.667,2.6,2.381a17.323,17.323,0,0,0,5.271.73,17.323,17.323,0,0,0,5.271-.73c2.143-.714,2.6-1.689,2.6-2.381V58.674l1.688-.507v6.307a2.327,2.327,0,0,0-1.584,2.2v3.167a2.323,2.323,0,0,0,4.646,0V66.676a2.327,2.327,0,0,0-1.584-2.2Zm-12.7-10.729a6.188,6.188,0,0,1,1.671-.2,6.188,6.188,0,0,1,1.671.2l8.737,2.622-3.5,1.05h-.006l-5.234,1.569a6.189,6.189,0,0,1-1.671.2,6.189,6.189,0,0,1-1.668-.2L5.712,57.419H5.707l-3.5-1.052ZM19.006,64.4c0,.1-.268.541-1.581.978a15.831,15.831,0,0,1-4.8.658,15.831,15.831,0,0,1-4.8-.658c-1.313-.438-1.581-.883-1.581-.978v-5.28l4.292,1.288a7.587,7.587,0,0,0,2.095.264,7.588,7.588,0,0,0,2.095-.264l4.292-1.288Zm4.751,5.445a.844.844,0,1,1-1.688,0V66.676a.844.844,0,0,1,1.688,0Z"
+              transform="translate(0 -52.063)"
+              fill="#fff"
+            />
+          </svg>
+          Adicionar
+        </button>
+      </div>
 
       <div class="top_header__actions__image" :style="imageStyle"></div>
     </div>
@@ -167,7 +189,17 @@ export default {
     getTime() {
       let now = new Date();
 
-      return `${now.getHours()}:${now.getMinutes()}`;
+      let hours = now.getHours();
+
+      if (hours == 0) hours = `${hours}0`;
+      else if (hours < 10) hours = `0${hours}`;
+
+      let minutes = now.getMinutes();
+
+      if (minutes == 0) minutes = `${minutes}0`;
+      else if (minutes < 10) minutes = `0${minutes}`;
+
+      return `${hours}:${minutes}`;
     },
     openAddSlider() {
       let slider = document.querySelector(".admin_areas__add_slider");
@@ -175,6 +207,15 @@ export default {
 
       slider.classList.toggle("open_add_area_slider");
       overlay.classList.toggle("open_add_area_overlay");
+    },
+    openAddCoursesSlider() {
+      let slider = document.querySelector(".admin_courses__add_slider");
+      let overlay = document.querySelector(
+        ".admin_courses__panel__overlay_add"
+      );
+
+      slider.classList.toggle("open_add_course_slider");
+      overlay.classList.toggle("open_add_course_overlay");
     }
   }
 };

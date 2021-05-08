@@ -1,4 +1,4 @@
-.admin_areas__slider {
+.admin_add_slider {
   position: fixed;
   z-index: 999;
   top: 0%;
@@ -16,9 +16,15 @@
   &.show_slider {
     right: 0%;
   }
+
   &.open_add_area_slider {
     right: 0%;
   }
+
+  &.open_add_course_slider {
+    right: 0%;
+  }
+
   &__header {
     width: 100%;
     h3 {

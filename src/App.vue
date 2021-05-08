@@ -16,7 +16,8 @@
         v-if="
           this.$route.name !== 'Home' &&
             this.$route.name !== 'DashboardHome' &&
-            this.$route.name !== 'DashboardAreas'
+            this.$route.name !== 'DashboardAreas' &&
+            this.$route.name !== 'DashboardCourses'
         "
       >
         <SubHeader />

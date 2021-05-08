@@ -8183,7 +8183,7 @@ button:focus {
   color: #080808;
 }
 
-.admin_areas__slider {
+.admin_add_slider {
   position: fixed;
   z-index: 999;
   top: 0%;
@@ -8199,30 +8199,34 @@ button:focus {
       grid-template-rows: min-content min-content min-content 1fr min-content;
 }
 
-.admin_areas__slider.show_slider {
+.admin_add_slider.show_slider {
   right: 0%;
 }
 
-.admin_areas__slider.open_add_area_slider {
+.admin_add_slider.open_add_area_slider {
   right: 0%;
 }
 
-.admin_areas__slider__header {
+.admin_add_slider.open_add_course_slider {
+  right: 0%;
+}
+
+.admin_add_slider__header {
   width: 100%;
 }
 
-.admin_areas__slider__header h3 {
+.admin_add_slider__header h3 {
   font-family: "Porto Sans";
   font-weight: 400;
   font-size: 1.25rem;
   margin: 0;
 }
 
-.admin_areas__slider__header h3 span {
+.admin_add_slider__header h3 span {
   color: #c94d24;
 }
 
-.admin_areas__slider__header__languages button {
+.admin_add_slider__header__languages button {
   margin: 0;
   font-size: 1rem;
   cursor: pointer;
@@ -8232,23 +8236,23 @@ button:focus {
   font-family: "Porto Sans";
 }
 
-.admin_areas__slider__header__languages button:first-child {
+.admin_add_slider__header__languages button:first-child {
   padding-right: 0.875rem;
 }
 
-.admin_areas__slider__header__languages button:last-child {
+.admin_add_slider__header__languages button:last-child {
   padding-left: 0.875rem;
 }
 
-.admin_areas__slider__header__languages button.selected {
+.admin_add_slider__header__languages button.selected {
   color: #c94d24;
 }
 
-.admin_areas__slider__header__languages button:not(.selected):hover {
+.admin_add_slider__header__languages button:not(.selected):hover {
   color: #c94d24;
 }
 
-.admin_areas__slider__header__languages hr {
+.admin_add_slider__header__languages hr {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   background-color: #080808;
@@ -8257,7 +8261,7 @@ button:focus {
   height: 10px;
 }
 
-.admin_areas__slider__divider {
+.admin_add_slider__divider {
   margin: 2.8rem auto 2rem;
   border: none;
   background-color: rgba(8, 8, 8, 0.15);
@@ -8265,11 +8269,11 @@ button:focus {
   height: 1px;
 }
 
-.admin_areas__slider__input {
+.admin_add_slider__input {
   margin: 0 0 2rem;
 }
 
-.admin_areas__slider__input input {
+.admin_add_slider__input input {
   padding: 12px 26px;
   margin-right: 3.125rem;
   font-family: "Porto Sans";
@@ -8277,17 +8281,17 @@ button:focus {
   border: 1px solid rgba(8, 8, 8, 0.3);
 }
 
-.admin_areas__slider__editor {
+.admin_add_slider__editor {
   height: 100%;
 }
 
-.admin_areas__slider__footer {
+.admin_add_slider__footer {
   width: 100%;
   background-color: #ffffff;
   margin-top: 2rem;
 }
 
-.admin_areas__slider__footer__confirm, .admin_areas__slider__footer__cancel {
+.admin_add_slider__footer__confirm, .admin_add_slider__footer__cancel {
   width: 120px;
   padding: 10px 0;
   border-radius: 10px;
@@ -8295,16 +8299,120 @@ button:focus {
   font-family: "Porto Sans";
 }
 
-.admin_areas__slider__footer__confirm {
+.admin_add_slider__footer__confirm {
   margin-right: 40px;
   border: 2px solid #c94d24;
   background-color: #c94d24;
   color: #ffffff;
 }
 
-.admin_areas__slider__footer__cancel {
+.admin_add_slider__footer__cancel {
   border: 2px solid #c94d24;
   background-color: transparent;
   color: #080808;
+}
+
+.admin_courses__panel {
+  width: 100%;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.admin_courses__panel__overlay, .admin_courses__panel__overlay_slide, .admin_courses__panel__overlay_add {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 998;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(8, 8, 8, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.admin_courses__panel__overlay_slide.show_overlay_slide {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_courses__panel__overlay_add.open_add_course_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_courses__panel__tools {
+  padding: 3rem;
+}
+
+.admin_courses__panel__tools input {
+  padding: 12px 26px;
+  margin-right: 3.125rem;
+  border-radius: 10px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_courses__panel__tools input:focus {
+  outline: none;
+  border: 1px solid #c94d24;
+}
+
+.admin_courses__panel__tools p {
+  color: #c94d24;
+  margin-right: 2.5rem;
+  font-size: 1.125rem;
+}
+
+.admin_courses__panel__tools p svg {
+  margin-right: 0.6rem;
+}
+
+.admin_courses__panel__tools button {
+  background-color: rgba(8, 8, 8, 0.02);
+  border: none;
+  border-radius: 1.625rem;
+  padding: 0.84375rem 1.625rem;
+  margin-right: 3.125rem;
+  font-size: 1rem;
+  font-family: "Porto Sans";
+  letter-spacing: 0.2px;
+}
+
+.admin_courses__panel__tools select {
+  padding: 6px 16px;
+  border-radius: 10px;
+  border: 2px solid #c94d24;
+}
+
+.admin_courses__panel__tools select:focus {
+  outline: none;
+}
+
+.admin_courses__panel__grid {
+  padding: 0 3rem 0 3rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  row-gap: 2.25rem;
+}
+
+.admin_courses__panel ::-webkit-scrollbar {
+  width: 10px;
+  margin-right: 10px;
+}
+
+.admin_courses__panel ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin_courses__panel ::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_courses__panel ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(8, 8, 8, 0.1);
 }
 /*# sourceMappingURL=style.css.map */

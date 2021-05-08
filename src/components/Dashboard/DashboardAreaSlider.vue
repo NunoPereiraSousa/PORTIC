@@ -1,8 +1,8 @@
 <template>
-  <div class="admin_areas__slider grid">
-    <div class="admin_areas__slider__header flex flex-jc-sb flex-ai-c">
+  <div class="admin_areas__slider admin_add_slider grid">
+    <div class="admin_add_slider__header flex flex-jc-sb flex-ai-c">
       <div
-        class="admin_areas__slider__header__languages flex flex-jc-sb flex-ai-c"
+        class="admin_add_slider__header__languages flex flex-jc-sb flex-ai-c"
       >
         <button class="pt selected">Português</button>
         <hr />
@@ -16,19 +16,19 @@
         </h3>
       </div>
     </div>
-    <hr class="admin_areas__slider__divider" />
-    <div class="admin_areas__slider__input">
+    <hr class="admin_add_slider__divider" />
+    <div class="admin_add_slider__input">
       <input type="text" placeholder="Nome da área" />
     </div>
-    <div class="admin_areas__slider__editor">
+    <div class="admin_add_slider__editor">
       <quill-editor v-model="content" :options="editorOption" ref="quillEditor">
       </quill-editor>
     </div>
-    <div class="admin_areas__slider__footer flex flex-jc-sb flex-ai-c">
-      <button class="admin_areas__slider__footer__confirm" @click="save">
+    <div class="admin_add_slider__footer flex flex-jc-sb flex-ai-c">
+      <button class="admin_add_slider__footer__confirm" @click="save">
         Confirmar
       </button>
-      <button class="admin_areas__slider__footer__cancel" @click="closeSlider">
+      <button class="admin_add_slider__footer__cancel" @click="closeSlider">
         Cancelar
       </button>
     </div>
@@ -91,7 +91,7 @@ export default {
   },
   methods: {
     styleEditorHeight() {
-      let editor = document.querySelector(".admin_areas__slider__editor");
+      let editor = document.querySelector(".admin_add_slider__editor");
       let height = editor.offsetHeight;
 
       let toolbarArr = document.querySelectorAll(".ql-toolbar");
