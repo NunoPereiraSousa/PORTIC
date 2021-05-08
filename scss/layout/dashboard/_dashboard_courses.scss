@@ -17,6 +17,13 @@
     transition: all 0.4s;
   }
 
+  &__overlay {
+    &.show_overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
   &__overlay_slide {
     &.show_overlay_slide {
       opacity: 1;

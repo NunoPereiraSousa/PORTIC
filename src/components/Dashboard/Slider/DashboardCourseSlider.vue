@@ -1,6 +1,6 @@
 <template>
   <div
-    class="admin_courses__slider admin_courses__add_slider admin_add_slider grid"
+    class="admin_courses__slider admin_courses_edit__slider admin_add_slider grid"
   >
     <div class="admin_add_slider__header flex flex-jc-sb flex-ai-c">
       <div
@@ -14,13 +14,13 @@
       </div>
       <div>
         <h3>
-          Adicionar curso
+          Curso <span>{{ courseName }}</span>
         </h3>
       </div>
     </div>
     <hr class="admin_add_slider__divider" />
     <div class="admin_add_slider__input">
-      <input type="text" placeholder="Nome da área" />
+      <input type="text" placeholder="Nome do curso" />
     </div>
     <div class="admin_add_slider__editor">
       <quill-editor v-model="content" :options="editorOption" ref="quillEditor">
@@ -38,9 +38,19 @@
 </template>
 
 <script>
+import { quillEditor } from "vue-quill-editor";
 export default {
-  name: "AddCourseSlider",
-  data: () => {
+  name: "DashboardCourseSlider",
+  props: {
+    courseName: {
+      type: String,
+      required: false
+    }
+  },
+  components: {
+    quillEditor
+  },
+  data() {
     return {
       content: "",
       editorOption: {
@@ -87,7 +97,6 @@ export default {
       let height = editor.offsetHeight;
 
       let toolbarArr = document.querySelectorAll(".ql-toolbar");
-
       let textAreaArr = document.querySelectorAll(".ql-editor");
 
       textAreaArr.forEach(el => {
@@ -97,13 +106,18 @@ export default {
       });
     },
     closeSlider() {
-      let slider = document.querySelector(".admin_courses__add_slider");
-      let overlay = document.querySelector(
-        ".admin_courses__panel__overlay_add"
+      let admin_courses__panel__overlay_slide = document.querySelector(
+        ".admin_courses__panel__overlay_slide"
       );
 
-      slider.classList.toggle("open_add_course_slider");
-      overlay.classList.toggle("open_add_course_overlay");
+      let admin_courses__slider = document.querySelector(
+        ".admin_courses_edit__slider"
+      );
+
+      admin_courses__panel__overlay_slide.classList.toggle(
+        "show_overlay_slide"
+      );
+      admin_courses__slider.classList.toggle("show_slider");
     },
     save() {
       console.log(this.content);

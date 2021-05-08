@@ -16,7 +16,11 @@
 
       <div class="admin_areas__panel__tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
-          <input v-model="areaTxt" type="text" placeholder="Pesquisar..." />
+          <input
+            v-model="areaTxt"
+            type="text"
+            placeholder="Pesquisar área..."
+          />
 
           <!-- <div class="admin_areas__panel__tools__btns">
             <button>Estatísticas</button>
@@ -55,7 +59,8 @@
             {{ institution == "" ? "PORTIC" : institution }}
           </p>
           <select v-model="institution">
-            <option value="PORTIC">Instituition</option>
+            <option value="">Instituition</option>
+            <option value="PORTIC">PORTIC</option>
             <option value="ESMAD">ESMAD</option>
             <option value="ISEP">ISEP</option>
             <option value="FEUP">FEUP</option>
@@ -80,8 +85,8 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardAreasCard from "@/components/Dashboard/DashboardAreasCard.vue";
-import DashboardAreasPopup from "@/components/Dashboard/DashboardAreasPopup.vue";
-import DashboardAreaSlider from "@/components/Dashboard/DashboardAreaSlider.vue";
+import DashboardAreasPopup from "@/components/Dashboard/Popup/DashboardAreasPopup.vue";
+import DashboardAreaSlider from "@/components/Dashboard/Slider/DashboardAreaSlider.vue";
 import AddAreaSlider from "@/components/Dashboard/AddSlider/AddAreaSlider.vue";
 
 import { mapGetters } from "vuex";
@@ -97,7 +102,7 @@ export default {
   },
   data: () => {
     return {
-      institution: "",
+      institution: "PORTIC",
       areaTxt: "",
       areas: ""
     };

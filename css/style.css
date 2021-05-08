@@ -8078,7 +8078,8 @@ button:focus {
   background-color: rgba(8, 8, 8, 0.1);
 }
 
-.admin_areas__panel__grid__card {
+.admin_areas__panel__grid__card,
+.admin_courses__panel__grid__card {
   width: 100%;
   padding: 2.25rem 50px;
   background-color: rgba(8, 8, 8, 0.02);
@@ -8086,22 +8087,28 @@ button:focus {
 }
 
 .admin_areas__panel__grid__card h5,
-.admin_areas__panel__grid__card h2 {
+.admin_areas__panel__grid__card h2,
+.admin_courses__panel__grid__card h5,
+.admin_courses__panel__grid__card h2 {
   font-weight: 400;
   margin: 0;
 }
 
-.admin_areas__panel__grid__card h5 {
+.admin_areas__panel__grid__card h5,
+.admin_courses__panel__grid__card h5 {
   font-size: 1rem;
   margin-right: 50px;
 }
 
-.admin_areas__panel__grid__card h2 {
+.admin_areas__panel__grid__card h2,
+.admin_courses__panel__grid__card h2 {
   color: #c94d24;
   font-size: 1.25rem;
 }
 
-.admin_areas__panel__grid__card__edit, .admin_areas__panel__grid__card__remove {
+.admin_areas__panel__grid__card__edit, .admin_areas__panel__grid__card__remove,
+.admin_courses__panel__grid__card__edit,
+.admin_courses__panel__grid__card__remove {
   width: 120px;
   border-radius: 12px;
   border: none;
@@ -8110,13 +8117,15 @@ button:focus {
   font-size: 1.0625rem;
 }
 
-.admin_areas__panel__grid__card__edit {
+.admin_areas__panel__grid__card__edit,
+.admin_courses__panel__grid__card__edit {
   margin-right: 30px;
   background-color: #fff5df;
   color: #ff8000;
 }
 
-.admin_areas__panel__grid__card__remove {
+.admin_areas__panel__grid__card__remove,
+.admin_courses__panel__grid__card__remove {
   background-color: #ffe6e6;
   color: #ff1010;
 }
@@ -8331,6 +8340,11 @@ button:focus {
   visibility: hidden;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
+}
+
+.admin_courses__panel__overlay.show_overlay {
+  opacity: 1;
+  visibility: visible;
 }
 
 .admin_courses__panel__overlay_slide.show_overlay_slide {

@@ -11,7 +11,6 @@ export const areaModule = {
   mutations: {
     SET_SELECTED_AREA_ID(state, payload) {
       state.selectedId = payload.id;
-      console.log(state.selectedId);
     }
   },
   actions: {},

@@ -2,6 +2,7 @@
   <div class="admin_courses flex">
     <DashboardHeader />
     <div class="admin_courses__panel">
+      <div class="admin_courses__panel__overlay" @click="closePopup"></div>
       <div
         class="admin_courses__panel__overlay_slide"
         @click="closeSlider"
@@ -10,7 +11,10 @@
         class="admin_courses__panel__overlay_add"
         @click="closeAddSlider"
       ></div>
+
+      <DashboardCoursesPopup :courseName="courseName" />
       <AddCourseSlider />
+      <DashboardCourseSlider :courseName="courseName" />
       <DashboardTopHeader />
 
       <div class="admin_courses__panel__tools flex flex-ai-c flex-jc-sb">
@@ -58,12 +62,23 @@
             {{ institution == "" ? "PORTIC" : institution }}
           </p>
           <select v-model="institution">
-            <option value="PORTIC">Instituition</option>
+            <option value="">Instituition</option>
+            <option value="PORTIC" selected>PORTIC</option>
             <option value="ESMAD">ESMAD</option>
             <option value="ISEP">ISEP</option>
             <option value="FEUP">FEUP</option>
           </select>
         </div>
+      </div>
+
+      <div class="admin_courses__panel__grid grid">
+        <DashboardCoursesCard
+          v-for="course in searchFilter"
+          :key="course.id"
+          :id="course.id"
+          :counter="course.id"
+          :courseName="course.courseName"
+        />
       </div>
     </div>
   </div>
@@ -72,20 +87,30 @@
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
+import DashboardCoursesCard from "@/components/Dashboard/DashboardCoursesCard.vue";
+import DashboardCoursesPopup from "@/components/Dashboard/Popup/DashboardCoursesPopup.vue";
 import AddCourseSlider from "@/components/Dashboard/AddSlider/AddCourseSlider.vue";
+import DashboardCourseSlider from "@/components/Dashboard/Slider/DashboardCourseSlider.vue";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
+    DashboardCoursesCard,
+    DashboardCoursesPopup,
+    DashboardCourseSlider,
     AddCourseSlider
   },
   data: () => {
     return {
-      institution: "",
+      institution: "PORTIC",
       courseTxt: "",
       courses: ""
     };
+  },
+  created() {
+    this.courses = this.getCoursesPT;
   },
   mounted() {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;
@@ -94,7 +119,43 @@ export default {
       ".admin_courses__panel"
     ).style.paddingLeft = `${navbar_width}px`;
   },
+  computed: {
+    ...mapGetters(["getSelectedCourseByID", "getCourseByID", "getCoursesPT"]),
+    courseName() {
+      let id = this.getSelectedCourseByID;
+
+      let course = this.getCourseByID(id);
+
+      let name;
+
+      if (course) {
+        name = course.courseName;
+      }
+
+      return name;
+    },
+    searchFilter() {
+      return this.courses.filter(course => {
+        let search = true;
+
+        if (this.courseTxt != "") {
+          search = course.courseName
+            .toLowerCase()
+            .includes(this.courseTxt.toLowerCase());
+        }
+
+        return search;
+      });
+    }
+  },
   methods: {
+    closePopup() {
+      let overlay = document.querySelector(".admin_courses__panel__overlay");
+      let popup = document.querySelector(".admin_delete_popup");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
     closeAddSlider() {
       let slider = document.querySelector(".admin_courses__add_slider");
       let overlay = document.querySelector(
@@ -109,7 +170,7 @@ export default {
         ".admin_courses__panel__overlay_slide"
       );
 
-      let slider = document.querySelector(".admin_courses__slider");
+      let slider = document.querySelector(".admin_courses_edit__slider");
 
       overlay.classList.toggle("show_overlay_slide");
       slider.classList.toggle("show_slider");
