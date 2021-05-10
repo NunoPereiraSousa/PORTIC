@@ -106,6 +106,7 @@ export default {
     let broadcastArr = this.weather.daily;
 
     this.convertWeekDaysArr().forEach(d => {
+      console.log(d);
       this.days.push(d);
     });
 
@@ -133,7 +134,7 @@ export default {
       let weekDay = [];
 
       for (let i = 0; i < 5; i++) {
-        let number = now.getDay();
+        let number = now.getDay() + i;
 
         if (number < futureNum) {
           weekDay.push(number);

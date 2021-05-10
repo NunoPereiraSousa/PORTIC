@@ -109,6 +109,28 @@
         </button>
       </div>
 
+      <div v-else-if="$route.name == 'DashboardProjects'">
+        <button
+          class="top_header__actions__add flex flex-ai-c"
+          @click="openAddProjectsSlider"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22.729"
+            height="20.103"
+            viewBox="0 0 22.729 20.103"
+          >
+            <path
+              id="suitcase"
+              d="M21.124,17.9H18.592v-2.45a1.148,1.148,0,0,0-1.147-1.147H5.283a1.148,1.148,0,0,0-1.147,1.147V17.9H1.6A1.607,1.607,0,0,0,0,19.511v13.3a1.607,1.607,0,0,0,1.6,1.6H21.124a1.607,1.607,0,0,0,1.6-1.6v-13.3a1.607,1.607,0,0,0-1.6-1.606ZM5.513,15.684h11.7V17.9H5.513ZM1.6,19.281H21.124a.232.232,0,0,1,.229.229v4.128H14.4v-.617a1.148,1.148,0,0,0-1.147-1.147H9.478a1.148,1.148,0,0,0-1.147,1.147v.617H1.376V19.51a.232.232,0,0,1,.229-.229Zm11.412,3.966v2.224H9.707V23.249h3.314Zm8.107,9.789H1.6a.232.232,0,0,1-.229-.229V25.012H8.331V25.7a1.148,1.148,0,0,0,1.147,1.147h3.772A1.148,1.148,0,0,0,14.4,25.7v-.687h6.956v7.794a.232.232,0,0,1-.229.229Z"
+              transform="translate(0 -14.308)"
+              fill="#fff"
+            />
+          </svg>
+          Adicionar
+        </button>
+      </div>
+
       <div class="top_header__actions__image" :style="imageStyle"></div>
     </div>
   </header>
@@ -216,6 +238,15 @@ export default {
 
       slider.classList.toggle("open_add_course_slider");
       overlay.classList.toggle("open_add_course_overlay");
+    },
+    openAddProjectsSlider() {
+      let slider = document.querySelector(".admin_projects__add_slider");
+      let overlay = document.querySelector(
+        ".admin_projects__panel__overlay_add"
+      );
+
+      slider.classList.toggle("open_add_project_slider");
+      overlay.classList.toggle("open_add_project_overlay");
     }
   }
 };

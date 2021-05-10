@@ -1,6 +1,6 @@
 <template>
   <div
-    class="admin_courses__slider admin_courses__add_slider admin_add_slider grid"
+    class="admin_projects__slider admin_projects__add_slider admin_add_slider grid"
   >
     <div class="admin_add_slider__header flex flex-jc-sb flex-ai-c">
       <div
@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: "AddCourseSlider",
+  name: "AddProjectSlider",
   data: () => {
     return {
       content: "",
