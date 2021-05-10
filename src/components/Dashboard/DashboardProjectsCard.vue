@@ -11,7 +11,10 @@
       <button class="admin_projects__panel__grid__card__edit">
         Editar
       </button>
-      <button class="admin_projects__panel__grid__card__remove">
+      <button
+        class="admin_projects__panel__grid__card__remove"
+        @click="showPopup(id)"
+      >
         Remover
       </button>
     </div>
@@ -41,28 +44,29 @@ export default {
     // ...mapGetters(["getSelectedCourseByID", "getCourseByID"])
   },
   methods: {
-    // openSlider(courseId) {
+    // openSlider(projectId) {
     //   let overlay = document.querySelector(
-    //     ".admin_courses__panel__overlay_slide"
+    //     ".admin_projects__panel__overlay_slide"
     //   );
-    //   let slider = document.querySelector(".admin_courses_edit__slider");
+    //   let slider = document.querySelector(".admin_projects_edit__slider");
     //   overlay.classList.toggle("show_overlay_slide");
     //   slider.classList.toggle("show_slider");
     //   // COURSE ID LOGIC
-    //   this.$store.commit("SET_SELECTED_COURSE_ID", {
-    //     id: courseId
+    //   this.$store.commit("SET_SELECTED_PROJECT_ID", {
+    //     id: projectId
     //   });
     // },
-    // showPopup(courseId) {
-    //   let overlay = document.querySelector(".admin_courses__panel__overlay");
-    //   let popup = document.querySelector(".admin_delete_popup");
-    //   overlay.classList.toggle("show_overlay");
-    //   popup.classList.toggle("show_popup");
-    //   // COURSE ID LOGIC
-    //   this.$store.commit("SET_SELECTED_COURSE_ID", {
-    //     id: courseId
-    //   });
-    // }
+    showPopup(projectId) {
+      let overlay = document.querySelector(".admin_projects__panel__overlay");
+      let popup = document.querySelector(".admin_delete_popup");
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+
+      // COURSE ID LOGIC
+      this.$store.commit("SET_SELECTED_PROJECT_ID", {
+        id: projectId
+      });
+    }
   }
 };
 </script>

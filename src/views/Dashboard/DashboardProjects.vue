@@ -2,7 +2,7 @@
   <div class="admin_projects flex">
     <DashboardHeader />
     <div class="admin_projects__panel">
-      <div class="admin_projects__panel__overlay"></div>
+      <div class="admin_projects__panel__overlay" @click="closePopup"></div>
       <!-- <div
         class="admin_projects__panel__overlay_slide"
         @click="closeSlider"
@@ -13,6 +13,7 @@
         @click="closeAddSlider"
       ></div>
       <AddProjectSlider />
+      <DashboardProjectsPopup :projectName="projectName" />
 
       <DashboardTopHeader />
 
@@ -82,6 +83,8 @@ import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import AddProjectSlider from "@/components/Dashboard/AddSlider/AddProjectSlider.vue";
 import DashboardProjectsCard from "@/components/Dashboard/DashboardProjectsCard.vue";
+import DashboardProjectsPopup from "@/components/Dashboard/Popup/DashboardProjectsPopup.vue";
+
 import { mapGetters } from "vuex";
 
 export default {
@@ -89,6 +92,7 @@ export default {
     DashboardHeader,
     DashboardTopHeader,
     AddProjectSlider,
+    DashboardProjectsPopup,
     DashboardProjectsCard
   },
   data: () => {
@@ -138,6 +142,13 @@ export default {
     }
   },
   methods: {
+    closePopup() {
+      let overlay = document.querySelector(".admin_projects__panel__overlay");
+      let popup = document.querySelector(".admin_delete_popup");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
     closeAddSlider() {
       let slider = document.querySelector(".admin_projects__add_slider");
       let overlay = document.querySelector(
