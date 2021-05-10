@@ -3,17 +3,18 @@
     <DashboardHeader />
     <div class="admin_projects__panel">
       <div class="admin_projects__panel__overlay" @click="closePopup"></div>
-      <!-- <div
+      <div
         class="admin_projects__panel__overlay_slide"
         @click="closeSlider"
       ></div>
-       -->
+
       <div
         class="admin_projects__panel__overlay_add"
         @click="closeAddSlider"
       ></div>
       <AddProjectSlider />
       <DashboardProjectsPopup :projectName="projectName" />
+      <DashboardProjectsSlider :projectName="projectName" />
 
       <DashboardTopHeader />
 
@@ -84,6 +85,7 @@ import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import AddProjectSlider from "@/components/Dashboard/AddSlider/AddProjectSlider.vue";
 import DashboardProjectsCard from "@/components/Dashboard/DashboardProjectsCard.vue";
 import DashboardProjectsPopup from "@/components/Dashboard/Popup/DashboardProjectsPopup.vue";
+import DashboardProjectsSlider from "@/components/Dashboard/Slider/DashboardProjectsSlider.vue";
 
 import { mapGetters } from "vuex";
 
@@ -93,7 +95,8 @@ export default {
     DashboardTopHeader,
     AddProjectSlider,
     DashboardProjectsPopup,
-    DashboardProjectsCard
+    DashboardProjectsCard,
+    DashboardProjectsSlider
   },
   data: () => {
     return {
@@ -157,6 +160,20 @@ export default {
 
       slider.classList.toggle("open_add_project_slider");
       overlay.classList.toggle("open_add_project_overlay");
+    },
+    closeSlider() {
+      let admin_projects__panel__overlay_slide = document.querySelector(
+        ".admin_projects__panel__overlay_slide"
+      );
+
+      let admin_projects__slider = document.querySelector(
+        ".admin_projects_edit__slider"
+      );
+
+      admin_projects__panel__overlay_slide.classList.toggle(
+        "show_overlay_slide"
+      );
+      admin_projects__slider.classList.toggle("show_slider");
     }
   }
 };

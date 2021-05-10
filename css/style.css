@@ -8326,7 +8326,7 @@ button:focus {
   color: #080808;
 }
 
-.admin_add_slider.admin_projects__add_slider {
+.admin_add_slider.admin_projects__add_slider, .admin_add_slider.admin_projects_edit__slider {
   right: -70vw;
   width: 70vw;
   -ms-grid-rows: min-content min-content min-content min-content;
@@ -8335,30 +8335,30 @@ button:focus {
 }
 
 @media (min-width: 120em) {
-  .admin_add_slider.admin_projects__add_slider {
+  .admin_add_slider.admin_projects__add_slider, .admin_add_slider.admin_projects_edit__slider {
     right: -60vw;
     width: 60vw;
   }
 }
 
-.admin_add_slider.admin_projects__add_slider.open_add_project_slider {
+.admin_add_slider.admin_projects__add_slider.open_add_project_slider, .admin_add_slider.admin_projects__add_slider.show_slider, .admin_add_slider.admin_projects_edit__slider.open_add_project_slider, .admin_add_slider.admin_projects_edit__slider.show_slider {
   right: 0%;
 }
 
-.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar {
+.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar, .admin_add_slider.admin_projects_edit__slider ::-webkit-scrollbar {
   width: 5px;
   margin-right: 10px;
 }
 
-.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar-track {
+.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar-track, .admin_add_slider.admin_projects_edit__slider ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar-thumb {
+.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar-thumb, .admin_add_slider.admin_projects_edit__slider ::-webkit-scrollbar-thumb {
   background-color: rgba(8, 8, 8, 0.1);
 }
 
-.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar-thumb:hover {
+.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar-thumb:hover, .admin_add_slider.admin_projects_edit__slider ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(8, 8, 8, 0.1);
 }
 

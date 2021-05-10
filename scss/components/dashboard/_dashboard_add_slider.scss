@@ -139,7 +139,8 @@
 
   /* PROJECTS STYLE FORM */
 
-  &.admin_projects__add_slider {
+  &.admin_projects__add_slider,
+  &.admin_projects_edit__slider {
     right: -70vw;
     width: 70vw;
 
@@ -148,7 +149,8 @@
       width: 60vw;
     }
 
-    &.open_add_project_slider {
+    &.open_add_project_slider,
+    &.show_slider {
       right: 0%;
     }
 

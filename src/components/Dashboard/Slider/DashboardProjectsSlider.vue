@@ -1,6 +1,6 @@
 <template>
   <div
-    class="admin_courses__slider admin_courses_edit__slider admin_add_slider grid"
+    class="admin_projects__slider admin_projects_edit__slider admin_add_slider grid"
   >
     <div class="admin_add_slider__header flex flex-jc-sb flex-ai-c">
       <div
@@ -14,25 +14,89 @@
       </div>
       <div>
         <h3>
-          Curso <span>{{ courseName }}</span>
+          Projeto <span>{{ projectName }}</span>
         </h3>
+      </div>
+      <div class="flex">
+        <button
+          class="admin_projects__add_slider__header__confirm"
+          @click="save"
+        >
+          Editar
+        </button>
+        <button
+          class="admin_projects__add_slider__header__cancel"
+          @click="closeSlider"
+        >
+          Cancelar
+        </button>
       </div>
     </div>
     <hr class="admin_add_slider__divider" />
-    <div class="admin_add_slider__input">
-      <input type="text" placeholder="Nome do curso" />
-    </div>
-    <div class="admin_add_slider__editor">
-      <quill-editor v-model="content" :options="editorOption" ref="quillEditor">
-      </quill-editor>
-    </div>
-    <div class="admin_add_slider__footer flex flex-jc-sb flex-ai-c">
-      <button class="admin_add_slider__footer__confirm" @click="save">
-        Confirmar
-      </button>
-      <button class="admin_add_slider__footer__cancel" @click="closeSlider">
-        Cancelar
-      </button>
+    <div class="admin_add_slider__scroll">
+      <h3 class="admin_add_slider__subheader">
+        Informação genérica
+      </h3>
+      <div class="admin_add_slider__form flex">
+        <input type="text" placeholder="Nome do projeto" />
+        <input type="text" placeholder="Contacto telefónico" />
+        <input type="text" placeholder="E-mail" />
+      </div>
+      <h3 class="admin_add_slider__subheader">
+        Conteúdo do projeto
+      </h3>
+      <div class="admin_add_slider__editor margin_editor">
+        <quill-editor
+          v-model="content"
+          :options="editorOption"
+          ref="quillEditor"
+        >
+        </quill-editor>
+      </div>
+      <h3 class="admin_add_slider__subheader">
+        Galeria
+      </h3>
+      <div class="admin_add_slider__images">
+        <label class="custom-file-upload">
+          <input type="file" />
+          Upload de imagens
+        </label>
+      </div>
+      <h3 class="admin_add_slider__subheader">
+        Equipa do projeto
+      </h3>
+      <div class="admin_add_slider__team">
+        <div v-for="index in teamRows" :key="index">
+          <div
+            :id="index"
+            class="admin_add_slider__team__form flex flex-ai-c flex-jc-sb"
+          >
+            <div class="admin_add_slider__team__form__grid grid">
+              <input type="text" placeholder="Cargo no projeto" />
+              <input type="text" placeholder="Nome" />
+              <label class="custom-file-upload">
+                <input type="file" />
+                Fotografia
+              </label>
+            </div>
+            <div>
+              <button
+                class="admin_add_slider__team__form__grid__add"
+                @click="addHtmlTeamRow(index)"
+              >
+                +1 Membro
+              </button>
+              <button
+                class="admin_add_slider__team__form__grid__remove"
+                v-if="teamRowsLength > 1"
+                @click="removeHtmlTeamRow(index)"
+              >
+                -1 Membro
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -42,7 +106,7 @@ import { quillEditor } from "vue-quill-editor";
 export default {
   name: "DashboardProjectsSlider",
   props: {
-    courseName: {
+    projectName: {
       type: String,
       required: false
     }
@@ -85,11 +149,19 @@ export default {
             ["link", "image", "video"]
           ]
         }
-      }
+      },
+      teamRows: [1]
     };
   },
   mounted() {
     this.styleEditorHeight();
+  },
+  computed: {
+    teamRowsLength() {
+      let length = this.teamRows.length;
+
+      return length;
+    }
   },
   methods: {
     styleEditorHeight() {
@@ -105,19 +177,27 @@ export default {
         });
       });
     },
+    addHtmlTeamRow(index) {
+      console.log(index);
+
+      this.teamRows.push(index + 1);
+    },
+    removeHtmlTeamRow(index) {
+      this.teamRows = this.teamRows.filter(row => row !== index);
+    },
     closeSlider() {
-      let admin_courses__panel__overlay_slide = document.querySelector(
-        ".admin_courses__panel__overlay_slide"
+      let admin_projects__panel__overlay_slide = document.querySelector(
+        ".admin_projects__panel__overlay_slide"
       );
 
-      let admin_courses__slider = document.querySelector(
-        ".admin_courses_edit__slider"
+      let admin_projects__slider = document.querySelector(
+        ".admin_projects_edit__slider"
       );
 
-      admin_courses__panel__overlay_slide.classList.toggle(
+      admin_projects__panel__overlay_slide.classList.toggle(
         "show_overlay_slide"
       );
-      admin_courses__slider.classList.toggle("show_slider");
+      admin_projects__slider.classList.toggle("show_slider");
     },
     save() {
       console.log(this.content);
