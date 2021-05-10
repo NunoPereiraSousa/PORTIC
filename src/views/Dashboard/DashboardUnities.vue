@@ -2,6 +2,8 @@
   <div class="admin_unities flex">
     <DashboardHeader />
     <div class="admin_unities__panel">
+      <div class="admin_unities__panel__overlay" @click="closePopup"></div>
+
       <div
         class="admin_unities__panel__overlay_add"
         @click="closeAddSlider"
@@ -9,6 +11,7 @@
 
       <DashboardTopHeader />
       <AddUnitySlider />
+      <DashboardUnitiesPopup :unityName="unityName" />
 
       <div class="admin_unities__panel__tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
@@ -76,6 +79,7 @@ import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardUnitiesCard from "@/components/Dashboard/DashboardUnitiesCard.vue";
 import AddUnitySlider from "@/components/Dashboard/AddSlider/AddUnitySlider.vue";
+import DashboardUnitiesPopup from "@/components/Dashboard/Popup/DashboardUnitiesPopup.vue";
 
 import { mapGetters } from "vuex";
 
@@ -84,7 +88,8 @@ export default {
     DashboardHeader,
     DashboardTopHeader,
     DashboardUnitiesCard,
-    AddUnitySlider
+    AddUnitySlider,
+    DashboardUnitiesPopup
   },
   data: () => {
     return {
@@ -135,6 +140,13 @@ export default {
     }
   },
   methods: {
+    closePopup() {
+      let overlay = document.querySelector(".admin_unities__panel__overlay");
+      let popup = document.querySelector(".admin_delete_popup");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
     closeAddSlider() {
       let slider = document.querySelector(".admin_unities__add_slider");
       let overlay = document.querySelector(
