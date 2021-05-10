@@ -31,10 +31,11 @@
 
   &__header {
     width: 100%;
+
     h3 {
       font-family: $portoSans;
       font-weight: 400;
-      font-size: $_20px;
+      font-size: $_18px;
 
       margin: 0;
 
@@ -92,6 +93,7 @@
 
   &__input {
     margin: 0 0 2rem;
+
     input {
       padding: 12px 26px;
       margin-right: 3.125rem;
@@ -102,7 +104,7 @@
   }
 
   &__editor {
-    height: 100%;
+    margin-bottom: 2rem;
   }
 
   &__footer {
@@ -132,6 +134,192 @@
       border: 2px solid $orange;
       background-color: transparent;
       color: $black;
+    }
+  }
+
+  /* PROJECTS STYLE FORM */
+
+  &.admin_projects__add_slider {
+    right: -70vw;
+    width: 70vw;
+
+    @include breakpoint-up(large) {
+      right: -60vw;
+      width: 60vw;
+    }
+
+    &.open_add_project_slider {
+      right: 0%;
+    }
+
+    grid-template-rows:
+      min-content
+      min-content
+      min-content
+      min-content;
+
+    ::-webkit-scrollbar {
+      width: 5px;
+      margin-right: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba($color: $black, $alpha: 0.1);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgba($color: $black, $alpha: 0.1);
+    }
+  }
+
+  .admin_projects__add_slider__header__confirm,
+  .admin_projects__add_slider__header__cancel {
+    width: 100px;
+    padding: 6px 0;
+
+    border-radius: 10px;
+    font-size: $_15px;
+    font-family: $portoSans;
+  }
+
+  .admin_projects__add_slider__header__confirm {
+    margin-right: 20px;
+    border: 2px solid $orange;
+    background-color: $orange;
+    color: $white;
+  }
+
+  .admin_projects__add_slider__header__cancel {
+    border: 2px solid $orange;
+    background-color: transparent;
+    color: $black;
+  }
+
+  .margin_editor {
+    margin-bottom: 4rem;
+  }
+
+  &__scroll {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 2rem;
+  }
+
+  &__subheader {
+    position: relative;
+    width: fit-content;
+    padding: 0 0 1rem;
+    margin: 1.5rem 0 2rem;
+
+    font-size: $_18px;
+    font-family: $portoSans;
+    color: $black;
+    font-weight: 500;
+
+    text-shadow: 6px 4px 4px rgba($color: $black, $alpha: 0.075);
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0%;
+      bottom: 0%;
+      height: 2.5px;
+      width: 30px;
+      background-color: rgba($color: $orange, $alpha: 0.7);
+      box-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.02);
+
+      @include breakpoint-up(large) {
+        left: 0.75%;
+        width: 40px;
+        height: 3px;
+      }
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_22px;
+    }
+  }
+
+  &__form {
+    justify-content: space-between;
+
+    input {
+      width: fit-content;
+      padding: 12px 26px;
+      margin-bottom: 2rem;
+      font-family: $portoSans;
+      font-size: $_15px;
+      border: 1px solid rgba($color: $black, $alpha: 0.3);
+    }
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .custom-file-upload {
+    padding: 10px 26px;
+    margin-bottom: 2rem;
+    font-family: $portoSans;
+    font-size: $_15px;
+    border: 1px solid rgba($color: $black, $alpha: 0.3);
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  &__team {
+    margin-bottom: 2rem;
+
+    &__form {
+      margin-bottom: 1rem;
+
+      &__grid {
+        grid-template-columns: repeat(3, min-content);
+        column-gap: 2rem;
+
+        &__add,
+        &__remove {
+          padding: 12px 26px;
+
+          border-radius: 10px;
+          font-size: $_15px;
+          font-family: $portoSans;
+          border: none;
+        }
+
+        &__add {
+          margin-right: 20px;
+          background-color: $admin_yellow;
+          color: $admin_orange;
+        }
+
+        &__remove {
+          background-color: $admin_pink;
+          color: $admin_red;
+        }
+      }
+
+      input {
+        width: fit-content;
+        padding: 12px 26px;
+        font-family: $portoSans;
+        font-size: $_15px;
+        border: 1px solid rgba($color: $black, $alpha: 0.3);
+
+        // margin-right: 2rem;
+      }
+
+      .custom-file-upload {
+        margin-bottom: 0;
+      }
+
+      &:not(:first-child) {
+        margin-top: 1rem;
+      }
     }
   }
 }

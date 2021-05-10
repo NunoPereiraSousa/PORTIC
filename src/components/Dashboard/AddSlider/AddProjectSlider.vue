@@ -14,25 +14,89 @@
       </div>
       <div>
         <h3>
-          Adicionar curso
+          Adicionar projeto
         </h3>
+      </div>
+      <div class="flex">
+        <button
+          class="admin_projects__add_slider__header__confirm"
+          @click="save"
+        >
+          Confirmar
+        </button>
+        <button
+          class="admin_projects__add_slider__header__cancel"
+          @click="closeSlider"
+        >
+          Cancelar
+        </button>
       </div>
     </div>
     <hr class="admin_add_slider__divider" />
-    <div class="admin_add_slider__input">
-      <input type="text" placeholder="Nome da área" />
-    </div>
-    <div class="admin_add_slider__editor">
-      <quill-editor v-model="content" :options="editorOption" ref="quillEditor">
-      </quill-editor>
-    </div>
-    <div class="admin_add_slider__footer flex flex-jc-sb flex-ai-c">
-      <button class="admin_add_slider__footer__confirm" @click="save">
-        Confirmar
-      </button>
-      <button class="admin_add_slider__footer__cancel" @click="closeSlider">
-        Cancelar
-      </button>
+    <div class="admin_add_slider__scroll">
+      <h3 class="admin_add_slider__subheader">
+        Informação genérica
+      </h3>
+      <div class="admin_add_slider__form flex">
+        <input type="text" placeholder="Nome do projeto" />
+        <input type="text" placeholder="Contacto telefónico" />
+        <input type="text" placeholder="E-mail" />
+      </div>
+      <h3 class="admin_add_slider__subheader">
+        Conteúdo do projeto
+      </h3>
+      <div class="admin_add_slider__editor margin_editor">
+        <quill-editor
+          v-model="content"
+          :options="editorOption"
+          ref="quillEditor"
+        >
+        </quill-editor>
+      </div>
+      <h3 class="admin_add_slider__subheader">
+        Galeria
+      </h3>
+      <div class="admin_add_slider__images">
+        <label class="custom-file-upload">
+          <input type="file" />
+          Upload de imagens
+        </label>
+      </div>
+      <h3 class="admin_add_slider__subheader">
+        Equipa do projeto
+      </h3>
+      <div class="admin_add_slider__team">
+        <div v-for="index in teamRows" :key="index">
+          <div
+            :id="index"
+            class="admin_add_slider__team__form flex flex-ai-c flex-jc-sb"
+          >
+            <div class="admin_add_slider__team__form__grid grid">
+              <input type="text" placeholder="Cargo no projeto" />
+              <input type="text" placeholder="Nome" />
+              <label class="custom-file-upload">
+                <input type="file" />
+                Fotografia
+              </label>
+            </div>
+            <div>
+              <button
+                class="admin_add_slider__team__form__grid__add"
+                @click="addHtmlTeamRow(index)"
+              >
+                +1 Membro
+              </button>
+              <button
+                class="admin_add_slider__team__form__grid__remove"
+                v-if="teamRowsLength > 1"
+                @click="removeHtmlTeamRow(index)"
+              >
+                -1 Membro
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -75,16 +139,26 @@ export default {
             ["link", "image", "video"]
           ]
         }
-      }
+      },
+      teamRows: [1]
     };
+  },
+  computed: {
+    teamRowsLength() {
+      let length = this.teamRows.length;
+
+      return length;
+    }
   },
   mounted() {
     this.styleEditorHeight();
   },
   methods: {
     styleEditorHeight() {
-      let editor = document.querySelector(".admin_add_slider__editor");
+      let editor = document.querySelector(".admin_add_slider__scroll");
       let height = editor.offsetHeight;
+
+      console.log(height);
 
       let toolbarArr = document.querySelectorAll(".ql-toolbar");
 
@@ -92,7 +166,7 @@ export default {
 
       textAreaArr.forEach(el => {
         toolbarArr.forEach(toolbar => {
-          el.style.height = `${height - toolbar.offsetHeight}px`;
+          el.style.height = `${height / 2 - toolbar.offsetHeight}px`;
         });
       });
     },
@@ -107,6 +181,14 @@ export default {
     },
     save() {
       console.log(this.content);
+    },
+    addHtmlTeamRow(index) {
+      console.log(index);
+
+      this.teamRows.push(index + 1);
+    },
+    removeHtmlTeamRow(index) {
+      this.teamRows = this.teamRows.filter(row => row !== index);
     }
   }
 };
