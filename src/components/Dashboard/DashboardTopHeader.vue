@@ -300,7 +300,15 @@ export default {
       slider.classList.toggle("open_add_project_slider");
       overlay.classList.toggle("open_add_project_overlay");
     },
-    openAddUnitiesSlider() {}
+    openAddUnitiesSlider() {
+      let slider = document.querySelector(".admin_unities__add_slider");
+      let overlay = document.querySelector(
+        ".admin_unities__panel__overlay_add"
+      );
+
+      slider.classList.toggle("open_add_unity_slider");
+      overlay.classList.toggle("open_add_unity_overlay");
+    }
   }
 };
 </script>

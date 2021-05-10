@@ -8243,6 +8243,10 @@ button:focus {
   right: 0%;
 }
 
+.admin_add_slider.open_add_unity_slider {
+  right: 0%;
+}
+
 .admin_add_slider__header {
   width: 100%;
 }
@@ -8855,7 +8859,7 @@ button:focus {
   visibility: visible;
 }
 
-.admin_unities__panel__overlay_add.open_add_project_overlay {
+.admin_unities__panel__overlay_add.open_add_unity_overlay {
   opacity: 1;
   visibility: visible;
 }

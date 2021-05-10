@@ -2,7 +2,13 @@
   <div class="admin_unities flex">
     <DashboardHeader />
     <div class="admin_unities__panel">
+      <div
+        class="admin_unities__panel__overlay_add"
+        @click="closeAddSlider"
+      ></div>
+
       <DashboardTopHeader />
+      <AddUnitySlider />
 
       <div class="admin_unities__panel__tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
@@ -69,6 +75,7 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardUnitiesCard from "@/components/Dashboard/DashboardUnitiesCard.vue";
+import AddUnitySlider from "@/components/Dashboard/AddSlider/AddUnitySlider.vue";
 
 import { mapGetters } from "vuex";
 
@@ -76,7 +83,8 @@ export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
-    DashboardUnitiesCard
+    DashboardUnitiesCard,
+    AddUnitySlider
   },
   data: () => {
     return {
@@ -124,6 +132,17 @@ export default {
 
         return search;
       });
+    }
+  },
+  methods: {
+    closeAddSlider() {
+      let slider = document.querySelector(".admin_unities__add_slider");
+      let overlay = document.querySelector(
+        ".admin_unities__panel__overlay_add"
+      );
+
+      slider.classList.toggle("open_add_unity_slider");
+      overlay.classList.toggle("open_add_unity_overlay");
     }
   }
 };
