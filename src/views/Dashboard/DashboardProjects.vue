@@ -14,7 +14,7 @@
       ></div>
       <AddProjectSlider />
       <DashboardProjectsPopup :projectName="projectName" />
-      <DashboardProjectsSlider :projectName="projectName" />
+      <DashboardProjectsSlider :projectName="projectName" :images="images" />
 
       <DashboardTopHeader />
 
@@ -102,11 +102,19 @@ export default {
     return {
       institution: "PORTIC",
       projectTxt: "",
-      projects: ""
+      projects: "",
+      images: []
     };
   },
   created() {
     this.projects = this.getProjects;
+    this.images = [
+      "https://wp.zillowstatic.com/streeteasy/2/Amazon-building-10b3c7.jpg",
+      "https://www.gannett-cdn.com/presto/2019/07/18/PSAL/4010fe7f-35e9-4108-9954-96f6f521bab1-AmazonFulfillmentCenter_ar_01.JPG?auto=webp&crop=2399,1349,x1,y86&format=pjpg&width=1200",
+      "https://www.gannett-cdn.com/presto/2019/07/18/PSAL/4010fe7f-35e9-4108-9954-96f6f521bab1-AmazonFulfillmentCenter_ar_01.JPG?auto=webp&crop=2399,1349,x1,y86&format=pjpg&width=1200"
+    ];
+
+    console.log(this.images);
   },
   mounted() {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;

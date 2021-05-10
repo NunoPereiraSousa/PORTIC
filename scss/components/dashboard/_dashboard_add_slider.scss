@@ -268,7 +268,8 @@
     margin-bottom: 2rem;
     font-family: $portoSans;
     font-size: $_15px;
-    border: 1px solid rgba($color: $black, $alpha: 0.3);
+    border: 2px solid rgba($color: $black, $alpha: 0.35);
+    border-radius: 10px;
     display: inline-block;
     cursor: pointer;
   }
@@ -321,6 +322,79 @@
 
       &:not(:first-child) {
         margin-top: 1rem;
+      }
+    }
+  }
+
+  &__images__img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 12.375rem;
+    width: 16.75rem;
+
+    margin-bottom: 1rem;
+
+    position: relative;
+
+    &__actions {
+      width: 100%;
+      position: absolute;
+      bottom: 0%;
+      left: 0%;
+      background-color: $black;
+      padding: 0.65rem 1.25rem;
+
+      &__edit,
+      &__remove {
+        font-family: $portoSans;
+        background-color: transparent;
+        border: none;
+        font-size: $_15px;
+        padding: 0;
+      }
+
+      &__edit {
+        color: $admin_orange2;
+      }
+
+      &__remove {
+        color: $admin_salmon;
+      }
+    }
+  }
+
+  .glide {
+    .controls_btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $white;
+      border: none;
+      box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05),
+        -1px -1px 10px 0px rgba(0, 0, 0, 0.05);
+      margin: 0 1rem 30px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.08),
+          -2px -2px 10px 0px rgba(0, 0, 0, 0.08);
+      }
+
+      &:hover .left__arrow,
+      &:hover .right__arrow {
+        fill: $orange;
+      }
+
+      .left__arrow,
+      .right__arrow {
+        width: 20px;
+        margin-top: 5px;
       }
     }
   }

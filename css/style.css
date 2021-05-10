@@ -8079,7 +8079,8 @@ button:focus {
 }
 
 .admin_areas__panel__grid__card,
-.admin_courses__panel__grid__card {
+.admin_courses__panel__grid__card,
+.admin_projects__panel__grid__card {
   width: 100%;
   padding: 2.25rem 50px;
   background-color: rgba(8, 8, 8, 0.02);
@@ -8089,26 +8090,32 @@ button:focus {
 .admin_areas__panel__grid__card h5,
 .admin_areas__panel__grid__card h2,
 .admin_courses__panel__grid__card h5,
-.admin_courses__panel__grid__card h2 {
+.admin_courses__panel__grid__card h2,
+.admin_projects__panel__grid__card h5,
+.admin_projects__panel__grid__card h2 {
   font-weight: 400;
   margin: 0;
 }
 
 .admin_areas__panel__grid__card h5,
-.admin_courses__panel__grid__card h5 {
+.admin_courses__panel__grid__card h5,
+.admin_projects__panel__grid__card h5 {
   font-size: 1rem;
   margin-right: 50px;
 }
 
 .admin_areas__panel__grid__card h2,
-.admin_courses__panel__grid__card h2 {
+.admin_courses__panel__grid__card h2,
+.admin_projects__panel__grid__card h2 {
   color: #c94d24;
   font-size: 1.25rem;
 }
 
 .admin_areas__panel__grid__card__edit, .admin_areas__panel__grid__card__remove,
 .admin_courses__panel__grid__card__edit,
-.admin_courses__panel__grid__card__remove {
+.admin_courses__panel__grid__card__remove,
+.admin_projects__panel__grid__card__edit,
+.admin_projects__panel__grid__card__remove {
   width: 120px;
   border-radius: 12px;
   border: none;
@@ -8118,14 +8125,16 @@ button:focus {
 }
 
 .admin_areas__panel__grid__card__edit,
-.admin_courses__panel__grid__card__edit {
+.admin_courses__panel__grid__card__edit,
+.admin_projects__panel__grid__card__edit {
   margin-right: 30px;
   background-color: #fff5df;
   color: #ff8000;
 }
 
 .admin_areas__panel__grid__card__remove,
-.admin_courses__panel__grid__card__remove {
+.admin_courses__panel__grid__card__remove,
+.admin_projects__panel__grid__card__remove {
   background-color: #ffe6e6;
   color: #ff1010;
 }
@@ -8460,7 +8469,8 @@ button:focus {
   margin-bottom: 2rem;
   font-family: "Porto Sans";
   font-size: 0.9375rem;
-  border: 1px solid rgba(8, 8, 8, 0.3);
+  border: 2px solid rgba(8, 8, 8, 0.35);
+  border-radius: 10px;
   display: inline-block;
   cursor: pointer;
 }
@@ -8516,6 +8526,75 @@ button:focus {
 
 .admin_add_slider__team__form:not(:first-child) {
   margin-top: 1rem;
+}
+
+.admin_add_slider__images__img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 12.375rem;
+  width: 16.75rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.admin_add_slider__images__img__actions {
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  background-color: #080808;
+  padding: 0.65rem 1.25rem;
+}
+
+.admin_add_slider__images__img__actions__edit, .admin_add_slider__images__img__actions__remove {
+  font-family: "Porto Sans";
+  background-color: transparent;
+  border: none;
+  font-size: 0.9375rem;
+  padding: 0;
+}
+
+.admin_add_slider__images__img__actions__edit {
+  color: #ffad10;
+}
+
+.admin_add_slider__images__img__actions__remove {
+  color: #fe6161;
+}
+
+.admin_add_slider .glide .controls_btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+  -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -1px -1px 10px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -1px -1px 10px 0px rgba(0, 0, 0, 0.05);
+  margin: 0 1rem 30px;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.admin_add_slider .glide .controls_btn:focus {
+  outline: none;
+}
+
+.admin_add_slider .glide .controls_btn:hover {
+  -webkit-box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.08), -2px -2px 10px 0px rgba(0, 0, 0, 0.08);
+          box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.08), -2px -2px 10px 0px rgba(0, 0, 0, 0.08);
+}
+
+.admin_add_slider .glide .controls_btn:hover .left__arrow,
+.admin_add_slider .glide .controls_btn:hover .right__arrow {
+  fill: #c94d24;
+}
+
+.admin_add_slider .glide .controls_btn .left__arrow,
+.admin_add_slider .glide .controls_btn .right__arrow {
+  width: 20px;
+  margin-top: 5px;
 }
 
 .admin_courses__panel {
