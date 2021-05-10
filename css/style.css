@@ -8080,7 +8080,8 @@ button:focus {
 
 .admin_areas__panel__grid__card,
 .admin_courses__panel__grid__card,
-.admin_projects__panel__grid__card {
+.admin_projects__panel__grid__card,
+.admin_unities__panel__grid__card {
   width: 100%;
   padding: 2.25rem 50px;
   background-color: rgba(8, 8, 8, 0.02);
@@ -8092,21 +8093,25 @@ button:focus {
 .admin_courses__panel__grid__card h5,
 .admin_courses__panel__grid__card h2,
 .admin_projects__panel__grid__card h5,
-.admin_projects__panel__grid__card h2 {
+.admin_projects__panel__grid__card h2,
+.admin_unities__panel__grid__card h5,
+.admin_unities__panel__grid__card h2 {
   font-weight: 400;
   margin: 0;
 }
 
 .admin_areas__panel__grid__card h5,
 .admin_courses__panel__grid__card h5,
-.admin_projects__panel__grid__card h5 {
+.admin_projects__panel__grid__card h5,
+.admin_unities__panel__grid__card h5 {
   font-size: 1rem;
   margin-right: 50px;
 }
 
 .admin_areas__panel__grid__card h2,
 .admin_courses__panel__grid__card h2,
-.admin_projects__panel__grid__card h2 {
+.admin_projects__panel__grid__card h2,
+.admin_unities__panel__grid__card h2 {
   color: #c94d24;
   font-size: 1.25rem;
 }
@@ -8115,7 +8120,9 @@ button:focus {
 .admin_courses__panel__grid__card__edit,
 .admin_courses__panel__grid__card__remove,
 .admin_projects__panel__grid__card__edit,
-.admin_projects__panel__grid__card__remove {
+.admin_projects__panel__grid__card__remove,
+.admin_unities__panel__grid__card__edit,
+.admin_unities__panel__grid__card__remove {
   width: 120px;
   border-radius: 12px;
   border: none;
@@ -8126,7 +8133,8 @@ button:focus {
 
 .admin_areas__panel__grid__card__edit,
 .admin_courses__panel__grid__card__edit,
-.admin_projects__panel__grid__card__edit {
+.admin_projects__panel__grid__card__edit,
+.admin_unities__panel__grid__card__edit {
   margin-right: 30px;
   background-color: #fff5df;
   color: #ff8000;
@@ -8134,7 +8142,8 @@ button:focus {
 
 .admin_areas__panel__grid__card__remove,
 .admin_courses__panel__grid__card__remove,
-.admin_projects__panel__grid__card__remove {
+.admin_projects__panel__grid__card__remove,
+.admin_unities__panel__grid__card__remove {
   background-color: #ffe6e6;
   color: #ff1010;
 }
@@ -8812,6 +8821,115 @@ button:focus {
 }
 
 .admin_projects__panel ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_unities__panel {
+  width: 100%;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.admin_unities__panel__overlay, .admin_unities__panel__overlay_slide, .admin_unities__panel__overlay_add {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 998;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(8, 8, 8, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.admin_unities__panel__overlay.show_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_unities__panel__overlay_slide.show_overlay_slide {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_unities__panel__overlay_add.open_add_project_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_unities__panel__tools {
+  padding: 3rem;
+}
+
+.admin_unities__panel__tools input {
+  padding: 12px 26px;
+  margin-right: 3.125rem;
+  border-radius: 10px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_unities__panel__tools input:focus {
+  outline: none;
+  border: 1px solid #c94d24;
+}
+
+.admin_unities__panel__tools p {
+  color: #c94d24;
+  margin-right: 2.5rem;
+  font-size: 1.125rem;
+}
+
+.admin_unities__panel__tools p svg {
+  margin-right: 0.6rem;
+}
+
+.admin_unities__panel__tools button {
+  background-color: rgba(8, 8, 8, 0.02);
+  border: none;
+  border-radius: 1.625rem;
+  padding: 0.84375rem 1.625rem;
+  margin-right: 3.125rem;
+  font-size: 1rem;
+  font-family: "Porto Sans";
+  letter-spacing: 0.2px;
+}
+
+.admin_unities__panel__tools select {
+  padding: 6px 16px;
+  border-radius: 10px;
+  border: 2px solid #c94d24;
+}
+
+.admin_unities__panel__tools select:focus {
+  outline: none;
+}
+
+.admin_unities__panel__grid {
+  padding: 0 3rem 0 3rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  row-gap: 2.25rem;
+}
+
+.admin_unities__panel ::-webkit-scrollbar {
+  width: 10px;
+  margin-right: 10px;
+}
+
+.admin_unities__panel ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin_unities__panel ::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_unities__panel ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(8, 8, 8, 0.1);
 }
 /*# sourceMappingURL=style.css.map */

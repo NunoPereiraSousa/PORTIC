@@ -7,6 +7,7 @@ import DashboardAreas from "../views/Dashboard/DashboardAreas.vue";
 import DashboardCourses from "../views/Dashboard/DashboardCourses.vue";
 import DashboardHome from "../views/Dashboard/DashboardHome.vue";
 import DashboardProjects from "../views/Dashboard/DashboardProjects.vue";
+import DashboardUnities from "../views/Dashboard/DashboardUnities.vue";
 import Home from "../views/Home.vue";
 import Media from "../views/Media.vue";
 import Positions from "../views/Positions.vue";
@@ -89,6 +90,11 @@ const routes = [
     path: "/dashboard-projects",
     name: "DashboardProjects",
     component: DashboardProjects
+  },
+  {
+    path: "/dashboard-unities",
+    name: "DashboardUnities",
+    component: DashboardUnities
   }
 ];
 

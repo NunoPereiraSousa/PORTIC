@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   name: "DashboardAreasCard",
   props: {
@@ -43,9 +41,6 @@ export default {
       type: Number,
       required: false
     }
-  },
-  computed: {
-    ...mapGetters(["getSelectedAreaByID", "getAreaByID"])
   },
   methods: {
     openSlider(areaId) {

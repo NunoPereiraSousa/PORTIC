@@ -18,7 +18,8 @@
             this.$route.name !== 'DashboardHome' &&
             this.$route.name !== 'DashboardAreas' &&
             this.$route.name !== 'DashboardCourses' &&
-            this.$route.name !== 'DashboardProjects'
+            this.$route.name !== 'DashboardProjects' &&
+            this.$route.name !== 'DashboardUnities'
         "
       >
         <SubHeader />

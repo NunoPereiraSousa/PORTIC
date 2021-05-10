@@ -1,0 +1,121 @@
+.admin_unities__panel {
+  width: 100%;
+
+  &__overlay,
+  &__overlay_slide,
+  &__overlay_add {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 998;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba($color: $black, $alpha: 0.5);
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.4s;
+  }
+
+  &__overlay {
+    &.show_overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__overlay_slide {
+    &.show_overlay_slide {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__overlay_add {
+    &.open_add_project_overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__tools {
+    padding: 3rem;
+
+    input {
+      padding: 12px 26px;
+      margin-right: 3.125rem;
+      border-radius: 10px;
+      font-family: $portoSans;
+      font-size: $_15px;
+      border: 1px solid rgba($color: $black, $alpha: 0.3);
+
+      &:focus {
+        outline: none;
+        border: 1px solid rgba($color: $orange, $alpha: 1);
+      }
+    }
+
+    p {
+      color: $orange;
+      margin-right: 2.5rem;
+
+      font-size: $_18px;
+
+      svg {
+        margin-right: 0.6rem;
+      }
+    }
+
+    button {
+      background-color: rgba($color: $black, $alpha: 0.02);
+      border: none;
+      border-radius: 1.625rem;
+
+      padding: 0.84375rem 1.625rem;
+      margin-right: 3.125rem;
+
+      font-size: $_16px;
+      font-family: $portoSans;
+      letter-spacing: 0.2px;
+    }
+
+    select {
+      padding: 6px 16px;
+
+      border-radius: 10px;
+      border: 2px solid $orange;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__grid {
+    padding: 0 3rem 0 3rem;
+
+    max-height: 60vh;
+    overflow-y: auto;
+
+    row-gap: 2.25rem;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    margin-right: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $black, $alpha: 0.1);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba($color: $black, $alpha: 0.1);
+  }
+}
