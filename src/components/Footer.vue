@@ -89,6 +89,9 @@
           <router-link :to="{ name: 'Positions' }">
             {{ $t("navbar.items[6]") }}
           </router-link>
+          <router-link :to="{ name: 'SiteMap' }">
+            {{ $t("navbar.items[7]") }}
+          </router-link>
         </div>
       </div>
       <div class="footer__grid__socials">

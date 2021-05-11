@@ -1,0 +1,56 @@
+.site_map {
+  margin-top: calc(4.1875rem + 2vw);
+  padding: calc(6.1875rem + 2vw) 2rem 0;
+
+  @include breakpoint-up(tablet) {
+    padding: calc(6.1875rem + 2vw) 8vw 0;
+  }
+
+  @include breakpoint-up(desktop) {
+    padding: calc(6.1875rem + 2vw) 11vw 0;
+  }
+
+  @include breakpoint-up(large) {
+    padding: calc(6.1875rem + 2vw) 10vw 0;
+  }
+
+  &_list {
+    padding-left: 0;
+
+    @include breakpoint-up(desktop) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    li {
+      list-style-type: none;
+      line-height: 1.5;
+      font-family: $portoSans;
+
+      cursor: pointer;
+
+      @include breakpoint-up(desktop) {
+        font-size: $_18px;
+        line-height: 1.7;
+      }
+
+      @include breakpoint-up(desktop) {
+        font-size: $_20px;
+        line-height: 1.7;
+      }
+
+      @for $i from 1 through 20 {
+        li:nth-child(#{$i}):hover {
+          color: $orange;
+        }
+      }
+
+      a {
+        color: $black;
+
+        &:hover {
+          color: $orange;
+        }
+      }
+    }
+  }
+}

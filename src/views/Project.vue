@@ -104,7 +104,7 @@
           />
         </div>
       </section>
-      <section class="project__team">
+      <!-- <section class="project__team">
         <SubHeaderTitle text="Equipa de projeto" />
 
         <div class="project__team__grid grid">
@@ -116,7 +116,7 @@
             position="Art Director"
           />
         </div>
-      </section>
+      </section> -->
       <section class="project__contacts">
         <SubHeaderTitle text="Contactos" />
 
@@ -142,7 +142,7 @@ import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
 import Slide from "@/components/Project/Slide.vue";
 import NewsCard from "@/components/NewsCard.vue";
 import SlidePanel from "@/components/SlidePanel.vue";
-import TeamCard from "@/components/Project/TeamCard.vue";
+// import TeamCard from "@/components/Project/TeamCard.vue";
 import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
 import { mapGetters } from "vuex";
@@ -153,7 +153,7 @@ export default {
     SubHeaderTitle,
     Slide,
     NewsCard,
-    TeamCard,
+    // TeamCard,
     SlidePanel,
     Footer,
     [Glide.name]: Glide,

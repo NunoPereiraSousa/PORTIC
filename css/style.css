@@ -3469,7 +3469,6 @@ button:focus {
 @media (min-width: 75em) {
   .news__cards__card p {
     font-size: 1.25rem;
-    margin: auto 0 0 0;
     line-height: 1.7;
   }
 }
@@ -7385,6 +7384,149 @@ button:focus {
   .project__contacts a {
     font-size: 1.5rem;
   }
+}
+
+.site_map {
+  margin-top: calc(4.1875rem + 2vw);
+  padding: calc(6.1875rem + 2vw) 2rem 0;
+}
+
+@media (min-width: 48em) {
+  .site_map {
+    padding: calc(6.1875rem + 2vw) 8vw 0;
+  }
+}
+
+@media (min-width: 75em) {
+  .site_map {
+    padding: calc(6.1875rem + 2vw) 11vw 0;
+  }
+}
+
+@media (min-width: 120em) {
+  .site_map {
+    padding: calc(6.1875rem + 2vw) 10vw 0;
+  }
+}
+
+.site_map_list {
+  padding-left: 0;
+}
+
+@media (min-width: 75em) {
+  .site_map_list {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+
+.site_map_list li {
+  list-style-type: none;
+  line-height: 1.5;
+  font-family: "Porto Sans";
+  cursor: pointer;
+}
+
+@media (min-width: 75em) {
+  .site_map_list li {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 75em) {
+  .site_map_list li {
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+}
+
+.site_map_list li li:nth-child(1):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(2):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(3):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(4):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(5):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(6):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(7):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(8):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(9):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(10):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(11):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(12):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(13):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(14):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(15):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(16):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(17):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(18):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(19):hover {
+  color: #c94d24;
+}
+
+.site_map_list li li:nth-child(20):hover {
+  color: #c94d24;
+}
+
+.site_map_list li a {
+  color: #080808;
+}
+
+.site_map_list li a:hover {
+  color: #c94d24;
 }
 
 .project__team__grid__card img {

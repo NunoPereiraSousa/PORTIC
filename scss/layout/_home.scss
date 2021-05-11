@@ -119,7 +119,7 @@
 
         @include breakpoint-up(desktop) {
           font-size: $_20px;
-          margin: auto 0 0 0;
+          // margin: auto 0 0 0;
           line-height: 1.7;
         }
 

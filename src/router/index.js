@@ -14,6 +14,7 @@ import Positions from "../views/Positions.vue";
 import Project from "../views/Project.vue";
 import Projects from "../views/Projects.vue";
 import ProjectsCatalog from "../views/ProjectsCatalog.vue";
+import SiteMap from "../views/SiteMap.vue";
 import Unities from "../views/Unities.vue";
 
 Vue.use(VueRouter);
@@ -65,6 +66,11 @@ const routes = [
     name: "Project",
     component: Project,
     props: true
+  },
+  {
+    path: "/site-map",
+    name: "SiteMap",
+    component: SiteMap
   },
   {
     path: "/unities",
