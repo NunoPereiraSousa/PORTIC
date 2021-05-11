@@ -96,6 +96,14 @@
     "infoDesc": "Down on the page we provide access to all the videos where you can follow our footprint and the PORTIC large infrastructure, as well as, important events.",
     "title": "Watch our videos"
   },
+  "projects": {
+    "title": "Projects",
+    "desc": "This are the projects we are part of.",
+    "input": {
+      "placeholder": "Search project",
+      "filter": "Filter by alphabetical order"
+    }
+  },
   "unities": {
     "unitiesKey": "Unities",
     "nUnities": "Number of unities",

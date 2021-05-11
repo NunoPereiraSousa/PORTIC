@@ -3,20 +3,20 @@
     <section class="projects_catalog">
       <div class="flex flex-jc-c flex-ai-c flex-fd-c">
         <h3 class="flex flex-ai-c">
-          Projetos
+          {{ $t("projects.title") }}
           <div id="triangle"></div>
           PORTIC
         </h3>
-        <h1 class="projects_catalog__title">Projetos</h1>
+        <h1 class="projects_catalog__title">{{ $t("projects.title") }}</h1>
         <p class="projects_catalog__quote">
-          Estes são os projetos que fazemos parte.
+          {{ $t("projects.desc") }}
         </p>
       </div>
       <div class="projects_catalog__filters grid">
         <input
           type="text"
           id="projectTxt"
-          placeholder="Pesquisar projeto"
+          :placeholder="$t('projects.input.placeholder')"
           v-model="projectTxt"
         />
         <div
@@ -27,7 +27,7 @@
             class="projects_catalog__filters__sorting"
             @click="order = !order"
           >
-            Filtrar por €
+            {{ $t("projects.input.filter") }}
           </button>
           <!-- <button
             class="projects_catalog__filters__sorting"
@@ -41,7 +41,7 @@
             class="projects_catalog__filters__sorting"
             @click="order = !order"
           >
-            Filtrar por €
+            {{ $t("projects.input.filter") }}
           </button>
         </div>
         <!-- <div class="hide-for-mobile">

@@ -6879,6 +6879,12 @@ button:focus {
   }
 }
 
+@media (min-width: 75em) {
+  .project__entry {
+    height: 100vh;
+  }
+}
+
 .project__entry__grid {
   row-gap: 4rem;
 }
@@ -7108,6 +7114,13 @@ button:focus {
   }
 }
 
+@media (min-width: 75em) {
+  .project__entry__carousel {
+    position: absolute;
+    bottom: 0%;
+  }
+}
+
 .project__entry__carousel .slide-track {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7139,10 +7152,6 @@ button:focus {
     font-size: 1.375rem;
     letter-spacing: 0.4px;
   }
-}
-
-.project__objective {
-  padding-top: 0;
 }
 
 .project__objective p {

@@ -96,6 +96,14 @@
     "infoDesc": "Mais abaixo disponibilizamos vídeos onde pode acompanhar passo a passo a nossa super estrutura e eventos importantes que vão acontecendo.",
     "title": "Assista aos nossos mídias"
   },
+  "projects": {
+    "title": "Projetos",
+    "desc": "Estes são os projetos que fazemos parte.",
+    "input": {
+      "placeholder": "Pesquisar projeto",
+      "filter": "Filtrar por ordem alfabética"
+    }
+  },
   "unities": {
     "unitiesKey": "Unidades",
     "nUnities": "Número de unidades",

@@ -29,6 +29,10 @@
       padding: calc(11.5875rem + 2vw) 0 calc(6.1875rem + 2vw);
     }
 
+    @include breakpoint-up(desktop) {
+      height: 100vh;
+    }
+
     &__grid {
       row-gap: 4rem;
 
@@ -219,6 +223,11 @@
         padding: 1rem 0;
       }
 
+      @include breakpoint-up(desktop) {
+        position: absolute;
+        bottom: 0%;
+      }
+
       .slide-track {
         // animation: carousel 20s linear infinite;
         display: flex;
@@ -266,7 +275,7 @@
   }
 
   &__objective {
-    padding-top: 0;
+    // padding-top: 0;
 
     p {
       line-height: 1.6;
