@@ -44,38 +44,37 @@
             {{ $t("projects.input.filter") }}
           </button>
         </div>
-        <!-- <div class="hide-for-mobile">
-          <button
-            class="projects_catalog__filters__sorting"
-            @click="order2 = !order2"
-          >
-            Name sorting
-          </button>
-        </div> -->
-        <!-- <div class="hide-for-mobile" style="justify-self: start;">
-          <button
-            class="projects_catalog__filters__institutions"
-            @click="showFilters"
-          >
-            Institutions
-          </button>
-        </div> -->
-      </div>
-      <!-- <div class="projects_catalog__filters__categories">
-        <div class="grid">
-          <p>Lorem</p>
-          <p>Lorem</p>
-          <p>Lorem</p>
-          <p>Lorem</p>
-          <p>Lorem</p>
-          <p>Lorem</p>
-          <p>Lorem</p>
-          <p>Lorem</p>
+        <div class="hide-for-mobile">
+          <select v-model="status">
+            <option value="">Project status</option>
+            <option value="Stop">Not Started</option>
+            <option value="underDev">Under development</option>
+            <option value="Finished">Finished</option>
+          </select>
         </div>
-      </div> -->
+        <div class="hide-for-mobile">
+          <input
+            type="date"
+            v-model="startingDate"
+            class="input_date"
+            placeholder="Data de início"
+          />
+        </div>
+        <div class="hide-for-mobile">
+          <input
+            type="date"
+            class="input_date"
+            v-model="endingDate"
+            placeholder="Data de término"
+          />
+        </div>
+      </div>
       <div class="projects__grid grid" style="width: 100%">
+        <div v-if="filterProjects.length < 1">
+          Não foi encontrado nenhum projetos!
+        </div>
         <ProjectCard
-          v-for="project in orderBudget"
+          v-for="project in filterProjects"
           :key="project.id"
           :counter="project.id"
           :initials="project.initials"
@@ -109,7 +108,10 @@ export default {
       projects: null,
       order: false,
       order2: false,
-      projectTxt: ""
+      projectTxt: "",
+      status: "",
+      startingDate: "",
+      endingDate: ""
     };
   },
   created() {
@@ -117,27 +119,33 @@ export default {
   },
   computed: {
     ...mapGetters(["getProjects"]),
-    orderBudget() {
-      const arr = this.getProjects;
+    filterProjects() {
+      // const arr = this.getProjects;
 
-      if (!this.order && this.projectTxt != null) {
-        return (
-          arr,
-          this.projects.filter(project => {
-            let filterSearch = true;
+      this.compareDates(this.startingDate, this.endingDate);
 
-            if (this.projectTxt != "") {
-              filterSearch = project.initials
-                .toLowerCase()
-                .includes(this.projectTxt.toLowerCase());
-            }
+      return this.filterAlphabetically(
+        this.filterProjectsByName(this.filterProjectsByCategory(this.projects))
+      );
 
-            return filterSearch;
-          })
-        );
-      } else {
-        return [...arr].sort(this.compareName);
-      }
+      // if (!this.order && this.projectTxt != null) {
+      //   return (
+      //     arr,
+      //     this.projects.filter(project => {
+      //       let filterSearch = true;
+
+      //       if (this.projectTxt != "") {
+      //         filterSearch = project.initials
+      //           .toLowerCase()
+      //           .includes(this.projectTxt.toLowerCase());
+      //       }
+
+      //       return filterSearch;
+      //     })
+      //   );
+      // } else {
+      //   return [...arr].sort(this.compareName);
+      // }
 
       // if (!this.order2 && this.projectTxt != null) {
       //   return (
@@ -179,6 +187,61 @@ export default {
     }
   },
   methods: {
+    filterProjectsByCategory(projects) {
+      return projects.filter(project => !project.status.indexOf(this.status));
+    },
+
+    filterProjectsByName(projects) {
+      return projects.filter(
+        project =>
+          !project.initials.toLowerCase().indexOf(this.projectTxt.toLowerCase())
+      );
+    },
+    filterAlphabetically(projects) {
+      if (!this.order) {
+        return projects;
+      } else {
+        return [...projects].sort(this.compareName);
+      }
+    },
+    // filterProjectsByDateRange(projects){
+    //   return projects.filter(
+    //     project => {
+    //       if (this.endingDate == "") {
+    //         return this.getCurrentDate();
+    //       }
+    //       if (project.startingDate < this.getCurrentDate()) {
+
+    //       }
+    //     }
+    //   )
+    // },
+    compareDates(startingDate, endingDate) {
+      const date1 = new Date(startingDate);
+      const date2 = new Date(endingDate);
+
+      if (date1 > date2) {
+        console.log(`${startingDate} is greater than ${endingDate}`);
+      } else if (date1 < date2) {
+        console.log(`${endingDate} is greater than ${startingDate}`);
+      } else {
+        console.log(`Both dates are equal`);
+      }
+    },
+    getCurrentDate() {
+      let now = new Date();
+      let year = now.getFullYear();
+      let month = now.getMonth() < 10 ? `0${now.getMonth()}` : now.getMonth();
+      let day = now.getDay() < 10 ? `0${now.getDay()}` : now.getDay();
+
+      return `${year}-${month}-${day}`;
+    },
+
+    // filterProductsByRange: function(projects) {
+    //   return projects.filter(project =>
+    //     project.price > 0 && project.price < this.range ? project : ""
+    //   );
+    // },
     showFilters() {
       document
         .querySelector(".projects_catalog__filters__categories")

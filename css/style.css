@@ -3850,7 +3850,7 @@ button:focus {
 
 @media (min-width: 120em) {
   .projects__grid {
-    padding: 0 5rem;
+    padding: 0 3rem;
     -ms-grid-columns: (1fr)[5];
         grid-template-columns: repeat(5, 1fr);
   }
@@ -3937,9 +3937,14 @@ button:focus {
 
 @media (min-width: 64em) {
   .projects_catalog__filters {
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-    margin: 6rem 0 3rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 6rem 3rem 3rem;
+    width: calc(100% - 6rem);
   }
 }
 
@@ -3965,7 +3970,7 @@ button:focus {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 }
 
@@ -4014,13 +4019,15 @@ button:focus {
   width: -moz-fit-content;
   width: fit-content;
   background-color: transparent;
-  border: none;
+  white-space: nowrap;
+  border: 1.5px solid #080808;
+  padding: 0.75rem 1.5rem;
   margin: 0;
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
   font-weight: 400;
   cursor: pointer;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .projects_catalog__filters button:focus {
@@ -4028,32 +4035,25 @@ button:focus {
 }
 
 .projects_catalog__filters button:hover {
-  letter-spacing: 0.5px;
-}
-
-.projects_catalog__filters button:not(.projects_catalog__filters__sorting):hover::after {
-  border-top: 4px solid #c94d24;
-}
-
-.projects_catalog__filters button:not(.projects_catalog__filters__sorting):hover::before {
-  border-bottom: 4px solid #c94d24;
-}
-
-.projects_catalog__filters button:hover::after, .projects_catalog__filters button:hover::before {
   color: #c94d24;
 }
 
-.projects_catalog__filters__sorting {
-  margin-bottom: 4rem !important;
+.projects_catalog__filters select {
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  border: 1px solid #080808;
 }
 
-.projects_catalog__filters__sorting::after {
-  content: "+ +";
-  position: absolute;
-  bottom: -100%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+.projects_catalog__filters select:focus {
+  outline: none;
+}
+
+.projects_catalog__filters .input_date {
+  padding: 0.5rem 1.5rem;
+}
+
+.projects_catalog__filters__sorting {
+  margin-bottom: 4rem;
 }
 
 .projects_catalog__filters__institutions {
