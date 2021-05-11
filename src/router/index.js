@@ -10,6 +10,7 @@ import DashboardProjects from "../views/Dashboard/DashboardProjects.vue";
 import DashboardUnities from "../views/Dashboard/DashboardUnities.vue";
 import Home from "../views/Home.vue";
 import Media from "../views/Media.vue";
+import NewsPage from "../views/NewsPage.vue";
 import Positions from "../views/Positions.vue";
 import Project from "../views/Project.vue";
 import Projects from "../views/Projects.vue";
@@ -66,6 +67,12 @@ const routes = [
     name: "Project",
     component: Project,
     props: true
+  },
+  {
+    path: "/news",
+    name: "NewsPage",
+    component: NewsPage
+    // props: true
   },
   {
     path: "/site-map",
