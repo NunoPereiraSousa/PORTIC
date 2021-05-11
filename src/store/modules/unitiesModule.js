@@ -1,12 +1,14 @@
 import {
   teamWorkPrinciplesEN,
   teamWorkPrinciplesPT,
-  unities
+  unitiesEN,
+  unitiesPT
 } from "../../config/unities";
 
 export const unityModule = {
   state: {
-    unities: unities,
+    unitiesPT: unitiesPT,
+    unitiesEN: unitiesEN,
     teamWorkPrinciplesPT: teamWorkPrinciplesPT,
     teamWorkPrinciplesEN: teamWorkPrinciplesEN,
     selectedUnityId: null
@@ -18,9 +20,10 @@ export const unityModule = {
   },
   actions: {},
   getters: {
-    getUnities: state => state.unities,
-    getNUnities: state => state.unities.length,
-    getUnityById: state => id => state.unities.find(unity => unity.id === id),
+    getUnitiesPT: state => state.unitiesPT,
+    getUnitiesEN: state => state.unitiesEN,
+    getNUnities: state => state.unitiesPT.length,
+    getUnityById: state => id => state.unitiesPT.find(unity => unity.id === id),
     getSelectedUnityId: state => state.selectedUnityId,
     getTeamWorkPrinciplesPT: state => state.teamWorkPrinciplesPT,
     getTeamWorkPrinciplesEN: state => state.teamWorkPrinciplesEN

@@ -119,7 +119,8 @@
     "title": "Explore our unities",
     "principles": {
       "title": "Five principles that we have in mind"
-    }
+    },
+    "unity": "Unity {n}"
   },
   "careers": {
     "careersKey": "Careers",

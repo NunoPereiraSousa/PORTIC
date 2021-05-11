@@ -119,7 +119,8 @@
     "title": "Explore as nossas unidades",
     "principles": {
       "title": "Cinco princípios que temos em consideração"
-    }
+    },
+    "unity": "Unidade {n}"
   },
   "careers": {
     "careersKey": "Recrutamento",

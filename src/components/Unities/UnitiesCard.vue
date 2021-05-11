@@ -4,7 +4,7 @@
     <div class="unities__grid__card__info grid">
       <div class="flex flex-ai-c flex-jc-sb">
         <h4 class="unities__grid__card__info__subtitle">
-          Unity 0{{ counter }}
+          {{ $t("unities.unity", { n: counter }) }}.
         </h4>
         <h2 class="unities__grid__card__info__title">{{ unityName }}</h2>
       </div>

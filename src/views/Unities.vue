@@ -75,7 +75,7 @@ PORTIC includes units and groups with activities in different stages of the know
 
       <div class="unities__grid grid">
         <UnitiesCard
-          v-for="unity in unities"
+          v-for="unity in setUnities"
           :key="unity.id"
           :counter="unity.id"
           :imageUrl="unity.imageUrl"
@@ -126,7 +126,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      "getUnities",
+      "getUnitiesPT",
+      "getUnitiesEN",
       "getTeamWorkPrinciplesPT",
       "getTeamWorkPrinciplesEN",
       "getUnityById",
@@ -137,6 +138,12 @@ export default {
       let twEN = this.getTeamWorkPrinciplesEN;
 
       return this.$i18n.locale == "pt" ? twPT : twEN;
+    },
+    setUnities() {
+      let unitiesPT = this.getUnitiesPT;
+      let unitiesEN = this.getUnitiesEN;
+
+      return this.$i18n.locale == "pt" ? unitiesPT : unitiesEN;
     }
   },
   methods: {
