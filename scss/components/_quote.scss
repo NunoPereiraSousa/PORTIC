@@ -54,6 +54,33 @@
     }
   }
 
+  &__img {
+    height: 12.375rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../assets/portic.jpg");
+
+    @include breakpoint-down(phone) {
+      height: 10.375rem;
+      width: 100%;
+    }
+
+    @include breakpoint-up(tablet) {
+      height: 12.375rem;
+    }
+
+    @include breakpoint-up(desktop) {
+      height: 19.625rem;
+      width: 32.75rem;
+    }
+
+    @include breakpoint-up(large) {
+      height: 23.625rem;
+      width: 94%;
+    }
+  }
+
   &__paragraph {
     margin: 0;
     font-size: $_18px;

@@ -1444,7 +1444,7 @@ button:focus {
 }
 
 .navbar__content__socials a {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: #ffffff;
   margin-right: 2rem;
 }
@@ -2391,9 +2391,9 @@ button:focus {
   text-align: left;
   background-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  border-radius: 20px;
+  border-radius: 30px;
   width: 100%;
-  padding: 1rem 1.2rem;
+  padding: 1rem 1.5rem;
   font-size: 0.9375rem;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
@@ -3161,6 +3161,41 @@ button:focus {
 @media (min-width: 120em) {
   .quote__title {
     font-size: 3.125rem;
+  }
+}
+
+.quote__img {
+  height: 12.375rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../assets/portic.jpg");
+}
+
+@media (max-width: 23.375em) {
+  .quote__img {
+    height: 10.375rem;
+    width: 100%;
+  }
+}
+
+@media (min-width: 48em) {
+  .quote__img {
+    height: 12.375rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .quote__img {
+    height: 19.625rem;
+    width: 32.75rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .quote__img {
+    height: 23.625rem;
+    width: 94%;
   }
 }
 
