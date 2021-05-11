@@ -241,7 +241,7 @@
       </div>
     </section>
     <section class="contacts__what_we_focus">
-      <SubHeaderTitle text="Focamo-nos em" class="light" />
+      <SubHeaderTitle :text="$t('aboutUs.focusTitle')" class="light" />
 
       <div class="contacts__what_we_focus__grid grid">
         <WhatWeFocusCard
@@ -392,7 +392,11 @@
             cols="30"
             rows="3"
           ></textarea>
-          <input type="submit" value="Enviar" class="submit_btn" />
+          <input
+            type="submit"
+            :value="$t('aboutUs.form.submit')"
+            class="submit_btn"
+          />
         </form>
       </div>
     </section>

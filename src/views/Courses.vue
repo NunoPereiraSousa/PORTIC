@@ -7,10 +7,8 @@
       :text1="$t('courses.nCoursesDesc', { n: $store.getters.getNCourses })"
       :title2="$t('courses.coursesTitle2')"
       :text2="$t('courses.coursesTitle2Desc')"
-      :title3="$t('courses.coursesTitle3')"
-      :text3="$t('courses.coursesTitle3Desc')"
-      :title4="$t('courses.coursesTitle4')"
-      :text4="$t('courses.coursesTitle4Desc')"
+      content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.
+PORTIC includes units and groups with activities in different stages of the knowledge and innovation chain, in several areas of knowledge."
       :categoryDescription="$t('courses.infoDesc')"
     />
     <section class="courses_information">

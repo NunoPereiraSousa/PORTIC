@@ -17,14 +17,11 @@
           <h3>{{ title2 }}</h3>
           <p>{{ text2 }}</p>
         </div>
-        <div class="sub_page_intro__stats__card">
-          <h3>{{ title3 }}</h3>
-          <p>{{ text3 }}</p>
-        </div>
-        <div class="sub_page_intro__stats__card">
-          <h3>{{ title4 }}</h3>
-          <p>{{ text4 }}</p>
-        </div>
+      </div>
+      <div class="sub_page_intro__text">
+        <p>
+          {{ content }}
+        </p>
       </div>
       <hr />
       <div class="sub_page_intro__extra_info flex flex-ai-c flex-jc-sb">
@@ -97,15 +94,14 @@
           <h3>{{ title2 }}</h3>
           <p>{{ text2 }}</p>
         </div>
-        <div class="sub_page_intro__stats__card">
-          <h3>{{ title3 }}</h3>
-          <p>{{ text3 }}</p>
-        </div>
-        <div class="sub_page_intro__stats__card">
-          <h3>{{ title4 }}</h3>
-          <p>{{ text4 }}</p>
+
+        <div class="sub_page_intro__text">
+          <p>
+            {{ content }}
+          </p>
         </div>
       </div>
+
       <div class="sub_page_intro__info">
         <hr />
         <div class="sub_page_intro__extra_info grid">
@@ -190,19 +186,7 @@ export default {
       type: String,
       required: true
     },
-    title3: {
-      type: String,
-      required: true
-    },
-    text3: {
-      type: String,
-      required: true
-    },
-    title4: {
-      type: String,
-      required: true
-    },
-    text4: {
+    content: {
       type: String,
       required: true
     },

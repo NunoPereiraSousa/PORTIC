@@ -8,10 +8,8 @@
       :text1="$t('careers.nCareersDesc')"
       :title2="$t('careers.careersTitle2')"
       :text2="$t('careers.careersTitle2Desc')"
-      :title3="$t('careers.careersTitle3')"
-      :text3="$t('careers.careersTitle3Desc')"
-      :title4="$t('careers.careersTitle4')"
-      :text4="$t('careers.careersTitle4Desc')"
+      content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.
+PORTIC includes units and groups with activities in different stages of the knowledge and innovation chain, in several areas of knowledge."
       :categoryDescription="$t('careers.infoDesc')"
     />
 

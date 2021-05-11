@@ -1,10 +1,8 @@
 .sub_page_intro {
   position: relative;
   width: 100%;
-  //   height: 100vh;
-  padding: calc(10.1875rem + 2vw) 2rem 2rem;
 
-  //   row-gap: 1.25rem;
+  padding: calc(10.1875rem + 2vw) 2rem 2rem;
 
   @include breakpoint-down(phone) {
     padding: calc(11.1875rem + 2vw) 2rem 2rem !important;
@@ -85,7 +83,7 @@
   }
 
   &__stats {
-    margin: 2rem 2rem 6rem 0;
+    margin: 2rem 2rem 2rem 0;
     overflow: hidden;
 
     @include breakpoint-up(desktop) {
@@ -182,6 +180,17 @@
           letter-spacing: 0;
         }
       }
+    }
+  }
+
+  &__text {
+    margin: 2rem 2rem 6rem 0;
+
+    @include breakpoint-up(desktop) {
+      grid-area: 2 / 1 / 3 / 3;
+
+      font-size: $_18px;
+      line-height: 1.6;
     }
   }
 

@@ -26,7 +26,7 @@
 
   @include breakpoint-up(desktop) {
     grid-template-columns: repeat(3, 1fr);
-    padding: 0.9rem 5rem;
+    padding: 0.4rem 5rem;
   }
 
   &__contacts {

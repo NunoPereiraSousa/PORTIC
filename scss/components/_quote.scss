@@ -14,7 +14,7 @@
   }
 
   @include breakpoint-up(desktop) {
-    padding: calc(8.1875rem + 2vw) 8vw calc(8.1875rem + 1vw);
+    padding: calc(6.1875rem + 2vw) 8vw calc(6.1875rem + 1vw);
   }
 
   &__title {

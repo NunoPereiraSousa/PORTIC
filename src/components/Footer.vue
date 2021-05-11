@@ -17,7 +17,7 @@
               {{ londonTime }}
               <sup>PM</sup>
             </h2>
-            <p>LON</p>
+            <p>PORTO</p>
           </div>
           <div class="footer__grid__timezones__times">
             <h2>
