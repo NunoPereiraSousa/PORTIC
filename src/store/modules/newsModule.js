@@ -3,11 +3,15 @@ import { news } from "../../config/news";
 export const newsModule = {
   state: {
     news: news,
-    selectedNewsId: null
+    selectedNewsId: null,
+    selectedNewsTitle: null
   },
   mutations: {
     SET_SELECTED_NEWS_ID(state, payload) {
       state.selectedNewsId = payload.id;
+    },
+    SET_SELECTED_NEWS(state, payload) {
+      state.selectedNewsTitle = payload.title;
     }
   },
   actions: {},

@@ -69,10 +69,10 @@ const routes = [
     props: true
   },
   {
-    path: "/news",
+    path: "/news/:name",
     name: "NewsPage",
-    component: NewsPage
-    // props: true
+    component: NewsPage,
+    props: true
   },
   {
     path: "/site-map",

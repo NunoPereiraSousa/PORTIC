@@ -59,7 +59,6 @@ export default {
   },
   methods: {
     setSelectedProject(name) {
-      console.log(name);
       this.$store.commit("SET_SELECTED_PROJECT", {
         initials: name
       });

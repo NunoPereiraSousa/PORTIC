@@ -7,7 +7,8 @@
       <p>{{ desc }}</p>
       <div class="flex flex-ai-c flex-jc-sb">
         <p class="date">{{ date }}</p>
-        <button @click="toggleNews(id)">Saber mais</button>
+        <!-- <button @click="toggleNews(id)">Saber mais</button> -->
+        <button @click="setSelectedNews(title, id)">Saber mais</button>
       </div>
     </div>
   </div>
@@ -31,23 +32,31 @@ export default {
     }
   },
   methods: {
-    toggleNews(id) {
+    setSelectedNews(title, id) {
       this.$store.commit("SET_SELECTED_NEWS_ID", { id: id });
 
-      let slide__panel = document.querySelector(".slide__panel");
-      slide__panel.classList.toggle("opened");
-      let headerHeight = document.querySelector(".headers").offsetHeight;
-      document.querySelector(".headers").style.top = `-${headerHeight}px`;
-      document.querySelector(".headers").style.zIndex = 0;
-      let slide__panel__overlay = document.querySelector(
-        `.slide__panel__overlay`
-      );
-
-      slide__panel__overlay.classList.toggle("overlay_opened");
-      // let scrollPos = window.scrollY;
-
-      document.body.classList.add("panel-open");
+      this.$router.push({
+        name: "NewsPage",
+        params: { name: title }
+      });
     }
+    // toggleNews(id) {
+    //   this.$store.commit("SET_SELECTED_NEWS_ID", { id: id });
+
+    //   let slide__panel = document.querySelector(".slide__panel");
+    //   slide__panel.classList.toggle("opened");
+    //   let headerHeight = document.querySelector(".headers").offsetHeight;
+    //   document.querySelector(".headers").style.top = `-${headerHeight}px`;
+    //   document.querySelector(".headers").style.zIndex = 0;
+    //   let slide__panel__overlay = document.querySelector(
+    //     `.slide__panel__overlay`
+    //   );
+
+    //   slide__panel__overlay.classList.toggle("overlay_opened");
+    //   // let scrollPos = window.scrollY;
+
+    //   document.body.classList.add("panel-open");
+    // }
   }
 };
 </script>
