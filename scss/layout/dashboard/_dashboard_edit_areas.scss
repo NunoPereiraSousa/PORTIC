@@ -70,13 +70,18 @@
     padding: 30px 60px;
 
     input {
-      margin: 0 3.125rem 2rem 0;
+      margin-bottom: 2rem;
 
       width: fit-content;
       padding: 12px 26px;
       font-family: $portoSans;
       font-size: $_15px;
       border: 1px solid rgba($color: $black, $alpha: 0.3);
+
+      &:focus {
+        border: 1px solid $black;
+        outline: none;
+      }
     }
 
     &__footer {
@@ -121,13 +126,13 @@
 
 .edit_confirm_button {
   margin-right: 40px;
-  border: 2px solid $orange;
+  border: 1px solid $orange;
   background-color: $orange;
   color: $white;
 }
 
 .edit_cancel_button {
-  border: 2px solid $black;
+  border: 1px solid $black;
   background-color: transparent;
   color: $black;
 }

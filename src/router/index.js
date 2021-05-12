@@ -4,9 +4,11 @@ import Areas from "../views/Areas.vue";
 import Contacts from "../views/Contacts.vue";
 import Courses from "../views/Courses.vue";
 import DashboardAddAreas from "../views/Dashboard/DashboardAddAreas.vue";
+import DashboardAddCourses from "../views/Dashboard/DashboardAddCourses.vue";
 import DashboardAreas from "../views/Dashboard/DashboardAreas.vue";
 import DashboardCourses from "../views/Dashboard/DashboardCourses.vue";
 import DashboardEditAreas from "../views/Dashboard/DashboardEditAreas.vue";
+import DashboardEditCourses from "../views/Dashboard/DashboardEditCourses.vue";
 import DashboardHome from "../views/Dashboard/DashboardHome.vue";
 import DashboardProjects from "../views/Dashboard/DashboardProjects.vue";
 import DashboardUnities from "../views/Dashboard/DashboardUnities.vue";
@@ -111,6 +113,17 @@ const routes = [
     path: "/dashboard-courses",
     name: "DashboardCourses",
     component: DashboardCourses
+  },
+  {
+    path: "/dashboard-edit-courses/:name",
+    name: "DashboardEditCourses",
+    component: DashboardEditCourses,
+    props: true
+  },
+  {
+    path: "/dashboard-add-courses",
+    name: "DashboardAddCourses",
+    component: DashboardAddCourses
   },
   {
     path: "/dashboard-projects",

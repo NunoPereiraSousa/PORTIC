@@ -31,7 +31,6 @@
     margin-bottom: 4rem;
 
     span {
-      // text-decoration: 2px underline $orange;
       color: $orange;
       font-weight: 500;
     }
@@ -56,13 +55,13 @@
 
   &__confirm {
     margin-right: 40px;
-    border: 2px solid $orange;
+    border: 1px solid $orange;
     background-color: $orange;
     color: $white;
   }
 
   &__cancel {
-    border: 2px solid $orange;
+    border: 1px solid $black;
     background-color: transparent;
     color: $black;
   }

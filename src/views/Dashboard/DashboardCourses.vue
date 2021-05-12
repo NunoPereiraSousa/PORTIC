@@ -3,21 +3,11 @@
     <DashboardHeader />
     <div class="admin_courses__panel">
       <div class="admin_courses__panel__overlay" @click="closePopup"></div>
-      <!-- <div
-        class="admin_courses__panel__overlay_slide"
-        @click="closeSlider"
-      ></div>
-      <div
-        class="admin_courses__panel__overlay_add"
-        @click="closeAddSlider"
-      ></div> -->
 
       <DashboardCoursesPopup :courseName="courseName" />
-      <!-- <AddCourseSlider /> -->
-      <!-- <DashboardCourseSlider :courseName="courseName" /> -->
       <DashboardTopHeader />
 
-      <div class="admin_courses__panel__tools flex flex-ai-c flex-jc-sb">
+      <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
           <input
             v-model="courseTxt"
@@ -89,8 +79,6 @@ import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardCoursesCard from "@/components/Dashboard/DashboardCoursesCard.vue";
 import DashboardCoursesPopup from "@/components/Dashboard/Popup/DashboardCoursesPopup.vue";
-// import AddCourseSlider from "@/components/Dashboard/AddSlider/AddCourseSlider.vue";
-// import DashboardCourseSlider from "@/components/Dashboard/Slider/DashboardCourseSlider.vue";
 import { mapGetters } from "vuex";
 
 export default {
@@ -99,8 +87,6 @@ export default {
     DashboardTopHeader,
     DashboardCoursesCard,
     DashboardCoursesPopup
-    // DashboardCourseSlider,
-    // AddCourseSlider
   },
   data: () => {
     return {
@@ -156,25 +142,6 @@ export default {
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
     }
-    // closeAddSlider() {
-    //   let slider = document.querySelector(".admin_courses__add_slider");
-    //   let overlay = document.querySelector(
-    //     ".admin_courses__panel__overlay_add"
-    //   );
-
-    //   slider.classList.toggle("open_add_course_slider");
-    //   overlay.classList.toggle("open_add_course_overlay");
-    // },
-    // closeSlider() {
-    //   let overlay = document.querySelector(
-    //     ".admin_courses__panel__overlay_slide"
-    //   );
-
-    //   let slider = document.querySelector(".admin_courses_edit__slider");
-
-    //   overlay.classList.toggle("show_overlay_slide");
-    //   slider.classList.toggle("show_slider");
-    // }
   }
 };
 </script>

@@ -11,7 +11,7 @@
     <div class="flex flex-ai-c">
       <button
         class="admin_areas__panel__grid__card__edit"
-        @click="openSlider(id, areaName)"
+        @click="openPage(id, areaName)"
       >
         Editar
       </button>
@@ -43,7 +43,7 @@ export default {
     }
   },
   methods: {
-    openSlider(areaId, areaName) {
+    openPage(areaId, areaName) {
       // let overlay = document.querySelector(
       //   ".admin_areas__panel__overlay_slide"
       // );

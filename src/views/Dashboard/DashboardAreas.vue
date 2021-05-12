@@ -14,7 +14,7 @@
       <!-- <DashboardAreaSlider :areaName="areaName" /> -->
       <!-- <AddAreaSlider /> -->
 
-      <div class="admin_areas__panel__tools flex flex-ai-c flex-jc-sb">
+      <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
           <input
             v-model="areaTxt"
