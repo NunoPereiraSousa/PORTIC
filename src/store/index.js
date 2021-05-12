@@ -40,7 +40,11 @@ export default new Vuex.Store({
   getters: {},
   plugins: [
     createPersistedState({
-      paths: ["projectsModule.selectedProject", "langModule.lang"],
+      paths: [
+        "projectsModule.selectedProject",
+        "projectsModule.selectedId",
+        "langModule.lang"
+      ],
       storage: {
         getItem: key => Cookies.get(key),
         setItem: (key, value) =>

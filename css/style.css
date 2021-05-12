@@ -8294,12 +8294,12 @@ button:focus {
 }
 
 .top_header__actions__remove {
-  border: 2px solid #c94d24;
+  border: 1.5px solid #666666;
   background-color: transparent;
 }
 
 .top_header__actions__add {
-  border: 2px solid transparent;
+  border: 1.5px solid transparent;
   background-color: #c94d24;
   color: #ffffff;
 }
@@ -8898,8 +8898,7 @@ button:focus {
 }
 
 .projects_panel__form {
-  display: -ms-grid;
-  display: grid;
+  display: block;
   -ms-grid-rows: min-content min-content min-content max-content min-content min-content min-content min-content;
       grid-template-rows: -webkit-min-content -webkit-min-content -webkit-min-content -webkit-max-content -webkit-min-content -webkit-min-content -webkit-min-content -webkit-min-content;
       grid-template-rows: min-content min-content min-content max-content min-content min-content min-content min-content;
@@ -9004,12 +9003,54 @@ button:focus {
   margin-top: 1rem;
 }
 
+.projects_panel__form__images {
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  row-gap: 3rem;
+  -webkit-column-gap: 3rem;
+          column-gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.projects_panel__form__images__img {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 34vh;
+}
+
+.projects_panel__form__images__img__actions {
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  background-color: #080808;
+  padding: 0.65rem 1.25rem;
+}
+
+.projects_panel__form__images__img__actions__edit, .projects_panel__form__images__img__actions__remove {
+  font-family: "Porto Sans";
+  background-color: transparent;
+  border: none;
+  font-size: 0.9375rem;
+  padding: 0;
+}
+
+.projects_panel__form__images__img__actions__edit {
+  color: #ffad10;
+}
+
+.projects_panel__form__images__img__actions__remove {
+  color: #fe6161;
+}
+
 .projects_panel .ql-editor {
   height: 40vh;
 }
 
 .projects_panel .margin_bottom {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .projects_panel input[type="file"] {
@@ -9035,6 +9076,10 @@ button:focus {
 
 .ql-editor {
   font-family: "Porto Sans";
+}
+
+.ql-editor p {
+  font-size: 1rem;
 }
 
 .ql-container {

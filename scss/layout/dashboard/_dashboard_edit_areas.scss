@@ -174,7 +174,7 @@
   overflow: hidden;
 
   &__form {
-    display: grid;
+    display: block;
     grid-template-rows:
       min-content
       min-content
@@ -276,6 +276,49 @@
         }
       }
     }
+
+    &__images {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 3rem;
+      column-gap: 3rem;
+
+      margin-bottom: 2rem;
+
+      &__img {
+        position: relative;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 34vh;
+
+        &__actions {
+          width: 100%;
+          position: absolute;
+          bottom: 0%;
+          left: 0%;
+          background-color: $black;
+          padding: 0.65rem 1.25rem;
+
+          &__edit,
+          &__remove {
+            font-family: $portoSans;
+            background-color: transparent;
+            border: none;
+            font-size: $_15px;
+            padding: 0;
+          }
+
+          &__edit {
+            color: $admin_orange2;
+          }
+
+          &__remove {
+            color: $admin_salmon;
+          }
+        }
+      }
+    }
   }
 
   .ql-editor {
@@ -283,7 +326,7 @@
   }
 
   .margin_bottom {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
 
   input[type="file"] {

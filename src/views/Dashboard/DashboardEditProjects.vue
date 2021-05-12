@@ -56,12 +56,38 @@
           Galeria
         </h3>
 
-        <div class="admin_add_slider__images">
-          <label class="custom-file-upload">
-            <input type="file" />
-            Upload de imagens
-          </label>
+        <div
+          class="projects_panel__form__images grid"
+          v-if="imagesArrLength > 0"
+        >
+          <div
+            v-for="image in images"
+            :key="image"
+            class="projects_panel__form__images__img"
+            :style="imageStyle(image)"
+          >
+            <div
+              class="projects_panel__form__images__img__actions flex flex-ai-c flex-jc-sb"
+            >
+              <button class="projects_panel__form__images__img__actions__edit">
+                Editar
+              </button>
+              <button
+                class="projects_panel__form__images__img__actions__remove"
+              >
+                Remover
+              </button>
+            </div>
+          </div>
         </div>
+        <div v-else>
+          <p>Não existem imagens associadas a este projeto</p>
+        </div>
+
+        <label class="custom-file-upload">
+          <input type="file" />
+          Upload de imagens
+        </label>
 
         <h3 class="admin_edit_area_panel__form__subheader">
           Equipa de projeto
@@ -106,11 +132,14 @@
 
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
+import { Glide, GlideSlide } from "vue-glide-js";
 import { mapGetters } from "vuex";
 
 export default {
   components: {
-    DashboardHeader
+    DashboardHeader,
+    [Glide.name]: Glide,
+    [GlideSlide.name]: GlideSlide
   },
   data: () => {
     return {
@@ -123,6 +152,7 @@ export default {
         content: "",
         team: []
       },
+      images: [],
       editorOption: {
         modules: {
           toolbar: [
@@ -164,6 +194,16 @@ export default {
     this.content = this.project.description;
 
     console.log(this.project);
+
+    // THE NEXT FOLLOWING LINE IS JUST FOR TESTING REASONS
+    this.images = [
+      "https://wp.zillowstatic.com/streeteasy/2/Amazon-building-10b3c7.jpg",
+      "https://www.gannett-cdn.com/presto/2019/07/18/PSAL/4010fe7f-35e9-4108-9954-96f6f521bab1-AmazonFulfillmentCenter_ar_01.JPG?auto=webp&crop=2399,1349,x1,y86&format=pjpg&width=1200",
+      "https://www.gannett-cdn.com/presto/2019/07/18/PSAL/4010fe7f-35e9-4108-9954-96f6f521bab1-AmazonFulfillmentCenter_ar_01.JPG?auto=webp&crop=2399,1349,x1,y86&format=pjpg&width=1200",
+      "https://wp.zillowstatic.com/streeteasy/2/Amazon-building-10b3c7.jpg",
+      "https://www.gannett-cdn.com/presto/2019/07/18/PSAL/4010fe7f-35e9-4108-9954-96f6f521bab1-AmazonFulfillmentCenter_ar_01.JPG?auto=webp&crop=2399,1349,x1,y86&format=pjpg&width=1200",
+      "https://www.gannett-cdn.com/presto/2019/07/18/PSAL/4010fe7f-35e9-4108-9954-96f6f521bab1-AmazonFulfillmentCenter_ar_01.JPG?auto=webp&crop=2399,1349,x1,y86&format=pjpg&width=1200"
+    ];
   },
   mounted() {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;
@@ -180,6 +220,18 @@ export default {
       let length = this.teamRows.length;
 
       return length;
+    },
+    imagesArrLength() {
+      let images = this.images;
+      let length;
+
+      if (images) {
+        length = images.length;
+      }
+
+      console.log(length);
+
+      return length;
     }
   },
   methods: {
@@ -192,6 +244,9 @@ export default {
       let editor = document.querySelector(".ql-editor");
 
       editor.style.height += `${height - toolbar.offsetHeight}px`;
+    },
+    imageStyle(image) {
+      return `background-image: url('${image}')`;
     },
     goBack() {
       this.$router.push({
