@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Areas from "../views/Areas.vue";
 import Contacts from "../views/Contacts.vue";
 import Courses from "../views/Courses.vue";
+import DashboardAddAreas from "../views/Dashboard/DashboardAddAreas.vue";
 import DashboardAreas from "../views/Dashboard/DashboardAreas.vue";
 import DashboardCourses from "../views/Dashboard/DashboardCourses.vue";
 import DashboardEditAreas from "../views/Dashboard/DashboardEditAreas.vue";
@@ -100,6 +101,11 @@ const routes = [
     name: "DashboardEditAreas",
     component: DashboardEditAreas,
     props: true
+  },
+  {
+    path: "/dashboard-add-areas",
+    name: "DashboardAddAreas",
+    component: DashboardAddAreas
   },
   {
     path: "/dashboard-courses",

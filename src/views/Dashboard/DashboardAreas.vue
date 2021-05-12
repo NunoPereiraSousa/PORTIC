@@ -3,11 +3,11 @@
     <DashboardHeader />
     <div class="admin_areas__panel">
       <div class="admin_areas__panel__overlay" @click="closePopup"></div>
-      <div class="admin_areas__panel__overlay_slide" @click="closeSlider"></div>
+      <!-- <div class="admin_areas__panel__overlay_slide" @click="closeSlider"></div>
       <div
         class="admin_areas__panel__overlay_add"
         @click="closeAddSlider"
-      ></div>
+      ></div> -->
 
       <DashboardTopHeader />
       <DashboardAreasPopup :areaName="areaName" />
@@ -157,24 +157,24 @@ export default {
 
       admin_areas__panel__overlay.classList.toggle("show_overlay");
       admin_delete_popup.classList.toggle("show_popup");
-    },
-    closeSlider() {
-      let overlay = document.querySelector(
-        ".admin_areas__panel__overlay_slide"
-      );
-
-      let slider = document.querySelector(".admin_areas__slider");
-
-      overlay.classList.toggle("show_overlay_slide");
-      slider.classList.toggle("show_slider");
-    },
-    closeAddSlider() {
-      let slider = document.querySelector(".admin_areas__add_slider");
-      let overlay = document.querySelector(".admin_areas__panel__overlay_add");
-
-      slider.classList.toggle("open_add_area_slider");
-      overlay.classList.toggle("open_add_area_overlay");
     }
+    // closeSlider() {
+    //   let overlay = document.querySelector(
+    //     ".admin_areas__panel__overlay_slide"
+    //   );
+
+    //   let slider = document.querySelector(".admin_areas__slider");
+
+    //   overlay.classList.toggle("show_overlay_slide");
+    //   slider.classList.toggle("show_slider");
+    // },
+    // closeAddSlider() {
+    //   let slider = document.querySelector(".admin_areas__add_slider");
+    //   let overlay = document.querySelector(".admin_areas__panel__overlay_add");
+
+    //   slider.classList.toggle("open_add_area_slider");
+    //   overlay.classList.toggle("open_add_area_overlay");
+    // }
   }
 };
 </script>

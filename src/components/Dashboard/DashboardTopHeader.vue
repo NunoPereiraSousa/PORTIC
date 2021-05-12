@@ -45,7 +45,7 @@
       <div v-if="$route.name == 'DashboardAreas'">
         <button
           class="top_header__actions__add flex flex-ai-c"
-          @click="openAddSlider"
+          @click="areasPage"
         >
           <svg
             id="shape"
@@ -275,12 +275,10 @@ export default {
 
       return `${hours}:${minutes}`;
     },
-    openAddSlider() {
-      let slider = document.querySelector(".admin_areas__add_slider");
-      let overlay = document.querySelector(".admin_areas__panel__overlay_add");
-
-      slider.classList.toggle("open_add_area_slider");
-      overlay.classList.toggle("open_add_area_overlay");
+    areasPage() {
+      this.$router.push({
+        name: "DashboardAddAreas"
+      });
     },
     openAddCoursesSlider() {
       let slider = document.querySelector(".admin_courses__add_slider");

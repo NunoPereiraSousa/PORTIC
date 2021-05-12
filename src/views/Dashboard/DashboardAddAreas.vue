@@ -15,7 +15,7 @@
         </div>
         <div>
           <h3>
-            Área <span>{{ areaName }}</span>
+            Adicionar área
           </h3>
         </div>
         <div>
@@ -45,7 +45,6 @@
 
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
-import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -53,7 +52,6 @@ export default {
   },
   data: () => {
     return {
-      areaName: "",
       content: "",
       editorOption: {
         modules: {
@@ -89,12 +87,6 @@ export default {
         }
       }
     };
-  },
-  computed: {
-    ...mapGetters(["getSelectedAreaByID", "getAreaByID"])
-  },
-  created() {
-    this.areaName = this.getAreaByID(this.getSelectedAreaByID).areaName;
   },
   mounted() {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;
