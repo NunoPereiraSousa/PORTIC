@@ -8609,8 +8609,121 @@ button:focus {
   background-color: rgba(8, 8, 8, 0.1);
 }
 
+.admin_projects__panel {
+  width: 100%;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.admin_projects__panel__overlay, .admin_projects__panel__overlay_slide, .admin_projects__panel__overlay_add {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 998;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(8, 8, 8, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.admin_projects__panel__overlay.show_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_projects__panel__overlay_slide.show_overlay_slide {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_projects__panel__overlay_add.open_add_project_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_projects__panel__tools {
+  padding: 3rem;
+}
+
+.admin_projects__panel__tools input {
+  padding: 12px 26px;
+  margin-right: 3.125rem;
+  border-radius: 10px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_projects__panel__tools input:focus {
+  outline: none;
+  border: 1px solid #c94d24;
+}
+
+.admin_projects__panel__tools p {
+  color: #c94d24;
+  margin-right: 2.5rem;
+  font-size: 1.125rem;
+}
+
+.admin_projects__panel__tools p svg {
+  margin-right: 0.6rem;
+}
+
+.admin_projects__panel__tools button {
+  background-color: rgba(8, 8, 8, 0.02);
+  border: none;
+  border-radius: 1.625rem;
+  padding: 0.84375rem 1.625rem;
+  margin-right: 3.125rem;
+  font-size: 1rem;
+  font-family: "Porto Sans";
+  letter-spacing: 0.2px;
+}
+
+.admin_projects__panel__tools select {
+  padding: 6px 16px;
+  border-radius: 10px;
+  border: 2px solid #c94d24;
+}
+
+.admin_projects__panel__tools select:focus {
+  outline: none;
+}
+
+.admin_projects__panel__grid {
+  padding: 0 3rem 0 3rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  row-gap: 2.25rem;
+}
+
+.admin_projects__panel ::-webkit-scrollbar {
+  width: 10px;
+  margin-right: 10px;
+}
+
+.admin_projects__panel ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin_projects__panel ::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_projects__panel ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
 .admin_edit_area {
   height: 100vh;
+}
+
+.admin_projects_actions {
+  height: 100%;
 }
 
 .admin_edit_area_panel {
@@ -8700,12 +8813,44 @@ button:focus {
   outline: none;
 }
 
-.admin_edit_area_panel__form__footer {
-  padding: 30px 60px;
-  width: 100%;
+.admin_edit_area_panel__form__subheader {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 0 1rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 1.125rem;
+  font-family: "Porto Sans";
+  color: #080808;
+  font-weight: 500;
+  text-shadow: 6px 4px 4px rgba(8, 8, 8, 0.075);
+}
+
+.admin_edit_area_panel__form__subheader::after {
+  content: "";
   position: absolute;
-  bottom: 0%;
   left: 0%;
+  bottom: 0%;
+  height: 2.5px;
+  width: 30px;
+  background-color: rgba(201, 77, 36, 0.7);
+  -webkit-box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
+          box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
+}
+
+@media (min-width: 120em) {
+  .admin_edit_area_panel__form__subheader::after {
+    left: 0.75%;
+    width: 40px;
+    height: 3px;
+  }
+}
+
+@media (min-width: 120em) {
+  .admin_edit_area_panel__form__subheader {
+    font-size: 1.375rem;
+  }
 }
 
 .admin_edit_area_panel ::-webkit-scrollbar {
@@ -8745,6 +8890,141 @@ button:focus {
   border: 1px solid #080808;
   background-color: transparent;
   color: #080808;
+}
+
+/* PROJECTS PANEL PAGE */
+.projects_panel {
+  overflow: hidden;
+}
+
+.projects_panel__form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: min-content min-content min-content max-content min-content min-content min-content min-content;
+      grid-template-rows: -webkit-min-content -webkit-min-content -webkit-min-content -webkit-max-content -webkit-min-content -webkit-min-content -webkit-min-content -webkit-min-content;
+      grid-template-rows: min-content min-content min-content max-content min-content min-content min-content min-content;
+  height: 100%;
+}
+
+.projects_panel__form__subheader {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 0 1rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 1.125rem;
+  font-family: "Porto Sans";
+  color: #080808;
+  font-weight: 500;
+  text-shadow: 6px 4px 4px rgba(8, 8, 8, 0.075);
+}
+
+.projects_panel__form__subheader::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  height: 2.5px;
+  width: 30px;
+  background-color: rgba(201, 77, 36, 0.7);
+  -webkit-box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
+          box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
+}
+
+@media (min-width: 120em) {
+  .projects_panel__form__subheader::after {
+    left: 0.75%;
+    width: 40px;
+    height: 3px;
+  }
+}
+
+@media (min-width: 120em) {
+  .projects_panel__form__subheader {
+    font-size: 1.375rem;
+  }
+}
+
+.projects_panel__form__inputs {
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+}
+
+.projects_panel__form__team {
+  margin-bottom: 2rem;
+}
+
+.projects_panel__form__team__form {
+  margin-bottom: 1rem;
+}
+
+.projects_panel__form__team__form__grid {
+  -ms-grid-columns: (min-content)[3];
+      grid-template-columns: repeat(3, -webkit-min-content);
+      grid-template-columns: repeat(3, min-content);
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+}
+
+.projects_panel__form__team__form__grid__add, .projects_panel__form__team__form__grid__remove {
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-family: "Porto Sans";
+  border: none;
+}
+
+.projects_panel__form__team__form__grid__add {
+  margin-right: 20px;
+  background-color: #fff5df;
+  color: #ff8000;
+}
+
+.projects_panel__form__team__form__grid__remove {
+  background-color: #ffe6e6;
+  color: #ff1010;
+}
+
+.projects_panel__form__team__form input {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 12px 26px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.projects_panel__form__team__form .custom-file-upload {
+  margin-bottom: 0;
+}
+
+.projects_panel__form__team__form:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.projects_panel .ql-editor {
+  height: 40vh;
+}
+
+.projects_panel .margin_bottom {
+  margin-bottom: 2rem;
+}
+
+.projects_panel input[type="file"] {
+  display: none;
+}
+
+.projects_panel .custom-file-upload {
+  padding: 10px 26px;
+  margin-bottom: 2rem;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.35);
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .quill-editor {

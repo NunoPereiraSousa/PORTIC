@@ -5,10 +5,12 @@ import Contacts from "../views/Contacts.vue";
 import Courses from "../views/Courses.vue";
 import DashboardAddAreas from "../views/Dashboard/DashboardAddAreas.vue";
 import DashboardAddCourses from "../views/Dashboard/DashboardAddCourses.vue";
+import DashboardAddProjects from "../views/Dashboard/DashboardAddProjects.vue";
 import DashboardAreas from "../views/Dashboard/DashboardAreas.vue";
 import DashboardCourses from "../views/Dashboard/DashboardCourses.vue";
 import DashboardEditAreas from "../views/Dashboard/DashboardEditAreas.vue";
 import DashboardEditCourses from "../views/Dashboard/DashboardEditCourses.vue";
+import DashboardEditProjects from "../views/Dashboard/DashboardEditProjects.vue";
 import DashboardHome from "../views/Dashboard/DashboardHome.vue";
 import DashboardProjects from "../views/Dashboard/DashboardProjects.vue";
 import DashboardUnities from "../views/Dashboard/DashboardUnities.vue";
@@ -129,6 +131,17 @@ const routes = [
     path: "/dashboard-projects",
     name: "DashboardProjects",
     component: DashboardProjects
+  },
+  {
+    path: "/dashboard-add-projects",
+    name: "DashboardAddProjects",
+    component: DashboardAddProjects
+  },
+  {
+    path: "/dashboard-edit-projects/:name",
+    name: "DashboardEditProjects",
+    component: DashboardEditProjects,
+    props: true
   },
   {
     path: "/dashboard-unities",

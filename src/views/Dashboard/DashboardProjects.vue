@@ -3,22 +3,12 @@
     <DashboardHeader />
     <div class="admin_projects__panel">
       <div class="admin_projects__panel__overlay" @click="closePopup"></div>
-      <div
-        class="admin_projects__panel__overlay_slide"
-        @click="closeSlider"
-      ></div>
 
-      <div
-        class="admin_projects__panel__overlay_add"
-        @click="closeAddSlider"
-      ></div>
-      <AddProjectSlider />
       <DashboardProjectsPopup :projectName="projectName" />
-      <DashboardProjectsSlider :projectName="projectName" :images="images" />
 
       <DashboardTopHeader />
 
-      <div class="admin_projects__panel__tools flex flex-ai-c flex-jc-sb">
+      <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
           <input
             v-model="projectTxt"
@@ -82,10 +72,8 @@
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
-import AddProjectSlider from "@/components/Dashboard/AddSlider/AddProjectSlider.vue";
 import DashboardProjectsCard from "@/components/Dashboard/DashboardProjectsCard.vue";
 import DashboardProjectsPopup from "@/components/Dashboard/Popup/DashboardProjectsPopup.vue";
-import DashboardProjectsSlider from "@/components/Dashboard/Slider/DashboardProjectsSlider.vue";
 
 import { mapGetters } from "vuex";
 
@@ -93,10 +81,8 @@ export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
-    AddProjectSlider,
     DashboardProjectsPopup,
-    DashboardProjectsCard,
-    DashboardProjectsSlider
+    DashboardProjectsCard
   },
   data: () => {
     return {
@@ -159,29 +145,6 @@ export default {
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
-    },
-    closeAddSlider() {
-      let slider = document.querySelector(".admin_projects__add_slider");
-      let overlay = document.querySelector(
-        ".admin_projects__panel__overlay_add"
-      );
-
-      slider.classList.toggle("open_add_project_slider");
-      overlay.classList.toggle("open_add_project_overlay");
-    },
-    closeSlider() {
-      let admin_projects__panel__overlay_slide = document.querySelector(
-        ".admin_projects__panel__overlay_slide"
-      );
-
-      let admin_projects__slider = document.querySelector(
-        ".admin_projects_edit__slider"
-      );
-
-      admin_projects__panel__overlay_slide.classList.toggle(
-        "show_overlay_slide"
-      );
-      admin_projects__slider.classList.toggle("show_slider");
     }
   }
 };

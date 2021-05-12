@@ -23,6 +23,8 @@
             this.$route.name !== 'DashboardAddCourses' &&
             this.$route.name !== 'DashboardEditCourses' &&
             this.$route.name !== 'DashboardProjects' &&
+            this.$route.name !== 'DashboardAddProjects' &&
+            this.$route.name !== 'DashboardEditProjects' &&
             this.$route.name !== 'DashboardUnities'
         "
       >

@@ -2,6 +2,10 @@
   height: 100vh;
 }
 
+.admin_projects_actions {
+  height: 100%;
+}
+
 .admin_edit_area_panel {
   width: 100%;
   position: relative;
@@ -84,12 +88,39 @@
       }
     }
 
-    &__footer {
-      padding: 30px 60px;
-      width: 100%;
-      position: absolute;
-      bottom: 0%;
-      left: 0%;
+    &__subheader {
+      position: relative;
+      width: fit-content;
+      padding: 0 0 1rem;
+      margin: 1.5rem 0 2rem;
+
+      font-size: $_18px;
+      font-family: $portoSans;
+      color: $black;
+      font-weight: 500;
+
+      text-shadow: 6px 4px 4px rgba($color: $black, $alpha: 0.075);
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0%;
+        bottom: 0%;
+        height: 2.5px;
+        width: 30px;
+        background-color: rgba($color: $orange, $alpha: 0.7);
+        box-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.02);
+
+        @include breakpoint-up(large) {
+          left: 0.75%;
+          width: 40px;
+          height: 3px;
+        }
+      }
+
+      @include breakpoint-up(large) {
+        font-size: $_22px;
+      }
     }
   }
 
@@ -135,4 +166,138 @@
   border: 1px solid $black;
   background-color: transparent;
   color: $black;
+}
+
+/* PROJECTS PANEL PAGE */
+
+.projects_panel {
+  overflow: hidden;
+
+  &__form {
+    display: grid;
+    grid-template-rows:
+      min-content
+      min-content
+      min-content
+      max-content
+      min-content
+      min-content
+      min-content
+      min-content;
+    height: 100%;
+
+    &__subheader {
+      position: relative;
+      width: fit-content;
+      padding: 0 0 1rem;
+      margin: 1.5rem 0 2rem;
+
+      font-size: $_18px;
+      font-family: $portoSans;
+      color: $black;
+      font-weight: 500;
+
+      text-shadow: 6px 4px 4px rgba($color: $black, $alpha: 0.075);
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0%;
+        bottom: 0%;
+        height: 2.5px;
+        width: 30px;
+        background-color: rgba($color: $orange, $alpha: 0.7);
+        box-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.02);
+
+        @include breakpoint-up(large) {
+          left: 0.75%;
+          width: 40px;
+          height: 3px;
+        }
+      }
+
+      @include breakpoint-up(large) {
+        font-size: $_22px;
+      }
+    }
+
+    &__inputs {
+      column-gap: 2rem;
+    }
+
+    &__team {
+      margin-bottom: 2rem;
+
+      &__form {
+        margin-bottom: 1rem;
+
+        &__grid {
+          grid-template-columns: repeat(3, min-content);
+          column-gap: 2rem;
+
+          &__add,
+          &__remove {
+            padding: 12px 26px;
+
+            border-radius: 10px;
+            font-size: $_15px;
+            font-family: $portoSans;
+            border: none;
+          }
+
+          &__add {
+            margin-right: 20px;
+            background-color: $admin_yellow;
+            color: $admin_orange;
+          }
+
+          &__remove {
+            background-color: $admin_pink;
+            color: $admin_red;
+          }
+        }
+
+        input {
+          width: fit-content;
+          padding: 12px 26px;
+          font-family: $portoSans;
+          font-size: $_15px;
+          border: 1px solid rgba($color: $black, $alpha: 0.3);
+
+          // margin-right: 2rem;
+        }
+
+        .custom-file-upload {
+          margin-bottom: 0;
+        }
+
+        &:not(:first-child) {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+  .ql-editor {
+    height: 40vh;
+  }
+
+  .margin_bottom {
+    margin-bottom: 2rem;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .custom-file-upload {
+    padding: 10px 26px;
+    margin-bottom: 2rem;
+    font-family: $portoSans;
+    font-size: $_15px;
+    border: 1px solid rgba($color: $black, $alpha: 0.35);
+    border-radius: 2px;
+    display: inline-block;
+    cursor: pointer;
+  }
 }

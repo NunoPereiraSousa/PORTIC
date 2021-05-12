@@ -5,7 +5,6 @@
       <h5 v-else>Área {{ counter }}</h5>
       <h2>
         {{ areaName }}
-        <!-- {{ $t(item.title, { areaName: areaName }) }} -->
       </h2>
     </div>
     <div class="flex flex-ai-c">
@@ -44,17 +43,6 @@ export default {
   },
   methods: {
     openPage(areaId, areaName) {
-      // let overlay = document.querySelector(
-      //   ".admin_areas__panel__overlay_slide"
-      // );
-
-      // let slider = document.querySelector(".admin_areas__slider");
-
-      // overlay.classList.toggle("show_overlay_slide");
-      // slider.classList.toggle("show_slider");
-
-      // AREA ID LOGIC
-
       this.$store.commit("SET_SELECTED_AREA_ID", {
         id: areaId
       });

@@ -10,7 +10,7 @@
     <div class="flex flex-ai-c">
       <button
         class="admin_projects__panel__grid__card__edit"
-        @click="openSlider(id)"
+        @click="openPage(id, projectName)"
       >
         Editar
       </button>
@@ -47,18 +47,14 @@ export default {
     // ...mapGetters(["getSelectedCourseByID", "getCourseByID"])
   },
   methods: {
-    openSlider(projectId) {
-      let overlay = document.querySelector(
-        ".admin_projects__panel__overlay_slide"
-      );
-
-      let slider = document.querySelector(".admin_projects_edit__slider");
-      overlay.classList.toggle("show_overlay_slide");
-      slider.classList.toggle("show_slider");
-
-      // COURSE ID LOGIC
+    openPage(projectId, projectName) {
       this.$store.commit("SET_SELECTED_PROJECT_ID", {
         id: projectId
+      });
+
+      this.$router.push({
+        name: "DashboardEditProjects",
+        params: { name: projectName }
       });
     },
     showPopup(projectId) {

@@ -9,6 +9,8 @@ export const projects = [
     startingDate: "2021-04-02",
     endingDate: "2021-08-15",
     partners: ["PORTIC/P.PORTO", "ISEP", "IPB", "IPCA", "IPVC"],
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     description:
       "Project led by PORTIC, to further strength the scientific competences and innovation potential of the North region, to tackle the cybersecurity challenge, through investment in a small set of enabling technologies and knowledge, in a coherent program organized in two research lines: one related to the design and protection of secure digital systems, and a second centered on data security and privacy."
   },
@@ -22,6 +24,8 @@ export const projects = [
     startingDate: "2021-04-02",
     endingDate: "2021-08-15",
     status: "Finished",
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     partners: [
       "EFACEC",
       "PFP",
@@ -47,6 +51,8 @@ export const projects = [
     endingDate: "2021-08-15",
     status: "underDev",
     partners: ["IPB", "PORTIC/P.PORTO", "IPCA", "IPVC"],
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     description:
       "TThe GreenHealth project is focused on digital and biological technologies and their interaction with human health, environmental sustainability and territory-based assets economic development. This multidisciplinary and interdisciplinary approach will enable the design and implementation of a long-term, human-centred strategy focused on the (eco)sustainability of the Norte Region."
   },
@@ -61,6 +67,8 @@ export const projects = [
     endingDate: "2021-08-15",
     status: "Finished",
     partners: ["IPCA", "PORTIC/P.PORTO", "ISEP", "IPB", "IPVC"],
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     description:
       "SmartHealth intends to create new efficient and intelligent technologies to support different stages of the medical treatment, namely the prevention, diagnosis, surgical treatment, rehabilitation and patient follow-up."
   },
@@ -74,6 +82,8 @@ export const projects = [
     endingDate: "2021-08-15",
     status: "Finished",
     partners: ["IPVC", "PORTIC/P.PORTO", "IPB", "IPCA"],
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     description:
       "Using digitally-based technologies, TECH addresses prevention and promotion of population health and well-being, new technologies for agriculture and food production processes, and (e-) governance and integrated environmental policy."
   },
@@ -87,6 +97,8 @@ export const projects = [
     startingDate: "2021-04-02",
     endingDate: "2021-08-15",
     status: "Finished",
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     partners: [
       "VTT",
       "Tieto",
@@ -113,6 +125,8 @@ export const projects = [
     startingDate: "2021-04-02",
     endingDate: "2021-08-15",
     status: "Finished",
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     partners: [
       "PORTIC/P.PORTO",
       "PORTIC/P.PORTO",
@@ -136,6 +150,8 @@ export const projects = [
     endingDate: "2021-08-15",
     status: "Finished",
     partners: ["PORTIC/P.PORTO", "FMUP", "ACES Feira Arounca"],
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     description:
       "In the IPP4AFA project PORTIC provides support to the peripheral populations of greater Porto, working with a substantial number of primary health care professionals, allowing the laboratory test to be carried out in a more personalized and direct way to the user."
   },
@@ -149,6 +165,8 @@ export const projects = [
     endingDate: "2019-08-15",
     status: "Finished",
     partners: ["PORTIC/P.PORTO", "FMUP", "ACES Feira Arounca"],
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     description:
       "In the IPP4AVSS project PORTIC provides support to the peripheral populations of greater Porto, working with a substantial number of primary health care professionals, allowing the laboratory test to be carried out in a more personalized and direct way to the user."
   },
@@ -162,6 +180,8 @@ export const projects = [
     endingDate: "2019-08-15",
     status: "Stop",
     partners: ["FMUP", "PORTIC/P.PORTO", "Centro Hospitalar Vila Gaia/Espinho"],
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     description:
       "iHIPI aims to understand the mechanisms of the patient’s immunity with COVID-19 and describe the potential associations between the immunological profile and clinical data, in order to stratify the risk, to act preventively and to avoid fatal outcomes."
   },
@@ -174,6 +194,8 @@ export const projects = [
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
     status: "Stop",
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     partners: [
       "PORTIC/P.PORTO",
       "ARTER",
@@ -245,6 +267,8 @@ export const projects = [
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
     status: "Stop",
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     partners: [
       "PORTIC/P.PORTO",
       "IKEA",
@@ -266,6 +290,8 @@ export const projects = [
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
     status: "Stop",
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     partners: [
       "PORTIC/P.PORTO",
       "IKEA",
@@ -291,6 +317,8 @@ export const projects = [
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
     status: "Stop",
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     partners: [
       "PORTIC/P.PORTO",
       "IKEA",
@@ -322,6 +350,8 @@ export const projects = [
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
     status: "Stop",
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     partners: [
       "PORTIC/P.PORTO",
       "IKEA",
@@ -354,6 +384,8 @@ export const projects = [
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
     status: "Stop",
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     partners: [
       "PORTIC/P.PORTO",
       "IKEA",
@@ -438,6 +470,8 @@ export const projects = [
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
     status: "Stop",
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     partners: [
       "PORTIC/P.PORTO",
       "IKEA",
@@ -514,6 +548,8 @@ export const projects = [
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
     status: "Stop",
+    contact: "911-222-333",
+    email: "portic@ipp.pt",
     partners: [
       "PORTIC/P.PORTO",
       "IKEA",

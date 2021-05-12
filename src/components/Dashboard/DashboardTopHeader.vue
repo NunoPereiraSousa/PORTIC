@@ -112,7 +112,7 @@
       <div v-else-if="$route.name == 'DashboardProjects'">
         <button
           class="top_header__actions__add flex flex-ai-c"
-          @click="openAddProjectsSlider"
+          @click="projectsPage"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -285,14 +285,10 @@ export default {
         name: "DashboardAddCourses"
       });
     },
-    openAddProjectsSlider() {
-      let slider = document.querySelector(".admin_projects__add_slider");
-      let overlay = document.querySelector(
-        ".admin_projects__panel__overlay_add"
-      );
-
-      slider.classList.toggle("open_add_project_slider");
-      overlay.classList.toggle("open_add_project_overlay");
+    projectsPage() {
+      this.$router.push({
+        name: "DashboardAddProjects"
+      });
     },
     openAddUnitiesSlider() {
       let slider = document.querySelector(".admin_unities__add_slider");
