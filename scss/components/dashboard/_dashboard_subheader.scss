@@ -1,0 +1,34 @@
+.dashboard_subheader {
+  position: relative;
+  width: fit-content;
+  padding: 0 0 1rem;
+  margin: 1.5rem 0 2rem;
+
+  font-size: $_18px;
+  font-family: $portoSans;
+  color: $black;
+  font-weight: 500;
+
+  text-shadow: 6px 4px 4px rgba($color: $black, $alpha: 0.075);
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    height: 2.5px;
+    width: 30px;
+    background-color: rgba($color: $orange, $alpha: 0.7);
+    box-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.02);
+
+    @include breakpoint-up(large) {
+      left: 0.75%;
+      width: 40px;
+      height: 3px;
+    }
+  }
+
+  @include breakpoint-up(large) {
+    font-size: $_22px;
+  }
+}

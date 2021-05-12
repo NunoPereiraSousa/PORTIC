@@ -15,7 +15,7 @@
         </div>
         <div>
           <h3>
-            Área <span>{{ areaName }}</span>
+            Adicionar unidade
           </h3>
         </div>
         <div>
@@ -30,12 +30,15 @@
 
       <div class="admin_actions_panel__form">
         <h3 class="dashboard_subheader">
-          Nome da área
+          Nome da Unidade e Fotografia
         </h3>
-        <input type="text" placeholder="Nome da área" />
+
+        <input type="text" placeholder="Nome da unidade" />
+
         <h3 class="dashboard_subheader">
-          Conteúdo da área
+          Conteúdo do projeto
         </h3>
+
         <div class="area_edit_editor">
           <quill-editor
             v-model="content"
@@ -51,7 +54,6 @@
 
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
-import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -59,7 +61,6 @@ export default {
   },
   data: () => {
     return {
-      areaName: "",
       content: "",
       editorOption: {
         modules: {
@@ -96,12 +97,6 @@ export default {
       }
     };
   },
-  computed: {
-    ...mapGetters(["getSelectedAreaByID", "getAreaByID"])
-  },
-  created() {
-    this.areaName = this.getAreaByID(this.getSelectedAreaByID).areaName;
-  },
   mounted() {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;
 
@@ -123,7 +118,7 @@ export default {
     },
     goBack() {
       this.$router.push({
-        name: "DashboardAreas"
+        name: "DashboardUnities"
       });
     },
     save() {

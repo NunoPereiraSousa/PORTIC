@@ -29,7 +29,7 @@
       </div>
 
       <div class="admin_edit_area_panel__form projects_panel__form">
-        <h3 class="admin_edit_area_panel__form__subheader">
+        <h3 class="dashboard_subheader">
           Informação genérica
         </h3>
 
@@ -39,7 +39,7 @@
           <input type="text" placeholder="E-mail" />
         </div>
 
-        <h3 class="admin_edit_area_panel__form__subheader">
+        <h3 class="dashboard_subheader">
           Conteúdo do projeto
         </h3>
 
@@ -52,7 +52,7 @@
           </quill-editor>
         </div>
 
-        <h3 class="admin_edit_area_panel__form__subheader">
+        <h3 class="dashboard_subheader">
           Galeria
         </h3>
 
@@ -63,7 +63,7 @@
           </label>
         </div>
 
-        <h3 class="admin_edit_area_panel__form__subheader">
+        <h3 class="dashboard_subheader">
           Equipa de projeto
         </h3>
 

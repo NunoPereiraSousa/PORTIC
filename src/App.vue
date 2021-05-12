@@ -25,7 +25,8 @@
             this.$route.name !== 'DashboardProjects' &&
             this.$route.name !== 'DashboardAddProjects' &&
             this.$route.name !== 'DashboardEditProjects' &&
-            this.$route.name !== 'DashboardUnities'
+            this.$route.name !== 'DashboardUnities' &&
+            this.$route.name !== 'DashboardAddUnities'
         "
       >
         <SubHeader />

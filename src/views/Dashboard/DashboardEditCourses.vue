@@ -1,11 +1,11 @@
 <template>
-  <div class="admin_edit_area flex">
+  <div class="admin_actions flex">
     <DashboardHeader />
 
-    <div class="admin_edit_area_panel">
-      <div class="admin_edit_area_panel__header flex flex-jc-sb flex-ai-c">
+    <div class="admin_actions_panel">
+      <div class="admin_actions_panel__header flex flex-jc-sb flex-ai-c">
         <div
-          class="admin_edit_area_panel__header__languages flex flex-jc-sb flex-ai-c"
+          class="admin_actions_panel__header__languages flex flex-jc-sb flex-ai-c"
         >
           <button class="pt selected">Português</button>
           <hr />
@@ -28,8 +28,14 @@
         </div>
       </div>
 
-      <div class="admin_edit_area_panel__form">
+      <div class="admin_actions_panel__form">
+        <h3 class="dashboard_subheader">
+          Nome do curso
+        </h3>
         <input type="text" :placeholder="courseName" v-model="courseTxt" />
+        <h3 class="dashboard_subheader">
+          Conteúdo do curso
+        </h3>
         <div class="area_edit_editor">
           <quill-editor
             v-model="content"
@@ -101,7 +107,7 @@ export default {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;
 
     document.querySelector(
-      ".admin_edit_area_panel"
+      ".admin_actions_panel"
     ).style.paddingLeft = `${navbar_width}px`;
 
     this.styleEditorHeight();

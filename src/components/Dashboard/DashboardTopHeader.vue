@@ -134,7 +134,7 @@
       <div v-else-if="$route.name == 'DashboardUnities'">
         <button
           class="top_header__actions__add flex flex-ai-c"
-          @click="openAddUnitiesSlider"
+          @click="unitiesPage"
         >
           <svg
             id="building"
@@ -290,14 +290,10 @@ export default {
         name: "DashboardAddProjects"
       });
     },
-    openAddUnitiesSlider() {
-      let slider = document.querySelector(".admin_unities__add_slider");
-      let overlay = document.querySelector(
-        ".admin_unities__panel__overlay_add"
-      );
-
-      slider.classList.toggle("open_add_unity_slider");
-      overlay.classList.toggle("open_add_unity_overlay");
+    unitiesPage() {
+      this.$router.push({
+        name: "DashboardAddUnities"
+      });
     }
   }
 };

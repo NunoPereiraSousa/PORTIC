@@ -6,6 +6,7 @@ import Courses from "../views/Courses.vue";
 import DashboardAddAreas from "../views/Dashboard/DashboardAddAreas.vue";
 import DashboardAddCourses from "../views/Dashboard/DashboardAddCourses.vue";
 import DashboardAddProjects from "../views/Dashboard/DashboardAddProjects.vue";
+import DashboardAddUnities from "../views/Dashboard/DashboardAddUnities.vue";
 import DashboardAreas from "../views/Dashboard/DashboardAreas.vue";
 import DashboardCourses from "../views/Dashboard/DashboardCourses.vue";
 import DashboardEditAreas from "../views/Dashboard/DashboardEditAreas.vue";
@@ -147,6 +148,11 @@ const routes = [
     path: "/dashboard-unities",
     name: "DashboardUnities",
     component: DashboardUnities
+  },
+  {
+    path: "/dashboard-add-unities",
+    name: "DashboardAddUnities",
+    component: DashboardAddUnities
   }
 ];
 

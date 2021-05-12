@@ -3,21 +3,11 @@
     <DashboardHeader />
     <div class="admin_unities__panel">
       <div class="admin_unities__panel__overlay" @click="closePopup"></div>
-      <div
-        class="admin_unities__panel__overlay_slide"
-        @click="closeSlider"
-      ></div>
-      <div
-        class="admin_unities__panel__overlay_add"
-        @click="closeAddSlider"
-      ></div>
 
       <DashboardTopHeader />
-      <AddUnitySlider />
       <DashboardUnitiesPopup :unityName="unityName" />
-      <DashboardUnitiesSlider :unityName="unityName" />
 
-      <div class="admin_unities__panel__tools flex flex-ai-c flex-jc-sb">
+      <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
           <input
             v-model="unityTxt"
@@ -82,9 +72,7 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardUnitiesCard from "@/components/Dashboard/DashboardUnitiesCard.vue";
-import AddUnitySlider from "@/components/Dashboard/AddSlider/AddUnitySlider.vue";
 import DashboardUnitiesPopup from "@/components/Dashboard/Popup/DashboardUnitiesPopup.vue";
-import DashboardUnitiesSlider from "@/components/Dashboard/Slider/DashboardUnitiesSlider.vue";
 
 import { mapGetters } from "vuex";
 
@@ -93,9 +81,7 @@ export default {
     DashboardHeader,
     DashboardTopHeader,
     DashboardUnitiesCard,
-    AddUnitySlider,
-    DashboardUnitiesPopup,
-    DashboardUnitiesSlider
+    DashboardUnitiesPopup
   },
   data: () => {
     return {
@@ -105,7 +91,7 @@ export default {
     };
   },
   created() {
-    this.unities = this.getUnities;
+    this.unities = this.getUnitiesPT;
 
     console.log(this.unities);
   },
@@ -117,7 +103,7 @@ export default {
     ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
-    ...mapGetters(["getSelectedUnityId", "getUnityById", "getUnities"]),
+    ...mapGetters(["getSelectedUnityId", "getUnityById", "getUnitiesPT"]),
     unityName() {
       let id = this.getSelectedUnityId;
 
@@ -152,23 +138,6 @@ export default {
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
-    },
-    closeAddSlider() {
-      let slider = document.querySelector(".admin_unities__add_slider");
-      let overlay = document.querySelector(
-        ".admin_unities__panel__overlay_add"
-      );
-
-      slider.classList.toggle("open_add_unity_slider");
-      overlay.classList.toggle("open_add_unity_overlay");
-    },
-    closeSlider() {
-      let overlay = document.querySelector(
-        ".admin_unities__panel__overlay_slide"
-      );
-      let slider = document.querySelector(".admin_unities_edit__slider");
-      overlay.classList.toggle("show_overlay_slide");
-      slider.classList.toggle("show_slider");
     }
   }
 };

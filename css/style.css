@@ -8718,7 +8718,116 @@ button:focus {
   background-color: rgba(8, 8, 8, 0.1);
 }
 
-.admin_edit_area {
+.admin_unities__panel {
+  width: 100%;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.admin_unities__panel__overlay, .admin_unities__panel__overlay_slide, .admin_unities__panel__overlay_add {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 998;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(8, 8, 8, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.admin_unities__panel__overlay.show_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_unities__panel__overlay_slide.show_overlay_slide {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_unities__panel__overlay_add.open_add_unity_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_unities__panel__tools {
+  padding: 3rem;
+}
+
+.admin_unities__panel__tools input {
+  padding: 12px 26px;
+  margin-right: 3.125rem;
+  border-radius: 10px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_unities__panel__tools input:focus {
+  outline: none;
+  border: 1px solid #c94d24;
+}
+
+.admin_unities__panel__tools p {
+  color: #c94d24;
+  margin-right: 2.5rem;
+  font-size: 1.125rem;
+}
+
+.admin_unities__panel__tools p svg {
+  margin-right: 0.6rem;
+}
+
+.admin_unities__panel__tools button {
+  background-color: rgba(8, 8, 8, 0.02);
+  border: none;
+  border-radius: 1.625rem;
+  padding: 0.84375rem 1.625rem;
+  margin-right: 3.125rem;
+  font-size: 1rem;
+  font-family: "Porto Sans";
+  letter-spacing: 0.2px;
+}
+
+.admin_unities__panel__tools select {
+  padding: 6px 16px;
+  border-radius: 10px;
+  border: 2px solid #c94d24;
+}
+
+.admin_unities__panel__tools select:focus {
+  outline: none;
+}
+
+.admin_unities__panel__grid {
+  padding: 0 3rem 0 3rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  row-gap: 2.25rem;
+}
+
+.admin_unities__panel ::-webkit-scrollbar {
+  width: 10px;
+  margin-right: 10px;
+}
+
+.admin_unities__panel ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin_unities__panel ::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_unities__panel ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_actions {
   height: 100vh;
 }
 
@@ -8726,7 +8835,7 @@ button:focus {
   height: 100%;
 }
 
-.admin_edit_area_panel {
+.admin_actions_panel {
   width: 100%;
   position: relative;
   /* Track */
@@ -8734,25 +8843,25 @@ button:focus {
   /* Handle on hover */
 }
 
-.admin_edit_area_panel__header {
+.admin_actions_panel__header {
   width: 100%;
   height: 10vh;
   padding: 30px 60px;
   border-bottom: 1px solid rgba(153, 153, 153, 0.25);
 }
 
-.admin_edit_area_panel__header h3 {
+.admin_actions_panel__header h3 {
   font-family: "Porto Sans";
   font-weight: 400;
   font-size: 1rem;
   margin: 0;
 }
 
-.admin_edit_area_panel__header h3 span {
+.admin_actions_panel__header h3 span {
   color: #c94d24;
 }
 
-.admin_edit_area_panel__header__languages button {
+.admin_actions_panel__header__languages button {
   margin: 0;
   font-size: 1rem;
   cursor: pointer;
@@ -8762,23 +8871,23 @@ button:focus {
   font-family: "Porto Sans";
 }
 
-.admin_edit_area_panel__header__languages button:first-child {
+.admin_actions_panel__header__languages button:first-child {
   padding-right: 0.875rem;
 }
 
-.admin_edit_area_panel__header__languages button:last-child {
+.admin_actions_panel__header__languages button:last-child {
   padding-left: 0.875rem;
 }
 
-.admin_edit_area_panel__header__languages button.selected {
+.admin_actions_panel__header__languages button.selected {
   color: #c94d24;
 }
 
-.admin_edit_area_panel__header__languages button:not(.selected):hover {
+.admin_actions_panel__header__languages button:not(.selected):hover {
   color: #c94d24;
 }
 
-.admin_edit_area_panel__header__languages hr {
+.admin_actions_panel__header__languages hr {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   background-color: #080808;
@@ -8787,17 +8896,17 @@ button:focus {
   height: 10px;
 }
 
-.admin_edit_area_panel__form {
+.admin_actions_panel__form {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: min-content 1fr;
-      grid-template-rows: -webkit-min-content 1fr;
-      grid-template-rows: min-content 1fr;
+  -ms-grid-rows: min-content min-content min-content 1fr;
+      grid-template-rows: -webkit-min-content -webkit-min-content -webkit-min-content 1fr;
+      grid-template-rows: min-content min-content min-content 1fr;
   height: 90vh;
   padding: 30px 60px;
 }
 
-.admin_edit_area_panel__form input {
+.admin_actions_panel__form input {
   margin-bottom: 2rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -8808,65 +8917,25 @@ button:focus {
   border: 1px solid rgba(8, 8, 8, 0.3);
 }
 
-.admin_edit_area_panel__form input:focus {
+.admin_actions_panel__form input:focus {
   border: 1px solid #080808;
   outline: none;
 }
 
-.admin_edit_area_panel__form__subheader {
-  position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0 0 1rem;
-  margin: 1.5rem 0 2rem;
-  font-size: 1.125rem;
-  font-family: "Porto Sans";
-  color: #080808;
-  font-weight: 500;
-  text-shadow: 6px 4px 4px rgba(8, 8, 8, 0.075);
-}
-
-.admin_edit_area_panel__form__subheader::after {
-  content: "";
-  position: absolute;
-  left: 0%;
-  bottom: 0%;
-  height: 2.5px;
-  width: 30px;
-  background-color: rgba(201, 77, 36, 0.7);
-  -webkit-box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
-          box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
-}
-
-@media (min-width: 120em) {
-  .admin_edit_area_panel__form__subheader::after {
-    left: 0.75%;
-    width: 40px;
-    height: 3px;
-  }
-}
-
-@media (min-width: 120em) {
-  .admin_edit_area_panel__form__subheader {
-    font-size: 1.375rem;
-  }
-}
-
-.admin_edit_area_panel ::-webkit-scrollbar {
+.admin_actions_panel ::-webkit-scrollbar {
   width: 10px;
   margin-right: 10px;
 }
 
-.admin_edit_area_panel ::-webkit-scrollbar-track {
+.admin_actions_panel ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.admin_edit_area_panel ::-webkit-scrollbar-thumb {
+.admin_actions_panel ::-webkit-scrollbar-thumb {
   background-color: rgba(8, 8, 8, 0.1);
 }
 
-.admin_edit_area_panel ::-webkit-scrollbar-thumb:hover {
+.admin_actions_panel ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(8, 8, 8, 0.1);
 }
 
@@ -8903,46 +8972,6 @@ button:focus {
       grid-template-rows: -webkit-min-content -webkit-min-content -webkit-min-content -webkit-max-content -webkit-min-content -webkit-min-content -webkit-min-content -webkit-min-content;
       grid-template-rows: min-content min-content min-content max-content min-content min-content min-content min-content;
   height: 100%;
-}
-
-.projects_panel__form__subheader {
-  position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0 0 1rem;
-  margin: 1.5rem 0 2rem;
-  font-size: 1.125rem;
-  font-family: "Porto Sans";
-  color: #080808;
-  font-weight: 500;
-  text-shadow: 6px 4px 4px rgba(8, 8, 8, 0.075);
-}
-
-.projects_panel__form__subheader::after {
-  content: "";
-  position: absolute;
-  left: 0%;
-  bottom: 0%;
-  height: 2.5px;
-  width: 30px;
-  background-color: rgba(201, 77, 36, 0.7);
-  -webkit-box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
-          box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
-}
-
-@media (min-width: 120em) {
-  .projects_panel__form__subheader::after {
-    left: 0.75%;
-    width: 40px;
-    height: 3px;
-  }
-}
-
-@media (min-width: 120em) {
-  .projects_panel__form__subheader {
-    font-size: 1.375rem;
-  }
 }
 
 .projects_panel__form__inputs {
@@ -9092,5 +9121,45 @@ button:focus {
   content: "Inserir texto aqui";
   font-size: 0.9375rem;
   font-family: "Porto Sans";
+}
+
+.dashboard_subheader {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 0 1rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 1.125rem;
+  font-family: "Porto Sans";
+  color: #080808;
+  font-weight: 500;
+  text-shadow: 6px 4px 4px rgba(8, 8, 8, 0.075);
+}
+
+.dashboard_subheader::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  height: 2.5px;
+  width: 30px;
+  background-color: rgba(201, 77, 36, 0.7);
+  -webkit-box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
+          box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
+}
+
+@media (min-width: 120em) {
+  .dashboard_subheader::after {
+    left: 0.75%;
+    width: 40px;
+    height: 3px;
+  }
+}
+
+@media (min-width: 120em) {
+  .dashboard_subheader {
+    font-size: 1.375rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
