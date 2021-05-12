@@ -5,6 +5,7 @@ import Contacts from "../views/Contacts.vue";
 import Courses from "../views/Courses.vue";
 import DashboardAreas from "../views/Dashboard/DashboardAreas.vue";
 import DashboardCourses from "../views/Dashboard/DashboardCourses.vue";
+import DashboardEditAreas from "../views/Dashboard/DashboardEditAreas.vue";
 import DashboardHome from "../views/Dashboard/DashboardHome.vue";
 import DashboardProjects from "../views/Dashboard/DashboardProjects.vue";
 import DashboardUnities from "../views/Dashboard/DashboardUnities.vue";
@@ -93,6 +94,12 @@ const routes = [
     path: "/dashboard-areas",
     name: "DashboardAreas",
     component: DashboardAreas
+  },
+  {
+    path: "/dashboard-edit-areas/:name",
+    name: "DashboardEditAreas",
+    component: DashboardEditAreas,
+    props: true
   },
   {
     path: "/dashboard-courses",

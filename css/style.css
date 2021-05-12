@@ -8308,28 +8308,6 @@ button:focus {
   fill: #ffffff;
 }
 
-.quill-editor {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.ql-editor {
-  font-family: "Porto Sans";
-}
-
-.ql-container {
-  height: -webkit-fit-content !important;
-  height: -moz-fit-content !important;
-  height: fit-content !important;
-}
-
-.ql-editor.ql-blank::before {
-  content: "Inserir texto aqui";
-  font-size: 0.9375rem;
-  font-family: "Porto Sans";
-}
-
 .admin_areas__panel {
   width: 100%;
   /* Track */
@@ -8571,59 +8549,38 @@ button:focus {
   color: #080808;
 }
 
-.admin_add_slider {
-  position: fixed;
-  z-index: 999;
-  top: 0%;
-  right: -50vw;
-  padding: 30px 60px;
+.admin_edit_area {
   height: 100vh;
-  width: 50vw;
-  background-color: #ffffff;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
-  -ms-grid-rows: min-content min-content min-content 1fr min-content;
-      grid-template-rows: -webkit-min-content -webkit-min-content -webkit-min-content 1fr -webkit-min-content;
-      grid-template-rows: min-content min-content min-content 1fr min-content;
-  /* PROJECTS STYLE FORM */
+  overflow: hidden;
 }
 
-.admin_add_slider.show_slider {
-  right: 0%;
-}
-
-.admin_add_slider.open_add_area_slider {
-  right: 0%;
-}
-
-.admin_add_slider.open_add_course_slider {
-  right: 0%;
-}
-
-.admin_add_slider.open_add_project_slider {
-  right: 0%;
-}
-
-.admin_add_slider.open_add_unity_slider {
-  right: 0%;
-}
-
-.admin_add_slider__header {
+.admin_edit_area_panel {
   width: 100%;
+  position: relative;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
 
-.admin_add_slider__header h3 {
+.admin_edit_area_panel__header {
+  width: 100%;
+  height: 10vh;
+  padding: 30px 60px;
+  border-bottom: 1px solid rgba(153, 153, 153, 0.25);
+}
+
+.admin_edit_area_panel__header h3 {
   font-family: "Porto Sans";
   font-weight: 400;
-  font-size: 1.125rem;
+  font-size: 1rem;
   margin: 0;
 }
 
-.admin_add_slider__header h3 span {
+.admin_edit_area_panel__header h3 span {
   color: #c94d24;
 }
 
-.admin_add_slider__header__languages button {
+.admin_edit_area_panel__header__languages button {
   margin: 0;
   font-size: 1rem;
   cursor: pointer;
@@ -8633,23 +8590,23 @@ button:focus {
   font-family: "Porto Sans";
 }
 
-.admin_add_slider__header__languages button:first-child {
+.admin_edit_area_panel__header__languages button:first-child {
   padding-right: 0.875rem;
 }
 
-.admin_add_slider__header__languages button:last-child {
+.admin_edit_area_panel__header__languages button:last-child {
   padding-left: 0.875rem;
 }
 
-.admin_add_slider__header__languages button.selected {
+.admin_edit_area_panel__header__languages button.selected {
   color: #c94d24;
 }
 
-.admin_add_slider__header__languages button:not(.selected):hover {
+.admin_edit_area_panel__header__languages button:not(.selected):hover {
   color: #c94d24;
 }
 
-.admin_add_slider__header__languages hr {
+.admin_edit_area_panel__header__languages hr {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   background-color: #080808;
@@ -8658,643 +8615,96 @@ button:focus {
   height: 10px;
 }
 
-.admin_add_slider__divider {
-  margin: 2.8rem auto 2rem;
-  border: none;
-  background-color: rgba(8, 8, 8, 0.15);
-  width: 100%;
-  height: 1px;
+.admin_edit_area_panel__form {
+  -ms-grid-rows: min-content 1fr;
+      grid-template-rows: -webkit-min-content 1fr;
+      grid-template-rows: min-content 1fr;
+  height: 100%;
+  padding: 30px 60px;
 }
 
-.admin_add_slider__input {
-  margin: 0 0 2rem;
-}
-
-.admin_add_slider__input input {
+.admin_edit_area_panel__form input {
+  margin: 2rem 3.125rem 2rem 0;
   padding: 12px 26px;
-  margin-right: 3.125rem;
   font-family: "Porto Sans";
   font-size: 0.9375rem;
   border: 1px solid rgba(8, 8, 8, 0.3);
 }
 
-.admin_add_slider__editor {
-  margin-bottom: 2rem;
+.admin_edit_area_panel__form .area_edit_editor {
+  overflow: hidden;
 }
 
-.admin_add_slider__footer {
+.admin_edit_area_panel__form .ql-editor {
+  min-height: 50vh;
+}
+
+.admin_edit_area_panel__form__footer {
+  padding: 30px 60px;
   width: 100%;
-  background-color: #ffffff;
-  margin-top: 2rem;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
 }
 
-.admin_add_slider__footer__confirm, .admin_add_slider__footer__cancel {
-  width: 120px;
-  padding: 10px 0;
-  border-radius: 10px;
-  font-size: 1.0625rem;
+.admin_edit_area_panel ::-webkit-scrollbar {
+  width: 10px;
+  margin-right: 10px;
+}
+
+.admin_edit_area_panel ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin_edit_area_panel ::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_edit_area_panel ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.edit_confirm_button,
+.edit_cancel_button {
+  width: 100px;
+  padding: 6px 0;
+  border-radius: 4px;
+  font-size: 1rem;
   font-family: "Porto Sans";
 }
 
-.admin_add_slider__footer__confirm {
+.edit_confirm_button {
   margin-right: 40px;
   border: 2px solid #c94d24;
   background-color: #c94d24;
   color: #ffffff;
 }
 
-.admin_add_slider__footer__cancel {
-  border: 2px solid #c94d24;
+.edit_cancel_button {
+  border: 2px solid #080808;
   background-color: transparent;
   color: #080808;
 }
 
-.admin_add_slider.admin_projects__add_slider, .admin_add_slider.admin_projects_edit__slider {
-  right: -70vw;
-  width: 70vw;
-  -ms-grid-rows: min-content min-content min-content min-content;
-      grid-template-rows: -webkit-min-content -webkit-min-content -webkit-min-content -webkit-min-content;
-      grid-template-rows: min-content min-content min-content min-content;
-}
-
-@media (min-width: 120em) {
-  .admin_add_slider.admin_projects__add_slider, .admin_add_slider.admin_projects_edit__slider {
-    right: -60vw;
-    width: 60vw;
-  }
-}
-
-.admin_add_slider.admin_projects__add_slider.open_add_project_slider, .admin_add_slider.admin_projects__add_slider.show_slider, .admin_add_slider.admin_projects_edit__slider.open_add_project_slider, .admin_add_slider.admin_projects_edit__slider.show_slider {
-  right: 0%;
-}
-
-.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar, .admin_add_slider.admin_projects_edit__slider ::-webkit-scrollbar {
-  width: 5px;
-  margin-right: 10px;
-}
-
-.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar-track, .admin_add_slider.admin_projects_edit__slider ::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar-thumb, .admin_add_slider.admin_projects_edit__slider ::-webkit-scrollbar-thumb {
-  background-color: rgba(8, 8, 8, 0.1);
-}
-
-.admin_add_slider.admin_projects__add_slider ::-webkit-scrollbar-thumb:hover, .admin_add_slider.admin_projects_edit__slider ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(8, 8, 8, 0.1);
-}
-
-.admin_add_slider .admin_projects__add_slider__header__confirm,
-.admin_add_slider .admin_projects__add_slider__header__cancel {
-  width: 100px;
-  padding: 6px 0;
-  border-radius: 10px;
-  font-size: 0.9375rem;
-  font-family: "Porto Sans";
-}
-
-.admin_add_slider .admin_projects__add_slider__header__confirm {
-  margin-right: 20px;
-  border: 2px solid #c94d24;
-  background-color: #c94d24;
-  color: #ffffff;
-}
-
-.admin_add_slider .admin_projects__add_slider__header__cancel {
-  border: 2px solid #c94d24;
-  background-color: transparent;
-  color: #080808;
-}
-
-.admin_add_slider .margin_editor {
-  margin-bottom: 4rem;
-}
-
-.admin_add_slider__scroll {
-  max-height: 80vh;
+.quill-editor {
+  height: 100%;
   overflow-y: auto;
-  padding-right: 2rem;
+  overflow-x: hidden;
 }
 
-.admin_add_slider__subheader {
-  position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0 0 1rem;
-  margin: 1.5rem 0 2rem;
-  font-size: 1.125rem;
+.ql-editor {
   font-family: "Porto Sans";
-  color: #080808;
-  font-weight: 500;
-  text-shadow: 6px 4px 4px rgba(8, 8, 8, 0.075);
 }
 
-.admin_add_slider__subheader::after {
-  content: "";
-  position: absolute;
-  left: 0%;
-  bottom: 0%;
-  height: 2.5px;
-  width: 30px;
-  background-color: rgba(201, 77, 36, 0.7);
-  -webkit-box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
-          box-shadow: 3px 3px 4px rgba(8, 8, 8, 0.02);
+.ql-container {
+  height: -webkit-fit-content !important;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
 }
 
-@media (min-width: 120em) {
-  .admin_add_slider__subheader::after {
-    left: 0.75%;
-    width: 40px;
-    height: 3px;
-  }
-}
-
-@media (min-width: 120em) {
-  .admin_add_slider__subheader {
-    font-size: 1.375rem;
-  }
-}
-
-.admin_add_slider__form {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.admin_add_slider__form input {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 12px 26px;
-  margin-bottom: 2rem;
-  font-family: "Porto Sans";
-  font-size: 0.9375rem;
-  border: 1px solid rgba(8, 8, 8, 0.3);
-}
-
-.admin_add_slider input[type="file"] {
-  display: none;
-}
-
-.admin_add_slider .custom-file-upload {
-  padding: 10px 26px;
-  margin-bottom: 2rem;
-  font-family: "Porto Sans";
-  font-size: 0.9375rem;
-  border: 2px solid rgba(8, 8, 8, 0.35);
-  border-radius: 10px;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.admin_add_slider__team {
-  margin-bottom: 2rem;
-}
-
-.admin_add_slider__team__form {
-  margin-bottom: 1rem;
-}
-
-.admin_add_slider__team__form__grid {
-  -ms-grid-columns: (min-content)[3];
-      grid-template-columns: repeat(3, -webkit-min-content);
-      grid-template-columns: repeat(3, min-content);
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
-}
-
-.admin_add_slider__team__form__grid__add, .admin_add_slider__team__form__grid__remove {
-  padding: 12px 26px;
-  border-radius: 10px;
+.ql-editor.ql-blank::before {
+  content: "Inserir texto aqui";
   font-size: 0.9375rem;
   font-family: "Porto Sans";
-  border: none;
-}
-
-.admin_add_slider__team__form__grid__add {
-  margin-right: 20px;
-  background-color: #fff5df;
-  color: #ff8000;
-}
-
-.admin_add_slider__team__form__grid__remove {
-  background-color: #ffe6e6;
-  color: #ff1010;
-}
-
-.admin_add_slider__team__form input {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 12px 26px;
-  font-family: "Porto Sans";
-  font-size: 0.9375rem;
-  border: 1px solid rgba(8, 8, 8, 0.3);
-}
-
-.admin_add_slider__team__form .custom-file-upload {
-  margin-bottom: 0;
-}
-
-.admin_add_slider__team__form:not(:first-child) {
-  margin-top: 1rem;
-}
-
-.admin_add_slider__images__img {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 12.375rem;
-  width: 16.75rem;
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-.admin_add_slider__images__img__actions {
-  width: 100%;
-  position: absolute;
-  bottom: 0%;
-  left: 0%;
-  background-color: #080808;
-  padding: 0.65rem 1.25rem;
-}
-
-.admin_add_slider__images__img__actions__edit, .admin_add_slider__images__img__actions__remove {
-  font-family: "Porto Sans";
-  background-color: transparent;
-  border: none;
-  font-size: 0.9375rem;
-  padding: 0;
-}
-
-.admin_add_slider__images__img__actions__edit {
-  color: #ffad10;
-}
-
-.admin_add_slider__images__img__actions__remove {
-  color: #fe6161;
-}
-
-.admin_add_slider .glide .controls_btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  border: none;
-  -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -1px -1px 10px 0px rgba(0, 0, 0, 0.05);
-          box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -1px -1px 10px 0px rgba(0, 0, 0, 0.05);
-  margin: 0 1rem 30px;
-  cursor: pointer;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
-.admin_add_slider .glide .controls_btn:focus {
-  outline: none;
-}
-
-.admin_add_slider .glide .controls_btn:hover {
-  -webkit-box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.08), -2px -2px 10px 0px rgba(0, 0, 0, 0.08);
-          box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.08), -2px -2px 10px 0px rgba(0, 0, 0, 0.08);
-}
-
-.admin_add_slider .glide .controls_btn:hover .left__arrow,
-.admin_add_slider .glide .controls_btn:hover .right__arrow {
-  fill: #c94d24;
-}
-
-.admin_add_slider .glide .controls_btn .left__arrow,
-.admin_add_slider .glide .controls_btn .right__arrow {
-  width: 20px;
-  margin-top: 5px;
-}
-
-.admin_courses__panel {
-  width: 100%;
-  /* Track */
-  /* Handle */
-  /* Handle on hover */
-}
-
-.admin_courses__panel__overlay, .admin_courses__panel__overlay_slide, .admin_courses__panel__overlay_add {
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  z-index: 998;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(8, 8, 8, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.admin_courses__panel__overlay.show_overlay {
-  opacity: 1;
-  visibility: visible;
-}
-
-.admin_courses__panel__overlay_slide.show_overlay_slide {
-  opacity: 1;
-  visibility: visible;
-}
-
-.admin_courses__panel__overlay_add.open_add_course_overlay {
-  opacity: 1;
-  visibility: visible;
-}
-
-.admin_courses__panel__tools {
-  padding: 3rem;
-}
-
-.admin_courses__panel__tools input {
-  padding: 12px 26px;
-  margin-right: 3.125rem;
-  border-radius: 10px;
-  font-family: "Porto Sans";
-  font-size: 0.9375rem;
-  border: 1px solid rgba(8, 8, 8, 0.3);
-}
-
-.admin_courses__panel__tools input:focus {
-  outline: none;
-  border: 1px solid #c94d24;
-}
-
-.admin_courses__panel__tools p {
-  color: #c94d24;
-  margin-right: 2.5rem;
-  font-size: 1.125rem;
-}
-
-.admin_courses__panel__tools p svg {
-  margin-right: 0.6rem;
-}
-
-.admin_courses__panel__tools button {
-  background-color: rgba(8, 8, 8, 0.02);
-  border: none;
-  border-radius: 1.625rem;
-  padding: 0.84375rem 1.625rem;
-  margin-right: 3.125rem;
-  font-size: 1rem;
-  font-family: "Porto Sans";
-  letter-spacing: 0.2px;
-}
-
-.admin_courses__panel__tools select {
-  padding: 6px 16px;
-  border-radius: 10px;
-  border: 2px solid #c94d24;
-}
-
-.admin_courses__panel__tools select:focus {
-  outline: none;
-}
-
-.admin_courses__panel__grid {
-  padding: 0 3rem 0 3rem;
-  max-height: 60vh;
-  overflow-y: auto;
-  row-gap: 2.25rem;
-}
-
-.admin_courses__panel ::-webkit-scrollbar {
-  width: 10px;
-  margin-right: 10px;
-}
-
-.admin_courses__panel ::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.admin_courses__panel ::-webkit-scrollbar-thumb {
-  background-color: rgba(8, 8, 8, 0.1);
-}
-
-.admin_courses__panel ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(8, 8, 8, 0.1);
-}
-
-.admin_projects__panel {
-  width: 100%;
-  /* Track */
-  /* Handle */
-  /* Handle on hover */
-}
-
-.admin_projects__panel__overlay, .admin_projects__panel__overlay_slide, .admin_projects__panel__overlay_add {
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  z-index: 998;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(8, 8, 8, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.admin_projects__panel__overlay.show_overlay {
-  opacity: 1;
-  visibility: visible;
-}
-
-.admin_projects__panel__overlay_slide.show_overlay_slide {
-  opacity: 1;
-  visibility: visible;
-}
-
-.admin_projects__panel__overlay_add.open_add_project_overlay {
-  opacity: 1;
-  visibility: visible;
-}
-
-.admin_projects__panel__tools {
-  padding: 3rem;
-}
-
-.admin_projects__panel__tools input {
-  padding: 12px 26px;
-  margin-right: 3.125rem;
-  border-radius: 10px;
-  font-family: "Porto Sans";
-  font-size: 0.9375rem;
-  border: 1px solid rgba(8, 8, 8, 0.3);
-}
-
-.admin_projects__panel__tools input:focus {
-  outline: none;
-  border: 1px solid #c94d24;
-}
-
-.admin_projects__panel__tools p {
-  color: #c94d24;
-  margin-right: 2.5rem;
-  font-size: 1.125rem;
-}
-
-.admin_projects__panel__tools p svg {
-  margin-right: 0.6rem;
-}
-
-.admin_projects__panel__tools button {
-  background-color: rgba(8, 8, 8, 0.02);
-  border: none;
-  border-radius: 1.625rem;
-  padding: 0.84375rem 1.625rem;
-  margin-right: 3.125rem;
-  font-size: 1rem;
-  font-family: "Porto Sans";
-  letter-spacing: 0.2px;
-}
-
-.admin_projects__panel__tools select {
-  padding: 6px 16px;
-  border-radius: 10px;
-  border: 2px solid #c94d24;
-}
-
-.admin_projects__panel__tools select:focus {
-  outline: none;
-}
-
-.admin_projects__panel__grid {
-  padding: 0 3rem 0 3rem;
-  max-height: 60vh;
-  overflow-y: auto;
-  row-gap: 2.25rem;
-}
-
-.admin_projects__panel ::-webkit-scrollbar {
-  width: 10px;
-  margin-right: 10px;
-}
-
-.admin_projects__panel ::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.admin_projects__panel ::-webkit-scrollbar-thumb {
-  background-color: rgba(8, 8, 8, 0.1);
-}
-
-.admin_projects__panel ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(8, 8, 8, 0.1);
-}
-
-.admin_unities__panel {
-  width: 100%;
-  /* Track */
-  /* Handle */
-  /* Handle on hover */
-}
-
-.admin_unities__panel__overlay, .admin_unities__panel__overlay_slide, .admin_unities__panel__overlay_add {
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  z-index: 998;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(8, 8, 8, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.admin_unities__panel__overlay.show_overlay {
-  opacity: 1;
-  visibility: visible;
-}
-
-.admin_unities__panel__overlay_slide.show_overlay_slide {
-  opacity: 1;
-  visibility: visible;
-}
-
-.admin_unities__panel__overlay_add.open_add_unity_overlay {
-  opacity: 1;
-  visibility: visible;
-}
-
-.admin_unities__panel__tools {
-  padding: 3rem;
-}
-
-.admin_unities__panel__tools input {
-  padding: 12px 26px;
-  margin-right: 3.125rem;
-  border-radius: 10px;
-  font-family: "Porto Sans";
-  font-size: 0.9375rem;
-  border: 1px solid rgba(8, 8, 8, 0.3);
-}
-
-.admin_unities__panel__tools input:focus {
-  outline: none;
-  border: 1px solid #c94d24;
-}
-
-.admin_unities__panel__tools p {
-  color: #c94d24;
-  margin-right: 2.5rem;
-  font-size: 1.125rem;
-}
-
-.admin_unities__panel__tools p svg {
-  margin-right: 0.6rem;
-}
-
-.admin_unities__panel__tools button {
-  background-color: rgba(8, 8, 8, 0.02);
-  border: none;
-  border-radius: 1.625rem;
-  padding: 0.84375rem 1.625rem;
-  margin-right: 3.125rem;
-  font-size: 1rem;
-  font-family: "Porto Sans";
-  letter-spacing: 0.2px;
-}
-
-.admin_unities__panel__tools select {
-  padding: 6px 16px;
-  border-radius: 10px;
-  border: 2px solid #c94d24;
-}
-
-.admin_unities__panel__tools select:focus {
-  outline: none;
-}
-
-.admin_unities__panel__grid {
-  padding: 0 3rem 0 3rem;
-  max-height: 60vh;
-  overflow-y: auto;
-  row-gap: 2.25rem;
-}
-
-.admin_unities__panel ::-webkit-scrollbar {
-  width: 10px;
-  margin-right: 10px;
-}
-
-.admin_unities__panel ::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.admin_unities__panel ::-webkit-scrollbar-thumb {
-  background-color: rgba(8, 8, 8, 0.1);
-}
-
-.admin_unities__panel ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(8, 8, 8, 0.1);
 }
 /*# sourceMappingURL=style.css.map */

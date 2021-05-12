@@ -11,7 +11,7 @@
     <div class="flex flex-ai-c">
       <button
         class="admin_areas__panel__grid__card__edit"
-        @click="openSlider(id)"
+        @click="openSlider(id, areaName)"
       >
         Editar
       </button>
@@ -43,20 +43,25 @@ export default {
     }
   },
   methods: {
-    openSlider(areaId) {
-      let overlay = document.querySelector(
-        ".admin_areas__panel__overlay_slide"
-      );
+    openSlider(areaId, areaName) {
+      // let overlay = document.querySelector(
+      //   ".admin_areas__panel__overlay_slide"
+      // );
 
-      let slider = document.querySelector(".admin_areas__slider");
+      // let slider = document.querySelector(".admin_areas__slider");
 
-      overlay.classList.toggle("show_overlay_slide");
-      slider.classList.toggle("show_slider");
+      // overlay.classList.toggle("show_overlay_slide");
+      // slider.classList.toggle("show_slider");
 
       // AREA ID LOGIC
 
       this.$store.commit("SET_SELECTED_AREA_ID", {
         id: areaId
+      });
+
+      this.$router.push({
+        name: "DashboardEditAreas",
+        params: { name: areaName }
       });
     },
     showPopup(areaId) {

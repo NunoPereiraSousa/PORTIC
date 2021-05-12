@@ -17,6 +17,7 @@
           this.$route.name !== 'Home' &&
             this.$route.name !== 'DashboardHome' &&
             this.$route.name !== 'DashboardAreas' &&
+            this.$route.name !== 'DashboardEditAreas' &&
             this.$route.name !== 'DashboardCourses' &&
             this.$route.name !== 'DashboardProjects' &&
             this.$route.name !== 'DashboardUnities'
