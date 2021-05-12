@@ -92,8 +92,6 @@ export default {
   },
   created() {
     this.unities = this.getUnitiesPT;
-
-    console.log(this.unities);
   },
   mounted() {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;

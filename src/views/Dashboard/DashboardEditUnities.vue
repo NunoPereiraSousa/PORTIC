@@ -15,7 +15,7 @@
         </div>
         <div>
           <h3>
-            Adicionar unidade
+            Unidade <span>{{ unityName }}</span>
           </h3>
         </div>
         <div>
@@ -30,25 +30,12 @@
 
       <div class="admin_actions_panel__form">
         <h3 class="dashboard_subheader">
-          Nome da Unidade e Fotografia
+          Nome da unidade
         </h3>
-
-        <div class="flex flex-ai-c">
-          <input
-            type="text"
-            placeholder="Nome da unidade"
-            style="margin-right: 2rem;"
-          />
-          <label class="custom-file-upload">
-            <input type="file" />
-            Upload de imagens
-          </label>
-        </div>
-
+        <input type="text" :placeholder="unityName" v-model="unityTxt" />
         <h3 class="dashboard_subheader">
-          Conteúdo do projeto
+          Conteúdo da unidade
         </h3>
-
         <div class="area_edit_editor">
           <quill-editor
             v-model="content"
@@ -64,6 +51,7 @@
 
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -71,7 +59,9 @@ export default {
   },
   data: () => {
     return {
+      unityName: "",
       content: "",
+      unityTxt: "",
       editorOption: {
         modules: {
           toolbar: [
@@ -106,6 +96,12 @@ export default {
         }
       }
     };
+  },
+  computed: {
+    ...mapGetters(["getSelectedUnityId", "getUnityById"])
+  },
+  created() {
+    this.unityName = this.getUnityById(this.getSelectedUnityId).unityName;
   },
   mounted() {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;

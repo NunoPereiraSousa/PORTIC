@@ -258,19 +258,19 @@
   .margin_bottom {
     margin-bottom: 4rem;
   }
+}
 
-  input[type="file"] {
-    display: none;
-  }
+input[type="file"] {
+  display: none;
+}
 
-  .custom-file-upload {
-    padding: 10px 26px;
-    margin-bottom: 2rem;
-    font-family: $portoSans;
-    font-size: $_15px;
-    border: 1px solid rgba($color: $black, $alpha: 0.35);
-    border-radius: 2px;
-    display: inline-block;
-    cursor: pointer;
-  }
+.custom-file-upload {
+  padding: 10.2px 26px;
+  margin-bottom: 2rem;
+  font-family: $portoSans;
+  font-size: $_15px;
+  border: 1px solid rgba($color: $black, $alpha: 0.35);
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
 }

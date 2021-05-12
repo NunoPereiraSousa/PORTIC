@@ -9082,12 +9082,12 @@ button:focus {
   margin-bottom: 4rem;
 }
 
-.projects_panel input[type="file"] {
+input[type="file"] {
   display: none;
 }
 
-.projects_panel .custom-file-upload {
-  padding: 10px 26px;
+.custom-file-upload {
+  padding: 10.2px 26px;
   margin-bottom: 2rem;
   font-family: "Porto Sans";
   font-size: 0.9375rem;

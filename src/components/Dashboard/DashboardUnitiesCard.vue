@@ -10,7 +10,7 @@
     <div class="flex flex-ai-c">
       <button
         class="admin_unities__panel__grid__card__edit"
-        @click="openSlider(id)"
+        @click="openPage(id, unityName)"
       >
         Editar
       </button>
@@ -42,19 +42,14 @@ export default {
     }
   },
   methods: {
-    openSlider(unityId) {
-      let overlay = document.querySelector(
-        ".admin_unities__panel__overlay_slide"
-      );
-      let slider = document.querySelector(".admin_unities_edit__slider");
-      overlay.classList.toggle("show_overlay_slide");
-      slider.classList.toggle("show_slider");
-
-      console.log(unityId);
-
-      // COURSE ID LOGIC
+    openPage(unityId, unityName) {
       this.$store.commit("SET_SELECTED_UNITY_ID", {
         id: unityId
+      });
+
+      this.$router.push({
+        name: "DashboardEditUnities",
+        params: { name: unityName }
       });
     },
     showPopup(unityId) {
