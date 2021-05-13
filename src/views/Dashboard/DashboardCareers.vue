@@ -4,7 +4,7 @@
     <div class="admin_careers__panel">
       <div class="admin_careers__panel__overlay" @click="closePopup"></div>
 
-      <!-- <DashboardCoursesPopup :careerName="careerName" /> -->
+      <DashboardCareersPopup :careerName="careerName" />
       <DashboardTopHeader />
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
@@ -79,15 +79,15 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardCareersCard from "@/components/Dashboard/DashboardCareersCard.vue";
-// import DashboardCoursesPopup from "@/components/Dashboard/Popup/DashboardCoursesPopup.vue";
+import DashboardCareersPopup from "@/components/Dashboard/Popup/DashboardCareersPopup.vue";
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
-    DashboardCareersCard
-    // DashboardCoursesPopup
+    DashboardCareersCard,
+    DashboardCareersPopup
   },
   data: () => {
     return {
@@ -107,11 +107,11 @@ export default {
     ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
-    ...mapGetters(["getSelectedCourseByID", "getCourseByID", "getPositions"]),
+    ...mapGetters(["getSelectedCareerByID", "getCareerByID", "getPositions"]),
     careerName() {
-      let id = this.getSelectedCourseByID;
+      let id = this.getSelectedCareerByID;
 
-      let career = this.getCourseByID(id);
+      let career = this.getCareerByID(id);
 
       let name;
 
@@ -137,7 +137,7 @@ export default {
   },
   methods: {
     closePopup() {
-      let overlay = document.querySelector(".admin_courses__panel__overlay");
+      let overlay = document.querySelector(".admin_careers__panel__overlay");
       let popup = document.querySelector(".admin_delete_popup");
 
       overlay.classList.toggle("show_overlay");
