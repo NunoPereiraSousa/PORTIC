@@ -183,6 +183,167 @@
         </button>
       </div>
 
+      <div v-else-if="$route.name == 'DashboardCareers'">
+        <button
+          class="top_header__actions__add flex flex-ai-c"
+          @click="careersPage"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20.835"
+            height="20.853"
+            viewBox="0 0 20.835 20.853"
+          >
+            <g id="selection" transform="translate(0.353 0.375)">
+              <g
+                id="Group_3"
+                data-name="Group 3"
+                transform="translate(0.789 0.786)"
+              >
+                <g id="Group_2" data-name="Group 2" transform="translate(0 0)">
+                  <path
+                    id="Path_3"
+                    data-name="Path 3"
+                    d="M35.831,22.716a9.274,9.274,0,1,0,2.716,6.556,9.274,9.274,0,0,0-2.716-6.556ZM29.275,37.762a8.488,8.488,0,1,1,8.486-8.487,8.488,8.488,0,0,1-8.486,8.487Z"
+                    transform="translate(-19.999 -20)"
+                    fill="#fff"
+                    stroke="#fff"
+                    stroke-width="0.75"
+                  />
+                </g>
+              </g>
+              <g
+                id="Group_7"
+                data-name="Group 7"
+                transform="translate(12.216 3.378)"
+              >
+                <g id="Group_6" data-name="Group 6" transform="translate(0 0)">
+                  <path
+                    id="Path_5"
+                    data-name="Path 5"
+                    d="M290.2,65.174h-.014a.393.393,0,0,0-.184.764h.01a.393.393,0,0,0,.188-.763Z"
+                    transform="translate(-289.719 -65.167)"
+                    fill="#fff"
+                  />
+                </g>
+              </g>
+              <g
+                id="Group_13"
+                data-name="Group 13"
+                transform="translate(7.124 15.958)"
+              >
+                <g
+                  id="Group_12"
+                  data-name="Group 12"
+                  transform="translate(0 0)"
+                >
+                  <path
+                    id="Path_8"
+                    data-name="Path 8"
+                    d="M202.675,426.819a.393.393,0,1,0-.188.763h.006a.393.393,0,1,0,.183-.764Z"
+                    transform="translate(-202.172 -426.803)"
+                    fill="#fff"
+                  />
+                </g>
+              </g>
+              <g
+                id="Group_17"
+                data-name="Group 17"
+                transform="translate(9.671)"
+              >
+                <g id="Group_16" data-name="Group 16">
+                  <path
+                    id="Path_10"
+                    data-name="Path 10"
+                    d="M246.393,0A.393.393,0,0,0,246,.393V3.34a.393.393,0,0,0,.786,0V.393A.393.393,0,0,0,246.393,0Z"
+                    transform="translate(-246)"
+                    fill="#fff"
+                    stroke="#fff"
+                    stroke-width="0.75"
+                  />
+                </g>
+              </g>
+              <g
+                id="Group_19"
+                data-name="Group 19"
+                transform="translate(9.671 16.387)"
+              >
+                <g id="Group_18" data-name="Group 18">
+                  <path
+                    id="Path_11"
+                    data-name="Path 11"
+                    d="M246.393,417a.393.393,0,0,0-.393.393v2.947a.393.393,0,0,0,.786,0v-2.947A.393.393,0,0,0,246.393,417Z"
+                    transform="translate(-246 -417)"
+                    fill="#fff"
+                    stroke="#fff"
+                    stroke-width="0.75"
+                  />
+                </g>
+              </g>
+              <g
+                id="Group_21"
+                data-name="Group 21"
+                transform="translate(16.373 9.667)"
+              >
+                <g
+                  id="Group_20"
+                  data-name="Group 20"
+                  transform="translate(0 0)"
+                >
+                  <path
+                    id="Path_12"
+                    data-name="Path 12"
+                    d="M420.336,246h-2.947a.393.393,0,1,0,0,.786h2.947a.393.393,0,0,0,0-.786Z"
+                    transform="translate(-416.978 -245.999)"
+                    fill="#fff"
+                    stroke="#fff"
+                    stroke-width="0.75"
+                  />
+                </g>
+              </g>
+              <g
+                id="Group_23"
+                data-name="Group 23"
+                transform="translate(0.022 9.667)"
+              >
+                <g id="Group_22" data-name="Group 22">
+                  <path
+                    id="Path_13"
+                    data-name="Path 13"
+                    d="M3.345,246H.4a.393.393,0,0,0,0,.786H3.345a.393.393,0,0,0,0-.786Z"
+                    transform="translate(-0.022 -246)"
+                    fill="#fff"
+                    stroke="#fff"
+                    stroke-width="0.75"
+                  />
+                </g>
+              </g>
+              <g
+                id="Group_24"
+                data-name="Group 24"
+                transform="translate(8.48 8.48)"
+              >
+                <g
+                  id="Group_12-2"
+                  data-name="Group 12"
+                  transform="translate(0 0)"
+                >
+                  <path
+                    id="Path_8-2"
+                    data-name="Path 8"
+                    d="M204.147,426.855a1.578,1.578,0,1,0-.755,3.064l.022.006a1.578,1.578,0,1,0,.733-3.069Z"
+                    transform="translate(-202.191 -426.809)"
+                    fill="#fff"
+                    stroke="#fff"
+                    stroke-width="0.75"
+                  />
+                </g>
+              </g>
+            </g>
+          </svg>
+          Adicionar
+        </button>
+      </div>
       <div class="top_header__actions__image" :style="imageStyle"></div>
     </div>
   </header>
@@ -293,6 +454,11 @@ export default {
     unitiesPage() {
       this.$router.push({
         name: "DashboardAddUnities"
+      });
+    },
+    careersPage() {
+      this.$router.push({
+        name: "DashboardAddCareers"
       });
     }
   }

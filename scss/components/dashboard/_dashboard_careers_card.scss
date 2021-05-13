@@ -1,0 +1,119 @@
+.admin_careers__panel__grid__card {
+  width: 100%;
+  padding: 2.25rem 50px;
+
+  background-color: rgba($color: $black, $alpha: 0.02);
+  border-radius: 26px;
+
+  row-gap: 4rem;
+
+  h5,
+  h2 {
+    font-weight: 400;
+    margin: 0;
+  }
+
+  h5 {
+    font-size: $_16px;
+    margin-right: 50px;
+  }
+
+  h2 {
+    color: $orange;
+    font-size: $_20px;
+  }
+
+  &__edit,
+  &__remove {
+    width: 120px;
+    border-radius: 12px;
+    border: none;
+
+    padding: 12px 30px;
+
+    font-family: $portoSans;
+    font-size: $_17px;
+  }
+
+  &__edit {
+    margin-right: 30px;
+    background-color: $admin_yellow;
+    color: $admin_orange;
+  }
+
+  &__remove {
+    background-color: $admin_pink;
+    color: $admin_red;
+  }
+
+  &__more {
+    background-color: transparent;
+    border: none;
+    color: $black;
+    padding: 0;
+    font-family: $portoSans;
+    font-size: $_16px;
+    text-decoration: 1px underline;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0 calc(1rem + 3.5px);
+    list-style: none;
+
+    font-size: $_17px;
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_18px;
+    }
+
+    li {
+      margin: 1rem 0;
+      letter-spacing: 0.1px;
+
+      &:first-child {
+        margin: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        content: "\2022";
+        color: $orange;
+        border: none;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+    }
+  }
+
+  p {
+    line-height: 1.6;
+    word-wrap: break-word;
+
+    margin: 0;
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_20px;
+      line-height: 1.7;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_17px;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: underline;
+      color: $orange;
+    }
+
+    li {
+      margin: 0;
+    }
+  }
+}

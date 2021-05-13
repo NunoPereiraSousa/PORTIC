@@ -9097,6 +9097,56 @@ input[type="file"] {
   cursor: pointer;
 }
 
+.admin_careers__panel {
+  width: 100%;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.admin_careers__panel__overlay {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 998;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(8, 8, 8, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.admin_careers__panel__overlay.show_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_careers__panel__grid {
+  padding: 0 3rem 0 3rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  row-gap: 2.25rem;
+}
+
+.admin_careers__panel ::-webkit-scrollbar {
+  width: 10px;
+  margin-right: 10px;
+}
+
+.admin_careers__panel ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin_careers__panel ::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_careers__panel ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
 .quill-editor {
   height: 100%;
   overflow-y: auto;
@@ -9161,5 +9211,125 @@ input[type="file"] {
   .dashboard_subheader {
     font-size: 1.375rem;
   }
+}
+
+.admin_careers__panel__grid__card {
+  width: 100%;
+  padding: 2.25rem 50px;
+  background-color: rgba(8, 8, 8, 0.02);
+  border-radius: 26px;
+  row-gap: 4rem;
+}
+
+.admin_careers__panel__grid__card h5,
+.admin_careers__panel__grid__card h2 {
+  font-weight: 400;
+  margin: 0;
+}
+
+.admin_careers__panel__grid__card h5 {
+  font-size: 1rem;
+  margin-right: 50px;
+}
+
+.admin_careers__panel__grid__card h2 {
+  color: #c94d24;
+  font-size: 1.25rem;
+}
+
+.admin_careers__panel__grid__card__edit, .admin_careers__panel__grid__card__remove {
+  width: 120px;
+  border-radius: 12px;
+  border: none;
+  padding: 12px 30px;
+  font-family: "Porto Sans";
+  font-size: 1.0625rem;
+}
+
+.admin_careers__panel__grid__card__edit {
+  margin-right: 30px;
+  background-color: #fff5df;
+  color: #ff8000;
+}
+
+.admin_careers__panel__grid__card__remove {
+  background-color: #ffe6e6;
+  color: #ff1010;
+}
+
+.admin_careers__panel__grid__card__more {
+  background-color: transparent;
+  border: none;
+  color: #080808;
+  padding: 0;
+  font-family: "Porto Sans";
+  font-size: 1rem;
+  -webkit-text-decoration: 1px underline;
+          text-decoration: 1px underline;
+}
+
+.admin_careers__panel__grid__card ul {
+  margin: 0;
+  padding: 0 calc(1rem + 3.5px);
+  list-style: none;
+  font-size: 1.0625rem;
+}
+
+@media (min-width: 64em) {
+  .admin_careers__panel__grid__card ul {
+    font-size: 1.125rem;
+  }
+}
+
+.admin_careers__panel__grid__card ul li {
+  margin: 1rem 0;
+  letter-spacing: 0.1px;
+}
+
+.admin_careers__panel__grid__card ul li:first-child {
+  margin: 0;
+}
+
+.admin_careers__panel__grid__card ul li:last-child {
+  margin-bottom: 0;
+}
+
+.admin_careers__panel__grid__card ul li::before {
+  content: "\2022";
+  color: #c94d24;
+  border: none;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.admin_careers__panel__grid__card p {
+  line-height: 1.6;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+@media (min-width: 64em) {
+  .admin_careers__panel__grid__card p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 64em) {
+  .admin_careers__panel__grid__card p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+}
+
+.admin_careers__panel__grid__card p a {
+  text-decoration: underline;
+  color: #c94d24;
+}
+
+.admin_careers__panel__grid__card p li {
+  margin: 0;
 }
 /*# sourceMappingURL=style.css.map */
