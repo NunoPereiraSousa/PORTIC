@@ -4,6 +4,7 @@ import Areas from "../views/Areas.vue";
 import Contacts from "../views/Contacts.vue";
 import Courses from "../views/Courses.vue";
 import DashboardAddAreas from "../views/Dashboard/DashboardAddAreas.vue";
+import DashboardAddCareers from "../views/Dashboard/DashboardAddCareers.vue";
 import DashboardAddCourses from "../views/Dashboard/DashboardAddCourses.vue";
 import DashboardAddProjects from "../views/Dashboard/DashboardAddProjects.vue";
 import DashboardAddUnities from "../views/Dashboard/DashboardAddUnities.vue";
@@ -157,6 +158,11 @@ const routes = [
     name: "DashboardEditCareers",
     component: DashboardEditCareers,
     props: true
+  },
+  {
+    path: "/dashboard-add-careers",
+    name: "DashboardAddCareers",
+    component: DashboardAddCareers
   },
   {
     path: "/dashboard-unities",
