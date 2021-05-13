@@ -67,9 +67,9 @@ export default {
     ...mapGetters(["getSelectedCourseByID", "getCourseByID"])
   },
   methods: {
-    openPage(courseId, careerName) {
+    openPage(careerId, careerName) {
       this.$store.commit("SET_SELECTED_CAREER_ID", {
-        id: courseId
+        id: careerId
       });
 
       this.$router.push({
@@ -77,7 +77,7 @@ export default {
         params: { name: careerName }
       });
     },
-    showPopup(courseId) {
+    showPopup(careerId) {
       let overlay = document.querySelector(".admin_careers__panel__overlay");
       let popup = document.querySelector(".admin_delete_popup");
 
@@ -86,8 +86,8 @@ export default {
 
       // COURSE ID LOGIC
 
-      this.$store.commit("SET_SELECTED_COURSE_ID", {
-        id: courseId
+      this.$store.commit("SET_SELECTED_CAREER_ID", {
+        id: careerId
       });
     },
     toggleInfo() {

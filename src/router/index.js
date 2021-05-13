@@ -11,6 +11,7 @@ import DashboardAreas from "../views/Dashboard/DashboardAreas.vue";
 import DashboardCareers from "../views/Dashboard/DashboardCareers.vue";
 import DashboardCourses from "../views/Dashboard/DashboardCourses.vue";
 import DashboardEditAreas from "../views/Dashboard/DashboardEditAreas.vue";
+import DashboardEditCareers from "../views/Dashboard/DashboardEditCareers.vue";
 import DashboardEditCourses from "../views/Dashboard/DashboardEditCourses.vue";
 import DashboardEditProjects from "../views/Dashboard/DashboardEditProjects.vue";
 import DashboardEditUnities from "../views/Dashboard/DashboardEditUnities.vue";
@@ -150,6 +151,12 @@ const routes = [
     path: "/dashboard-careers",
     name: "DashboardCareers",
     component: DashboardCareers
+  },
+  {
+    path: "/dashboard-edit-careers/:name",
+    name: "DashboardEditCareers",
+    component: DashboardEditCareers,
+    props: true
   },
   {
     path: "/dashboard-unities",
