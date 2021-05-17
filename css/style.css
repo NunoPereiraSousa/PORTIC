@@ -8375,7 +8375,7 @@ button:focus {
 }
 
 .dashboard_tools {
-  padding: 3rem;
+  padding: 1rem 3rem 2rem;
 }
 
 .dashboard_tools input {
@@ -8429,9 +8429,19 @@ button:focus {
 .admin_unities__panel__grid__card,
 .admin_users__panel__grid__card {
   width: 100%;
-  padding: 2.25rem 3.125rem;
+  padding: 2rem 3rem;
   background-color: rgba(8, 8, 8, 0.02);
   border-radius: 26px;
+}
+
+@media (min-width: 120em) {
+  .admin_areas__panel__grid__card,
+  .admin_courses__panel__grid__card,
+  .admin_projects__panel__grid__card,
+  .admin_unities__panel__grid__card,
+  .admin_users__panel__grid__card {
+    padding: 2.25rem 3.125rem;
+  }
 }
 
 .admin_areas__panel__grid__card h5,
@@ -8463,7 +8473,17 @@ button:focus {
 .admin_unities__panel__grid__card h2,
 .admin_users__panel__grid__card h2 {
   color: #c94d24;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
+}
+
+@media (min-width: 120em) {
+  .admin_areas__panel__grid__card h2,
+  .admin_courses__panel__grid__card h2,
+  .admin_projects__panel__grid__card h2,
+  .admin_unities__panel__grid__card h2,
+  .admin_users__panel__grid__card h2 {
+    font-size: 1.25rem;
+  }
 }
 
 .admin_areas__panel__grid__card__edit, .admin_areas__panel__grid__card__remove, .admin_areas__panel__grid__card__block,
@@ -8484,7 +8504,25 @@ button:focus {
   border: none;
   padding: 0.75rem 1.875rem;
   font-family: "Porto Sans";
-  font-size: 1.0625rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 120em) {
+  .admin_areas__panel__grid__card__edit, .admin_areas__panel__grid__card__remove, .admin_areas__panel__grid__card__block,
+  .admin_courses__panel__grid__card__edit,
+  .admin_courses__panel__grid__card__remove,
+  .admin_courses__panel__grid__card__block,
+  .admin_projects__panel__grid__card__edit,
+  .admin_projects__panel__grid__card__remove,
+  .admin_projects__panel__grid__card__block,
+  .admin_unities__panel__grid__card__edit,
+  .admin_unities__panel__grid__card__remove,
+  .admin_unities__panel__grid__card__block,
+  .admin_users__panel__grid__card__edit,
+  .admin_users__panel__grid__card__remove,
+  .admin_users__panel__grid__card__block {
+    font-size: 1.0625rem;
+  }
 }
 
 .admin_areas__panel__grid__card__block,
@@ -8526,13 +8564,13 @@ button:focus {
 }
 
 .admin_users__panel__grid__card h2 {
-  margin-right: 3.125rem;
+  margin-right: 5rem;
 }
 
 .admin_users__panel__grid__card h3 {
-  margin-right: 3.125rem;
+  margin: 0 3.125rem 0 0;
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
 .admin_delete_popup {
@@ -8988,6 +9026,48 @@ button:focus {
   outline: none;
 }
 
+.admin_actions_panel__user_form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: min-content min-content min-content min-content min-content 1fr;
+      grid-template-rows: -webkit-min-content -webkit-min-content -webkit-min-content -webkit-min-content -webkit-min-content 1fr;
+      grid-template-rows: min-content min-content min-content min-content min-content 1fr;
+  height: 90vh;
+  padding: 30px 60px;
+}
+
+.admin_actions_panel__user_form input,
+.admin_actions_panel__user_form select {
+  margin-bottom: 2rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 12px 26px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_actions_panel__user_form input:focus,
+.admin_actions_panel__user_form select:focus {
+  border: 1px solid #080808;
+  outline: none;
+}
+
+.admin_actions_panel__user_form select {
+  padding: 11px 26px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: left;
+  color: rgba(8, 8, 8, 0.6);
+}
+
+.admin_actions_panel__user_form label {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .admin_actions_panel ::-webkit-scrollbar {
   width: 10px;
   margin-right: 10px;
@@ -9025,6 +9105,7 @@ button:focus {
   border: 1px solid #080808;
   background-color: transparent;
   color: #080808;
+  padding: 6px 20px;
 }
 
 /* PROJECTS PANEL PAGE */
@@ -9499,7 +9580,7 @@ input[type="file"] {
 
 @media (min-width: 120em) {
   .admin_users__panel__grid {
-    max-height: 70vh;
+    max-height: 74vh;
   }
 }
 

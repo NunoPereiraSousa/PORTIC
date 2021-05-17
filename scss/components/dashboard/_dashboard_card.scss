@@ -4,10 +4,14 @@
 .admin_unities__panel__grid__card,
 .admin_users__panel__grid__card {
   width: 100%;
-  padding: 2.25rem 3.125rem;
+  padding: 2rem 3rem;
 
   background-color: rgba($color: $black, $alpha: 0.02);
   border-radius: 26px;
+
+  @include breakpoint-up(large) {
+    padding: 2.25rem 3.125rem;
+  }
 
   h5,
   h2 {
@@ -22,7 +26,11 @@
 
   h2 {
     color: $orange;
-    font-size: $_20px;
+    font-size: $_18px;
+
+    @include breakpoint-up(large) {
+      font-size: $_20px;
+    }
   }
 
   &__edit,
@@ -35,7 +43,11 @@
     padding: 0.75rem 1.875rem;
 
     font-family: $portoSans;
-    font-size: $_17px;
+    font-size: $_16px;
+
+    @include breakpoint-up(large) {
+      font-size: $_17px;
+    }
   }
 
   &__block {
@@ -67,12 +79,12 @@
   }
 
   h2 {
-    margin-right: 3.125rem;
+    margin-right: 5rem;
   }
 
   h3 {
-    margin-right: 3.125rem;
+    margin: 0 3.125rem 0 0;
     font-weight: 400;
-    font-size: $_20px;
+    font-size: $_18px;
   }
 }

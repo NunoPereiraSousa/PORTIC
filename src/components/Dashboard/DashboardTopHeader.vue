@@ -485,7 +485,7 @@ export default {
     },
     usersPage() {
       this.$router.push({
-        name: "DashboardUsers"
+        name: "DashboardAddUsers"
       });
     }
   }
