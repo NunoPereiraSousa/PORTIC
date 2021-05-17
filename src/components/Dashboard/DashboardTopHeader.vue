@@ -345,6 +345,65 @@
         </button>
       </div>
 
+      <div v-else-if="$route.name == 'DashboardMedia'">
+        <button
+          class="top_header__actions__add flex flex-ai-c"
+          @click="mediasPage"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25.43"
+            height="20.353"
+            viewBox="0 0 25.43 20.353"
+          >
+            <g id="image-gallery" transform="translate(0.125 0.125)">
+              <g id="Group_26" data-name="Group 26" transform="translate(0 0)">
+                <path
+                  id="Path_15"
+                  data-name="Path 15"
+                  d="M26.615,22.1H6.513A2.515,2.515,0,0,1,4,19.593V4.513A2.515,2.515,0,0,1,6.513,2h20.1a2.515,2.515,0,0,1,2.513,2.513v15.08A2.515,2.515,0,0,1,26.615,22.1ZM6.513,3.256A1.258,1.258,0,0,0,5.256,4.513v15.08a1.258,1.258,0,0,0,1.256,1.253h20.1a1.258,1.258,0,0,0,1.256-1.253V4.513a1.258,1.258,0,0,0-1.256-1.256Z"
+                  transform="translate(-4 -2)"
+                  fill="#fff"
+                  stroke="#fff"
+                  stroke-width="0.25"
+                />
+              </g>
+              <g
+                id="Group_27"
+                data-name="Group 27"
+                transform="translate(3.769 3.769)"
+              >
+                <path
+                  id="Path_16"
+                  data-name="Path 16"
+                  d="M9.513,10.026a2.513,2.513,0,1,1,2.513-2.513A2.513,2.513,0,0,1,9.513,10.026Zm0-3.769a1.256,1.256,0,1,0,1.256,1.256A1.256,1.256,0,0,0,9.513,6.256Z"
+                  transform="translate(-7 -5)"
+                  fill="#fff"
+                  stroke="#fff"
+                  stroke-width="0.25"
+                />
+              </g>
+              <g
+                id="Group_28"
+                data-name="Group 28"
+                transform="translate(0.087 6.973)"
+              >
+                <path
+                  id="Path_17"
+                  data-name="Path 17"
+                  d="M4.7,19.336a.627.627,0,0,1-.444-1.072l5.934-5.934a1.931,1.931,0,0,1,2.666,0L14.62,14.1l4.887-5.864a1.887,1.887,0,0,1,1.437-.682h.014a1.884,1.884,0,0,1,1.431.658l6.575,7.666a.628.628,0,0,1-.953.818L21.436,9.026a.622.622,0,0,0-.477-.219.667.667,0,0,0-.482.227l-5.331,6.4a.622.622,0,0,1-.455.225.605.605,0,0,1-.473-.183l-2.252-2.252a.645.645,0,0,0-.889,0L5.142,19.152a.622.622,0,0,1-.444.183Z"
+                  transform="translate(-4.069 -7.55)"
+                  fill="#fff"
+                  stroke="#fff"
+                  stroke-width="0.25"
+                />
+              </g>
+            </g>
+          </svg>
+          Adicionar
+        </button>
+      </div>
+
       <div v-else-if="$route.name == 'DashboardUsers'">
         <button
           class="top_header__actions__add flex flex-ai-c"
@@ -481,6 +540,11 @@ export default {
     careersPage() {
       this.$router.push({
         name: "DashboardAddCareers"
+      });
+    },
+    mediasPage() {
+      this.$router.push({
+        name: "DashboardAddMedias"
       });
     },
     usersPage() {

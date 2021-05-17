@@ -8235,11 +8235,24 @@ button:focus {
   color: #ffffff;
 }
 
+@media (min-width: 120em) {
+  .admin_nav__link {
+    font-size: 1.0625rem;
+  }
+}
+
 .admin_nav__link svg {
   margin-right: 2.125rem;
   fill: #ffffff;
   height: 20px;
   width: 20px;
+}
+
+@media (min-width: 120em) {
+  .admin_nav__link svg {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 }
 
 .admin_nav .router-link-exact-active {
@@ -8251,6 +8264,10 @@ button:focus {
 .admin_nav .router-link-exact-active path,
 .admin_nav .router-link-exact-active rect {
   fill: #c94d24;
+}
+
+.admin_nav .router-link-exact-active path {
+  stroke: #c94d24;
 }
 
 .admin_nav .router-link-exact-active::after {
@@ -8416,6 +8433,12 @@ button:focus {
   padding: 1rem 3rem 2rem;
 }
 
+@media (min-width: 120em) {
+  .dashboard_tools {
+    padding: 1rem 3rem 3rem;
+  }
+}
+
 .dashboard_tools input {
   padding: 12px 26px;
   margin-right: 3.125rem;
@@ -8465,7 +8488,8 @@ button:focus {
 .admin_courses__panel__grid__card,
 .admin_projects__panel__grid__card,
 .admin_unities__panel__grid__card,
-.admin_users__panel__grid__card {
+.admin_users__panel__grid__card,
+.admin_medias__panel__grid__card {
   width: 100%;
   padding: 2rem 3rem;
   background-color: rgba(8, 8, 8, 0.02);
@@ -8477,7 +8501,8 @@ button:focus {
   .admin_courses__panel__grid__card,
   .admin_projects__panel__grid__card,
   .admin_unities__panel__grid__card,
-  .admin_users__panel__grid__card {
+  .admin_users__panel__grid__card,
+  .admin_medias__panel__grid__card {
     padding: 2.25rem 3.125rem;
   }
 }
@@ -8491,7 +8516,9 @@ button:focus {
 .admin_unities__panel__grid__card h5,
 .admin_unities__panel__grid__card h2,
 .admin_users__panel__grid__card h5,
-.admin_users__panel__grid__card h2 {
+.admin_users__panel__grid__card h2,
+.admin_medias__panel__grid__card h5,
+.admin_medias__panel__grid__card h2 {
   font-weight: 400;
   margin: 0;
 }
@@ -8500,7 +8527,8 @@ button:focus {
 .admin_courses__panel__grid__card h5,
 .admin_projects__panel__grid__card h5,
 .admin_unities__panel__grid__card h5,
-.admin_users__panel__grid__card h5 {
+.admin_users__panel__grid__card h5,
+.admin_medias__panel__grid__card h5 {
   font-size: 1rem;
   margin-right: 3.125rem;
 }
@@ -8509,7 +8537,8 @@ button:focus {
 .admin_courses__panel__grid__card h2,
 .admin_projects__panel__grid__card h2,
 .admin_unities__panel__grid__card h2,
-.admin_users__panel__grid__card h2 {
+.admin_users__panel__grid__card h2,
+.admin_medias__panel__grid__card h2 {
   color: #c94d24;
   font-size: 1.125rem;
 }
@@ -8519,7 +8548,8 @@ button:focus {
   .admin_courses__panel__grid__card h2,
   .admin_projects__panel__grid__card h2,
   .admin_unities__panel__grid__card h2,
-  .admin_users__panel__grid__card h2 {
+  .admin_users__panel__grid__card h2,
+  .admin_medias__panel__grid__card h2 {
     font-size: 1.25rem;
   }
 }
@@ -8536,7 +8566,10 @@ button:focus {
 .admin_unities__panel__grid__card__block,
 .admin_users__panel__grid__card__edit,
 .admin_users__panel__grid__card__remove,
-.admin_users__panel__grid__card__block {
+.admin_users__panel__grid__card__block,
+.admin_medias__panel__grid__card__edit,
+.admin_medias__panel__grid__card__remove,
+.admin_medias__panel__grid__card__block {
   width: 7.5rem;
   border-radius: 0.75rem;
   border: none;
@@ -8558,7 +8591,10 @@ button:focus {
   .admin_unities__panel__grid__card__block,
   .admin_users__panel__grid__card__edit,
   .admin_users__panel__grid__card__remove,
-  .admin_users__panel__grid__card__block {
+  .admin_users__panel__grid__card__block,
+  .admin_medias__panel__grid__card__edit,
+  .admin_medias__panel__grid__card__remove,
+  .admin_medias__panel__grid__card__block {
     font-size: 1.0625rem;
   }
 }
@@ -8567,7 +8603,8 @@ button:focus {
 .admin_courses__panel__grid__card__block,
 .admin_projects__panel__grid__card__block,
 .admin_unities__panel__grid__card__block,
-.admin_users__panel__grid__card__block {
+.admin_users__panel__grid__card__block,
+.admin_medias__panel__grid__card__block {
   margin-right: 1.875rem;
   background-color: rgba(153, 153, 153, 0.25);
 }
@@ -8576,7 +8613,8 @@ button:focus {
 .admin_courses__panel__grid__card__edit,
 .admin_projects__panel__grid__card__edit,
 .admin_unities__panel__grid__card__edit,
-.admin_users__panel__grid__card__edit {
+.admin_users__panel__grid__card__edit,
+.admin_medias__panel__grid__card__edit {
   margin-right: 1.875rem;
   background-color: #fff5df;
   color: #ff8000;
@@ -8586,7 +8624,8 @@ button:focus {
 .admin_courses__panel__grid__card__remove,
 .admin_projects__panel__grid__card__remove,
 .admin_unities__panel__grid__card__remove,
-.admin_users__panel__grid__card__remove {
+.admin_users__panel__grid__card__remove,
+.admin_medias__panel__grid__card__remove {
   background-color: #ffe6e6;
   color: #ff1010;
 }
@@ -8609,6 +8648,76 @@ button:focus {
   margin: 0 3.125rem 0 0;
   font-weight: 400;
   font-size: 1.125rem;
+}
+
+.admin_medias__panel__grid__card {
+  position: relative;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  height: 60vh;
+}
+
+@media (min-width: 120em) {
+  .admin_medias__panel__grid__card {
+    height: 50vh;
+  }
+}
+
+.admin_medias__panel__grid__card__info {
+  padding: 0 1rem;
+}
+
+.admin_medias__panel__grid__card__info:last-child {
+  margin-bottom: 2rem;
+}
+
+.admin_medias__panel__grid__card iframe {
+  height: 36vh;
+  width: 100%;
+  border-radius: 2px;
+}
+
+@media (min-width: 120em) {
+  .admin_medias__panel__grid__card iframe {
+    height: 30vh;
+  }
+}
+
+.admin_medias__panel__grid__card h2 {
+  margin: 1rem 0 2rem;
+}
+
+@media (min-width: 120em) {
+  .admin_medias__panel__grid__card h2 {
+    margin-bottom: 3.5rem;
+  }
+}
+
+.admin_medias__panel__grid__card .buttons {
+  width: calc(100% - 2rem);
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.admin_medias__panel__grid__card__edit {
+  margin-right: 0;
+  background-color: #999999;
+  color: #ffffff;
+}
+
+.admin_medias__panel__grid__card__remove {
+  margin-right: 0;
+  background-color: transparent;
+  color: #080808;
+  border: 2px solid #999999;
 }
 
 .admin_delete_popup {
@@ -9636,6 +9745,101 @@ input[type="file"] {
 }
 
 .admin_users__panel ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_media__panel {
+  width: 100%;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.admin_media__panel__overlay, .admin_media__panel__overlay_slide, .admin_media__panel__overlay_add {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 998;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(8, 8, 8, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.admin_media__panel__overlay.show_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_media__panel__overlay_slide.show_overlay_slide {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_media__panel__overlay_add.open_add_unity_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_media__panel__tools {
+  padding: 3rem;
+}
+
+.admin_media__panel__tools input {
+  padding: 12px 26px;
+  margin-right: 3.125rem;
+  border-radius: 10px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_media__panel__tools input:focus {
+  outline: none;
+  border: 1px solid #c94d24;
+}
+
+.admin_media__panel__grid {
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  row-gap: 3rem;
+  -webkit-column-gap: 3rem;
+          column-gap: 3rem;
+  padding: 0 3rem 0 3rem;
+  max-height: 70.3vh;
+  overflow-y: auto;
+}
+
+@media (min-width: 120em) {
+  .admin_media__panel__grid {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 120em) {
+  .admin_media__panel__grid {
+    max-height: 75.7vh;
+  }
+}
+
+.admin_media__panel ::-webkit-scrollbar {
+  width: 10px;
+  margin-right: 10px;
+}
+
+.admin_media__panel ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin_media__panel ::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_media__panel ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(8, 8, 8, 0.1);
 }
 /*# sourceMappingURL=style.css.map */

@@ -13,12 +13,21 @@
   &__link {
     color: $white;
 
+    @include breakpoint-up(large) {
+      font-size: $_17px;
+    }
+
     svg {
       margin-right: 2.125rem;
       fill: $white;
 
       height: 20px;
       width: 20px;
+
+      @include breakpoint-up(large) {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
     }
   }
 
@@ -30,6 +39,10 @@
     path,
     rect {
       fill: $orange;
+    }
+
+    path {
+      stroke: $orange;
     }
 
     &::after {

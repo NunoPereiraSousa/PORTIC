@@ -1,6 +1,10 @@
 .dashboard_tools {
   padding: 1rem 3rem 2rem;
 
+  @include breakpoint-up(large) {
+    padding: 1rem 3rem 3rem;
+  }
+
   input {
     padding: 12px 26px;
     margin-right: 3.125rem;
