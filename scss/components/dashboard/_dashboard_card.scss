@@ -1,9 +1,10 @@
 .admin_areas__panel__grid__card,
 .admin_courses__panel__grid__card,
 .admin_projects__panel__grid__card,
-.admin_unities__panel__grid__card {
+.admin_unities__panel__grid__card,
+.admin_users__panel__grid__card {
   width: 100%;
-  padding: 2.25rem 50px;
+  padding: 2.25rem 3.125rem;
 
   background-color: rgba($color: $black, $alpha: 0.02);
   border-radius: 26px;
@@ -16,7 +17,7 @@
 
   h5 {
     font-size: $_16px;
-    margin-right: 50px;
+    margin-right: 3.125rem;
   }
 
   h2 {
@@ -25,19 +26,25 @@
   }
 
   &__edit,
-  &__remove {
-    width: 120px;
-    border-radius: 12px;
+  &__remove,
+  &__block {
+    width: 7.5rem;
+    border-radius: 0.75rem;
     border: none;
 
-    padding: 12px 30px;
+    padding: 0.75rem 1.875rem;
 
     font-family: $portoSans;
     font-size: $_17px;
   }
 
+  &__block {
+    margin-right: 1.875rem;
+    background-color: rgba($color: $grey, $alpha: 0.25);
+  }
+
   &__edit {
-    margin-right: 30px;
+    margin-right: 1.875rem;
     background-color: $admin_yellow;
     color: $admin_orange;
   }
@@ -45,5 +52,27 @@
   &__remove {
     background-color: $admin_pink;
     color: $admin_red;
+  }
+}
+
+.admin_users__panel__grid__card {
+  &__img {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 12px;
+    margin-right: 3.125rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  h2 {
+    margin-right: 3.125rem;
+  }
+
+  h3 {
+    margin-right: 3.125rem;
+    font-weight: 400;
+    font-size: $_20px;
   }
 }

@@ -493,7 +493,10 @@
 
       Unidades
     </router-link>
-    <router-link :to="{ name: '' }" class="flex flex-ai-c admin_nav__link">
+    <router-link
+      :to="{ name: 'DashboardUsers' }"
+      class="flex flex-ai-c admin_nav__link"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20.103"

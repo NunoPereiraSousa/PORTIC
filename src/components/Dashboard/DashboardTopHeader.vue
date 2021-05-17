@@ -344,6 +344,28 @@
           Adicionar
         </button>
       </div>
+
+      <div v-else-if="$route.name == 'DashboardUsers'">
+        <button
+          class="top_header__actions__add flex flex-ai-c"
+          @click="usersPage"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20.103"
+            height="20.103"
+            viewBox="0 0 20.103 20.103"
+          >
+            <path
+              id="user"
+              d="M17.157,2.944a10.051,10.051,0,1,0,0,14.214,10.051,10.051,0,0,0,0-14.214ZM5.038,17.368a5.09,5.09,0,0,1,10.024,0,8.853,8.853,0,0,1-10.024,0ZM6.854,8.789a3.2,3.2,0,1,1,3.2,3.2,3.2,3.2,0,0,1-3.2-3.2Zm9.228,7.762a6.277,6.277,0,0,0-3.648-4.1,4.377,4.377,0,1,0-4.766,0,6.276,6.276,0,0,0-3.648,4.1,8.873,8.873,0,1,1,12.065,0Zm0,0"
+              transform="translate(0.001 0)"
+              fill="#fff"
+            />
+          </svg>
+          Adicionar
+        </button>
+      </div>
       <div class="top_header__actions__image" :style="imageStyle"></div>
     </div>
   </header>
@@ -459,6 +481,11 @@ export default {
     careersPage() {
       this.$router.push({
         name: "DashboardAddCareers"
+      });
+    },
+    usersPage() {
+      this.$router.push({
+        name: "DashboardUsers"
       });
     }
   }

@@ -19,6 +19,7 @@ import DashboardEditUnities from "../views/Dashboard/DashboardEditUnities.vue";
 import DashboardHome from "../views/Dashboard/DashboardHome.vue";
 import DashboardProjects from "../views/Dashboard/DashboardProjects.vue";
 import DashboardUnities from "../views/Dashboard/DashboardUnities.vue";
+import DashboardUsers from "../views/Dashboard/DashboardUsers.vue";
 import Home from "../views/Home.vue";
 import Media from "../views/Media.vue";
 import NewsPage from "../views/NewsPage.vue";
@@ -179,6 +180,11 @@ const routes = [
     name: "DashboardEditUnities",
     component: DashboardEditUnities,
     props: true
+  },
+  {
+    path: "/dashboard-users",
+    name: "DashboardUsers",
+    component: DashboardUsers
   }
 ];
 

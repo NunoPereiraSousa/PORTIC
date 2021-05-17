@@ -30,7 +30,8 @@
             this.$route.name !== 'DashboardEditUnities' &&
             this.$route.name !== 'DashboardCareers' &&
             this.$route.name !== 'DashboardEditCareers' &&
-            this.$route.name !== 'DashboardAddCareers'
+            this.$route.name !== 'DashboardAddCareers' &&
+            this.$route.name !== 'DashboardUsers'
         "
       >
         <SubHeader />
