@@ -20,18 +20,27 @@
       height: 20px;
       width: 20px;
     }
+  }
 
-    // &.selected {
-    //   svg {
-    //     fill: $orange !important;
-    //   }
-    // }
+  .router-link-exact-active {
+    position: relative;
+    color: $orange;
 
-    // &.router-link-active {
-    //   svg,
-    //   path {
-    //     fill: $orange;
-    //   }
-    // }
+    svg,
+    path,
+    rect {
+      fill: $orange;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0%;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: $orange;
+      height: 26px;
+      width: 2.5px;
+    }
   }
 }

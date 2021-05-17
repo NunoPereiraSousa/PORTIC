@@ -7,7 +7,7 @@
       :name="link.name"
     /> -->
     <router-link
-      :to="{ name: '' }"
+      :to="{ name: 'DashboardHome' }"
       class="flex flex-ai-c admin_nav__link router-link-active"
     >
       <svg
@@ -91,7 +91,10 @@
 
       Áreas
     </router-link>
-    <router-link :to="{ name: '' }" class="flex flex-ai-c admin_nav__link">
+    <router-link
+      :to="{ name: 'DashboardComponents' }"
+      class="flex flex-ai-c admin_nav__link"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="19.884"
@@ -159,7 +162,10 @@
 
       Cursos
     </router-link>
-    <router-link :to="{ name: '' }" class="flex flex-ai-c admin_nav__link">
+    <router-link
+      :to="{ name: 'DashboardMedia' }"
+      class="flex flex-ai-c admin_nav__link"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="25.43"
@@ -377,7 +383,10 @@
 
       Recrutamento
     </router-link>
-    <router-link :to="{ name: '' }" class="flex flex-ai-c admin_nav__link">
+    <router-link
+      :to="{ name: 'DashboardAbout' }"
+      class="flex flex-ai-c admin_nav__link"
+    >
       <svg
         id="info"
         xmlns="http://www.w3.org/2000/svg"
@@ -417,7 +426,10 @@
 
       Sobre nós
     </router-link>
-    <router-link :to="{ name: '' }" class="flex flex-ai-c admin_nav__link">
+    <router-link
+      :to="{ name: 'DashboardTN' }"
+      class="flex flex-ai-c admin_nav__link"
+    >
       <svg
         id="review"
         xmlns="http://www.w3.org/2000/svg"

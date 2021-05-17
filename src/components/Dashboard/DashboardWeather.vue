@@ -4,7 +4,7 @@
 
     <img :src="icon" alt="icon" />
 
-    <p>{{ temp }}</p>
+    <p>{{ temp }}°</p>
   </div>
 </template>
 

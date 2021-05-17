@@ -8165,6 +8165,13 @@ button:focus {
   margin: 0 2rem;
 }
 
+@media (min-width: 120em) {
+  .admin_home__panel__card.weather hr {
+    margin: auto 2rem;
+    height: 80%;
+  }
+}
+
 .admin_home__panel__card.weather h1,
 .admin_home__panel__card.weather h3,
 .admin_home__panel__card.weather p {
@@ -8183,9 +8190,17 @@ button:focus {
 
 .admin_home__panel__card.weather .day p,
 .admin_home__panel__card.weather .day h3 {
+  margin: 0;
   white-space: nowrap;
   font-weight: 400;
   font-size: 1.0625rem;
+}
+
+@media (min-width: 120em) {
+  .admin_home__panel__card.weather .day {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
 }
 
 .admin_home__panel__card.barChart div {
@@ -8225,6 +8240,29 @@ button:focus {
   fill: #ffffff;
   height: 20px;
   width: 20px;
+}
+
+.admin_nav .router-link-exact-active {
+  position: relative;
+  color: #c94d24;
+}
+
+.admin_nav .router-link-exact-active svg,
+.admin_nav .router-link-exact-active path,
+.admin_nav .router-link-exact-active rect {
+  fill: #c94d24;
+}
+
+.admin_nav .router-link-exact-active::after {
+  content: "";
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: #c94d24;
+  height: 26px;
+  width: 2.5px;
 }
 
 .broadcast {

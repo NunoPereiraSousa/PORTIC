@@ -93,6 +93,11 @@
 
         hr {
           margin: 0 2rem;
+
+          @include breakpoint-up(large) {
+            margin: auto 2rem;
+            height: 80%;
+          }
         }
 
         h1,
@@ -116,9 +121,14 @@
         .day {
           p,
           h3 {
+            margin: 0;
             white-space: nowrap;
             font-weight: 400;
             font-size: $_17px;
+          }
+
+          @include breakpoint-up(large) {
+            justify-content: space-around;
           }
         }
       }
