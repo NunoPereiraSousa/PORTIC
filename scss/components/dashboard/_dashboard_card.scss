@@ -122,6 +122,7 @@
 
   h2 {
     margin: 1rem 0 2rem;
+    font-size: $_18px;
 
     @include breakpoint-up(large) {
       margin-bottom: 3.5rem;
@@ -140,14 +141,20 @@
 
   &__edit {
     margin-right: 0;
-    background-color: $grey;
-    color: $white;
+    background-color: rgba($color: $grey, $alpha: 0.2);
+    color: $grey;
   }
 
   &__remove {
+    width: fit-content;
     margin-right: 0;
     background-color: transparent;
-    color: $black;
-    border: 2px solid $grey;
+    color: $grey;
+    border: none;
+
+    svg {
+      margin-right: 0.5rem;
+      fill: $lightGrey;
+    }
   }
 }

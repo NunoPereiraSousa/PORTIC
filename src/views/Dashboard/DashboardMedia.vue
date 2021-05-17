@@ -3,7 +3,10 @@
     <DashboardHeader />
 
     <div class="admin_media__panel">
+      <div class="admin_media__panel__overlay" @click="closePopup"></div>
+
       <DashboardTopHeader />
+      <DashboardEditMedia :mediaName="mediaName" :videoUrl="videoUrl" />
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
@@ -19,6 +22,7 @@
         <DashboardMediaCard
           v-for="media in searchFilter"
           :key="media.id"
+          :id="media.id"
           :videoURL="convertToYoutubeURL(media.videoURL)"
           :title="media.title"
         />
@@ -31,13 +35,15 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardMediaCard from "@/components/Dashboard/DashboardMediaCard.vue";
+import DashboardEditMedia from "@/components/Dashboard/Popup/DashboardEditMedia.vue";
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
-    DashboardMediaCard
+    DashboardMediaCard,
+    DashboardEditMedia
   },
   data: () => {
     return {
@@ -56,7 +62,7 @@ export default {
     ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
-    ...mapGetters(["getMediasPT"]),
+    ...mapGetters(["getMediasPT", "getSelectedMediaByID", "getMediaByID"]),
     searchFilter() {
       return this.medias.filter(video => {
         let search = true;
@@ -68,6 +74,33 @@ export default {
 
         return search;
       });
+    },
+    mediaName() {
+      let id = this.getSelectedMediaByID;
+
+      let media = this.getMediaByID(id);
+
+      let name;
+
+      if (media) {
+        name = media.title;
+      }
+
+      return name;
+    },
+    videoUrl() {
+      let id = this.getSelectedMediaByID;
+
+      let media = this.getMediaByID(id);
+
+      let videoUrl;
+
+      if (media) {
+        videoUrl = media.videoURL;
+        console.log(videoUrl);
+      }
+
+      return videoUrl;
     }
   },
   methods: {
@@ -79,6 +112,13 @@ export default {
       let urlID = urlArr[urlArr.length - 1].replace("watch?v=", "");
 
       return `https://www.youtube.com/embed/${urlID}`;
+    },
+    closePopup() {
+      let overlay = document.querySelector(".admin_media__panel__overlay");
+      let popup = document.querySelector(".admin_delete_popup");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
     }
   }
 };

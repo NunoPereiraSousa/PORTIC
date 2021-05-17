@@ -8686,6 +8686,7 @@ button:focus {
 
 .admin_medias__panel__grid__card h2 {
   margin: 1rem 0 2rem;
+  font-size: 1.125rem;
 }
 
 @media (min-width: 120em) {
@@ -8709,18 +8710,27 @@ button:focus {
 
 .admin_medias__panel__grid__card__edit {
   margin-right: 0;
-  background-color: #999999;
-  color: #ffffff;
+  background-color: rgba(153, 153, 153, 0.2);
+  color: #999999;
 }
 
 .admin_medias__panel__grid__card__remove {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin-right: 0;
   background-color: transparent;
-  color: #080808;
-  border: 2px solid #999999;
+  color: #999999;
+  border: none;
 }
 
-.admin_delete_popup {
+.admin_medias__panel__grid__card__remove svg {
+  margin-right: 0.5rem;
+  fill: #666666;
+}
+
+.admin_delete_popup,
+.admin_edit_popup {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -8738,24 +8748,28 @@ button:focus {
   transition: all 0.4s;
 }
 
-.admin_delete_popup.show_popup {
+.admin_delete_popup.show_popup,
+.admin_edit_popup.show_popup {
   opacity: 1;
   visibility: visible;
 }
 
-.admin_delete_popup h2 {
+.admin_delete_popup h2,
+.admin_edit_popup h2 {
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 1.8;
   margin-bottom: 4rem;
 }
 
-.admin_delete_popup h2 span {
+.admin_delete_popup h2 span,
+.admin_edit_popup h2 span {
   color: #c94d24;
   font-weight: 500;
 }
 
-.admin_delete_popup hr {
+.admin_delete_popup hr,
+.admin_edit_popup hr {
   margin: 2rem auto 4rem;
   background-color: #999999;
   height: 1.5px;
@@ -8763,23 +8777,42 @@ button:focus {
   border: none;
 }
 
-.admin_delete_popup__confirm, .admin_delete_popup__cancel {
+.admin_delete_popup__confirm, .admin_delete_popup__cancel,
+.admin_edit_popup__confirm,
+.admin_edit_popup__cancel {
   padding: 10px 30px;
   border-radius: 10px;
   font-size: 0.9375rem;
 }
 
-.admin_delete_popup__confirm {
+.admin_delete_popup__confirm,
+.admin_edit_popup__confirm {
   margin-right: 40px;
   border: 1px solid #c94d24;
   background-color: #c94d24;
   color: #ffffff;
 }
 
-.admin_delete_popup__cancel {
+.admin_delete_popup__cancel,
+.admin_edit_popup__cancel {
   border: 1px solid #080808;
   background-color: transparent;
   color: #080808;
+}
+
+.admin_edit_popup {
+  width: 40vw;
+}
+
+.admin_edit_popup input {
+  margin: 2rem 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 12px 26px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
 }
 
 .admin_courses__panel {
