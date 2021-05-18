@@ -118,7 +118,12 @@ export default {
       });
     },
     showPopup(mediaId) {
-      console.log(mediaId);
+      let overlay = document.querySelector(".admin_media__panel__overlay2");
+      let popup = document.querySelector(".admin_medias__popup");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+
       this.$store.commit("SET_SELECTED_MEDIA_ID", {
         id: mediaId
       });

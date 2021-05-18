@@ -3,7 +3,10 @@
     <DashboardHeader />
 
     <div class="admin_users__panel">
+      <div class="admin_users__panel__overlay" @click="closePopup"></div>
       <DashboardTopHeader />
+      <DashboardUsersPopup :userName="userName" />
+      <DashboardUsersBlockPopup :userName="userName" />
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
@@ -12,12 +15,6 @@
             type="text"
             placeholder="Pesquisar utilizador..."
           />
-
-          <!-- <div class="admin_careers__panel__tools__btns">
-            <button>Estatísticas</button>
-            <button>Informações</button>
-            <button>Áreas</button>
-          </div> -->
         </div>
 
         <div class="flex flex-ai-c">
@@ -79,12 +76,16 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardUsersCard from "@/components/Dashboard/DashboardUsersCard.vue";
+import DashboardUsersPopup from "@/components/Dashboard/Popup/DashboardUsersPopup.vue";
+import DashboardUsersBlockPopup from "@/components/Dashboard/Popup/DashboardUsersBlockPopup.vue";
 
 export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
-    DashboardUsersCard
+    DashboardUsersCard,
+    DashboardUsersPopup,
+    DashboardUsersBlockPopup
   },
   data: () => {
     return {
@@ -142,6 +143,19 @@ export default {
     ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
+    userName() {
+      let id = this.getSelectedUserByID;
+
+      let user = this.getUserByID(id);
+
+      let name;
+
+      if (user) {
+        name = user.userName;
+      }
+
+      return name;
+    },
     searchFilter() {
       return this.users.filter(user => {
         let search = true;

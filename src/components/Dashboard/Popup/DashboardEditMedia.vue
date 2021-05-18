@@ -1,5 +1,5 @@
 <template>
-  <div class="admin_users__popup admin_delete_popup admin_edit_popup">
+  <div class="admin_media__popup admin_delete_popup admin_edit_popup">
     <h2>
       Editar vídeo
       <span>{{ mediaName }}</span>

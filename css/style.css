@@ -8730,7 +8730,8 @@ button:focus {
 }
 
 .admin_delete_popup,
-.admin_edit_popup {
+.admin_edit_popup,
+.admin_add_media_popup {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -8749,13 +8750,15 @@ button:focus {
 }
 
 .admin_delete_popup.show_popup,
-.admin_edit_popup.show_popup {
+.admin_edit_popup.show_popup,
+.admin_add_media_popup.show_popup {
   opacity: 1;
   visibility: visible;
 }
 
 .admin_delete_popup h2,
-.admin_edit_popup h2 {
+.admin_edit_popup h2,
+.admin_add_media_popup h2 {
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 1.8;
@@ -8763,13 +8766,15 @@ button:focus {
 }
 
 .admin_delete_popup h2 span,
-.admin_edit_popup h2 span {
+.admin_edit_popup h2 span,
+.admin_add_media_popup h2 span {
   color: #c94d24;
   font-weight: 500;
 }
 
 .admin_delete_popup hr,
-.admin_edit_popup hr {
+.admin_edit_popup hr,
+.admin_add_media_popup hr {
   margin: 2rem auto 4rem;
   background-color: #999999;
   height: 1.5px;
@@ -8779,14 +8784,17 @@ button:focus {
 
 .admin_delete_popup__confirm, .admin_delete_popup__cancel,
 .admin_edit_popup__confirm,
-.admin_edit_popup__cancel {
+.admin_edit_popup__cancel,
+.admin_add_media_popup__confirm,
+.admin_add_media_popup__cancel {
   padding: 10px 30px;
   border-radius: 10px;
   font-size: 0.9375rem;
 }
 
 .admin_delete_popup__confirm,
-.admin_edit_popup__confirm {
+.admin_edit_popup__confirm,
+.admin_add_media_popup__confirm {
   margin-right: 40px;
   border: 1px solid #c94d24;
   background-color: #c94d24;
@@ -8794,18 +8802,26 @@ button:focus {
 }
 
 .admin_delete_popup__cancel,
-.admin_edit_popup__cancel {
+.admin_edit_popup__cancel,
+.admin_add_media_popup__cancel {
   border: 1px solid #080808;
   background-color: transparent;
   color: #080808;
 }
 
-.admin_edit_popup {
-  width: 40vw;
+.admin_edit_popup,
+.admin_add_media_popup {
+  width: 36vw;
 }
 
-.admin_edit_popup input {
-  margin: 2rem 0;
+.admin_edit_popup h2,
+.admin_add_media_popup h2 {
+  margin-bottom: 0;
+}
+
+.admin_edit_popup input,
+.admin_add_media_popup input {
+  margin: 4rem 0;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -8813,6 +8829,14 @@ button:focus {
   font-family: "Porto Sans";
   font-size: 0.9375rem;
   border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_medias__popup {
+  width: 40%;
+}
+
+.admin_add_media_popup input {
+  margin: 3rem 0;
 }
 
 .admin_courses__panel {
@@ -9788,7 +9812,7 @@ input[type="file"] {
   /* Handle on hover */
 }
 
-.admin_media__panel__overlay, .admin_media__panel__overlay_slide, .admin_media__panel__overlay_add {
+.admin_media__panel__overlay, .admin_media__panel__overlay2, .admin_media__panel__overlay3, .admin_media__panel__overlay_slide, .admin_media__panel__overlay_add {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -9802,7 +9826,7 @@ input[type="file"] {
   transition: all 0.4s;
 }
 
-.admin_media__panel__overlay.show_overlay {
+.admin_media__panel__overlay.show_overlay, .admin_media__panel__overlay2.show_overlay, .admin_media__panel__overlay3.show_overlay {
   opacity: 1;
   visibility: visible;
 }

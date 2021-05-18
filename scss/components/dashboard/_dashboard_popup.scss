@@ -1,5 +1,6 @@
 .admin_delete_popup,
-.admin_edit_popup {
+.admin_edit_popup,
+.admin_add_media_popup {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -68,15 +69,30 @@
   }
 }
 
-.admin_edit_popup {
-  width: 40vw;
+.admin_edit_popup,
+.admin_add_media_popup {
+  width: 36vw;
+
+  h2 {
+    margin-bottom: 0;
+  }
 
   input {
-    margin: 2rem 0;
+    margin: 4rem 0;
     width: fit-content;
     padding: 12px 26px;
     font-family: $portoSans;
     font-size: $_15px;
     border: 1px solid rgba($color: $black, $alpha: 0.3);
+  }
+}
+
+.admin_medias__popup {
+  width: 40%;
+}
+
+.admin_add_media_popup {
+  input {
+    margin: 3rem 0;
   }
 }

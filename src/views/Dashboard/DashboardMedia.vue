@@ -4,9 +4,13 @@
 
     <div class="admin_media__panel">
       <div class="admin_media__panel__overlay" @click="closePopup"></div>
+      <div class="admin_media__panel__overlay2" @click="closeDeletePopup"></div>
+      <div class="admin_media__panel__overlay3" @click="closeAddPopup"></div>
 
       <DashboardTopHeader />
       <DashboardEditMedia :mediaName="mediaName" :videoUrl="videoUrl" />
+      <DashboardMediaPopup :name="mediaName" />
+      <DashboardAddMediaPopup />
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
@@ -36,6 +40,8 @@ import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardMediaCard from "@/components/Dashboard/DashboardMediaCard.vue";
 import DashboardEditMedia from "@/components/Dashboard/Popup/DashboardEditMedia.vue";
+import DashboardMediaPopup from "@/components/Dashboard/Popup/DashboardMediaPopup.vue";
+import DashboardAddMediaPopup from "@/components/Dashboard/Popup/DashboardAddMediaPopup.vue";
 import { mapGetters } from "vuex";
 
 export default {
@@ -43,7 +49,9 @@ export default {
     DashboardHeader,
     DashboardTopHeader,
     DashboardMediaCard,
-    DashboardEditMedia
+    DashboardEditMedia,
+    DashboardMediaPopup,
+    DashboardAddMediaPopup
   },
   data: () => {
     return {
@@ -116,6 +124,20 @@ export default {
     closePopup() {
       let overlay = document.querySelector(".admin_media__panel__overlay");
       let popup = document.querySelector(".admin_delete_popup");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
+    closeDeletePopup() {
+      let overlay = document.querySelector(".admin_media__panel__overlay2");
+      let popup = document.querySelector(".admin_medias__popup");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
+    closeAddPopup() {
+      let overlay = document.querySelector(".admin_media__panel__overlay3");
+      let popup = document.querySelector(".admin_add_media_popup");
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
