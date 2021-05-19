@@ -33,7 +33,8 @@
             this.$route.name !== 'DashboardEditCareers' &&
             this.$route.name !== 'DashboardAddCareers' &&
             this.$route.name !== 'DashboardUsers' &&
-            this.$route.name !== 'DashboardAddUsers'
+            this.$route.name !== 'DashboardAddUsers' &&
+            this.$route.name !== 'DashboardComponents'
         "
       >
         <SubHeader />
