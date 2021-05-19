@@ -318,3 +318,25 @@ input[type="file"] {
   display: inline-block;
   cursor: pointer;
 }
+
+.admin_about__panel .admin_actions_panel__form {
+  label {
+    font-size: $_17px;
+  }
+
+  input {
+    margin-top: 1rem;
+    margin-right: 2rem;
+  }
+
+  &__grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+    margin-bottom: 4rem;
+
+    &:last-child {
+      padding-bottom: 4rem;
+      row-gap: 2rem;
+    }
+  }
+}

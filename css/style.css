@@ -8270,6 +8270,10 @@ button:focus {
   stroke: #c94d24;
 }
 
+.admin_nav .router-link-exact-active #Ellipse_1 {
+  stroke: #c94d24;
+}
+
 .admin_nav .router-link-exact-active::after {
   content: "";
   position: absolute;
@@ -8489,7 +8493,8 @@ button:focus {
 .admin_projects__panel__grid__card,
 .admin_unities__panel__grid__card,
 .admin_users__panel__grid__card,
-.admin_medias__panel__grid__card {
+.admin_medias__panel__grid__card,
+.admin_about__panel__grid__card {
   width: 100%;
   padding: 2rem 3rem;
   background-color: rgba(8, 8, 8, 0.02);
@@ -8502,7 +8507,8 @@ button:focus {
   .admin_projects__panel__grid__card,
   .admin_unities__panel__grid__card,
   .admin_users__panel__grid__card,
-  .admin_medias__panel__grid__card {
+  .admin_medias__panel__grid__card,
+  .admin_about__panel__grid__card {
     padding: 2.25rem 3.125rem;
   }
 }
@@ -8518,7 +8524,9 @@ button:focus {
 .admin_users__panel__grid__card h5,
 .admin_users__panel__grid__card h2,
 .admin_medias__panel__grid__card h5,
-.admin_medias__panel__grid__card h2 {
+.admin_medias__panel__grid__card h2,
+.admin_about__panel__grid__card h5,
+.admin_about__panel__grid__card h2 {
   font-weight: 400;
   margin: 0;
 }
@@ -8528,7 +8536,8 @@ button:focus {
 .admin_projects__panel__grid__card h5,
 .admin_unities__panel__grid__card h5,
 .admin_users__panel__grid__card h5,
-.admin_medias__panel__grid__card h5 {
+.admin_medias__panel__grid__card h5,
+.admin_about__panel__grid__card h5 {
   font-size: 1rem;
   margin-right: 3.125rem;
 }
@@ -8538,7 +8547,8 @@ button:focus {
 .admin_projects__panel__grid__card h2,
 .admin_unities__panel__grid__card h2,
 .admin_users__panel__grid__card h2,
-.admin_medias__panel__grid__card h2 {
+.admin_medias__panel__grid__card h2,
+.admin_about__panel__grid__card h2 {
   color: #c94d24;
   font-size: 1.125rem;
 }
@@ -8549,7 +8559,8 @@ button:focus {
   .admin_projects__panel__grid__card h2,
   .admin_unities__panel__grid__card h2,
   .admin_users__panel__grid__card h2,
-  .admin_medias__panel__grid__card h2 {
+  .admin_medias__panel__grid__card h2,
+  .admin_about__panel__grid__card h2 {
     font-size: 1.25rem;
   }
 }
@@ -8569,7 +8580,10 @@ button:focus {
 .admin_users__panel__grid__card__block,
 .admin_medias__panel__grid__card__edit,
 .admin_medias__panel__grid__card__remove,
-.admin_medias__panel__grid__card__block {
+.admin_medias__panel__grid__card__block,
+.admin_about__panel__grid__card__edit,
+.admin_about__panel__grid__card__remove,
+.admin_about__panel__grid__card__block {
   width: 7.5rem;
   border-radius: 0.75rem;
   border: none;
@@ -8594,7 +8608,10 @@ button:focus {
   .admin_users__panel__grid__card__block,
   .admin_medias__panel__grid__card__edit,
   .admin_medias__panel__grid__card__remove,
-  .admin_medias__panel__grid__card__block {
+  .admin_medias__panel__grid__card__block,
+  .admin_about__panel__grid__card__edit,
+  .admin_about__panel__grid__card__remove,
+  .admin_about__panel__grid__card__block {
     font-size: 1.0625rem;
   }
 }
@@ -8604,7 +8621,8 @@ button:focus {
 .admin_projects__panel__grid__card__block,
 .admin_unities__panel__grid__card__block,
 .admin_users__panel__grid__card__block,
-.admin_medias__panel__grid__card__block {
+.admin_medias__panel__grid__card__block,
+.admin_about__panel__grid__card__block {
   margin-right: 1.875rem;
   background-color: rgba(153, 153, 153, 0.25);
 }
@@ -8614,9 +8632,10 @@ button:focus {
 .admin_projects__panel__grid__card__edit,
 .admin_unities__panel__grid__card__edit,
 .admin_users__panel__grid__card__edit,
-.admin_medias__panel__grid__card__edit {
+.admin_medias__panel__grid__card__edit,
+.admin_about__panel__grid__card__edit {
   margin-right: 1.875rem;
-  background-color: #fff5df;
+  background-color: #fcebc7;
   color: #ff8000;
 }
 
@@ -8625,9 +8644,10 @@ button:focus {
 .admin_projects__panel__grid__card__remove,
 .admin_unities__panel__grid__card__remove,
 .admin_users__panel__grid__card__remove,
-.admin_medias__panel__grid__card__remove {
-  background-color: #ffe6e6;
-  color: #ff1010;
+.admin_medias__panel__grid__card__remove,
+.admin_about__panel__grid__card__remove {
+  background-color: rgba(153, 153, 153, 0.25);
+  color: #080808;
 }
 
 .admin_users__panel__grid__card__img {
@@ -9356,7 +9376,7 @@ button:focus {
 
 .projects_panel__form__team__form__grid__add {
   margin-right: 20px;
-  background-color: #fff5df;
+  background-color: #fcebc7;
   color: #ff8000;
 }
 
@@ -9446,6 +9466,28 @@ input[type="file"] {
   border-radius: 2px;
   display: inline-block;
   cursor: pointer;
+}
+
+.admin_about__panel .admin_actions_panel__form label {
+  font-size: 1.0625rem;
+}
+
+.admin_about__panel .admin_actions_panel__form input {
+  margin-top: 1rem;
+  margin-right: 2rem;
+}
+
+.admin_about__panel .admin_actions_panel__form__grid {
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 4rem;
+          column-gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.admin_about__panel .admin_actions_panel__form__grid:last-child {
+  padding-bottom: 4rem;
+  row-gap: 2rem;
 }
 
 .admin_careers__panel {
@@ -9605,7 +9647,7 @@ input[type="file"] {
 
 .admin_careers__panel__grid__card__edit {
   margin-right: 30px;
-  background-color: #fff5df;
+  background-color: #fcebc7;
   color: #ff8000;
 }
 
@@ -9897,6 +9939,62 @@ input[type="file"] {
 }
 
 .admin_media__panel ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_about__panel {
+  width: 100%;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.admin_about__panel__overlay {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 998;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(8, 8, 8, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.admin_about__panel__overlay.show_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_about__panel__grid {
+  padding: 0 3rem 0 0;
+  max-height: 80vh;
+  overflow-y: auto;
+  row-gap: 2.25rem;
+}
+
+@media (min-width: 120em) {
+  .admin_about__panel__grid {
+    max-height: 87vh;
+  }
+}
+
+.admin_about__panel ::-webkit-scrollbar {
+  width: 10px;
+  margin-right: 10px;
+}
+
+.admin_about__panel ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin_about__panel ::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_about__panel ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(8, 8, 8, 0.1);
 }
 /*# sourceMappingURL=style.css.map */

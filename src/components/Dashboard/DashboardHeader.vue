@@ -384,7 +384,7 @@
       Recrutamento
     </router-link>
     <router-link
-      :to="{ name: 'DashboardAbout' }"
+      :to="{ name: 'DashboardAboutUs' }"
       class="flex flex-ai-c admin_nav__link"
     >
       <svg

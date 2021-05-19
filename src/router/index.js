@@ -10,6 +10,9 @@ import DashboardAddProjects from "../views/Dashboard/DashboardAddProjects.vue";
 import DashboardAddUnities from "../views/Dashboard/DashboardAddUnities.vue";
 import DashboardAddUsers from "../views/Dashboard/DashboardAddUsers.vue";
 import DashboardAreas from "../views/Dashboard/DashboardAreas.vue";
+import DashboardMedia from "../views/Dashboard/DashboardMedia.vue";
+import DashboardComponents from "../views/Dashboard/DashboardComponents.vue";
+import DashboardAboutUs from "../views/Dashboard/DashboardAboutUs.vue";
 import DashboardCareers from "../views/Dashboard/DashboardCareers.vue";
 import DashboardCourses from "../views/Dashboard/DashboardCourses.vue";
 import DashboardEditAreas from "../views/Dashboard/DashboardEditAreas.vue";
@@ -165,6 +168,21 @@ const routes = [
     path: "/dashboard-add-careers",
     name: "DashboardAddCareers",
     component: DashboardAddCareers
+  },
+  {
+    path: "/dashboard-about-us",
+    name: "DashboardAboutUs",
+    component: DashboardAboutUs
+  },
+  {
+    path: "/dashboard-components",
+    name: "DashboardComponents",
+    component: DashboardComponents
+  },
+  {
+    path: "/dashboard-media",
+    name: "DashboardMedia",
+    component: DashboardMedia
   },
   {
     path: "/dashboard-unities",

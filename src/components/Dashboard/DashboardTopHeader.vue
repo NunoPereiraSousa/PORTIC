@@ -5,7 +5,10 @@
       <h3>{{ getTime() }}, {{ day }} de {{ getMonth() }}, {{ year }}</h3>
     </div>
     <div class="top_header__actions flex flex-ai-c">
-      <button class="top_header__actions__remove flex flex-ai-c">
+      <button
+        v-if="!$route.name == 'DashboardAboutUs'"
+        class="top_header__actions__remove flex flex-ai-c"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="17.848"
@@ -40,6 +43,49 @@
         </svg>
 
         Removidos
+      </button>
+
+      <button
+        class="top_header__actions__add flex flex-ai-c"
+        v-if="$route.name == 'DashboardAboutUs'"
+      >
+        <svg
+          id="info"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20.103"
+          height="20.103"
+          viewBox="0 0 20.103 20.103"
+        >
+          <g id="Group_32" data-name="Group 32">
+            <g id="Group_31" data-name="Group 31">
+              <path
+                id="Path_25"
+                data-name="Path 25"
+                d="M150.9,130.008a.906.906,0,0,0-.9.9v6.034a.905.905,0,1,0,1.81,0v-6.034A.906.906,0,0,0,150.9,130.008Z"
+                transform="translate(-140.854 -122.314)"
+                fill="#fff"
+              />
+              <path
+                id="Path_26"
+                data-name="Path 26"
+                d="M151.112,70.011a1.11,1.11,0,1,0,.786.325,1.11,1.11,0,0,0-.786-.325Z"
+                transform="translate(-141.06 -66.101)"
+                fill="#fff"
+              />
+              <g
+                id="Ellipse_1"
+                data-name="Ellipse 1"
+                fill="none"
+                stroke="#fff"
+                stroke-width="1.75"
+              >
+                <circle cx="10.051" cy="10.051" r="10.051" stroke="none" />
+                <circle cx="10.051" cy="10.051" r="9.176" fill="none" />
+              </g>
+            </g>
+          </g>
+        </svg>
+        Guardar
       </button>
 
       <div v-if="$route.name == 'DashboardAreas'">
@@ -425,6 +471,7 @@
           Adicionar
         </button>
       </div>
+
       <div class="top_header__actions__image" :style="imageStyle"></div>
     </div>
   </header>
