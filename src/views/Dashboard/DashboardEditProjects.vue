@@ -1,11 +1,11 @@
 <template>
-  <div class="admin_edit_area admin_projects_actions flex">
+  <div class="admin_actions admin_projects_actions flex">
     <DashboardHeader />
 
-    <div class="admin_edit_area_panel projects_panel">
-      <div class="admin_edit_area_panel__header flex flex-jc-sb flex-ai-c">
+    <div class="admin_actions_panel projects_panel">
+      <div class="admin_actions_panel__header flex flex-jc-sb flex-ai-c">
         <div
-          class="admin_edit_area_panel__header__languages flex flex-jc-sb flex-ai-c"
+          class="admin_actions_panel__header__languages flex flex-jc-sb flex-ai-c"
         >
           <button class="pt selected">Português</button>
           <hr />
@@ -28,8 +28,8 @@
         </div>
       </div>
 
-      <div class="admin_edit_area_panel__form projects_panel__form">
-        <h3 class="admin_edit_area_panel__form__subheader">
+      <div class="admin_actions_panel__form projects_panel__form">
+        <h3 class="dashboard_subheader">
           Informação genérica
         </h3>
 
@@ -39,7 +39,7 @@
           <input type="text" :placeholder="project.email" />
         </div>
 
-        <h3 class="admin_edit_area_panel__form__subheader">
+        <h3 class="dashboard_subheader">
           Conteúdo do projeto
         </h3>
 
@@ -52,7 +52,7 @@
           </quill-editor>
         </div>
 
-        <h3 class="admin_edit_area_panel__form__subheader">
+        <h3 class="dashboard_subheader">
           Galeria
         </h3>
 
@@ -89,7 +89,7 @@
           Upload de imagens
         </label>
 
-        <h3 class="admin_edit_area_panel__form__subheader">
+        <h3 class="dashboard_subheader">
           Equipa de projeto
         </h3>
 
@@ -209,7 +209,7 @@ export default {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;
 
     document.querySelector(
-      ".admin_edit_area_panel"
+      ".admin_actions_panel"
     ).style.paddingLeft = `${navbar_width}px`;
 
     // this.styleEditorHeight();

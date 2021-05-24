@@ -9440,6 +9440,7 @@ button:focus {
   font-family: "Porto Sans";
   font-size: 0.9375rem;
   border: 1px solid rgba(8, 8, 8, 0.3);
+  margin-bottom: 0;
 }
 
 .projects_panel__form__team__form .custom-file-upload {
