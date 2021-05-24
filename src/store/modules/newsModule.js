@@ -9,6 +9,9 @@ export const newsModule = {
   mutations: {
     SET_SELECTED_NEWS_ID(state, payload) {
       state.selectedNewsId = payload.id;
+
+      console.log(state.selectedNewsId);
+      console.log(payload.id);
     },
     SET_SELECTED_NEWS(state, payload) {
       state.selectedNewsTitle = payload.title;
@@ -18,6 +21,7 @@ export const newsModule = {
   getters: {
     getNews: state => state.news,
     getNewsById: state => id => state.news.find(n => n.id == id),
-    getSelectedNewsId: state => state.selectedNewsId
+    getSelectedNewsId: state => state.selectedNewsId,
+    getSelectedNewsTitle: state => state.selectedNewsTitle
   }
 };

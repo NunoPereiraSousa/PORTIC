@@ -17,7 +17,7 @@
         </button>
         <button
           class="admin_tn__panel__grid__card__remove"
-          @click="showPopup(id)"
+          @click="showPopup(newsName)"
         >
           Remover
         </button>
@@ -69,17 +69,17 @@ export default {
         params: { name: newsName }
       });
     },
-    showPopup(careerId) {
+    showPopup(newsName) {
       let overlay = document.querySelector(".admin_tn__panel__overlay");
       let popup = document.querySelector(".admin_delete_popup");
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
 
-      // COURSE ID LOGIC
+      // NEWS ID LOGIC
 
-      this.$store.commit("SET_SELECTED_CAREER_ID", {
-        id: careerId
+      this.$store.commit("SET_SELECTED_NEWS", {
+        title: newsName
       });
     },
     toggleInfo() {

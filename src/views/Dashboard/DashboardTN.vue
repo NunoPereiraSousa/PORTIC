@@ -5,7 +5,7 @@
       <div class="admin_tn__panel__overlay" @click="closePopup"></div>
 
       <DashboardTopHeader />
-      <DashboardUnitiesPopup :unityName="unityName" />
+      <DashboardNewsPopup :newsName="newsName" />
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c" v-show="currentTab === 0">
@@ -99,11 +99,12 @@
 
       <div class="admin_tn__panel__grid grid" v-show="currentTab === 0">
         <DashboardTestimonialCard
-          v-for="unity in searchFilter"
-          :key="unity.id"
-          :id="unity.id"
-          :counter="unity.id"
-          :unityName="unity.unityName"
+          v-for="news in searchFilter"
+          :key="news.id"
+          :id="news.id"
+          :counter="news.id"
+          :newsName="news.title"
+          :newsContent="news.content"
         />
       </div>
       <div class="admin_tn__panel__grid grid" v-show="currentTab === 1">
@@ -125,7 +126,7 @@ import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardTestimonialCard from "@/components/Dashboard/DashboardTestimonialCard.vue";
 import DashboardNewsCard from "@/components/Dashboard/DashboardNewsCard.vue";
-import DashboardUnitiesPopup from "@/components/Dashboard/Popup/DashboardUnitiesPopup.vue";
+import DashboardNewsPopup from "@/components/Dashboard/Popup/DashboardNewsPopup.vue";
 
 import { mapGetters } from "vuex";
 
@@ -134,7 +135,7 @@ export default {
     DashboardHeader,
     DashboardTopHeader,
     DashboardTestimonialCard,
-    DashboardUnitiesPopup,
+    DashboardNewsPopup,
     DashboardNewsCard
   },
   data: () => {
@@ -142,15 +143,12 @@ export default {
       institution: "PORTIC",
       testimonialsTxt: "",
       newsTxt: "",
-      unities: "",
       news: "",
       tabs: ["Testemunhos", "Notícias"],
       currentTab: 0
     };
   },
   created() {
-    this.unities = this.getUnitiesPT;
-
     this.news = this.getNews;
   },
   mounted() {
@@ -162,45 +160,20 @@ export default {
   },
   computed: {
     ...mapGetters([
-      "getSelectedUnityId",
-      "getUnityById",
-      "getUnitiesPT",
       "getNewsById",
       "getSelectedNewsId",
-      "getNews"
+      "getNews",
+      "getSelectedNewsTitle"
     ]),
-    unityName() {
-      let id = this.getSelectedUnityId;
-
-      let unity = this.getUnityById(id);
-
-      let name;
-
-      if (unity) {
-        name = unity.unityName;
-      }
-
-      return name;
-    },
     newsName() {
-      let id = this.getSelectedNewsId;
-
-      let news = this.getNewsById(id);
-
-      let name;
-
-      if (name) {
-        name = news.title;
-      }
-
-      return name;
+      return this.getSelectedNewsTitle;
     },
     searchFilter() {
-      return this.unities.filter(unity => {
+      return this.news.filter(n => {
         let search = true;
 
-        if (this.unityTxt != "") {
-          search = unity.unityName
+        if (this.testimonialsTxt != "") {
+          search = n.title
             .toLowerCase()
             .includes(this.testimonialsTxt.toLowerCase());
         }
@@ -212,7 +185,7 @@ export default {
       return this.news.filter(n => {
         let search = true;
 
-        if (this.unityTxt != "") {
+        if (this.newsTxt != "") {
           search = n.title.toLowerCase().includes(this.newsTxt.toLowerCase());
         }
 
@@ -222,7 +195,7 @@ export default {
   },
   methods: {
     closePopup() {
-      let overlay = document.querySelector(".admin_unities__panel__overlay");
+      let overlay = document.querySelector(".admin_tn__panel__overlay");
       let popup = document.querySelector(".admin_delete_popup");
 
       overlay.classList.toggle("show_overlay");
