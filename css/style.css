@@ -9254,7 +9254,7 @@ button:focus {
   padding-left: 0.875rem;
 }
 
-.admin_actions_panel__header__languages button.selected {
+.admin_actions_panel__header__languages button.active {
   color: #c94d24;
 }
 

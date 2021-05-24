@@ -2,20 +2,23 @@
   <div class="admin_actions admin_projects_actions flex">
     <DashboardHeader />
 
-    <div class="admin_actions_panel projects_panel">
+    <div class="admin_actions_panel projects_panel" v-show="currentTab === 0">
       <div class="admin_actions_panel__header flex flex-jc-sb flex-ai-c">
         <div
           class="admin_actions_panel__header__languages flex flex-jc-sb flex-ai-c"
         >
-          <button class="pt selected">Português</button>
-          <hr />
-          <button class="en">
-            Inglês
+          <button
+            v-for="(tab, index) in tabs"
+            :key="tab"
+            @click="currentTab = index"
+            :class="{ active: currentTab === index }"
+          >
+            {{ tab }}
           </button>
         </div>
         <div>
           <h3>
-            Pprojeto <span>{{ project.initials }}</span>
+            Projeto <span>{{ project.initials }}</span>
           </h3>
         </div>
         <div>
@@ -127,6 +130,135 @@
         </div>
       </div>
     </div>
+
+    <div class="admin_actions_panel projects_panel" v-show="currentTab === 1">
+      <div class="admin_actions_panel__header flex flex-jc-sb flex-ai-c">
+        <div
+          class="admin_actions_panel__header__languages flex flex-jc-sb flex-ai-c"
+        >
+          <button
+            v-for="(tab, index) in tabs"
+            :key="tab"
+            @click="currentTab = index"
+            :class="{ active: currentTab === index }"
+          >
+            {{ tab }}
+          </button>
+        </div>
+        <div>
+          <h3>
+            Project <span>{{ project.initials }}</span>
+          </h3>
+        </div>
+        <div>
+          <button class="edit_confirm_button" @click="save">
+            Confirm
+          </button>
+          <button class="edit_cancel_button" @click="goBack">
+            Cancel
+          </button>
+        </div>
+      </div>
+
+      <div class="admin_actions_panel__form projects_panel__form">
+        <h3 class="dashboard_subheader">
+          Project information
+        </h3>
+
+        <div class="projects_panel__form__inputs flex">
+          <input type="text" :placeholder="project.initials" />
+          <input type="text" :placeholder="project.contact" />
+          <input type="text" :placeholder="project.email" />
+        </div>
+
+        <h3 class="dashboard_subheader">
+          Project content
+        </h3>
+
+        <div class="area_edit_editor margin_bottom">
+          <quill-editor
+            v-model="contentEN"
+            :options="editorOption"
+            ref="quillEditor"
+          >
+          </quill-editor>
+        </div>
+
+        <h3 class="dashboard_subheader">
+          Galery
+        </h3>
+
+        <div
+          class="projects_panel__form__images grid"
+          v-if="imagesArrLength > 0"
+        >
+          <div
+            v-for="image in images"
+            :key="image"
+            class="projects_panel__form__images__img"
+            :style="imageStyle(image)"
+          >
+            <div
+              class="projects_panel__form__images__img__actions flex flex-ai-c flex-jc-sb"
+            >
+              <button class="projects_panel__form__images__img__actions__edit">
+                Edit
+              </button>
+              <button
+                class="projects_panel__form__images__img__actions__remove"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+        <div v-else>
+          <p>There are no images for this project</p>
+        </div>
+
+        <label class="custom-file-upload">
+          <input type="file" />
+          Images upload
+        </label>
+
+        <h3 class="dashboard_subheader">
+          Project team
+        </h3>
+
+        <div class="projects_panel__form__team">
+          <div v-for="index in teamRows" :key="index">
+            <div
+              :id="index"
+              class="projects_panel__form__team__form flex flex-ai-c flex-jc-sb"
+            >
+              <div class="projects_panel__form__team__form__grid grid">
+                <input type="text" placeholder="Project role" />
+                <input type="text" placeholder="Name" />
+                <label class="custom-file-upload">
+                  <input type="file" />
+                  Image
+                </label>
+              </div>
+              <div>
+                <button
+                  class="projects_panel__form__team__form__grid__add"
+                  @click="addHtmlTeamRow(index)"
+                >
+                  +1 Member
+                </button>
+                <button
+                  class="projects_panel__form__team__form__grid__remove"
+                  v-if="teamRowsLength > 1"
+                  @click="removeHtmlTeamRow(index)"
+                >
+                  -1 Member
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -143,7 +275,10 @@ export default {
   },
   data: () => {
     return {
+      tabs: ["Português", "Inglês"],
+      currentTab: 0,
       content: "",
+      contentEN: "",
       teamRows: [1],
       project: {
         name: "",
@@ -192,6 +327,7 @@ export default {
     this.project = this.getProjectByID(this.getSelectedProjectByID);
 
     this.content = this.project.description;
+    this.contentEN = this.project.description;
 
     console.log(this.project);
 
@@ -208,9 +344,11 @@ export default {
   mounted() {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;
 
-    document.querySelector(
-      ".admin_actions_panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    let arr = document.querySelectorAll(".admin_actions_panel");
+
+    arr.forEach(i => {
+      i.style.paddingLeft = `${navbar_width}px`;
+    });
 
     // this.styleEditorHeight();
   },

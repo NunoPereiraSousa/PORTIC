@@ -1,16 +1,19 @@
 <template>
-  <div class="admin_edit_area admin_projects_actions flex">
+  <div class="admin_actions admin_projects_actions flex">
     <DashboardHeader />
 
-    <div class="admin_edit_area_panel projects_panel">
-      <div class="admin_edit_area_panel__header flex flex-jc-sb flex-ai-c">
+    <div class="admin_actions_panel projects_panel" v-show="currentTab === 0">
+      <div class="admin_actions_panel__header flex flex-jc-sb flex-ai-c">
         <div
-          class="admin_edit_area_panel__header__languages flex flex-jc-sb flex-ai-c"
+          class="admin_actions_panel__header__languages flex flex-jc-sb flex-ai-c"
         >
-          <button class="pt selected">Português</button>
-          <hr />
-          <button class="en">
-            Inglês
+          <button
+            v-for="(tab, index) in tabs"
+            :key="tab"
+            @click="currentTab = index"
+            :class="{ active: currentTab === index }"
+          >
+            {{ tab }}
           </button>
         </div>
         <div>
@@ -28,7 +31,7 @@
         </div>
       </div>
 
-      <div class="admin_edit_area_panel__form projects_panel__form">
+      <div class="admin_actions_panel__form projects_panel__form">
         <h3 class="dashboard_subheader">
           Informação genérica
         </h3>
@@ -101,6 +104,109 @@
         </div>
       </div>
     </div>
+
+    <div class="admin_actions_panel projects_panel" v-show="currentTab === 1">
+      <div class="admin_actions_panel__header flex flex-jc-sb flex-ai-c">
+        <div
+          class="admin_actions_panel__header__languages flex flex-jc-sb flex-ai-c"
+        >
+          <button
+            v-for="(tab, index) in tabs"
+            :key="tab"
+            @click="currentTab = index"
+            :class="{ active: currentTab === index }"
+          >
+            {{ tab }}
+          </button>
+        </div>
+        <div>
+          <h3>
+            Add project
+          </h3>
+        </div>
+        <div>
+          <button class="edit_confirm_button" @click="save">
+            Confirm
+          </button>
+          <button class="edit_cancel_button" @click="goBack">
+            Cancel
+          </button>
+        </div>
+      </div>
+
+      <div class="admin_actions_panel__form projects_panel__form">
+        <h3 class="dashboard_subheader">
+          Project information
+        </h3>
+
+        <div class="projects_panel__form__inputs flex">
+          <input type="text" placeholder="Project name" />
+          <input type="text" placeholder="Project phone contact" />
+          <input type="text" placeholder="E-mail" />
+        </div>
+
+        <h3 class="dashboard_subheader">
+          Project content
+        </h3>
+
+        <div class="area_edit_editor margin_bottom">
+          <quill-editor
+            v-model="contentEN"
+            :options="editorOption"
+            ref="quillEditor"
+          >
+          </quill-editor>
+        </div>
+
+        <h3 class="dashboard_subheader">
+          Galery
+        </h3>
+
+        <div class="admin_add_slider__images">
+          <label class="custom-file-upload">
+            <input type="file" />
+            Images upload
+          </label>
+        </div>
+
+        <h3 class="dashboard_subheader">
+          Project team
+        </h3>
+
+        <div class="projects_panel__form__team">
+          <div v-for="index in teamRows" :key="index">
+            <div
+              :id="index"
+              class="projects_panel__form__team__form flex flex-ai-c flex-jc-sb"
+            >
+              <div class="projects_panel__form__team__form__grid grid">
+                <input type="text" placeholder="Project role" />
+                <input type="text" placeholder="Name" />
+                <label class="custom-file-upload">
+                  <input type="file" />
+                  Image
+                </label>
+              </div>
+              <div>
+                <button
+                  class="projects_panel__form__team__form__grid__add"
+                  @click="addHtmlTeamRow(index)"
+                >
+                  +1 Member
+                </button>
+                <button
+                  class="projects_panel__form__team__form__grid__remove"
+                  v-if="teamRowsLength > 1"
+                  @click="removeHtmlTeamRow(index)"
+                >
+                  -1 Member
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -113,7 +219,10 @@ export default {
   },
   data: () => {
     return {
+      tabs: ["Português", "Inglês"],
+      currentTab: 0,
       content: "",
+      contentEN: "",
       editorOption: {
         modules: {
           toolbar: [
@@ -153,9 +262,11 @@ export default {
   mounted() {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;
 
-    document.querySelector(
-      ".admin_edit_area_panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    let arr = document.querySelectorAll(".admin_actions_panel");
+
+    arr.forEach(i => {
+      i.style.paddingLeft = `${navbar_width}px`;
+    });
 
     // this.styleEditorHeight();
   },

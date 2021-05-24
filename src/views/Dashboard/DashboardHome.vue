@@ -24,7 +24,7 @@
         </div>
         <div class="admin_home__panel__card weather grid">
           <div class="flex flex-jc-c">
-            <div class="flex flex-fd-c temperature">
+            <div class="flex flex-fd-c flex-jc-c temperature">
               <h1>{{ temperature }}°</h1>
               <h3>Celcius</h3>
             </div>
