@@ -31,6 +31,9 @@
   }
 
   button {
+    display: flex;
+    align-items: center;
+
     background-color: rgba($color: $black, $alpha: 0.02);
     border: none;
     border-radius: 1.625rem;
@@ -41,6 +44,16 @@
     font-size: $_16px;
     font-family: $portoSans;
     letter-spacing: 0.2px;
+
+    svg {
+      display: none;
+
+      margin-right: 0.6rem;
+    }
+
+    &.active svg {
+      display: block;
+    }
   }
 
   select {

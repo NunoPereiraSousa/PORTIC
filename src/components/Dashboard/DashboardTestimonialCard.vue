@@ -1,5 +1,5 @@
 <template>
-  <div class="admin_tn__panel__grid__card grid">
+  <div class="admin_careers__panel__grid__card grid">
     <div class="flex flex-ai-c flex-jc-sb">
       <div class="flex flex-ai-c">
         <h5 v-if="counter < 10">Notícia 0{{ counter }}</h5>
@@ -10,13 +10,13 @@
       </div>
       <div class="flex flex-ai-c">
         <button
-          class="admin_tn__panel__grid__card__edit"
+          class="admin_careers__panel__grid__card__edit"
           @click="openPage(id, newsName)"
         >
           Editar
         </button>
         <button
-          class="admin_tn__panel__grid__card__remove"
+          class="admin_careers__panel__grid__card__remove"
           @click="showPopup(id)"
         >
           Remover
@@ -24,7 +24,10 @@
       </div>
     </div>
     <div>
-      <button class="admin_tn__panel__grid__card__more" @click="toggleInfo">
+      <button
+        class="admin_careers__panel__grid__card__more"
+        @click="toggleInfo"
+      >
         Ler mais
       </button>
     </div>
@@ -34,7 +37,7 @@
 
 <script>
 export default {
-  name: "DashboardNewsCard",
+  name: "DashboardTestimonialCard",
   props: {
     newsName: {
       type: String,
@@ -70,7 +73,7 @@ export default {
       });
     },
     showPopup(careerId) {
-      let overlay = document.querySelector(".admin_tn__panel__overlay");
+      let overlay = document.querySelector(".admin_careers__panel__overlay");
       let popup = document.querySelector(".admin_delete_popup");
 
       overlay.classList.toggle("show_overlay");

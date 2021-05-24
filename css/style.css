@@ -8227,7 +8227,7 @@ button:focus {
   z-index: 1;
   top: 0%;
   left: 0%;
-  padding: 4rem 2.375rem;
+  padding: 4rem 3.375rem 4rem 2.375rem;
   background-color: #1e1e1e;
 }
 
@@ -8242,7 +8242,7 @@ button:focus {
 }
 
 .admin_nav__link svg {
-  margin-right: 2.125rem;
+  margin-right: 1.75rem;
   fill: #ffffff;
   height: 20px;
   width: 20px;
@@ -8277,7 +8277,7 @@ button:focus {
 .admin_nav .router-link-exact-active::after {
   content: "";
   position: absolute;
-  right: 0%;
+  right: -1.375rem;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -8468,6 +8468,12 @@ button:focus {
 }
 
 .dashboard_tools button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: rgba(8, 8, 8, 0.02);
   border: none;
   border-radius: 1.625rem;
@@ -8476,6 +8482,15 @@ button:focus {
   font-size: 1rem;
   font-family: "Porto Sans";
   letter-spacing: 0.2px;
+}
+
+.dashboard_tools button svg {
+  display: none;
+  margin-right: 0.6rem;
+}
+
+.dashboard_tools button.active svg {
+  display: block;
 }
 
 .dashboard_tools select {
@@ -8490,11 +8505,13 @@ button:focus {
 
 .admin_areas__panel__grid__card,
 .admin_courses__panel__grid__card,
+.admin_careers__panel__grid__card,
 .admin_projects__panel__grid__card,
 .admin_unities__panel__grid__card,
 .admin_users__panel__grid__card,
 .admin_medias__panel__grid__card,
-.admin_about__panel__grid__card {
+.admin_about__panel__grid__card,
+.admin_tn__panel__grid__card {
   width: 100%;
   padding: 2rem 3rem;
   background-color: rgba(8, 8, 8, 0.02);
@@ -8504,11 +8521,13 @@ button:focus {
 @media (min-width: 120em) {
   .admin_areas__panel__grid__card,
   .admin_courses__panel__grid__card,
+  .admin_careers__panel__grid__card,
   .admin_projects__panel__grid__card,
   .admin_unities__panel__grid__card,
   .admin_users__panel__grid__card,
   .admin_medias__panel__grid__card,
-  .admin_about__panel__grid__card {
+  .admin_about__panel__grid__card,
+  .admin_tn__panel__grid__card {
     padding: 2.25rem 3.125rem;
   }
 }
@@ -8517,6 +8536,8 @@ button:focus {
 .admin_areas__panel__grid__card h2,
 .admin_courses__panel__grid__card h5,
 .admin_courses__panel__grid__card h2,
+.admin_careers__panel__grid__card h5,
+.admin_careers__panel__grid__card h2,
 .admin_projects__panel__grid__card h5,
 .admin_projects__panel__grid__card h2,
 .admin_unities__panel__grid__card h5,
@@ -8526,29 +8547,35 @@ button:focus {
 .admin_medias__panel__grid__card h5,
 .admin_medias__panel__grid__card h2,
 .admin_about__panel__grid__card h5,
-.admin_about__panel__grid__card h2 {
+.admin_about__panel__grid__card h2,
+.admin_tn__panel__grid__card h5,
+.admin_tn__panel__grid__card h2 {
   font-weight: 400;
   margin: 0;
 }
 
 .admin_areas__panel__grid__card h5,
 .admin_courses__panel__grid__card h5,
+.admin_careers__panel__grid__card h5,
 .admin_projects__panel__grid__card h5,
 .admin_unities__panel__grid__card h5,
 .admin_users__panel__grid__card h5,
 .admin_medias__panel__grid__card h5,
-.admin_about__panel__grid__card h5 {
+.admin_about__panel__grid__card h5,
+.admin_tn__panel__grid__card h5 {
   font-size: 1rem;
   margin-right: 3.125rem;
 }
 
 .admin_areas__panel__grid__card h2,
 .admin_courses__panel__grid__card h2,
+.admin_careers__panel__grid__card h2,
 .admin_projects__panel__grid__card h2,
 .admin_unities__panel__grid__card h2,
 .admin_users__panel__grid__card h2,
 .admin_medias__panel__grid__card h2,
-.admin_about__panel__grid__card h2 {
+.admin_about__panel__grid__card h2,
+.admin_tn__panel__grid__card h2 {
   color: #c94d24;
   font-size: 1.125rem;
 }
@@ -8556,11 +8583,13 @@ button:focus {
 @media (min-width: 120em) {
   .admin_areas__panel__grid__card h2,
   .admin_courses__panel__grid__card h2,
+  .admin_careers__panel__grid__card h2,
   .admin_projects__panel__grid__card h2,
   .admin_unities__panel__grid__card h2,
   .admin_users__panel__grid__card h2,
   .admin_medias__panel__grid__card h2,
-  .admin_about__panel__grid__card h2 {
+  .admin_about__panel__grid__card h2,
+  .admin_tn__panel__grid__card h2 {
     font-size: 1.25rem;
   }
 }
@@ -8569,6 +8598,9 @@ button:focus {
 .admin_courses__panel__grid__card__edit,
 .admin_courses__panel__grid__card__remove,
 .admin_courses__panel__grid__card__block,
+.admin_careers__panel__grid__card__edit,
+.admin_careers__panel__grid__card__remove,
+.admin_careers__panel__grid__card__block,
 .admin_projects__panel__grid__card__edit,
 .admin_projects__panel__grid__card__remove,
 .admin_projects__panel__grid__card__block,
@@ -8583,7 +8615,10 @@ button:focus {
 .admin_medias__panel__grid__card__block,
 .admin_about__panel__grid__card__edit,
 .admin_about__panel__grid__card__remove,
-.admin_about__panel__grid__card__block {
+.admin_about__panel__grid__card__block,
+.admin_tn__panel__grid__card__edit,
+.admin_tn__panel__grid__card__remove,
+.admin_tn__panel__grid__card__block {
   width: 7.5rem;
   border-radius: 0.75rem;
   border: none;
@@ -8597,6 +8632,9 @@ button:focus {
   .admin_courses__panel__grid__card__edit,
   .admin_courses__panel__grid__card__remove,
   .admin_courses__panel__grid__card__block,
+  .admin_careers__panel__grid__card__edit,
+  .admin_careers__panel__grid__card__remove,
+  .admin_careers__panel__grid__card__block,
   .admin_projects__panel__grid__card__edit,
   .admin_projects__panel__grid__card__remove,
   .admin_projects__panel__grid__card__block,
@@ -8611,29 +8649,36 @@ button:focus {
   .admin_medias__panel__grid__card__block,
   .admin_about__panel__grid__card__edit,
   .admin_about__panel__grid__card__remove,
-  .admin_about__panel__grid__card__block {
+  .admin_about__panel__grid__card__block,
+  .admin_tn__panel__grid__card__edit,
+  .admin_tn__panel__grid__card__remove,
+  .admin_tn__panel__grid__card__block {
     font-size: 1.0625rem;
   }
 }
 
 .admin_areas__panel__grid__card__block,
 .admin_courses__panel__grid__card__block,
+.admin_careers__panel__grid__card__block,
 .admin_projects__panel__grid__card__block,
 .admin_unities__panel__grid__card__block,
 .admin_users__panel__grid__card__block,
 .admin_medias__panel__grid__card__block,
-.admin_about__panel__grid__card__block {
+.admin_about__panel__grid__card__block,
+.admin_tn__panel__grid__card__block {
   margin-right: 1.875rem;
   background-color: rgba(153, 153, 153, 0.25);
 }
 
 .admin_areas__panel__grid__card__edit,
 .admin_courses__panel__grid__card__edit,
+.admin_careers__panel__grid__card__edit,
 .admin_projects__panel__grid__card__edit,
 .admin_unities__panel__grid__card__edit,
 .admin_users__panel__grid__card__edit,
 .admin_medias__panel__grid__card__edit,
-.admin_about__panel__grid__card__edit {
+.admin_about__panel__grid__card__edit,
+.admin_tn__panel__grid__card__edit {
   margin-right: 1.875rem;
   background-color: #fcebc7;
   color: #ff8000;
@@ -8641,11 +8686,13 @@ button:focus {
 
 .admin_areas__panel__grid__card__remove,
 .admin_courses__panel__grid__card__remove,
+.admin_careers__panel__grid__card__remove,
 .admin_projects__panel__grid__card__remove,
 .admin_unities__panel__grid__card__remove,
 .admin_users__panel__grid__card__remove,
 .admin_medias__panel__grid__card__remove,
-.admin_about__panel__grid__card__remove {
+.admin_about__panel__grid__card__remove,
+.admin_tn__panel__grid__card__remove {
   background-color: rgba(153, 153, 153, 0.25);
   color: #080808;
 }
@@ -9174,7 +9221,7 @@ button:focus {
 .admin_actions_panel__header {
   width: 100%;
   height: 10vh;
-  padding: 30px 60px;
+  padding: 30px 3.375rem;
   border-bottom: 1px solid rgba(153, 153, 153, 0.25);
 }
 
@@ -9612,7 +9659,8 @@ input[type="file"] {
   }
 }
 
-.admin_careers__panel__grid__card {
+.admin_careers__panel__grid__card,
+.admin_tn__panel__grid__card {
   width: 100%;
   padding: 2.25rem 50px;
   background-color: rgba(8, 8, 8, 0.02);
@@ -9621,42 +9669,27 @@ input[type="file"] {
 }
 
 .admin_careers__panel__grid__card h5,
-.admin_careers__panel__grid__card h2 {
+.admin_careers__panel__grid__card h2,
+.admin_tn__panel__grid__card h5,
+.admin_tn__panel__grid__card h2 {
   font-weight: 400;
   margin: 0;
 }
 
-.admin_careers__panel__grid__card h5 {
+.admin_careers__panel__grid__card h5,
+.admin_tn__panel__grid__card h5 {
   font-size: 1rem;
   margin-right: 50px;
 }
 
-.admin_careers__panel__grid__card h2 {
+.admin_careers__panel__grid__card h2,
+.admin_tn__panel__grid__card h2 {
   color: #c94d24;
   font-size: 1.25rem;
 }
 
-.admin_careers__panel__grid__card__edit, .admin_careers__panel__grid__card__remove {
-  width: 120px;
-  border-radius: 12px;
-  border: none;
-  padding: 12px 30px;
-  font-family: "Porto Sans";
-  font-size: 1.0625rem;
-}
-
-.admin_careers__panel__grid__card__edit {
-  margin-right: 30px;
-  background-color: #fcebc7;
-  color: #ff8000;
-}
-
-.admin_careers__panel__grid__card__remove {
-  background-color: #ffe6e6;
-  color: #ff1010;
-}
-
-.admin_careers__panel__grid__card__more {
+.admin_careers__panel__grid__card__more,
+.admin_tn__panel__grid__card__more {
   background-color: transparent;
   border: none;
   color: #080808;
@@ -9667,7 +9700,8 @@ input[type="file"] {
           text-decoration: 1px underline;
 }
 
-.admin_careers__panel__grid__card ul {
+.admin_careers__panel__grid__card ul,
+.admin_tn__panel__grid__card ul {
   margin: 0;
   padding: 0 calc(1rem + 3.5px);
   list-style: none;
@@ -9675,25 +9709,30 @@ input[type="file"] {
 }
 
 @media (min-width: 64em) {
-  .admin_careers__panel__grid__card ul {
+  .admin_careers__panel__grid__card ul,
+  .admin_tn__panel__grid__card ul {
     font-size: 1.125rem;
   }
 }
 
-.admin_careers__panel__grid__card ul li {
+.admin_careers__panel__grid__card ul li,
+.admin_tn__panel__grid__card ul li {
   margin: 1rem 0;
   letter-spacing: 0.1px;
 }
 
-.admin_careers__panel__grid__card ul li:first-child {
+.admin_careers__panel__grid__card ul li:first-child,
+.admin_tn__panel__grid__card ul li:first-child {
   margin: 0;
 }
 
-.admin_careers__panel__grid__card ul li:last-child {
+.admin_careers__panel__grid__card ul li:last-child,
+.admin_tn__panel__grid__card ul li:last-child {
   margin-bottom: 0;
 }
 
-.admin_careers__panel__grid__card ul li::before {
+.admin_careers__panel__grid__card ul li::before,
+.admin_tn__panel__grid__card ul li::before {
   content: "\2022";
   color: #c94d24;
   border: none;
@@ -9703,32 +9742,37 @@ input[type="file"] {
   margin-left: -1em;
 }
 
-.admin_careers__panel__grid__card p {
+.admin_careers__panel__grid__card p,
+.admin_tn__panel__grid__card p {
   line-height: 1.6;
   word-wrap: break-word;
   margin: 0;
 }
 
 @media (min-width: 64em) {
-  .admin_careers__panel__grid__card p {
+  .admin_careers__panel__grid__card p,
+  .admin_tn__panel__grid__card p {
     font-size: 1.25rem;
     line-height: 1.7;
   }
 }
 
 @media (min-width: 64em) {
-  .admin_careers__panel__grid__card p {
+  .admin_careers__panel__grid__card p,
+  .admin_tn__panel__grid__card p {
     font-size: 1.0625rem;
     line-height: 1.7;
   }
 }
 
-.admin_careers__panel__grid__card p a {
+.admin_careers__panel__grid__card p a,
+.admin_tn__panel__grid__card p a {
   text-decoration: underline;
   color: #c94d24;
 }
 
-.admin_careers__panel__grid__card p li {
+.admin_careers__panel__grid__card p li,
+.admin_tn__panel__grid__card p li {
   margin: 0;
 }
 

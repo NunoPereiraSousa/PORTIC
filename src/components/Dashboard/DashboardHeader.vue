@@ -453,7 +453,7 @@
         />
       </svg>
 
-      Testemunhos/ Notícias
+      Ratings e Notícias
     </router-link>
     <router-link
       :to="{ name: 'DashboardUnities' }"
