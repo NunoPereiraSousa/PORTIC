@@ -20,10 +20,12 @@ import DashboardEditCareers from "../views/Dashboard/DashboardEditCareers.vue";
 import DashboardEditCourses from "../views/Dashboard/DashboardEditCourses.vue";
 import DashboardEditProjects from "../views/Dashboard/DashboardEditProjects.vue";
 import DashboardEditUnities from "../views/Dashboard/DashboardEditUnities.vue";
+import DashboardEditNews from "../views/Dashboard/DashboardEditNews.vue";
 import DashboardHome from "../views/Dashboard/DashboardHome.vue";
 import DashboardProjects from "../views/Dashboard/DashboardProjects.vue";
 import DashboardUnities from "../views/Dashboard/DashboardUnities.vue";
 import DashboardUsers from "../views/Dashboard/DashboardUsers.vue";
+import DashboardTN from "../views/Dashboard/DashboardTN.vue";
 import Home from "../views/Home.vue";
 import Media from "../views/Media.vue";
 import NewsPage from "../views/NewsPage.vue";
@@ -199,6 +201,16 @@ const routes = [
     name: "DashboardEditUnities",
     component: DashboardEditUnities,
     props: true
+  },
+  {
+    path: "/dashboard-tn",
+    name: "DashboardTN",
+    component: DashboardTN
+  },
+  {
+    path: "/dashboard-edit-tn",
+    name: "DashboardEditNews",
+    component: DashboardEditNews
   },
   {
     path: "/dashboard-users",

@@ -35,7 +35,9 @@
             this.$route.name !== 'DashboardUsers' &&
             this.$route.name !== 'DashboardAddUsers' &&
             this.$route.name !== 'DashboardComponents' &&
-            this.$route.name !== 'DashboardAboutUs'
+            this.$route.name !== 'DashboardAboutUs' &&
+            this.$route.name !== 'DashboardTN' &&
+            this.$route.name !== 'DashboardEditNews'
         "
       >
         <SubHeader />
@@ -67,6 +69,8 @@ export default {
     };
   },
   created() {
+    console.clear();
+
     gsap.registerPlugin(ScrollTrigger);
     window.addEventListener("scroll", this.handleScroll);
 

@@ -9997,4 +9997,119 @@ input[type="file"] {
 .admin_about__panel ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(8, 8, 8, 0.1);
 }
+
+.admin_tn__panel {
+  width: 100%;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.admin_tn__panel__overlay, .admin_tn__panel__overlay_slide, .admin_tn__panel__overlay_add {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 998;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(8, 8, 8, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.admin_tn__panel__overlay.show_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_tn__panel__overlay_slide.show_overlay_slide {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_tn__panel__overlay_add.open_add_unity_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin_tn__panel__tools {
+  padding: 3rem;
+}
+
+.admin_tn__panel__tools input {
+  padding: 12px 26px;
+  margin-right: 3.125rem;
+  border-radius: 10px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_tn__panel__tools input:focus {
+  outline: none;
+  border: 1px solid #c94d24;
+}
+
+.admin_tn__panel__tools p {
+  color: #c94d24;
+  margin-right: 2.5rem;
+  font-size: 1.125rem;
+}
+
+.admin_tn__panel__tools p svg {
+  margin-right: 0.6rem;
+}
+
+.admin_tn__panel__tools button {
+  background-color: rgba(8, 8, 8, 0.02);
+  border: none;
+  border-radius: 1.625rem;
+  padding: 0.84375rem 1.625rem;
+  margin-right: 3.125rem;
+  font-size: 1rem;
+  font-family: "Porto Sans";
+  letter-spacing: 0.2px;
+}
+
+.admin_tn__panel__tools select {
+  padding: 6px 16px;
+  border-radius: 10px;
+  border: 2px solid #c94d24;
+}
+
+.admin_tn__panel__tools select:focus {
+  outline: none;
+}
+
+.admin_tn__panel__grid {
+  padding: 0 3rem 0 3rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  row-gap: 2.25rem;
+}
+
+@media (min-width: 120em) {
+  .admin_tn__panel__grid {
+    max-height: 70vh;
+  }
+}
+
+.admin_tn__panel ::-webkit-scrollbar {
+  width: 10px;
+  margin-right: 10px;
+}
+
+.admin_tn__panel ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin_tn__panel ::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_tn__panel ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(8, 8, 8, 0.1);
+}
 /*# sourceMappingURL=style.css.map */
