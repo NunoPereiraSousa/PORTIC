@@ -2,15 +2,18 @@
   <div class="admin_actions flex">
     <DashboardHeader />
 
-    <div class="admin_actions_panel">
+    <div class="admin_actions_panel" v-show="currentTab === 0">
       <div class="admin_actions_panel__header flex flex-jc-sb flex-ai-c">
         <div
           class="admin_actions_panel__header__languages flex flex-jc-sb flex-ai-c"
         >
-          <button class="pt selected">Português</button>
-          <hr />
-          <button class="en">
-            Inglês
+          <button
+            v-for="(tab, index) in tabs"
+            :key="tab"
+            @click="currentTab = index"
+            :class="{ active: currentTab === index }"
+          >
+            {{ tab }}
           </button>
         </div>
         <div>
@@ -46,6 +49,54 @@
         </div>
       </div>
     </div>
+
+    <div class="admin_actions_panel" v-show="currentTab === 1">
+      <div class="admin_actions_panel__header flex flex-jc-sb flex-ai-c">
+        <div
+          class="admin_actions_panel__header__languages flex flex-jc-sb flex-ai-c"
+        >
+          <button
+            v-for="(tab, index) in tabs"
+            :key="tab"
+            @click="currentTab = index"
+            :class="{ active: currentTab === index }"
+          >
+            {{ tab }}
+          </button>
+        </div>
+        <div>
+          <h3>
+            Career <span>{{ careerName }}</span>
+          </h3>
+        </div>
+        <div>
+          <button class="edit_confirm_button" @click="save">
+            Confirm
+          </button>
+          <button class="edit_cancel_button" @click="goBack">
+            Cancel
+          </button>
+        </div>
+      </div>
+
+      <div class="admin_actions_panel__form">
+        <h3 class="dashboard_subheader">
+          Career name
+        </h3>
+        <input type="text" :placeholder="careerName" v-model="careerTxt" />
+        <h3 class="dashboard_subheader">
+          Career information
+        </h3>
+        <div class="area_edit_editor">
+          <quill-editor
+            v-model="contentEN"
+            :options="editorOption"
+            ref="quillEditor"
+          >
+          </quill-editor>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -60,7 +111,10 @@ export default {
   data: () => {
     return {
       careerName: "",
+      tabs: ["Português", "Inglês"],
+      currentTab: 0,
       content: "",
+      contentEN: "",
       careerTxt: "",
       editorOption: {
         modules: {
@@ -104,13 +158,16 @@ export default {
     this.careerName = this.getCareerByID(this.getSelectedCareerByID).title;
 
     this.content = this.getCareerByID(this.getSelectedCareerByID).content;
+    this.contentEN = this.getCareerByID(this.getSelectedCareerByID).content;
   },
   mounted() {
     let navbar_width = document.querySelector(".admin_nav").offsetWidth;
 
-    document.querySelector(
-      ".admin_actions_panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    let arr = document.querySelectorAll(".admin_actions_panel");
+
+    arr.forEach(i => {
+      i.style.paddingLeft = `${navbar_width}px`;
+    });
 
     // this.styleEditorHeight();
   },
