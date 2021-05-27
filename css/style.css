@@ -4707,24 +4707,58 @@ button:focus {
   }
 }
 
-.courses__grid__card__content {
-  margin: 2rem 0;
-  max-height: 60vh;
-  overflow-y: auto;
-  padding-right: 10px;
+.courses__grid__card__toggle {
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  line-height: 1.6;
 }
 
 @media (min-width: 64em) {
+  .courses__grid__card__toggle {
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 120em) {
+  .courses__grid__card__toggle {
+    font-size: 1.25rem;
+  }
+}
+
+.courses__grid__card__toggle.collapse {
+  display: none;
+}
+
+.courses__grid__card__toggle.collapsing {
+  height: 0;
+  overflow: hidden;
+}
+
+.courses__grid__card__toggle.open {
+  display: block;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.courses__grid__card__content {
+  padding-bottom: 2rem;
+  padding-right: 10px;
+}
+
+@media (max-width: 63.9375em) {
   .courses__grid__card__content {
-    margin: 4rem 0 0;
+    max-height: 60vh;
+    overflow-y: auto;
   }
 }
 
 @media (min-width: 75em) {
   .courses__grid__card__content {
-    padding-right: 0;
-    overflow-y: hidden;
-    max-height: none;
+    padding-bottom: 0;
   }
 }
 

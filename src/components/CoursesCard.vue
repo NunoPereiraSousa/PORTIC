@@ -12,7 +12,7 @@
         <div class="courses__grid__card__button__lines"></div>
       </button>
     </div>
-    <div v-if="show">
+    <div class="courses__grid__card__toggle collapse">
       <div class="courses__grid__card__content">
         <p
           class="courses__grid__card__content__paragraph"
@@ -77,6 +77,49 @@ export default {
       lines.forEach(line => {
         line.classList.toggle("minus");
       });
+
+      let card = document.querySelector(`#card_${index}`);
+
+      let card__toggle = document.querySelector(
+        `#card_${index} .courses__grid__card__toggle`
+      );
+
+      card.classList.toggle("open");
+
+      if (card.classList.contains("open")) {
+        card__toggle.style.display = "block";
+
+        console.log(card__toggle);
+
+        let height = card__toggle.clientHeight;
+
+        console.log(height);
+
+        setTimeout(() => {
+          card__toggle.style.height = `${height + 32}px`;
+          card__toggle.style.paddingTop = `32px`;
+          card__toggle.style.display = "";
+        }, 1);
+
+        card__toggle.classList = "courses__grid__card__toggle collapsing";
+
+        setTimeout(() => {
+          card__toggle.classList = "courses__grid__card__toggle open";
+        }, 300);
+      } else {
+        card__toggle.classList = "courses__grid__card__toggle collapsing";
+
+        setTimeout(() => {
+          card__toggle.style.height = "0px";
+          card__toggle.style.paddingTop = `0px`;
+        }, 1);
+
+        setTimeout(() => {
+          card__toggle.classList = "courses__grid__card__toggle collapse";
+          card__toggle.style.height = "";
+          card__toggle.style.paddingTop = "";
+        }, 300);
+      }
     }
   }
 };

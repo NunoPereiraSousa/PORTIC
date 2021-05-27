@@ -104,20 +104,49 @@
     }
   }
 
-  &__content {
-    margin: 2rem 0;
-    max-height: 60vh;
-    overflow-y: auto;
-    padding-right: 10px;
+  &__toggle {
+    transition: all 0.2s linear;
+
+    margin: 0;
+    font-size: $_16px;
+    letter-spacing: 0.2px;
+    line-height: 1.6;
 
     @include breakpoint-up(iPadPro) {
-      margin: 4rem 0 0;
+      font-size: $_18px;
+      line-height: 1.65;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_20px;
+    }
+
+    &.collapse {
+      display: none;
+    }
+
+    &.collapsing {
+      height: 0;
+      overflow: hidden;
+    }
+
+    &.open {
+      display: block;
+      transition: all 0.2s linear;
+    }
+  }
+
+  &__content {
+    padding-bottom: 2rem;
+    padding-right: 10px;
+
+    @include breakpoint-down(iPadPro) {
+      max-height: 60vh;
+      overflow-y: auto;
     }
 
     @include breakpoint-up(desktop) {
-      padding-right: 0;
-      overflow-y: hidden;
-      max-height: none;
+      padding-bottom: 0;
     }
 
     &__paragraph {
