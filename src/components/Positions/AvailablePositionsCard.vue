@@ -35,8 +35,10 @@
       </h4>
     </button>
 
-    <div class="positions__available__card__info">
-      <p v-html="content" v-if="!hide"></p>
+    <div
+      class="positions__available__card__info positions__available__card__toggle collapse"
+    >
+      <p v-html="content"></p>
     </div>
 
     <a
@@ -81,7 +83,7 @@ export default {
   },
   methods: {
     toggleInfo(index) {
-      this.hide = !this.hide;
+      // this.hide = !this.hide;
 
       let lines = document.querySelectorAll(
         `#card_${index} .positions__available__card__button__lines`
@@ -91,13 +93,45 @@ export default {
         line.classList.toggle("minus");
       });
 
-      let textArr = document.querySelectorAll(
-        `#card_${index} .positions__available__card__info`
+      let card = document.querySelector(`#card_${index}`);
+
+      let card__toggle = document.querySelector(
+        `#card_${index} .positions__available__card__toggle`
       );
 
-      textArr.forEach(item => {
-        item.classList.toggle("opened");
-      });
+      card.classList.toggle("open");
+
+      if (card.classList.contains("open")) {
+        card__toggle.style.display = "block";
+
+        let height = card__toggle.clientHeight;
+
+        setTimeout(() => {
+          card__toggle.style.height = `${height}px`;
+          card__toggle.style.display = "";
+        }, 1);
+
+        card__toggle.classList =
+          "positions__available__card__info positions__available__card__toggle collapsing";
+
+        setTimeout(() => {
+          card__toggle.classList =
+            "positions__available__card__info positions__available__card__toggle open";
+        }, 300);
+      } else {
+        card__toggle.classList =
+          "positions__available__card__info positions__available__card__toggle collapsing";
+
+        setTimeout(() => {
+          card__toggle.style.height = "0px";
+        }, 1);
+
+        setTimeout(() => {
+          card__toggle.classList =
+            "positions__available__card__info positions__available__card__toggle collapse";
+          card__toggle.style.height = "";
+        }, 300);
+      }
     }
   }
 };

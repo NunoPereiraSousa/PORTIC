@@ -5899,6 +5899,43 @@ button:focus {
   margin-left: -1em;
 }
 
+.positions__available__card__toggle {
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  line-height: 1.6;
+}
+
+@media (min-width: 64em) {
+  .positions__available__card__toggle {
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 120em) {
+  .positions__available__card__toggle {
+    font-size: 1.25rem;
+  }
+}
+
+.positions__available__card__toggle.collapse {
+  display: none;
+}
+
+.positions__available__card__toggle.collapsing {
+  height: 0;
+  overflow: hidden;
+}
+
+.positions__available__card__toggle.open {
+  display: block;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
 .positions__available__card__info {
   overflow: hidden;
 }
