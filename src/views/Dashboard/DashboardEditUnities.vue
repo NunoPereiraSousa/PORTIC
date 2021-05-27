@@ -31,11 +31,18 @@
         </div>
       </div>
 
-      <div class="admin_actions_panel__form">
+      <div class="admin_actions_panel__unities__form">
         <h3 class="dashboard_subheader">
           Nome da unidade
         </h3>
         <input type="text" :placeholder="unityName" v-model="unityTxt" />
+        <h3 class="dashboard_subheader">
+          Imagem da unidade
+        </h3>
+        <label class="custom-file-upload">
+          <input type="file" />
+          Selecionar imagem
+        </label>
         <h3 class="dashboard_subheader">
           Conteúdo da unidade
         </h3>
@@ -79,11 +86,18 @@
         </div>
       </div>
 
-      <div class="admin_actions_panel__form">
+      <div class="admin_actions_panel__unities__form">
         <h3 class="dashboard_subheader">
           Unity name
         </h3>
         <input type="text" :placeholder="unityName" v-model="unityTxt" />
+        <h3 class="dashboard_subheader">
+          Unity image
+        </h3>
+        <label class="custom-file-upload">
+          <input type="file" />
+          Select an image
+        </label>
         <h3 class="dashboard_subheader">
           Unity information
         </h3>

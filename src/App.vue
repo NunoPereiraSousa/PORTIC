@@ -37,7 +37,8 @@
             this.$route.name !== 'DashboardComponents' &&
             this.$route.name !== 'DashboardAboutUs' &&
             this.$route.name !== 'DashboardTN' &&
-            this.$route.name !== 'DashboardEditNews'
+            this.$route.name !== 'DashboardEditNews' &&
+            this.$route.name !== 'DashboardAddPage'
         "
       >
         <SubHeader />

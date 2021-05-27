@@ -145,6 +145,7 @@ export default {
     },
     convertWeekDaysArr() {
       let arr = [];
+
       for (let day of this.getFiveWeekDay()) {
         switch (day) {
           case 0:
@@ -167,6 +168,21 @@ export default {
             break;
           case 6:
             arr.push("Sáb");
+            break;
+          case 7:
+            arr.push("Dom");
+            break;
+          case 8:
+            arr.push("Seg");
+            break;
+          case 9:
+            arr.push("Sáb");
+            break;
+          case 10:
+            arr.push("Ter");
+            break;
+          case 11:
+            arr.push("Qua");
             break;
         }
       }

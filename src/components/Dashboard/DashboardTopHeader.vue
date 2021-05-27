@@ -472,6 +472,12 @@
         </button>
       </div>
 
+      <div v-else-if="$route.name == 'DashboardAddPage'">
+        <button class="top_header__actions__add flex flex-ai-c">
+          Confirmar
+        </button>
+      </div>
+
       <div class="top_header__actions__image" :style="imageStyle"></div>
     </div>
   </header>
