@@ -18,6 +18,38 @@
     padding: 2.85rem 2.875rem;
   }
 
+  &__toggle {
+    transition: all 0.2s linear;
+
+    margin: 0;
+    font-size: $_16px;
+    letter-spacing: 0.2px;
+    line-height: 1.6;
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_18px;
+      line-height: 1.65;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_20px;
+    }
+
+    &.collapse {
+      display: none;
+    }
+
+    &.collapsing {
+      height: 0;
+      overflow: hidden;
+    }
+
+    &.open {
+      display: block;
+      transition: all 0.2s linear;
+    }
+  }
+
   // &:hover &__sub_title {
   //   color: $white;
   // }
@@ -111,40 +143,13 @@
   }
 
   &__content {
-    margin: 2rem 0 0;
-    max-height: 300px;
-    overflow-y: auto;
-
-    @include breakpoint-up(iPadPro) {
-      margin: 4rem 0 0;
-    }
+    // max-height: 300px;
+    // overflow-y: auto;
 
     @include breakpoint-up(desktop) {
       padding-right: 0;
-      overflow-y: hidden;
-      max-height: none;
-    }
-
-    // display: none;
-
-    // &.closed {
-    //   height: 0;
-    // }
-
-    &__paragraph {
-      margin: 0;
-      font-size: $_16px;
-      letter-spacing: 0.2px;
-      line-height: 1.6;
-
-      @include breakpoint-up(iPadPro) {
-        font-size: $_18px;
-        line-height: 1.65;
-      }
-
-      @include breakpoint-up(large) {
-        font-size: $_20px;
-      }
+      // overflow: hidden;
+      // max-height: none;
     }
   }
 

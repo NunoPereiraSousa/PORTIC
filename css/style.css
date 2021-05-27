@@ -4843,6 +4843,43 @@ button:focus {
   }
 }
 
+.areas__grid__card__toggle {
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  line-height: 1.6;
+}
+
+@media (min-width: 64em) {
+  .areas__grid__card__toggle {
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 120em) {
+  .areas__grid__card__toggle {
+    font-size: 1.25rem;
+  }
+}
+
+.areas__grid__card__toggle.collapse {
+  display: none;
+}
+
+.areas__grid__card__toggle.collapsing {
+  height: 0;
+  overflow: hidden;
+}
+
+.areas__grid__card__toggle.open {
+  display: block;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
 .areas__grid__card__sub_title, .areas__grid__card__title {
   font-weight: 400;
   margin: 0;
@@ -4931,43 +4968,9 @@ button:focus {
   }
 }
 
-.areas__grid__card__content {
-  margin: 2rem 0 0;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-@media (min-width: 64em) {
-  .areas__grid__card__content {
-    margin: 4rem 0 0;
-  }
-}
-
 @media (min-width: 75em) {
   .areas__grid__card__content {
     padding-right: 0;
-    overflow-y: hidden;
-    max-height: none;
-  }
-}
-
-.areas__grid__card__content__paragraph {
-  margin: 0;
-  font-size: 1rem;
-  letter-spacing: 0.2px;
-  line-height: 1.6;
-}
-
-@media (min-width: 64em) {
-  .areas__grid__card__content__paragraph {
-    font-size: 1.125rem;
-    line-height: 1.65;
-  }
-}
-
-@media (min-width: 120em) {
-  .areas__grid__card__content__paragraph {
-    font-size: 1.25rem;
   }
 }
 

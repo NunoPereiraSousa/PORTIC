@@ -6,7 +6,7 @@
       @click="expand(index)"
       v-on:click="show = !show"
     >
-      <div class="flex flex-ai-c flex-jc-sb">
+      <div class="flex flex-ai-c flex-jc-sb ">
         <div class="flex flex-ai-c flex-jc-sb">
           <h5 class="areas__grid__card__sub_title" v-if="counter < 10">
             {{ $t("areas.areaKey") }} 0{{ counter }}
@@ -24,12 +24,9 @@
           <div class="areas__grid__card__button__lines"></div>
         </button>
       </div>
-      <div class="areas__grid__card__content" v-if="show">
-        <p class="areas__grid__card__content__paragraph">
-          <!-- {{ $t("areas.content", { areaDesc: areaDesc }) }} -->
-          {{ areaDesc }}
-        </p>
-      </div>
+      <p class="areas__grid__card__content areas__grid__card__toggle collapse">
+        {{ areaDesc }}
+      </p>
     </div>
   </div>
   <!-- <div class="areas__grid__card">
@@ -95,6 +92,51 @@ export default {
       lines.forEach(line => {
         line.classList.toggle("minus");
       });
+
+      let card = document.querySelector(`#card_${index}`);
+
+      let card__toggle = document.querySelector(
+        `#card_${index} .areas__grid__card__toggle`
+      );
+
+      card.classList.toggle("open");
+
+      if (card.classList.contains("open")) {
+        card__toggle.style.display = "block";
+
+        let height = card__toggle.clientHeight;
+
+        console.log(height);
+
+        setTimeout(() => {
+          card__toggle.style.height = `${height + 32}px`;
+          card__toggle.style.paddingTop = `32px`;
+          card__toggle.style.display = "";
+        }, 1);
+
+        card__toggle.classList =
+          "areas__grid__card__content areas__grid__card__toggle collapsing";
+
+        setTimeout(() => {
+          card__toggle.classList =
+            "areas__grid__card__content areas__grid__card__toggle open";
+        }, 300);
+      } else {
+        card__toggle.classList =
+          "areas__grid__card__content areas__grid__card__toggle collapsing";
+
+        setTimeout(() => {
+          card__toggle.style.height = "0px";
+          card__toggle.style.paddingTop = `0px`;
+        }, 1);
+
+        setTimeout(() => {
+          card__toggle.classList =
+            "areas__grid__card__content areas__grid__card__toggle collapse";
+          card__toggle.style.height = "";
+          card__toggle.style.paddingTop = "";
+        }, 300);
+      }
     }
   }
 };
