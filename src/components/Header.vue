@@ -6,7 +6,7 @@
     >
       <router-link class="navbar__logo" :to="{ name: 'Home' }">
         <img
-          src="../../assets/svg/PORTIC_LOGO.svg"
+          src="../assets/logo.png"
           alt="PORTIC"
           id="logo"
           @click="closeNavbarOnPageTransition"
@@ -186,7 +186,7 @@
       <div class="flex flex-ai-c flex-jc-sb">
         <router-link class="navbar__logo" :to="{ name: 'Home' }">
           <img
-            src="../../assets/svg/PORTIC_LOGO.svg"
+            src="../assets/logo.png"
             alt="PORTIC"
             id="logo"
             @click="closeNavbarOnPageTransition"

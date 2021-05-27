@@ -1253,12 +1253,12 @@ button:focus {
 }
 
 .navbar__logo img {
-  width: 4.25rem;
+  width: 8.25rem;
 }
 
 @media (min-width: 64em) {
   .navbar__logo img {
-    width: 7rem;
+    width: 13vw;
   }
 }
 

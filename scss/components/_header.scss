@@ -104,10 +104,10 @@
     width: fit-content;
 
     img {
-      width: 4.25rem;
+      width: 8.25rem;
 
       @include breakpoint-up(iPadPro) {
-        width: 7rem;
+        width: 13vw;
       }
     }
   }
