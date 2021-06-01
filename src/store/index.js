@@ -13,6 +13,7 @@ import { projectsModule } from "./modules/projectsModule";
 import { recruitmentModule } from "./modules/recruitmentModule";
 import { unityModule } from "./modules/unitiesModule";
 import { weatherModule } from "./modules/weatherModule";
+import { entityModule } from "./modules/entityModule";
 
 Vue.use(Vuex);
 
@@ -29,6 +30,7 @@ export default new Vuex.Store({
     areaModule,
     contactsModule,
     coursesModule,
+    entityModule,
     langModule,
     mediaModule,
     newsModule,

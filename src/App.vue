@@ -69,7 +69,7 @@ export default {
       currLang: ""
     };
   },
-  created() {
+  async created() {
     console.clear();
 
     gsap.registerPlugin(ScrollTrigger);
@@ -79,9 +79,19 @@ export default {
 
     this.currLang = this.getCurrLang;
     this.getLang();
+
+    try {
+      await this.$store.dispatch("setData");
+
+      console.log(this.getEntityData);
+      console.log(this.getEntityDataStatus);
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
   },
   computed: {
-    ...mapGetters(["getCurrLang"])
+    ...mapGetters(["getCurrLang", "getEntityData", "getEntityDataStatus"])
   },
   methods: {
     handleScroll() {
