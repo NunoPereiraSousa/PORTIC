@@ -1,6 +1,6 @@
 export const langModule = {
   state: {
-    lang: "en"
+    lang: "pt"
   },
   mutations: {
     SET_LOCALE(state, payload) {

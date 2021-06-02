@@ -58,11 +58,8 @@ export default {
       isDisabled: false
     };
   },
-  mounted() {
-    this.getLang();
-  },
   computed: {
-    ...mapGetters(["getEntityData", "getEntityDataStatus", "getEntityContacts"])
+    ...mapGetters(["getEntityData"])
   },
   methods: {
     async handleAPI() {
@@ -70,6 +67,8 @@ export default {
         await this.$store.dispatch("setData");
 
         console.log(this.getEntityData);
+
+        // console.log(`LANG: ${this.$i18n.locale}`);
 
         // this.getEntityData.menus.forEach(menu => {
         //   console.log(menu);
@@ -80,7 +79,7 @@ export default {
       }
     },
     changeLangEN() {
-      this.$i18n.locale = "eng";
+      this.$i18n.locale = "en";
 
       let enBtn = document.querySelector(".en");
       let ptBtn = document.querySelector(".pt");
@@ -89,6 +88,10 @@ export default {
       enBtn.classList.add("selected");
 
       this.$store.commit("SET_LOCALE", this.$i18n.locale);
+
+      this.$store.commit("SET_SELECTED_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
 
       this.handleAPI();
     },
@@ -103,17 +106,11 @@ export default {
 
       this.$store.commit("SET_LOCALE", this.$i18n.locale);
 
-      this.handleAPI();
-    },
-    getLang() {
-      let enBtn = document.querySelector(".en");
-      let ptBtn = document.querySelector(".pt");
+      this.$store.commit("SET_SELECTED_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
 
-      if (this.$i18n.locale == "en") {
-        enBtn.classList.add("selected");
-      } else {
-        ptBtn.classList.add("selected");
-      }
+      this.handleAPI();
     }
   }
 };

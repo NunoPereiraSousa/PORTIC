@@ -48,7 +48,10 @@ export default new Vuex.Store({
         "langModule.lang"
       ],
       storage: {
-        getItem: key => Cookies.get(key),
+        getItem: key => {
+          console.log(Cookies.get(key));
+          return Cookies.get(key);
+        },
         setItem: (key, value) =>
           Cookies.set(key, value, { expires: 3, secure: true }),
         removeItem: key => Cookies.remove(key)

@@ -161,7 +161,7 @@
           <router-link
             v-for="menu in $store.getters.getEntityMenus"
             :key="menu.id_menu"
-            :to="{ name: menu.menu_designation }"
+            :to="{ name: menu.router_link }"
           >
             {{ menu.menu_designation }}
           </router-link>
@@ -194,7 +194,7 @@
                 @click.native="closeNavbarOnPageTransition"
                 v-for="menu in $store.getters.getEntityMenus"
                 :key="menu.id_menu"
-                :to="{ name: menu.menu_designation }"
+                :to="{ name: menu.router_link }"
               >
                 {{ menu.menu_designation }}
               </router-link>

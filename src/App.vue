@@ -94,7 +94,7 @@ export default {
         console.log(this.getEntityData);
 
         // this.getEntityData.menus.forEach(menu => {
-        //   console.log(menu);
+        //   console.log(menu.router_link);
         // });
       } catch (error) {
         console.log(`App: ${error}`);
@@ -130,7 +130,18 @@ export default {
     getLang() {
       this.$i18n.locale = this.currLang;
 
+      let enBtn = document.querySelector(".en");
+      let ptBtn = document.querySelector(".pt");
+
+      this.$i18n.locale == "en"
+        ? enBtn.classList.add("selected")
+        : ptBtn.classList.add("selected");
+
       this.$store.commit("SET_LOCALE", this.$i18n.locale);
+
+      this.$store.commit("SET_SELECTED_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
 
       this.handleAPI();
     }

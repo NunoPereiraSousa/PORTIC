@@ -47,19 +47,23 @@
           {{ $t("footer.directions.title") }}
         </h1>
         <div class="footer__grid__directions__info">
-          <p>Rua Arquitecto Lobão Vital, 172</p>
-          <p>4200-375 Porto</p>
+          <p>{{ $store.getters.getEntityData.street }}</p>
+          <p>{{ $store.getters.getEntityData.postal_code }}</p>
           <p>Portugal</p>
           <p>
-            <a href="tel:+351225571020">(+351) 22 557 1020</a>
+            <a href="tel:+351225571020">{{
+              $store.getters.getEntityPhoneNumber
+            }}</a>
           </p>
           <p>
-            <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
+            <a href="mailto:portic@portic.ipp.pt">{{
+              $store.getters.getEntityEmail
+            }}</a>
           </p>
           <p>
-            <a href="mailto:communication@portic.ipp.pt"
-              >communication@portic.ipp.pt</a
-            >
+            <a href="mailto:communication@portic.ipp.pt">{{
+              $store.getters.getEntityEmail2
+            }}</a>
           </p>
         </div>
       </div>
@@ -68,29 +72,12 @@
           {{ $t("footer.links.title") }}
         </h1>
         <div class="footer__grid__links__info grid">
-          <router-link :to="{ name: 'Contacts' }">
-            {{ $t("navbar.items[0]") }}
-          </router-link>
-          <router-link :to="{ name: 'Unities' }">
-            {{ $t("navbar.items[1]") }}
-          </router-link>
-          <router-link :to="{ name: 'Areas' }">
-            {{ $t("navbar.items[2]") }}
-          </router-link>
-          <router-link :to="{ name: 'Courses' }">
-            {{ $t("navbar.items[3]") }}
-          </router-link>
-          <router-link :to="{ name: 'ProjectsCatalog' }">
-            {{ $t("navbar.items[4]") }}
-          </router-link>
-          <router-link :to="{ name: 'Media' }">
-            {{ $t("navbar.items[5]") }}
-          </router-link>
-          <router-link :to="{ name: 'Positions' }">
-            {{ $t("navbar.items[6]") }}
-          </router-link>
-          <router-link :to="{ name: 'SiteMap' }">
-            {{ $t("navbar.items[7]") }}
+          <router-link
+            v-for="menu in $store.getters.getEntityMenus"
+            :key="menu.id_menu"
+            :to="{ name: menu.router_link }"
+          >
+            {{ menu.menu_designation }}
           </router-link>
         </div>
       </div>
@@ -101,54 +88,57 @@
         <div class="footer__grid__socials__media grid">
           <div class="first__cells">
             <a
-              href="https://twitter.com/politecnico"
+              v-for="media in $store.getters.getEntityDataSliced"
+              :key="media.social_media_type"
+              :href="media.url"
               target="_blank"
-              class="grid"
+              class="flex flex-ai-c"
             >
-              <i class="fab fa-twitter"></i>
-              <p>Twitter</p>
-            </a>
-            <a
-              href="https://www.instagram.com/politecnicodoporto/"
-              target="_blank"
-              class="grid"
-            >
-              <i class="fab fa-instagram"></i>
-              <p>Instagram</p>
-            </a>
-            <a
-              href="https://www.flickr.com/people/politecnicodoporto/"
-              target="_blank"
-              class="grid"
-            >
-              <i class="fab fa-flickr"></i>
-              <p>Flickr</p>
+              <div
+                v-if="media.social_media_type == 'Twitter'"
+                class="flex flex-ai-c"
+              >
+                <i class="fab fa-twitter"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Facebook'">
+                <i class="fab fa-facebook-square"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'LinkedIn'">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Youtube'">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Instagram'">
+                <i class="fab fa-instagram"></i>
+              </div>
+              <p>{{ media.social_media_type }}</p>
             </a>
           </div>
           <div class="second__cells">
             <a
-              href="https://www.youtube.com/channel/UCa0njrkoyEd8kwjIVPE5pNg"
+              v-for="media in $store.getters.getEntityDataSliced2"
+              :key="media.social_media_type"
+              :href="media.url"
               target="_blank"
-              class="grid"
+              class="flex flex-ai-c"
             >
-              <i class="fab fa-youtube"></i>
-              <p>YouTube</p>
-            </a>
-            <a
-              href="https://www.linkedin.com/company/portic-pporto/mycompany/"
-              target="_blank"
-              class="grid"
-            >
-              <i class="fab fa-linkedin"></i>
-              <p>LinkedIn</p>
-            </a>
-            <a
-              href="https://www.facebook.com/porticpporto"
-              target="_blank"
-              class="grid"
-            >
-              <i class="fab fa-facebook-square"></i>
-              <p>Facebook</p>
+              <div v-if="media.social_media_type == 'Twitter'">
+                <i class="fab fa-twitter"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Facebook'">
+                <i class="fab fa-facebook-square"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'LinkedIn'">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Youtube'">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Instagram'">
+                <i class="fab fa-instagram"></i>
+              </div>
+              <p>{{ media.social_media_type }}</p>
             </a>
           </div>
         </div>

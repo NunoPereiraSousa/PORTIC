@@ -8,7 +8,7 @@ let headers = {
 
 export const entityConfig = {
   getEntityData: async selectedLang => {
-    console.log(selectedLang);
+    console.log(`LANG ARGUMENT RECEIVED: ${selectedLang}`);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/4cw0jfzg2okpe61lgd_Entity`, {
         headers
