@@ -7,26 +7,37 @@ export const entityModule = {
     dataStatus: "",
     dataBody: {
       selectedLang: ""
-    }
+    },
+    entityId: ""
   },
   mutations: {
     SET_DATA(state, payload) {
       state.data = payload.data;
       state.dataStatus = payload.status;
     },
+    SET_ENTITY_ID(state, payload) {
+      state.entityId = payload.entity_id;
+    },
     SET_SELECTED_LANG(state, payload) {
       state.dataBody.selectedLang = payload.lang;
     }
   },
   actions: {
+    async setEntityId({ commit }) {
+      commit("SET_ENTITY_ID", await entityConfig.getEntityId());
+    },
     async setData({ commit, state }) {
       commit(
         "SET_DATA",
-        await entityConfig.getEntityData(state.dataBody.selectedLang)
+        await entityConfig.getEntityData(
+          state.dataBody.selectedLang,
+          state.entityId
+        )
       );
     }
   },
   getters: {
+    getEntityId: state => state.entityId,
     getEntityData: state => {
       return state.data != "" ? state.data : "Carregar...";
     },

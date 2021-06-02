@@ -1,5 +1,6 @@
 import { iconCardsEN, iconCardsPT } from "../../config/areas";
 import { areasConfig } from "../../config/api/areas";
+import { entityModule } from "./entityModule";
 
 export const areaModule = {
   state: {
@@ -31,7 +32,10 @@ export const areaModule = {
     async setAreas({ commit, state }) {
       commit(
         "SET_AREAS",
-        await areasConfig.getAreas(state.dataBody.selectedLang)
+        await areasConfig.getAreas(
+          state.dataBody.selectedLang,
+          entityModule.state.entityId
+        )
       );
     }
   },

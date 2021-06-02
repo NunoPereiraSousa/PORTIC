@@ -76,6 +76,7 @@ export default {
     });
 
     try {
+      await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setAreas");
       console.log(this.$store.getters.getAreas);
     } catch (error) {

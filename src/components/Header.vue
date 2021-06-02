@@ -214,28 +214,30 @@
           <div class="navbar__content__socials">
             <hr />
             <h3>{{ $t("footer.socials.title") }}</h3>
-            <a
-              v-for="media in $store.getters.getEntitySocials"
-              :key="media.social_media_type"
-              :href="media.url"
-              target="_blank"
-            >
-              <div v-if="media.social_media_type == 'Twitter'">
-                <i class="fab fa-twitter"></i>
-              </div>
-              <div v-else-if="media.social_media_type == 'Facebook'">
-                <i class="fab fa-facebook-square"></i>
-              </div>
-              <div v-else-if="media.social_media_type == 'LinkedIn'">
-                <i class="fab fa-linkedin"></i>
-              </div>
-              <div v-else-if="media.social_media_type == 'Youtube'">
-                <i class="fab fa-youtube"></i>
-              </div>
-              <div v-else-if="media.social_media_type == 'Instagram'">
-                <i class="fab fa-instagram"></i>
-              </div>
-            </a>
+            <div class="flex flex-ai-c">
+              <a
+                v-for="media in $store.getters.getEntitySocials"
+                :key="media.social_media_type"
+                :href="media.url"
+                target="_blank"
+              >
+                <div v-if="media.social_media_type == 'Twitter'">
+                  <i class="fab fa-twitter"></i>
+                </div>
+                <div v-else-if="media.social_media_type == 'Facebook'">
+                  <i class="fab fa-facebook-square"></i>
+                </div>
+                <div v-else-if="media.social_media_type == 'LinkedIn'">
+                  <i class="fab fa-linkedin"></i>
+                </div>
+                <div v-else-if="media.social_media_type == 'Youtube'">
+                  <i class="fab fa-youtube"></i>
+                </div>
+                <div v-else-if="media.social_media_type == 'Instagram'">
+                  <i class="fab fa-instagram"></i>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>

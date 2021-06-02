@@ -1455,10 +1455,6 @@ button:focus {
   }
 }
 
-.navbar__content__socials a:last-child {
-  margin: 0;
-}
-
 .navbar__desktop_menu__links a {
   position: relative;
   text-transform: uppercase;

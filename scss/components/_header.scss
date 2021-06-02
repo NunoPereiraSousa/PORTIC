@@ -279,9 +279,6 @@
       }
     }
 
-    &__sec_links {
-    }
-
     &__socials {
       a {
         font-size: $_16px;
@@ -291,10 +288,6 @@
 
         @include breakpoint-up(tablet) {
           font-size: $_22px;
-        }
-
-        &:last-child {
-          margin: 0;
         }
       }
     }

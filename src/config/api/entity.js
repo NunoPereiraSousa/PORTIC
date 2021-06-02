@@ -7,9 +7,26 @@ let headers = {
 };
 
 export const entityConfig = {
-  getEntityData: async selectedLang => {
+  getEntityId: async () => {
     return await axios
-      .get(`${API_URL}/${selectedLang}/entities/4cw0jfzg2okpe61lgd_Entity`, {
+      .get(`${API_URL}/entities/main`, {
+        headers
+      })
+      .then(response => {
+        return {
+          entity_id: response.data.processResult.id_entity,
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
+  },
+  getEntityData: async (selectedLang, entityId) => {
+    return await axios
+      .get(`${API_URL}/${selectedLang}/entities/${entityId}`, {
         headers
       })
       .then(response => {

@@ -87,6 +87,7 @@ export default {
   methods: {
     async handleAPI() {
       try {
+        await this.$store.dispatch("setEntityId");
         await this.$store.dispatch("setData");
       } catch (error) {
         console.log(`App: ${error}`);
