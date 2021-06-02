@@ -6454,8 +6454,8 @@ button:focus {
 }
 
 .contacts__intro__grid__contacts__socials {
-  -ms-grid-columns: (1fr)[6];
-      grid-template-columns: repeat(6, 1fr);
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
   -webkit-column-gap: 1rem;
           column-gap: 1rem;
   margin: 1rem auto 0;
@@ -6465,9 +6465,9 @@ button:focus {
   .contacts__intro__grid__contacts__socials {
     -webkit-column-gap: 2rem;
             column-gap: 2rem;
-    -ms-grid-columns: (min-content)[6];
-        grid-template-columns: repeat(6, -webkit-min-content);
-        grid-template-columns: repeat(6, min-content);
+    -ms-grid-columns: (min-content)[5];
+        grid-template-columns: repeat(5, -webkit-min-content);
+        grid-template-columns: repeat(5, min-content);
   }
 }
 

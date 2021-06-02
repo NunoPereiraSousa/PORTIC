@@ -80,8 +80,6 @@ export default {
 
     this.currLang = this.getCurrLang;
     this.getLang();
-
-    // this.handleAPI();
   },
   computed: {
     ...mapGetters(["getCurrLang", "getEntityData", "getEntityDataStatus"])
@@ -90,12 +88,6 @@ export default {
     async handleAPI() {
       try {
         await this.$store.dispatch("setData");
-
-        console.log(this.getEntityData);
-
-        // this.getEntityData.menus.forEach(menu => {
-        //   console.log(menu.router_link);
-        // });
       } catch (error) {
         console.log(`App: ${error}`);
         return error;

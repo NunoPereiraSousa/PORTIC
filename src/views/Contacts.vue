@@ -106,30 +106,38 @@
           <h3>{{ $t("aboutUs.contactUs") }}</h3>
           <div>
             <h2>
-              <a href="tel:+351919554127">(+351) 919 554 127</a>
+              <a :href="`tel:+351${$store.getters.getEntityPhoneNumberLink}`">{{
+                $store.getters.getEntityPhoneNumber
+              }}</a>
             </h2>
             <h2>
-              <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
+              <a :href="`mailto:${$store.getters.getEntityEmail}`">{{
+                $store.getters.getEntityEmail
+              }}</a>
             </h2>
           </div>
           <div class="contacts__intro__grid__contacts__socials grid">
-            <a href="">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-flickr"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-youtube"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-facebook-square"></i>
+            <a
+              v-for="media in $store.getters.getEntitySocials"
+              :key="media.social_media_type"
+              :href="media.url"
+              target="_blank"
+            >
+              <div v-if="media.social_media_type == 'Twitter'">
+                <i class="fab fa-twitter"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Facebook'">
+                <i class="fab fa-facebook-square"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'LinkedIn'">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Youtube'">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Instagram'">
+                <i class="fab fa-instagram"></i>
+              </div>
             </a>
           </div>
         </div>
@@ -159,42 +167,38 @@
           <h3>{{ $t("aboutUs.contactUs") }}</h3>
           <div>
             <h2>
-              <a href="tel:+351919554127">(+351) 919 554 127</a>
+              <a :href="`tel:+351${$store.getters.getEntityPhoneNumberLink}`">{{
+                $store.getters.getEntityPhoneNumber
+              }}</a>
             </h2>
             <h2>
-              <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
+              <a :href="`mailto:${$store.getters.getEntityEmail}`">{{
+                $store.getters.getEntityEmail
+              }}</a>
             </h2>
           </div>
           <div class="contacts__intro__grid__contacts__socials grid">
-            <a href="https://twitter.com/politecnico" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
             <a
-              href="https://www.instagram.com/politecnicodoporto/"
+              v-for="media in $store.getters.getEntitySocials"
+              :key="media.social_media_type"
+              :href="media.url"
               target="_blank"
             >
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a
-              href="https://www.flickr.com/people/politecnicodoporto/"
-              target="_blank"
-            >
-              <i class="fab fa-flickr"></i>
-            </a>
-            <a
-              href="https://www.youtube.com/channel/UCa0njrkoyEd8kwjIVPE5pNg"
-              target="_blank"
-            >
-              <i class="fab fa-youtube"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/company/portic-pporto/mycompany/"
-              target="_blank"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.facebook.com/porticpporto" target="_blank">
-              <i class="fab fa-facebook-square"></i>
+              <div v-if="media.social_media_type == 'Twitter'">
+                <i class="fab fa-twitter"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Facebook'">
+                <i class="fab fa-facebook-square"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'LinkedIn'">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Youtube'">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Instagram'">
+                <i class="fab fa-instagram"></i>
+              </div>
             </a>
           </div>
         </div>
@@ -234,9 +238,7 @@
           </a>
         </div> -->
         <div class="contacts__intro__desc grid hide-for-tablet">
-          <p>
-            {{ $t("aboutUs.introduction") }}
-          </p>
+          <p v-html="$store.getters.getEntityData.desc_html"></p>
         </div>
       </div>
     </section>
@@ -323,42 +325,38 @@
         <h3>{{ $t("aboutUs.contactUs") }}</h3>
         <div>
           <h2>
-            <a href="tel:+351919554127">(+351) 919 554 127</a>
+            <a :href="`tel:+351${$store.getters.getEntityPhoneNumberLink}`">{{
+              $store.getters.getEntityPhoneNumber
+            }}</a>
           </h2>
           <h2>
-            <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
+            <a :href="`mailto:${$store.getters.getEntityEmail}`">{{
+              $store.getters.getEntityEmail
+            }}</a>
           </h2>
         </div>
         <div class="contacts__form__contacts__socials grid">
-          <a href="https://twitter.com/politecnico" target="_blank">
-            <i class="fab fa-twitter"></i>
-          </a>
           <a
-            href="https://www.instagram.com/politecnicodoporto/"
+            v-for="media in $store.getters.getEntitySocials"
+            :key="media.social_media_type"
+            :href="media.url"
             target="_blank"
           >
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a
-            href="https://www.flickr.com/people/politecnicodoporto/"
-            target="_blank"
-          >
-            <i class="fab fa-flickr"></i>
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UCa0njrkoyEd8kwjIVPE5pNg"
-            target="_blank"
-          >
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/company/portic-pporto/mycompany/"
-            target="_blank"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://www.facebook.com/porticpporto" target="_blank">
-            <i class="fab fa-facebook-square"></i>
+            <div v-if="media.social_media_type == 'Twitter'">
+              <i class="fab fa-twitter"></i>
+            </div>
+            <div v-else-if="media.social_media_type == 'Facebook'">
+              <i class="fab fa-facebook-square"></i>
+            </div>
+            <div v-else-if="media.social_media_type == 'LinkedIn'">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <div v-else-if="media.social_media_type == 'Youtube'">
+              <i class="fab fa-youtube"></i>
+            </div>
+            <div v-else-if="media.social_media_type == 'Instagram'">
+              <i class="fab fa-instagram"></i>
+            </div>
           </a>
         </div>
       </div>
@@ -402,7 +400,10 @@
     </section>
     <section class="contacts__map">
       <h4>09:00 - 19:00</h4>
-      <h3>Rua Arquitecto Lobão Vital 172, 4200-374 Porto</h3>
+      <h3>
+        {{ $store.getters.getEntityData.street }},
+        {{ $store.getters.getEntityData.postal_code }}
+      </h3>
       <div id="map"></div>
     </section>
     <Footer class="no__margin" />
@@ -429,13 +430,19 @@ export default {
   },
   mounted() {
     this.map = new window.google.maps.Map(document.getElementById("map"), {
-      center: new window.google.maps.LatLng(41.176586, -8.60563),
+      center: new window.google.maps.LatLng(
+        this.$store.getters.getEntityData.lat,
+        this.$store.getters.getEntityData.long
+      ),
       zoom: 18,
       mapTypeId: "roadmap"
     });
 
     new window.google.maps.Marker({
-      position: { lat: 41.176586, lng: -8.60563 },
+      position: {
+        lat: this.$store.getters.getEntityData.lat,
+        lng: this.$store.getters.getEntityData.long
+      },
       map: this.map
     });
   },

@@ -3,14 +3,14 @@
     <div class="subheader__contacts flex flex-jc-sb flex-ai-c">
       <div class="email flex flex-jc-sb flex-ai-c">
         <i class="fa fa-envelope"></i>
-        <a href="mailto:portic@portic.ipp.pt">{{
+        <a :href="`mailto:${$store.getters.getEntityEmail}`">{{
           $store.getters.getEntityEmail
         }}</a>
       </div>
 
       <div class="hide-for-mobile phone flex flex-jc-sb flex-ai-c">
         <i class="fas fa-phone-volume"></i>
-        <a href="tel:+351225571020">{{
+        <a :href="`tel:+351${$store.getters.getEntityPhoneNumberLink}`">{{
           $store.getters.getEntityPhoneNumber
         }}</a>
       </div>

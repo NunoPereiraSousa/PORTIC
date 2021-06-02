@@ -3,7 +3,7 @@
     <SubPageIntro
       :categoryTitle="$t('areas.mainTitle')"
       :title1="$t('areas.nAreas')"
-      :text1="$t('areas.nAreasDesc', { n: $store.getters.getNAreas })"
+      :text1="$t('areas.nAreasDesc', { n: 1 })"
       :title2="$t('areas.areasFocus')"
       :text2="$t('areas.areasFocusDesc')"
       content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.
@@ -29,14 +29,14 @@ PORTIC includes units and groups with activities in different stages of the know
       <SubHeaderTitle :text="$t('areas.thirdTitle')" />
       <div class="areas__grid grid">
         <AreasCard
-          v-for="area in getAreas"
-          :key="area.id"
-          :counter="area.id"
-          :index="area.id"
-          :button_id="area.id"
-          :card_id="`card_${area.id}`"
-          :areaName="area.areaName"
-          :areaDesc="area.areaDesc"
+          v-for="(area, index) in $store.getters.getAreas"
+          :key="area.id_area"
+          :counter="index + 1"
+          :index="index"
+          :button_id="area.id_area"
+          :card_id="`card_${index}`"
+          :areaName="area.designation"
+          :areaDesc="area.description"
         />
       </div>
     </section>
@@ -70,19 +70,26 @@ export default {
   created() {
     this.iconCards = this.getIconCards;
   },
-  computed: {
-    ...mapGetters([
-      "getAreasPT",
-      "getAreasEN",
-      "getIconCardsPT",
-      "getIconCardsEN"
-    ]),
-    getAreas() {
-      let areasPT = this.getAreasPT;
-      let areasEN = this.getAreasEN;
+  async mounted() {
+    this.$store.commit("SET_SELECTED_AREAS_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
 
-      return this.$i18n.locale == "pt" ? areasPT : areasEN;
-    },
+    try {
+      await this.$store.dispatch("setAreas");
+      console.log(this.$store.getters.getAreas);
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
+  },
+  computed: {
+    ...mapGetters(["getAreas", "getIconCardsPT", "getIconCardsEN"]),
+    // getAreas() {
+    //   let areas = this.getAreasPT;
+
+    //   return this.$i18n.locale == "pt" ? areasPT : areasEN;
+    // },
     getIcons() {
       let iconsPT = this.getIconCardsPT;
       let iconsEN = this.getIconCardsEN;

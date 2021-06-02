@@ -16,16 +16,10 @@ export const entityModule = {
     },
     SET_SELECTED_LANG(state, payload) {
       state.dataBody.selectedLang = payload.lang;
-
-      console.log(`LANG: ${state.dataBody.selectedLang}`);
     }
   },
   actions: {
     async setData({ commit, state }) {
-      // state.dataBody.selectedLang = state.lang;
-
-      console.log(`STATE LANG: ${state.dataBody.selectedLang}`);
-
       commit(
         "SET_DATA",
         await entityConfig.getEntityData(state.dataBody.selectedLang)
@@ -54,6 +48,11 @@ export const entityModule = {
     },
     getEntityPhoneNumber: state => {
       return state.data != "" ? state.data.contacts[0].number : "Carregar...";
+    },
+    getEntityPhoneNumberLink: state => {
+      let number = state.data != "" ? state.data.contacts[0].number : "";
+
+      return number.slice(6).replace(/\s/g, "");
     },
     getEntityEmail: state => {
       return state.data != "" ? state.data.emails[0].email : "Carregar...";
