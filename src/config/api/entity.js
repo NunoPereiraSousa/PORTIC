@@ -8,15 +8,14 @@ let headers = {
 
 export const entityConfig = {
   getEntityData: async selectedLang => {
+    console.log(selectedLang);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/4cw0jfzg2okpe61lgd_Entity`, {
         headers
       })
       .then(response => {
-        console.log(response);
-
         return {
-          data: response.data.processResult,
+          data: response.data.processResult[0],
           status: response.status
         };
       })

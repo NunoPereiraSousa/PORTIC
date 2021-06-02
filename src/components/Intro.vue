@@ -8,13 +8,20 @@
       <h1>
         <span>{{ $t("homepage.landingPage.welcome") }}</span>
         <div>
-          {{ $t("homepage.landingPage.welcomeTo", { institution: keyword }) }}
+          {{
+            $t("homepage.landingPage.welcomeTo", {
+              institution: $store.getters.getEntityData.initials
+            })
+          }}
         </div>
       </h1>
       <hr />
-      <i18n path="homepage.landingPage.description" tag="h4">
+      <h4>
+        {{ $store.getters.getEntitySlogan }}
+      </h4>
+      <!-- <i18n path="homepage.landingPage.description" tag="h4">
         <br />
-      </i18n>
+      </i18n> -->
     </div>
 
     <div class="landing__highlights">

@@ -3,41 +3,40 @@
     <div class="subheader__contacts flex flex-jc-sb flex-ai-c">
       <div class="email flex flex-jc-sb flex-ai-c">
         <i class="fa fa-envelope"></i>
-        <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
+        <a href="mailto:portic@portic.ipp.pt">{{
+          $store.getters.getEntityEmail
+        }}</a>
       </div>
 
       <div class="hide-for-mobile phone flex flex-jc-sb flex-ai-c">
         <i class="fas fa-phone-volume"></i>
-        <a href="tel:+351225571020">(+351) 22 557 1020</a>
+        <a href="tel:+351225571020">{{
+          $store.getters.getEntityPhoneNumber
+        }}</a>
       </div>
     </div>
     <div class="subheader__socials flex flex-jc-sb flex-ai-c hide-above-phone">
-      <a href="https://twitter.com/politecnico" target="_blank">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://www.instagram.com/politecnicodoporto/" target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
       <a
-        href="https://www.flickr.com/people/politecnicodoporto/"
+        v-for="media in $store.getters.getEntitySocials"
+        :key="media.social_media_type"
+        :href="media.url"
         target="_blank"
       >
-        <i class="fab fa-flickr"></i>
-      </a>
-      <a
-        href="https://www.youtube.com/channel/UCa0njrkoyEd8kwjIVPE5pNg"
-        target="_blank"
-      >
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a
-        href="https://www.linkedin.com/company/portic-pporto/mycompany/"
-        target="_blank"
-      >
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://www.facebook.com/porticpporto" target="_blank">
-        <i class="fab fa-facebook-square"></i>
+        <div v-if="media.social_media_type == 'Twitter'">
+          <i class="fab fa-twitter"></i>
+        </div>
+        <div v-else-if="media.social_media_type == 'Facebook'">
+          <i class="fab fa-facebook-square"></i>
+        </div>
+        <div v-else-if="media.social_media_type == 'LinkedIn'">
+          <i class="fab fa-linkedin"></i>
+        </div>
+        <div v-else-if="media.social_media_type == 'Youtube'">
+          <i class="fab fa-youtube"></i>
+        </div>
+        <div v-else-if="media.social_media_type == 'Instagram'">
+          <i class="fab fa-instagram"></i>
+        </div>
       </a>
     </div>
     <div class="subheader__languages flex flex-jc-sb flex-ai-c">
@@ -51,6 +50,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "SubHeader",
   data: () => {
@@ -61,9 +61,26 @@ export default {
   mounted() {
     this.getLang();
   },
+  computed: {
+    ...mapGetters(["getEntityData", "getEntityDataStatus", "getEntityContacts"])
+  },
   methods: {
+    async handleAPI() {
+      try {
+        await this.$store.dispatch("setData");
+
+        console.log(this.getEntityData);
+
+        // this.getEntityData.menus.forEach(menu => {
+        //   console.log(menu);
+        // });
+      } catch (error) {
+        console.log(`App: ${error}`);
+        return error;
+      }
+    },
     changeLangEN() {
-      this.$i18n.locale = "en";
+      this.$i18n.locale = "eng";
 
       let enBtn = document.querySelector(".en");
       let ptBtn = document.querySelector(".pt");
@@ -72,6 +89,8 @@ export default {
       enBtn.classList.add("selected");
 
       this.$store.commit("SET_LOCALE", this.$i18n.locale);
+
+      this.handleAPI();
     },
     changeLangPT() {
       this.$i18n.locale = "pt";
@@ -83,6 +102,8 @@ export default {
       ptBtn.classList.add("selected");
 
       this.$store.commit("SET_LOCALE", this.$i18n.locale);
+
+      this.handleAPI();
     },
     getLang() {
       let enBtn = document.querySelector(".en");

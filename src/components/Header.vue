@@ -158,26 +158,12 @@
 
       <div class="navbar__desktop_menu hide-for-mobile">
         <div class="navbar__desktop_menu__links flex">
-          <router-link :to="{ name: 'Contacts' }">
-            {{ $t("navbar.items[0]") }}
-          </router-link>
-          <router-link :to="{ name: 'Unities' }">
-            {{ $t("navbar.items[1]") }}
-          </router-link>
-          <router-link :to="{ name: 'Areas' }">
-            {{ $t("navbar.items[2]") }}
-          </router-link>
-          <router-link :to="{ name: 'Courses' }">
-            {{ $t("navbar.items[3]") }}
-          </router-link>
-          <router-link :to="{ name: 'ProjectsCatalog' }">
-            {{ $t("navbar.items[4]") }}
-          </router-link>
-          <router-link :to="{ name: 'Media' }">
-            {{ $t("navbar.items[5]") }}
-          </router-link>
-          <router-link :to="{ name: 'Positions' }">
-            {{ $t("navbar.items[6]") }}
+          <router-link
+            v-for="menu in $store.getters.getEntityMenus"
+            :key="menu.id_menu"
+            :to="{ name: menu.menu_designation }"
+          >
+            {{ menu.menu_designation }}
           </router-link>
         </div>
       </div>
@@ -206,45 +192,11 @@
             <div class="navbar__content__main_links__grid grid">
               <router-link
                 @click.native="closeNavbarOnPageTransition"
-                class="navbar__mobile_menu__grid__links__link"
-                :to="{ name: 'Unities' }"
+                v-for="menu in $store.getters.getEntityMenus"
+                :key="menu.id_menu"
+                :to="{ name: menu.menu_designation }"
               >
-                {{ $t("navbar.items[1]") }}
-              </router-link>
-              <router-link
-                @click.native="closeNavbarOnPageTransition"
-                class="navbar__mobile_menu__grid__links__link"
-                :to="{ name: 'Areas' }"
-              >
-                {{ $t("navbar.items[2]") }}
-              </router-link>
-              <router-link
-                @click.native="closeNavbarOnPageTransition"
-                class="navbar__mobile_menu__grid__links__link"
-                :to="{ name: 'Courses' }"
-              >
-                {{ $t("navbar.items[3]") }}
-              </router-link>
-              <router-link
-                @click.native="closeNavbarOnPageTransition"
-                class="navbar__mobile_menu__grid__links__link"
-                :to="{ name: 'ProjectsCatalog' }"
-              >
-                {{ $t("navbar.items[4]") }}
-              </router-link>
-              <router-link
-                @click.native="closeNavbarOnPageTransition"
-                class="navbar__mobile_menu__grid__links__link"
-                :to="{ name: 'Media' }"
-              >
-                {{ $t("navbar.items[5]") }}
-              </router-link>
-              <router-link
-                @click.native="closeNavbarOnPageTransition"
-                class="navbar__mobile_menu__grid__links__link"
-                :to="{ name: 'Positions' }"
-              >
-                {{ $t("navbar.items[6]") }}
+                {{ menu.menu_designation }}
               </router-link>
             </div>
           </div>
@@ -262,35 +214,27 @@
           <div class="navbar__content__socials">
             <hr />
             <h3>{{ $t("footer.socials.title") }}</h3>
-            <a href="https://twitter.com/politecnico" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
             <a
-              href="https://www.instagram.com/politecnicodoporto/"
+              v-for="media in $store.getters.getEntitySocials"
+              :key="media.social_media_type"
+              :href="media.url"
               target="_blank"
             >
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a
-              href="https://www.flickr.com/people/politecnicodoporto/"
-              target="_blank"
-            >
-              <i class="fab fa-flickr"></i>
-            </a>
-            <a
-              href="https://www.youtube.com/channel/UCa0njrkoyEd8kwjIVPE5pNg"
-              target="_blank"
-            >
-              <i class="fab fa-youtube"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/company/portic-pporto/mycompany/"
-              target="_blank"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.facebook.com/porticpporto" target="_blank">
-              <i class="fab fa-facebook-square"></i>
+              <div v-if="media.social_media_type == 'Twitter'">
+                <i class="fab fa-twitter"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Facebook'">
+                <i class="fab fa-facebook-square"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'LinkedIn'">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Youtube'">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div v-else-if="media.social_media_type == 'Instagram'">
+                <i class="fab fa-instagram"></i>
+              </div>
             </a>
           </div>
         </div>

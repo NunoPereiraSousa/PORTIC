@@ -66,10 +66,11 @@ export default {
   data: () => {
     return {
       previous__scroll__pos: null,
-      currLang: ""
+      currLang: "",
+      data: ""
     };
   },
-  async created() {
+  async mounted() {
     console.clear();
 
     gsap.registerPlugin(ScrollTrigger);
@@ -80,20 +81,26 @@ export default {
     this.currLang = this.getCurrLang;
     this.getLang();
 
-    try {
-      await this.$store.dispatch("setData");
-
-      console.log(this.getEntityData);
-      console.log(this.getEntityDataStatus);
-    } catch (error) {
-      console.log(`App: ${error}`);
-      return error;
-    }
+    // this.handleAPI();
   },
   computed: {
     ...mapGetters(["getCurrLang", "getEntityData", "getEntityDataStatus"])
   },
   methods: {
+    async handleAPI() {
+      try {
+        await this.$store.dispatch("setData");
+
+        console.log(this.getEntityData);
+
+        // this.getEntityData.menus.forEach(menu => {
+        //   console.log(menu);
+        // });
+      } catch (error) {
+        console.log(`App: ${error}`);
+        return error;
+      }
+    },
     handleScroll() {
       let navbar = document.querySelector(".navbar");
       let phone_navbar = document.querySelector(".phone_navbar");
@@ -124,6 +131,8 @@ export default {
       this.$i18n.locale = this.currLang;
 
       this.$store.commit("SET_LOCALE", this.$i18n.locale);
+
+      this.handleAPI();
     }
   }
 };
