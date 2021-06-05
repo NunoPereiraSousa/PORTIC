@@ -4,7 +4,7 @@
     <SubPageIntro
       :categoryTitle="$t('courses.courseKey')"
       :title1="$t('courses.nCourses')"
-      :text1="$t('courses.nCoursesDesc', { n: $store.getters.getNCourses })"
+      :text1="$t('courses.nCoursesDesc', { n: 0 })"
       :title2="$t('courses.coursesTitle2')"
       :text2="$t('courses.coursesTitle2Desc')"
       content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.
@@ -31,13 +31,13 @@ PORTIC includes units and groups with activities in different stages of the know
       <SubHeaderTitle text="Explore os nossos cursos" />
       <div class="courses__grid grid">
         <CoursesCard
-          v-for="course in getCourses"
-          :key="course.id"
-          :index="course.id"
-          :button_id="course.id"
-          :card_id="`card_${course.id}`"
-          :courseName="course.courseName"
-          :courseDesc="course.courseDesc"
+          v-for="(course, index) in $store.getters.getCourses"
+          :key="course.id_course"
+          :index="index"
+          :button_id="course.id_course"
+          :card_id="`card_${index}`"
+          :courseName="course.designation"
+          :courseDesc="course.html_structure"
         />
       </div>
     </section>
@@ -64,8 +64,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      "getCoursesPT",
-      "getCoursesEN",
+      "getCourses",
       "getIconCoursesCardsPT",
       "getIconCoursesCardsEN"
     ]),
@@ -74,12 +73,25 @@ export default {
       let iconCoursesEN = this.getIconCoursesCardsEN;
 
       return this.$i18n.locale == "pt" ? iconCoursesPT : iconCoursesEN;
-    },
-    getCourses() {
-      let coursesPT = this.getCoursesPT;
-      let coursesEN = this.getCoursesEN;
+    }
+    // getCourses() {
+    //   let courses = this.getCourses;
 
-      return this.$i18n.locale == "pt" ? coursesPT : coursesEN;
+    //   return this.$i18n.locale == "pt" ? coursesPT : coursesEN;
+    // }
+  },
+  async mounted() {
+    this.$store.commit("SET_SELECTED_COURSES_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
+
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setCourses");
+      console.log(this.$store.getters.getCourses);
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
     }
   }
 };

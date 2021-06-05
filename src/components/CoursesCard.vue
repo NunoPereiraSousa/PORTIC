@@ -40,7 +40,7 @@ export default {
       required: true
     },
     button_id: {
-      type: Number,
+      type: String,
       required: true
     },
     courseDesc: {
