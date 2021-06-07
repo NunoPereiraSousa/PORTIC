@@ -5341,8 +5341,16 @@ button:focus {
   }
 }
 
+@media (min-width: 75em) {
+  .unities__grid__card {
+    -webkit-column-gap: 3rem;
+            column-gap: 3rem;
+    width: 100%;
+  }
+}
+
 .unities__grid__card__image {
-  height: 12.375rem;
+  height: 10rem;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -5366,21 +5374,27 @@ button:focus {
 
 @media (min-width: 48em) {
   .unities__grid__card__image {
-    height: 26.875rem;
+    height: 19rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .unities__grid__card__image {
+    height: 12rem;
+    background-position: 0%;
   }
 }
 
 @media (min-width: 75em) {
   .unities__grid__card__image {
     height: 19.625rem;
-    width: 32.75rem;
   }
 }
 
 @media (min-width: 120em) {
   .unities__grid__card__image {
-    height: 23.625rem;
-    width: 94%;
+    height: 20rem;
+    background-position: top;
   }
 }
 

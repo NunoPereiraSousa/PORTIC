@@ -67,7 +67,8 @@ export const teamWorkPrinciplesEN = [
 export const unitiesPT = [
   {
     id: 1,
-    imageUrl: "https://manoamanoclub.com/wp-content/uploads/2019/07/1-6.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1623071683/porto_design_factory_th7osu.jpg",
     unityName: "Porto Design Factory",
     unityDesc:
       "A Porto Design Factory é um laboratório de ideias com base no trabalho interdisciplinar, na investigação aplicada e na colaboração industrial. Aqui, os alunos das mais diferentes áreas cooperam no desenvolvimento de projetos inovadores com a ambição de promover uma mentalidade empreendedora através de um modelo de educação baseado na aprendizagem orientada para a resolução de problemas.",
@@ -77,7 +78,7 @@ export const unitiesPT = [
   {
     id: 2,
     imageUrl:
-      "https://scontent.fopo3-1.fna.fbcdn.net/v/t1.6435-9/144449669_822887788289118_6557792606481226697_n.png?_nc_cat=109&ccb=1-3&_nc_sid=e3f864&_nc_ohc=cmW5MmB0znMAX8xiPTL&_nc_ht=scontent.fopo3-1.fna&oh=38f99cefdf4fb076413a63b0621a58ae&oe=608D15B5",
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1623071683/startup_porto_qigdye.jpg",
 
     unityName: "Startup Porto",
     unityDesc:
@@ -88,7 +89,7 @@ export const unitiesPT = [
   {
     id: 3,
     imageUrl:
-      "https://scontent.fopo3-1.fna.fbcdn.net/v/t1.6435-9/144449669_822887788289118_6557792606481226697_n.png?_nc_cat=109&ccb=1-3&_nc_sid=e3f864&_nc_ohc=cmW5MmB0znMAX8xiPTL&_nc_ht=scontent.fopo3-1.fna&oh=38f99cefdf4fb076413a63b0621a58ae&oe=608D15B5",
+      "https://res.cloudinary.com/dijkykn1j/image/upload/v1623071683/porto_business_innovation_sruahn.jpg",
     unityName: "Porto Business Innovation",
     unityDesc:
       "A Porto Business Innovation é a porta de entrada para uma conexão entre a academia, a realidade empresarial, a sociedade e as administrações públicas. Com base no conhecimento e inovação dos processos, a Porto Business Innovation tem como objetivo promover novas oportunidades de negócios e desenvolver novos produtos e serviços de forma a chegar rapidamente ao mercado.",
