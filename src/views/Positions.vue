@@ -42,14 +42,14 @@ PORTIC includes units and groups with activities in different stages of the know
     <section class="positions__available">
       <SubHeaderTitle :text="$t('careers.title3')" />
       <div class="positions__available__grid grid">
-        <AvailablePositionsCard
-          v-for="position in positions"
-          :key="position.id"
-          :card_id="`card_${position.id}`"
-          :index="position.id"
-          :title="position.title"
+        <CareersCard
+          v-for="(position, index) in $store.getters.getCareers"
+          :key="index + 1"
+          :card_id="`card_${index + 1}`"
+          :index="index + 1"
+          :title="position.designation"
           :categories="position.categories"
-          :content="position.content"
+          :content="position.desc_html_structure"
         />
       </div>
     </section>
@@ -64,7 +64,7 @@ import { mapGetters } from "vuex";
 import SubPageIntro from "@/components/SubPageIntro.vue";
 import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
 import ComePreparedCard from "@/components/Positions/ComePreparedCard.vue";
-import AvailablePositionsCard from "@/components/Positions/AvailablePositionsCard.vue";
+import CareersCard from "@/components/Positions/CareersCard.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
@@ -72,7 +72,7 @@ export default {
     SubPageIntro,
     SubHeaderTitle,
     ComePreparedCard,
-    AvailablePositionsCard,
+    CareersCard,
     Footer
   },
   data: () => {
@@ -83,20 +83,26 @@ export default {
       positionNames: null
     };
   },
-  mounted() {
+  async mounted() {
     this.tips = this.getTips;
-    this.positions = this.getPositions;
-    this.nPositions = this.getNPositions;
     this.positionNames = this.getPositionsNames;
+
+    this.$store.commit("SET_SELECTED_CAREERS_LANG", {
+      lang: this.$i18n.locale === "pt" ? "pt" : "en"
+    });
+
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setCareers");
+
+      console.log(this.$store.getters.getCareers);
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
   },
   computed: {
-    ...mapGetters([
-      "getPositions",
-      "getTipsPT",
-      "getTipsEN",
-      "getNPositions",
-      "getPositionsNames"
-    ]),
+    ...mapGetters(["getTipsPT", "getTipsEN", "getPositionsNames"]),
     getTips() {
       let tipsPT = this.getTipsPT;
       let tipsEN = this.getTipsEN;

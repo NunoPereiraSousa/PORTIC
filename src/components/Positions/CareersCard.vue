@@ -18,7 +18,7 @@
 
     <ul class="categories">
       <li v-for="category in categories" :key="category.id">
-        {{ category }}
+        {{ category.designation }}
       </li>
     </ul>
 
@@ -107,7 +107,8 @@ export default {
         let height = card__toggle.clientHeight;
 
         setTimeout(() => {
-          card__toggle.style.height = `${height}px`;
+          card__toggle.style.height = `${height + 32}px`;
+          card__toggle.style.paddingTop = `32px`;
           card__toggle.style.display = "";
         }, 1);
 
@@ -124,6 +125,7 @@ export default {
 
         setTimeout(() => {
           card__toggle.style.height = "0px";
+          card__toggle.style.paddingTop = `0px`;
         }, 1);
 
         setTimeout(() => {
