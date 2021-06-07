@@ -5,212 +5,89 @@
       :class="theme"
     >
       <router-link class="navbar__logo" :to="{ name: 'Home' }">
-        <img
-          src="../assets/logo.png"
-          alt="PORTIC"
-          id="logo"
-          @click="closeNavbarOnPageTransition"
-        />
+        <div v-if="loading" class="blocks_wrapper flex flex-ai-c flex-jc-sb">
+          <div class="blocks"></div>
+          <div class="blocks"></div>
+          <div class="blocks"></div>
+        </div>
+        <div v-else>
+          <img :src="displayLogo" alt="PORTIC" id="logo" />
+        </div>
       </router-link>
-      <!-- <div class="navbar__hamburger hide-for-desktop" @click="toggleNavbar">
-        <div class="navbar__hamburger__lines"></div>
-        <div class="navbar__hamburger__lines"></div>
-        <div class="navbar__hamburger__lines"></div>
-      </div>
-      <div class="navbar__mobile_menu hide-for-desktop">
-        <div class="navbar__mobile_menu__links">
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__grid__links__link"
-            :to="{ name: 'Contacts' }"
-          >
-            Sobre nós
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__grid__links__link"
-            :to="{ name: 'Positions' }"
-          >
-            Recrutamento
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__grid__links__link"
-            :to="{ name: 'Areas' }"
-          >
-            Áreas
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__grid__links__link"
-            :to="{ name: 'Courses' }"
-          >
-            Cursos
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__grid__links__link"
-            :to="{ name: 'Media' }"
-          >
-            Mídia
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__grid__links__link"
-            :to="{ name: 'ProjectsCatalog' }"
-          >
-            Projetos
-          </router-link>
-          <router-link
-            @click.native="closeNavbarOnPageTransition"
-            class="navbar__mobile_menu__grid__links__link"
-            :to="{ name: 'Unities' }"
-          >
-            Unidades
-          </router-link>
-        </div>
-      </div> -->
-      <!-- <div
-        class="navbar__mobile_menu flex flex-ai-c flex-fd-c flex-jc-c hide-for-desktop"
-      >
-        <div class="navbar__mobile_menu__grid grid">
-          <div class="navbar__mobile_menu__grid__info">
-            <h1>portic</h1>
-            <p>An open door towards the future</p>
-            <hr />
-          </div>
-          <div class="navbar__mobile_menu__grid__links">
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'Contacts' }"
-            >
-              Sobre nós
-            </router-link>
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'Positions' }"
-            >
-              Recrutamento
-            </router-link>
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'Areas' }"
-            >
-              Áreas
-            </router-link>
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'Courses' }"
-            >
-              Cursos
-            </router-link>
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'Media' }"
-            >
-              Mídia
-            </router-link>
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'ProjectsCatalog' }"
-            >
-              Projetos
-            </router-link>
-            <router-link
-              @click.native="closeNavbarOnPageTransition"
-              class="navbar__mobile_menu__grid__links__link"
-              :to="{ name: 'Unities' }"
-            >
-              Unidades
-            </router-link>
-          </div>
-          <div class="navbar__mobile_menu__grid__socials grid">
-            <a href="">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-flickr"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-youtube"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-facebook-square"></i>
-            </a>
-          </div>
-        </div>
-        <div class="navbar__mobile_menu__policy">
-          <p>Privacy Policy & © Copy Right 2021</p>
-        </div>
-      </div> -->
-
       <div class="navbar__desktop_menu hide-for-mobile">
         <div class="navbar__desktop_menu__links flex">
-          <router-link
-            v-for="menu in $store.getters.getEntityMenus"
-            :key="menu.id_menu"
-            :to="{ name: menu.router_link }"
-          >
-            {{ menu.menu_designation }}
-          </router-link>
-          <button @click="openDropdown">
-            Entidades
-
+          <div v-if="loading">
             <div
-              class="navbar__desktop_menu__dropdown flex  flex-fd-c"
-              v-if="open == true"
+              v-if="loading"
+              class="blocks_wrapper flex flex-ai-c flex-jc-sb"
             >
-              <h3
-                class="dropdown_links"
-                @click="
-                  openUnitiesPage((id = 1), (title = 'Porto Design Factory'))
-                "
-              >
-                Porto Design Factory
-              </h3>
-              <h3
-                class="dropdown_links"
-                @click="openUnitiesPage((id = 2), (title = 'Startup Porto'))"
-              >
-                Startup Porto
-              </h3>
-              <h3
-                class="dropdown_links"
-                @click="
-                  openUnitiesPage(
-                    (id = 3),
-                    (title = 'Porto Business Innovation')
-                  )
-                "
-              >
-                Porto Business Innovation
-              </h3>
+              <div class="blocks"></div>
+              <div class="blocks"></div>
+              <div class="blocks"></div>
             </div>
-          </button>
+          </div>
+          <div v-else>
+            <router-link
+              v-for="menu in menus"
+              :key="menu.id_menu"
+              :to="{ name: menu.router_link }"
+            >
+              {{ menu.menu_designation }}
+            </router-link>
+            <button @click="openDropdown">
+              Entidades
+
+              <div
+                class="navbar__desktop_menu__dropdown flex  flex-fd-c"
+                v-if="open == true"
+              >
+                <h3
+                  class="dropdown_links"
+                  @click="
+                    openUnitiesPage((id = 1), (title = 'Porto Design Factory'))
+                  "
+                >
+                  Porto Design Factory
+                </h3>
+                <h3
+                  class="dropdown_links"
+                  @click="openUnitiesPage((id = 2), (title = 'Startup Porto'))"
+                >
+                  Startup Porto
+                </h3>
+                <h3
+                  class="dropdown_links"
+                  @click="
+                    openUnitiesPage(
+                      (id = 3),
+                      (title = 'Porto Business Innovation')
+                    )
+                  "
+                >
+                  Porto Business Innovation
+                </h3>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </nav>
     <nav class="navbar phone_navbar hide-for-desktop" :class="theme">
       <div class="flex flex-ai-c flex-jc-sb">
         <router-link class="navbar__logo" :to="{ name: 'Home' }">
-          <img
-            src="../assets/logo.png"
-            alt="PORTIC"
-            id="logo"
-            @click="closeNavbarOnPageTransition"
-          />
+          <div v-if="loading" class="blocks_wrapper flex flex-ai-c flex-jc-sb">
+            <div class="blocks"></div>
+            <div class="blocks"></div>
+            <div class="blocks"></div>
+          </div>
+          <div v-else>
+            <img
+              :src="displayLogo"
+              alt="PORTIC"
+              id="logo"
+              @click="closeNavbarOnPageTransition"
+            />
+          </div>
         </router-link>
         <div class="navbar__hamburger hide-for-desktop" @click="toggleNavbar">
           <div class="navbar__hamburger__lines"></div>
@@ -226,7 +103,7 @@
             <div class="navbar__content__main_links__grid grid">
               <router-link
                 @click.native="closeNavbarOnPageTransition"
-                v-for="menu in $store.getters.getEntityMenus"
+                v-for="menu in menus"
                 :key="menu.id_menu"
                 :to="{ name: menu.router_link }"
               >
@@ -250,7 +127,7 @@
             <h3>{{ $t("footer.socials.title") }}</h3>
             <div class="flex flex-ai-c">
               <a
-                v-for="media in $store.getters.getEntitySocials"
+                v-for="media in socials"
                 :key="media.social_media_type"
                 :href="media.url"
                 target="_blank"
@@ -292,6 +169,31 @@ export default {
     theme: {
       type: String,
       required: true
+    },
+    loading: {
+      type: Boolean,
+      required: true
+    }
+  },
+  computed: {
+    displayLogo() {
+      if (!this.loading) {
+        let arr = this.$store.getters.getEntityImage;
+
+        var arrayBufferView = new Uint8Array(arr);
+        var blob = new Blob([arrayBufferView], { type: "image/png" });
+        var urlCreator = window.URL || window.webkitURL;
+        var image = urlCreator.createObjectURL(blob);
+        return image;
+      }
+
+      return null;
+    },
+    socials() {
+      return this.$store.getters.getEntityData.social_medias;
+    },
+    menus() {
+      return this.$store.getters.getEntityData.menus;
     }
   },
   methods: {

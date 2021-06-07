@@ -38,8 +38,9 @@ export const entityModule = {
   },
   getters: {
     getEntityId: state => state.entityId,
+    getEntityStatus: state => state.dataStatus,
     getEntityData: state => {
-      return state.data != "" ? state.data : "Carregar...";
+      return state.data != "" ? state.data : [];
     },
     getEntityDataSliced: state => {
       return state.data != ""
@@ -57,8 +58,11 @@ export const entityModule = {
           )
         : [];
     },
+    getEntityImage: state => {
+      return state.data != "" ? state.data.img.data : "";
+    },
     getEntityPhoneNumber: state => {
-      return state.data != "" ? state.data.contacts[0].number : "Carregar...";
+      return state.data != "" ? state.data.contacts[0].number : "";
     },
     getEntityPhoneNumberLink: state => {
       let number = state.data != "" ? state.data.contacts[0].number : "";
@@ -66,7 +70,7 @@ export const entityModule = {
       return number.slice(6).replace(/\s/g, "");
     },
     getEntityEmail: state => {
-      return state.data != "" ? state.data.emails[0].email : "Carregar...";
+      return state.data != "" ? state.data.emails[0].email : "";
     },
     getEntitySocials: state => {
       return state.data.social_medias;

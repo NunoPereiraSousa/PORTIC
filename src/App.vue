@@ -6,8 +6,13 @@
     </div> -->
     <div class="headers">
       <div v-if="this.$route.name === 'Home'">
-        <SubHeader />
-        <Header theme="transparent" />
+        <SubHeader
+          :socials="$store.getters.getEntitySocials"
+          :email="$store.getters.getEntityEmail"
+          :phoneNumber="$store.getters.getEntityPhoneNumberLink"
+          :loading="loadingStatus"
+        />
+        <Header theme="transparent" :loading="loadingStatus" />
       </div>
       <!-- <div v-if="this.$route.name === 'DashboardHome'">
         <DashboardHeader />
@@ -67,10 +72,14 @@ export default {
     return {
       previous__scroll__pos: null,
       currLang: "",
-      data: ""
+      data: "",
+      loading: false
     };
   },
-  async mounted() {
+  async created() {
+    this.loadingStatus;
+  },
+  mounted() {
     console.clear();
 
     gsap.registerPlugin(ScrollTrigger);
@@ -82,7 +91,15 @@ export default {
     this.getLang();
   },
   computed: {
-    ...mapGetters(["getCurrLang", "getEntityData", "getEntityDataStatus"])
+    ...mapGetters(["getCurrLang", "getEntityData", "getEntityDataStatus"]),
+    loadingStatus() {
+      let loading = this.loading;
+      loading = true;
+
+      if (this.$store.getters.getEntityStatus == 200) loading = false;
+
+      return loading;
+    }
   },
   methods: {
     async handleAPI() {
