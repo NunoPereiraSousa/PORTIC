@@ -3,7 +3,7 @@
     <SubPageIntro
       :categoryTitle="$t('medias.mediasKey')"
       :title1="$t('medias.nMedias')"
-      :text1="$t('medias.nMediasDesc', { n: $store.getters.getNMedias })"
+      :text1="$t('medias.nMediasDesc', { n: $store.getters.getMediasLength })"
       :title2="$t('medias.mediasTitle2')"
       :text2="$t('medias.mediasTitle2Desc')"
       content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.
@@ -15,11 +15,11 @@ PORTIC includes units and groups with activities in different stages of the know
       <div class="media__grid grid">
         <!-- :videoURL="convertToYoutubeURL(medias.url)" -->
         <MediaCard
-          v-for="media in getMedias"
-          :key="media.id"
-          :counter="media.id"
-          :videoURL="convertToYoutubeURL(media.videoURL)"
-          :title="media.title"
+          v-for="(media, index) in $store.getters.getMedias"
+          :key="media.id_media"
+          :counter="index + 1"
+          :videoURL="convertToYoutubeURL(media.youtube_path)"
+          :title="media.description"
         />
       </div>
     </section>
@@ -42,8 +42,18 @@ export default {
     MediaCard,
     Footer
   },
-  mounted() {
-    this.convertToYoutubeURL();
+  async mounted() {
+    this.$store.commit("SET_SELECTED_MEDIAS_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
+
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setMedias");
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
   },
   computed: {
     ...mapGetters(["getMediasPT", "getMediasEN"]),
@@ -54,7 +64,6 @@ export default {
       return this.$i18n.locale == "pt" ? mediasPT : mediasEN;
     }
   },
-  // https://www.youtube.com/watch?v=t4-8lJ0ALNU
   methods: {
     convertToYoutubeURL(url) {
       // url = "https://www.youtube.com/watch?v=t4-8lJ0ALNU";
