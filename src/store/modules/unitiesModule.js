@@ -11,11 +11,15 @@ export const unityModule = {
     unitiesEN: unitiesEN,
     teamWorkPrinciplesPT: teamWorkPrinciplesPT,
     teamWorkPrinciplesEN: teamWorkPrinciplesEN,
-    selectedUnityId: null
+    selectedUnityId: null,
+    selectedUnityTitle: null
   },
   mutations: {
     SET_SELECTED_UNITY_ID(state, payload) {
       state.selectedUnityId = payload.id;
+    },
+    SET_SELECTED_UNITY_TITLE(state, payload) {
+      state.selectedUnityTitle = payload.title;
     }
   },
   actions: {},

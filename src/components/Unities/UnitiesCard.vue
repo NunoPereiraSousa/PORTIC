@@ -11,7 +11,10 @@
       <p class="unities__grid__card__info__description">{{ unityDesc }}</p>
       <div class="unities__grid__card__info__button">
         <div class="flex flex-ai-c">
-          <button class="flex flex-ai-c flex-jc-sb" @click="openSlide(id)">
+          <button
+            class="flex flex-ai-c flex-jc-sb"
+            @click="openSlide(id, title)"
+          >
             <div class="flex flex-ai-c flex-jc-c">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +38,7 @@ export default {
   name: "UnitiesCard",
   props: {
     counter: {
-      type: Number,
+      type: String,
       required: true
     },
     imageUrl: {
@@ -53,6 +56,10 @@ export default {
     id: {
       type: Number,
       required: true
+    },
+    title: {
+      type: String,
+      required: true
     }
   },
   computed: {
@@ -61,20 +68,25 @@ export default {
     }
   },
   methods: {
-    openSlide(id) {
-      console.log(id);
+    openSlide(id, title) {
+      console.log(id, title);
       this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
 
-      let slide__panel = document.querySelector(".slide__panel");
-      slide__panel.classList.toggle("opened");
-      let headerHeight = document.querySelector(".headers").offsetHeight;
-      document.querySelector(".headers").style.top = `-${headerHeight}px`;
-      document.querySelector(".headers").style.zIndex = 0;
-      let slide__panel__overlay = document.querySelector(
-        `.slide__panel__overlay`
-      );
+      // let slide__panel = document.querySelector(".slide__panel");
+      // slide__panel.classList.toggle("opened");
+      // let headerHeight = document.querySelector(".headers").offsetHeight;
+      // document.querySelector(".headers").style.top = `-${headerHeight}px`;
+      // document.querySelector(".headers").style.zIndex = 0;
+      // let slide__panel__overlay = document.querySelector(
+      //   `.slide__panel__overlay`
+      // );
 
-      slide__panel__overlay.classList.toggle("overlay_opened");
+      // slide__panel__overlay.classList.toggle("overlay_opened");
+
+      this.$router.push({
+        name: "UnitiesPage",
+        params: { name: title }
+      });
     }
   }
 };

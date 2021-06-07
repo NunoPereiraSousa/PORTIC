@@ -77,11 +77,12 @@ PORTIC includes units and groups with activities in different stages of the know
         <UnitiesCard
           v-for="unity in setUnities"
           :key="unity.id"
-          :counter="unity.id"
+          :counter="`0${unity.id}`"
           :imageUrl="unity.imageUrl"
           :unityName="unity.unityName"
           :unityDesc="unity.unityDesc"
           :id="unity.id"
+          :title="unity.unityName"
           @click.native="getUnityId"
         />
       </div>
