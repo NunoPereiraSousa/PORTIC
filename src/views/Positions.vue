@@ -4,8 +4,8 @@
     <!-- <Intro extra="our " keyword="Projects" /> -->
     <SubPageIntro
       :categoryTitle="$t('careers.careersKey')"
-      :title1="$t('careers.nCareers', { n: $store.getters.getNPositions })"
-      :text1="$t('careers.nCareersDesc')"
+      :title1="$t('careers.nCareers', { n: $store.getters.getCareersLength })"
+      :text1="$t('careers.nCarrersDesc')"
       :title2="$t('careers.careersTitle2')"
       :text2="$t('careers.careersTitle2Desc')"
       content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.

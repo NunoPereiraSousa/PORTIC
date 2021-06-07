@@ -165,6 +165,40 @@
           >
             {{ menu.menu_designation }}
           </router-link>
+          <button @click="openDropdown">
+            Entidades
+
+            <div
+              class="navbar__desktop_menu__dropdown flex  flex-fd-c"
+              v-if="open == true"
+            >
+              <h3
+                class="dropdown_links"
+                @click="
+                  openUnitiesPage((id = 1), (title = 'Porto Design Factory'))
+                "
+              >
+                Porto Design Factory
+              </h3>
+              <h3
+                class="dropdown_links"
+                @click="openUnitiesPage((id = 2), (title = 'Startup Porto'))"
+              >
+                Startup Porto
+              </h3>
+              <h3
+                class="dropdown_links"
+                @click="
+                  openUnitiesPage(
+                    (id = 3),
+                    (title = 'Porto Business Innovation')
+                  )
+                "
+              >
+                Porto Business Innovation
+              </h3>
+            </div>
+          </button>
         </div>
       </div>
     </nav>
@@ -249,6 +283,11 @@
 <script>
 export default {
   name: "Navbar",
+  data: () => {
+    return {
+      open: false
+    };
+  },
   props: {
     theme: {
       type: String,
@@ -356,6 +395,18 @@ export default {
           navbar.style.backgroundColor = "";
         }, 301);
       }
+    },
+    openDropdown() {
+      this.open = !this.open;
+    },
+    openUnitiesPage(id, title) {
+      console.log(id, title);
+      this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
+
+      this.$router.push({
+        name: "UnitiesPage",
+        params: { name: title }
+      });
     }
   }
 };
