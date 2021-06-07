@@ -22,6 +22,9 @@
 
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+
+    display: flex;
+    align-items: center;
   }
 
   .overlay {
@@ -78,11 +81,11 @@
     }
 
     @include breakpoint-up(desktop) {
-      padding: calc(12rem + 2vw) 8vw;
+      padding: 0 8vw;
     }
 
     @include breakpoint-up(large) {
-      padding: calc(14rem + 2vw) 8vw;
+      padding: 0 8vw;
     }
 
     h1 {

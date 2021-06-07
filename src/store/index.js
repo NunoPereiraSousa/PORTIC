@@ -10,7 +10,7 @@ import { langModule } from "./modules/langModule";
 import { mediaModule } from "./modules/mediaModule";
 import { newsModule } from "./modules/newsModule";
 import { projectsModule } from "./modules/projectsModule";
-import { recruitmentModule } from "./modules/recruitmentModule";
+import { careersModule } from "./modules/careersModule";
 import { unityModule } from "./modules/unitiesModule";
 import { weatherModule } from "./modules/weatherModule";
 import { entityModule } from "./modules/entityModule";
@@ -35,7 +35,7 @@ export default new Vuex.Store({
     mediaModule,
     newsModule,
     projectsModule,
-    recruitmentModule,
+    careersModule,
     unityModule,
     weatherModule
   },

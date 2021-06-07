@@ -37,11 +37,11 @@
 
     @include breakpoint-up(tablet) {
       height: 19rem;
+      background-position: 0%;
     }
 
     @include breakpoint-up(iPadPro) {
       height: 12rem;
-      background-position: 0%;
     }
 
     @include breakpoint-up(desktop) {

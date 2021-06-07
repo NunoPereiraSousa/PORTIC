@@ -1,0 +1,121 @@
+.unities_page {
+  padding: calc(10.1875rem + 2vw) 1.25rem 0;
+
+  @include breakpoint-up(tablet) {
+    padding: calc(10.1875rem + 2vw) 8vw 0;
+  }
+
+  @include breakpoint-up(desktop) {
+    padding: calc(12.1875rem + 2vw) 8vw 0;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 4rem;
+  }
+
+  @include breakpoint-up(large) {
+    padding: calc(11.1875rem + 2vw) 10vw 0;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: $_24px;
+    color: $black;
+
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+
+    @include breakpoint-up(tablet) {
+      padding-left: 0;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_30px;
+    }
+
+    @include breakpoint-up(desktop) {
+      font-size: $_30px;
+      margin-bottom: 4rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: $orange;
+      height: 2.5px;
+      width: 20px;
+
+      @include breakpoint-up(tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__img {
+    height: 12.375rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include breakpoint-down(phone) {
+      height: 10.375rem;
+      width: 100%;
+    }
+
+    @include breakpoint-up(tablet) {
+      height: 19rem;
+      background-position: 0%;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      height: 26rem;
+    }
+
+    @include breakpoint-up(desktop) {
+      height: 16rem;
+      width: 40%;
+      float: left;
+
+      margin-right: 2rem;
+    }
+
+    @include breakpoint-up(large) {
+      height: 20rem;
+    }
+  }
+
+  &__content {
+    margin-top: 2rem;
+    font-weight: 400;
+
+    &:first-letter {
+      float: left;
+      font-size: 3rem;
+      line-height: 0.75;
+      margin: 0.1rem 0.2rem 0.1rem 0;
+      padding-right: 0.5rem;
+
+      @include breakpoint-up(iPadPro) {
+        font-size: 7rem;
+      }
+
+      @include breakpoint-up(desktop) {
+        font-size: 4rem;
+      }
+    }
+
+    @include breakpoint-up(iPadPro) {
+      font-size: $_26px;
+    }
+
+    @include breakpoint-up(desktop) {
+      font-size: $_18px;
+
+      line-height: 1.7;
+    }
+  }
+}

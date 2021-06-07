@@ -1,6 +1,6 @@
 import { positions, tipsEN, tipsPT } from "../../config/recruitment";
 
-export const recruitmentModule = {
+export const careersModule = {
   state: {
     positions: positions,
     tipsPT: tipsPT,
