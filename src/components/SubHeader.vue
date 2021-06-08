@@ -112,11 +112,11 @@ export default {
       }
     },
     async currentRouteName() {
-      console.log(`CURRETN LANG i18n: ${this.$store.getters.getSelectedLang}`);
+      await this.$store.dispatch("setEntityId");
+
       switch (this.$route.name) {
         case "Contacts":
           try {
-            await this.$store.dispatch("setEntityId");
             await this.$store.dispatch("setEntityFocuses");
           } catch (error) {
             return error;
@@ -124,14 +124,20 @@ export default {
           break;
         case "Unities":
           try {
-            await this.$store.dispatch("setEntityId");
             await this.$store.dispatch("setUnitiesPrincipals");
           } catch (error) {
             console.log(`App: ${error}`);
             return error;
           }
           break;
-
+        case "Positions":
+          try {
+            await this.$store.dispatch("setCareerTips");
+          } catch (error) {
+            console.log(`App: ${error}`);
+            return error;
+          }
+          break;
         default:
           break;
       }
@@ -155,6 +161,10 @@ export default {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
+      this.$store.commit("SET_SELECTED_CAREERS_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
       this.handleAPI();
     },
     changeLangPT() {
@@ -173,6 +183,10 @@ export default {
       });
 
       this.$store.commit("SET_SELECTED_UNITIES_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_CAREERS_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 

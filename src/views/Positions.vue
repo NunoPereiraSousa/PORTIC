@@ -5,7 +5,7 @@
     <SubPageIntro
       :categoryTitle="$t('careers.careersKey')"
       :title1="$t('careers.nCareers', { n: $store.getters.getCareersLength })"
-      :text1="$t('careers.nCarrersDesc')"
+      :text1="$t('careers.nCareersDesc')"
       :title2="$t('careers.careersTitle2')"
       :text2="$t('careers.careersTitle2Desc')"
       content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.
@@ -30,11 +30,11 @@ PORTIC includes units and groups with activities in different stages of the know
 
       <div class="positions__come_prepared__grid grid">
         <ComePreparedCard
-          v-for="tip in getTips"
-          :key="tip.id"
-          :counter="tip.id"
+          v-for="(tip, index) in getTips"
+          :key="tip.id_hiring_tip"
+          :counter="index + 1"
           :title="tip.title"
-          :desc="tip.desc"
+          :desc="tip.description"
         />
       </div>
     </section>
@@ -94,20 +94,16 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setCareers");
-
-      console.log(this.$store.getters.getCareers);
+      await this.$store.dispatch("setCareerTips");
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
     }
   },
   computed: {
-    ...mapGetters(["getTipsPT", "getTipsEN", "getPositionsNames"]),
+    ...mapGetters(["getCareerTips", "getPositionsNames"]),
     getTips() {
-      let tipsPT = this.getTipsPT;
-      let tipsEN = this.getTipsEN;
-
-      return this.$i18n.locale == "pt" ? tipsPT : tipsEN;
+      return this.getCareerTips;
     }
   }
 };

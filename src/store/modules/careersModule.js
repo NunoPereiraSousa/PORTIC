@@ -1,12 +1,10 @@
-import { tipsEN, tipsPT } from "../../config/recruitment";
 import { careersConfig } from "../../config/api/careers";
 import { entityModule } from "./entityModule";
 
 export const careersModule = {
   state: {
     careers: [],
-    tipsPT: tipsPT,
-    tipsEN: tipsEN,
+    tips: [],
     selectedId: null,
     dataBody: {
       selectedLang: ""
@@ -18,8 +16,9 @@ export const careersModule = {
     },
     SET_CAREERS(state, payload) {
       state.careers = payload.careers;
-
-      console.log(state.careers);
+    },
+    SET_CAREER_TIPS(state, payload) {
+      state.tips = payload.tips;
     },
     SET_SELECTED_CAREERS_LANG(state, payload) {
       state.dataBody.selectedLang = payload.lang;
@@ -30,6 +29,15 @@ export const careersModule = {
       commit(
         "SET_CAREERS",
         await careersConfig.getCareers(
+          state.dataBody.selectedLang,
+          entityModule.state.entityId
+        )
+      );
+    },
+    async setCareerTips({ commit, state }) {
+      commit(
+        "SET_CAREER_TIPS",
+        await careersConfig.getCareerTips(
           state.dataBody.selectedLang,
           entityModule.state.entityId
         )
@@ -47,11 +55,12 @@ export const careersModule = {
           : 0
         : 0;
     },
+    getCareerTips: state => {
+      return state.tips != "" ? state.tips : [];
+    },
     getPositions: state => state.careers,
     getNPositions: state => state.careers.length,
     getPositionsNames: state => state.careers.map(career => career.categories),
-    getTipsPT: state => state.tipsPT,
-    getTipsEN: state => state.tipsEN,
     getSelectedCareerByID: state => state.selectedId,
     getCareerByID: state => id => state.careers.find(career => career.id === id)
   }
