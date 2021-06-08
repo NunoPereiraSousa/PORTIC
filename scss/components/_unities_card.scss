@@ -75,6 +75,13 @@
       padding: 0;
     }
 
+    &__description {
+      display: -webkit-box;
+      -webkit-line-clamp: 8;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
     h4,
     h3,
     h2 {

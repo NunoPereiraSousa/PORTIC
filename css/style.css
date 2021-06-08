@@ -5601,6 +5601,13 @@ button:focus {
   }
 }
 
+.unities__grid__card__info__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .unities__grid__card__info h4,
 .unities__grid__card__info h3,
 .unities__grid__card__info h2 {

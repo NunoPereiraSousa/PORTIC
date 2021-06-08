@@ -76,15 +76,15 @@ PORTIC includes units and groups with activities in different stages of the know
 
       <div class="unities__grid grid">
         <UnitiesCard
-          v-for="unity in setUnities"
-          :key="unity.id"
-          :counter="`0${unity.id}`"
-          :imageUrl="unity.imageUrl"
-          :unityName="unity.unityName"
-          :unityDesc="unity.unityDesc"
-          :id="unity.id"
-          :title="unity.unityName"
-          @click.native="getUnityId"
+          v-for="(unity, index) in getUnitiesArr"
+          :key="index + 1"
+          :counter="`0${index + 1}`"
+          :imageUrl="convertImage(unity.img.data)"
+          :unityName="unity.designation"
+          :unityDesc="unity.description"
+          :id="unity.id_unity"
+          :title="unity.designation"
+          @click.native="getUnityId(unity.id_unity, unity.designation)"
         />
       </div>
       <SlidePanel :title="unitySelectedTitle" :content="unitySelectedContent" />
@@ -135,6 +135,7 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setUnitiesPrincipals");
+      await this.$store.dispatch("setUnities");
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
@@ -144,10 +145,7 @@ export default {
     ...mapGetters([
       "getPrincipalsStatus",
       "getUnitiesPrincipals",
-      "getUnitiesPT",
-      "getUnitiesEN",
-      "getTeamWorkPrinciplesPT",
-      "getTeamWorkPrinciplesEN",
+      "getUnities",
       "getUnityById",
       "getSelectedUnityId"
     ]),
@@ -159,24 +157,33 @@ export default {
     getPrinciples() {
       return this.$store.getters.getUnitiesPrincipals;
     },
-    setUnities() {
-      let unitiesPT = this.getUnitiesPT;
-      let unitiesEN = this.getUnitiesEN;
-
-      return this.$i18n.locale == "pt" ? unitiesPT : unitiesEN;
+    getUnitiesArr() {
+      return this.getUnities;
     }
   },
   methods: {
-    getUnityId() {
-      let unityId = this.getSelectedUnityId;
+    convertImage(img) {
+      let arrayBufferView = new Uint8Array(img);
+      let blob = new Blob([arrayBufferView], { type: "image/png" });
+      let urlCreator = window.URL || window.webkitURL;
+      let image = urlCreator.createObjectURL(blob);
 
-      if (unityId != null) this.getSelectedUnity(unityId);
+      return image;
     },
-    getSelectedUnity(id) {
-      let unity = this.getUnityById(id);
+    formatRouterPath(title) {
+      return title.replace(/\s/g, "%20");
+    },
+    getUnityId(id, title) {
+      this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
 
-      this.unitySelectedTitle = unity.unityName;
-      this.unitySelectedContent = unity.content;
+      let formatedTitle = this.formatRouterPath(title);
+
+      if (this.$route.path != `/unities/${formatedTitle}`) {
+        this.$router.push({
+          name: "UnitiesPage",
+          params: { name: title }
+        });
+      }
     }
   }
 };

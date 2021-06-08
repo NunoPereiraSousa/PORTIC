@@ -54,7 +54,7 @@ export default {
       required: true
     },
     id: {
-      type: Number,
+      type: String,
       required: true
     },
     title: {
@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     openSlide(id, title) {
-      console.log(id, title);
+      // console.log(id, title);
       this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
 
       // let slide__panel = document.querySelector(".slide__panel");

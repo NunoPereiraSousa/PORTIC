@@ -36,14 +36,26 @@ export default {
   mounted() {
     let unity = this.getUnityById(this.getSelectedUnityId);
 
-    this.unity.title = unity.unityName;
-    this.unity.content = unity.content;
-    this.unity.image = unity.imageUrl;
+    // console.log(this.getSelectedUnityId, unity);
+
+    this.unity.title = unity.designation;
+    this.unity.content = unity.description;
+    this.unity.image = this.convertImage(unity.img.data);
   },
   computed: {
     ...mapGetters(["getSelectedUnityId", "getUnityById"]),
     imageStyle() {
       return `background-image: url('${this.unity.image}')`;
+    }
+  },
+  methods: {
+    convertImage(img) {
+      let arrayBufferView = new Uint8Array(img);
+      let blob = new Blob([arrayBufferView], { type: "image/png" });
+      let urlCreator = window.URL || window.webkitURL;
+      let image = urlCreator.createObjectURL(blob);
+
+      return image;
     }
   }
 };

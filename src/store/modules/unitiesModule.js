@@ -15,7 +15,6 @@ export const unityModule = {
     dataBody: {
       selectedLang: ""
     },
-    dataStatus: "",
     unitiesPT: unitiesPT,
     unitiesEN: unitiesEN,
     teamWorkPrinciplesPT: teamWorkPrinciplesPT,
@@ -34,6 +33,9 @@ export const unityModule = {
       state.principals = payload.principals;
       state.principalsStatus = payload.principalsStatus;
     },
+    SET_UNITIES(state, payload) {
+      state.unities = payload.unities;
+    },
     SET_SELECTED_UNITIES_LANG(state, payload) {
       state.dataBody.selectedLang = payload.lang;
     }
@@ -47,16 +49,28 @@ export const unityModule = {
           entityModule.state.entityId
         )
       );
+    },
+    async setUnities({ commit, state }) {
+      commit(
+        "SET_UNITIES",
+        await unitiesConfig.getUnities(
+          state.dataBody.selectedLang,
+          entityModule.state.entityId
+        )
+      );
     }
   },
   getters: {
-    getUnties: state => (state.unities != "" ? state.unities : []),
+    getUnities: state => (state.unities != "" ? state.unities : []),
     getUnitiesLength: state => {
       return state.unities != ""
         ? state.unities.length != undefined
           ? state.unities.length
           : 0
         : 0;
+    },
+    getUnityImages: state => {
+      return state.unities != "" ? state.unities.map(i => i.img.data) : [];
     },
     getUnitiesPrincipals: state =>
       state.principals != "" ? state.principals : [],
@@ -72,7 +86,8 @@ export const unityModule = {
     getUnitiesPT: state => state.unitiesPT,
     getUnitiesEN: state => state.unitiesEN,
     getNUnities: state => state.unitiesPT.length,
-    getUnityById: state => id => state.unitiesPT.find(unity => unity.id === id),
+    getUnityById: state => id =>
+      state.unities.find(unity => unity.id_unity === id),
     getSelectedUnityId: state => state.selectedUnityId,
     getTeamWorkPrinciplesPT: state => state.teamWorkPrinciplesPT,
     getTeamWorkPrinciplesEN: state => state.teamWorkPrinciplesEN
