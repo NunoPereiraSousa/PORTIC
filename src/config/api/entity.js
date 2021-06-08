@@ -40,5 +40,24 @@ export const entityConfig = {
 
         return error;
       });
+  },
+  getEntityFocuses: async (selectedLang, entityId) => {
+    console.log(`LANG ARGUMENT RECEIVED: ${selectedLang}`);
+    console.log(`ID ARGUMENT RECEIVED: ${entityId}`);
+    return await axios
+      .get(`${API_URL}/${selectedLang}/entities/${entityId}/focus`, {
+        headers
+      })
+      .then(response => {
+        return {
+          focuses: response.data.processResult,
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
   }
 };

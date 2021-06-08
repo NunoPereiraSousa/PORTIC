@@ -8,7 +8,8 @@ export const entityModule = {
     dataBody: {
       selectedLang: ""
     },
-    entityId: ""
+    entityId: "",
+    focuses: []
   },
   mutations: {
     SET_DATA(state, payload) {
@@ -20,6 +21,9 @@ export const entityModule = {
     },
     SET_SELECTED_LANG(state, payload) {
       state.dataBody.selectedLang = payload.lang;
+    },
+    SET_ENTITY_FOCUSES(state, payload) {
+      state.focuses = payload.focuses;
     }
   },
   actions: {
@@ -30,6 +34,15 @@ export const entityModule = {
       commit(
         "SET_DATA",
         await entityConfig.getEntityData(
+          state.dataBody.selectedLang,
+          state.entityId
+        )
+      );
+    },
+    async setEntityFocuses({ commit, state }) {
+      commit(
+        "SET_ENTITY_FOCUSES",
+        await entityConfig.getEntityFocuses(
           state.dataBody.selectedLang,
           state.entityId
         )
@@ -73,7 +86,7 @@ export const entityModule = {
       return state.data != "" ? state.data.emails[0].email : "";
     },
     getEntitySocials: state => {
-      return state.data.social_medias;
+      return state.data.social_medias != "" ? state.data.social_medias : [];
     },
     getEntityMenus: state => {
       return state.data.menus;
@@ -81,6 +94,6 @@ export const entityModule = {
     getEntitySlogan: state => {
       return state.data != "" ? state.data.designation : "Carregar...";
     },
-    getEntityDataStatus: state => state.dataStatus
+    getEntityFocuses: state => (state.focuses != "" ? state.focuses : [])
   }
 };

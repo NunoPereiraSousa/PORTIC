@@ -247,9 +247,9 @@
 
       <div class="contacts__what_we_focus__grid grid">
         <WhatWeFocusCard
-          v-for="focus in getFocuses"
-          :key="focus.id"
-          :text="focus.text"
+          v-for="(focus, index) in getFocuses"
+          :key="index + 1"
+          :text="focus.description"
         />
       </div>
     </section>
@@ -445,17 +445,38 @@ export default {
       },
       map: this.map
     });
+
+    this.handleAPI();
   },
   computed: {
     ...mapGetters(["getFocusesPT", "getFocusesEN"]),
     getFocuses() {
-      let focusesPT = this.getFocusesPT;
-      let focusesEN = this.getFocusesEN;
+      // let focusesPT = this.getFocusesPT;
+      // let focusesEN = this.getFocusesEN;
 
-      return this.$i18n.locale == "pt" ? focusesPT : focusesEN;
+      // return this.$i18n.locale == "pt" ? focusesPT : focusesEN;
+
+      console.log(this.$store.getters.getEntityFocuses);
+
+      return this.$store.getters.getEntityFocuses;
     }
   },
   methods: {
+    async handleAPI() {
+      this.$store.commit("SET_SELECTED_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      console.log(1);
+
+      try {
+        await this.$store.dispatch("setEntityId");
+        await this.$store.dispatch("setEntityFocuses");
+      } catch (error) {
+        console.log(`App: ${error}`);
+        return error;
+      }
+    },
     toggleForm() {
       let contacts__side_form = document.querySelector(".contacts__side_form");
 

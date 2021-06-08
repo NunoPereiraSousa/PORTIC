@@ -172,7 +172,7 @@ export default {
     },
     loading: {
       type: Boolean,
-      required: true
+      required: false
     }
   },
   computed: {

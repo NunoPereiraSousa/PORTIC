@@ -90,7 +90,7 @@ export default {
     },
     loading: {
       type: Boolean,
-      required: true
+      required: false
     }
   },
   computed: {
@@ -101,16 +101,26 @@ export default {
       try {
         await this.$store.dispatch("setData");
 
-        console.log(this.getEntityData);
-
-        // console.log(`LANG: ${this.$i18n.locale}`);
-
-        // this.getEntityData.menus.forEach(menu => {
-        //   console.log(menu);
-        // });
+        this.currentRouteName();
       } catch (error) {
         console.log(`App: ${error}`);
         return error;
+      }
+    },
+    async currentRouteName() {
+      switch (this.$route.name) {
+        case "Contacts":
+          try {
+            await this.$store.dispatch("setEntityId");
+            await this.$store.dispatch("setEntityFocuses");
+          } catch (error) {
+            console.log(`App: ${error}`);
+            return error;
+          }
+          break;
+
+        default:
+          break;
       }
     },
     changeLangEN() {
