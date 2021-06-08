@@ -9,7 +9,9 @@
           <div class="blocks"></div>
         </div>
         <div v-else>
-          <a :href="`mailto:${email}`">{{ email }}</a>
+          <a :href="`mailto:${$store.getters.getEntityEmail}`">{{
+            $store.getters.getEntityEmail
+          }}</a>
         </div>
       </div>
 
@@ -21,7 +23,9 @@
           <div class="blocks"></div>
         </div>
         <div v-else>
-          <a :href="`tel:+351${phoneNumber}`">{{ phoneNumber }}</a>
+          <a :href="`tel:+351${$store.getters.getEntityPhoneNumberLink}`">{{
+            $store.getters.getEntityPhoneNumberLink
+          }}</a>
         </div>
       </div>
     </div>
@@ -33,7 +37,7 @@
       </div>
       <div class="flex flex-jc-sb flex-ai-c" v-else>
         <a
-          v-for="media in socials"
+          v-for="media in $store.getters.getEntitySocials"
           :key="media.social_media_type"
           :href="media.url"
           target="_blank"
@@ -76,18 +80,18 @@ export default {
     };
   },
   props: {
-    email: {
-      type: String,
-      required: false
-    },
-    phoneNumber: {
-      type: String,
-      required: false
-    },
-    socials: {
-      type: Array,
-      required: false
-    },
+    // email: {
+    //   type: String,
+    //   required: false
+    // },
+    // phoneNumber: {
+    //   type: String,
+    //   required: false
+    // },
+    // socials: {
+    //   type: Array,
+    //   required: false
+    // },
     loading: {
       type: Boolean,
       required: false
@@ -108,11 +112,20 @@ export default {
       }
     },
     async currentRouteName() {
+      console.log(`CURRETN LANG i18n: ${this.$store.getters.getSelectedLang}`);
       switch (this.$route.name) {
         case "Contacts":
           try {
             await this.$store.dispatch("setEntityId");
             await this.$store.dispatch("setEntityFocuses");
+          } catch (error) {
+            return error;
+          }
+          break;
+        case "Unities":
+          try {
+            await this.$store.dispatch("setEntityId");
+            await this.$store.dispatch("setUnitiesPrincipals");
           } catch (error) {
             console.log(`App: ${error}`);
             return error;
@@ -138,6 +151,10 @@ export default {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
+      this.$store.commit("SET_SELECTED_UNITIES_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
       this.handleAPI();
     },
     changeLangPT() {
@@ -152,6 +169,10 @@ export default {
       this.$store.commit("SET_LOCALE", this.$i18n.locale);
 
       this.$store.commit("SET_SELECTED_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_UNITIES_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 

@@ -415,7 +415,6 @@ import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
 import WhatWeFocusCard from "@/components/Contacts/WhatWeFocusCard.vue";
 // import TestimonialCard from "@/components/TestimonialCard.vue";
 import Footer from "@/components/Footer.vue";
-import { mapGetters } from "vuex";
 
 export default {
   name: "Contacts",
@@ -449,15 +448,7 @@ export default {
     this.handleAPI();
   },
   computed: {
-    ...mapGetters(["getFocusesPT", "getFocusesEN"]),
     getFocuses() {
-      // let focusesPT = this.getFocusesPT;
-      // let focusesEN = this.getFocusesEN;
-
-      // return this.$i18n.locale == "pt" ? focusesPT : focusesEN;
-
-      console.log(this.$store.getters.getEntityFocuses);
-
       return this.$store.getters.getEntityFocuses;
     }
   },
@@ -466,8 +457,6 @@ export default {
       this.$store.commit("SET_SELECTED_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
-
-      console.log(1);
 
       try {
         await this.$store.dispatch("setEntityId");

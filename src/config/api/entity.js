@@ -42,8 +42,6 @@ export const entityConfig = {
       });
   },
   getEntityFocuses: async (selectedLang, entityId) => {
-    console.log(`LANG ARGUMENT RECEIVED: ${selectedLang}`);
-    console.log(`ID ARGUMENT RECEIVED: ${entityId}`);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entityId}/focus`, {
         headers

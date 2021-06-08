@@ -6,12 +6,7 @@
     </div> -->
     <div class="headers">
       <div v-if="this.$route.name === 'Home'">
-        <SubHeader
-          :socials="$store.getters.getEntitySocials"
-          :email="$store.getters.getEntityEmail"
-          :phoneNumber="$store.getters.getEntityPhoneNumberLink"
-          :loading="loadingStatus"
-        />
+        <SubHeader :loading="loadingStatus" />
         <Header theme="transparent" :loading="loadingStatus" />
       </div>
       <!-- <div v-if="this.$route.name === 'DashboardHome'">

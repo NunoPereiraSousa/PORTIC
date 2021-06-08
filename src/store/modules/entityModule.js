@@ -50,6 +50,7 @@ export const entityModule = {
     }
   },
   getters: {
+    getSelectedLang: state => state.dataBody.selectedLang,
     getEntityId: state => state.entityId,
     getEntityStatus: state => state.dataStatus,
     getEntityData: state => {

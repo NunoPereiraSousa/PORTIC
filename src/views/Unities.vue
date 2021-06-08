@@ -17,6 +17,7 @@ PORTIC includes units and groups with activities in different stages of the know
       />
 
       <vue-glide
+        v-if="principalsStatus"
         :startAt="0"
         :gap="40"
         :breakpoints="{
@@ -35,14 +36,14 @@ PORTIC includes units and groups with activities in different stages of the know
         :infinite="false"
       >
         <vue-glide-slide
-          v-for="principle in getTeamWorkPrinciples"
-          :key="principle.id"
+          v-for="(principal, index) in getPrinciples"
+          :key="index + 1"
         >
           <PrincipleCard
-            :counter="principle.id"
-            :length="5"
-            :title="principle.title"
-            :desc="principle.desc"
+            :counter="index + 1"
+            :length="$store.getters.getPrincipalsLength"
+            :title="principal.title"
+            :desc="principal.description"
         /></vue-glide-slide>
         <template slot="control">
           <button data-glide-dir="<" class="unityBtns">
@@ -119,14 +120,30 @@ export default {
       unities: null,
       teamWorkPrinciples: null,
       unitySelectedTitle: null,
-      unitySelectedContent: null
+      unitySelectedContent: null,
+      loadedData: false
     };
   },
   created() {
     this.unities = this.getUnities;
   },
+  async mounted() {
+    this.$store.commit("SET_SELECTED_UNITIES_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
+
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setUnitiesPrincipals");
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
+  },
   computed: {
     ...mapGetters([
+      "getPrincipalsStatus",
+      "getUnitiesPrincipals",
       "getUnitiesPT",
       "getUnitiesEN",
       "getTeamWorkPrinciplesPT",
@@ -134,11 +151,13 @@ export default {
       "getUnityById",
       "getSelectedUnityId"
     ]),
-    getTeamWorkPrinciples() {
-      let twPT = this.getTeamWorkPrinciplesPT;
-      let twEN = this.getTeamWorkPrinciplesEN;
+    principalsStatus() {
+      let status = this.$store.getters.getPrincipalsStatus;
 
-      return this.$i18n.locale == "pt" ? twPT : twEN;
+      return status == 200 ? true : false;
+    },
+    getPrinciples() {
+      return this.$store.getters.getUnitiesPrincipals;
     },
     setUnities() {
       let unitiesPT = this.getUnitiesPT;
