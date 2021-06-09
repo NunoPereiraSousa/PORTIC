@@ -57,11 +57,11 @@
 
       <div class="admin_courses__panel__grid grid">
         <DashboardUnitiesCard
-          v-for="unity in searchFilter"
-          :key="unity.id"
-          :id="unity.id"
-          :counter="unity.id"
-          :unityName="unity.unityName"
+          v-for="(unity, index) in searchFilter"
+          :key="unity.id_unity"
+          :id="unity.id_unity"
+          :counter="index + 1"
+          :unityName="unity.designation"
         />
       </div>
     </div>
@@ -90,18 +90,27 @@ export default {
       unities: ""
     };
   },
-  created() {
-    this.unities = this.getUnitiesPT;
-  },
-  mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+  async mounted() {
+    this.$store.commit("SET_SELECTED_UNITIES_LANG", {
+      lang: "pt"
+    });
 
-    document.querySelector(
-      ".admin_unities__panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setUnities");
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
+
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+
+    // document.querySelector(
+    //   ".admin_unities__panel"
+    // ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
-    ...mapGetters(["getSelectedUnityId", "getUnityById", "getUnitiesPT"]),
+    ...mapGetters(["getSelectedUnityId", "getUnityById", "getUnities"]),
     unityName() {
       let id = this.getSelectedUnityId;
 
@@ -110,17 +119,17 @@ export default {
       let name;
 
       if (unity) {
-        name = unity.unityName;
+        name = unity.designation;
       }
 
       return name;
     },
     searchFilter() {
-      return this.unities.filter(unity => {
+      return this.getUnities.filter(unity => {
         let search = true;
 
         if (this.unityTxt != "") {
-          search = unity.unityName
+          search = unity.designation
             .toLowerCase()
             .includes(this.unityTxt.toLowerCase());
         }

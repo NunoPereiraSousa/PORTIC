@@ -70,11 +70,11 @@
 
       <div class="admin_areas__panel__grid grid">
         <DashboardAreasCard
-          v-for="area in searchFilter"
-          :key="area.id"
-          :id="area.id"
-          :counter="area.id"
-          :areaName="area.areaName"
+          v-for="(area, index) in searchFilter"
+          :key="area.id_area"
+          :id="area.id_area"
+          :counter="index + 1"
+          :areaName="area.designation"
         />
       </div>
     </div>
@@ -107,18 +107,27 @@ export default {
       areas: ""
     };
   },
-  created() {
-    this.areas = this.getAreasPT;
-  },
-  mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+  async mounted() {
+    this.$store.commit("SET_SELECTED_AREAS_LANG", {
+      lang: "pt"
+    });
 
-    document.querySelector(
-      ".admin_areas__panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setAreas");
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
+
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+
+    // document.querySelector(
+    //   ".admin_areas__panel"
+    // ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
-    ...mapGetters(["getSelectedAreaByID", "getAreaByID", "getAreasPT"]),
+    ...mapGetters(["getSelectedAreaByID", "getAreaByID", "getAreas"]),
     areaName() {
       let id = this.getSelectedAreaByID;
 
@@ -127,13 +136,13 @@ export default {
       let name;
 
       if (area) {
-        name = area.areaName;
+        name = area.designation;
       }
 
       return name;
     },
     searchFilter() {
-      return this.areas.filter(area => {
+      return this.getAreas.filter(area => {
         let search = true;
 
         if (this.areaTxt != "") {
@@ -146,7 +155,6 @@ export default {
       });
     }
   },
-
   methods: {
     closePopup() {
       let admin_areas__panel__overlay = document.querySelector(

@@ -28,7 +28,10 @@
         <p>
           {{ categoryDescription }}
         </p>
-        <button class="flex flex-ai-c">
+        <a
+          :href="`mailto:${$store.getters.getEntityEmail}`"
+          class="flex flex-ai-c"
+        >
           <span>{{ $t("contactBtn") }}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +74,7 @@
               />
             </g>
           </svg>
-        </button>
+        </a>
       </div>
     </div>
 
@@ -108,7 +111,10 @@
           <p>
             {{ categoryDescription }}
           </p>
-          <button class="flex flex-ai-c">
+          <a
+            :href="`mailto:${$store.getters.getEntityEmail}`"
+            class="flex flex-ai-c"
+          >
             <span>{{ $t("contactBtn") }}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +161,7 @@
                 />
               </g>
             </svg>
-          </button>
+          </a>
         </div>
       </div>
     </div>

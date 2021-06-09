@@ -153,17 +153,16 @@ export default {
   computed: {
     ...mapGetters(["getSelectedAreaByID", "getAreaByID"])
   },
-  created() {
-    this.areaName = this.getAreaByID(this.getSelectedAreaByID).areaName;
-  },
   mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+    this.areaName = this.getAreaByID(this.getSelectedAreaByID).designation;
 
-    let arr = document.querySelectorAll(".admin_actions_panel");
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
 
-    arr.forEach(i => {
-      i.style.paddingLeft = `${navbar_width}px`;
-    });
+    // let arr = document.querySelectorAll(".admin_actions_panel");
+
+    // arr.forEach(i => {
+    //   i.style.paddingLeft = `${navbar_width}px`;
+    // });
 
     this.styleEditorHeight();
   },

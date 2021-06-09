@@ -62,6 +62,7 @@ export const careersModule = {
     getNPositions: state => state.careers.length,
     getPositionsNames: state => state.careers.map(career => career.categories),
     getSelectedCareerByID: state => state.selectedId,
-    getCareerByID: state => id => state.careers.find(career => career.id === id)
+    getCareerByID: state => id =>
+      state.careers.find(career => career.id_available_position === id)
   }
 };

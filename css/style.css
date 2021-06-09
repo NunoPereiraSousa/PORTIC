@@ -3216,7 +3216,7 @@ button:focus {
           transform: rotate(-90deg);
 }
 
-.sub_page_intro__extra_info button {
+.sub_page_intro__extra_info a {
   padding: 16px 26px;
   margin-top: 1rem;
   background-color: #c94d24;
@@ -3233,18 +3233,18 @@ button:focus {
           box-shadow: 0 3px 10px 0px rgba(8, 8, 8, 0.05), 0 -3px 10px 0px rgba(8, 8, 8, 0.05);
 }
 
-.sub_page_intro__extra_info button:hover {
+.sub_page_intro__extra_info a:hover {
   -webkit-box-shadow: 0 3px 14px 0px rgba(8, 8, 8, 0.1), 0 -3px 14px 0px rgba(8, 8, 8, 0.1);
           box-shadow: 0 3px 14px 0px rgba(8, 8, 8, 0.1), 0 -3px 14px 0px rgba(8, 8, 8, 0.1);
 }
 
-.sub_page_intro__extra_info button:hover svg {
+.sub_page_intro__extra_info a:hover svg {
   -webkit-transform: translateX(20%);
           transform: translateX(20%);
 }
 
 @media (min-width: 64em) {
-  .sub_page_intro__extra_info button {
+  .sub_page_intro__extra_info a {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -3261,18 +3261,18 @@ button:focus {
 }
 
 @media (min-width: 75em) {
-  .sub_page_intro__extra_info button {
+  .sub_page_intro__extra_info a {
     font-size: 1.0625rem;
   }
 }
 
 @media (min-width: 120em) {
-  .sub_page_intro__extra_info button {
+  .sub_page_intro__extra_info a {
     font-size: 1rem;
   }
 }
 
-.sub_page_intro__extra_info button svg {
+.sub_page_intro__extra_info a svg {
   margin-left: 12px;
   width: 20px;
   -webkit-transition: all 0.25s ease;
@@ -3280,7 +3280,7 @@ button:focus {
 }
 
 @media (min-width: 75em) {
-  .sub_page_intro__extra_info button svg {
+  .sub_page_intro__extra_info a svg {
     width: 17px;
   }
 }
@@ -4656,23 +4656,28 @@ button:focus {
   width: 100%;
 }
 
-.areas_information__icons__card img,
-.courses_information__icons__card img {
+.areas_information__icons__card__img,
+.courses_information__icons__card__img {
   width: 2.5rem;
-  height: auto;
+  height: 2.5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @media (min-width: 48em) {
-  .areas_information__icons__card img,
-  .courses_information__icons__card img {
+  .areas_information__icons__card__img,
+  .courses_information__icons__card__img {
     width: 2.875rem;
+    height: 2.875rem;
   }
 }
 
 @media (min-width: 120em) {
-  .areas_information__icons__card img,
-  .courses_information__icons__card img {
+  .areas_information__icons__card__img,
+  .courses_information__icons__card__img {
     width: 3.125rem;
+    height: 3.125rem;
   }
 }
 
@@ -5529,7 +5534,6 @@ button:focus {
 
 .unities__grid__card__image {
   height: 10rem;
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -5603,7 +5607,7 @@ button:focus {
 
 .unities__grid__card__info__description {
   display: -webkit-box;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -8492,16 +8496,16 @@ button:focus {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  position: fixed;
   z-index: 1;
   top: 0%;
   left: 0%;
-  padding: 4rem 3.375rem 4rem 2.375rem;
+  padding: 4rem 5rem 4rem 2.785rem;
   background-color: #1e1e1e;
 }
 
 .admin_nav__link {
   color: #ffffff;
+  white-space: nowrap;
 }
 
 @media (min-width: 120em) {

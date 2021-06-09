@@ -60,16 +60,22 @@
     &__card {
       width: 100%;
 
-      img {
+      &__img {
         width: 2.5rem;
-        height: auto;
+        height: 2.5rem;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
 
         @include breakpoint-up(tablet) {
           width: 2.875rem;
+          height: 2.875rem;
         }
 
         @include breakpoint-up(large) {
           width: 3.125rem;
+          height: 3.125rem;
         }
       }
 

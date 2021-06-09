@@ -21,9 +21,9 @@ PORTIC includes units and groups with activities in different stages of the know
       <div class="areas_information__icons grid">
         <IconCard
           v-for="card in getCoursesIcons"
-          :key="card.id"
-          :icon="card.icon"
-          :content="card.content"
+          :key="card.id_courses_focus"
+          :icon="convertImage(card.img.data)"
+          :content="card.description"
         />
       </div>
     </section>
@@ -31,7 +31,7 @@ PORTIC includes units and groups with activities in different stages of the know
       <SubHeaderTitle text="Explore os nossos cursos" />
       <div class="courses__grid grid">
         <CoursesCard
-          v-for="(course, index) in $store.getters.getCourses"
+          v-for="(course, index) in courses"
           :key="course.id_course"
           :index="index"
           :button_id="course.id_course"
@@ -63,22 +63,13 @@ export default {
     Footer
   },
   computed: {
-    ...mapGetters([
-      "getCourses",
-      "getIconCoursesCardsPT",
-      "getIconCoursesCardsEN"
-    ]),
+    ...mapGetters(["getCourses", "getCoursesFocus"]),
     getCoursesIcons() {
-      let iconCoursesPT = this.getIconCoursesCardsPT;
-      let iconCoursesEN = this.getIconCoursesCardsEN;
-
-      return this.$i18n.locale == "pt" ? iconCoursesPT : iconCoursesEN;
+      return this.getCoursesFocus;
+    },
+    courses() {
+      return this.getCourses;
     }
-    // getCourses() {
-    //   let courses = this.getCourses;
-
-    //   return this.$i18n.locale == "pt" ? coursesPT : coursesEN;
-    // }
   },
   async mounted() {
     this.$store.commit("SET_SELECTED_COURSES_LANG", {
@@ -88,10 +79,21 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setCourses");
-      console.log(this.$store.getters.getCourses);
+      await this.$store.dispatch("setCoursesFocus");
+      console.log(this.$store.getters.getCoursesFocus);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
+    }
+  },
+  methods: {
+    convertImage(img) {
+      let arrayBufferView = new Uint8Array(img);
+      let blob = new Blob([arrayBufferView], { type: "image/png" });
+      let urlCreator = window.URL || window.webkitURL;
+      let image = urlCreator.createObjectURL(blob);
+
+      return image;
     }
   }
 };

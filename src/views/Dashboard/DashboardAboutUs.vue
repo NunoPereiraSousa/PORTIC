@@ -220,13 +220,7 @@ export default {
     this.edit.latitude = this.coordinates[0].lat;
     this.edit.longitude = this.coordinates[1].lon;
   },
-  mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    document.querySelector(
-      ".admin_about__panel"
-    ).style.paddingLeft = `${navbar_width}px`;
-  },
+  mounted() {},
   methods: {
     closePopup() {
       let overlay = document.querySelector(".admin_about__panel__overlay");

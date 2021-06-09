@@ -342,14 +342,11 @@ export default {
     ];
   },
   mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    let arr = document.querySelectorAll(".admin_actions_panel");
-
-    arr.forEach(i => {
-      i.style.paddingLeft = `${navbar_width}px`;
-    });
-
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+    // let arr = document.querySelectorAll(".admin_actions_panel");
+    // arr.forEach(i => {
+    //   i.style.paddingLeft = `${navbar_width}px`;
+    // });
     // this.styleEditorHeight();
   },
   computed: {

@@ -47,12 +47,12 @@
         <div class="admin_home__panel__card barChart">
           <BarChart
             :data="[
-              $store.getters.getNAreas,
-              $store.getters.getNCourses,
-              $store.getters.getNMedias,
+              $store.getters.getAreas,
+              $store.getters.getCoursesLength,
+              $store.getters.getMediasLength,
               $store.getters.getNProjects,
-              $store.getters.getNAreas,
-              $store.getters.getNUnities
+              $store.getters.getAreas,
+              $store.getters.getUnitiesLength
             ]"
           />
         </div>
@@ -87,14 +87,13 @@ export default {
       days: []
     };
   },
-  mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+  async mounted() {
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
 
-    document.querySelector(
-      ".admin_home__panel"
-    ).style.paddingLeft = `${navbar_width}px`;
-  },
-  async created() {
+    // document.querySelector(
+    //   ".admin_home__panel"
+    // ).style.paddingLeft = `${navbar_width}px`;
+
     try {
       await this.$store.dispatch("setWeather");
     } catch (error) {

@@ -169,16 +169,16 @@ export default {
     ...mapGetters(["getSelectedUnityId", "getUnityById"])
   },
   created() {
-    this.unityName = this.getUnityById(this.getSelectedUnityId).unityName;
+    this.unityName = this.getUnityById(this.getSelectedUnityId).designation;
   },
   mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
 
-    let arr = document.querySelectorAll(".admin_actions_panel");
+    // let arr = document.querySelectorAll(".admin_actions_panel");
 
-    arr.forEach(i => {
-      i.style.paddingLeft = `${navbar_width}px`;
-    });
+    // arr.forEach(i => {
+    //   i.style.paddingLeft = `${navbar_width}px`;
+    // });
 
     this.styleEditorHeight();
   },

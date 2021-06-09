@@ -1,17 +1,18 @@
 .admin_nav {
   height: 100vh;
   width: fit-content;
-  position: fixed;
+  // position: fixed;
   z-index: 1;
   top: 0%;
   left: 0%;
 
-  padding: 4rem 3.375rem 4rem 2.375rem;
+  padding: 4rem 5rem 4rem 2.785rem;
 
   background-color: $admin_black;
 
   &__link {
     color: $white;
+    white-space: nowrap;
 
     @include breakpoint-up(large) {
       font-size: $_17px;

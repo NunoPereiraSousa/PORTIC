@@ -47,8 +47,8 @@ export const mediaModule = {
           : 0
         : 0;
     },
-    getNMedias: state => state.mediasPT.length,
+    getNMedias: state => state.medias.length,
     getSelectedMediaByID: state => state.selectedId,
-    getMediaByID: state => id => state.mediasPT.find(n => n.id == id)
+    getMediaByID: state => id => state.medias.find(n => n.id_media == id)
   }
 };

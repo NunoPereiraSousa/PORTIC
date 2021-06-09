@@ -49,11 +49,10 @@ export default {
     };
   },
   mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    document.querySelector(
-      ".admin_pages__panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+    // document.querySelector(
+    //   ".admin_pages__panel"
+    // ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
     imageStyle() {

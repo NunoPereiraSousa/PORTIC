@@ -155,20 +155,23 @@ export default {
     ...mapGetters(["getSelectedCareerByID", "getCareerByID"])
   },
   created() {
-    this.careerName = this.getCareerByID(this.getSelectedCareerByID).title;
+    this.careerName = this.getCareerByID(
+      this.getSelectedCareerByID
+    ).designation;
 
-    this.content = this.getCareerByID(this.getSelectedCareerByID).content;
-    this.contentEN = this.getCareerByID(this.getSelectedCareerByID).content;
+    this.content = this.getCareerByID(
+      this.getSelectedCareerByID
+    ).desc_html_structure;
+    this.contentEN = this.getCareerByID(
+      this.getSelectedCareerByID
+    ).desc_html_structure;
   },
   mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    let arr = document.querySelectorAll(".admin_actions_panel");
-
-    arr.forEach(i => {
-      i.style.paddingLeft = `${navbar_width}px`;
-    });
-
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+    // let arr = document.querySelectorAll(".admin_actions_panel");
+    // arr.forEach(i => {
+    //   i.style.paddingLeft = `${navbar_width}px`;
+    // });
     // this.styleEditorHeight();
   },
   methods: {

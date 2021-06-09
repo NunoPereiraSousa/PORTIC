@@ -63,11 +63,11 @@
 
       <div class="admin_courses__panel__grid grid">
         <DashboardCoursesCard
-          v-for="course in searchFilter"
-          :key="course.id"
-          :id="course.id"
-          :counter="course.id"
-          :courseName="course.courseName"
+          v-for="(course, index) in searchFilter"
+          :key="course.id_course"
+          :id="course.id_course"
+          :counter="index + 1"
+          :courseName="course.designation"
         />
       </div>
     </div>
@@ -95,18 +95,28 @@ export default {
       courses: ""
     };
   },
-  created() {
-    this.courses = this.getCoursesPT;
-  },
-  mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+  async mounted() {
+    this.$store.commit("SET_SELECTED_COURSES_LANG", {
+      lang: "pt"
+    });
 
-    document.querySelector(
-      ".admin_courses__panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setCourses");
+      console.log(this.getCourses);
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
+
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+
+    // document.querySelector(
+    //   ".admin_courses__panel"
+    // ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
-    ...mapGetters(["getSelectedCourseByID", "getCourseByID", "getCoursesPT"]),
+    ...mapGetters(["getSelectedCourseByID", "getCourseByID", "getCourses"]),
     courseName() {
       let id = this.getSelectedCourseByID;
 
@@ -115,17 +125,17 @@ export default {
       let name;
 
       if (course) {
-        name = course.courseName;
+        name = course.designation;
       }
 
       return name;
     },
     searchFilter() {
-      return this.courses.filter(course => {
+      return this.getCourses.filter(course => {
         let search = true;
 
         if (this.courseTxt != "") {
-          search = course.courseName
+          search = course.designation
             .toLowerCase()
             .includes(this.courseTxt.toLowerCase());
         }

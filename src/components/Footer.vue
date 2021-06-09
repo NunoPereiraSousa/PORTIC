@@ -79,6 +79,12 @@
           >
             {{ menu.menu_designation }}
           </router-link>
+          <router-link :to="{ name: 'DashboardHome' }">
+            Dashboard
+          </router-link>
+          <router-link :to="{ name: 'SiteMap' }">
+            SiteMap
+          </router-link>
         </div>
       </div>
       <div class="footer__grid__socials">

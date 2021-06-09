@@ -19,9 +19,9 @@ PORTIC includes units and groups with activities in different stages of the know
       <div class="areas_information__icons grid">
         <IconCard
           v-for="card in getIcons"
-          :key="card.id"
-          :icon="card.icon"
-          :content="card.content"
+          :key="card.id_areas_focus"
+          :icon="convertImage(card.img.data)"
+          :content="card.description"
         />
       </div>
     </section>
@@ -29,7 +29,7 @@ PORTIC includes units and groups with activities in different stages of the know
       <SubHeaderTitle :text="$t('areas.thirdTitle')" />
       <div class="areas__grid grid">
         <AreasCard
-          v-for="(area, index) in $store.getters.getAreas"
+          v-for="(area, index) in areas"
           :key="area.id_area"
           :counter="index + 1"
           :index="index"
@@ -78,24 +78,31 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setAreas");
-      console.log(this.$store.getters.getAreas);
+      await this.$store.dispatch("setAreasGroups");
+      console.log(this.getAreasGroups);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
     }
   },
   computed: {
-    ...mapGetters(["getAreas", "getIconCardsPT", "getIconCardsEN"]),
-    // getAreas() {
-    //   let areas = this.getAreasPT;
-
-    //   return this.$i18n.locale == "pt" ? areasPT : areasEN;
-    // },
+    ...mapGetters(["getAreas", "getAreasGroups"]),
+    areas() {
+      return this.getAreas;
+    },
     getIcons() {
-      let iconsPT = this.getIconCardsPT;
-      let iconsEN = this.getIconCardsEN;
+      return this.getAreasGroups;
+    }
+  },
+  methods: {
+    convertImage(img) {
+      let arrayBufferView = new Uint8Array(img);
+      let blob = new Blob([arrayBufferView], { type: "image/png" });
+      let urlCreator = window.URL || window.webkitURL;
+      let image = urlCreator.createObjectURL(blob);
+      console.log(image);
 
-      return this.$i18n.locale == "pt" ? iconsPT : iconsEN;
+      return image;
     }
   }
 };

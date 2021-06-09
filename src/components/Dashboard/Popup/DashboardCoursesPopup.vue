@@ -15,8 +15,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   name: "DashboardCoursesPopup",
   props: {
@@ -24,9 +22,6 @@ export default {
       type: String,
       required: false
     }
-  },
-  computed: {
-    ...mapGetters(["getSelectedCourseByID", "getCourseByID"])
   },
   methods: {
     closePopup() {

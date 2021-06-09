@@ -103,11 +103,10 @@ export default {
     console.log(this.images);
   },
   mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    document.querySelector(
-      ".admin_projects__panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+    // document.querySelector(
+    //   ".admin_projects__panel"
+    // ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
     ...mapGetters(["getSelectedProjectByID", "getProjectByID", "getProjects"]),

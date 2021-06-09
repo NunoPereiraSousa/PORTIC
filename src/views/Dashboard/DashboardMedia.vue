@@ -25,10 +25,10 @@
       <div class="admin_media__panel__grid grid">
         <DashboardMediaCard
           v-for="media in searchFilter"
-          :key="media.id"
-          :id="media.id"
-          :videoURL="convertToYoutubeURL(media.videoURL)"
-          :title="media.title"
+          :key="media.id_media"
+          :id="media.id_media"
+          :videoURL="convertToYoutubeURL(media.youtube_path)"
+          :title="media.description"
         />
       </div>
     </div>
@@ -59,20 +59,31 @@ export default {
       medias: ""
     };
   },
-  created() {
-    this.medias = this.getMediasPT;
-  },
-  mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+  async mounted() {
+    this.$store.commit("SET_SELECTED_MEDIAS_LANG", {
+      lang: "pt"
+    });
 
-    document.querySelector(
-      ".admin_media__panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setMedias");
+
+      console.log(this.getMedias);
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
+
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+
+    // document.querySelector(
+    //   ".admin_media__panel"
+    // ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
-    ...mapGetters(["getMediasPT", "getSelectedMediaByID", "getMediaByID"]),
+    ...mapGetters(["getMedias", "getSelectedMediaByID", "getMediaByID"]),
     searchFilter() {
-      return this.medias.filter(video => {
+      return this.getMedias.filter(video => {
         let search = true;
 
         if (this.videoTxt != "")
@@ -84,6 +95,7 @@ export default {
       });
     },
     mediaName() {
+      console.log(this.getSelectedMediaByID);
       let id = this.getSelectedMediaByID;
 
       let media = this.getMediaByID(id);
@@ -91,7 +103,7 @@ export default {
       let name;
 
       if (media) {
-        name = media.title;
+        name = media.description;
       }
 
       return name;
@@ -104,7 +116,7 @@ export default {
       let videoUrl;
 
       if (media) {
-        videoUrl = media.videoURL;
+        videoUrl = media.youtube_path;
         console.log(videoUrl);
       }
 

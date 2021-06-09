@@ -63,12 +63,12 @@
 
       <div class="admin_careers__panel__grid grid">
         <DashboardCareersCard
-          v-for="career in searchFilter"
-          :key="career.id"
-          :id="career.id"
-          :counter="career.id"
-          :careerName="career.title"
-          :careerContent="career.content"
+          v-for="(career, index) in searchFilter"
+          :key="career.id_available_position"
+          :id="career.id_available_position"
+          :counter="index + 1"
+          :careerName="career.designation"
+          :careerContent="career.desc_html_structure"
         />
       </div>
     </div>
@@ -96,18 +96,28 @@ export default {
       courses: ""
     };
   },
-  created() {
-    this.careers = this.getPositions;
-  },
-  mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+  async mounted() {
+    this.$store.commit("SET_SELECTED_CAREERS_LANG", {
+      lang: "pt"
+    });
 
-    document.querySelector(
-      ".admin_careers__panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setCareers");
+      await this.$store.dispatch("setCareerTips");
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
+
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+
+    // document.querySelector(
+    //   ".admin_careers__panel"
+    // ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
-    ...mapGetters(["getSelectedCareerByID", "getCareerByID", "getPositions"]),
+    ...mapGetters(["getSelectedCareerByID", "getCareerByID", "getCareers"]),
     careerName() {
       let id = this.getSelectedCareerByID;
 
@@ -116,17 +126,17 @@ export default {
       let name;
 
       if (career) {
-        name = career.title;
+        name = career.designation;
       }
 
       return name;
     },
     searchFilter() {
-      return this.careers.filter(career => {
+      return this.getCareers.filter(career => {
         let search = true;
 
         if (this.careerTxt != "") {
-          search = career.title
+          search = career.designation
             .toLowerCase()
             .includes(this.careerTxt.toLowerCase());
         }

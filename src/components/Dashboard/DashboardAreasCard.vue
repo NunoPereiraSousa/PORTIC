@@ -37,7 +37,7 @@ export default {
       required: true
     },
     id: {
-      type: Number,
+      type: String,
       required: false
     }
   },
@@ -68,6 +68,21 @@ export default {
         id: areaId
       });
     }
+    // formatRouterPath(title) {
+    //   return title.replace(/\s/g, "%20");
+    // },
+    // getUnityId(id, title) {
+    //   this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
+
+    //   let formatedTitle = this.formatRouterPath(title);
+
+    //   if (this.$route.path != `/unities/${formatedTitle}`) {
+    //     this.$router.push({
+    //       name: "UnitiesPage",
+    //       params: { name: title }
+    //     });
+    //   }
+    // }
   }
 };
 </script>

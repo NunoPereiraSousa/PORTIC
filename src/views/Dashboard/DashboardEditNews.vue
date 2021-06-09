@@ -106,11 +106,10 @@ export default {
     this.content = this.getNewsById(this.getSelectedNewsId).content;
   },
   mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    document.querySelector(
-      ".admin_actions_panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+    // document.querySelector(
+    //   ".admin_actions_panel"
+    // ).style.paddingLeft = `${navbar_width}px`;
   },
   methods: {
     goBack() {

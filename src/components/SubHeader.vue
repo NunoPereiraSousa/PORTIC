@@ -122,6 +122,14 @@ export default {
             return error;
           }
           break;
+        case "Courses":
+          try {
+            await this.$store.dispatch("setCourses");
+            await this.$store.dispatch("setCoursesFocus");
+          } catch (error) {
+            return error;
+          }
+          break;
         case "Unities":
           try {
             await this.$store.dispatch("setUnitiesPrincipals");
@@ -157,6 +165,10 @@ export default {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
+      this.$store.commit("SET_SELECTED_COURSES_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
       this.$store.commit("SET_SELECTED_UNITIES_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
@@ -179,6 +191,10 @@ export default {
       this.$store.commit("SET_LOCALE", this.$i18n.locale);
 
       this.$store.commit("SET_SELECTED_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_COURSES_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 

@@ -8,6 +8,7 @@ export const areaModule = {
     // areasEN: areasEN,
     areas: [],
     dataStatus: "",
+    groups: [],
     lang: "pt",
     iconCardsPT: iconCardsPT,
     iconCardsEN: iconCardsEN,
@@ -19,10 +20,15 @@ export const areaModule = {
   mutations: {
     SET_SELECTED_AREA_ID(state, payload) {
       state.selectedId = payload.id;
+
+      console.log(state.selectedId);
     },
     SET_AREAS(state, payload) {
       state.areas = payload.areas;
       state.dataStatus = payload.status;
+    },
+    SET_AREAS_GROUPS(state, payload) {
+      state.groups = payload.groups;
     },
     SET_SELECTED_AREAS_LANG(state, payload) {
       state.dataBody.selectedLang = payload.lang;
@@ -33,6 +39,15 @@ export const areaModule = {
       commit(
         "SET_AREAS",
         await areasConfig.getAreas(
+          state.dataBody.selectedLang,
+          entityModule.state.entityId
+        )
+      );
+    },
+    async setAreasGroups({ commit, state }) {
+      commit(
+        "SET_AREAS_GROUPS",
+        await areasConfig.getAreasGroups(
           state.dataBody.selectedLang,
           entityModule.state.entityId
         )
@@ -50,9 +65,12 @@ export const areaModule = {
           : 0
         : 0;
     },
+    getAreasGroups: state => {
+      return state.groups != "" ? state.groups : [];
+    },
     getIconCardsPT: state => state.iconCardsPT,
     getIconCardsEN: state => state.iconCardsEN,
     getSelectedAreaByID: state => state.selectedId,
-    getAreaByID: state => id => state.areas.find(n => n.id == id)
+    getAreaByID: state => id => state.areas.find(n => n.id_area == id)
   }
 };

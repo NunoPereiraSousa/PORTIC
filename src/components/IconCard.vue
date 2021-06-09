@@ -1,6 +1,6 @@
 <template>
   <div class="areas_information__icons__card flex flex-ai-c flex-fd-c">
-    <img :src="icon" alt="icon" />
+    <div class="areas_information__icons__card__img" :style="imageStyle"></div>
     <h4>
       {{ content }}
     </h4>
@@ -18,6 +18,11 @@ export default {
     content: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    imageStyle() {
+      return `background-image: url('${this.icon}')`;
     }
   }
 };

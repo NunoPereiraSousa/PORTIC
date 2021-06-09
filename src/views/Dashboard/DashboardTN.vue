@@ -152,11 +152,10 @@ export default {
     this.news = this.getNews;
   },
   mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    document.querySelector(
-      ".admin_tn__panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+    // document.querySelector(
+    //   ".admin_tn__panel"
+    // ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
     ...mapGetters([
