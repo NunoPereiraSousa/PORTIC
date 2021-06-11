@@ -3,33 +3,24 @@
     <DashboardHeader />
     <div class="admin_areas__panel">
       <div class="admin_areas__panel__overlay" @click="closePopup"></div>
-      <!-- <div class="admin_areas__panel__overlay_slide" @click="closeSlider"></div>
-      <div
-        class="admin_areas__panel__overlay_add"
-        @click="closeAddSlider"
-      ></div> -->
 
       <DashboardTopHeader />
       <DashboardAreasPopup :areaName="areaName" />
-      <!-- <DashboardAreaSlider :areaName="areaName" /> -->
-      <!-- <AddAreaSlider /> -->
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
-        <div class="flex flex-ai-c">
+        <div class="flex flex-ai-c" v-show="currentTab === 0">
           <input
             v-model="areaTxt"
             type="text"
             placeholder="Pesquisar área..."
           />
-
-          <!-- <div class="admin_areas__panel__tools__btns">
-            <button>Estatísticas</button>
-            <button>Informações</button>
-            <button>Áreas</button>
-          </div> -->
-        </div>
-
-        <div class="flex flex-ai-c">
+          <select v-model="institution">
+            <option value="">Instituition</option>
+            <option value="PORTIC">PORTIC</option>
+            <option value="ESMAD">ESMAD</option>
+            <option value="ISEP">ISEP</option>
+            <option value="FEUP">FEUP</option>
+          </select>
           <p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,17 +49,65 @@
 
             {{ institution == "" ? "PORTIC" : institution }}
           </p>
-          <select v-model="institution">
-            <option value="">Instituition</option>
-            <option value="PORTIC">PORTIC</option>
-            <option value="ESMAD">ESMAD</option>
-            <option value="ISEP">ISEP</option>
-            <option value="FEUP">FEUP</option>
-          </select>
+        </div>
+
+        <button class="edit_confirm_button" v-show="currentTab === 1">
+          Confirmar
+        </button>
+
+        <div class="flex flex-ai-c">
+          <button
+            v-for="(tab, index) in tabs"
+            :key="tab"
+            @click="currentTab = index"
+            :class="{ active: currentTab === index }"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15.848"
+              height="11.924"
+              viewBox="0 0 15.848 11.924"
+            >
+              <g id="tick" transform="translate(0.5 -67.422)">
+                <g
+                  id="Group_44"
+                  data-name="Group 44"
+                  transform="translate(0 67.997)"
+                >
+                  <path
+                    id="Path_51"
+                    data-name="Path 51"
+                    d="M14.556,68.214a.739.739,0,0,0-1.045,0l-8.85,8.85-3.4-3.4A.739.739,0,0,0,.216,74.706L4.14,78.63a.739.739,0,0,0,1.045,0l9.372-9.372A.739.739,0,0,0,14.556,68.214Z"
+                    transform="translate(0 -67.997)"
+                    fill="#28aa2d"
+                    stroke="#28aa2d"
+                    stroke-width="1"
+                  />
+                </g>
+              </g>
+            </svg>
+            {{ tab }}
+          </button>
         </div>
       </div>
 
-      <div class="admin_areas__panel__grid grid">
+      <div class="admin_areas__panel__grid grid" v-show="currentTab === 1">
+        <div class="">
+          <h3 class="dashboard_subheader">
+            Informação geral das áreas
+          </h3>
+          <div class="area_edit_editor">
+            <quill-editor
+              v-model="content"
+              :options="editorOption"
+              ref="quillEditor"
+            >
+            </quill-editor>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin_areas__panel__grid grid" v-show="currentTab === 0">
         <DashboardAreasCard
           v-for="(area, index) in searchFilter"
           :key="area.id_area"
@@ -86,8 +125,6 @@ import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardAreasCard from "@/components/Dashboard/DashboardAreasCard.vue";
 import DashboardAreasPopup from "@/components/Dashboard/Popup/DashboardAreasPopup.vue";
-// import DashboardAreaSlider from "@/components/Dashboard/Slider/DashboardAreaSlider.vue";
-// import AddAreaSlider from "@/components/Dashboard/AddSlider/AddAreaSlider.vue";
 
 import { mapGetters } from "vuex";
 
@@ -97,14 +134,48 @@ export default {
     DashboardTopHeader,
     DashboardAreasCard,
     DashboardAreasPopup
-    // DashboardAreaSlider,
-    // AddAreaSlider
   },
   data: () => {
     return {
       institution: "PORTIC",
       areaTxt: "",
-      areas: ""
+      areas: "",
+      tabs: ["Áreas", "Informações"],
+      currentTab: 0,
+      content: "",
+      editorOption: {
+        modules: {
+          toolbar: [
+            ["bold", "italic", "underline", "strike"],
+            ["blockquote", "code-block"],
+            [{ header: 1 }, { header: 2 }],
+            [{ list: "ordered" }, { list: "bullet" }],
+            [{ script: "sub" }, { script: "super" }],
+            [{ indent: "-1" }, { indent: "+1" }],
+            [{ direction: "rtl" }],
+            [{ size: ["small", false, "large", "huge"] }],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            [{ font: ["Porto Sans Stencil"] }],
+            [
+              {
+                color: ["#080808", "#ffffff", "#c94d24", "#666666", "#999999"]
+              },
+              {
+                background: [
+                  "#080808",
+                  "#ffffff",
+                  "#c94d24",
+                  "#666666",
+                  "#999999"
+                ]
+              }
+            ],
+            [{ align: [] }],
+            ["clean"],
+            ["link", "image", "video"]
+          ]
+        }
+      }
     };
   },
   async mounted() {
@@ -119,12 +190,6 @@ export default {
       console.log(`App: ${error}`);
       return error;
     }
-
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    // document.querySelector(
-    //   ".admin_areas__panel"
-    // ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
     ...mapGetters(["getSelectedAreaByID", "getAreaByID", "getAreas"]),
@@ -166,23 +231,6 @@ export default {
       admin_areas__panel__overlay.classList.toggle("show_overlay");
       admin_delete_popup.classList.toggle("show_popup");
     }
-    // closeSlider() {
-    //   let overlay = document.querySelector(
-    //     ".admin_areas__panel__overlay_slide"
-    //   );
-
-    //   let slider = document.querySelector(".admin_areas__slider");
-
-    //   overlay.classList.toggle("show_overlay_slide");
-    //   slider.classList.toggle("show_slider");
-    // },
-    // closeAddSlider() {
-    //   let slider = document.querySelector(".admin_areas__add_slider");
-    //   let overlay = document.querySelector(".admin_areas__panel__overlay_add");
-
-    //   slider.classList.toggle("open_add_area_slider");
-    //   overlay.classList.toggle("open_add_area_overlay");
-    // }
   }
 };
 </script>

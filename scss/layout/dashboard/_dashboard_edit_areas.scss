@@ -87,6 +87,26 @@
         outline: none;
       }
     }
+
+    & > .grid {
+      grid-template-columns: repeat(2, min-content);
+      column-gap: 4rem;
+    }
+
+    select {
+      padding: 12px 26px;
+      border: 1px solid rgba($color: $black, $alpha: 0.3);
+
+      border-radius: 2px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &.addNews {
+      grid-template-rows: min-content min-content 1fr;
+    }
   }
 
   &__unities__form {

@@ -47,11 +47,11 @@
         <div class="admin_home__panel__card barChart">
           <BarChart
             :data="[
-              $store.getters.getAreas,
+              $store.getters.getAreasLength,
               $store.getters.getCoursesLength,
               $store.getters.getMediasLength,
-              $store.getters.getNProjects,
-              $store.getters.getAreas,
+              $store.getters.getNProjectsLength,
+              $store.getters.getAreasLength,
               $store.getters.getUnitiesLength
             ]"
           />
@@ -88,11 +88,7 @@ export default {
     };
   },
   async mounted() {
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    // document.querySelector(
-    //   ".admin_home__panel"
-    // ).style.paddingLeft = `${navbar_width}px`;
+    this.height();
 
     try {
       await this.$store.dispatch("setWeather");
@@ -123,6 +119,16 @@ export default {
     ...mapGetters(["getWeather"])
   },
   methods: {
+    height() {
+      let wrapper = document.querySelector(".admin_home__panel__grid");
+      let wrapperHeight = wrapper.offsetHeight;
+
+      let nav = document.querySelector(".admin_nav ");
+
+      nav.style.height = `${wrapperHeight}px`;
+
+      console.log(wrapperHeight);
+    },
     getFiveWeekDay() {
       let now = new Date();
 

@@ -1,0 +1,147 @@
+.admin_login {
+  height: 100vh;
+  width: 100%;
+
+  grid-template-columns: 50vw 50vw;
+
+  &__intro {
+    position: relative;
+    background-color: rgba($color: $orange, $alpha: 0.72);
+
+    h3 {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 10%;
+      text-align: center;
+      color: $white;
+      font-weight: 400;
+      font-size: 1.5rem;
+    }
+
+    svg {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__form {
+    margin: auto;
+    padding: 4rem 6rem;
+
+    h1 {
+      color: $orange;
+      margin-top: 0;
+      margin-bottom: 4rem;
+    }
+
+    form {
+      width: 100%;
+      row-gap: 2rem;
+      // padding: 2rem 3rem;
+      border-radius: 10px;
+
+      // box-shadow: 10px 10px 40px rgba($color: $black, $alpha: 0.05),
+      //   -10px -10px 40px rgba($color: $black, $alpha: 0.05);
+
+      label {
+        font-size: $_18px;
+      }
+
+      input {
+        width: 100%;
+        margin-top: 0.5rem;
+
+        padding: 12px 26px;
+        border-radius: 2px;
+
+        font-family: $portoSans;
+        font-size: $_15px;
+        border: 1.5px solid rgba($color: $black, $alpha: 0.3);
+
+        &:focus,
+        &:active {
+          outline: none;
+          border: 1.5px solid rgba($color: $orange, $alpha: 1);
+        }
+      }
+
+      #loginBtn {
+        background-color: $orange;
+        color: $white;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 4px;
+        box-shadow: 7px 7px 10px rgba($color: $black, $alpha: 0.05),
+          -7px -7px 10px rgba($color: $black, $alpha: 0.05);
+
+        cursor: pointer;
+      }
+    }
+
+    a {
+      color: $orange;
+    }
+  }
+}
+
+svg {
+  width: 50%;
+
+  .st0 {
+    opacity: 0.51;
+    fill: #cce9ff;
+  }
+  .st1 {
+    fill: #f7f7f7;
+  }
+  .st2 {
+    fill: #084970;
+  }
+  .st3 {
+    fill: #d3d3d3;
+  }
+  .st4 {
+    fill: #cce9ff;
+  }
+  .st5 {
+    fill: #2a94f4;
+  }
+  .st6 {
+    fill: #ffbe55;
+  }
+  .st7 {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 1.0626;
+    stroke-miterlimit: 10;
+  }
+  .st8 {
+    fill: #0e538c;
+  }
+  .st9 {
+    fill: none;
+    stroke: #ffffff;
+    stroke-miterlimit: 10;
+  }
+  .st10 {
+    fill: #2890dd;
+  }
+  .st11 {
+    fill: #fee3ca;
+  }
+  .st12 {
+    fill: #eacdb5;
+  }
+  .st13 {
+    fill: #474747;
+  }
+  .st14 {
+    fill: #073951;
+  }
+  .st15 {
+    fill: #db9e46;
+  }
+}

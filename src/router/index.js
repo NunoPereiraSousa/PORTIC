@@ -27,6 +27,10 @@ import DashboardProjects from "../views/Dashboard/DashboardProjects.vue";
 import DashboardUnities from "../views/Dashboard/DashboardUnities.vue";
 import DashboardUsers from "../views/Dashboard/DashboardUsers.vue";
 import DashboardTN from "../views/Dashboard/DashboardTN.vue";
+import DashboardProjectFiles from "../views/Dashboard/DashboardProjectFiles.vue";
+import DashboardAddNews from "../views/Dashboard/DashboardAddNews.vue";
+import SignIn from "../views/Dashboard/SignIn.vue";
+import Register from "../views/Dashboard/Register.vue";
 import Home from "../views/Home.vue";
 import Media from "../views/Media.vue";
 import NewsPage from "../views/NewsPage.vue";
@@ -108,6 +112,16 @@ const routes = [
     path: "/unities/:name",
     name: "UnitiesPage",
     component: UnitiesPage
+  },
+  {
+    path: "/login",
+    name: "SignIn",
+    component: SignIn
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register
   },
   {
     path: "/dashboard",
@@ -233,6 +247,16 @@ const routes = [
     path: "/dashboard-page",
     name: "DashboardAddPage",
     component: DashboardAddPage
+  },
+  {
+    path: "/dashboard-project-files",
+    name: "DashboardProjectFiles",
+    component: DashboardProjectFiles
+  },
+  {
+    path: "/dashboard-add-news",
+    name: "DashboardAddNews",
+    component: DashboardAddNews
   }
 ];
 

@@ -8,7 +8,7 @@
       <DashboardUnitiesPopup :unityName="unityName" />
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
-        <div class="flex flex-ai-c">
+        <div class="flex flex-ai-c" v-show="currentTab === 0">
           <input
             v-model="unityTxt"
             type="text"
@@ -16,8 +16,17 @@
           />
         </div>
 
+        <button class="edit_confirm_button" v-show="currentTab === 1">
+          Confirmar
+        </button>
+
         <div class="flex flex-ai-c">
-          <p>
+          <button
+            v-for="(tab, index) in tabs"
+            :key="tab"
+            @click="currentTab = index"
+            :class="{ active: currentTab === index }"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="15.848"
@@ -42,20 +51,28 @@
                 </g>
               </g>
             </svg>
-
-            {{ institution == "" ? "PORTIC" : institution }}
-          </p>
-          <select v-model="institution">
-            <option value="">Instituition</option>
-            <option value="PORTIC" selected>PORTIC</option>
-            <option value="ESMAD">ESMAD</option>
-            <option value="ISEP">ISEP</option>
-            <option value="FEUP">FEUP</option>
-          </select>
+            {{ tab }}
+          </button>
         </div>
       </div>
 
-      <div class="admin_courses__panel__grid grid">
+      <div class="admin_areas__panel__grid grid" v-show="currentTab === 1">
+        <div class="">
+          <h3 class="dashboard_subheader">
+            Informação geral das unidades
+          </h3>
+          <div class="area_edit_editor">
+            <quill-editor
+              v-model="content"
+              :options="editorOption"
+              ref="quillEditor"
+            >
+            </quill-editor>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin_courses__panel__grid grid" v-show="currentTab === 0">
         <DashboardUnitiesCard
           v-for="(unity, index) in searchFilter"
           :key="unity.id_unity"
@@ -87,7 +104,43 @@ export default {
     return {
       institution: "PORTIC",
       unityTxt: "",
-      unities: ""
+      unities: "",
+      tabs: ["Unidades", "Informações"],
+      currentTab: 0,
+      content: "",
+      editorOption: {
+        modules: {
+          toolbar: [
+            ["bold", "italic", "underline", "strike"],
+            ["blockquote", "code-block"],
+            [{ header: 1 }, { header: 2 }],
+            [{ list: "ordered" }, { list: "bullet" }],
+            [{ script: "sub" }, { script: "super" }],
+            [{ indent: "-1" }, { indent: "+1" }],
+            [{ direction: "rtl" }],
+            [{ size: ["small", false, "large", "huge"] }],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            [{ font: ["Porto Sans Stencil"] }],
+            [
+              {
+                color: ["#080808", "#ffffff", "#c94d24", "#666666", "#999999"]
+              },
+              {
+                background: [
+                  "#080808",
+                  "#ffffff",
+                  "#c94d24",
+                  "#666666",
+                  "#999999"
+                ]
+              }
+            ],
+            [{ align: [] }],
+            ["clean"],
+            ["link", "image", "video"]
+          ]
+        }
+      }
     };
   },
   async mounted() {

@@ -18,7 +18,7 @@
         </div>
         <div>
           <h3>
-            Adicionar carreira
+            Adicionar notícia
           </h3>
         </div>
         <div>
@@ -31,28 +31,26 @@
         </div>
       </div>
 
-      <div class="admin_actions_panel__form">
+      <div class="admin_actions_panel__form addNews">
         <div class="grid">
           <div>
             <h3 class="dashboard_subheader">
-              Nome da carreira
+              Nome da notícia
             </h3>
-            <input type="text" placeholder="Nome da carreira" />
+            <input type="text" placeholder="Nome da área" />
           </div>
           <div>
             <h3 class="dashboard_subheader">
-              Categorias
+              Imagem da notícia
             </h3>
-            <select>
-              <option value="">Business</option>
-              <option value="">Tech</option>
-              <option value="">Health</option>
-              <option value="">Arts</option>
-            </select>
+            <label class="custom-file-upload">
+              <input type="file" />
+              Image
+            </label>
           </div>
         </div>
         <h3 class="dashboard_subheader">
-          Conteúdo da carreira
+          Conteúdo da notícia
         </h3>
         <div class="area_edit_editor">
           <quill-editor
@@ -81,7 +79,7 @@
         </div>
         <div>
           <h3>
-            Add career
+            Add area
           </h3>
         </div>
         <div>
@@ -95,27 +93,12 @@
       </div>
 
       <div class="admin_actions_panel__form">
-        <div class="grid">
-          <div>
-            <h3 class="dashboard_subheader">
-              Career name
-            </h3>
-            <input type="text" placeholder="Career name" />
-          </div>
-          <div>
-            <h3 class="dashboard_subheader">
-              Categories
-            </h3>
-            <select>
-              <option value="">Business</option>
-              <option value="">Tech</option>
-              <option value="">Health</option>
-              <option value="">Arts</option>
-            </select>
-          </div>
-        </div>
         <h3 class="dashboard_subheader">
-          Career information
+          Area name
+        </h3>
+        <input type="text" placeholder="Nome da área" />
+        <h3 class="dashboard_subheader">
+          Area information
         </h3>
         <div class="area_edit_editor">
           <quill-editor
@@ -179,14 +162,6 @@ export default {
     };
   },
   mounted() {
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    // let arr = document.querySelectorAll(".admin_actions_panel");
-
-    // arr.forEach(i => {
-    //   i.style.paddingLeft = `${navbar_width}px`;
-    // });
-
     this.styleEditorHeight();
   },
   methods: {
@@ -209,7 +184,7 @@ export default {
     },
     goBack() {
       this.$router.push({
-        name: "DashboardCareers"
+        name: "DashboardAreas"
       });
     },
     save() {

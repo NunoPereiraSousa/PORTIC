@@ -8492,7 +8492,7 @@ button:focus {
 }
 
 .admin_nav {
-  height: 100vh;
+  height: 100%;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -8506,6 +8506,11 @@ button:focus {
 .admin_nav__link {
   color: #ffffff;
   white-space: nowrap;
+  margin-top: 3rem;
+}
+
+.admin_nav__link:first-child {
+  margin-top: 0;
 }
 
 @media (min-width: 120em) {
@@ -8526,6 +8531,29 @@ button:focus {
     height: 1.5rem;
     width: 1.5rem;
   }
+}
+
+.admin_nav__logout hr {
+  margin: 2rem auto;
+  border: none;
+  height: 2px;
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.admin_nav__logout button {
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid #c94d24;
+  border-radius: 10px;
+  padding: 0.84375rem 1.625rem;
+  margin-right: 3.125rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-family: "Porto Sans";
+  letter-spacing: 0.2px;
+  color: #ffffff;
 }
 
 .admin_nav .router-link-exact-active {
@@ -8732,7 +8760,7 @@ button:focus {
 
 .dashboard_tools p {
   color: #c94d24;
-  margin-right: 2.5rem;
+  margin-left: 2.5rem;
   font-size: 1.125rem;
 }
 
@@ -8740,7 +8768,7 @@ button:focus {
   margin-right: 0.6rem;
 }
 
-.dashboard_tools button {
+.dashboard_tools button:not(.edit_confirm_button) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8757,19 +8785,19 @@ button:focus {
   letter-spacing: 0.2px;
 }
 
-.dashboard_tools button svg {
+.dashboard_tools button:not(.edit_confirm_button) svg {
   display: none;
   margin-right: 0.6rem;
 }
 
-.dashboard_tools button.active svg {
+.dashboard_tools button:not(.edit_confirm_button).active svg {
   display: block;
 }
 
 .dashboard_tools select {
-  padding: 6px 16px;
-  border-radius: 4px;
-  border: 1px solid #c94d24;
+  padding: 12px 26px;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+  border-radius: 2px;
 }
 
 .dashboard_tools select:focus {
@@ -9570,6 +9598,30 @@ button:focus {
   outline: none;
 }
 
+.admin_actions_panel__form > .grid {
+  -ms-grid-columns: (min-content)[2];
+      grid-template-columns: repeat(2, -webkit-min-content);
+      grid-template-columns: repeat(2, min-content);
+  -webkit-column-gap: 4rem;
+          column-gap: 4rem;
+}
+
+.admin_actions_panel__form select {
+  padding: 12px 26px;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+  border-radius: 2px;
+}
+
+.admin_actions_panel__form select:focus {
+  outline: none;
+}
+
+.admin_actions_panel__form.addNews {
+  -ms-grid-rows: min-content min-content 1fr;
+      grid-template-rows: -webkit-min-content -webkit-min-content 1fr;
+      grid-template-rows: min-content min-content 1fr;
+}
+
 .admin_actions_panel__unities__form {
   display: -ms-grid;
   display: grid;
@@ -9928,6 +9980,7 @@ input[type="file"] {
   width: fit-content;
   padding: 0 0 1rem;
   margin: 1.5rem 0 2rem;
+  white-space: nowrap;
   font-size: 1.125rem;
   font-family: "Porto Sans";
   color: #080808;
@@ -10718,5 +10771,232 @@ input[type="file"] {
     font-size: 1.125rem;
     line-height: 1.7;
   }
+}
+
+.admin_login {
+  height: 100vh;
+  width: 100%;
+  -ms-grid-columns: 50vw 50vw;
+      grid-template-columns: 50vw 50vw;
+}
+
+.admin_login__intro {
+  position: relative;
+  background-color: rgba(201, 77, 36, 0.72);
+}
+
+.admin_login__intro h3 {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 10%;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.admin_login__intro svg {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.admin_login__form {
+  margin: auto;
+  padding: 4rem 6rem;
+}
+
+.admin_login__form h1 {
+  color: #c94d24;
+  margin-top: 0;
+  margin-bottom: 4rem;
+}
+
+.admin_login__form form {
+  width: 100%;
+  row-gap: 2rem;
+  border-radius: 10px;
+}
+
+.admin_login__form form label {
+  font-size: 1.125rem;
+}
+
+.admin_login__form form input {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 12px 26px;
+  border-radius: 2px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1.5px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_login__form form input:focus, .admin_login__form form input:active {
+  outline: none;
+  border: 1.5px solid #c94d24;
+}
+
+.admin_login__form form #loginBtn {
+  background-color: #c94d24;
+  color: #ffffff;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  -webkit-box-shadow: 7px 7px 10px rgba(8, 8, 8, 0.05), -7px -7px 10px rgba(8, 8, 8, 0.05);
+          box-shadow: 7px 7px 10px rgba(8, 8, 8, 0.05), -7px -7px 10px rgba(8, 8, 8, 0.05);
+  cursor: pointer;
+}
+
+.admin_login__form a {
+  color: #c94d24;
+}
+
+svg {
+  width: 50%;
+}
+
+svg .st0 {
+  opacity: 0.51;
+  fill: #cce9ff;
+}
+
+svg .st1 {
+  fill: #f7f7f7;
+}
+
+svg .st2 {
+  fill: #084970;
+}
+
+svg .st3 {
+  fill: #d3d3d3;
+}
+
+svg .st4 {
+  fill: #cce9ff;
+}
+
+svg .st5 {
+  fill: #2a94f4;
+}
+
+svg .st6 {
+  fill: #ffbe55;
+}
+
+svg .st7 {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.0626;
+  stroke-miterlimit: 10;
+}
+
+svg .st8 {
+  fill: #0e538c;
+}
+
+svg .st9 {
+  fill: none;
+  stroke: #ffffff;
+  stroke-miterlimit: 10;
+}
+
+svg .st10 {
+  fill: #2890dd;
+}
+
+svg .st11 {
+  fill: #fee3ca;
+}
+
+svg .st12 {
+  fill: #eacdb5;
+}
+
+svg .st13 {
+  fill: #474747;
+}
+
+svg .st14 {
+  fill: #073951;
+}
+
+svg .st15 {
+  fill: #db9e46;
+}
+
+.st0 {
+  fill: none;
+  stroke: #d3d3d3;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 12.2456, 12.2456;
+}
+
+.st1 {
+  fill: #f7f7f76b !important;
+}
+
+.st2 {
+  fill: #f2f2f2;
+}
+
+.st3 {
+  fill: #2a94f4;
+}
+
+.st4 {
+  fill: #cce9ff;
+}
+
+.st5 {
+  fill: #ffffff;
+}
+
+.st6 {
+  fill: none;
+  stroke: #cce9ff;
+  stroke-miterlimit: 10;
+}
+
+.st7 {
+  -webkit-clip-path: url(#SVGID_2_);
+          clip-path: url(#SVGID_2_);
+}
+
+.st8 {
+  fill: #0b4870;
+}
+
+.st9 {
+  fill: #fcd2b1;
+}
+
+.st10 {
+  fill: #ffe3ca !important;
+}
+
+.st11 {
+  fill: #ffbe55;
+}
+
+.st12 {
+  fill: #0d4972;
+}
+
+.st13 {
+  fill: #0e538c;
+}
+
+.st14 {
+  fill: #1a87d8;
+}
+
+.st15 {
+  fill: #b0e1ff;
 }
 /*# sourceMappingURL=style.css.map */

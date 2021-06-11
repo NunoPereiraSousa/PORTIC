@@ -15,6 +15,8 @@
       <div
         v-if="
           this.$route.name !== 'Home' &&
+            this.$route.name !== 'SignIn' &&
+            this.$route.name !== 'Register' &&
             this.$route.name !== 'DashboardHome' &&
             this.$route.name !== 'DashboardAreas' &&
             this.$route.name !== 'DashboardAddAreas' &&
@@ -38,7 +40,9 @@
             this.$route.name !== 'DashboardAboutUs' &&
             this.$route.name !== 'DashboardTN' &&
             this.$route.name !== 'DashboardEditNews' &&
-            this.$route.name !== 'DashboardAddPage'
+            this.$route.name !== 'DashboardAddPage' &&
+            this.$route.name !== 'DashboardProjectFiles' &&
+            this.$route.name !== 'DashboardAddNews'
         "
       >
         <SubHeader />

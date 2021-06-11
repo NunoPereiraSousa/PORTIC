@@ -21,7 +21,7 @@
 
   p {
     color: $orange;
-    margin-right: 2.5rem;
+    margin-left: 2.5rem;
 
     font-size: $_18px;
 
@@ -30,7 +30,7 @@
     }
   }
 
-  button {
+  button:not(.edit_confirm_button) {
     display: flex;
     align-items: center;
 
@@ -57,10 +57,10 @@
   }
 
   select {
-    padding: 6px 16px;
+    padding: 12px 26px;
+    border: 1px solid rgba($color: $black, $alpha: 0.3);
 
-    border-radius: 4px;
-    border: 1px solid $orange;
+    border-radius: 2px;
 
     &:focus {
       outline: none;
