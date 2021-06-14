@@ -13,6 +13,7 @@
           xmlns="http://www.w3.org/2000/svg"
           width="17.848"
           height="21.967"
+          style="width: 20px"
           viewBox="0 0 17.848 21.967"
         >
           <g id="trash" transform="translate(-48)">
@@ -54,6 +55,7 @@
           xmlns="http://www.w3.org/2000/svg"
           width="20.103"
           height="20.103"
+          style="width: 20px"
           viewBox="0 0 20.103 20.103"
         >
           <g id="Group_32" data-name="Group 32">
@@ -98,6 +100,7 @@
             xmlns="http://www.w3.org/2000/svg"
             width="19.095"
             height="19.099"
+            style="width: 20px"
             viewBox="0 0 19.095 19.099"
           >
             <g id="Group_30" data-name="Group 30" transform="translate(0 0)">
@@ -142,6 +145,7 @@
             xmlns="http://www.w3.org/2000/svg"
             width="25.233"
             height="20.103"
+            style="width: 20px"
             viewBox="0 0 25.233 20.103"
           >
             <path
@@ -164,6 +168,7 @@
             xmlns="http://www.w3.org/2000/svg"
             width="22.729"
             height="20.103"
+            style="width: 20px"
             viewBox="0 0 22.729 20.103"
           >
             <path
@@ -187,6 +192,7 @@
             xmlns="http://www.w3.org/2000/svg"
             width="19.297"
             height="20.477"
+            style="width: 20px"
             viewBox="0 0 19.297 20.477"
           >
             <path
@@ -238,6 +244,7 @@
             xmlns="http://www.w3.org/2000/svg"
             width="20.835"
             height="20.853"
+            style="width: 20px"
             viewBox="0 0 20.835 20.853"
           >
             <g id="selection" transform="translate(0.353 0.375)">
@@ -400,6 +407,7 @@
             xmlns="http://www.w3.org/2000/svg"
             width="25.43"
             height="20.353"
+            style="width: 20px"
             viewBox="0 0 25.43 20.353"
           >
             <g id="image-gallery" transform="translate(0.125 0.125)">
@@ -485,6 +493,7 @@
         >
           <svg
             viewBox="-78 -18 560 560.00187"
+            style="width: 20px"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -510,8 +519,7 @@
           <svg
             id="review"
             xmlns="http://www.w3.org/2000/svg"
-            width="21.753"
-            height="20.103"
+            style="width: 20px"
             viewBox="0 0 21.753 20.103"
           >
             <path

@@ -111,40 +111,50 @@ export default {
       }
     },
     handleScroll() {
-      let navbar = document.querySelector(".navbar");
-      let phone_navbar = document.querySelector(".phone_navbar");
+      if (
+        document.querySelector(".navbar") != null &&
+        document.querySelector(".phone_navbar") != null
+      ) {
+        let navbar = document.querySelector(".navbar");
+        let phone_navbar = document.querySelector(".phone_navbar");
 
-      ScrollTrigger.create({
-        trigger: ".landing",
-        endTrigger: ".footer",
-        start: "bottom top-=-400",
-        end: "bottom top-=-400",
-        toggleClass: {
-          targets: navbar,
-          className: "scroll"
-        }
-      });
+        ScrollTrigger.create({
+          trigger: ".landing",
+          endTrigger: ".footer",
+          start: "bottom top-=-400",
+          end: "bottom top-=-400",
+          toggleClass: {
+            targets: navbar,
+            className: "scroll"
+          }
+        });
 
-      ScrollTrigger.create({
-        trigger: ".landing",
-        endTrigger: ".footer",
-        start: "bottom top-=-80",
-        end: "bottom top-=-80",
-        toggleClass: {
-          targets: phone_navbar,
-          className: "scroll"
-        }
-      });
+        ScrollTrigger.create({
+          trigger: ".landing",
+          endTrigger: ".footer",
+          start: "bottom top-=-80",
+          end: "bottom top-=-80",
+          toggleClass: {
+            targets: phone_navbar,
+            className: "scroll"
+          }
+        });
+      }
     },
     getLang() {
       this.$i18n.locale = this.currLang;
 
-      let enBtn = document.querySelector(".en");
-      let ptBtn = document.querySelector(".pt");
+      if (
+        document.querySelector(".en") != null &&
+        document.querySelector(".pt")
+      ) {
+        let enBtn = document.querySelector(".en");
+        let ptBtn = document.querySelector(".pt");
 
-      this.$i18n.locale == "en"
-        ? enBtn.classList.add("selected")
-        : ptBtn.classList.add("selected");
+        this.$i18n.locale == "en"
+          ? enBtn.classList.add("selected")
+          : ptBtn.classList.add("selected");
+      }
 
       this.$store.commit("SET_LOCALE", this.$i18n.locale);
 

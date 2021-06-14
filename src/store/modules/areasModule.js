@@ -57,11 +57,7 @@ export const areaModule = {
       return state.areas != "" ? state.areas : [];
     },
     getNAreas: state => {
-      return state.areas != ""
-        ? state.areas.length != undefined
-          ? state.areas.length
-          : 0
-        : 0;
+      return state.areas.length;
     },
     getAreasGroups: state => {
       return state.groups != "" ? state.groups : [];

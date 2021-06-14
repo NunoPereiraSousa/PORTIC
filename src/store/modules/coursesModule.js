@@ -37,11 +37,7 @@ export const coursesModule = {
       return state.courses != "" ? state.courses : [];
     },
     getCoursesLength: state => {
-      return state.courses != ""
-        ? state.courses.length != undefined
-          ? state.courses.length
-          : 0
-        : 0;
+      return state.courses.length;
     },
     getSelectedCourseByID: state => state.selectedId,
     getCourseByID: state => id => state.courses.find(n => n.id_course == id)

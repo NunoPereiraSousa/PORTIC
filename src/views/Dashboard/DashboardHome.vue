@@ -1,7 +1,7 @@
 <template>
   <div class="admin_home flex">
     <DashboardHeader />
-    <div class="flex flex-ai-c admin_home__panel">
+    <div class="flex admin_home__panel">
       <div class="admin_home__panel__grid grid">
         <div class="admin_home__panel__card intro">
           <div class="flex flex-ai-c flex-jc-sb">
@@ -47,8 +47,8 @@
         <div class="admin_home__panel__card barChart">
           <BarChart
             :data="[
-              $store.getters.getAreasLength,
-              $store.getters.getCoursesLength,
+              areasLength,
+              coursesLength,
               $store.getters.getMediasLength,
               $store.getters.getNProjectsLength,
               $store.getters.getAreasLength,
@@ -88,7 +88,7 @@ export default {
     };
   },
   async mounted() {
-    this.height();
+    // this.height();
 
     try {
       await this.$store.dispatch("setWeather");
@@ -116,7 +116,13 @@ export default {
     this.temperature = Math.round(this.getWeather.current.temp);
   },
   computed: {
-    ...mapGetters(["getWeather"])
+    ...mapGetters(["getWeather", "getCourses", "getNAreas"]),
+    areasLength() {
+      return this.getNAreas.length;
+    },
+    coursesLength() {
+      return this.getCourses.length;
+    }
   },
   methods: {
     height() {
