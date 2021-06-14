@@ -70,16 +70,7 @@
   "medias": {
     "video": "Video",
     "mediasKey": "Medias",
-    "nMedias": "Number of medias",
-    "nMediasDesc": "PORTIC has a total of {n} medias.",
-    "mediasTitle2": "Know PORTIC's history",
-    "mediasTitle2Desc": "We have a video where you can know more about the PORTIC large infrastructure.",
-    "mediasTitle3": "Remember important ecents",
-    "mediasTitle3Desc": "We were part of important events that involve many companies.",
-    "mediasTitle4": "Follow our footsteps by our digital channels",
-    "mediasTitle4Desc": "Follow step by step out history and footprint.",
-    "infoDesc": "Down on the page we provide access to all the videos where you can follow our footprint and the PORTIC large infrastructure, as well as, important events.",
-    "title": "Watch our videos"
+    "title": "Explore our videos"
   },
   "projects": {
     "title": "Projects",

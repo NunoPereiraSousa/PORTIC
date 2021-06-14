@@ -5481,106 +5481,19 @@ button:focus {
   font-size: 1rem;
 }
 
-.positions__find_program {
-  padding: 0 2rem calc(6.1875rem + 2vw);
-}
-
-.positions__find_program__title {
-  padding: calc(6.1875rem + 2vw) 2rem calc(4.1875rem + 2vw);
-  text-align: center;
-  font-weight: 400;
-  text-shadow: 3px 3px 4px rgba(8, 8, 8, 0.1);
-}
-
-@media (min-width: 120em) {
-  .positions__find_program__title {
-    font-size: 2.5rem;
-  }
-}
-
-.positions__find_program__info {
-  line-height: 1.5;
-}
-
-@media (min-width: 64em) {
-  .positions__find_program__info {
-    font-size: 1.125rem;
-    line-height: 1.7;
-  }
-}
-
-@media (min-width: 120em) {
-  .positions__find_program__info {
-    font-size: 1.375rem;
-  }
-}
-
-@media (min-width: 48em) {
-  .positions__find_program {
-    padding: 0 8vw calc(6.1875rem + 2vw);
-  }
-}
-
-@media (min-width: 64em) {
-  .positions__find_program {
-    padding: 0 11vw calc(6.1875rem + 2vw);
-  }
-}
-
-.positions__come_prepared {
-  background-color: #080808;
-  padding: calc(6.1875rem + 2vw) 2rem;
-}
-
-.positions__come_prepared__grid {
-  row-gap: 3rem;
-}
-
-@media (min-width: 48em) {
-  .positions__come_prepared__grid {
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-    -webkit-column-gap: 4rem;
-            column-gap: 4rem;
-    row-gap: 4rem;
-  }
-}
-
-@media (min-width: 64em) {
-  .positions__come_prepared__grid {
-    -ms-grid-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-    -webkit-column-gap: 4rem;
-            column-gap: 4rem;
-    row-gap: 4rem;
-  }
-}
-
-@media (min-width: 48em) {
-  .positions__come_prepared {
-    padding: calc(6.1875rem + 2vw) 8vw;
-  }
-}
-
-@media (min-width: 64em) {
-  .positions__come_prepared {
-    padding: calc(6.1875rem + 2vw) 11vw;
-  }
-}
-
 .positions__available {
-  padding: calc(6.1875rem + 2vw) 2rem 0;
-}
-
-@media (min-width: 48em) {
-  .positions__available {
-    padding: calc(6.1875rem + 2vw) 8vw 0;
-  }
+  padding: calc(12.1875rem + 2vw) 2rem 0;
 }
 
 @media (min-width: 64em) {
   .positions__available {
-    padding: calc(6.1875rem + 2vw) 11vw 0;
+    padding: calc(12.1875rem + 2vw) 11vw 0;
+  }
+}
+
+@media (min-width: 120em) {
+  .positions__available {
+    padding: calc(14.1875rem + 2vw) 11vw 0;
   }
 }
 

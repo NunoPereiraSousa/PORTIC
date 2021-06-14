@@ -1,79 +1,13 @@
 .positions {
-  &__find_program {
-    padding: 0 2rem calc(6.1875rem + 2vw);
-
-    &__title {
-      padding: calc(6.1875rem + 2vw) 2rem calc(4.1875rem + 2vw);
-
-      text-align: center;
-      font-weight: 400;
-      text-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.1);
-
-      @include breakpoint-up(large) {
-        font-size: $_40px;
-      }
-    }
-
-    &__info {
-      line-height: 1.5;
-
-      @include breakpoint-up(iPadPro) {
-        font-size: $_18px;
-        line-height: 1.7;
-      }
-
-      @include breakpoint-up(large) {
-        font-size: $_22px;
-      }
-    }
-
-    @include breakpoint-up(tablet) {
-      padding: 0 8vw calc(6.1875rem + 2vw);
-    }
-
-    @include breakpoint-up(iPadPro) {
-      padding: 0 11vw calc(6.1875rem + 2vw);
-    }
-  }
-
-  &__come_prepared {
-    background-color: $black;
-    padding: calc(6.1875rem + 2vw) 2rem;
-
-    &__grid {
-      row-gap: 3rem;
-
-      @include breakpoint-up(tablet) {
-        grid-template-columns: 1fr 1fr;
-        column-gap: 4rem;
-        row-gap: 4rem;
-      }
-
-      @include breakpoint-up(iPadPro) {
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 4rem;
-        row-gap: 4rem;
-      }
-    }
-
-    @include breakpoint-up(tablet) {
-      padding: calc(6.1875rem + 2vw) 8vw;
-    }
-
-    @include breakpoint-up(iPadPro) {
-      padding: calc(6.1875rem + 2vw) 11vw;
-    }
-  }
-
   &__available {
-    padding: calc(6.1875rem + 2vw) 2rem 0;
-
-    @include breakpoint-up(tablet) {
-      padding: calc(6.1875rem + 2vw) 8vw 0;
-    }
+    padding: calc(12.1875rem + 2vw) 2rem 0;
 
     @include breakpoint-up(iPadPro) {
-      padding: calc(6.1875rem + 2vw) 11vw 0;
+      padding: calc(12.1875rem + 2vw) 11vw 0;
+    }
+
+    @include breakpoint-up(large) {
+      padding: calc(14.1875rem + 2vw) 11vw 0;
     }
 
     &__grid {
