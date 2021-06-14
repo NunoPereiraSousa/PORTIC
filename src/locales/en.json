@@ -90,6 +90,9 @@
       "status": "Project status"
     }
   },
+  "project": {
+    "contact": "For more information, please contacts us by e-mail or phone number."
+  },
   "unities": {
     "unitiesKey": "Unities",
     "title": "Explore our unities",

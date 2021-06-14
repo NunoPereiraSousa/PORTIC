@@ -55,6 +55,10 @@
       border-top: 1px solid $white;
       padding-top: $_26px;
 
+      .project__news & {
+        border-top: 2px solid $black;
+      }
+
       @include breakpoint-up(tablet) {
         column-gap: 1.5rem;
       }
@@ -85,7 +89,7 @@
 
         @include breakpoint-up(large) {
           height: 23.625rem;
-          width: 94%;
+          width: 100%;
         }
       }
 
@@ -98,6 +102,11 @@
         line-height: 1.5;
         letter-spacing: 0.4px;
         font-weight: 400;
+
+        .project__news & {
+          color: $black;
+          font-family: $portoSans;
+        }
 
         @include breakpoint-up(tablet) {
           margin: 1rem 0 2rem;
@@ -137,6 +146,10 @@
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
+
+        .project__news & {
+          color: $black;
+        }
 
         @include breakpoint-up(tablet) {
           margin: 0;

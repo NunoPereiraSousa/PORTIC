@@ -90,6 +90,9 @@
       "status": "Estado do projeto"
     }
   },
+  "project": {
+    "contact": "Para mais Informação, por favor contacte-nos via e-mail ou contacto telefónico."
+  },
   "unities": {
     "unitiesKey": "Unidades",
     "title": "Explore as nossas unidades",

@@ -138,6 +138,14 @@
       }
 
       &__contacts {
+        @include breakpoint-up(iPadPro) {
+          margin-left: 3rem;
+        }
+
+        @include breakpoint-up(desktop) {
+          margin-left: 5rem;
+        }
+
         h3 {
           color: $lightGrey;
           font-weight: lighter;
@@ -148,6 +156,8 @@
             text-align: left;
             font-size: $_22px;
             line-height: 1.7;
+
+            width: 80%;
           }
 
           @include breakpoint-up(large) {
@@ -353,6 +363,7 @@
   }
 
   &__gallery {
+    background-color: $black;
     padding-top: calc(6.1875rem + 2vw);
 
     &__grid {
@@ -396,20 +407,26 @@
     }
   }
 
-  &__gallery,
   &__news {
-    background-color: $black;
-  }
-
-  &__news {
+    background-color: $white;
     padding-top: calc(3.1875rem + 2vw);
+    padding-bottom: 0;
 
     .news__cards__card {
       margin-top: 0;
     }
 
     &__grid {
-      row-gap: 3.75rem;
+      row-gap: $_60px;
+
+      @include breakpoint-up(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2.5rem;
+      }
+
+      @include breakpoint-up(iPadPro) {
+        column-gap: 4rem;
+      }
 
       h2,
       p {

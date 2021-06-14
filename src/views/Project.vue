@@ -17,15 +17,14 @@
                 DEVELOPMENT
               </div>
               <div>
-                DEMONSTRATION
+                INNOVATION
               </div>
             </h4>
           </div>
 
           <div class="project__entry__grid__contacts">
             <h3>
-              <div>Para requerimentos ou mais informação, por favor,</div>
-              <div>contacte-nos via e-mail ou contacto telefónico.</div>
+              {{ $t("project.contact") }}
             </h3>
 
             <h2>
@@ -94,7 +93,7 @@
             :key="i"
             image="https://upload.wikimedia.org/wikipedia/commons/f/f0/Fredrick_Douglass_Housing_Project_Towers_2010.jpg"
             title="Lorem ipsum dolor amet elit, sed consectetur  eiusmod."
-            desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
             date="05 de março"
           />
           <SlidePanel
@@ -117,21 +116,6 @@
           />
         </div>
       </section> -->
-      <section class="project__contacts">
-        <SubHeaderTitle text="Contactos" />
-
-        <p>
-          Para requerimentos ou mais informação, por favor, contacte-nos via
-          e-mail ou contacto telefónico.
-        </p>
-
-        <h3>
-          <a href="tel:+351919554127">(+351) 919 554 127</a>
-        </h3>
-        <h3>
-          <a href="mailto:portic@portic.ipp.pt">portic@portic.ipp.pt</a>
-        </h3>
-      </section>
     </div>
     <Footer />
   </div>

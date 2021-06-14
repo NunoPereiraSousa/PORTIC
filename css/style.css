@@ -3247,6 +3247,10 @@ button:focus {
   }
 }
 
+.project__news .news__cards__card {
+  border-top: 2px solid #080808;
+}
+
 @media (min-width: 48em) {
   .news__cards__card {
     -webkit-column-gap: 1.5rem;
@@ -3290,7 +3294,7 @@ button:focus {
 @media (min-width: 120em) {
   .news__cards__card__image {
     height: 23.625rem;
-    width: 94%;
+    width: 100%;
   }
 }
 
@@ -3302,6 +3306,11 @@ button:focus {
   line-height: 1.5;
   letter-spacing: 0.4px;
   font-weight: 400;
+}
+
+.project__news .news__cards__card h2 {
+  color: #080808;
+  font-family: "Porto Sans";
 }
 
 @media (min-width: 48em) {
@@ -3346,6 +3355,10 @@ button:focus {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.project__news .news__cards__card p {
+  color: #080808;
 }
 
 @media (min-width: 48em) {
@@ -3701,6 +3714,12 @@ button:focus {
 @media (min-width: 75em) {
   .projects_catalog {
     padding: calc(10.1875rem + 2vw) 0 0;
+  }
+}
+
+@media (min-width: 120em) {
+  .projects_catalog {
+    padding: calc(10.1875rem + 2vw) 2rem 0;
   }
 }
 
@@ -7100,6 +7119,18 @@ button:focus {
   }
 }
 
+@media (min-width: 64em) {
+  .project__entry__grid__contacts {
+    margin-left: 3rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .project__entry__grid__contacts {
+    margin-left: 5rem;
+  }
+}
+
 .project__entry__grid__contacts h3 {
   color: #666666;
   font-weight: lighter;
@@ -7111,6 +7142,7 @@ button:focus {
     text-align: left;
     font-size: 1.375rem;
     line-height: 1.7;
+    width: 80%;
   }
 }
 
@@ -7324,6 +7356,7 @@ button:focus {
 }
 
 .project__gallery {
+  background-color: #080808;
   padding-top: calc(6.1875rem + 2vw);
 }
 
@@ -7368,12 +7401,10 @@ button:focus {
   }
 }
 
-.project__gallery, .project__news {
-  background-color: #080808;
-}
-
 .project__news {
+  background-color: #ffffff;
   padding-top: calc(3.1875rem + 2vw);
+  padding-bottom: 0;
 }
 
 .project__news .news__cards__card {
@@ -7382,6 +7413,22 @@ button:focus {
 
 .project__news__grid {
   row-gap: 3.75rem;
+}
+
+@media (min-width: 48em) {
+  .project__news__grid {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -webkit-column-gap: 2.5rem;
+            column-gap: 2.5rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .project__news__grid {
+    -webkit-column-gap: 4rem;
+            column-gap: 4rem;
+  }
 }
 
 .project__news__grid h2,
