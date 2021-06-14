@@ -16,6 +16,10 @@
       "welcome": "Welcome to",
       "welcomeTo": " {institution}",
       "description": "Porto Research, Technology {0}& Innovation Center."
+    },
+    "news": {
+      "title": "News",
+      "button": "Know more"
     }
   },
   "footer": {
@@ -49,8 +53,7 @@
     "infoDesc": "Down on the page we give information about the categories and the areas that are part of PORTIC."
   },
   "aboutUs": {
-    "contactUs": "Connect with us anytime",
-    "contactUsTitle": "Contact us",
+    "contactUs": "Contact us",
     "contactUsTitle2": "Contact us easily",
     "focusTitle": "We focus on",
     "introduction": "O PORTIC -Porto Research, Technology & Innovation Center visa agregar vários centros e grupos de investigação das escolas do P.PORTO num único espaço físico, configurando uma superestrutura dedicada à investigação, transferência de tecnologia, inovação e empreendedorismo. Alojará ainda a Porto Global Hub que integra a Porto Design Factory, a Porto Business Innovation e a Startup Porto e que tem como visão ajudar a criação de projetos locais sustentáveis para uma vida melhor.",
@@ -107,18 +110,12 @@
   },
   "unities": {
     "unitiesKey": "Unities",
-    "nUnities": "Number of unities",
-    "nUnitiesDesc": "PORTIC has a total of {n} unities.",
-    "unitiesTitle2": "One single focus",
-    "unitiesTitle2Desc": "We aim our work in different areas, with different goals.",
-    "unitiesTitle3": "We work with innovative methods",
-    "unitiesTitle3Desc": "We promote the entrepreneurial mindset and skills in other areas.",
-    "unitiesTitle4": "Years of professionalism and responsibility",
-    "unitiesTitle4Desc": "Our unities work with the best professionals of different areas.",
-    "infoDesc": "Down on the page we provide information about unities that belong to PORTIC, as well as its main focuses, history and goals.",
     "title": "Explore our unities",
     "principles": {
       "title": "Five principles that we have in mind"
+    },
+    "card": {
+      "button": "Know more"
     },
     "unity": "Unity {n}"
   },

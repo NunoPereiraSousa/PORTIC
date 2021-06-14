@@ -16,6 +16,10 @@
       "welcome": "Bem-vindo ao",
       "welcomeTo": " {institution}",
       "description": "Porto Research, Technology {0}& Innovation Center."
+    },
+    "news": {
+      "title": "Notícias",
+      "button": "Saber mais"
     }
   },
   "footer": {
@@ -49,8 +53,7 @@
     "infoDesc": "Mais abaixo disponibilizamos informações acerca das categorias e áreas envolventes ao PORTIC."
   },
   "aboutUs": {
-    "contactUs": "Conecte-se connosco a qualquer momento",
-    "contactUsTitle": "Contacte-nos",
+    "contactUs": "Contacte-nos",
     "contactUsTitle2": "Contacte-nos facilmente",
     "focusTitle": "Focamo-nos em",
     "introduction": "O PORTIC -Porto Research, Technology & Innovation Center visa agregar vários centros e grupos de investigação das escolas do P.PORTO num único espaço físico, configurando uma superestrutura dedicada à investigação, transferência de tecnologia, inovação e empreendedorismo. Alojará ainda a Porto Global Hub que integra a Porto Design Factory, a Porto Business Innovation e a Startup Porto e que tem como visão ajudar a criação de projetos locais sustentáveis para uma vida melhor.",
@@ -107,18 +110,12 @@
   },
   "unities": {
     "unitiesKey": "Unidades",
-    "nUnities": "Número de unidades",
-    "nUnitiesDesc": "O centro PORTIC incorpora um número total de {n} unidades.",
-    "unitiesTitle2": "Um único foco",
-    "unitiesTitle2Desc": "As nossas unidades trabalham com foco em diversas áreas.",
-    "unitiesTitle3": "Aplicação de métodos inovadores",
-    "unitiesTitle3Desc": "Promovem a mentalidade empreendedora e o conhecimento em diversas tecnologias.",
-    "unitiesTitle4": "Anos de profissionalismo e responsabilidade",
-    "unitiesTitle4Desc": "As unidades trabalham com os melhores profissionais de diferentes áreas.",
-    "infoDesc": "Mais abaixo disponibilizamos informações acerca das unidades PORTIC, assim como os seus principais princípios.",
     "title": "Explore as nossas unidades",
     "principles": {
       "title": "Cinco princípios que temos em consideração"
+    },
+    "card": {
+      "button": "Saber mais"
     },
     "unity": "Unidade {n}"
   },

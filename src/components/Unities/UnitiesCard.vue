@@ -2,12 +2,7 @@
   <div class="unities__grid__card grid">
     <div class="unities__grid__card__image" :style="imageStyle"></div>
     <div class="unities__grid__card__info grid">
-      <div class="flex flex-ai-c flex-jc-sb">
-        <h4 class="unities__grid__card__info__subtitle">
-          {{ $t("unities.unity", { n: counter }) }}.
-        </h4>
-        <h2 class="unities__grid__card__info__title">{{ unityName }}</h2>
-      </div>
+      <h2 class="unities__grid__card__info__title">{{ unityName }}</h2>
       <p class="unities__grid__card__info__description">{{ unityDesc }}</p>
       <div class="unities__grid__card__info__button">
         <div class="flex flex-ai-c">
@@ -25,7 +20,7 @@
                 ></path>
               </svg>
             </div>
-            <h3>Know more</h3>
+            <h3>{{ $t("unities.card.button") }}</h3>
           </button>
         </div>
       </div>

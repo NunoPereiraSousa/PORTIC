@@ -5,7 +5,7 @@
     <Quote />
     <section class="news">
       <h1 class="news__title">
-        Descubra as nossas notícias
+        {{ $t("homepage.news.title") }}
       </h1>
       <div class="news__cards grid">
         <NewsCard
@@ -13,7 +13,7 @@
           :key="news.id"
           :image="news.image"
           :title="news.title"
-          :desc="news.desc"
+          :content="news.content"
           :date="news.date"
           :id="news.id"
           @click.native="getNewsId"
@@ -284,9 +284,9 @@ export default {
     function animate() {
       requestAnimationFrame(animate);
 
-      scene.rotation.x += 0.0001;
-      scene.rotation.y += 0.0001;
-      scene.rotation.z += 0.0001;
+      scene.rotation.x += 0.0002;
+      scene.rotation.y += 0.0002;
+      scene.rotation.z += 0.0002;
 
       controls.update();
 

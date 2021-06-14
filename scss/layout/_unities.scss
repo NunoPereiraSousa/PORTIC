@@ -21,7 +21,7 @@
 }
 
 .principles {
-  margin-top: calc(4.1875rem + 2vw);
+  margin-top: 0;
   color: $white;
 
   background-color: $black;
@@ -65,6 +65,49 @@
 
     @include breakpoint-up(desktop) {
       row-gap: 8rem;
+    }
+  }
+
+  &_title {
+    position: relative;
+    width: fit-content;
+    padding-bottom: 0.6rem;
+    margin: 3rem 0 3rem;
+
+    font-size: $_26px;
+    font-weight: 400;
+
+    text-shadow: 6px 4px 4px rgba($color: $black, $alpha: 0.13);
+
+    @include breakpoint-up(desktop) {
+      margin: 6rem auto 4rem;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0%;
+      bottom: -10%;
+      height: 3.5px;
+      width: 2rem;
+      background-color: $orange;
+      box-shadow: 3px 3px 4px rgba($color: $black, $alpha: 0.13);
+
+      @include breakpoint-up(tablet) {
+        width: 14%;
+      }
+
+      @include breakpoint-up(desktop) {
+        display: none;
+      }
+    }
+
+    @include breakpoint-up(desktop) {
+      font-size: $_30px;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_34px;
     }
   }
 }

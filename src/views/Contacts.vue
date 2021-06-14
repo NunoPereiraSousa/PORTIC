@@ -33,7 +33,7 @@
     </div>
     <div class="contacts__overlay hide-for-mobile" @click="closeForm"></div>
     <div class="contacts__side_form flex flex-fd-c flex-jc-sb hide-for-mobile">
-      <h1>{{ $t("aboutUs.contactUsTitle2") }}</h1>
+      <h1>{{ $t("aboutUs.contactUs") }}</h1>
 
       <form class="grid">
         <input
@@ -102,68 +102,13 @@
             </h4>
           </div>
         </div>
-        <div class="contacts__intro__grid__contacts grid">
-          <h3>{{ $t("aboutUs.contactUs") }}</h3>
-          <div>
-            <h2>
-              <a :href="`tel:+351${$store.getters.getEntityPhoneNumberLink}`">{{
-                $store.getters.getEntityPhoneNumber
-              }}</a>
-            </h2>
-            <h2>
-              <a :href="`mailto:${$store.getters.getEntityEmail}`">{{
-                $store.getters.getEntityEmail
-              }}</a>
-            </h2>
-          </div>
-          <div class="contacts__intro__grid__contacts__socials grid">
-            <a
-              v-for="media in $store.getters.getEntitySocials"
-              :key="media.social_media_type"
-              :href="media.url"
-              target="_blank"
-            >
-              <div v-if="media.social_media_type == 'Twitter'">
-                <i class="fab fa-twitter"></i>
-              </div>
-              <div v-else-if="media.social_media_type == 'Facebook'">
-                <i class="fab fa-facebook-square"></i>
-              </div>
-              <div v-else-if="media.social_media_type == 'LinkedIn'">
-                <i class="fab fa-linkedin"></i>
-              </div>
-              <div v-else-if="media.social_media_type == 'Youtube'">
-                <i class="fab fa-youtube"></i>
-              </div>
-              <div v-else-if="media.social_media_type == 'Instagram'">
-                <i class="fab fa-instagram"></i>
-              </div>
-            </a>
-          </div>
-        </div>
-        <!-- <div class="contacts__intro__socials grid">
-          <a href="" class="flex flex-ai-c flex-jc-c">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="" class="flex flex-ai-c flex-jc-c">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="" class="flex flex-ai-c flex-jc-c">
-            <i class="fab fa-flickr"></i>
-          </a>
-          <a href="" class="flex flex-ai-c flex-jc-c">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a href="" class="flex flex-ai-c flex-jc-c">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="" class="flex flex-ai-c flex-jc-c">
-            <i class="fab fa-facebook-square"></i>
-          </a>
-        </div> -->
+        <div
+          class="contacts__intro__desc"
+          v-html="$store.getters.getEntityData.desc_html"
+        ></div>
       </div>
       <div class="contacts__intro__grid grid hide-below-tablet">
-        <div class="contacts__intro__grid__contacts grid">
+        <!-- <div class="contacts__intro__grid__contacts grid">
           <h3>{{ $t("aboutUs.contactUs") }}</h3>
           <div>
             <h2>
@@ -201,7 +146,7 @@
               </div>
             </a>
           </div>
-        </div>
+        </div> -->
         <div class="contacts__intro__grid__entrance grid">
           <div>
             <h1>Portic</h1>
@@ -242,7 +187,7 @@
         </div>
       </div>
     </section>
-    <section class="contacts__what_we_focus">
+    <!-- <section class="contacts__what_we_focus">
       <SubHeaderTitle :text="$t('aboutUs.focusTitle')" class="light" />
 
       <div class="contacts__what_we_focus__grid grid">
@@ -252,8 +197,8 @@
           :text="focus.description"
         />
       </div>
-    </section>
-    <section class="contacts__testimonials">
+    </section> -->
+    <!-- <section class="contacts__testimonials">
       <h1 class="contacts__testimonials__title">
         {{ $t("aboutUs.testimonialsTitle") }}
       </h1>
@@ -266,7 +211,7 @@
         <span>coming soon!</span>
       </h1>
 
-      <!-- <vue-glide
+      <vue-glide
         :startAt="1"
         :gap="40"
         :breakpoints="{
@@ -318,8 +263,8 @@
             </svg>
           </button>
         </template>
-      </vue-glide> -->
-    </section>
+      </vue-glide>
+    </section> -->
     <section class="contacts__form grid">
       <div class="contacts__form__contacts grid">
         <h3>{{ $t("aboutUs.contactUs") }}</h3>
@@ -362,7 +307,7 @@
       </div>
       <div class="contacts__form__form ">
         <form class="grid">
-          <h1>{{ $t("aboutUs.contactUsTitle") }}</h1>
+          <h1>{{ $t("aboutUs.contactUs") }}</h1>
 
           <input
             type="text"
@@ -411,16 +356,16 @@
 </template>
 
 <script>
-import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
-import WhatWeFocusCard from "@/components/Contacts/WhatWeFocusCard.vue";
+// import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
+// import WhatWeFocusCard from "@/components/Contacts/WhatWeFocusCard.vue";
 // import TestimonialCard from "@/components/TestimonialCard.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   name: "Contacts",
   components: {
-    SubHeaderTitle,
-    WhatWeFocusCard,
+    // SubHeaderTitle,
+    // WhatWeFocusCard,
     // TestimonialCard,
     Footer
   },

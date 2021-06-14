@@ -2,77 +2,11 @@
   <div>
     <SubPageIntro
       :categoryTitle="$t('unities.unitiesKey')"
-      :title1="$t('unities.nUnities')"
-      :text1="$t('unities.nUnitiesDesc', { n: $store.getters.getNUnities })"
-      :title2="$t('unities.unitiesTitle2')"
-      :text2="$t('unities.unitiesTitle2Desc')"
-      content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.
-PORTIC includes units and groups with activities in different stages of the knowledge and innovation chain, in several areas of knowledge."
-      :categoryDescription="$t('unities.infoDesc')"
+      content="O PORTIC integra diversas unidades de investigação, desenvolvimento e inovação, seja internas, seja disponibilizando espaço para unidades e entidades externas."
     />
-    <section class="principles">
-      <MainTitle
-        className="main__title"
-        :text="$t('unities.principles.title')"
-      />
 
-      <vue-glide
-        v-if="principalsStatus"
-        :startAt="0"
-        :gap="40"
-        :breakpoints="{
-          450: {
-            perView: 1
-          },
-          768: {
-            perView: 2
-          },
-          1200: {
-            perView: 3
-          }
-        }"
-        :rewind="false"
-        :bound="true"
-        :infinite="false"
-      >
-        <vue-glide-slide
-          v-for="(principal, index) in getPrinciples"
-          :key="index + 1"
-        >
-          <PrincipleCard
-            :counter="index + 1"
-            :length="$store.getters.getPrincipalsLength"
-            :title="principal.title"
-            :desc="principal.description"
-        /></vue-glide-slide>
-        <template slot="control">
-          <button data-glide-dir="<" class="unityBtns">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 400.004 400.004"
-              class="left__arrow"
-            >
-              <path
-                d="M382.688 182.686H59.116l77.209-77.214c6.764-6.76 6.764-17.726 0-24.485-6.764-6.764-17.73-6.764-24.484 0L5.073 187.757c-6.764 6.76-6.764 17.727 0 24.485l106.768 106.775a17.252 17.252 0 0012.242 5.072c4.43 0 8.861-1.689 12.242-5.072 6.764-6.76 6.764-17.726 0-24.484l-77.209-77.218h323.572c9.562 0 17.316-7.753 17.316-17.315 0-9.562-7.753-17.314-17.316-17.314z"
-              ></path>
-            </svg>
-          </button>
-          <button data-glide-dir=">" class="unityBtns">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 268.832 268.832"
-              class="right__arrow"
-            >
-              <path
-                d="M265.171 125.577l-80-80c-4.881-4.881-12.797-4.881-17.678 0-4.882 4.882-4.882 12.796 0 17.678l58.661 58.661H12.5c-6.903 0-12.5 5.597-12.5 12.5 0 6.902 5.597 12.5 12.5 12.5h213.654l-58.659 58.661c-4.882 4.882-4.882 12.796 0 17.678 2.44 2.439 5.64 3.661 8.839 3.661s6.398-1.222 8.839-3.661l79.998-80c4.882-4.882 4.882-12.796 0-17.678z"
-              ></path>
-            </svg>
-          </button>
-        </template>
-      </vue-glide>
-    </section>
     <section class="unities">
-      <MainTitle className="main__title" :text="$t('unities.title')" />
+      <h1 class="unities_title">{{ $t("unities.title") }}</h1>
 
       <div class="unities__grid grid">
         <UnitiesCard
@@ -96,9 +30,7 @@ PORTIC includes units and groups with activities in different stages of the know
 <script>
 import { mapGetters } from "vuex";
 import SubPageIntro from "@/components/SubPageIntro.vue";
-import MainTitle from "@/components/MainTitle.vue";
 import SlidePanel from "@/components/SlidePanel.vue";
-import PrincipleCard from "@/components/Unities/PrincipleCard.vue";
 import UnitiesCard from "@/components/Unities/UnitiesCard.vue";
 import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
@@ -107,8 +39,6 @@ export default {
   name: "Unities",
   components: {
     SubPageIntro,
-    MainTitle,
-    PrincipleCard,
     UnitiesCard,
     SlidePanel,
     Footer,

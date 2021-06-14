@@ -36,10 +36,14 @@
 
     .title {
       color: $orange;
-      font-family: $portoSerif;
-      font-weight: 400;
+      font-family: $portoSans;
+      font-weight: normal;
       font-size: $_20px;
       margin: 0 0 $_40px;
+
+      @include breakpoint-up(large) {
+        font-size: $_22px;
+      }
     }
 
     &__timezones {

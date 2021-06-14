@@ -21,40 +21,46 @@
 
     @include breakpoint-up(desktop) {
       font-size: $_40px;
+      margin-bottom: 4rem;
     }
   }
 
   &__cards {
     row-gap: $_60px;
 
+    @include breakpoint-up(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 2.5rem;
+    }
+
     @include breakpoint-up(iPadPro) {
       padding: 0 0 0 4vw;
+      column-gap: 6rem;
     }
 
     &__card {
       &:first-child {
         margin-top: $_40px;
+      }
 
-        @include breakpoint-up(desktop) {
+      @include breakpoint-up(tablet) {
+        &:first-child,
+        &:nth-child(2) {
           margin-top: $_20px;
         }
+
+        display: block;
       }
 
       border-top: 1px solid $white;
       padding-top: $_26px;
 
       @include breakpoint-up(tablet) {
-        grid-template-columns: repeat(2, 1fr);
         column-gap: 1.5rem;
       }
 
       @include breakpoint-up(iPadPro) {
-        width: 84%;
         padding-bottom: $_50px;
-      }
-
-      @include breakpoint-up(large) {
-        column-gap: 0;
       }
 
       &__image {
@@ -86,7 +92,7 @@
       h2 {
         margin: 1rem 0 0 0;
         position: relative;
-        // text-decoration: underline;
+
         font-family: $portoSansStencil;
         font-size: $_18px;
         line-height: 1.5;
@@ -94,7 +100,21 @@
         font-weight: 400;
 
         @include breakpoint-up(tablet) {
-          margin: 0;
+          margin: 1rem 0 2rem;
+
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        @include breakpoint-up(iPadPro) {
+          margin: 1rem 0 2rem;
+
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
 
         @include breakpoint-up(desktop) {
@@ -112,6 +132,11 @@
         font-size: $_16px;
         line-height: 1.5;
         font-weight: 100;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
 
         @include breakpoint-up(tablet) {
           margin: 0;

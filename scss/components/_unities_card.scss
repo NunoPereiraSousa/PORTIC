@@ -81,25 +81,11 @@
       overflow: hidden;
     }
 
-    h4,
     h3,
     h2 {
       font-weight: 400;
 
       margin: 0;
-    }
-
-    h4 {
-      color: $lightGrey;
-      font-size: $_15px;
-
-      @include breakpoint-down(phone) {
-        font-size: $_14px;
-      }
-
-      @include breakpoint-up(large) {
-        font-size: $_16px;
-      }
     }
 
     h2 {

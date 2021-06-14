@@ -196,7 +196,7 @@
       left: 25%;
 
       @include breakpoint-up(iPadPro) {
-        left: 34%;
+        left: 40%;
       }
     }
 
@@ -204,7 +204,7 @@
       right: 25%;
 
       @include breakpoint-up(iPadPro) {
-        right: 34%;
+        display: none;
       }
     }
 
@@ -230,8 +230,8 @@
       text-align: center;
       position: relative;
 
-      @include breakpoint-up(desktop) {
-        grid-template-columns: 34vw 32vw 34vw;
+      @include breakpoint-up(iPadPro) {
+        grid-template-columns: 40vw 60vw;
       }
 
       &__entrance {
@@ -392,16 +392,28 @@
 
     &__desc {
       text-align: left;
-      margin: 0 4rem;
       align-self: center;
+
+      @include breakpoint-up(tablet) {
+        margin: 0 4rem;
+      }
+
+      @include breakpoint-up(desktop) {
+        margin: 0 8rem;
+      }
 
       p {
         margin: 0;
         font-size: $_18px;
         line-height: 1.8;
+        width: 100%;
+
+        @include breakpoint-up(desktop) {
+          font-size: $_20px;
+        }
 
         @include breakpoint-up(large) {
-          font-size: $_20px;
+          font-size: $_22px;
         }
 
         span {
