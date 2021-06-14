@@ -2,11 +2,7 @@
   <div>
     <section class="projects_catalog">
       <div class="flex flex-jc-c flex-ai-c flex-fd-c">
-        <h3 class="flex flex-ai-c">
-          {{ $t("projects.title") }}
-          <div id="triangle"></div>
-          PORTIC
-        </h3>
+        <h3 class="flex flex-ai-c">{{ $t("projects.title") }} - PORTIC</h3>
         <h1 class="projects_catalog__title">{{ $t("projects.title") }}</h1>
         <p class="projects_catalog__quote">
           {{ $t("projects.desc") }}
@@ -19,7 +15,29 @@
           :placeholder="$t('projects.input.placeholder')"
           v-model="projectTxt"
         />
-        <div
+        <button
+          class="projects_catalog__filters__sorting"
+          @click="order = !order"
+        >
+          {{ $t("projects.input.filter") }}
+        </button>
+        <select v-model="status">
+          <option value="">{{ $t("projects.input.status") }}</option>
+          <option value="completed">Not Started</option>
+          <option value="underDev">Under development</option>
+          <option value="finished">Finished</option> </select
+        ><input
+          type="date"
+          v-model="startingDate"
+          class="input_date"
+          placeholder="Data de início"
+        /><input
+          type="date"
+          class="input_date"
+          v-model="endingDate"
+          placeholder="Data de término"
+        />
+        <!-- <div
           class="flex flex-jc-sa flex-ai-c hide-for-desktop"
           style="width: 100%"
         >
@@ -29,24 +47,18 @@
           >
             {{ $t("projects.input.filter") }}
           </button>
-          <!-- <button
-            class="projects_catalog__filters__sorting"
-            @click="order2 = !order2"
-          >
-            Name sorting
-          </button> -->
-        </div>
-        <div class="hide-for-mobile">
+        </div> -->
+        <!-- <div class="hide-for-mobile">
           <button
             class="projects_catalog__filters__sorting"
             @click="order = !order"
           >
             {{ $t("projects.input.filter") }}
           </button>
-        </div>
-        <div class="hide-for-mobile">
+        </div> -->
+        <!-- <div class="hide-for-mobile">
           <select v-model="status">
-            <option value="">Project status</option>
+            <option value="">{{ $t("projects.input.status") }}</option>
             <option value="Stop">Not Started</option>
             <option value="underDev">Under development</option>
             <option value="Finished">Finished</option>
@@ -67,7 +79,7 @@
             v-model="endingDate"
             placeholder="Data de término"
           />
-        </div>
+        </div> -->
       </div>
       <div class="projects__grid grid" style="width: 100%">
         <div v-if="filterProjects.length < 1">
@@ -76,11 +88,12 @@
         <ProjectCard
           v-for="project in filterProjects"
           :key="project.id"
-          :counter="project.id"
           :initials="project.initials"
           :title="project.title"
+          :description="project.description"
           :projectInitials="project.initials"
           :overallBudget="project.overallBudget"
+          :color="setColor(project.status)"
           @mouseover.native="onHover"
           @mouseleave.native="notHover"
           @click.native="setSelectedProject(project.initials)"
@@ -190,7 +203,6 @@ export default {
     filterProjectsByCategory(projects) {
       return projects.filter(project => !project.status.indexOf(this.status));
     },
-
     filterProjectsByName(projects) {
       return projects.filter(
         project =>
@@ -202,6 +214,15 @@ export default {
         return projects;
       } else {
         return [...projects].sort(this.compareName);
+      }
+    },
+    setColor(status) {
+      if (status == "finished") {
+        return "#ee5a5a";
+      } else if (status == "completed") {
+        return "#28aa2d";
+      } else {
+        return "#eecb5a";
       }
     },
     // filterProjectsByDateRange(projects){

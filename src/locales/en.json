@@ -83,10 +83,11 @@
   },
   "projects": {
     "title": "Projects",
-    "desc": "This are the projects we are part of.",
+    "desc": "Investigation, development and innovation projects.​",
     "input": {
       "placeholder": "Search project",
-      "filter": "Filter by alphabetical order"
+      "filter": "Filter by alphabetical order",
+      "status": "Project status"
     }
   },
   "unities": {

@@ -1,22 +1,17 @@
 <template>
   <div class="projects__grid__card">
     <div class="projects__grid__card__normal_state">
-      <div>
-        <h1>{{ initials }}</h1>
-        <p>{{ formatBudget(overallBudget) }}</p>
-        <!-- <p>PORTIC budget: {{ porticBudget }}</p> -->
-      </div>
-      <h3 v-if="counter < 10">Projeto 0{{ counter }}</h3>
-      <h3 v-else>Projeto {{ counter }}</h3>
+      <h1>{{ initials }}</h1>
+      <p>{{ title }}</p>
+      <h3>Referência</h3>
+      <div class="state" :style="backgroudColor"></div>
     </div>
     <div class="projects__grid__card__hovered_state hide-for-mobile">
       <div class="position flex flex-jc-sb flex-fd-c">
         <div class="projects__grid__card__hovered_state__overlay"></div>
         <div class="top">
           <h1>/ {{ initials }}</h1>
-          <p>
-            {{ title }}
-          </p>
+          <p v-html="description"></p>
         </div>
         <div class="bottom">
           <button @click="setSelectedProject(projectInitials)">
@@ -24,6 +19,7 @@
           </button>
         </div>
       </div>
+      <div class="state" :style="backgroudColor"></div>
     </div>
   </div>
 </template>
@@ -40,8 +36,8 @@ export default {
       type: String,
       required: true
     },
-    counter: {
-      type: Number,
+    description: {
+      type: String,
       required: true
     },
     projectInitials: {
@@ -51,11 +47,16 @@ export default {
     overallBudget: {
       type: Number,
       required: true
+    },
+    color: {
+      type: String,
+      required: false
     }
-    // porticBudget: {
-    //   type: Number,
-    //   required: false
-    // }
+  },
+  computed: {
+    backgroudColor() {
+      return `background-color: ${this.color}`;
+    }
   },
   methods: {
     setSelectedProject(name) {

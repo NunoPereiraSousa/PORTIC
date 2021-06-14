@@ -5,7 +5,7 @@ export const projects = [
     title: "CYBERSecurity SciEntific Competences and Innovation Potential",
     overallBudget: 1166146,
     porticBudget: 818077,
-    status: "Finished",
+    status: "finished",
     startingDate: "2021-04-02",
     endingDate: "2021-08-15",
     partners: ["PORTIC/P.PORTO", "ISEP", "IPB", "IPCA", "IPVC"],
@@ -23,7 +23,7 @@ export const projects = [
     porticBudget: 37481,
     startingDate: "2021-04-02",
     endingDate: "2021-08-15",
-    status: "Finished",
+    status: "finished",
     contact: "911-222-333",
     email: "portic@ipp.pt",
     partners: [
@@ -54,7 +54,7 @@ export const projects = [
     contact: "911-222-333",
     email: "portic@ipp.pt",
     description:
-      "TThe GreenHealth project is focused on digital and biological technologies and their interaction with human health, environmental sustainability and territory-based assets economic development. This multidisciplinary and interdisciplinary approach will enable the design and implementation of a long-term, human-centred strategy focused on the (eco)sustainability of the Norte Region."
+      "The GreenHealth project is focused on digital and biological technologies and their interaction with human health, environmental sustainability and territory-based assets economic development. This multidisciplinary and interdisciplinary approach will enable the design and implementation of a long-term, human-centred strategy focused on the (eco)sustainability of the Norte Region."
   },
   {
     id: 4,
@@ -65,7 +65,7 @@ export const projects = [
     porticBudget: 238458,
     startingDate: "2021-04-02",
     endingDate: "2021-08-15",
-    status: "Finished",
+    status: "finished",
     partners: ["IPCA", "PORTIC/P.PORTO", "ISEP", "IPB", "IPVC"],
     contact: "911-222-333",
     email: "portic@ipp.pt",
@@ -80,7 +80,7 @@ export const projects = [
     porticBudget: 267931,
     startingDate: "2021-04-02",
     endingDate: "2021-08-15",
-    status: "Finished",
+    status: "finished",
     partners: ["IPVC", "PORTIC/P.PORTO", "IPB", "IPCA"],
     contact: "911-222-333",
     email: "portic@ipp.pt",
@@ -96,7 +96,7 @@ export const projects = [
     porticBudget: 108000,
     startingDate: "2021-04-02",
     endingDate: "2021-08-15",
-    status: "Finished",
+    status: "finished",
     contact: "911-222-333",
     email: "portic@ipp.pt",
     partners: [
@@ -124,7 +124,7 @@ export const projects = [
     porticBudget: 345071,
     startingDate: "2021-04-02",
     endingDate: "2021-08-15",
-    status: "Finished",
+    status: "finished",
     contact: "911-222-333",
     email: "portic@ipp.pt",
     partners: [
@@ -148,7 +148,7 @@ export const projects = [
     porticBudget: 30000,
     startingDate: "2021-04-02",
     endingDate: "2021-08-15",
-    status: "Finished",
+    status: "finished",
     partners: ["PORTIC/P.PORTO", "FMUP", "ACES Feira Arounca"],
     contact: "911-222-333",
     email: "portic@ipp.pt",
@@ -163,7 +163,7 @@ export const projects = [
     porticBudget: 30000,
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
-    status: "Finished",
+    status: "finished",
     partners: ["PORTIC/P.PORTO", "FMUP", "ACES Feira Arounca"],
     contact: "911-222-333",
     email: "portic@ipp.pt",
@@ -178,7 +178,7 @@ export const projects = [
     porticBudget: 15000,
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
-    status: "Stop",
+    status: "completed",
     partners: ["FMUP", "PORTIC/P.PORTO", "Centro Hospitalar Vila Gaia/Espinho"],
     contact: "911-222-333",
     email: "portic@ipp.pt",
@@ -193,7 +193,7 @@ export const projects = [
     porticBudget: 400900,
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
-    status: "Stop",
+    status: "completed",
     contact: "911-222-333",
     email: "portic@ipp.pt",
     partners: [
@@ -266,7 +266,7 @@ export const projects = [
     porticBudget: 152925,
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
-    status: "Stop",
+    status: "completed",
     contact: "911-222-333",
     email: "portic@ipp.pt",
     partners: [
@@ -289,7 +289,7 @@ export const projects = [
     porticBudget: 152925,
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
-    status: "Stop",
+    status: "completed",
     contact: "911-222-333",
     email: "portic@ipp.pt",
     partners: [
@@ -316,7 +316,7 @@ export const projects = [
     porticBudget: 152925,
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
-    status: "Stop",
+    status: "completed",
     contact: "911-222-333",
     email: "portic@ipp.pt",
     partners: [
@@ -349,7 +349,7 @@ export const projects = [
     porticBudget: 152925,
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
-    status: "Stop",
+    status: "completed",
     contact: "911-222-333",
     email: "portic@ipp.pt",
     partners: [
@@ -383,7 +383,7 @@ export const projects = [
     porticBudget: 152925,
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
-    status: "Stop",
+    status: "completed",
     contact: "911-222-333",
     email: "portic@ipp.pt",
     partners: [
@@ -469,7 +469,7 @@ export const projects = [
     porticBudget: 152925,
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
-    status: "Stop",
+    status: "completed",
     contact: "911-222-333",
     email: "portic@ipp.pt",
     partners: [
@@ -526,7 +526,7 @@ export const projects = [
       <a href="https://www.portoglobalhub.ipp.pt/acl_users/credentials_cookie_auth/require_login?came_from=https%3A//www.portoglobalhub.ipp.pt/Projetos/copy_of_Universities%2520of%2520the%2520Future/copy_of_ShortCourseBuildingInternetofThingsSolutionsBrochure.pdf" target="_blank">BUILDING INTERNET OF THINGS SOLUTIONS</a>
       <br>
       <br>
-      <a href="https://www.portoglobalhub.ipp.pt/Projetos/copy_of_Universities%20of%20the%20Future/ShortCourseMachineLearningandDataAnalyticstoPredictiveMaintenanceBrochure.PDF" target="_blank">MACHINE LEARNING AND DATA ANALYTICS TO PREDICTIVE MAINTENANCE</a>
+      <a href="https://www.portoglobalhub.ipp.pt/Projetos/copy_of_Universities%20of%20the%20Future/ShortCourseMachineLearningandDataAnalyticcompletedredictiveMaintenanceBrochure.PDF" target="_blank">MACHINE LEARNING AND DATA ANALYTICS TO PREDICTIVE MAINTENANCE</a>
       <br>
       <br>
       <a href="https://www.portoglobalhub.ipp.pt/acl_users/credentials_cookie_auth/require_login?came_from=https%3A//www.portoglobalhub.ipp.pt/Projetos/copy_of_Universities%2520of%2520the%2520Future/ShortCourseVanguardLeadershipProgramForIndustry4.0Brochure.pdf" target="_blank">VANGUARD LEADERSHIP PROGRAM FOR INDUSTRY 4.0</a>
@@ -547,7 +547,7 @@ export const projects = [
     porticBudget: 152925,
     startingDate: "2018-04-02",
     endingDate: "2019-08-15",
-    status: "Stop",
+    status: "completed",
     contact: "911-222-333",
     email: "portic@ipp.pt",
     partners: [

@@ -3,7 +3,7 @@
   padding: calc(10.1875rem + 2vw) 0.5rem 0;
 
   @include breakpoint-up(desktop) {
-    padding: calc(10.1875rem + 2vw) 3rem 0;
+    padding: calc(10.1875rem + 2vw) 0 0;
   }
 
   h3,
@@ -14,15 +14,6 @@
 
   h3 {
     font-size: $_18px;
-
-    #triangle {
-      margin: 0 1rem;
-      width: 0;
-      height: 0;
-      border-top: 6px solid transparent;
-      border-bottom: 6px solid transparent;
-      border-left: 6px solid $black;
-    }
 
     @include breakpoint-up(iPadPro) {
       font-size: $_22px;
@@ -48,6 +39,13 @@
   &__quote {
     color: $lightGrey;
 
+    width: 75%;
+    text-align: center;
+
+    @include breakpoint-up(tablet) {
+      width: 100%;
+    }
+
     @include breakpoint-up(iPadPro) {
       font-size: $_18px;
       letter-spacing: 0.3px;
@@ -61,7 +59,15 @@
   &__filters {
     margin-top: 40px;
     justify-items: center;
-    row-gap: 3rem;
+    row-gap: 2rem;
+
+    margin-bottom: 4rem;
+
+    @include breakpoint-up(tablet) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
 
     @include breakpoint-up(iPadPro) {
       display: flex;

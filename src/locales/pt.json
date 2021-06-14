@@ -83,10 +83,11 @@
   },
   "projects": {
     "title": "Projetos",
-    "desc": "Estes são os projetos que fazemos parte.",
+    "desc": "Projetos de Investigação, Desenvolvimento e Inovação .",
     "input": {
       "placeholder": "Pesquisar projeto",
-      "filter": "Filtrar por ordem alfabética"
+      "filter": "Filtrar por ordem alfabética",
+      "status": "Estado do projeto"
     }
   },
   "unities": {
