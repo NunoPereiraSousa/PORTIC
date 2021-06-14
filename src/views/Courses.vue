@@ -3,30 +3,9 @@
     <!-- <div class="scene"></div> -->
     <SubPageIntro
       :categoryTitle="$t('courses.courseKey')"
-      :title1="$t('courses.nCourses')"
-      :text1="$t('courses.nCoursesDesc', { n: 0 })"
-      :title2="$t('courses.coursesTitle2')"
-      :text2="$t('courses.coursesTitle2Desc')"
       content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.
 PORTIC includes units and groups with activities in different stages of the knowledge and innovation chain, in several areas of knowledge."
-      :categoryDescription="$t('courses.infoDesc')"
     />
-    <section class="courses_information">
-      <SubHeaderTitle :text="$t('courses.icons.title')" class="light" />
-
-      <p class="areas_information__info">
-        {{ $t("courses.icons.desc") }}
-      </p>
-
-      <div class="areas_information__icons grid">
-        <IconCard
-          v-for="card in getCoursesIcons"
-          :key="card.id_courses_focus"
-          :icon="convertImage(card.img.data)"
-          :content="card.description"
-        />
-      </div>
-    </section>
     <section class="courses">
       <SubHeaderTitle text="Explore os nossos cursos" />
       <div class="courses__grid grid">
@@ -50,7 +29,6 @@ import { mapGetters } from "vuex";
 
 import SubPageIntro from "@/components/SubPageIntro.vue";
 import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
-import IconCard from "@/components/IconCard.vue";
 import CoursesCard from "@/components/CoursesCard.vue";
 import Footer from "@/components/Footer.vue";
 
@@ -58,7 +36,6 @@ export default {
   components: {
     SubPageIntro,
     SubHeaderTitle,
-    IconCard,
     CoursesCard,
     Footer
   },
@@ -79,8 +56,6 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setCourses");
-      await this.$store.dispatch("setCoursesFocus");
-      console.log(this.$store.getters.getCoursesFocus);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;

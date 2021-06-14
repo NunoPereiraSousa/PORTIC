@@ -25,7 +25,6 @@ export const areasConfig = {
       });
   },
   getAreasGroups: async (selectedLang, entity_id) => {
-    console.log(`LANG ARGUMENT RECEIVED: ${selectedLang}`);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entity_id}/area_focus`, {
         headers
