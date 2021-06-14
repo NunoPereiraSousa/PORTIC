@@ -62,24 +62,9 @@
   //   background-color: $white;
   // }
 
-  &__sub_title,
   &__title {
     font-weight: 400;
     margin: 0;
-  }
-
-  &__sub_title {
-    color: $black;
-    font-size: $_14px;
-    margin-right: 40px;
-    font-weight: 100;
-
-    white-space: nowrap;
-
-    @include breakpoint-up(iPadPro) {
-      margin-right: 60px;
-      font-size: $_18px;
-    }
   }
 
   &__title {

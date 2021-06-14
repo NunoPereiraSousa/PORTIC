@@ -4375,6 +4375,7 @@ button:focus {
 
 .areas,
 .courses {
+  background-color: #ffffff;
   padding: calc(6.1875rem + 2vw) 0 0;
   width: 100%;
 }
@@ -4431,6 +4432,10 @@ button:focus {
   .courses__grid {
     padding: 0 10vw;
   }
+}
+
+.areas {
+  padding: calc(6.1875rem + 2vw) 0;
 }
 
 .courses__grid__card {
@@ -4756,24 +4761,9 @@ button:focus {
   transition: all 0.2s linear;
 }
 
-.areas__grid__card__sub_title, .areas__grid__card__title {
+.areas__grid__card__title {
   font-weight: 400;
   margin: 0;
-}
-
-.areas__grid__card__sub_title {
-  color: #080808;
-  font-size: 0.875rem;
-  margin-right: 40px;
-  font-weight: 100;
-  white-space: nowrap;
-}
-
-@media (min-width: 64em) {
-  .areas__grid__card__sub_title {
-    margin-right: 60px;
-    font-size: 1.125rem;
-  }
 }
 
 .areas__grid__card__title {

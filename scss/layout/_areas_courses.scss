@@ -100,8 +100,10 @@
     }
   }
 }
+
 .areas,
 .courses {
+  background-color: $white;
   padding: calc(6.1875rem + 2vw) 0 0;
   width: 100%;
 
@@ -140,4 +142,8 @@
       padding: 0 10vw;
     }
   }
+}
+
+.areas {
+  padding: calc(6.1875rem + 2vw) 0;
 }

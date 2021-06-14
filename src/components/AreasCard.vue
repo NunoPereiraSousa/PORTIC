@@ -7,18 +7,9 @@
       v-on:click="show = !show"
     >
       <div class="flex flex-ai-c flex-jc-sb ">
-        <div class="flex flex-ai-c flex-jc-sb">
-          <h5 class="areas__grid__card__sub_title" v-if="counter < 10">
-            {{ $t("areas.areaKey") }} 0{{ counter }}
-          </h5>
-          <h5 class="areas__grid__card__sub_title" v-else>
-            {{ $t("areas.areaKey") }} {{ counter }}
-          </h5>
-          <h2 class="areas__grid__card__title">
-            {{ areaName }}
-            <!-- {{ $t(item.title, { areaName: areaName }) }} -->
-          </h2>
-        </div>
+        <h2 class="areas__grid__card__title">
+          {{ areaName }}
+        </h2>
         <button class="areas__grid__card__button" :id="button_id">
           <div class="areas__grid__card__button__lines"></div>
           <div class="areas__grid__card__button__lines"></div>

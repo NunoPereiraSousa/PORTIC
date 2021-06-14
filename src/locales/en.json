@@ -38,19 +38,9 @@
   },
   "areas": {
     "mainTitle": "Areas",
-    "secondTitle": "Actuation areas",
+    "secondTitle": "Areas of actuation",
     "thirdTitle": "Explore our areas",
-    "areaKey": "Area",
-    "areasInformation": "oPorto Research, Technology & Innovation Center includes unities and groups with different activities that involve different levels of knowledge and innovation, as well as, knowledge areas.",
-    "nAreas": "Number of areas",
-    "nAreasDesc": "PORTIC has a total of {n} areas.",
-    "areasFocus": "Focus in multiple areas",
-    "areasFocusDesc": "We focus in a big diversity of technologies and areas of actuation.",
-    "areasStructure": "Integrated infrastructures",
-    "areasStructureDesc": "The super-structure PORTIC incorporates multiple infrastructures of Instituto Politécnico do Porto - IPP.",
-    "areasCoop": "Cooperation among areas and infrastructures",
-    "areasCoopDesc": "As a consequence of its development, a cooperation exists among all the infrastructures and partners.",
-    "infoDesc": "Down on the page we give information about the categories and the areas that are part of PORTIC."
+    "areasInformation": "O Porto Research, Technology & Innovation Center inclui unidades e grupos com atividades em diferentes níveis de conhecimento e inovação, como também em áreas de conhecimento. Este ecossistema reforça a ideia de um ambiente que estimula sinergias, o cruzamento fértil entre áreas do conhecimento, agregando competências e equipas, fomentando a cooperação e formação de projetos conjuntos, num espaço de conhecimento, ciência, transferência e reprodução. em linha com as melhores práticas internacionais."
   },
   "aboutUs": {
     "contactUs": "Contact us",

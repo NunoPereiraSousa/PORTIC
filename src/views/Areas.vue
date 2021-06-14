@@ -1,15 +1,11 @@
 <template>
   <div>
-    <SubPageIntro
+    <!-- <SubPageIntro
       :categoryTitle="$t('areas.mainTitle')"
-      :title1="$t('areas.nAreas')"
-      :text1="$t('areas.nAreasDesc', { n: 1 })"
-      :title2="$t('areas.areasFocus')"
-      :text2="$t('areas.areasFocusDesc')"
       content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.
 PORTIC includes units and groups with activities in different stages of the knowledge and innovation chain, in several areas of knowledge."
       :categoryDescription="$t('areas.infoDesc')"
-    />
+    /> -->
     <section class="areas_information">
       <SubHeaderTitle :text="$t('areas.secondTitle')" class="light" />
 
@@ -47,7 +43,7 @@ PORTIC includes units and groups with activities in different stages of the know
 <script>
 import { mapGetters } from "vuex";
 
-import SubPageIntro from "@/components/SubPageIntro.vue";
+// import SubPageIntro from "@/components/SubPageIntro.vue";
 import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
 import AreasCard from "@/components/AreasCard.vue";
 import IconCard from "@/components/IconCard.vue";
@@ -56,7 +52,7 @@ import Footer from "@/components/Footer.vue";
 export default {
   components: {
     // Intro,
-    SubPageIntro,
+    // SubPageIntro,
     SubHeaderTitle,
     AreasCard,
     IconCard,
