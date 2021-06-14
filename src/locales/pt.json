@@ -17,9 +17,15 @@
       "welcomeTo": " {institution}",
       "description": "Porto Research, Technology {0}& Innovation Center."
     },
+    "introOne": "Conheça a nova super estrutura do Politécnico do Porto - o",
+    "introTwo": " - Porto Research, Technology & Innovation Center.",
     "news": {
-      "title": "Notícias",
+      "title": "Últimas notícias",
       "button": "Saber mais"
+    },
+    "testimonials": {
+      "title": "Clientes que confiam em nós",
+      "desc": "Estamos a coletar testemunhos..."
     }
   },
   "footer": {
@@ -77,7 +83,7 @@
     "desc": "Projetos de Investigação, Desenvolvimento e Inovação .",
     "input": {
       "placeholder": "Pesquisar projeto",
-      "filter": "Filtrar por ordem alfabética",
+      "filter": "Ordem alfabética",
       "status": "Estado do projeto"
     }
   },

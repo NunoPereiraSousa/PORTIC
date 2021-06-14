@@ -1,34 +1,23 @@
 <template>
-  <div>
-    <div
-      class="areas__grid__card"
-      :id="card_id"
-      @click="expand(index)"
-      v-on:click="show = !show"
-    >
-      <div class="flex flex-ai-c flex-jc-sb ">
-        <h2 class="areas__grid__card__title">
-          {{ areaName }}
-        </h2>
-        <button class="areas__grid__card__button" :id="button_id">
-          <div class="areas__grid__card__button__lines"></div>
-          <div class="areas__grid__card__button__lines"></div>
-        </button>
-      </div>
-      <p class="areas__grid__card__content areas__grid__card__toggle collapse">
-        {{ areaDesc }}
-      </p>
+  <div
+    class="areas__grid__card"
+    :id="card_id"
+    @click="expand(index)"
+    v-on:click="show = !show"
+  >
+    <div class="flex flex-ai-c flex-jc-sb ">
+      <h2 class="areas__grid__card__title">
+        {{ areaName }}
+      </h2>
+      <button class="areas__grid__card__button" :id="button_id">
+        <div class="areas__grid__card__button__lines"></div>
+        <div class="areas__grid__card__button__lines"></div>
+      </button>
     </div>
+    <p class="areas__grid__card__content areas__grid__card__toggle collapse">
+      {{ areaDesc }}
+    </p>
   </div>
-  <!-- <div class="areas__grid__card">
-    <h2 class="areas__grid__card__title">{{ areaName }}</h2>
-    <p class="areas__grid__card__paragraph">{{ areaDesc }}</p>
-    <button class="areas__grid__card__button">
-      <router-link :to="{ name: 'ProjectsCatalog' }">
-        Know more about Area xpto
-      </router-link>
-    </button>
-  </div> -->
 </template>
 
 <script>

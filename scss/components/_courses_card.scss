@@ -1,6 +1,6 @@
 .courses__grid__card {
   padding: 2rem 1.875rem;
-  border-top: 1px solid rgba($color: $grey, $alpha: 0.3);
+  border-top: 1px solid rgba($color: $grey, $alpha: 0.5);
 
   transition: all 0.2s ease;
   cursor: pointer;
@@ -32,7 +32,7 @@
   }
 
   &:last-child {
-    border-bottom: 1px solid rgba($color: $grey, $alpha: 0.3);
+    border-bottom: 1px solid rgba($color: $grey, $alpha: 0.5);
   }
 
   &:hover {
@@ -42,7 +42,7 @@
 
   &__title {
     font-size: $_18px;
-    font-family: $portoSansStencil;
+    font-family: $portoSans;
     font-weight: 400;
     color: $orange;
 

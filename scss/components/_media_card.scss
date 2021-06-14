@@ -9,6 +9,7 @@
 
   @include breakpoint-down(iPadPro) {
     padding: 0;
+    border-radius: 4px;
   }
 
   &::after {
@@ -41,7 +42,7 @@
     border-radius: 10px 10px 0 0;
 
     @include breakpoint-down(iPadPro) {
-      border-radius: 10px 10px 0 0;
+      border-radius: 4px 4px 0 0;
     }
 
     &:hover {
@@ -75,7 +76,7 @@
       font-size: $_15px;
       margin-top: 20px;
       margin-bottom: 0;
-      text-shadow: 2px 2px 4px rgba($color: $black, $alpha: 0.2);
+      text-shadow: 2px 2px 4px rgba($color: $black, $alpha: 0.1);
 
       @include breakpoint-up(iPadPro) {
         margin-top: 24px;
@@ -96,6 +97,7 @@
 
       @include breakpoint-up(iPadPro) {
         font-size: $_19px;
+        margin-bottom: 2rem;
       }
 
       @include breakpoint-up(large) {

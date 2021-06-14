@@ -41,7 +41,7 @@
               />
             </g>
           </svg>
-          Marketing
+          Porto Design Factory
         </router-link>
         <router-link :to="{ name: 'Areas' }" class="grid flex-ai-c">
           <svg
@@ -58,7 +58,7 @@
               />
             </g>
           </svg>
-          Porto Global Hub
+          Sartup Porto
         </router-link>
         <router-link :to="{ name: 'Areas' }" class="grid flex-ai-c">
           <svg
@@ -75,7 +75,7 @@
               />
             </g>
           </svg>
-          Nasa
+          Lab de Biotecnologia
         </router-link>
       </div>
     </div>

@@ -117,7 +117,8 @@ export default {
       switch (this.$route.name) {
         case "Contacts":
           try {
-            await this.$store.dispatch("setEntityFocuses");
+            await this.$store.dispatch("setAreas");
+            await this.$store.dispatch("setAreasGroups");
           } catch (error) {
             return error;
           }

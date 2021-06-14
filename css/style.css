@@ -2985,6 +2985,7 @@ button:focus {
     font-size: 2.25rem;
     line-height: 1.4;
     margin: 0;
+    width: 75%;
   }
 }
 
@@ -3287,7 +3288,7 @@ button:focus {
 @media (min-width: 75em) {
   .news__cards__card__image {
     height: 19.625rem;
-    width: 32.75rem;
+    width: 100%;
   }
 }
 
@@ -4072,6 +4073,7 @@ button:focus {
   .projects__grid__card {
     padding: 2.5rem 2rem;
     border-right: 2px solid;
+    border-width: 1.5px !important;
   }
   .projects__grid__card:nth-child(-n + 5) {
     border-top: 2px solid;
@@ -4113,7 +4115,7 @@ button:focus {
 @media (min-width: 75em) {
   .projects__grid__card__normal_state p {
     font-size: 1.125rem;
-    margin-bottom: 140px;
+    margin-bottom: 100px;
   }
 }
 
@@ -4134,7 +4136,7 @@ button:focus {
 
 @media (min-width: 75em) {
   .projects__grid__card__normal_state h3 {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
 
@@ -4276,10 +4278,8 @@ button:focus {
 
 @media (min-width: 75em) {
   .projects__grid__card .state {
-    top: 6%;
+    top: 86%;
     right: 8%;
-    width: 0.4rem;
-    height: 0.4rem;
   }
 }
 
@@ -4513,7 +4513,7 @@ button:focus {
 
 .courses__grid__card {
   padding: 2rem 1.875rem;
-  border-top: 1px solid rgba(153, 153, 153, 0.3);
+  border-top: 1px solid rgba(153, 153, 153, 0.5);
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -4550,7 +4550,7 @@ button:focus {
 }
 
 .courses__grid__card:last-child {
-  border-bottom: 1px solid rgba(153, 153, 153, 0.3);
+  border-bottom: 1px solid rgba(153, 153, 153, 0.5);
 }
 
 .courses__grid__card:hover {
@@ -4559,7 +4559,7 @@ button:focus {
 
 .courses__grid__card__title {
   font-size: 1.125rem;
-  font-family: "Porto Sans Stencil";
+  font-family: "Porto Sans";
   font-weight: 400;
   color: #c94d24;
   margin: 0;
@@ -4777,14 +4777,12 @@ button:focus {
 
 .areas__grid__card {
   padding: 2rem 1.875rem;
-  border-top: 1px solid rgba(153, 153, 153, 0.3);
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  border-top: 1px solid rgba(153, 153, 153, 0.5);
   cursor: pointer;
 }
 
 .areas__grid__card:last-child {
-  border-bottom: 1px solid rgba(153, 153, 153, 0.3);
+  border-bottom: 1px solid rgba(153, 153, 153, 0.5);
 }
 
 .areas__grid__card:hover {
@@ -4842,7 +4840,7 @@ button:focus {
 .areas__grid__card__title {
   font-size: 1.125rem;
   color: #c94d24;
-  font-family: "Porto Sans Stencil";
+  font-family: "Porto Sans";
 }
 
 @media (min-width: 64em) {
@@ -4956,9 +4954,9 @@ button:focus {
 @media (min-width: 75em) {
   .media__grid {
     padding: 0 11vw;
-    -webkit-column-gap: 9.375rem;
-            column-gap: 9.375rem;
-    row-gap: 9.6875rem;
+    -webkit-column-gap: 7.375rem;
+            column-gap: 7.375rem;
+    row-gap: 5.6875rem;
   }
 }
 
@@ -4979,6 +4977,7 @@ button:focus {
 @media (max-width: 63.9375em) {
   .media__grid__card {
     padding: 0;
+    border-radius: 4px;
   }
 }
 
@@ -5010,7 +5009,7 @@ button:focus {
 
 @media (max-width: 63.9375em) {
   .media__grid__card iframe {
-    border-radius: 10px 10px 0 0;
+    border-radius: 4px 4px 0 0;
   }
 }
 
@@ -5050,7 +5049,7 @@ button:focus {
   font-size: 0.9375rem;
   margin-top: 20px;
   margin-bottom: 0;
-  text-shadow: 2px 2px 4px rgba(8, 8, 8, 0.2);
+  text-shadow: 2px 2px 4px rgba(8, 8, 8, 0.1);
 }
 
 @media (min-width: 64em) {
@@ -5077,6 +5076,7 @@ button:focus {
 @media (min-width: 64em) {
   .media__grid__card__info__title {
     font-size: 1.1875rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -5556,6 +5556,10 @@ button:focus {
   .sub__header__title {
     font-size: 2.25rem;
   }
+}
+
+.project__news .sub__header__title {
+  color: #080808;
 }
 
 .positions__come_prepared__grid__card h2,

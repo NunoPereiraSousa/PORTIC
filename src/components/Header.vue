@@ -34,7 +34,7 @@
             >
               {{ menu.menu_designation }}
             </router-link>
-            <button @click="openDropdown">
+            <!-- <button @click="openDropdown">
               Entidades
 
               <div
@@ -67,7 +67,7 @@
                   Porto Business Innovation
                 </h3>
               </div>
-            </button>
+            </button> -->
           </div>
         </div>
       </div>

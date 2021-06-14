@@ -84,7 +84,7 @@
 
         @include breakpoint-up(desktop) {
           height: 19.625rem;
-          width: 32.75rem;
+          width: 100%;
         }
 
         @include breakpoint-up(large) {

@@ -84,6 +84,8 @@
     &:not(:nth-child(5n)) {
       border-right: 2px solid;
     }
+
+    border-width: 1.5px !important;
   }
 
   &__normal_state {
@@ -110,7 +112,7 @@
 
       @include breakpoint-up(desktop) {
         font-size: $_18px;
-        margin-bottom: 140px;
+        margin-bottom: 100px;
       }
 
       @include breakpoint-up(large) {
@@ -127,7 +129,7 @@
       font-style: italic;
 
       @include breakpoint-up(desktop) {
-        font-size: $_20px;
+        font-size: $_16px;
       }
     }
   }
@@ -255,10 +257,8 @@
     }
 
     @include breakpoint-up(desktop) {
-      top: 6%;
+      top: 86%;
       right: 8%;
-      width: 0.4rem;
-      height: 0.4rem;
     }
 
     @include breakpoint-up(large) {

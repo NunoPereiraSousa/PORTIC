@@ -17,9 +17,15 @@
       "welcomeTo": " {institution}",
       "description": "Porto Research, Technology {0}& Innovation Center."
     },
+    "introOne": "Meet the new infrastructure of Politécnico do Porto - ",
+    "introTwo": " - Porto Research, Technology & Innovation Center.",
     "news": {
-      "title": "News",
+      "title": "Latest news",
       "button": "Know more"
+    },
+    "testimonials": {
+      "title": "Clients who trust in us",
+      "desc": "We are collecting testimonials..."
     }
   },
   "footer": {
@@ -77,7 +83,7 @@
     "desc": "Investigation, development and innovation projects.​",
     "input": {
       "placeholder": "Search project",
-      "filter": "Filter by alphabetical order",
+      "filter": "Alphabetical order",
       "status": "Project status"
     }
   },
