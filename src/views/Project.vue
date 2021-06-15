@@ -184,7 +184,7 @@ export default {
     ]),
     galleryStatus() {
       let status = this.getProjectsStatus;
-      console.log(status);
+
       return status == 200 ? true : false;
     },
     checkImgExistence() {
@@ -203,8 +203,6 @@ export default {
       let internal = this.project.inside_investors;
       let externals = this.project.outside_investors;
 
-      console.log([...internal, ...externals]);
-
       return [...internal, ...externals];
     }
     // getCurrentProject() {
@@ -216,15 +214,13 @@ export default {
     // }
   },
   created() {
-    console.log("CREATED");
-
     this.selectedId = this.getSelectedProjectByID;
 
     this.project = this.getProjectByID(this.selectedId);
-
-    console.log(this.project);
   },
   mounted() {
+    console.log(this.$store.getters.getSelectedProjectByID);
+
     this.changeCarousel();
   },
   methods: {

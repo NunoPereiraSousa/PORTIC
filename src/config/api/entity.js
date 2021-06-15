@@ -57,5 +57,22 @@ export const entityConfig = {
 
         return error;
       });
+  },
+  getEntitiesMenus: async (selectedLang, entityId) => {
+    return await axios
+      .get(`${API_URL}/${selectedLang}/entities/${entityId}`, {
+        headers
+      })
+      .then(response => {
+        return {
+          menus: response.data.processResult[0].menus,
+          unitiesStatus: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
   }
 };

@@ -31,6 +31,7 @@
               v-for="menu in menus"
               :key="menu.id_menu"
               :to="{ name: menu.router_link }"
+              @click.native="setMenu(menu.id_menu)"
             >
               {{ menu.menu_designation }}
             </router-link>
@@ -102,10 +103,10 @@
             <hr />
             <div class="navbar__content__main_links__grid grid">
               <router-link
-                @click.native="closeNavbarOnPageTransition"
                 v-for="menu in menus"
                 :key="menu.id_menu"
                 :to="{ name: menu.router_link }"
+                @click.native="closeNavbarOnPageTransition(menu.id_menu)"
               >
                 {{ menu.menu_designation }}
               </router-link>
@@ -115,7 +116,7 @@
             <hr />
             <h3>{{ $t("footer.links.title") }}</h3>
             <router-link
-              @click.native="closeNavbarOnPageTransition"
+              @click.native="closeNavbarOnPageTransition(0)"
               class="navbar__mobile_menu__grid__links__link"
               :to="{ name: 'Contacts' }"
             >
@@ -252,7 +253,11 @@ export default {
         }, 301);
       }
     },
-    closeNavbarOnPageTransition() {
+    closeNavbarOnPageTransition(id) {
+      this.$store.commit("SET_SELECTED_MENU", {
+        id: id
+      });
+
       let lines = document.querySelectorAll(".navbar__hamburger__lines");
 
       let navbar__toggle = document.querySelector(".navbar__toggle");
@@ -308,6 +313,11 @@ export default {
       this.$router.push({
         name: "UnitiesPage",
         params: { name: title }
+      });
+    },
+    setMenu(id) {
+      this.$store.commit("SET_SELECTED_MENU", {
+        id: id
       });
     }
   }

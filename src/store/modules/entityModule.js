@@ -9,7 +9,9 @@ export const entityModule = {
       selectedLang: ""
     },
     entityId: "",
-    focuses: []
+    focuses: [],
+    menus: [],
+    selectedMenuId: null
   },
   mutations: {
     SET_DATA(state, payload) {
@@ -24,6 +26,12 @@ export const entityModule = {
     },
     SET_ENTITY_FOCUSES(state, payload) {
       state.focuses = payload.focuses;
+    },
+    SET_MENUS(state, payload) {
+      state.menus = payload.menus;
+    },
+    SET_SELECTED_MENU(state, payload) {
+      state.selectedMenuId = payload.id;
     }
   },
   actions: {
@@ -43,6 +51,15 @@ export const entityModule = {
       commit(
         "SET_ENTITY_FOCUSES",
         await entityConfig.getEntityFocuses(
+          state.dataBody.selectedLang,
+          state.entityId
+        )
+      );
+    },
+    async setMenus({ commit, state }) {
+      commit(
+        "SET_MENUS",
+        await entityConfig.getEntitiesMenus(
           state.dataBody.selectedLang,
           state.entityId
         )
@@ -95,6 +112,10 @@ export const entityModule = {
     getEntitySlogan: state => {
       return state.data != "" ? state.data.designation : "Carregar...";
     },
-    getEntityFocuses: state => (state.focuses != "" ? state.focuses : [])
+    getEntityFocuses: state => (state.focuses != "" ? state.focuses : []),
+    getMenus: state => (state.menus != "" ? state.menus : ""),
+    getMenuDescByMenuID: state => id =>
+      state.menus.find(menu => menu.id_menu === id),
+    getSelectedMenuID: state => state.selectedMenuId
   }
 };

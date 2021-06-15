@@ -133,19 +133,18 @@ export default {
           break;
         case "Unities":
           try {
-            await this.$store.dispatch("setUnitiesPrincipals");
+            await this.$store.dispatch("setMenus");
           } catch (error) {
             console.log(`App: ${error}`);
             return error;
           }
           break;
         case "Positions":
-          try {
-            await this.$store.dispatch("setCareerTips");
-          } catch (error) {
-            console.log(`App: ${error}`);
-            return error;
-          }
+          // try {
+          // } catch (error) {
+          //   console.log(`App: ${error}`);
+          //   return error;
+          // }
           break;
         default:
           break;

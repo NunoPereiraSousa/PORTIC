@@ -39,7 +39,9 @@ export const projectsModule = {
     getProjectsStatus: state => state.projectsStatus,
     getProjectByName: state => initials =>
       state.projects.find(p => p.initials === initials),
-    getSelectedProjectByID: state => state.selectedId,
+    getSelectedProjectByID: state => {
+      return state.selectedId;
+    },
     getProjectByID: state => id => state.projects.find(n => n.id_project == id)
   }
 };

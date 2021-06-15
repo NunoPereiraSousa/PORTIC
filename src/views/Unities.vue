@@ -2,7 +2,7 @@
   <div>
     <SubPageIntro
       :categoryTitle="$t('unities.unitiesKey')"
-      content="O PORTIC integra diversas unidades de investigação, desenvolvimento e inovação, seja internas, seja disponibilizando espaço para unidades e entidades externas."
+      :content="setMenuDescription"
     />
 
     <section class="unities">
@@ -51,7 +51,8 @@ export default {
       teamWorkPrinciples: null,
       unitySelectedTitle: null,
       unitySelectedContent: null,
-      loadedData: false
+      loadedData: false,
+      menu: {}
     };
   },
   created() {
@@ -66,10 +67,18 @@ export default {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setUnitiesPrincipals");
       await this.$store.dispatch("setUnities");
+      await this.$store.dispatch("setMenus");
+
+      console.log(this.getMenus);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
     }
+
+    // Get unities desc
+    // let selectedMenu = this.getSelectedMenuID;
+
+    // this.menu = this.getMenuDescByMenuID(selectedMenu);
   },
   computed: {
     ...mapGetters([
@@ -77,7 +86,10 @@ export default {
       "getUnitiesPrincipals",
       "getUnities",
       "getUnityById",
-      "getSelectedUnityId"
+      "getSelectedUnityId",
+      "getMenus",
+      "getMenuDescByMenuID",
+      "getSelectedMenuID"
     ]),
     principalsStatus() {
       let status = this.$store.getters.getPrincipalsStatus;
@@ -89,6 +101,14 @@ export default {
     },
     getUnitiesArr() {
       return this.getUnities;
+    },
+    setMenuDescription() {
+      // this.getMenuDescByMenuID(this.getSelectedMenuID)
+      // let menu = this.menu;
+      console.log(
+        this.getMenuDescByMenuID(this.getSelectedMenuID).page_description
+      );
+      return this.getMenuDescByMenuID(this.getSelectedMenuID).page_description;
     }
   },
   methods: {

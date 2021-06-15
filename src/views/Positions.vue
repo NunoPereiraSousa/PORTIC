@@ -1,7 +1,7 @@
 <template>
   <div class="positions">
     <section class="positions__available">
-      <!-- <SubHeaderTitle :text="$t('careers.title3')" /> -->
+      <SubHeaderTitle :text="$t('careers.title3')" />
       <div class="positions__available__grid grid">
         <CareersCard
           v-for="(position, index) in $store.getters.getCareers"
@@ -22,12 +22,14 @@
 <script>
 import { mapGetters } from "vuex";
 
+import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
 import CareersCard from "@/components/Positions/CareersCard.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
     CareersCard,
+    SubHeaderTitle,
     Footer
   },
   data: () => {

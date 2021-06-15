@@ -16,23 +16,6 @@
         </p>
       </div>
     </div>
-
-    <!-- <div class="sub_page_intro grid hide-for-mobile">
-      <div>
-        <div class="sub_page_intro__paragraphs">
-          <p>Porto / Research /</p>
-          <p>Technology / Innovation / Centre</p>
-        </div>
-        <div class="sub_page_intro__title">
-          <h1>{{ categoryTitle }}</h1>
-        </div>
-      </div>
-      <div class="sub_page_intro__text">
-        <p>
-          {{ content }}
-        </p>
-      </div>
-    </div> -->
   </div>
 </template>
 

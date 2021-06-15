@@ -7,7 +7,7 @@
 PORTIC includes units and groups with activities in different stages of the knowledge and innovation chain, in several areas of knowledge."
     />
     <section class="courses">
-      <SubHeaderTitle text="Explore os nossos cursos" />
+      <SubHeaderTitle :text="$t('courses.title')" />
       <div class="courses__grid grid">
         <CoursesCard
           v-for="(course, index) in courses"
@@ -40,10 +40,7 @@ export default {
     Footer
   },
   computed: {
-    ...mapGetters(["getCourses", "getCoursesFocus"]),
-    getCoursesIcons() {
-      return this.getCoursesFocus;
-    },
+    ...mapGetters(["getCourses"]),
     courses() {
       return this.getCourses;
     }

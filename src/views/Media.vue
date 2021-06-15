@@ -13,11 +13,9 @@ PORTIC includes units and groups with activities in different stages of the know
     <MainTitle className="main__title" :text="$t('medias.title')" />
     <section class="media">
       <div class="media__grid grid">
-        <!-- :videoURL="convertToYoutubeURL(medias.url)" -->
         <MediaCard
-          v-for="(media, index) in $store.getters.getMedias"
+          v-for="media in $store.getters.getMedias"
           :key="media.id_media"
-          :counter="index + 1"
           :videoURL="convertToYoutubeURL(media.youtube_path)"
           :title="media.description"
         />
