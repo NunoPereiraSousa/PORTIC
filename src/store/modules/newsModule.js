@@ -9,9 +9,6 @@ export const newsModule = {
   mutations: {
     SET_SELECTED_NEWS_ID(state, payload) {
       state.selectedNewsId = payload.id;
-
-      console.log(state.selectedNewsId);
-      console.log(payload.id);
     },
     SET_SELECTED_NEWS(state, payload) {
       state.selectedNewsTitle = payload.title;

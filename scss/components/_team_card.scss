@@ -7,18 +7,14 @@
     border-radius: 50%;
   }
 
-  h2,
-  h3 {
+  h2 {
     margin: 0;
     font-weight: 400;
-  }
-
-  h2 {
     margin-top: 1rem;
     font-size: $_18px;
   }
 
-  h3 {
+  a {
     margin-top: 0.2rem;
     font-size: $_16px;
     color: $lightGrey;

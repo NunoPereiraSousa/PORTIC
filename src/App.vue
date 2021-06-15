@@ -90,7 +90,7 @@ export default {
     this.getLang();
   },
   computed: {
-    ...mapGetters(["getCurrLang", "getEntityData", "getEntityDataStatus"]),
+    ...mapGetters(["getCurrLang", "getEntityData"]),
     loadingStatus() {
       let loading = this.loading;
       loading = true;

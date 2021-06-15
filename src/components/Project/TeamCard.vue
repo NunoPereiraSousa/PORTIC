@@ -3,7 +3,7 @@
     <img :src="image" alt="Team member image" />
 
     <h2>{{ name }}</h2>
-    <h3>{{ position }}</h3>
+    <a :href="`tel:+351${number}`">{{ number }}</a>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
       type: String,
       required: true
     },
-    position: {
+    number: {
       type: String,
       required: true
     }

@@ -528,8 +528,8 @@
             transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(calc(-350px * 4));
-            transform: translateX(calc(-350px * 4));
+    -webkit-transform: translateX(calc(-350px * 3));
+            transform: translateX(calc(-350px * 3));
   }
 }
 
@@ -539,8 +539,8 @@
             transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(calc(-350px * 4));
-            transform: translateX(calc(-350px * 4));
+    -webkit-transform: translateX(calc(-350px * 3));
+            transform: translateX(calc(-350px * 3));
   }
 }
 
@@ -1276,8 +1276,8 @@ button:focus {
             transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(calc(-350px * 4));
-            transform: translateX(calc(-350px * 4));
+    -webkit-transform: translateX(calc(-350px * 3));
+            transform: translateX(calc(-350px * 3));
   }
 }
 
@@ -7595,18 +7595,14 @@ button:focus {
   border-radius: 50%;
 }
 
-.project__team__grid__card h2,
-.project__team__grid__card h3 {
+.project__team__grid__card h2 {
   margin: 0;
   font-weight: 400;
-}
-
-.project__team__grid__card h2 {
   margin-top: 1rem;
   font-size: 1.125rem;
 }
 
-.project__team__grid__card h3 {
+.project__team__grid__card a {
   margin-top: 0.2rem;
   font-size: 1rem;
   color: #666666;

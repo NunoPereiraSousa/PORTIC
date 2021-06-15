@@ -2,7 +2,6 @@
   <div>
     <section class="projects_catalog">
       <div class="flex flex-jc-c flex-ai-c flex-fd-c">
-        <h3 class="flex flex-ai-c">{{ $t("projects.title") }} - PORTIC</h3>
         <h1 class="projects_catalog__title">{{ $t("projects.title") }}</h1>
         <p class="projects_catalog__quote">
           {{ $t("projects.desc") }}
@@ -37,66 +36,21 @@
           v-model="endingDate"
           placeholder="Data de término"
         />
-        <!-- <div
-          class="flex flex-jc-sa flex-ai-c hide-for-desktop"
-          style="width: 100%"
-        >
-          <button
-            class="projects_catalog__filters__sorting"
-            @click="order = !order"
-          >
-            {{ $t("projects.input.filter") }}
-          </button>
-        </div> -->
-        <!-- <div class="hide-for-mobile">
-          <button
-            class="projects_catalog__filters__sorting"
-            @click="order = !order"
-          >
-            {{ $t("projects.input.filter") }}
-          </button>
-        </div> -->
-        <!-- <div class="hide-for-mobile">
-          <select v-model="status">
-            <option value="">{{ $t("projects.input.status") }}</option>
-            <option value="Stop">Not Started</option>
-            <option value="underDev">Under development</option>
-            <option value="Finished">Finished</option>
-          </select>
-        </div>
-        <div class="hide-for-mobile">
-          <input
-            type="date"
-            v-model="startingDate"
-            class="input_date"
-            placeholder="Data de início"
-          />
-        </div>
-        <div class="hide-for-mobile">
-          <input
-            type="date"
-            class="input_date"
-            v-model="endingDate"
-            placeholder="Data de término"
-          />
-        </div> -->
       </div>
       <div class="projects__grid grid" style="width: 100%">
-        <div v-if="filterProjects.length < 1">
+        <div v-if="projects.length < 1">
           Não foi encontrado nenhum projetos!
         </div>
         <ProjectCard
-          v-for="project in filterProjects"
-          :key="project.id"
+          v-for="project in projects"
+          :key="project.id_project"
+          :id="project.id_project"
           :initials="project.initials"
           :title="project.title"
-          :description="project.description"
-          :projectInitials="project.initials"
-          :overallBudget="project.overallBudget"
-          :color="setColor(project.status)"
+          :description="project.desc_html_structure"
+          :color="setColor('finished')"
           @mouseover.native="onHover"
           @mouseleave.native="notHover"
-          @click.native="setSelectedProject(project.initials)"
         />
       </div>
     </section>
@@ -118,7 +72,7 @@ export default {
   data: () => {
     return {
       selectedItem: null,
-      projects: null,
+      // projects: null,
       order: false,
       order2: false,
       projectTxt: "",
@@ -127,18 +81,33 @@ export default {
       endingDate: ""
     };
   },
-  created() {
-    this.projects = this.getProjects;
+  async mounted() {
+    this.$store.commit("SET_SELECTED_PROJECTS_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
+
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setProjects");
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
   },
   computed: {
     ...mapGetters(["getProjects"]),
+    projects() {
+      return this.getProjects;
+    },
     filterProjects() {
       // const arr = this.getProjects;
 
       this.compareDates(this.startingDate, this.endingDate);
 
       return this.filterAlphabetically(
-        this.filterProjectsByName(this.filterProjectsByCategory(this.projects))
+        this.filterProjectsByName(
+          this.filterProjectsByCategory(this.getProjects)
+        )
       );
 
       // if (!this.order && this.projectTxt != null) {
@@ -288,10 +257,11 @@ export default {
       if (a.initials > b.initials) return 1;
       else return 0;
     },
-    setSelectedProject(name) {
-      this.$store.commit("SET_SELECTED_PROJECT", {
-        initials: name
+    setSelectedProject(name, id) {
+      this.$store.commit("SET_SELECTED_PROJECT_ID", {
+        id: id
       });
+
       this.$router.push({
         name: "Project",
         params: { name: name }

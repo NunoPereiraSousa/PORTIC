@@ -1,5 +1,5 @@
 <template>
-  <div class="projects__grid__card">
+  <div class="projects__grid__card" @click="setSelectedProject(id, initials)">
     <div class="projects__grid__card__normal_state">
       <h1>{{ initials }}</h1>
       <p>{{ title }}</p>
@@ -14,7 +14,7 @@
           <p v-html="description"></p>
         </div>
         <div class="bottom">
-          <button @click="setSelectedProject(projectInitials)">
+          <button @click="setSelectedProject(id, initials)">
             Saber mais
           </button>
         </div>
@@ -28,6 +28,10 @@
 export default {
   name: "ProjectCard",
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     initials: {
       type: String,
       required: true
@@ -38,14 +42,6 @@ export default {
     },
     description: {
       type: String,
-      required: true
-    },
-    projectInitials: {
-      type: String,
-      required: true
-    },
-    overallBudget: {
-      type: Number,
       required: true
     },
     color: {
@@ -59,17 +55,29 @@ export default {
     }
   },
   methods: {
-    setSelectedProject(name) {
-      this.$store.commit("SET_SELECTED_PROJECT", {
-        initials: name
+    setSelectedProject(id, initials) {
+      this.$store.commit("SET_SELECTED_PROJECT_ID", {
+        id: id
       });
-      this.$router.push({
-        name: "Project",
-        params: { name: name }
-      });
+
+      let formatedTitle = this.formatRouterPath(initials);
+
+      if (this.$route.path !== `/project/${formatedTitle}`) {
+        this.$router
+          .push({
+            name: "Project",
+            params: { id: initials }
+          })
+          .catch(err => {
+            return err;
+          });
+      }
     },
     formatBudget(n) {
       return `${n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}€`;
+    },
+    formatRouterPath(title) {
+      return title.replace(/\s/g, "%20");
     }
   }
 };

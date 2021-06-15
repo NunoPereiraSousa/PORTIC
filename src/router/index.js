@@ -87,7 +87,7 @@ const routes = [
     props: true
   },
   {
-    path: "/project/:name",
+    path: "/project/:id",
     name: "Project",
     component: Project,
     props: true

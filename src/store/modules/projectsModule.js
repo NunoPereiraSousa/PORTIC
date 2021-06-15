@@ -1,27 +1,45 @@
-import { projects } from "../../config/projects";
+import { projectsConfig } from "../../config/api/projects";
+import { entityModule } from "./entityModule";
 
 export const projectsModule = {
   state: {
-    projects: projects,
-    selectedProject: null,
-    selectedId: null
+    projects: [],
+    projectsStatus: null,
+    selectedId: null,
+    dataBody: {
+      selectedLang: ""
+    }
   },
   mutations: {
-    SET_SELECTED_PROJECT(state, payload) {
-      state.selectedProject = payload.initials;
+    SET_PROJECTS(state, payload) {
+      state.projects = payload.projects;
+      state.projectsStatus = payload.status;
     },
     SET_SELECTED_PROJECT_ID(state, payload) {
       state.selectedId = payload.id;
+    },
+    SET_SELECTED_PROJECTS_LANG(state, payload) {
+      state.dataBody.selectedLang = payload.lang;
     }
   },
-  actions: {},
+  actions: {
+    async setProjects({ commit, state }) {
+      commit(
+        "SET_PROJECTS",
+        await projectsConfig.getProjects(
+          state.dataBody.selectedLang,
+          entityModule.state.entityId
+        )
+      );
+    }
+  },
   getters: {
     getProjects: state => state.projects,
-    getNProjects: state => state.projects.length,
-    getSelectedProject: state => state.selectedProject,
+    getProjectsLength: state => state.projects.length,
+    getProjectsStatus: state => state.projectsStatus,
     getProjectByName: state => initials =>
       state.projects.find(p => p.initials === initials),
     getSelectedProjectByID: state => state.selectedId,
-    getProjectByID: state => id => state.projects.find(n => n.id == id)
+    getProjectByID: state => id => state.projects.find(n => n.id_project == id)
   }
 };
