@@ -21,7 +21,8 @@
       grid-template-columns: 1fr 1fr;
     }
 
-    li {
+    a {
+      color: $black;
       list-style-type: none;
       line-height: 1.5;
       font-family: $portoSans;

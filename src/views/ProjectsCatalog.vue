@@ -93,6 +93,8 @@ export default {
       console.log(`App: ${error}`);
       return error;
     }
+
+    localStorage.setItem("projects", JSON.stringify(this.getProjects));
   },
   computed: {
     ...mapGetters(["getProjects"]),

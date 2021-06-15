@@ -3,77 +3,17 @@
     <div class="site_map">
       <SubHeaderTitle :text="$t('sitemap')" />
 
-      <ul class="site_map_list grid">
-        <div>
-          <li>
-            <router-link :to="{ name: 'Unities' }">
-              {{ $t("navbar.items[1]") }}
-            </router-link>
-            <ul>
-              <li v-for="unity in setUnities" :key="unity.id">
-                <router-link :to="{ name: 'Unities' }">
-                  {{ unity.unityName }}
-                </router-link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <router-link :to="{ name: 'Areas' }">
-              {{ $t("navbar.items[2]") }}
-            </router-link>
-            <ul>
-              <li v-for="area in setAreas" :key="area.id">
-                <router-link :to="{ name: 'Areas' }">
-                  {{ area.areaName }}
-                </router-link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <router-link :to="{ name: 'Courses' }">
-              {{ $t("navbar.items[3]") }}
-            </router-link>
-            <ul>
-              <li v-for="course in setCourses" :key="course.id">
-                <router-link :to="{ name: 'Courses' }">
-                  {{ course.courseName }}
-                </router-link>
-              </li>
-            </ul>
-          </li>
-        </div>
-        <div>
-          <li>
-            <router-link :to="{ name: 'ProjectsCatalog' }">
-              {{ $t("navbar.items[4]") }}
-            </router-link>
-            <ul>
-              <li
-                v-for="project in setProjects"
-                :key="project.id"
-                @click="visitProjectPage(project.initials)"
-              >
-                {{ project.initials }}
-              </li>
-            </ul>
-          </li>
-          <li>
-            <router-link :to="{ name: 'Media' }">
-              {{ $t("navbar.items[5]") }}
-            </router-link>
-          </li>
-          <li>
-            <router-link :to="{ name: 'Positions' }">
-              {{ $t("navbar.items[6]") }}
-            </router-link>
-          </li>
-          <li>
-            <router-link :to="{ name: 'Contacts' }">
-              {{ $t("navbar.items[0]") }}
-            </router-link>
-          </li>
-        </div>
-      </ul>
+      <div class="site_map_list flex flex-fd-c">
+        <router-link
+          v-for="menu in setMenus"
+          :key="menu.id_menu"
+          :to="{ name: menu.router_link }"
+        >
+          {{ menu.menu_designation }}
+        </router-link>
+      </div>
+
+      <SubHeaderTitle :text="$t('sitemap')" />
     </div>
     <Footer />
   </div>
@@ -89,15 +29,29 @@ export default {
     SubHeaderTitle,
     Footer
   },
+  async mounted() {
+    this.$store.commit("SET_SELECTED_UNITIES_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
+
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setUnities");
+      await this.$store.dispatch("setMenus");
+
+      console.log(this.getMenus);
+    } catch (error) {
+      console.log(`App: ${error}`);
+      return error;
+    }
+  },
   computed: {
-    ...mapGetters([
-      "getAreasPT",
-      "getAreasEN",
-      "getUnities",
-      "getCoursesPT",
-      "getCoursesEN",
-      "getProjects"
-    ]),
+    ...mapGetters(["getUnities", "getProjects", "getMenus"]),
+    setMenus() {
+      let menus = this.getMenus;
+
+      return this.$i18n.locale == "pt" ? menus : menus;
+    },
     setAreas() {
       let areasPT = this.getAreasPT;
       let areasEN = this.getAreasEN;

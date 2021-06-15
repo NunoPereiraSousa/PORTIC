@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!loadingStatus">
     <SubPageIntro
       :categoryTitle="$t('unities.unitiesKey')"
       :content="setMenuDescription"
@@ -52,7 +52,8 @@ export default {
       unitySelectedTitle: null,
       unitySelectedContent: null,
       loadedData: false,
-      menu: {}
+      menu: {},
+      loading: false
     };
   },
   created() {
@@ -103,12 +104,17 @@ export default {
       return this.getUnities;
     },
     setMenuDescription() {
-      // this.getMenuDescByMenuID(this.getSelectedMenuID)
-      // let menu = this.menu;
-      console.log(
-        this.getMenuDescByMenuID(this.getSelectedMenuID).page_description
-      );
       return this.getMenuDescByMenuID(this.getSelectedMenuID).page_description;
+    },
+    loadingStatus() {
+      let loading = this.loading;
+      loading = true;
+
+      if (this.$store.getters.getEntityStatus == 200) loading = false;
+
+      console.log(this.$store.getters.getEntityStatus == 200);
+
+      return loading;
     }
   },
   methods: {

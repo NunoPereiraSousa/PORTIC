@@ -3328,7 +3328,7 @@ button:focus {
   .news__cards__card h2 {
     margin: 1rem 0 2rem;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -7478,7 +7478,8 @@ button:focus {
   }
 }
 
-.site_map_list li {
+.site_map_list a {
+  color: #080808;
   list-style-type: none;
   line-height: 1.5;
   font-family: "Porto Sans";
@@ -7486,104 +7487,104 @@ button:focus {
 }
 
 @media (min-width: 75em) {
-  .site_map_list li {
+  .site_map_list a {
     font-size: 1.125rem;
     line-height: 1.7;
   }
 }
 
 @media (min-width: 75em) {
-  .site_map_list li {
+  .site_map_list a {
     font-size: 1.25rem;
     line-height: 1.7;
   }
 }
 
-.site_map_list li li:nth-child(1):hover {
+.site_map_list a li:nth-child(1):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(2):hover {
+.site_map_list a li:nth-child(2):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(3):hover {
+.site_map_list a li:nth-child(3):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(4):hover {
+.site_map_list a li:nth-child(4):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(5):hover {
+.site_map_list a li:nth-child(5):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(6):hover {
+.site_map_list a li:nth-child(6):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(7):hover {
+.site_map_list a li:nth-child(7):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(8):hover {
+.site_map_list a li:nth-child(8):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(9):hover {
+.site_map_list a li:nth-child(9):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(10):hover {
+.site_map_list a li:nth-child(10):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(11):hover {
+.site_map_list a li:nth-child(11):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(12):hover {
+.site_map_list a li:nth-child(12):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(13):hover {
+.site_map_list a li:nth-child(13):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(14):hover {
+.site_map_list a li:nth-child(14):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(15):hover {
+.site_map_list a li:nth-child(15):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(16):hover {
+.site_map_list a li:nth-child(16):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(17):hover {
+.site_map_list a li:nth-child(17):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(18):hover {
+.site_map_list a li:nth-child(18):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(19):hover {
+.site_map_list a li:nth-child(19):hover {
   color: #c94d24;
 }
 
-.site_map_list li li:nth-child(20):hover {
+.site_map_list a li:nth-child(20):hover {
   color: #c94d24;
 }
 
-.site_map_list li a {
+.site_map_list a a {
   color: #080808;
 }
 
-.site_map_list li a:hover {
+.site_map_list a a:hover {
   color: #c94d24;
 }
 

@@ -34,12 +34,13 @@ export const projectsModule = {
     }
   },
   getters: {
-    getProjects: state => state.projects,
+    getProjects: state => (state.projects != "" ? state.projects : []),
     getProjectsLength: state => state.projects.length,
     getProjectsStatus: state => state.projectsStatus,
     getProjectByName: state => initials =>
       state.projects.find(p => p.initials === initials),
     getSelectedProjectByID: state => {
+      console.log(state.selectedId);
       return state.selectedId;
     },
     getProjectByID: state => id => state.projects.find(n => n.id_project == id)

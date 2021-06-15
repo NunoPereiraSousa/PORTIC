@@ -56,6 +56,8 @@ export default {
   },
   methods: {
     setSelectedProject(id, initials) {
+      localStorage.setItem("projectID", JSON.stringify(id));
+
       this.$store.commit("SET_SELECTED_PROJECT_ID", {
         id: id
       });

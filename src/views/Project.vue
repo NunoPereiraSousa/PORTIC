@@ -29,12 +29,12 @@
 
             <h2>
               <a :href="`tel:+351${project.project_contact}`">{{
-                project.project_contact
+                project.phoneNumber
               }}</a>
             </h2>
             <h2>
               <a :href="`mailto:${project.project_email}`">{{
-                project.project_email
+                project.email
               }}</a>
             </h2>
           </div>
@@ -43,7 +43,7 @@
           <div class="slide-track">
             <div class="flex" v-for="i in 2" :key="i">
               <Slide
-                v-for="partner in setPartners"
+                v-for="partner in project.partners"
                 :key="partner.id_investor"
                 :slideText="partner.designation"
               />
@@ -53,7 +53,7 @@
       </section>
       <section class="project__objective">
         <SubHeaderTitle text="Descrição" />
-        <div v-html="project.desc_html_structure"></div>
+        <div v-html="project.description"></div>
       </section>
       <section class="project__gallery">
         <SubHeaderTitle text="Galeria de projeto" class="light" />
@@ -79,7 +79,7 @@
             :infinite="false"
           >
             <vue-glide-slide
-              v-for="(image, index) in project.gallery_imgs"
+              v-for="(image, index) in project.gallery"
               :key="index"
             >
               <img :src="image" alt="Project Image" />
@@ -117,7 +117,7 @@
 
         <div class="project__team__grid grid">
           <TeamCard
-            v-for="member in project.project_team"
+            v-for="member in project.team"
             :key="member.id_user"
             image="https://upload.wikimedia.org/wikipedia/commons/f/f0/Fredrick_Douglass_Housing_Project_Towers_2010.jpg"
             :name="member.full_name"
@@ -154,6 +154,7 @@ export default {
   },
   data: () => {
     return {
+      projects: [],
       selectedProject: null,
       selectedId: null,
       project: {
@@ -163,6 +164,7 @@ export default {
         phoneNumber: null,
         email: null,
         description: null,
+        partners: [],
         news: [],
         gallery: [],
         team: []
@@ -172,9 +174,36 @@ export default {
       author: null
     };
   },
+  created() {
+    this.selectedId = this.getSelectedProjectByID;
+
+    this.projects = JSON.parse(localStorage.getItem("projects"));
+
+    this.project.initials = this.getCurrentProject.initials;
+    this.project.phoneNumber = this.getCurrentProject.project_contact;
+    this.project.email = this.getCurrentProject.project_email;
+    this.project.partners = this.setPartnersArr(
+      this.getCurrentProject.inside_investors,
+      this.getCurrentProject.outside_investors
+    );
+    this.project.description = this.getCurrentProject.desc_html_structure;
+    this.project.gallery = this.getCurrentProject.gallery_imgs;
+    this.project.news = this.getCurrentProject.news;
+    this.project.team = this.getCurrentProject.project_team;
+
+    console.log(this.projects);
+  },
+  mounted() {
+    this.changeCarousel();
+  },
+  destroyed() {
+    localStorage.removeItem("projects");
+
+    console.log("DESTROYED");
+  },
   computed: {
     ...mapGetters([
-      "getProjectByName",
+      "getProjects",
       "getProjectByID",
       "getSelectedProjectByID",
       "getProjectsStatus",
@@ -182,86 +211,69 @@ export default {
       "getNewsById",
       "getSelectedNewsId"
     ]),
+    getCurrentProject() {
+      return this.projects.find(
+        project => project.initials === this.$route.params.id
+      );
+    },
+    currentId() {
+      let projects = this.getProjects;
+
+      return projects.find(
+        project => project.initials === this.$route.params.id
+      );
+    },
     galleryStatus() {
       let status = this.getProjectsStatus;
 
       return status == 200 ? true : false;
     },
     checkImgExistence() {
-      let project = this.getProjectByID(this.getSelectedProjectByID);
-      let images = project.gallery_imgs;
+      let images = this.project.gallery;
 
       return images > 0 ? true : false;
     },
     checkNewsExistence() {
-      let project = this.getProjectByID(this.getSelectedProjectByID);
-      let news = project.news;
+      let news = this.project.news;
 
       return news > 0 ? true : false;
-    },
-    setPartners() {
-      let internal = this.project.inside_investors;
-      let externals = this.project.outside_investors;
-
-      return [...internal, ...externals];
     }
-    // getCurrentProject() {
-    //   let id = this.getSelectedProjectByID;
-
-    //   let project = this.getProjectByID(id);
-
-    //   return project;
-    // }
-  },
-  created() {
-    this.selectedId = this.getSelectedProjectByID;
-
-    this.project = this.getProjectByID(this.selectedId);
-  },
-  mounted() {
-    console.log(this.$store.getters.getSelectedProjectByID);
-
-    this.changeCarousel();
   },
   methods: {
+    setPartnersArr(internals, externals) {
+      return [...internals, ...externals];
+    },
     formatCurrency(n) {
       return `${n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}€`;
     },
     changeCarousel() {
-      let nInternals = this.project.inside_investors.length;
-      let nPartners = this.project.outside_investors.length;
-
-      console.log(nInternals);
+      let parners = this.project.partners.length;
+      console.log(parners);
+      // let nPartners = this.project.outside_investors.length;
 
       let slideTrack = document.querySelector(".slide-track");
       let slide = document.querySelectorAll(".slide");
 
       if (window.innerWidth >= 1024 && window.innerWidth < 1500) {
-        slideTrack.style.width = `calc(250px * ${nPartners * 2 +
-          nInternals * 2})`;
+        slideTrack.style.width = `calc(250px * ${parners * 2})`;
 
-        slideTrack.style.animation = `carouselDesktop${nPartners +
-          nInternals} 20s linear infinite`;
+        slideTrack.style.animation = `carouselDesktop${parners} 20s linear infinite`;
 
         slide.forEach(s => {
           s.style.width = "250px";
         });
       } else if (window.innerWidth >= 1500) {
-        slideTrack.style.width = `calc(350px * ${nPartners * 2 +
-          nInternals * 2})`;
+        slideTrack.style.width = `calc(350px * ${parners * 2})`;
 
-        slideTrack.style.animation = `carouselDesktopBig${nPartners +
-          nInternals} 20s linear infinite`;
+        slideTrack.style.animation = `carouselDesktopBig${parners} 20s linear infinite`;
 
         slide.forEach(s => {
           s.style.width = "350px";
         });
       } else {
-        slideTrack.style.width = `calc(125px * ${nPartners * 2 +
-          nInternals * 2})`;
+        slideTrack.style.width = `calc(125px * ${parners * 2})`;
 
-        slideTrack.style.animation = `carousel${nPartners +
-          nInternals} 20s linear infinite`;
+        slideTrack.style.animation = `carousel${parners} 20s linear infinite`;
 
         slide.forEach(s => {
           s.style.width = "125px";

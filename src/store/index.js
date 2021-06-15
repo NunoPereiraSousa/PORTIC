@@ -43,6 +43,7 @@ export default new Vuex.Store({
   plugins: [
     createPersistedState({
       paths: [
+        "projectsModule.projects",
         "projectsModule.selectedId",
         "langModule.lang",
         "newsModule.selectedNewsId"
