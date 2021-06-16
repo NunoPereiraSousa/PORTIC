@@ -42,13 +42,13 @@
           Não foi encontrado nenhum projetos!
         </div>
         <ProjectCard
-          v-for="project in projects"
+          v-for="project in filterProjects"
           :key="project.id_project"
           :id="project.id_project"
           :initials="project.initials"
           :title="project.title"
           :description="project.desc_html_structure"
-          :color="setColor('finished')"
+          :status="setStatus(project.start_date, project.end_date)"
           @mouseover.native="onHover"
           @mouseleave.native="notHover"
         />
@@ -72,7 +72,6 @@ export default {
   data: () => {
     return {
       selectedItem: null,
-      // projects: null,
       order: false,
       order2: false,
       projectTxt: "",
@@ -102,77 +101,21 @@ export default {
       return this.getProjects;
     },
     filterProjects() {
-      // const arr = this.getProjects;
-
       this.compareDates(this.startingDate, this.endingDate);
 
       return this.filterAlphabetically(
-        this.filterProjectsByName(
-          this.filterProjectsByCategory(this.getProjects)
-        )
+        this.filterProjectsByName(this.filterProjectsByCategory(this.projects))
       );
-
-      // if (!this.order && this.projectTxt != null) {
-      //   return (
-      //     arr,
-      //     this.projects.filter(project => {
-      //       let filterSearch = true;
-
-      //       if (this.projectTxt != "") {
-      //         filterSearch = project.initials
-      //           .toLowerCase()
-      //           .includes(this.projectTxt.toLowerCase());
-      //       }
-
-      //       return filterSearch;
-      //     })
-      //   );
-      // } else {
-      //   return [...arr].sort(this.compareName);
-      // }
-
-      // if (!this.order2 && this.projectTxt != null) {
-      //   return (
-      //     arr,
-      //     this.projects.filter(project => {
-      //       let filterSearch = true;
-
-      //       if (this.projectTxt != "") {
-      //         filterSearch = project.initials
-      //           .toLowerCase()
-      //           .includes(this.projectTxt.toLowerCase());
-      //       }
-
-      //       return filterSearch;
-      //     })
-      //   );
-      // } else {
-      //   return [...arr].sort(this.compareName);
-      // }
-
-      // if (!this.order && this.projectTxt != null) {
-      //   return (
-      //     arr,
-      //     this.projects.filter(project => {
-      //       let filterSearch = true;
-
-      //       if (this.projectTxt != "") {
-      //         filterSearch = project.initials
-      //           .toLowerCase()
-      //           .includes(this.projectTxt.toLowerCase());
-      //       }
-
-      //       return filterSearch;
-      //     })
-      //   );
-      // } else {
-      //   return [...arr].sort(this.compareBudget);
-      // }
     }
   },
   methods: {
     filterProjectsByCategory(projects) {
-      return projects.filter(project => !project.status.indexOf(this.status));
+      return projects.filter(
+        project =>
+          !this.setStatus(project.start_date, project.end_date).indexOf(
+            this.status
+          )
+      );
     },
     filterProjectsByName(projects) {
       return projects.filter(
@@ -187,27 +130,15 @@ export default {
         return [...projects].sort(this.compareName);
       }
     },
-    setColor(status) {
-      if (status == "finished") {
-        return "#ee5a5a";
-      } else if (status == "completed") {
-        return "#28aa2d";
+    setStatus(start_date, end_date) {
+      if (start_date < end_date) {
+        return "finished";
+      } else if (start_date > end_date) {
+        return "completed";
       } else {
-        return "#eecb5a";
+        return "underDev";
       }
     },
-    // filterProjectsByDateRange(projects){
-    //   return projects.filter(
-    //     project => {
-    //       if (this.endingDate == "") {
-    //         return this.getCurrentDate();
-    //       }
-    //       if (project.startingDate < this.getCurrentDate()) {
-
-    //       }
-    //     }
-    //   )
-    // },
     compareDates(startingDate, endingDate) {
       const date1 = new Date(startingDate);
       const date2 = new Date(endingDate);
@@ -228,6 +159,18 @@ export default {
 
       return `${year}-${month}-${day}`;
     },
+    // filterProjectsByDateRange(projects){
+    //   return projects.filter(
+    //     project => {
+    //       if (this.endingDate == "") {
+    //         return this.getCurrentDate();
+    //       }
+    //       if (project.startingDate < this.getCurrentDate()) {
+
+    //       }
+    //     }
+    //   )
+    // },
 
     // filterProductsByRange: function(projects) {
     //   return projects.filter(project =>
@@ -272,3 +215,19 @@ export default {
   }
 };
 </script>
+
+// if (!this.order && this.projectTxt != null) { // return ( // arr, //
+this.projects.filter(project => { // let filterSearch = true; // if
+(this.projectTxt != "") { // filterSearch = project.initials // .toLowerCase()
+// .includes(this.projectTxt.toLowerCase()); // } // return filterSearch; // })
+// ); // } else { // return [...arr].sort(this.compareName); // } // if
+(!this.order2 && this.projectTxt != null) { // return ( // arr, //
+this.projects.filter(project => { // let filterSearch = true; // if
+(this.projectTxt != "") { // filterSearch = project.initials // .toLowerCase()
+// .includes(this.projectTxt.toLowerCase()); // } // return filterSearch; // })
+// ); // } else { // return [...arr].sort(this.compareName); // } // if
+(!this.order && this.projectTxt != null) { // return ( // arr, //
+this.projects.filter(project => { // let filterSearch = true; // if
+(this.projectTxt != "") { // filterSearch = project.initials // .toLowerCase()
+// .includes(this.projectTxt.toLowerCase()); // } // return filterSearch; // })
+// ); // } else { // return [...arr].sort(this.compareBudget); // }

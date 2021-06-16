@@ -44,14 +44,20 @@ export default {
       type: String,
       required: true
     },
-    color: {
+    status: {
       type: String,
       required: false
     }
   },
   computed: {
     backgroudColor() {
-      return `background-color: ${this.color}`;
+      return `background-color: ${
+        this.status === "finished"
+          ? "#ee5a5a"
+          : this.status === "completed"
+          ? "#28aa2d"
+          : "#eecb5a"
+      }`;
     }
   },
   methods: {

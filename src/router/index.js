@@ -36,7 +36,6 @@ import Media from "../views/Media.vue";
 import NewsPage from "../views/NewsPage.vue";
 import Positions from "../views/Positions.vue";
 import Project from "../views/Project.vue";
-import Projects from "../views/Projects.vue";
 import ProjectsCatalog from "../views/ProjectsCatalog.vue";
 import SiteMap from "../views/SiteMap.vue";
 import Unities from "../views/Unities.vue";
@@ -74,11 +73,6 @@ const routes = [
     path: "/positions",
     name: "Positions",
     component: Positions
-  },
-  {
-    path: "/projects",
-    name: "Projects",
-    component: Projects
   },
   {
     path: "/projects-catalog",
