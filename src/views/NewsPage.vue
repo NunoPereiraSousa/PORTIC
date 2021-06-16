@@ -8,12 +8,6 @@
         <div class="news_page__img" :style="imageStyle"></div>
         <div class="news_page__details flex flex-ai-c flex-jc-sb">
           <div class="news_page__share">
-            <a
-              href="https://www.instagram.com/politecnicodoporto/"
-              target="_blank"
-            >
-              <i class="fab fa-twitter"></i>
-            </a>
             <a href="https://www.facebook.com/porticpporto" target="_blank">
               <i class="fab fa-facebook-f"></i>
             </a>
@@ -30,7 +24,7 @@
         </div>
       </div>
       <p class="news_page__content">
-        {{ news.content }}
+        {{ news.desc }}
       </p>
     </div>
 
@@ -49,26 +43,45 @@ export default {
   data: () => {
     return {
       news: {
-        id: null,
         title: null,
-        content: null,
+        desc: null,
         image: null,
         date: null,
         author: null
       },
-      selectedId: null
+      selectedId: null,
+      selectedNews: {}
     };
   },
   computed: {
     ...mapGetters(["getNewsById", "getSelectedNewsId"]),
     imageStyle() {
       return `background-image: url('${this.news.image}')`;
+    },
+    getCurrentNews() {
+      return this.selectedNews.find(n => n.title === this.$route.params.name);
     }
   },
   created() {
-    this.selectedId = this.getSelectedNewsId;
+    this.selectedNews = JSON.parse(localStorage.getItem("news"));
 
-    this.news = this.getNewsById(this.selectedId);
+    this.news = {
+      title: this.getCurrentNews.title,
+      desc: this.getCurrentNews.description,
+      image: this.convertImage(this.getCurrentNews.cover.data),
+      date: this.getCurrentNews.published_date,
+      author: this.getCurrentNews.writer
+    };
+  },
+  methods: {
+    convertImage(img) {
+      let arrayBufferView = new Uint8Array(img);
+      let blob = new Blob([arrayBufferView], { type: "image/png" });
+      let urlCreator = window.URL || window.webkitURL;
+      let image = urlCreator.createObjectURL(blob);
+
+      return image;
+    }
   }
 };
 </script>

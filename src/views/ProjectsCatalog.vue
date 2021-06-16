@@ -89,12 +89,12 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setProjects");
+
+      console.log(this.getProjects);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
     }
-
-    localStorage.setItem("projects", JSON.stringify(this.getProjects));
   },
   computed: {
     ...mapGetters(["getProjects"]),

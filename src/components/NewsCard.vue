@@ -1,13 +1,11 @@
 <template>
   <div class="news__cards__card grid">
-    <!-- <img :src="image" alt="News Image" /> -->
     <div class="news__cards__card__image" :style="imageStyle"></div>
     <div class="news__cars__card__content flex flex-fd-c flex-jc-sb">
       <h2>{{ title }}</h2>
       <p>{{ content }}</p>
       <div class="flex flex-ai-c flex-jc-sb">
         <p class="date">{{ date }}</p>
-        <!-- <button @click="toggleNews(id)">Saber mais</button> -->
         <button @click="setSelectedNews(title, id)">
           {{ $t("homepage.news.button") }}
         </button>
@@ -35,6 +33,7 @@ export default {
   },
   methods: {
     setSelectedNews(title, id) {
+      console.log(title, id);
       this.$store.commit("SET_SELECTED_NEWS_ID", { id: id });
 
       this.$router.push({

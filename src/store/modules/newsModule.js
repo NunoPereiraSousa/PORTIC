@@ -1,23 +1,43 @@
-import { news } from "../../config/news";
+import { newsConfig } from "../../config/api/news";
+import { entityModule } from "./entityModule";
 
 export const newsModule = {
   state: {
-    news: news,
+    news: [],
     selectedNewsId: null,
-    selectedNewsTitle: null
+    selectedNewsTitle: null,
+    dataBody: {
+      selectedLang: ""
+    }
   },
   mutations: {
+    SET_NEWS(state, payload) {
+      state.news = payload.news;
+    },
     SET_SELECTED_NEWS_ID(state, payload) {
       state.selectedNewsId = payload.id;
     },
     SET_SELECTED_NEWS(state, payload) {
       state.selectedNewsTitle = payload.title;
+    },
+    SET_SELECTED_NEWS_LANG(state, payload) {
+      state.dataBody.selectedLang = payload.lang;
     }
   },
-  actions: {},
+  actions: {
+    async setNews({ commit, state }) {
+      commit(
+        "SET_NEWS",
+        await newsConfig.getNews(
+          state.dataBody.selectedLang,
+          entityModule.state.entityId
+        )
+      );
+    }
+  },
   getters: {
-    getNews: state => state.news,
-    getNewsById: state => id => state.news.find(n => n.id == id),
+    getNews: state => (state.news != "" ? state.news : []),
+    getNewsById: state => id => state.news.find(n => n.id_news == id),
     getSelectedNewsId: state => state.selectedNewsId,
     getSelectedNewsTitle: state => state.selectedNewsTitle
   }

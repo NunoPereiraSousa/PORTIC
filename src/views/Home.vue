@@ -9,13 +9,13 @@
       </h1>
       <div class="news__cards grid">
         <NewsCard
-          v-for="news in newsArr"
-          :key="news.id"
-          :image="news.image"
+          v-for="news in setNews"
+          :key="news.id_news"
+          :image="convertImage(news.cover.data)"
           :title="news.title"
-          :content="news.content"
-          :date="news.date"
-          :id="news.id"
+          :content="news.description"
+          :date="news.published_date"
+          :id="news.id_news"
           @click.native="getNewsId"
         />
       </div>
@@ -139,7 +139,23 @@ export default {
       author: null
     };
   },
-  created() {},
+  async created() {
+    this.$store.commit("SET_SELECTED_NEWS_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
+
+    try {
+      await this.$store.dispatch("setEntityId");
+      await this.$store.dispatch("setNews");
+
+      localStorage.setItem("news", JSON.stringify(this.getNews));
+
+      console.log(this.getNews);
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  },
   mounted() {
     this.newsArr = this.getNews;
     this.newsContent = this.getNewsById;
@@ -319,7 +335,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getNews", "getNewsById", "getSelectedNewsId"])
+    ...mapGetters(["getNews", "getNewsById", "getSelectedNewsId"]),
+    setNews() {
+      return this.getNews;
+    }
   },
   methods: {
     getNewsId() {
@@ -335,6 +354,14 @@ export default {
       this.newsSelectedTitle = news.title;
       this.newsSelectedContent = news.content;
       this.author = news.author;
+    },
+    convertImage(img) {
+      let arrayBufferView = new Uint8Array(img);
+      let blob = new Blob([arrayBufferView], { type: "image/png" });
+      let urlCreator = window.URL || window.webkitURL;
+      let image = urlCreator.createObjectURL(blob);
+
+      return image;
     }
   }
 };

@@ -97,10 +97,11 @@
           <NewsCard
             v-for="(news, index) in project.news"
             :key="index"
-            image="https://upload.wikimedia.org/wikipedia/commons/f/f0/Fredrick_Douglass_Housing_Project_Towers_2010.jpg"
-            title="Lorem ipsum dolor amet elit, sed consectetur  eiusmod."
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
-            date="05 de março"
+            :id="news.id_news"
+            :image="convertImage(news.cover.data)"
+            :title="news.title"
+            :content="news.description"
+            :date="news.published_date"
           />
           <SlidePanel
             :title="newsSelectedTitle"
@@ -191,13 +192,13 @@ export default {
     this.project.news = this.getCurrentProject.news;
     this.project.team = this.getCurrentProject.project_team;
 
-    console.log(this.projects);
+    console.log(this.getCurrentProject.news);
   },
   mounted() {
     this.changeCarousel();
   },
   destroyed() {
-    localStorage.removeItem("projects");
+    // localStorage.removeItem("projects");
 
     console.log("DESTROYED");
   },
@@ -234,7 +235,8 @@ export default {
       return images > 0 ? true : false;
     },
     checkNewsExistence() {
-      let news = this.project.news;
+      let news = this.project.news.length;
+      console.log(news);
 
       return news > 0 ? true : false;
     }
@@ -243,13 +245,19 @@ export default {
     setPartnersArr(internals, externals) {
       return [...internals, ...externals];
     },
+    convertImage(img) {
+      let arrayBufferView = new Uint8Array(img);
+      let blob = new Blob([arrayBufferView], { type: "image/png" });
+      let urlCreator = window.URL || window.webkitURL;
+      let image = urlCreator.createObjectURL(blob);
+
+      return image;
+    },
     formatCurrency(n) {
       return `${n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}€`;
     },
     changeCarousel() {
       let parners = this.project.partners.length;
-      console.log(parners);
-      // let nPartners = this.project.outside_investors.length;
 
       let slideTrack = document.querySelector(".slide-track");
       let slide = document.querySelectorAll(".slide");
