@@ -61,29 +61,34 @@
   }
 
   &__filters {
-    margin-top: 40px;
     justify-items: center;
     row-gap: 2rem;
+    width: fit-content;
+    margin: 2.5rem auto 0;
+    justify-items: flex-start;
 
     margin-bottom: 4rem;
 
     @include breakpoint-up(tablet) {
+      width: 100%;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: space-between;
     }
 
     @include breakpoint-up(iPadPro) {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       margin: 6rem 3rem 3rem;
       width: calc(100% - 6rem);
+
+      column-gap: 4rem;
     }
 
     input {
       padding: 0.75rem 1.5rem;
       border-radius: 2px;
       border: 1px solid $black;
+      width: 11.875rem;
 
       &:active {
         border: 1.5px solid $orange;
@@ -97,9 +102,13 @@
       @include breakpoint-up(iPadPro) {
         border: 1.5px solid $black;
         padding: 0.75rem 1rem;
-        // justify-self: end;
+        margin-top: 0.6rem;
         height: fit-content;
         font-size: $_16px;
+      }
+
+      @include breakpoint-up(large) {
+        width: 13rem;
       }
     }
 
@@ -115,7 +124,7 @@
 
     button {
       position: relative;
-      width: fit-content;
+      width: 11.875rem;
       background-color: transparent;
       white-space: nowrap;
       border: 1.5px solid $black;
@@ -133,16 +142,33 @@
       &:hover {
         color: $orange;
       }
+
+      @include breakpoint-up(iPadPro) {
+        margin-top: 0.6rem;
+      }
+
+      @include breakpoint-up(large) {
+        width: 13rem;
+      }
     }
 
     select {
       padding: 0.75rem 1.5rem;
+      width: 11.875rem;
 
       border-radius: 2px;
       border: 1px solid $black;
 
       &:focus {
         outline: none;
+      }
+
+      @include breakpoint-up(iPadPro) {
+        margin-top: 0.6rem;
+      }
+
+      @include breakpoint-up(large) {
+        width: 13rem;
       }
     }
 

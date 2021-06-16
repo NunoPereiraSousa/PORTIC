@@ -66,7 +66,6 @@ export default {
 
     try {
       await this.$store.dispatch("setEntityId");
-      await this.$store.dispatch("setUnitiesPrincipals");
       await this.$store.dispatch("setUnities");
       await this.$store.dispatch("setMenus");
 

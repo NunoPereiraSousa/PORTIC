@@ -1380,7 +1380,7 @@ button:focus {
 }
 
 .headers {
-  width: 100%;
+  width: 100vw;
   position: fixed;
   top: 0%;
   left: 0%;
@@ -3786,21 +3786,25 @@ button:focus {
 }
 
 .projects_catalog__filters {
-  margin-top: 40px;
   justify-items: center;
   row-gap: 2rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 2.5rem auto 0;
+  justify-items: flex-start;
   margin-bottom: 4rem;
 }
 
 @media (min-width: 48em) {
   .projects_catalog__filters {
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
@@ -3809,11 +3813,13 @@ button:focus {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     margin: 6rem 3rem 3rem;
     width: calc(100% - 6rem);
+    -webkit-column-gap: 4rem;
+            column-gap: 4rem;
   }
 }
 
@@ -3821,6 +3827,7 @@ button:focus {
   padding: 0.75rem 1.5rem;
   border-radius: 2px;
   border: 1px solid #080808;
+  width: 11.875rem;
 }
 
 .projects_catalog__filters input:active {
@@ -3836,10 +3843,17 @@ button:focus {
   .projects_catalog__filters input {
     border: 1.5px solid #080808;
     padding: 0.75rem 1rem;
+    margin-top: 0.6rem;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     font-size: 1rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .projects_catalog__filters input {
+    width: 13rem;
   }
 }
 
@@ -3884,9 +3898,7 @@ button:focus {
 
 .projects_catalog__filters button {
   position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 11.875rem;
   background-color: transparent;
   white-space: nowrap;
   border: 1.5px solid #080808;
@@ -3907,14 +3919,39 @@ button:focus {
   color: #c94d24;
 }
 
+@media (min-width: 64em) {
+  .projects_catalog__filters button {
+    margin-top: 0.6rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .projects_catalog__filters button {
+    width: 13rem;
+  }
+}
+
 .projects_catalog__filters select {
   padding: 0.75rem 1.5rem;
+  width: 11.875rem;
   border-radius: 2px;
   border: 1px solid #080808;
 }
 
 .projects_catalog__filters select:focus {
   outline: none;
+}
+
+@media (min-width: 64em) {
+  .projects_catalog__filters select {
+    margin-top: 0.6rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .projects_catalog__filters select {
+    width: 13rem;
+  }
 }
 
 .projects_catalog__filters .input_date {
@@ -4130,7 +4167,7 @@ button:focus {
   bottom: 10%;
   left: 1.5rem;
   color: #999999;
-  font-size: 1.125rem;
+  font-size: 0.9375rem;
   font-style: italic;
 }
 
@@ -5031,44 +5068,26 @@ button:focus {
 }
 
 .media__grid__card__info {
-  padding: 0 1rem;
+  padding: 0.5rem 1.25rem;
 }
 
 @media (min-width: 64em) {
   .media__grid__card__info {
-    padding: 0 2rem;
+    padding: 1.5rem 2rem;
   }
 }
 
-.media__grid__card__info__subtitle, .media__grid__card__info__title {
-  font-weight: 400;
-}
-
-.media__grid__card__info__subtitle {
-  color: #c94d24;
-  font-size: 0.9375rem;
-  margin-top: 20px;
-  margin-bottom: 0;
-  text-shadow: 2px 2px 4px rgba(8, 8, 8, 0.1);
-}
-
-@media (min-width: 64em) {
-  .media__grid__card__info__subtitle {
-    margin-top: 24px;
-    font-size: 1.0625rem;
-  }
-}
-
-@media (min-width: 120em) {
-  .media__grid__card__info__subtitle {
-    font-size: 1.1875rem;
+@media (min-width: 75em) {
+  .media__grid__card__info {
+    padding: 1rem 2rem;
   }
 }
 
 .media__grid__card__info__title {
+  font-weight: 400;
   color: #080808;
   font-size: 1rem;
-  margin-top: 14px;
+  margin: 0;
   line-height: 1.5;
   letter-spacing: 0.1px;
 }
@@ -5076,7 +5095,6 @@ button:focus {
 @media (min-width: 64em) {
   .media__grid__card__info__title {
     font-size: 1.1875rem;
-    margin-bottom: 2rem;
   }
 }
 

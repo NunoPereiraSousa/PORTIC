@@ -60,44 +60,26 @@
   }
 
   &__info {
-    padding: 0 1rem;
+    padding: 0.5rem 1.25rem;
 
     @include breakpoint-up(iPadPro) {
-      padding: 0 2rem;
+      padding: 1.5rem 2rem;
     }
 
-    &__subtitle,
+    @include breakpoint-up(desktop) {
+      padding: 1rem 2rem;
+    }
+
     &__title {
       font-weight: 400;
-    }
-
-    &__subtitle {
-      color: $orange;
-      font-size: $_15px;
-      margin-top: 20px;
-      margin-bottom: 0;
-      text-shadow: 2px 2px 4px rgba($color: $black, $alpha: 0.1);
-
-      @include breakpoint-up(iPadPro) {
-        margin-top: 24px;
-        font-size: $_17px;
-      }
-
-      @include breakpoint-up(large) {
-        font-size: $_19px;
-      }
-    }
-
-    &__title {
       color: $black;
       font-size: $_16px;
-      margin-top: 14px;
+      margin: 0;
       line-height: 1.5;
       letter-spacing: 0.1px;
 
       @include breakpoint-up(iPadPro) {
         font-size: $_19px;
-        margin-bottom: 2rem;
       }
 
       @include breakpoint-up(large) {

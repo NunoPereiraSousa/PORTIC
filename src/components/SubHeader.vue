@@ -131,6 +131,13 @@ export default {
             return error;
           }
           break;
+        case "Home":
+          try {
+            await this.$store.dispatch("setNews");
+          } catch (error) {
+            return error;
+          }
+          break;
         case "Unities":
           try {
             await this.$store.dispatch("setMenus");
@@ -177,6 +184,10 @@ export default {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
+      this.$store.commit("SET_SELECTED_NEWS_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
       this.handleAPI();
     },
     changeLangPT() {
@@ -203,6 +214,10 @@ export default {
       });
 
       this.$store.commit("SET_SELECTED_CAREERS_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_NEWS_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
