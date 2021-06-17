@@ -9,9 +9,16 @@ import App from "./App.vue";
 import i18n from "./i18n";
 import router from "./router";
 import store from "./store";
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
+
+const options = {
+  // You can set your default options here
+};
 
 Vue.use(VueQuillEditor /* { default global options } */);
 Vue.use(VueGlide);
+Vue.use(Toast, options);
 
 Vue.config.productionTip = false;
 

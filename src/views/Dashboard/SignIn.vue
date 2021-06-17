@@ -882,7 +882,7 @@
     </div>
     <div class="admin_login__form flex flex-jc-c flex-fd-c">
       <h1>Entre na dashboard do PORTIC</h1>
-      <form class="grid">
+      <form @submit.prevent="signIn()" class="grid">
         <div>
           <label for="usernameTxt">Username</label>
           <br />
@@ -891,6 +891,7 @@
             id="usernameTxt"
             placeholder="Username"
             v-model="usernameTxt"
+            required
           />
         </div>
         <div>
@@ -901,6 +902,7 @@
             id="passwordTxt"
             placeholder="Password"
             v-model="passwordTxt"
+            required
           />
         </div>
         <div>
@@ -920,5 +922,86 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  data: () => {
+    return {
+      usernameTxt: "",
+      passwordTxt: "",
+      loggedUser: ""
+    };
+  },
+  computed: {
+    ...mapGetters(["getLoggedUser", "getLoginStatus", "getLoginToken"])
+  },
+  methods: {
+    async signIn() {
+      this.$store.commit("SET_LOGIN_FORM", {
+        username: this.usernameTxt,
+        password: this.passwordTxt
+      });
+
+      console.log(this.usernameTxt, this.passwordTxt);
+
+      try {
+        await this.$store.dispatch("setLoggedUser");
+
+        let status = this.getLoginStatus;
+
+        if (status == 200) {
+          this.loggedUser = this.getLoggedUser;
+
+          console.log(this.loggedUser);
+
+          this.notificationSuccess();
+
+          this.resetForm();
+        } else {
+          this.notificationError();
+
+          this.resetForm();
+        }
+      } catch (error) {
+        console.log(`App: ${error}`);
+        return error;
+      }
+    },
+    resetForm() {
+      this.usernameTxt = "";
+      this.passwordTxt = "";
+    },
+    notificationSuccess() {
+      this.$toast.success("Login efetuado com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Utilizador não encontrado!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    }
+  }
+};
 </script>

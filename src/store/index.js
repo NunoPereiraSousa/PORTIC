@@ -14,6 +14,7 @@ import { careersModule } from "./modules/careersModule";
 import { unityModule } from "./modules/unitiesModule";
 import { weatherModule } from "./modules/weatherModule";
 import { entityModule } from "./modules/entityModule";
+import { usersModule } from "./modules/usersModule";
 
 Vue.use(Vuex);
 
@@ -37,6 +38,7 @@ export default new Vuex.Store({
     projectsModule,
     careersModule,
     unityModule,
+    usersModule,
     weatherModule
   },
   getters: {},
