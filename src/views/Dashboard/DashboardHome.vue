@@ -5,7 +5,7 @@
       <div class="admin_home__panel__grid grid">
         <div class="admin_home__panel__card intro">
           <div class="flex flex-ai-c flex-jc-sb">
-            <h2>Bem-vindo Nuno.</h2>
+            <h2>Bem-vindo {{ loggedUser.username }}.</h2>
             <a href="tel:+">
               <i class="fas fa-phone-alt"></i>
             </a>
@@ -84,8 +84,15 @@ export default {
       weather: "",
       temperature: "",
       weatherBroadcast: [],
-      days: []
+      days: [],
+      loggedUser: {}
     };
+  },
+  created() {
+    // get loggedUser from localStorage
+    this.loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+
+    console.log(this.loggedUser);
   },
   async mounted() {
     // this.height();
@@ -101,7 +108,6 @@ export default {
     let broadcastArr = this.weather.daily;
 
     this.convertWeekDaysArr().forEach(d => {
-      console.log(d);
       this.days.push(d);
     });
 
@@ -121,6 +127,7 @@ export default {
       return this.getNAreas.length;
     },
     coursesLength() {
+      console.log(this.getCourses.length);
       return this.getCourses.length;
     }
   },
@@ -132,8 +139,6 @@ export default {
       let nav = document.querySelector(".admin_nav ");
 
       nav.style.height = `${wrapperHeight}px`;
-
-      console.log(wrapperHeight);
     },
     getFiveWeekDay() {
       let now = new Date();

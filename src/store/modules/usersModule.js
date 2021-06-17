@@ -10,7 +10,16 @@ export const usersModule = {
       input: null,
       password: null
     },
+    registerForm: {
+      username: null,
+      firstName: null,
+      password: null,
+      lastName: null,
+      email: null,
+      phoneNumber: null
+    },
     signInStatus: null,
+    signUpStatus: null,
     dataBody: {
       selectedLang: null
     }
@@ -18,6 +27,7 @@ export const usersModule = {
   mutations: {
     SET_USERS(state, payload) {
       state.users = payload.users;
+      state.signUpStatus = payload.status;
     },
     SET_LOGGED_USER(state, payload) {
       state.loggedUser = payload.user;
@@ -27,6 +37,17 @@ export const usersModule = {
     SET_LOGIN_FORM(state, payload) {
       state.loginForm.username = payload.username;
       state.loginForm.password = payload.password;
+    },
+    SET_REGISTER_FORM(state, payload) {
+      state.registerForm.username = payload.username;
+      state.registerForm.firstName = payload.firstName;
+      state.registerForm.password = payload.password;
+      state.registerForm.lastName = payload.lastName;
+      state.registerForm.email = payload.email;
+      state.registerForm.phoneNumber = payload.phoneNumber;
+    },
+    SET_REGISTER_STATUS(state, payload) {
+      state.signUpStatus = payload.status;
     }
   },
   actions: {
@@ -36,6 +57,19 @@ export const usersModule = {
         await usersConfig.singIn(
           state.loginForm.username,
           state.loginForm.password
+        )
+      );
+    },
+    async setRegisterUser({ commit, state }) {
+      commit(
+        "SET_REGISTER_STATUS",
+        await usersConfig.singUp(
+          state.registerForm.username,
+          state.registerForm.firstName,
+          state.registerForm.password,
+          state.registerForm.lastName,
+          state.registerForm.email,
+          state.registerForm.phoneNumber
         )
       );
     }
@@ -49,6 +83,13 @@ export const usersModule = {
     },
     getLoggedUser: state => state.loggedUser,
     getLoginStatus: state => state.signInStatus,
-    getLoginToken: state => state.token
+    getLoginToken: state => state.token,
+    getRegisterStatus: state => state.signUpStatus,
+    getUserByUsername: state => username =>
+      state.users.find(user => user.username === username),
+    getUserByUsernameAndEmail: state => username => email =>
+      state.users.find(
+        user => user.username === username && user.email === email
+      )
   }
 };

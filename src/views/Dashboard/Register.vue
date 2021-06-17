@@ -318,7 +318,7 @@
     </div>
     <div class="admin_login__form flex flex-jc-c flex-fd-c">
       <h1>Registe-se na dashboard do PORTIC</h1>
-      <form class="grid">
+      <form @submit.prevent="signUp()" class="grid">
         <div>
           <label for="emailTxt">Email</label>
           <br />
@@ -380,7 +380,7 @@
               ></u
             >
           </p>
-          <input type="submit" value="Login" id="loginBtn" />
+          <input type="submit" value="Registar" id="loginBtn" />
         </div>
       </form>
     </div>
@@ -388,5 +388,102 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  data: () => {
+    return {
+      emailTxt: "",
+      nameTxt: "",
+      surnameTxt: "",
+      usernameTxt: "",
+      passwordTxt: ""
+    };
+  },
+  computed: {
+    ...mapGetters(["getRegisterStatus", "getUserByUsernameAndEmail"])
+  },
+  methods: {
+    async signUp() {
+      this.$store.commit("SET_REGISTER_FORM", {
+        username: this.usernameTxt,
+        firstName: this.nameTxt,
+        password: this.passwordTxt,
+        lastName: this.surnameTxt,
+        email: this.emailTxt,
+        phoneNumber: "911587712"
+      });
+
+      console.log(
+        this.usernameTxt,
+        this.nameTxt,
+        this.passwordTxt,
+        this.surnameTxt,
+        this.emailTxt
+      );
+      console.log(
+        this.getUserByUsernameAndEmail(this.usernameTxt, this.emailTxt)
+      );
+
+      // UPIDATE REGISTER ONCE I HAVE ACCESS TO ALL THE USERS
+
+      try {
+        await this.$store.dispatch("setRegisterUser");
+
+        let status = this.getLoginStatus;
+
+        if (status == 201) {
+          this.notificationSuccess();
+
+          this.resetForm();
+        } else {
+          this.notificationError();
+
+          this.resetForm();
+        }
+      } catch (error) {
+        console.log(`App: ${error}`);
+        return error;
+      }
+    },
+    resetForm() {
+      this.emailTxt = "";
+      this.nameTxt = "";
+      this.surnameTxt = "";
+      this.usernameTxt = "";
+      this.passwordTxt = "";
+    },
+    notificationSuccess() {
+      this.$toast.success("Login efetuado com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    }
+  }
+};
 </script>

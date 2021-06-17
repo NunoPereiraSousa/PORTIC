@@ -29,5 +29,38 @@ export const usersConfig = {
       .catch(error => {
         return error;
       });
+  },
+  singUp: async (
+    username,
+    firstName,
+    password,
+    lastName,
+    email,
+    phoneNumber
+  ) => {
+    return await axios
+      .post(
+        `${API_URL}/users/register`,
+        {
+          username: username,
+          first_name: firstName,
+          password: password,
+          last_name: lastName,
+          email: email,
+          phone_numb: phoneNumber
+        },
+        {
+          headers
+        }
+      )
+      .then(response => {
+        return {
+          user: response.data.processResult,
+          status: response.status
+        };
+      })
+      .catch(error => {
+        return error;
+      });
   }
 };

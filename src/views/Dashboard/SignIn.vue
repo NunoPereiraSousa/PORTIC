@@ -928,7 +928,8 @@ export default {
     return {
       usernameTxt: "",
       passwordTxt: "",
-      loggedUser: ""
+      loggedUser: "",
+      token: ""
     };
   },
   computed: {
@@ -950,15 +951,24 @@ export default {
 
         if (status == 200) {
           this.loggedUser = this.getLoggedUser;
+          this.token = this.getLoginToken;
 
-          console.log(this.loggedUser);
+          // save on localStorage the loggedUser and token
+          localStorage.setItem("loggedUser", JSON.stringify(this.loggedUser));
+          localStorage.setItem("token", JSON.stringify(this.token));
 
+          // show success notification
           this.notificationSuccess();
 
+          // reset form
           this.resetForm();
+
+          this.$router.push({ name: "DashboardHome" });
         } else {
+          // show error notification
           this.notificationError();
 
+          // reset form
           this.resetForm();
         }
       } catch (error) {
