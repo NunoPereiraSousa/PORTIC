@@ -13,6 +13,8 @@ export const newsModule = {
   mutations: {
     SET_NEWS(state, payload) {
       state.news = payload.news;
+
+      localStorage.setItem("news", JSON.stringify(state.news));
     },
     SET_SELECTED_NEWS_ID(state, payload) {
       state.selectedNewsId = payload.id;
@@ -36,7 +38,9 @@ export const newsModule = {
     }
   },
   getters: {
-    getNews: state => (state.news != "" ? state.news : []),
+    getNews: state => {
+      return state.news != "" ? state.news : [];
+    },
     getNewsById: state => id => state.news.find(n => n.id_news == id),
     getSelectedNewsId: state => state.selectedNewsId,
     getSelectedNewsTitle: state => state.selectedNewsTitle

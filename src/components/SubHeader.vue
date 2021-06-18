@@ -97,10 +97,21 @@ export default {
       required: false
     }
   },
+  created() {
+    this.selectedNews = JSON.parse(localStorage.getItem("news"));
+  },
   computed: {
-    ...mapGetters(["getEntityData"])
+    ...mapGetters(["getEntityData", "getNews", "getSelectedNewsId"]),
+    getCurrentNews() {
+      return this.getNews;
+    }
   },
   methods: {
+    changeCurrNews() {
+      return this.getCurrentNews.find(
+        n => n.id_news === this.getSelectedNewsId
+      );
+    },
     async handleAPI() {
       try {
         await this.$store.dispatch("setData");
@@ -134,9 +145,29 @@ export default {
         case "Home":
           try {
             await this.$store.dispatch("setNews");
+
+            localStorage.setItem(
+              "news",
+              JSON.stringify(this.$store.getters.getNews)
+            );
           } catch (error) {
             return error;
           }
+          break;
+        case "NewsPage":
+          try {
+            await this.$store.dispatch("setNews");
+
+            localStorage.setItem("news", JSON.stringify(this.getCurrentNews));
+
+            localStorage.setItem(
+              "currNews",
+              JSON.stringify(this.changeCurrNews())
+            );
+          } catch (error) {
+            return error;
+          }
+
           break;
         case "Unities":
           try {

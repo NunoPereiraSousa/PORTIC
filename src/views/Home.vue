@@ -147,10 +147,6 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setNews");
-
-      localStorage.setItem("news", JSON.stringify(this.getNews));
-
-      console.log(this.getNews);
     } catch (error) {
       console.log(error);
       return error;

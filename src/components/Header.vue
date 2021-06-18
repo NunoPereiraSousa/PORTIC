@@ -254,6 +254,8 @@ export default {
       }
     },
     closeNavbarOnPageTransition(id) {
+      localStorage.setItem("selectedMenu", JSON.stringify(id));
+
       this.$store.commit("SET_SELECTED_MENU", {
         id: id
       });
@@ -316,6 +318,7 @@ export default {
       });
     },
     setMenu(id) {
+      localStorage.setItem("selectedMenu", JSON.stringify(id));
       this.$store.commit("SET_SELECTED_MENU", {
         id: id
       });

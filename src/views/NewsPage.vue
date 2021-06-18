@@ -3,7 +3,7 @@
     <div class="news_page grid">
       <div>
         <h1 class="news_page__title">
-          {{ news.title }}
+          {{ getCurrentNews.title }}
         </h1>
         <div class="news_page__img" :style="imageStyle"></div>
         <div class="news_page__details flex flex-ai-c flex-jc-sb">
@@ -19,12 +19,13 @@
             </a>
           </div>
           <p class="news_page__author">
-            {{ news.author }}, <span>{{ news.date }}</span>
+            {{ getCurrentNews.writer }},
+            <span>{{ getCurrentNews.published_date }}</span>
           </p>
         </div>
       </div>
       <p class="news_page__content">
-        {{ news.desc }}
+        {{ getCurrentNews.description }}
       </p>
     </div>
 
@@ -56,22 +57,21 @@ export default {
   computed: {
     ...mapGetters(["getNewsById", "getSelectedNewsId"]),
     imageStyle() {
-      return `background-image: url('${this.news.image}')`;
+      return `background-image: url('${this.convertImage(
+        this.getCurrentNews.cover.data
+      )}')`;
     },
     getCurrentNews() {
-      return this.selectedNews.find(n => n.title === this.$route.params.name);
+      let selectedNews = this.$store.getters.getNews;
+      console.log(
+        selectedNews.find(n => n.id_news === this.getSelectedNewsId).title
+      );
+
+      return selectedNews.find(n => n.id_news === this.getSelectedNewsId);
     }
   },
   created() {
-    this.selectedNews = JSON.parse(localStorage.getItem("news"));
-
-    this.news = {
-      title: this.getCurrentNews.title,
-      desc: this.getCurrentNews.description,
-      image: this.convertImage(this.getCurrentNews.cover.data),
-      date: this.getCurrentNews.published_date,
-      author: this.getCurrentNews.writer
-    };
+    localStorage.setItem("currNews", JSON.stringify(this.getCurrentNews));
   },
   methods: {
     convertImage(img) {

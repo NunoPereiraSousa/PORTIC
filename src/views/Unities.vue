@@ -1,12 +1,14 @@
 <template>
-  <div v-if="!loadingStatus">
+  <div>
     <SubPageIntro
       :categoryTitle="$t('unities.unitiesKey')"
-      :content="setMenuDescription"
+      :content="getSelectedMenuDesc"
     />
 
     <section class="unities">
-      <h1 class="unities_title">{{ $t("unities.title") }}</h1>
+      <h1 class="unities_title">
+        {{ $t("unities.title") }}
+      </h1>
 
       <div class="unities__grid grid">
         <UnitiesCard
@@ -53,11 +55,17 @@ export default {
       unitySelectedContent: null,
       loadedData: false,
       menu: {},
-      loading: false
+      loading: false,
+      selectedMenuId: null,
+      menus: []
     };
   },
   created() {
     this.unities = this.getUnities;
+
+    this.selectedMenuId = JSON.parse(localStorage.getItem("selectedMenu"));
+    this.menus = JSON.parse(localStorage.getItem("menus"));
+    console.log(this.menus);
   },
   async mounted() {
     this.$store.commit("SET_SELECTED_UNITIES_LANG", {
@@ -67,9 +75,6 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setUnities");
-      await this.$store.dispatch("setMenus");
-
-      console.log(this.getMenus);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
@@ -81,39 +86,16 @@ export default {
     // this.menu = this.getMenuDescByMenuID(selectedMenu);
   },
   computed: {
-    ...mapGetters([
-      "getPrincipalsStatus",
-      "getUnitiesPrincipals",
-      "getUnities",
-      "getUnityById",
-      "getSelectedUnityId",
-      "getMenus",
-      "getMenuDescByMenuID",
-      "getSelectedMenuID"
-    ]),
-    principalsStatus() {
-      let status = this.$store.getters.getPrincipalsStatus;
-
-      return status == 200 ? true : false;
-    },
-    getPrinciples() {
-      return this.$store.getters.getUnitiesPrincipals;
+    ...mapGetters(["getUnities", "getMenuDescByMenuID", "getSelectedMenuID"]),
+    getSelectedMenuDesc() {
+      return this.menus.find(menu => menu.id_menu === this.selectedMenuId)
+        .page_description;
     },
     getUnitiesArr() {
       return this.getUnities;
     },
     setMenuDescription() {
       return this.getMenuDescByMenuID(this.getSelectedMenuID).page_description;
-    },
-    loadingStatus() {
-      let loading = this.loading;
-      loading = true;
-
-      if (this.$store.getters.getEntityStatus == 200) loading = false;
-
-      console.log(this.$store.getters.getEntityStatus == 200);
-
-      return loading;
     }
   },
   methods: {

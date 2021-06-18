@@ -56,7 +56,6 @@
 <script>
 import SubHeader from "@/components/SubHeader.vue";
 import Header from "@/components/Header.vue";
-// import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { mapGetters } from "vuex";
@@ -65,7 +64,6 @@ export default {
   components: {
     SubHeader,
     Header
-    // DashboardHeader
   },
   data: () => {
     return {
@@ -105,6 +103,12 @@ export default {
       try {
         await this.$store.dispatch("setEntityId");
         await this.$store.dispatch("setData");
+        await this.$store.dispatch("setMenus");
+
+        localStorage.setItem(
+          "menus",
+          JSON.stringify(this.$store.getters.getMenus)
+        );
       } catch (error) {
         console.log(`App: ${error}`);
         return error;

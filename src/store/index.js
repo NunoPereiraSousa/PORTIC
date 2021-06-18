@@ -1,4 +1,4 @@
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import Vue from "vue";
 import Vuex from "vuex";
 import createPersistedState from "vuex-persistedstate";
@@ -48,17 +48,18 @@ export default new Vuex.Store({
         "projectsModule.projects",
         "projectsModule.selectedId",
         "langModule.lang",
-        "newsModule.selectedNewsId"
-      ],
-      storage: {
-        getItem: key => {
-          console.log(Cookies.get(key));
-          return Cookies.get(key);
-        },
-        setItem: (key, value) =>
-          Cookies.set(key, value, { expires: 3, secure: true }),
-        removeItem: key => Cookies.remove(key)
-      }
+        "newsModule.selectedNewsId",
+        "newsModule.news"
+      ]
+      //   storage: {
+      //     getItem: key => {
+      //       console.log(Cookies.get(key));
+      //       return Cookies.get(key);
+      //     },
+      //     setItem: (key, value) =>
+      //       Cookies.set(key, value, { expires: 3, secure: true }),
+      //     removeItem: key => Cookies.remove(key)
+      //   }
     })
   ]
 });
