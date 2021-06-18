@@ -2,7 +2,7 @@
   <div>
     <SubPageIntro
       :categoryTitle="$t('unities.unitiesKey')"
-      :content="getSelectedMenuDesc"
+      :content="getCurrentMenus.page_description"
     />
 
     <section class="unities">
@@ -55,17 +55,11 @@ export default {
       unitySelectedContent: null,
       loadedData: false,
       menu: {},
-      loading: false,
-      selectedMenuId: null,
-      menus: []
+      loading: false
     };
   },
   created() {
     this.unities = this.getUnities;
-
-    this.selectedMenuId = JSON.parse(localStorage.getItem("selectedMenu"));
-    this.menus = JSON.parse(localStorage.getItem("menus"));
-    console.log(this.menus);
   },
   async mounted() {
     this.$store.commit("SET_SELECTED_UNITIES_LANG", {
@@ -79,23 +73,22 @@ export default {
       console.log(`App: ${error}`);
       return error;
     }
-
-    // Get unities desc
-    // let selectedMenu = this.getSelectedMenuID;
-
-    // this.menu = this.getMenuDescByMenuID(selectedMenu);
   },
   computed: {
-    ...mapGetters(["getUnities", "getMenuDescByMenuID", "getSelectedMenuID"]),
+    ...mapGetters(["getUnities", "getSelectedMenuID", "getMenus"]),
+    getCurrentMenus() {
+      let menus = this.getMenus;
+
+      return menus
+        .filter(menu => menu.id_menu === this.getSelectedMenuID)
+        .find(n => n.id_menu === this.getSelectedMenuID);
+    },
     getSelectedMenuDesc() {
       return this.menus.find(menu => menu.id_menu === this.selectedMenuId)
         .page_description;
     },
     getUnitiesArr() {
       return this.getUnities;
-    },
-    setMenuDescription() {
-      return this.getMenuDescByMenuID(this.getSelectedMenuID).page_description;
     }
   },
   methods: {

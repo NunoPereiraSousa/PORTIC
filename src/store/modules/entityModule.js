@@ -29,6 +29,8 @@ export const entityModule = {
     },
     SET_MENUS(state, payload) {
       state.menus = payload.menus;
+
+      localStorage.setItem("menus", JSON.stringify(state.menus));
     },
     SET_SELECTED_MENU(state, payload) {
       state.selectedMenuId = payload.id;

@@ -45,6 +45,8 @@ export default new Vuex.Store({
   plugins: [
     createPersistedState({
       paths: [
+        "entityModule.menus",
+        "entityModule.selectedMenuId",
         "projectsModule.projects",
         "projectsModule.selectedId",
         "langModule.lang",

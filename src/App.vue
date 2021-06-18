@@ -104,11 +104,6 @@ export default {
         await this.$store.dispatch("setEntityId");
         await this.$store.dispatch("setData");
         await this.$store.dispatch("setMenus");
-
-        localStorage.setItem(
-          "menus",
-          JSON.stringify(this.$store.getters.getMenus)
-        );
       } catch (error) {
         console.log(`App: ${error}`);
         return error;
