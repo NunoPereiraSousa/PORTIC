@@ -101,15 +101,30 @@ export default {
     this.selectedNews = JSON.parse(localStorage.getItem("news"));
   },
   computed: {
-    ...mapGetters(["getEntityData", "getNews", "getSelectedNewsId"]),
+    ...mapGetters([
+      // news getters
+      "getNews",
+      "getSelectedNewsId",
+      // project getters
+      "getProjects",
+      "getSelectedProjectByID"
+    ]),
     getCurrentNews() {
       return this.getNews;
+    },
+    getCurrentProjects() {
+      return this.getProjects;
     }
   },
   methods: {
     changeCurrNews() {
       return this.getCurrentNews.find(
         n => n.id_news === this.getSelectedNewsId
+      );
+    },
+    changeCurrProject() {
+      return this.getCurrentProjects.find(
+        n => n.id_project === this.getSelectedProjectByID
       );
     },
     async handleAPI() {
@@ -149,6 +164,35 @@ export default {
             localStorage.setItem(
               "news",
               JSON.stringify(this.$store.getters.getNews)
+            );
+          } catch (error) {
+            return error;
+          }
+          break;
+        case "ProjectsCatalog":
+          try {
+            await this.$store.dispatch("setProjects");
+
+            localStorage.setItem(
+              "projects",
+              JSON.stringify(this.$store.getters.getProjects)
+            );
+          } catch (error) {
+            return error;
+          }
+          break;
+        case "Project":
+          try {
+            await this.$store.dispatch("setProjects");
+
+            localStorage.setItem(
+              "projects",
+              JSON.stringify(this.getCurrentProjects)
+            );
+
+            localStorage.setItem(
+              "currProject",
+              JSON.stringify(this.changeCurrProject())
             );
           } catch (error) {
             return error;
@@ -215,6 +259,10 @@ export default {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
+      this.$store.commit("SET_SELECTED_PROJECTS_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
       this.$store.commit("SET_SELECTED_NEWS_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
@@ -245,6 +293,10 @@ export default {
       });
 
       this.$store.commit("SET_SELECTED_CAREERS_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_PROJECTS_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 

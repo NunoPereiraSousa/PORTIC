@@ -5,7 +5,7 @@
         <div class="project__entry__grid grid">
           <h1>
             <a>Projeto</a>
-            <div>{{ project.initials }}</div>
+            <div>{{ getCurrentProjects.initials }}</div>
           </h1>
 
           <div class="project__entry__grid__circle flex flex-ai-c flex-jc-c">
@@ -28,13 +28,13 @@
             </h3>
 
             <h2>
-              <a :href="`tel:+351${project.project_contact}`">{{
-                project.phoneNumber
+              <a :href="`tel:+351${getCurrentProjects.project_contact}`">{{
+                getCurrentProjects.project_contact
               }}</a>
             </h2>
             <h2>
-              <a :href="`mailto:${project.project_email}`">{{
-                project.email
+              <a :href="`mailto:${getCurrentProjects.project_email}`">{{
+                getCurrentProjects.project_email
               }}</a>
             </h2>
           </div>
@@ -43,8 +43,11 @@
           <div class="slide-track">
             <div class="flex" v-for="i in 2" :key="i">
               <Slide
-                v-for="partner in project.partners"
-                :key="partner.id_investor"
+                v-for="(partner, index) in setPartnersArr(
+                  getCurrentProjects.outside_investors,
+                  getCurrentProjects.outside_investors
+                )"
+                :key="index + 1"
                 :slideText="partner.designation"
               />
             </div>
@@ -53,7 +56,7 @@
       </section>
       <section class="project__objective">
         <SubHeaderTitle text="Descrição" />
-        <div v-html="project.description"></div>
+        <div v-html="getCurrentProjects.desc_html_structure"></div>
       </section>
       <section class="project__gallery">
         <SubHeaderTitle text="Galeria de projeto" class="light" />
@@ -79,7 +82,7 @@
             :infinite="false"
           >
             <vue-glide-slide
-              v-for="(image, index) in project.gallery"
+              v-for="(image, index) in getCurrentProjects.gallery_imgs"
               :key="index"
             >
               <img :src="image" alt="Project Image" />
@@ -95,7 +98,7 @@
 
         <div class="project__news__grid grid" v-if="checkNewsExistence">
           <NewsCard
-            v-for="(news, index) in project.news"
+            v-for="(news, index) in getCurrentProjects.news"
             :key="index"
             :id="news.id_news"
             :image="convertImage(news.cover.data)"
@@ -118,7 +121,7 @@
 
         <div class="project__team__grid grid">
           <TeamCard
-            v-for="member in project.team"
+            v-for="member in getCurrentProjects.project_team"
             :key="member.id_user"
             image="https://upload.wikimedia.org/wikipedia/commons/f/f0/Fredrick_Douglass_Housing_Project_Towers_2010.jpg"
             :name="member.full_name"
@@ -197,21 +200,25 @@ export default {
   mounted() {
     this.changeCarousel();
   },
-  destroyed() {
-    // localStorage.removeItem("projects");
-
-    console.log("DESTROYED");
-  },
   computed: {
     ...mapGetters([
       "getProjects",
-      "getProjectByID",
       "getSelectedProjectByID",
-      "getProjectsStatus",
-      "getNews",
-      "getNewsById",
-      "getSelectedNewsId"
+      "getProjectsStatus"
     ]),
+    getCurrentProjects() {
+      let selectedProjects = this.getProjects;
+
+      console.log(this.getSelectedProjectByID);
+
+      console.log(
+        selectedProjects.find(n => n.id_project === this.getSelectedProjectByID)
+      );
+
+      return selectedProjects.find(
+        n => n.id_project === this.getSelectedProjectByID
+      );
+    },
     getCurrentProject() {
       return this.projects.find(
         project => project.initials === this.$route.params.id
@@ -287,20 +294,6 @@ export default {
           s.style.width = "125px";
         });
       }
-    },
-    getNewsId() {
-      let newsId = this.getSelectedNewsId;
-
-      if (newsId != null) {
-        this.getSelectedNews(newsId);
-      }
-    },
-    getSelectedNews(id) {
-      let news = this.getNewsById(id);
-
-      this.newsSelectedTitle = news.title;
-      this.newsSelectedContent = news.content;
-      this.author = news.author;
     }
   }
 };

@@ -14,6 +14,8 @@ export const projectsModule = {
     SET_PROJECTS(state, payload) {
       state.projects = payload.projects;
       state.projectsStatus = payload.status;
+
+      localStorage.setItem("projects", JSON.stringify(state.projects));
     },
     SET_SELECTED_PROJECT_ID(state, payload) {
       state.selectedId = payload.id;
@@ -39,10 +41,7 @@ export const projectsModule = {
     getProjectsStatus: state => state.projectsStatus,
     getProjectByName: state => initials =>
       state.projects.find(p => p.initials === initials),
-    getSelectedProjectByID: state => {
-      console.log(state.selectedId);
-      return state.selectedId;
-    },
+    getSelectedProjectByID: state => state.selectedId,
     getProjectByID: state => id => state.projects.find(n => n.id_project == id)
   }
 };

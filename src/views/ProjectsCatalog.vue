@@ -130,11 +130,6 @@ export default {
       return this.getProjects;
     },
     filterProjects() {
-      this.compareDates(
-        this.datesFilter.startingDate,
-        this.datesFilter.endingDate
-      );
-
       return this.filterAlphabetically(
         this.filterProjectsByName(this.filterProjectsByCategory(this.projects))
       );
@@ -177,8 +172,6 @@ export default {
 
       let finalDate1 = this.getFullStartingDate(date1);
       let finalDate2 = this.getFullStartingDate(date2);
-
-      console.log(finalDate1, finalDate2);
 
       if (finalDate1 > finalDate2) {
         console.log(`${startingDate} is greater than ${endingDate}`);
