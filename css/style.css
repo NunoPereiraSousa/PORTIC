@@ -10749,4 +10749,179 @@ svg .st15 {
 .st15 {
   fill: #b0e1ff;
 }
+
+.admin_profile__panel {
+  width: 100%;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.admin_profile__panel__grid {
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: min-content 1fr;
+      grid-template-columns: -webkit-min-content 1fr;
+      grid-template-columns: min-content 1fr;
+  -webkit-column-gap: 4rem;
+          column-gap: 4rem;
+  padding: 0 3rem 0 6rem;
+  max-height: 60vh;
+  row-gap: 2.25rem;
+}
+
+@media (min-width: 120em) {
+  .admin_profile__panel__grid {
+    max-height: 70vh;
+  }
+}
+
+.admin_profile__panel__grid .admin__info {
+  margin-top: 7rem;
+  padding-right: 4rem;
+  border-right: 1.5px solid rgba(8, 8, 8, 0.1);
+}
+
+.admin_profile__panel__grid .admin__info img {
+  position: absolute;
+  top: 0;
+  border-style: solid;
+  border-radius: 60px;
+  margin-top: -70px;
+  border-width: 5px;
+  border-color: #ffffff;
+  -o-object-position: center center;
+     object-position: center center;
+  background-color: #666666;
+  width: 8.75rem;
+  height: 8.75rem;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+.admin_profile__panel__grid .admin__info h3 {
+  margin: 0;
+  font-family: "Porto Sans";
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #c94d24;
+}
+
+.admin_profile__panel__grid .admin__info p {
+  margin: 2rem 0;
+  width: 36rem;
+  font-size: 1.125rem;
+}
+
+.admin_profile__panel__grid .admin__info .socials {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 1.25rem;
+          column-gap: 1.25rem;
+}
+
+.admin_profile__panel__grid .admin__info .socials__circle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  border-radius: 50%;
+  background-color: #ffffff;
+  -webkit-box-shadow: rgba(8, 8, 8, 0.1) 0px 5px 24px;
+          box-shadow: rgba(8, 8, 8, 0.1) 0px 5px 24px;
+  font-size: 1.15rem;
+  color: #080808;
+}
+
+.admin_profile__panel__grid .admin__info input:last-of-type {
+  margin-left: 2rem;
+}
+
+.admin_profile__panel__grid .admin__info textarea {
+  padding: 12px;
+  font-family: "Porto Sans";
+  font-size: 1rem;
+  margin: 1rem 0;
+  width: 36rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_profile__panel__grid label {
+  color: #c94d24;
+  font-size: 1.125rem;
+}
+
+.admin_profile__panel__grid input {
+  margin: 1rem 0;
+  padding: 12px 26px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.admin_profile__panel__grid input:first-of-type {
+  margin-bottom: 2rem;
+}
+
+.admin_profile__panel__grid .admin__details {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.admin_profile__panel__grid .admin__details span {
+  color: #c94d24;
+}
+
+.admin_profile__panel__grid .admin__details p {
+  font-size: 1.125rem;
+  margin-bottom: 0;
+}
+
+.admin_profile__panel__grid button {
+  position: fixed;
+  right: 5%;
+  top: 50%;
+  font-family: "Porto Sans";
+  border: none;
+  background-color: #ffffff;
+  border-radius: 8px;
+  -webkit-box-shadow: rgba(8, 8, 8, 0.1) 0px 5px 24px;
+          box-shadow: rgba(8, 8, 8, 0.1) 0px 5px 24px;
+  padding: 1rem 2rem;
+  font-size: 1.0625rem;
+}
+
+.admin_profile__panel__grid button:not(.active) {
+  background-color: rgba(8, 8, 8, 0.2);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin_profile__panel ::-webkit-scrollbar {
+  width: 10px;
+  margin-right: 10px;
+}
+
+.admin_profile__panel ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin_profile__panel ::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 8, 8, 0.1);
+}
+
+.admin_profile__panel ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(8, 8, 8, 0.1);
+}
 /*# sourceMappingURL=style.css.map */

@@ -5,7 +5,8 @@
       <div class="admin_home__panel__grid grid">
         <div class="admin_home__panel__card intro">
           <div class="flex flex-ai-c flex-jc-sb">
-            <h2>Bem-vindo {{ loggedUser.username }}.</h2>
+            <!-- <h2>Bem-vindo {{ loggedUser.username }}.</h2> -->
+            <h2>Bem-vindo .</h2>
             <a href="tel:+">
               <i class="fas fa-phone-alt"></i>
             </a>

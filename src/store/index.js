@@ -51,7 +51,8 @@ export default new Vuex.Store({
         "projectsModule.selectedId",
         "langModule.lang",
         "newsModule.selectedNewsId",
-        "newsModule.news"
+        "newsModule.news",
+        "usersModule.token"
       ]
       //   storage: {
       //     getItem: key => {

@@ -5,8 +5,8 @@
     <div class="admin_users__panel">
       <div class="admin_users__panel__overlay" @click="closePopup"></div>
       <DashboardTopHeader />
-      <DashboardUsersPopup :userName="userName" />
-      <DashboardUsersBlockPopup :userName="userName" />
+      <!-- <DashboardUsersPopup :userName="userName" />
+      <DashboardUsersBlockPopup :userName="userName" /> -->
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
@@ -58,14 +58,18 @@
 
       <div class="admin_users__panel__grid grid">
         <DashboardUsersCard
-          v-for="user in searchFilter"
-          :key="user.id"
-          :id="user.id"
-          :counter="user.id"
-          :userName="user.name"
-          :userImg="user.img"
-          :userType="user.type"
-          :userRole="user.role"
+          v-for="(user, index) in searchFilter"
+          :key="user.id_user"
+          :id="user.id_user"
+          :counter="index + 1"
+          :userName="user.full_name"
+          :userImg="
+            user.picture == null
+              ? 'https://usercontent.one/wp/adtpest.com/wp-content/uploads/2018/08/default-avatar.jpg'
+              : user.picture
+          "
+          :userType="user.user_level"
+          :userRole="user.user_status"
         />
       </div>
     </div>
@@ -76,95 +80,73 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardUsersCard from "@/components/Dashboard/DashboardUsersCard.vue";
-import DashboardUsersPopup from "@/components/Dashboard/Popup/DashboardUsersPopup.vue";
-import DashboardUsersBlockPopup from "@/components/Dashboard/Popup/DashboardUsersBlockPopup.vue";
+// import DashboardUsersPopup from "@/components/Dashboard/Popup/DashboardUsersPopup.vue";
+// import DashboardUsersBlockPopup from "@/components/Dashboard/Popup/DashboardUsersBlockPopup.vue";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
-    DashboardUsersCard,
-    DashboardUsersPopup,
-    DashboardUsersBlockPopup
+    DashboardUsersCard
+    // DashboardUsersPopup,
+    // DashboardUsersBlockPopup
   },
   data: () => {
     return {
       institution: "PORTIC",
       userTxt: "",
-      users: [
-        {
-          id: 1,
-          name: "Nuno Sousa",
-          type: "Administrador",
-          role: "Front-end developer",
-          img:
-            "https://bsktbrasil.com/wp-content/uploads/2021/03/Site-Warriors-Volta-Curry.jpg"
-        },
-        {
-          id: 2,
-          name: "Nuno Sousa",
-          type: "Administrador",
-          role: "Front-end developer",
-          img:
-            "https://bsktbrasil.com/wp-content/uploads/2021/03/Site-Warriors-Volta-Curry.jpg"
-        },
-        {
-          id: 3,
-          name: "Nuno Sousa",
-          type: "Administrador",
-          role: "Front-end developer",
-          img:
-            "https://bsktbrasil.com/wp-content/uploads/2021/03/Site-Warriors-Volta-Curry.jpg"
-        },
-        {
-          id: 4,
-          name: "Nuno Sousa",
-          type: "Administrador",
-          role: "UI & UX Designer",
-          img:
-            "https://bsktbrasil.com/wp-content/uploads/2021/03/Site-Warriors-Volta-Curry.jpg"
-        },
-        {
-          id: 5,
-          name: "Nuno Sousa",
-          type: "Administrador",
-          role: "Back-end developer",
-          img:
-            "https://bsktbrasil.com/wp-content/uploads/2021/03/Site-Warriors-Volta-Curry.jpg"
-        }
-      ]
+      token: ""
     };
   },
-  mounted() {
-    let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+  created() {},
+  async mounted() {
+    try {
+      await this.$store.dispatch("setUsers");
 
-    document.querySelector(
-      ".admin_users__panel"
-    ).style.paddingLeft = `${navbar_width}px`;
+      console.log(this.$store.getters.getUsers);
+    } catch (error) {
+      return error;
+    }
   },
   computed: {
-    userName() {
-      let id = this.getSelectedUserByID;
-
-      let user = this.getUserByID(id);
-
-      let name;
-
-      if (user) {
-        name = user.userName;
-      }
-
-      return name;
+    ...mapGetters(["getSelectedUserByID", "getUsers"]),
+    setUsersArr() {
+      return this.getUsers;
     },
+    // userName() {
+    //   let id = this.getSelectedUserByID;
+
+    //   let user = this.getUserByID(id);
+
+    //   let name;
+
+    //   if (user) {
+    //     name = user.userName;
+    //   }
+
+    //   return name;
+    // },
     searchFilter() {
-      return this.users.filter(user => {
+      return this.setUsersArr.filter(user => {
         let search = true;
 
         if (this.userTxt != "")
-          search = user.name.toLowerCase().includes(this.user.toLowerCase());
+          search = user.username
+            .toLowerCase()
+            .includes(this.userTxt.toLowerCase());
 
         return search;
       });
+    }
+  },
+  methods: {
+    closePopup() {
+      let overlay = document.querySelector(".admin_users__panel__overlay");
+      let popup = document.querySelector(".admin_delete_popup");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
     }
   }
 };

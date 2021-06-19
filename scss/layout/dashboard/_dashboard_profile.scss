@@ -1,0 +1,161 @@
+.admin_profile__panel {
+  width: 100%;
+
+  &__grid {
+    position: relative;
+    align-items: center;
+    grid-template-columns: min-content 1fr;
+    column-gap: 4rem;
+    padding: 0 3rem 0 6rem;
+
+    max-height: 60vh;
+
+    row-gap: 2.25rem;
+
+    @include breakpoint-up(large) {
+      max-height: 70vh;
+    }
+
+    .admin__info {
+      margin-top: 7rem;
+      padding-right: 4rem;
+      border-right: 1.5px solid rgba($color: $black, $alpha: 0.1);
+
+      img {
+        position: absolute;
+        top: 0;
+
+        border-style: solid;
+        border-radius: 60px;
+        margin-top: -70px;
+        border-width: 5px;
+        border-color: $white;
+        object-position: center center;
+        background-color: $lightGrey;
+        width: 8.75rem;
+        height: 8.75rem;
+        object-fit: cover !important;
+      }
+
+      h3 {
+        margin: 0;
+        font-family: $portoSans;
+        font-weight: 400;
+        font-size: $_24px;
+        color: $orange;
+      }
+
+      p {
+        margin: 2rem 0;
+        width: 36rem;
+
+        font-size: $_18px;
+      }
+
+      .socials {
+        align-items: center;
+        column-gap: 1.25rem;
+
+        &__circle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          border-radius: 50%;
+          background-color: $white;
+          box-shadow: rgba($color: $black, $alpha: 0.1) 0px 5px 24px;
+
+          font-size: 1.15rem;
+          color: $black;
+        }
+      }
+
+      input {
+        &:last-of-type {
+          margin-left: 2rem;
+        }
+      }
+
+      textarea {
+        padding: 12px;
+        font-family: $portoSans;
+        font-size: $_16px;
+        margin: 1rem 0;
+        width: 36rem;
+        border: 1px solid rgba($color: $black, $alpha: 0.3);
+      }
+    }
+
+    label {
+      color: $orange;
+      font-size: $_18px;
+    }
+
+    input {
+      margin: 1rem 0;
+      padding: 12px 26px;
+      font-family: $portoSans;
+      font-size: $_15px;
+      border: 1px solid rgba($color: $black, $alpha: 0.3);
+
+      &:first-of-type {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .admin__details {
+      align-self: flex-end;
+
+      span {
+        color: $orange;
+      }
+
+      p {
+        font-size: $_18px;
+        margin-bottom: 0;
+      }
+    }
+
+    button {
+      position: fixed;
+      right: 5%;
+      top: 50%;
+      font-family: $portoSans;
+      border: none;
+      background-color: $white;
+      border-radius: 8px;
+      box-shadow: rgba($color: $black, $alpha: 0.1) 0px 5px 24px;
+      padding: 1rem 2rem;
+      font-size: $_17px;
+
+      &:not(.active) {
+        background-color: rgba($color: $black, $alpha: 0.2);
+        opacity: 0.5;
+
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    margin-right: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $black, $alpha: 0.1);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba($color: $black, $alpha: 0.1);
+  }
+}

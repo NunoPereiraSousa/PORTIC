@@ -953,10 +953,6 @@ export default {
           this.loggedUser = this.getLoggedUser;
           this.token = this.getLoginToken;
 
-          // save on localStorage the loggedUser and token
-          localStorage.setItem("loggedUser", JSON.stringify(this.loggedUser));
-          localStorage.setItem("token", JSON.stringify(this.token));
-
           // show success notification
           this.notificationSuccess();
 

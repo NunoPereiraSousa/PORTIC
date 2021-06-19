@@ -25,6 +25,7 @@ import DashboardEditNews from "../views/Dashboard/DashboardEditNews.vue";
 import DashboardHome from "../views/Dashboard/DashboardHome.vue";
 import DashboardProjects from "../views/Dashboard/DashboardProjects.vue";
 import DashboardUnities from "../views/Dashboard/DashboardUnities.vue";
+import DashboardProfile from "../views/Dashboard/DashboardProfile.vue";
 import DashboardUsers from "../views/Dashboard/DashboardUsers.vue";
 import DashboardTN from "../views/Dashboard/DashboardTN.vue";
 import DashboardProjectFiles from "../views/Dashboard/DashboardProjectFiles.vue";
@@ -226,6 +227,11 @@ const routes = [
     path: "/dashboard-edit-tn",
     name: "DashboardEditNews",
     component: DashboardEditNews
+  },
+  {
+    path: "/dashboard/:fullName",
+    name: "DashboardProfile",
+    component: DashboardProfile
   },
   {
     path: "/dashboard-users",

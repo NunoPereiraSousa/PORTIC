@@ -33,6 +33,9 @@ export const usersModule = {
       state.loggedUser = payload.user;
       state.token = payload.token;
       state.signInStatus = payload.status;
+
+      localStorage.setItem("loggedUser", JSON.stringify(state.loggedUser));
+      localStorage.setItem("token", JSON.stringify(state.token));
     },
     SET_LOGIN_FORM(state, payload) {
       state.loginForm.username = payload.username;
@@ -72,6 +75,9 @@ export const usersModule = {
           state.registerForm.phoneNumber
         )
       );
+    },
+    async setUsers({ commit, state }) {
+      commit("SET_USERS", await usersConfig.getUsers(state.token));
     }
   },
   getters: {

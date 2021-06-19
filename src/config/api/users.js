@@ -1,16 +1,22 @@
 import axios from "axios";
 
-import { API_URL } from "./config";
+import { API_URL, API_URL2 } from "./config";
+// let token = JSON.parse(localStorage.getItem("token"));
 
 let headers = {
   "Access-Control-Allow-Origin": "*"
 };
 
+// let headerToken = {
+//   "Access-Control-Allow-Origin": "*",
+//   authorization: `Bearer ${token}`
+// };
+
 export const usersConfig = {
   singIn: async (username, password) => {
     return await axios
       .post(
-        `${API_URL}/users/login`,
+        `${API_URL2}/users/login`,
         {
           username: username,
           password: password
@@ -60,6 +66,29 @@ export const usersConfig = {
         };
       })
       .catch(error => {
+        return error;
+      });
+  },
+  getUsers: async token => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: `Bearer ${token}`
+      }
+    };
+
+    console.log(token, config);
+    return await axios
+      .get(`${API_URL2}/users`, config)
+      .then(response => {
+        console.log(response);
+        return {
+          users: response.data.processResult,
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log();
         return error;
       });
   }
