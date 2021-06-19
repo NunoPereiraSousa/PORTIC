@@ -100,9 +100,16 @@ export default {
 
     try {
       await this.$store.dispatch("setWeather");
+      await this.$store.dispatch("setUsers");
+
+      console.log(this.$store.getters.getUsers);
     } catch (error) {
       return error;
     }
+
+    this.$store.commit("SET_USER", {
+      user: this.setUserInfo
+    });
 
     this.weather = this.getWeather;
 
@@ -123,13 +130,25 @@ export default {
     this.temperature = Math.round(this.getWeather.current.temp);
   },
   computed: {
-    ...mapGetters(["getWeather", "getCourses", "getNAreas"]),
+    ...mapGetters([
+      "getWeather",
+      "getCourses",
+      "getNAreas",
+      "getUsers",
+      "getLoggedUser"
+    ]),
     areasLength() {
       return this.getNAreas.length;
     },
     coursesLength() {
       console.log(this.getCourses.length);
       return this.getCourses.length;
+    },
+    setUserInfo() {
+      console.log(this.getUsers);
+      return this.getUsers.find(
+        user => user.username === this.getLoggedUser.username
+      );
     }
   },
   methods: {

@@ -541,7 +541,11 @@
         </button>
       </div>
 
-      <div class="top_header__actions__image" :style="imageStyle"></div>
+      <div
+        class="top_header__actions__image"
+        :style="imageStyle"
+        @click="openProfile"
+      ></div>
     </div>
   </header>
 </template>
@@ -553,12 +557,17 @@ export default {
   data: () => {
     return {
       day: "",
-      year: ""
+      year: "",
+      loggedUser: {},
+      users: []
     };
   },
   created() {
     this.day = methods.methods.getDay();
     this.year = methods.methods.getYear();
+
+    this.loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    this.users = JSON.parse(localStorage.getItem("users"));
   },
   mounted() {
     this.updateTime = setInterval(() => {
@@ -574,6 +583,12 @@ export default {
     }
   },
   methods: {
+    openProfile() {
+      this.$router.push({
+        name: "DashboardProfile",
+        params: { fullName: this.$store.getters.getLoggedUser.username }
+      });
+    },
     getMonth() {
       let month = "";
 

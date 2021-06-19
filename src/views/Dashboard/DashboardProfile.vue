@@ -18,19 +18,16 @@
             alt="Picture"
           />
 
-          <h3>Nuno Sousa</h3>
+          <h3>{{ getUserInfo.full_name }}</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugit
-            vitae esse temporibus obcaecati, minus odio. Vel, exercitationem et
-            aperiam numquam beatae mollitia. At quae inventore porro illo ex
-            eaque!
+            {{ getUserInfo.description_pt }}
           </p>
 
           <div class="socials flex">
-            <a href="" class="socials__circle">
+            <a :href="getUserInfo.linkedIn_url" class="socials__circle">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a href="" class="socials__circle">
+            <a :href="getUserInfo.facebook_url" class="socials__circle">
               <i class="fab fa-facebook-square"></i>
             </a>
           </div>
@@ -39,11 +36,17 @@
         <div class="admin__details">
           <p>
             <span>Email: </span> <br />
-            limaJorge20014@gmail.com
+            {{ getUserInfo.email }}
           </p>
-          <p><span>Número de telemóvel: </span> <br />"939908427"</p>
-          <p><span>Nível: </span> <br />Super Admin</p>
-          <p><span>Estado da conta: </span> <br />Normal</p>
+          <p>
+            <span>Número de telemóvel: </span> <br />{{
+              getUserInfo.phone_numb
+            }}
+          </p>
+          <p><span>Nível: </span> <br />{{ getUserInfo.user_level }}</p>
+          <p>
+            <span>Estado da conta: </span> <br />{{ getUserInfo.user_status }}
+          </p>
         </div>
 
         <button class="edit_profile active" @click="isHidden = !isHidden">
@@ -99,6 +102,7 @@
 
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
+import { mapGetters } from "vuex";
 // import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 
 export default {
@@ -109,8 +113,34 @@ export default {
     return {
       tabs: ["Editar Perfil", "Guardar Perfil"],
       currentTab: 0,
-      isHidden: false
+      isHidden: false,
+      loggedUser: {},
+      user: {}
     };
+  },
+  created() {
+    this.loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+
+    console.log(this.getUser);
+    // this.user = this.getUserByUsername(this.loggedUser.username);
+  },
+  computed: {
+    ...mapGetters([
+      "getUserByUsername",
+      "getUsers",
+      "getLoggedUser",
+      "getUser"
+    ]),
+    getUserInfo() {
+      return this.getUser;
+    }
+  },
+  methods: {
+    setUserInfo() {
+      return this.getUsers.find(
+        user => user.username === this.getLoggedUser.username
+      );
+    }
   }
 };
 </script>

@@ -18,6 +18,7 @@ export const usersModule = {
       email: null,
       phoneNumber: null
     },
+    user: {},
     signInStatus: null,
     signUpStatus: null,
     dataBody: {
@@ -28,6 +29,11 @@ export const usersModule = {
     SET_USERS(state, payload) {
       state.users = payload.users;
       state.signUpStatus = payload.status;
+
+      localStorage.setItem("users", JSON.stringify(state.users));
+    },
+    SET_USER(state, payload) {
+      state.user = payload.user;
     },
     SET_LOGGED_USER(state, payload) {
       state.loggedUser = payload.user;
@@ -83,6 +89,9 @@ export const usersModule = {
   getters: {
     getUsers: state => {
       return state.users != "" ? state.users : [];
+    },
+    getUser: state => {
+      return state.user != "" ? state.user : "";
     },
     getNUsers: state => {
       return state.users.length;
