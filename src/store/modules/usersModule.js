@@ -23,7 +23,18 @@ export const usersModule = {
     signUpStatus: null,
     dataBody: {
       selectedLang: null
-    }
+    },
+    editProfileForm: {
+      username: null,
+      description_pt: null,
+      description_eng: null,
+      email: null,
+      phone_numb: null,
+      facebook_url: null,
+      linkedIn_url: null,
+      full_name: null
+    },
+    editProfileStatus: null
   },
   mutations: {
     SET_USERS(state, payload) {
@@ -34,6 +45,8 @@ export const usersModule = {
     },
     SET_USER(state, payload) {
       state.user = payload.user;
+
+      console.log(state.user);
     },
     SET_LOGGED_USER(state, payload) {
       state.loggedUser = payload.user;
@@ -57,6 +70,19 @@ export const usersModule = {
     },
     SET_REGISTER_STATUS(state, payload) {
       state.signUpStatus = payload.status;
+    },
+    SET_EDIT_PROFILE_STATUS(state, payload) {
+      state.editProfileStatus = payload.status;
+    },
+    SET_EDIT_PROFILE_FORM(state, payload) {
+      state.editProfileForm.username = payload.username;
+      state.editProfileForm.description_pt = payload.description_pt;
+      state.editProfileForm.description_eng = payload.description_eng;
+      state.editProfileForm.email = payload.email;
+      state.editProfileForm.phone_numb = payload.phone_numb;
+      state.editProfileForm.facebook_url = payload.facebook_url;
+      state.editProfileForm.linkedIn_url = payload.linkedIn_url;
+      state.editProfileForm.full_name = payload.fullName;
     }
   },
   actions: {
@@ -84,6 +110,25 @@ export const usersModule = {
     },
     async setUsers({ commit, state }) {
       commit("SET_USERS", await usersConfig.getUsers(state.token));
+    },
+    async setUser({ commit, state }) {
+      commit("SET_USER", await usersConfig.getProfileData(state.token));
+    },
+    async setEditProfile({ commit, state }) {
+      commit(
+        "SET_EDIT_PROFILE_STATUS",
+        await usersConfig.editProfile(
+          state.token,
+          state.editProfileForm.username,
+          state.editProfileForm.description_pt,
+          state.editProfileForm.description_eng,
+          state.editProfileForm.email,
+          state.editProfileForm.phone_numb,
+          state.editProfileForm.facebook_url,
+          state.editProfileForm.linkedIn_url,
+          state.editProfileForm.full_name
+        )
+      );
     }
   },
   getters: {

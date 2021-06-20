@@ -107,9 +107,9 @@ export default {
       return error;
     }
 
-    this.$store.commit("SET_USER", {
-      user: this.setUserInfo
-    });
+    // this.$store.commit("SET_USER", {
+    //   user: this.setUserInfo
+    // });
 
     this.weather = this.getWeather;
 
@@ -143,13 +143,12 @@ export default {
     coursesLength() {
       console.log(this.getCourses.length);
       return this.getCourses.length;
-    },
-    setUserInfo() {
-      console.log(this.getUsers);
-      return this.getUsers.find(
-        user => user.username === this.getLoggedUser.username
-      );
     }
+    // setUserInfo() {
+    //   return this.getUsers.find(
+    //     user => user.username === this.getLoggedUser.username
+    //   );
+    // }
   },
   methods: {
     height() {

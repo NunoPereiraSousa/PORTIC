@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { API_URL, API_URL2 } from "./config";
-// let token = JSON.parse(localStorage.getItem("token"));
+// import { API_URL, API_URL2 } from "./config";
+import { API_URL2 } from "./config";
 
 let headers = {
   "Access-Control-Allow-Origin": "*"
@@ -46,7 +46,7 @@ export const usersConfig = {
   ) => {
     return await axios
       .post(
-        `${API_URL}/users/register`,
+        `${API_URL2}/users/register`,
         {
           username: username,
           first_name: firstName,
@@ -77,11 +77,9 @@ export const usersConfig = {
       }
     };
 
-    console.log(token, config);
     return await axios
       .get(`${API_URL2}/users`, config)
       .then(response => {
-        console.log(response);
         return {
           users: response.data.processResult,
           status: response.status
@@ -89,6 +87,69 @@ export const usersConfig = {
       })
       .catch(error => {
         console.log();
+        return error;
+      });
+  },
+  getProfileData: async token => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .get(`${API_URL2}/users/profile`, config)
+      .then(response => {
+        console.log(response.data.processResult[0]);
+        return {
+          user: response.data.processResult[0]
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
+  },
+  editProfile: async (
+    token,
+    username,
+    description_pt,
+    description_eng = "English desc",
+    email,
+    phone_numb,
+    facebook_url,
+    linkedIn_url,
+    fullname
+  ) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .put(
+        `${API_URL2}/users/profile`,
+        {
+          username: username,
+          description_pt: description_pt,
+          description_eng: description_eng,
+          email: email,
+          phone_numb: phone_numb,
+          facebook_url: facebook_url,
+          linkedIn_url: linkedIn_url,
+          full_name: fullname
+        },
+        config
+      )
+      .then(response => {
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
         return error;
       });
   }

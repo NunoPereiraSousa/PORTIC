@@ -583,11 +583,17 @@ export default {
     }
   },
   methods: {
-    openProfile() {
+    async openProfile() {
       this.$router.push({
         name: "DashboardProfile",
         params: { fullName: this.$store.getters.getLoggedUser.username }
       });
+
+      try {
+        await this.$store.dispatch("setUser");
+      } catch (error) {
+        return error;
+      }
     },
     getMonth() {
       let month = "";
