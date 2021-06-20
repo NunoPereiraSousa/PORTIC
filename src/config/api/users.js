@@ -101,7 +101,6 @@ export const usersConfig = {
     return await axios
       .get(`${API_URL2}/users/profile`, config)
       .then(response => {
-        console.log(response.data.processResult[0]);
         return {
           user: response.data.processResult[0]
         };

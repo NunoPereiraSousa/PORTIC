@@ -66,7 +66,7 @@
           :userImg="
             user.picture == null
               ? 'https://usercontent.one/wp/adtpest.com/wp-content/uploads/2018/08/default-avatar.jpg'
-              : user.picture
+              : convertImage(user.picture.data)
           "
           :userType="user.user_level"
           :userRole="user.user_status"
@@ -147,6 +147,14 @@ export default {
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
+    },
+    convertImage(img) {
+      let arrayBufferView = new Uint8Array(img);
+      let blob = new Blob([arrayBufferView], { type: "image/png" });
+      let urlCreator = window.URL || window.webkitURL;
+      let image = urlCreator.createObjectURL(blob);
+
+      return image;
     }
   }
 };

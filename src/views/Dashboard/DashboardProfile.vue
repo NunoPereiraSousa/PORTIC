@@ -13,10 +13,7 @@
 
       <div v-if="!isHidden" class="admin_profile__panel__grid grid">
         <div class="admin__info">
-          <img
-            src="https://www.hypeness.com.br/1/2020/01/Kobe_Bryant_04.jpg"
-            alt="Picture"
-          />
+          <img :src="convertImage(getProfileImg)" alt="Profile Img" />
 
           <div class="flex flex-ai-c flex-jc-sb">
             <h3>{{ getUserInfo.full_name }}</h3>
@@ -161,13 +158,14 @@ export default {
         facebookUrl: "",
         email: "",
         phoneNumber: ""
-      }
+      },
+      image: ""
     };
   },
   created() {
     this.loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 
-    console.log(this.getUser);
+    console.log(this.getUser.picture);
 
     this.form = {
       fullName: this.getUserInfo.full_name,
@@ -188,6 +186,9 @@ export default {
     ]),
     getUserInfo() {
       return this.getUser;
+    },
+    getProfileImg() {
+      return this.getUser.picture.data;
     }
   },
   methods: {
@@ -215,6 +216,14 @@ export default {
         console.log(`ERROR: ${error}`);
         return error;
       }
+    },
+    convertImage(img) {
+      let arrayBufferView = new Uint8Array(img);
+      let blob = new Blob([arrayBufferView], { type: "image/png" });
+      let urlCreator = window.URL || window.webkitURL;
+      let image = urlCreator.createObjectURL(blob);
+
+      return image;
     }
   }
 };
