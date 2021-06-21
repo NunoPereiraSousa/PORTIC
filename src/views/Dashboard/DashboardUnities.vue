@@ -145,20 +145,17 @@ export default {
     };
   },
   async mounted() {
-    this.$store.commit("SET_SELECTED_UNITIES_LANG", {
-      lang: "pt"
-    });
-
-    try {
-      await this.$store.dispatch("setEntityId");
-      await this.$store.dispatch("setUnities");
-    } catch (error) {
-      console.log(`App: ${error}`);
-      return error;
-    }
-
+    // this.$store.commit("SET_SELECTED_UNITIES_LANG", {
+    //   lang: "pt"
+    // });
+    // try {
+    //   await this.$store.dispatch("setEntityId");
+    //   await this.$store.dispatch("setUnities");
+    // } catch (error) {
+    //   console.log(`App: ${error}`);
+    //   return error;
+    // }
     // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
     // document.querySelector(
     //   ".admin_unities__panel"
     // ).style.paddingLeft = `${navbar_width}px`;

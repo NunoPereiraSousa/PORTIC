@@ -86,7 +86,7 @@ export const usersConfig = {
         };
       })
       .catch(error => {
-        console.log();
+        console.log(error);
         return error;
       });
   },
@@ -101,8 +101,10 @@ export const usersConfig = {
     return await axios
       .get(`${API_URL2}/users/profile`, config)
       .then(response => {
+        console.log(response.data.processResult[0]);
         return {
-          user: response.data.processResult[0]
+          user: response.data.processResult[0],
+          status: response.status
         };
       })
       .catch(error => {
@@ -145,6 +147,34 @@ export const usersConfig = {
       )
       .then(response => {
         return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        return error;
+      });
+  },
+  editProfileImg: async (token, image) => {
+    console.log(image);
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .patch(
+        `${API_URL2}/users/profile/picture`,
+        {
+          file: image
+        },
+        config
+      )
+      .then(response => {
+        console.log(response);
+        return {
+          image: response.data.processResult,
           status: response.status
         };
       })

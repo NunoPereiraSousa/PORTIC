@@ -13,7 +13,11 @@
 
       <div v-if="!isHidden" class="admin_profile__panel__grid grid">
         <div class="admin__info">
-          <img :src="convertImage(getProfileImg)" alt="Profile Img" />
+          <!-- <img
+            id="profilePic"
+            :src="convertImage(getProfileImg)"
+            alt="Profile Img"
+          /> -->
 
           <div class="flex flex-ai-c flex-jc-sb">
             <h3>{{ getUserInfo.full_name }}</h3>
@@ -57,10 +61,10 @@
 
       <div v-if="isHidden" class="admin_profile__panel__grid grid">
         <div class="admin__info">
-          <img
-            src="https://www.hypeness.com.br/1/2020/01/Kobe_Bryant_04.jpg"
-            alt="Picture"
-          />
+          <label class="custom-file-upload">
+            <input type="file" @change="onImageChange" />
+            <!-- <img :src="convertImage(getProfileImg)" alt="Profile Img" /> -->
+          </label>
 
           <div class="flex flex-ai-c flex-jc-sb">
             <div>
@@ -157,7 +161,8 @@ export default {
         linkedInUrl: "",
         facebookUrl: "",
         email: "",
-        phoneNumber: ""
+        phoneNumber: "",
+        image: ""
       },
       image: ""
     };
@@ -165,7 +170,20 @@ export default {
   created() {
     this.loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 
-    console.log(this.getUser.picture);
+    // console.log(
+    //   JSON.parse(localStorage.getItem("loggedUser")),
+    //   this.loggedUser
+    // );
+
+    // if (JSON.parse(localStorage.getItem("loggedUser"))) {
+    //   this.$store.commit("SET_LOGGED_USER", {
+    //     user: JSON.parse(localStorage.getItem("loggedUser")),
+    //     token: JSON.parse(localStorage.getItem("loggedUser")).token,
+    //     status: 200
+    //   });
+    // }
+
+    // console.log(this.getUser.picture);
 
     this.form = {
       fullName: this.getUserInfo.full_name,
@@ -175,20 +193,29 @@ export default {
       facebookUrl: this.getUserInfo.facebook_url,
       email: this.getUserInfo.email,
       phoneNumber: this.getUserInfo.phone_numb
+      // image: this.convertImage(this.getUserInfo.picture.data)
     };
+
+    // console.log(this.form.image);
+
+    // console.log(this.getUserStatus);
   },
   computed: {
     ...mapGetters([
       "getUserByUsername",
       "getUsers",
       "getLoggedUser",
-      "getUser"
+      "getUser",
+      "getLoggedUser",
+      "getUserStatus"
     ]),
     getUserInfo() {
       return this.getUser;
     },
     getProfileImg() {
-      return this.getUser.picture.data;
+      return this.getUser.picture.data == undefined
+        ? "https://digimedia.web.ua.pt/wp-content/uploads/2017/05/default-user-image.png"
+        : this.getUser.picture.data;
     }
   },
   methods: {
@@ -216,6 +243,36 @@ export default {
         console.log(`ERROR: ${error}`);
         return error;
       }
+    },
+    onImageChange(e) {
+      let files = e.target.files || e.dataTransfer.files;
+      if (!files.length) return;
+
+      console.log(files);
+
+      this.createImage(files[0]);
+
+      console.log(this.createImage(files[0]));
+    },
+    createImage(file) {
+      this.image = new Image();
+      var reader = new FileReader();
+
+      reader.onload = async e => {
+        this.form.image = e.target.result;
+
+        try {
+          await this.$store.dispatch("setEditProfile");
+
+          // get profile data
+          await this.$store.dispatch("setUser");
+        } catch (error) {
+          console.log(`ERROR: ${error}`);
+          return error;
+        }
+      };
+
+      reader.readAsDataURL(file);
     },
     convertImage(img) {
       let arrayBufferView = new Uint8Array(img);

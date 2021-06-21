@@ -24,6 +24,8 @@ export const areaModule = {
     SET_AREAS(state, payload) {
       state.areas = payload.areas;
       state.dataStatus = payload.status;
+
+      console.log(state.areas);
     },
     SET_AREAS_GROUPS(state, payload) {
       state.groups = payload.groups;

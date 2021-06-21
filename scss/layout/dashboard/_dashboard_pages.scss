@@ -119,3 +119,41 @@
     background-color: rgba($color: $black, $alpha: 0.1);
   }
 }
+
+.admin_pages__intro {
+  position: relative;
+  width: 100%;
+  background-color: $black;
+  color: $white;
+  padding: 6rem 11vw 4rem;
+  grid-template-columns: 1fr 1.5fr;
+
+  input,
+  textarea {
+    padding: 12px 26px;
+    margin-right: 3.125rem;
+    border-radius: 2px;
+    font-family: $portoSans;
+    color: $white;
+    font-size: $_15px;
+    border: 1px solid rgba($color: $white, $alpha: 1);
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+      border: 1px solid rgba($color: $orange, $alpha: 1);
+    }
+  }
+
+  textarea {
+    width: 40rem;
+  }
+
+  ::placeholder {
+    color: $white;
+  }
+}
+
+.admin_pages .footer {
+  margin-top: 0;
+}

@@ -19,6 +19,8 @@ export const usersModule = {
       phoneNumber: null
     },
     user: {},
+    userStatus: null,
+    userImgStatus: null,
     signInStatus: null,
     signUpStatus: null,
     dataBody: {
@@ -45,8 +47,12 @@ export const usersModule = {
     },
     SET_USER(state, payload) {
       state.user = payload.user;
+      state.userStatus = payload.status;
 
-      console.log(state.user);
+      console.log(state.user, state.userStatus);
+    },
+    SET_USER_IMG_STATUS(state, payload) {
+      state.userImgStatus = payload.status;
     },
     SET_LOGGED_USER(state, payload) {
       state.loggedUser = payload.user;
@@ -54,6 +60,11 @@ export const usersModule = {
       state.signInStatus = payload.status;
 
       localStorage.setItem("loggedUser", JSON.stringify(state.loggedUser));
+      localStorage.setItem("token", JSON.stringify(state.token));
+    },
+    SET_TOKEN(state, payload) {
+      state.token = payload.token;
+
       localStorage.setItem("token", JSON.stringify(state.token));
     },
     SET_LOGIN_FORM(state, payload) {
@@ -129,6 +140,12 @@ export const usersModule = {
           state.editProfileForm.full_name
         )
       );
+    },
+    async setUserImg({ commit, state }) {
+      commit(
+        "SET_USER_IMG_STATUS",
+        await usersConfig.editProfileImg(state.token, state.userImg)
+      );
     }
   },
   getters: {
@@ -137,6 +154,9 @@ export const usersModule = {
     },
     getUser: state => {
       return state.user != "" ? state.user : "";
+    },
+    getUserStatus: state => {
+      return state.userStatus != "" ? state.userStatus : "";
     },
     getNUsers: state => {
       return state.users.length;

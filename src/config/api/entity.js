@@ -25,7 +25,6 @@ export const entityConfig = {
       });
   },
   getEntityData: async (selectedLang, entityId) => {
-    // console.log(`${API_URL}/${selectedLang}/entities/${entityId}`);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entityId}`, {
         headers

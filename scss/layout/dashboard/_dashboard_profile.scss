@@ -21,7 +21,8 @@
       padding-right: 4rem;
       border-right: 1.5px solid rgba($color: $black, $alpha: 0.1);
 
-      img {
+      img#profilePic,
+      .custom-file-upload {
         position: absolute;
         top: 0;
 
@@ -36,6 +37,27 @@
         height: 8.75rem;
         object-fit: cover !important;
       }
+
+      .custom-file-upload > img {
+        position: absolute;
+        top: calc(0% - 5px);
+        left: calc(0% - 5px);
+
+        border-style: solid;
+        border-radius: 60px;
+        border-width: 5px;
+        border-color: $white;
+        object-position: center center;
+        background-color: $lightGrey;
+        width: 8.75rem;
+        height: 8.75rem;
+        object-fit: cover !important;
+      }
+
+      // img {
+      //   left: -4%;
+      //   top: 50%;
+      // }
 
       h3 {
         margin: 0;

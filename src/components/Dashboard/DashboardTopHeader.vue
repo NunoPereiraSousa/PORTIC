@@ -584,16 +584,19 @@ export default {
   },
   methods: {
     async openProfile() {
+      try {
+        await this.$store.dispatch("setUser");
+
+        console.log(1);
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
+
       this.$router.push({
         name: "DashboardProfile",
         params: { fullName: this.$store.getters.getLoggedUser.username }
       });
-
-      try {
-        await this.$store.dispatch("setUser");
-      } catch (error) {
-        return error;
-      }
     },
     getMonth() {
       let month = "";

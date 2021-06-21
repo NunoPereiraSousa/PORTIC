@@ -1,5 +1,5 @@
 <template>
-  <nav class="admin_nav flex flex-fd-c flex-jc-sb">
+  <nav class="admin_nav">
     <div>
       <router-link
         :to="{ name: 'DashboardHome' }"
@@ -576,7 +576,7 @@
 
         Fichas de projeto
       </router-link>
-      <router-link
+      <!-- <router-link
         :to="{ name: 'DashboardAddPage' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -601,7 +601,7 @@
         </svg>
 
         Adicionar Página
-      </router-link>
+      </router-link> -->
     </div>
 
     <div class="admin_nav__logout">

@@ -8,11 +8,13 @@ let headers = {
 
 export const areasConfig = {
   getAreas: async (selectedLang, entity_id) => {
+    console.log(`${API_URL}/${selectedLang}/entities/${entity_id}/areas`);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entity_id}/areas`, {
         headers
       })
       .then(response => {
+        console.log(response.data.processResult);
         return {
           areas: response.data.processResult,
           status: response.status

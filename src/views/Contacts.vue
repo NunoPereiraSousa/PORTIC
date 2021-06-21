@@ -417,7 +417,8 @@ export default {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setAreas");
       await this.$store.dispatch("setAreasGroups");
-      console.log(this.getAreasGroups);
+
+      console.log(this.getAreas);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;

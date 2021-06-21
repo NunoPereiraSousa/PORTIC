@@ -4484,64 +4484,129 @@ button:focus {
 }
 
 .areas,
-.courses {
+.courses,
+.section {
   background-color: #ffffff;
   padding: calc(6.1875rem + 2vw) 0 0;
   width: 100%;
 }
 
 .areas .sub__header__title,
-.courses .sub__header__title {
+.courses .sub__header__title,
+.section .sub__header__title {
   margin-left: 2rem;
 }
 
 @media (min-width: 48em) {
   .areas .sub__header__title,
-  .courses .sub__header__title {
+  .courses .sub__header__title,
+  .section .sub__header__title {
     margin-left: 8vw;
   }
 }
 
 @media (min-width: 75em) {
   .areas .sub__header__title,
-  .courses .sub__header__title {
+  .courses .sub__header__title,
+  .section .sub__header__title {
     margin-left: 11vw;
   }
 }
 
 @media (min-width: 120em) {
   .areas .sub__header__title,
-  .courses .sub__header__title {
+  .courses .sub__header__title,
+  .section .sub__header__title {
     margin-left: 10vw;
   }
 }
 
 @media (max-width: 23.375em) {
   .areas__grid,
-  .courses__grid {
+  .courses__grid,
+  .section__grid {
     row-gap: 0;
   }
 }
 
 @media (min-width: 48em) {
   .areas__grid,
-  .courses__grid {
+  .courses__grid,
+  .section__grid {
     padding: 0 8vw;
   }
 }
 
 @media (min-width: 75em) {
   .areas__grid,
-  .courses__grid {
+  .courses__grid,
+  .section__grid {
     padding: 0 11vw;
   }
 }
 
 @media (min-width: 120em) {
   .areas__grid,
-  .courses__grid {
+  .courses__grid,
+  .section__grid {
     padding: 0 10vw;
   }
+}
+
+.areas textarea,
+.courses textarea,
+.section textarea {
+  padding: 12px 26px;
+  margin-right: 3.125rem;
+  border-radius: 2px;
+  font-family: "Porto Sans";
+  color: #080808;
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+  background-color: transparent;
+  width: 100%;
+}
+
+.areas textarea:focus,
+.courses textarea:focus,
+.section textarea:focus {
+  outline: none;
+  border: 1px solid #c94d24;
+}
+
+.areas .add_card,
+.areas .remove_card,
+.courses .add_card,
+.courses .remove_card,
+.section .add_card,
+.section .remove_card {
+  margin-right: 2rem;
+  padding: 0.84375rem 1.625rem;
+  text-transform: uppercase;
+  border: none;
+  font-size: 0.9375rem;
+  font-family: "Porto Sans";
+  letter-spacing: 0.2px;
+  border-radius: 10px;
+}
+
+.areas .add_card,
+.courses .add_card,
+.section .add_card {
+  background-color: #c94d24;
+  color: #ffffff;
+}
+
+.areas .remove_card,
+.courses .remove_card,
+.section .remove_card {
+  background-color: rgba(153, 153, 153, 0.25);
+  color: #080808;
+}
+
+.section {
+  position: relative;
+  padding: calc(6.1875rem + 2vw) 0;
 }
 
 .areas {
@@ -4812,27 +4877,32 @@ button:focus {
           flex: 1;
 }
 
-.areas__grid__card {
+.areas__grid__card,
+.section__grid__card {
   padding: 2rem 1.875rem;
   border-top: 1px solid rgba(153, 153, 153, 0.5);
   cursor: pointer;
 }
 
-.areas__grid__card:last-child {
+.areas__grid__card:last-child,
+.section__grid__card:last-child {
   border-bottom: 1px solid rgba(153, 153, 153, 0.5);
 }
 
-.areas__grid__card:hover {
+.areas__grid__card:hover,
+.section__grid__card:hover {
   border-top: 2px solid #c94d24;
 }
 
 @media (min-width: 64em) {
-  .areas__grid__card {
+  .areas__grid__card,
+  .section__grid__card {
     padding: 2.85rem 2.875rem;
   }
 }
 
-.areas__grid__card__toggle {
+.areas__grid__card__toggle,
+.section__grid__card__toggle {
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
   margin: 0;
@@ -4842,57 +4912,67 @@ button:focus {
 }
 
 @media (min-width: 64em) {
-  .areas__grid__card__toggle {
+  .areas__grid__card__toggle,
+  .section__grid__card__toggle {
     font-size: 1.125rem;
     line-height: 1.65;
   }
 }
 
 @media (min-width: 120em) {
-  .areas__grid__card__toggle {
+  .areas__grid__card__toggle,
+  .section__grid__card__toggle {
     font-size: 1.25rem;
   }
 }
 
-.areas__grid__card__toggle.collapse {
+.areas__grid__card__toggle.collapse,
+.section__grid__card__toggle.collapse {
   display: none;
 }
 
-.areas__grid__card__toggle.collapsing {
+.areas__grid__card__toggle.collapsing,
+.section__grid__card__toggle.collapsing {
   height: 0;
   overflow: hidden;
 }
 
-.areas__grid__card__toggle.open {
+.areas__grid__card__toggle.open,
+.section__grid__card__toggle.open {
   display: block;
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
 
-.areas__grid__card__title {
+.areas__grid__card__title,
+.section__grid__card__title {
   font-weight: 400;
   margin: 0;
 }
 
-.areas__grid__card__title {
+.areas__grid__card__title,
+.section__grid__card__title {
   font-size: 1.125rem;
   color: #c94d24;
   font-family: "Porto Sans";
 }
 
 @media (min-width: 64em) {
-  .areas__grid__card__title {
+  .areas__grid__card__title,
+  .section__grid__card__title {
     font-size: 1.375rem;
   }
 }
 
 @media (min-width: 120em) {
-  .areas__grid__card__title {
+  .areas__grid__card__title,
+  .section__grid__card__title {
     font-size: 1.5rem;
   }
 }
 
-.areas__grid__card__button {
+.areas__grid__card__button,
+.section__grid__card__button {
   position: relative;
   background-color: transparent;
   border: none;
@@ -4901,11 +4981,13 @@ button:focus {
   width: 1.625rem;
 }
 
-.areas__grid__card__button:focus {
+.areas__grid__card__button:focus,
+.section__grid__card__button:focus {
   outline: none;
 }
 
-.areas__grid__card__button__lines {
+.areas__grid__card__button__lines,
+.section__grid__card__button__lines {
   position: absolute;
   width: 2px;
   height: 12px;
@@ -4916,34 +4998,40 @@ button:focus {
           transform: translate(-50%, -50%);
 }
 
-.areas__grid__card__button__lines:nth-child(1) {
+.areas__grid__card__button__lines:nth-child(1),
+.section__grid__card__button__lines:nth-child(1) {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
-.areas__grid__card__button__lines:nth-child(2) {
+.areas__grid__card__button__lines:nth-child(2),
+.section__grid__card__button__lines:nth-child(2) {
   -webkit-transform: translate(-50%, -50%) rotate(90deg);
           transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.areas__grid__card__button__lines.minus:nth-child(1) {
+.areas__grid__card__button__lines.minus:nth-child(1),
+.section__grid__card__button__lines.minus:nth-child(1) {
   height: 0;
 }
 
 @media (min-width: 64em) {
-  .areas__grid__card__button__lines {
+  .areas__grid__card__button__lines,
+  .section__grid__card__button__lines {
     height: 0.75rem;
   }
 }
 
 @media (min-width: 120em) {
-  .areas__grid__card__button__lines {
+  .areas__grid__card__button__lines,
+  .section__grid__card__button__lines {
     height: 1rem;
   }
 }
 
 @media (min-width: 75em) {
-  .areas__grid__card__content {
+  .areas__grid__card__content,
+  .section__grid__card__content {
     padding-right: 0;
   }
 }
@@ -8232,7 +8320,6 @@ button:focus {
 }
 
 .admin_nav {
-  height: 100%;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -8271,6 +8358,10 @@ button:focus {
     height: 1.5rem;
     width: 1.5rem;
   }
+}
+
+.admin_nav__logout {
+  margin-top: 10vh;
 }
 
 .admin_nav__logout hr {
@@ -10361,6 +10452,58 @@ input[type="file"] {
   background-color: rgba(8, 8, 8, 0.1);
 }
 
+.admin_pages__intro {
+  position: relative;
+  width: 100%;
+  background-color: #080808;
+  color: #ffffff;
+  padding: 6rem 11vw 4rem;
+  -ms-grid-columns: 1fr 1.5fr;
+      grid-template-columns: 1fr 1.5fr;
+}
+
+.admin_pages__intro input,
+.admin_pages__intro textarea {
+  padding: 12px 26px;
+  margin-right: 3.125rem;
+  border-radius: 2px;
+  font-family: "Porto Sans";
+  color: #ffffff;
+  font-size: 0.9375rem;
+  border: 1px solid white;
+  background-color: transparent;
+}
+
+.admin_pages__intro input:focus,
+.admin_pages__intro textarea:focus {
+  outline: none;
+  border: 1px solid #c94d24;
+}
+
+.admin_pages__intro textarea {
+  width: 40rem;
+}
+
+.admin_pages__intro ::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+.admin_pages__intro :-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.admin_pages__intro ::-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.admin_pages__intro ::placeholder {
+  color: #ffffff;
+}
+
+.admin_pages .footer {
+  margin-top: 0;
+}
+
 .unities_page {
   padding: calc(10.1875rem + 2vw) 1.25rem 0;
 }
@@ -10784,12 +10927,30 @@ svg .st15 {
   border-right: 1.5px solid rgba(8, 8, 8, 0.1);
 }
 
-.admin_profile__panel__grid .admin__info img {
+.admin_profile__panel__grid .admin__info img#profilePic,
+.admin_profile__panel__grid .admin__info .custom-file-upload {
   position: absolute;
   top: 0;
   border-style: solid;
   border-radius: 60px;
   margin-top: -70px;
+  border-width: 5px;
+  border-color: #ffffff;
+  -o-object-position: center center;
+     object-position: center center;
+  background-color: #666666;
+  width: 8.75rem;
+  height: 8.75rem;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+.admin_profile__panel__grid .admin__info .custom-file-upload > img {
+  position: absolute;
+  top: calc(0% - 5px);
+  left: calc(0% - 5px);
+  border-style: solid;
+  border-radius: 60px;
   border-width: 5px;
   border-color: #ffffff;
   -o-object-position: center center;
