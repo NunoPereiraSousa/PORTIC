@@ -1,5 +1,5 @@
 import { mediasConfig } from "../../config/api/medias";
-import { entityModule } from "./entityModule";
+// import { entityModule } from "./entityModule";
 
 export const mediaModule = {
   state: {
@@ -29,7 +29,7 @@ export const mediaModule = {
         "SET_MEDIAS",
         await mediasConfig.getMedias(
           state.dataBody.selectedLang,
-          entityModule.state.entityId
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
         )
       );
     }

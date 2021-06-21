@@ -1,5 +1,5 @@
 import { careersConfig } from "../../config/api/careers";
-import { entityModule } from "./entityModule";
+// import { entityModule } from "./entityModule";
 
 export const careersModule = {
   state: {
@@ -26,7 +26,7 @@ export const careersModule = {
         "SET_CAREERS",
         await careersConfig.getCareers(
           state.dataBody.selectedLang,
-          entityModule.state.entityId
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
         )
       );
     }

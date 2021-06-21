@@ -408,22 +408,10 @@ export default {
   data: () => {
     return {};
   },
-  async mounted() {
-    this.$store.commit("SET_SELECTED_AREAS_LANG", {
-      lang: this.$i18n.locale == "en" ? "en" : "pt"
-    });
-
-    try {
-      await this.$store.dispatch("setEntityId");
-      await this.$store.dispatch("setAreas");
-      await this.$store.dispatch("setAreasGroups");
-
-      console.log(this.getAreas);
-    } catch (error) {
-      console.log(`App: ${error}`);
-      return error;
-    }
-
+  created() {
+    this.handleAPI();
+  },
+  mounted() {
     this.map = new window.google.maps.Map(document.getElementById("map"), {
       center: new window.google.maps.LatLng(
         this.$store.getters.getEntityData.lat,
@@ -440,8 +428,6 @@ export default {
       },
       map: this.map
     });
-
-    this.handleAPI();
   },
   computed: {
     ...mapGetters(["getAreas", "getAreasGroups"]),
@@ -465,10 +451,14 @@ export default {
       this.$store.commit("SET_SELECTED_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
+      this.$store.commit("SET_SELECTED_AREAS_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
 
       try {
         await this.$store.dispatch("setEntityId");
-        await this.$store.dispatch("setEntityFocuses");
+        await this.$store.dispatch("setAreas");
+        await this.$store.dispatch("setAreasGroups");
       } catch (error) {
         console.log(`App: ${error}`);
         return error;

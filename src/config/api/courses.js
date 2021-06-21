@@ -8,6 +8,7 @@ let headers = {
 
 export const coursesConfig = {
   getCourses: async (selectedLang, entity_id) => {
+    console.log(`${API_URL}/${selectedLang}/entities/${entity_id}/courses`);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entity_id}/courses`, {
         headers

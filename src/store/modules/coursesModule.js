@@ -1,5 +1,5 @@
 import { coursesConfig } from "../../config/api/courses";
-import { entityModule } from "./entityModule";
+// import { entityModule } from "./entityModule";
 
 export const coursesModule = {
   state: {
@@ -27,7 +27,7 @@ export const coursesModule = {
         "SET_COURSES",
         await coursesConfig.getCourses(
           state.dataBody.selectedLang,
-          entityModule.state.entityId
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
         )
       );
     }

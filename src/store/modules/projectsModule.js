@@ -1,5 +1,5 @@
 import { projectsConfig } from "../../config/api/projects";
-import { entityModule } from "./entityModule";
+// import { entityModule } from "./entityModule";
 
 export const projectsModule = {
   state: {
@@ -30,7 +30,7 @@ export const projectsModule = {
         "SET_PROJECTS",
         await projectsConfig.getProjects(
           state.dataBody.selectedLang,
-          entityModule.state.entityId
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
         )
       );
     }

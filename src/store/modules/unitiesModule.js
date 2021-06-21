@@ -5,7 +5,7 @@ import {
   unitiesPT
 } from "../../config/unities";
 import { unitiesConfig } from "../../config/api/unities";
-import { entityModule } from "./entityModule";
+// import { entityModule } from "./entityModule";
 
 export const unityModule = {
   state: {
@@ -46,7 +46,7 @@ export const unityModule = {
         "SET_UNITIES_PRINCIPALS",
         await unitiesConfig.getUnitiesPrincipals(
           state.dataBody.selectedLang,
-          entityModule.state.entityId
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
         )
       );
     },
@@ -55,7 +55,7 @@ export const unityModule = {
         "SET_UNITIES",
         await unitiesConfig.getUnities(
           state.dataBody.selectedLang,
-          entityModule.state.entityId
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
         )
       );
     }

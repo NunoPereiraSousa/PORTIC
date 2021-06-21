@@ -1,5 +1,5 @@
 import { newsConfig } from "../../config/api/news";
-import { entityModule } from "./entityModule";
+// import { entityModule } from "./entityModule";
 
 export const newsModule = {
   state: {
@@ -32,7 +32,7 @@ export const newsModule = {
         "SET_NEWS",
         await newsConfig.getNews(
           state.dataBody.selectedLang,
-          entityModule.state.entityId
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
         )
       );
     }

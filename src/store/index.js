@@ -27,11 +27,11 @@ export default new Vuex.Store({
   mutations: {},
   actions: {},
   modules: {
+    entityModule,
     adminModule,
     areaModule,
     contactsModule,
     coursesModule,
-    entityModule,
     langModule,
     mediaModule,
     newsModule,
@@ -44,15 +44,18 @@ export default new Vuex.Store({
   getters: {},
   plugins: [
     createPersistedState({
-      key: "vuex_a",
       paths: [
+        "entityModule.entityId",
         "entityModule.menus",
         "entityModule.selectedMenuId",
         "projectsModule.projects",
         "projectsModule.selectedId",
         "langModule.lang",
         "newsModule.selectedNewsId",
-        "newsModule.news"
+        "newsModule.news",
+        "usersModule.token",
+        "usersModule.loggedUser",
+        "usersModule.user"
       ]
       //   storage: {
       //     getItem: key => {
@@ -63,14 +66,6 @@ export default new Vuex.Store({
       //       Cookies.set(key, value, { expires: 3, secure: true }),
       //     removeItem: key => Cookies.remove(key)
       //   }
-    }),
-    createPersistedState({
-      key: "vuex_b",
-      paths: ["usersModule.token", "usersModule.loggedUser"]
-    }),
-    createPersistedState({
-      key: "vuex_user",
-      paths: ["usersModule.user"]
     })
   ]
 });

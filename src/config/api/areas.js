@@ -8,7 +8,7 @@ let headers = {
 
 export const areasConfig = {
   getAreas: async (selectedLang, entity_id) => {
-    console.log(`${API_URL}/${selectedLang}/entities/${entity_id}/areas`);
+    console.log(selectedLang);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entity_id}/areas`, {
         headers
@@ -27,6 +27,7 @@ export const areasConfig = {
       });
   },
   getAreasGroups: async (selectedLang, entity_id) => {
+    console.log(entity_id);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entity_id}/area_focus`, {
         headers

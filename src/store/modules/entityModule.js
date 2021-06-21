@@ -2,13 +2,13 @@ import { entityConfig } from "../../config/api/entity";
 
 export const entityModule = {
   state: {
-    lang: "pt",
+    lang: "en",
     data: [],
     dataStatus: "",
     dataBody: {
       selectedLang: ""
     },
-    entityId: "",
+    entityId: null,
     focuses: [],
     menus: [],
     selectedMenuId: null
@@ -44,15 +44,6 @@ export const entityModule = {
       commit(
         "SET_DATA",
         await entityConfig.getEntityData(
-          state.dataBody.selectedLang,
-          state.entityId
-        )
-      );
-    },
-    async setEntityFocuses({ commit, state }) {
-      commit(
-        "SET_ENTITY_FOCUSES",
-        await entityConfig.getEntityFocuses(
           state.dataBody.selectedLang,
           state.entityId
         )

@@ -1,15 +1,12 @@
 import { iconCardsEN, iconCardsPT } from "../../config/areas";
 import { areasConfig } from "../../config/api/areas";
-import { entityModule } from "./entityModule";
+// import { entityModule } from "./entityModule";
 
 export const areaModule = {
   state: {
-    // areasPT: areasPT,
-    // areasEN: areasEN,
     areas: [],
     dataStatus: "",
     groups: [],
-    lang: "pt",
     iconCardsPT: iconCardsPT,
     iconCardsEN: iconCardsEN,
     selectedId: null,
@@ -24,8 +21,6 @@ export const areaModule = {
     SET_AREAS(state, payload) {
       state.areas = payload.areas;
       state.dataStatus = payload.status;
-
-      console.log(state.areas);
     },
     SET_AREAS_GROUPS(state, payload) {
       state.groups = payload.groups;
@@ -40,7 +35,7 @@ export const areaModule = {
         "SET_AREAS",
         await areasConfig.getAreas(
           state.dataBody.selectedLang,
-          entityModule.state.entityId
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
         )
       );
     },
@@ -49,7 +44,7 @@ export const areaModule = {
         "SET_AREAS_GROUPS",
         await areasConfig.getAreasGroups(
           state.dataBody.selectedLang,
-          entityModule.state.entityId
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
         )
       );
     }
