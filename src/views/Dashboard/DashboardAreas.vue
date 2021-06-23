@@ -188,24 +188,26 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setAdminAreas");
-
-      console.log(this.getAdminAreas);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
     }
   },
   computed: {
-    ...mapGetters(["getSelectedAreaByID", "getAreaByID", "getAdminAreas"]),
+    ...mapGetters([
+      "getAdminSelectedAreaId",
+      "getAdminAreaById",
+      "getAdminAreas"
+    ]),
     areaName() {
-      let id = this.getSelectedAreaByID;
+      let id = this.getAdminSelectedAreaId;
 
-      let area = this.getAreaByID(id);
+      let area = this.getAdminAreaById(id);
 
       let name;
 
       if (area) {
-        name = area.designation;
+        name = area.designation_pt;
       }
 
       return name;
@@ -215,7 +217,7 @@ export default {
         let search = true;
 
         if (this.areaTxt != "") {
-          search = area.areaName
+          search = area.designation_pt
             .toLowerCase()
             .includes(this.areaTxt.toLowerCase());
         }

@@ -6,7 +6,9 @@
     </h2>
 
     <div class="flex flex-ai-c flex-jc-sb">
-      <button class="admin_delete_popup__confirm">Confimar</button>
+      <button class="admin_delete_popup__confirm" @click="removeArea">
+        Confimar
+      </button>
       <button class="admin_delete_popup__cancel" @click="closePopup">
         Cancelar
       </button>
@@ -15,8 +17,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   name: "DashboardAreasPopup",
   props: {
@@ -25,10 +25,20 @@ export default {
       required: false
     }
   },
-  computed: {
-    ...mapGetters(["getSelectedAreaByID", "getAreaByID"])
-  },
   methods: {
+    async removeArea() {
+      try {
+        this.$store.dispatch("setAdminDeleteArea");
+        this.$store.dispatch("setAdminAreas");
+
+        console.log(this.getAdminAreas);
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
+
+      this.closePopup();
+    },
     closePopup() {
       let admin_areas__panel__overlay = document.querySelector(
         ".admin_areas__panel__overlay"

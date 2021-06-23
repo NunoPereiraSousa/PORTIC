@@ -22,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addArea">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -35,13 +35,17 @@
         <h3 class="dashboard_subheader">
           Nome da área
         </h3>
-        <input type="text" placeholder="Nome da área" />
+        <input
+          type="text"
+          placeholder="Nome da área"
+          v-model="addPt.areaName"
+        />
         <h3 class="dashboard_subheader">
           Conteúdo da área
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="addPt.content"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -70,7 +74,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addArea">
             Confirm
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -83,13 +87,17 @@
         <h3 class="dashboard_subheader">
           Area name
         </h3>
-        <input type="text" placeholder="Nome da área" />
+        <input
+          type="text"
+          placeholder="Nome da área"
+          v-model="addEn.areaName"
+        />
         <h3 class="dashboard_subheader">
           Area information
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="contentEN"
+            v-model="addEn.content"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -111,8 +119,14 @@ export default {
     return {
       tabs: ["Português", "Inglês"],
       currentTab: 0,
-      content: "",
-      contentEN: "",
+      addPt: {
+        areaName: "",
+        content: ""
+      },
+      addEn: {
+        areaName: "",
+        content: ""
+      },
       editorOption: {
         modules: {
           toolbar: [
@@ -160,6 +174,27 @@ export default {
     this.styleEditorHeight();
   },
   methods: {
+    async addArea() {
+      this.$store.commit("SET_ADMIN_ADD_AREA", {
+        namePt: this.addPt.areaName !== "" ? this.addPt.areaName : "",
+        contentPt: this.addPt.content !== "" ? this.addPt.content : "",
+        nameEn: this.addEn.areaName !== "" ? this.addEn.areaName : "",
+        contentEn: this.addEn.conten !== "" ? this.addEn.areaName : ""
+      });
+
+      console.log(
+        `${this.addPt.areaName} - ${this.addPt.content}
+        ${this.addEn.areaName} - ${this.addEn.content}`
+      );
+
+      try {
+        this.$store.dispatch("setAdminAddArea");
+        this.$store.dispatch("setAdminAreas");
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
+    },
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");
       let height = editor.offsetHeight;
@@ -181,9 +216,6 @@ export default {
       this.$router.push({
         name: "DashboardAreas"
       });
-    },
-    save() {
-      console.log(this.content);
     }
   }
 };
