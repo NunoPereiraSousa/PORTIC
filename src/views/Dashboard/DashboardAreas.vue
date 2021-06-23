@@ -115,7 +115,7 @@
           :key="area.id_area"
           :id="area.id_area"
           :counter="index + 1"
-          :areaName="area.designation"
+          :areaName="area.designation_pt"
         />
       </div>
     </div>
@@ -187,14 +187,16 @@ export default {
 
     try {
       await this.$store.dispatch("setEntityId");
-      await this.$store.dispatch("setAreas");
+      await this.$store.dispatch("setAdminAreas");
+
+      console.log(this.getAdminAreas);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
     }
   },
   computed: {
-    ...mapGetters(["getSelectedAreaByID", "getAreaByID", "getAreas"]),
+    ...mapGetters(["getSelectedAreaByID", "getAreaByID", "getAdminAreas"]),
     areaName() {
       let id = this.getSelectedAreaByID;
 
@@ -209,7 +211,7 @@ export default {
       return name;
     },
     searchFilter() {
-      return this.getAreas.filter(area => {
+      return this.getAdminAreas.filter(area => {
         let search = true;
 
         if (this.areaTxt != "") {

@@ -18,17 +18,12 @@ import { usersModule } from "./modules/usersModule";
 
 Vue.use(Vuex);
 
-// const selectedProjectState = createPersistedState({
-//   paths: ["selectedProject"]
-// });
-
 export default new Vuex.Store({
   state: {},
   mutations: {},
   actions: {},
   modules: {
     entityModule,
-    adminModule,
     areaModule,
     contactsModule,
     coursesModule,
@@ -39,7 +34,8 @@ export default new Vuex.Store({
     careersModule,
     unityModule,
     usersModule,
-    weatherModule
+    weatherModule,
+    adminModule
   },
   getters: {},
   plugins: [
@@ -66,6 +62,10 @@ export default new Vuex.Store({
       //       Cookies.set(key, value, { expires: 3, secure: true }),
       //     removeItem: key => Cookies.remove(key)
       //   }
+    }),
+    createPersistedState({
+      key: "vuex_admin_areas",
+      paths: ["adminModule.areas", "adminModule.selectedAreaId"]
     })
   ]
 });

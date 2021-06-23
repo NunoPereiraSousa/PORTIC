@@ -22,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="editArea">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -31,23 +31,27 @@
         </div>
       </div>
 
-      <div class="admin_actions_panel__form">
+      <form class="admin_actions_panel__form">
         <h3 class="dashboard_subheader">
           Nome da área
         </h3>
-        <input type="text" placeholder="Nome da área" />
+        <input
+          type="text"
+          placeholder="Nome da área"
+          v-model="editPt.areaName"
+        />
         <h3 class="dashboard_subheader">
           Conteúdo da área
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="editPt.content"
             :options="editorOption"
             ref="quillEditor"
           >
           </quill-editor>
         </div>
-      </div>
+      </form>
     </div>
 
     <div class="admin_actions_panel" v-show="currentTab === 1">
@@ -70,7 +74,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="editArea">
             Confirm
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -79,23 +83,23 @@
         </div>
       </div>
 
-      <div class="admin_actions_panel__form">
+      <form class="admin_actions_panel__form">
         <h3 class="dashboard_subheader">
           Area name
         </h3>
-        <input type="text" placeholder="Area name" />
+        <input type="text" placeholder="Area name" v-model="editEn.areaName" />
         <h3 class="dashboard_subheader">
           Area information
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="contentEN"
+            v-model="editEn.content"
             :options="editorOption"
             ref="quillEditor"
           >
           </quill-editor>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -113,8 +117,14 @@ export default {
       tabs: ["Português", "Inglês"],
       currentTab: 0,
       areaName: "",
-      content: "",
-      contentEN: "",
+      editPt: {
+        areaName: "",
+        content: ""
+      },
+      editEn: {
+        areaName: "",
+        content: ""
+      },
       editorOption: {
         modules: {
           toolbar: [
@@ -151,22 +161,50 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getSelectedAreaByID", "getAreaByID"])
+    ...mapGetters(["getAdminSelectedAreaId", "getAdminAreaById"])
   },
   mounted() {
-    this.areaName = this.getAreaByID(this.getSelectedAreaByID).designation;
+    this.areaName = this.getAdminAreaById(
+      this.getAdminSelectedAreaId
+    ).designation_pt;
 
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
+    this.contentPt = this.getAdminAreaById(
+      this.getAdminSelectedAreaId
+    ).description_pt;
 
-    // let arr = document.querySelectorAll(".admin_actions_panel");
+    this.areaNameEn = this.getAdminAreaById(
+      this.getAdminSelectedAreaId
+    ).designation_eng;
 
-    // arr.forEach(i => {
-    //   i.style.paddingLeft = `${navbar_width}px`;
-    // });
+    this.contentEn = this.getAdminAreaById(
+      this.getAdminSelectedAreaId
+    ).description_eng;
+
+    this.editPt.areaName = this.areaName;
+    this.editPt.content = this.contentPt;
+
+    this.editEn.areaName = this.areaNameEn;
+    this.editEn.content = this.contentEn;
 
     this.styleEditorHeight();
   },
   methods: {
+    async editArea() {
+      this.$store.commit("SET_ADMIN_EDIT_AREA", {
+        namePt: this.editPt.areaName,
+        contentPt: this.editPt.content,
+        nameEn: this.editEn.areaName,
+        contentEn: this.editEn.content
+      });
+
+      try {
+        this.$store.dispatch("setAdminEditAreas");
+        this.$store.dispatch("setAdminAreas");
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
+    },
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");
       let height = editor.offsetHeight;
@@ -188,9 +226,6 @@ export default {
       this.$router.push({
         name: "DashboardAreas"
       });
-    },
-    save() {
-      console.log(this.content);
     }
   }
 };

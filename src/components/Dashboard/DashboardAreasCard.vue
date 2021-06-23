@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     openPage(areaId, areaName) {
-      this.$store.commit("SET_SELECTED_AREA_ID", {
+      this.$store.commit("SET_SELECTED_ADMIN_AREA_ID", {
         id: areaId
       });
 

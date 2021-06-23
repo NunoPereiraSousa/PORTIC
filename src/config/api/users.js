@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // import { API_URL, API_URL2 } from "./config";
-import { API_URL2 } from "./config";
+import { API_URL } from "./config";
 
 let headers = {
   "Access-Control-Allow-Origin": "*"
@@ -16,7 +16,7 @@ export const usersConfig = {
   singIn: async (username, password) => {
     return await axios
       .post(
-        `${API_URL2}/users/login`,
+        `${API_URL}/users/login`,
         {
           username: username,
           password: password
@@ -46,7 +46,7 @@ export const usersConfig = {
   ) => {
     return await axios
       .post(
-        `${API_URL2}/users/register`,
+        `${API_URL}/users/register`,
         {
           username: username,
           first_name: firstName,
@@ -78,7 +78,7 @@ export const usersConfig = {
     };
 
     return await axios
-      .get(`${API_URL2}/users`, config)
+      .get(`${API_URL}/users`, config)
       .then(response => {
         return {
           users: response.data.processResult,
@@ -99,7 +99,7 @@ export const usersConfig = {
     };
 
     return await axios
-      .get(`${API_URL2}/users/profile`, config)
+      .get(`${API_URL}/users/profile`, config)
       .then(response => {
         console.log(response.data.processResult[0]);
         return {
@@ -132,7 +132,7 @@ export const usersConfig = {
 
     return await axios
       .put(
-        `${API_URL2}/users/profile`,
+        `${API_URL}/users/profile`,
         {
           username: username,
           description_pt: description_pt,
@@ -165,7 +165,7 @@ export const usersConfig = {
 
     return await axios
       .patch(
-        `${API_URL2}/users/profile/picture`,
+        `${API_URL}/users/profile/picture`,
         {
           file: image
         },

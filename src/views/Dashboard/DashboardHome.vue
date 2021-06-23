@@ -92,10 +92,6 @@ export default {
   created() {
     // get loggedUser from localStorage
     this.loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-
-    console.log(this.loggedUser);
-
-    window.addEventListener("beforeunload", this.doSomething);
   },
   async mounted() {
     // this.height();
@@ -153,9 +149,6 @@ export default {
     // }
   },
   methods: {
-    doSomething() {
-      console.log("REFRESHED AND HERE");
-    },
     height() {
       let wrapper = document.querySelector(".admin_home__panel__grid");
       let wrapperHeight = wrapper.offsetHeight;

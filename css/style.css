@@ -9334,10 +9334,6 @@ button:focus {
   background-color: rgba(8, 8, 8, 0.1);
 }
 
-.admin_actions {
-  height: 100vh;
-}
-
 .admin_projects_actions {
   height: 100%;
 }
