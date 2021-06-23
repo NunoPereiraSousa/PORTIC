@@ -45,7 +45,7 @@
             </h3>
             <input
               style="width: 20vw;"
-              type="url"
+              type="text"
               placeholder="Nome do vídeo"
               v-model="add.youtube_path"
             />
@@ -70,7 +70,7 @@
             </h3>
             <input
               style="width: 20vw;"
-              type="url"
+              type="text"
               placeholder="Video URL"
               v-model="add.youtube_path"
             />

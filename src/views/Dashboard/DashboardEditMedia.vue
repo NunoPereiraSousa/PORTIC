@@ -91,7 +91,6 @@ export default {
   },
   data: () => {
     return {
-      mediaName: "",
       edit: {
         title_eng: "",
         title_pt: "",
@@ -103,12 +102,16 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getAdminSelectedMediaId", "getAdminMediaById"])
+    ...mapGetters(["getAdminSelectedMediaId", "getAdminMediaById"]),
+    mediaName() {
+      return this.getAdminMediaById(this.getAdminSelectedMediaId)
+        .description_pt;
+    }
   },
   mounted() {
-    this.mediaName = this.getAdminMediaById(
-      this.getAdminSelectedMediaId
-    ).description_pt;
+    // this.mediaName = this.getAdminMediaById(
+    //   this.getAdminSelectedMediaId
+    // ).description_pt;
 
     this.description_pt = this.getAdminMediaById(
       this.getAdminSelectedMediaId
@@ -130,13 +133,15 @@ export default {
     this.edit.description_eng = this.description_eng;
     this.edit.youtube_path = this.youtube_path;
 
+    this.edit.title_eng = "Video";
+    this.edit.title_pt = "Video";
     this.edit.appearance_case = this.getCurrentLang();
   },
   methods: {
     async editVideo() {
       this.$store.commit("SET_ADMIN_EDIT_MEDIA", {
-        title_eng: this.edit.title_eng,
-        title_pt: this.edit.title_pt,
+        title_eng: "Video",
+        title_pt: "Video",
         description_pt: this.edit.description_pt,
         description_eng: this.edit.description_eng,
         appearance_case: this.edit.appearance_case,
@@ -155,6 +160,10 @@ export default {
       try {
         this.$store.dispatch("setAdminEditMedia");
         this.$store.dispatch("setAdminMedias");
+
+        this.$router.push({
+          name: "DashboardMedia"
+        });
       } catch (error) {
         console.log(error);
         return error;

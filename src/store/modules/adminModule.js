@@ -45,7 +45,8 @@ export const adminModule = {
       description_eng: null,
       appearance_case: null,
       youtube_path: null
-    }
+    },
+    removeMediaStatus: null
   },
   mutations: {
     SET_ADMIN_AREAS(state, payload) {
@@ -103,6 +104,9 @@ export const adminModule = {
       state.addMediaForm.description_eng = payload.description_eng;
       state.addMediaForm.appearance_case = payload.appearance_case;
       state.addMediaForm.youtube_path = payload.youtube_path;
+    },
+    SET_ADMIN_REMOVE_MEDIA_STATUS(state, payload) {
+      state.removeMediaStatus = payload.status;
     }
   },
   actions: {
@@ -170,6 +174,15 @@ export const adminModule = {
           state.editMediaForm.appearance_case,
           state.editMediaForm.youtube_path
         )
+      );
+
+      console.log(
+        state.editMediaForm.title_eng,
+        state.editMediaForm.title_pt,
+        state.editMediaForm.description_pt,
+        state.editMediaForm.description_eng,
+        state.editMediaForm.appearance_case,
+        state.editMediaForm.youtube_path
       );
     },
     async setAdminAddMedia({ commit, state }) {

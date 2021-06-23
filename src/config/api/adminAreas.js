@@ -13,15 +13,12 @@ export const adminAreasConfig = {
     return await axios
       .get(`${API_URL}/areas`, config)
       .then(response => {
-        console.log(response.data.processResult);
         return {
           areas: response.data.processResult,
           status: response.status
         };
       })
       .catch(error => {
-        console.log(error);
-
         return error;
       });
   },
@@ -52,14 +49,11 @@ export const adminAreasConfig = {
         config
       )
       .then(response => {
-        console.log(response.status);
         return {
           status: response.status
         };
       })
       .catch(error => {
-        console.log(error);
-
         return error;
       });
   },
@@ -77,11 +71,6 @@ export const adminAreasConfig = {
       }
     };
 
-    console.log(
-      `${designation_pt} - ${description_pt}
-      ${designation_eng} - ${description_eng}`
-    );
-
     return await axios
       .post(
         `${API_URL}/areas`,
@@ -94,14 +83,11 @@ export const adminAreasConfig = {
         config
       )
       .then(response => {
-        console.log(response.status);
         return {
           status: response.status
         };
       })
       .catch(error => {
-        console.log(error);
-
         return error;
       });
   },
@@ -118,14 +104,11 @@ export const adminAreasConfig = {
     return await axios
       .delete(`${API_URL}/areas/${id}`, config)
       .then(response => {
-        console.log(response.status);
         return {
           status: response.status
         };
       })
       .catch(error => {
-        console.log(error);
-
         return error;
       });
   }

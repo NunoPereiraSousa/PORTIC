@@ -13,15 +13,12 @@ export const adminMediasConfig = {
     return await axios
       .get(`${API_URL}/media`, config)
       .then(response => {
-        console.log(response.data.processResult);
         return {
           medias: response.data.processResult[0],
           status: response.status
         };
       })
       .catch(error => {
-        console.log(error);
-
         return error;
       });
   },
@@ -42,20 +39,9 @@ export const adminMediasConfig = {
       }
     };
 
-    console.log(config);
-
-    console.log(
-      title_eng,
-      title_pt,
-      description_pt,
-      description_eng,
-      appearance_case,
-      youtube_path
-    );
-
     return await axios
       .put(
-        `${API_URL}/medias/${id}`,
+        `${API_URL}/media/${id}`,
         {
           title_eng: title_eng,
           title_pt: title_pt,
@@ -67,14 +53,11 @@ export const adminMediasConfig = {
         config
       )
       .then(response => {
-        console.log(response.status);
         return {
           status: response.status
         };
       })
       .catch(error => {
-        console.log(error);
-
         return error;
       });
   },
@@ -94,18 +77,9 @@ export const adminMediasConfig = {
       }
     };
 
-    console.log(
-      title_eng,
-      title_pt,
-      description_pt,
-      description_eng,
-      appearance_case,
-      youtube_path
-    );
-
     return await axios
       .post(
-        `${API_URL}/medias`,
+        `${API_URL}/media`,
         {
           title_eng: title_eng,
           title_pt: title_pt,
@@ -117,14 +91,11 @@ export const adminMediasConfig = {
         config
       )
       .then(response => {
-        console.log(response.status);
         return {
           status: response.status
         };
       })
       .catch(error => {
-        console.log(error);
-
         return error;
       });
   },
@@ -137,16 +108,13 @@ export const adminMediasConfig = {
     };
 
     return await axios
-      .delete(`${API_URL}/medias/${id}`, config)
+      .delete(`${API_URL}/media/${id}`, config)
       .then(response => {
-        console.log(response.status);
         return {
           status: response.status
         };
       })
       .catch(error => {
-        console.log(error);
-
         return error;
       });
   }
