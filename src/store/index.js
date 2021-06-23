@@ -65,7 +65,12 @@ export default new Vuex.Store({
     }),
     createPersistedState({
       key: "vuex_admin_areas",
-      paths: ["adminModule.areas", "adminModule.selectedAreaId"]
+      paths: [
+        "adminModule.areas",
+        "adminModule.selectedAreaId",
+        "adminModule.medias",
+        "adminModule.selectedMediaId"
+      ]
     })
   ]
 });

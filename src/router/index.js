@@ -18,6 +18,8 @@ import DashboardCourses from "../views/Dashboard/DashboardCourses.vue";
 import DashboardEditAreas from "../views/Dashboard/DashboardEditAreas.vue";
 import DashboardEditCareers from "../views/Dashboard/DashboardEditCareers.vue";
 import DashboardEditCourses from "../views/Dashboard/DashboardEditCourses.vue";
+import DashboardAddMedia from "../views/Dashboard/DashboardAddMedia.vue";
+import DashboardEditMedia from "../views/Dashboard/DashboardEditMedia.vue";
 import DashboardEditProjects from "../views/Dashboard/DashboardEditProjects.vue";
 import DashboardEditUnities from "../views/Dashboard/DashboardEditUnities.vue";
 import DashboardAddPage from "../views/Dashboard/DashboardAddPage.vue";
@@ -201,6 +203,17 @@ const routes = [
     path: "/dashboard-media",
     name: "DashboardMedia",
     component: DashboardMedia
+  },
+  {
+    path: "/dashboard-add-media",
+    name: "DashboardAddMedia",
+    component: DashboardAddMedia
+  },
+  {
+    path: "/dashboard-edit-media/:name",
+    name: "DashboardEditMedia",
+    component: DashboardEditMedia,
+    props: true
   },
   {
     path: "/dashboard-unities",

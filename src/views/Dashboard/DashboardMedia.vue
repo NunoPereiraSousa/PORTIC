@@ -8,9 +8,9 @@
       <div class="admin_media__panel__overlay3" @click="closeAddPopup"></div>
 
       <DashboardTopHeader />
-      <DashboardEditMedia :mediaName="mediaName" :videoUrl="videoUrl" />
+      <!-- <DashboardEditMedia :mediaName="mediaName" :videoUrl="videoUrl" /> -->
       <DashboardMediaPopup :name="mediaName" />
-      <DashboardAddMediaPopup />
+      <!-- <DashboardAddMediaPopup /> -->
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c" v-show="currentTab === 0">
@@ -84,7 +84,7 @@
           :key="media.id_media"
           :id="media.id_media"
           :videoURL="convertToYoutubeURL(media.youtube_path)"
-          :title="media.description"
+          :title="media.description_pt"
         />
       </div>
     </div>
@@ -95,9 +95,9 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardMediaCard from "@/components/Dashboard/DashboardMediaCard.vue";
-import DashboardEditMedia from "@/components/Dashboard/Popup/DashboardEditMedia.vue";
+// import DashboardEditMedia from "@/components/Dashboard/Popup/DashboardEditMedia.vue";
 import DashboardMediaPopup from "@/components/Dashboard/Popup/DashboardMediaPopup.vue";
-import DashboardAddMediaPopup from "@/components/Dashboard/Popup/DashboardAddMediaPopup.vue";
+// import DashboardAddMediaPopup from "@/components/Dashboard/Popup/DashboardAddMediaPopup.vue";
 import { mapGetters } from "vuex";
 
 export default {
@@ -105,9 +105,9 @@ export default {
     DashboardHeader,
     DashboardTopHeader,
     DashboardMediaCard,
-    DashboardEditMedia,
-    DashboardMediaPopup,
-    DashboardAddMediaPopup
+    // DashboardEditMedia,
+    DashboardMediaPopup
+    // DashboardAddMediaPopup
   },
   data: () => {
     return {
@@ -158,18 +158,22 @@ export default {
 
     try {
       await this.$store.dispatch("setEntityId");
-      await this.$store.dispatch("setMedias");
+      await this.$store.dispatch("setAdminMedias");
 
-      console.log(this.getMedias);
+      console.log(this.getAdminMedias);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
     }
   },
   computed: {
-    ...mapGetters(["getMedias", "getSelectedMediaByID", "getMediaByID"]),
+    ...mapGetters([
+      "getAdminMedias",
+      "getAdminSelectedMediaId",
+      "getAdminMediaById"
+    ]),
     searchFilter() {
-      return this.getMedias.filter(video => {
+      return this.getAdminMedias.filter(video => {
         let search = true;
 
         if (this.videoTxt != "")
@@ -181,23 +185,23 @@ export default {
       });
     },
     mediaName() {
-      console.log(this.getSelectedMediaByID);
-      let id = this.getSelectedMediaByID;
+      console.log(this.getAdminSelectedMediaId);
+      let id = this.getAdminSelectedMediaId;
 
-      let media = this.getMediaByID(id);
+      let media = this.getAdminMediaById(id);
 
       let name;
 
       if (media) {
-        name = media.description;
+        name = media.description_pt;
       }
 
       return name;
     },
     videoUrl() {
-      let id = this.getSelectedMediaByID;
+      let id = this.getAdminSelectedMediaId;
 
-      let media = this.getMediaByID(id);
+      let media = this.getAdminMediaById(id);
 
       let videoUrl;
 

@@ -30,10 +30,7 @@ export default {
       try {
         this.$store.dispatch("setAdminDeleteArea");
         this.$store.dispatch("setAdminAreas");
-
-        console.log(this.getAdminAreas);
       } catch (error) {
-        console.log(error);
         return error;
       }
 

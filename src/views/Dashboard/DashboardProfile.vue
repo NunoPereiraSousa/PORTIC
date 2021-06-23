@@ -5,11 +5,13 @@
     <div class="admin_profile__panel">
       <!-- <DashboardTopHeader /> -->
 
-      <img
+      <div class="admin_profile__panel__banner"></div>
+
+      <!-- <img
         class="admin_profile__panel__banner"
         src="../../../assets/porticbanner.png"
         alt="PORTIC BANNER"
-      />
+      /> -->
 
       <div v-if="!isHidden" class="admin_profile__panel__grid grid">
         <div class="admin__info">
@@ -228,8 +230,8 @@ export default {
         description_eng: "Englishhhh",
         email: this.form.email,
         phone_numb: this.form.phoneNumber,
-        facebook_url: this.form.facebookUrl,
-        linkedIn_url: this.form.linkedInUrl,
+        facebook_url: "https://www.linkedin.com/",
+        linkedIn_url: "https://www.linkedin.com/",
         fullName: this.form.fullName
       });
 

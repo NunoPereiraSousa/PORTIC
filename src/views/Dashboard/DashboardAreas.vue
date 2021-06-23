@@ -188,6 +188,8 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setAdminAreas");
+
+      console.log(this.getAdminAreas);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;

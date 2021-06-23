@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "DashboardEditMedia",
   props: {
@@ -40,6 +41,20 @@ export default {
         videoUrl: ""
       }
     };
+  },
+  monted() {
+    this.mediaName = this.getAdminMediaById(
+      this.getAdminSelectedMediaId
+    ).description_pt;
+    this.videoUrl = this.getAdminMediaById(
+      this.getAdminSelectedMediaId
+    ).youtube_path;
+
+    this.edit.mediaName = this.mediaName;
+    this.edit.videoUrl = this.videoUrl;
+  },
+  computed: {
+    ...mapGetters(["getAdminSelectedMediaId", "getAdminMediaById"])
   },
   methods: {
     closePopup() {

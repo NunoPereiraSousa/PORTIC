@@ -16,7 +16,7 @@
       <div class="buttons flex flex-ai-c flex-jc-sb">
         <button
           class="admin_medias__panel__grid__card__edit flex flex-jc-sb flex-ai-c"
-          @click="showEditPopup(id)"
+          @click="showEditPopup(id, title)"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -106,15 +106,14 @@ export default {
     }
   },
   methods: {
-    showEditPopup(mediaId) {
-      let overlay = document.querySelector(".admin_media__panel__overlay");
-      let popup = document.querySelector(".admin_delete_popup");
-
-      overlay.classList.toggle("show_overlay");
-      popup.classList.toggle("show_popup");
-
-      this.$store.commit("SET_SELECTED_MEDIA_ID", {
+    showEditPopup(mediaId, title) {
+      this.$store.commit("SET_SELECTED_ADMIN_MEDIA_ID", {
         id: mediaId
+      });
+
+      this.$router.push({
+        name: "DashboardEditMedia",
+        params: { name: title }
       });
     },
     showPopup(mediaId) {
@@ -124,7 +123,7 @@ export default {
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
 
-      this.$store.commit("SET_SELECTED_MEDIA_ID", {
+      this.$store.commit("SET_SELECTED_ADMIN_MEDIA_ID", {
         id: mediaId
       });
     }

@@ -146,6 +146,11 @@
     margin-right: 0;
     background-color: rgba($color: $grey, $alpha: 0.2);
     color: $grey;
+
+    svg {
+      width: 20px;
+      margin-right: 0.5rem;
+    }
   }
 
   &__remove {

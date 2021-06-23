@@ -233,6 +233,7 @@
   &__apply_btn {
     width: fit-content;
     height: fit-content;
+    display: table;
     background-color: $orange;
     border: none;
     border-radius: 6px;

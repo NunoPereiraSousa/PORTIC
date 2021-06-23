@@ -1,6 +1,15 @@
 .admin_profile__panel {
   width: 100%;
 
+  &__banner {
+    height: 16rem;
+    width: 100%;
+    background-image: url("../assets/porticbanner.png");
+    background-position: 50% 90%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   &__grid {
     position: relative;
     align-items: center;

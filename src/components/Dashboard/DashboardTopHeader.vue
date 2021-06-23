@@ -683,11 +683,9 @@ export default {
       });
     },
     mediasPage() {
-      let overlay = document.querySelector(".admin_media__panel__overlay3");
-      let popup = document.querySelector(".admin_add_media_popup");
-
-      overlay.classList.toggle("show_overlay");
-      popup.classList.toggle("show_popup");
+      this.$router.push({
+        name: "DashboardAddMedia"
+      });
     },
     usersPage() {
       this.$router.push({

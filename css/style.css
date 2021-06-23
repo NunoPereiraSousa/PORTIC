@@ -1391,7 +1391,7 @@ button:focus {
 
 .navbar {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: white;
   font-family: "Porto Sans Stencil";
   -webkit-box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.1);
@@ -1695,7 +1695,7 @@ button:focus {
   text-transform: uppercase;
   margin-right: 3.75rem;
   font-size: 1.25rem;
-  color: #ffffff;
+  color: #080808;
   font-family: "Porto Sans";
 }
 
@@ -5986,6 +5986,7 @@ button:focus {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  display: table;
   background-color: #c94d24;
   border: none;
   border-radius: 6px;
@@ -8913,6 +8914,11 @@ button:focus {
   color: #999999;
 }
 
+.admin_medias__panel__grid__card__edit svg {
+  width: 20px;
+  margin-right: 0.5rem;
+}
+
 .admin_medias__panel__grid__card__remove {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -10894,6 +10900,15 @@ svg .st15 {
   /* Track */
   /* Handle */
   /* Handle on hover */
+}
+
+.admin_profile__panel__banner {
+  height: 16rem;
+  width: 100%;
+  background-image: url("../assets/porticbanner.png");
+  background-position: 50% 90%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .admin_profile__panel__grid {

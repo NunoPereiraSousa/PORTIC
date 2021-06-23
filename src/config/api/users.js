@@ -130,6 +130,17 @@ export const usersConfig = {
       }
     };
 
+    console.log(
+      username,
+      description_pt,
+      description_eng,
+      email,
+      phone_numb,
+      facebook_url,
+      linkedIn_url,
+      fullname
+    );
+
     return await axios
       .put(
         `${API_URL}/users/profile`,

@@ -25,6 +25,8 @@
             this.$route.name !== 'DashboardAddCourses' &&
             this.$route.name !== 'DashboardEditCourses' &&
             this.$route.name !== 'DashboardMedia' &&
+            this.$route.name !== 'DashboardEditMedia' &&
+            this.$route.name !== 'DashboardAddMedia' &&
             this.$route.name !== 'DashboardProjects' &&
             this.$route.name !== 'DashboardAddProjects' &&
             this.$route.name !== 'DashboardEditProjects' &&
