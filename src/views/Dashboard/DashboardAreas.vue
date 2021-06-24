@@ -6,11 +6,16 @@
       <div class="admin_about__panel__overlay2" @click="closeAddPopup"></div>
       <div class="admin_about__panel__overlay3" @click="closeEditPopup"></div>
       <div class="admin_about__panel__overlay4" @click="closeDeletePopup"></div>
+      <div
+        class="admin_about__panel__overlay5"
+        @click="closeEditImgPopup"
+      ></div>
 
       <DashboardTopHeader />
       <DashboardAreasPopup :areaName="areaName" />
       <DashboardFocusPopup :focusName="focusName" />
       <DashboardAddFocusPopup />
+      <DashboardFocusImgPopup />
       <DashboardDeleteFocusPopup :focusName="focusName" />
       <DashboardEditFocusPopup
         :focusName="focusName"
@@ -164,6 +169,7 @@ import DashboardFocusPopup from "@/components/Dashboard/Popup/DashboardFocusPopu
 import DashboardAddFocusPopup from "@/components/Dashboard/Popup/DashboardAddFocusPopup.vue";
 import DashboardEditFocusPopup from "@/components/Dashboard/Popup/DashboardEditFocusPopup.vue";
 import DashboardDeleteFocusPopup from "@/components/Dashboard/Popup/DashboardDeleteFocusPopup.vue";
+import DashboardFocusImgPopup from "@/components/Dashboard/Popup/DashboardFocusImgPopup.vue";
 
 import { mapGetters } from "vuex";
 
@@ -177,7 +183,8 @@ export default {
     DashboardFocusPopup,
     DashboardAddFocusPopup,
     DashboardEditFocusPopup,
-    DashboardDeleteFocusPopup
+    DashboardDeleteFocusPopup,
+    DashboardFocusImgPopup
   },
   data: () => {
     return {
@@ -231,10 +238,7 @@ export default {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setAdminAreas");
       await this.$store.dispatch("setAdminAreasFocus");
-
-      console.log(this.$store.getters.getAdminAreasFocus);
     } catch (error) {
-      console.log(`App: ${error}`);
       return error;
     }
   },
@@ -341,6 +345,14 @@ export default {
       let overlay = document.querySelector(".admin_about__panel__overlay4");
 
       let deletePopup = document.querySelector(".admin_delete_focus_popup");
+
+      overlay.classList.toggle("show_overlay");
+      deletePopup.classList.toggle("show_popup");
+    },
+    closeEditImgPopup() {
+      let overlay = document.querySelector(".admin_about__panel__overlay5");
+
+      let deletePopup = document.querySelector(".admin_edit_img_focus_popup");
 
       overlay.classList.toggle("show_overlay");
       deletePopup.classList.toggle("show_popup");

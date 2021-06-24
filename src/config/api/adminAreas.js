@@ -187,6 +187,38 @@ export const adminAreasConfig = {
         return error;
       });
   },
+  editAreaFocusImg: async (token, id, file) => {
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    console.log(file);
+
+    // router.patch("/areas/focus/:id/icon", async (req, res) => {
+    //   token
+    //  id_area_focus =  req.params.id
+    //  req.files.file = nova imagem imagems
+    // })
+
+    let data = new FormData();
+    data.append("file", file);
+
+    return await axios
+      .patch(`${API_URL}/areas/focus/${id}/icon`, data, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        return error;
+      });
+  },
   deleteAreaFocus: async (token, id) => {
     let config = {
       headers: {

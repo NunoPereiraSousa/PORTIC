@@ -9,8 +9,14 @@
     </div>
     <div class="flex flex-ai-c">
       <button
+        class="admin_users__panel__grid__card__block"
+        @click="showEditImgPopup(id)"
+      >
+        Mudar Imagem
+      </button>
+      <button
         class="admin_users__panel__grid__card__edit"
-        @click="showEditPopup(id, content)"
+        @click="showEditPopup(id)"
       >
         Editar
       </button>
@@ -50,15 +56,20 @@ export default {
     }
   },
   methods: {
-    showBlockPopup(id) {
-      console.log(id);
-    },
-    showEditPopup(id, name) {
-      console.log(id);
-      console.log(name);
-
+    showEditPopup(id) {
       let overlay = document.querySelector(".admin_about__panel__overlay3");
       let popup = document.querySelector(".admin_edit_focus_popup");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+
+      this.$store.commit("SET_SELECTED_ADMIN_AREA_FOCUS_ID", {
+        id: id
+      });
+    },
+    showEditImgPopup(id) {
+      let overlay = document.querySelector(".admin_about__panel__overlay5");
+      let popup = document.querySelector(".admin_edit_img_focus_popup");
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
@@ -77,15 +88,6 @@ export default {
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
-      //   let overlay = document.querySelector(".admin_users__panel__overlay");
-      //   let popup = document.querySelector(".admin_delete_popup");
-      //   overlay.classList.toggle("show_overlay");
-      //   popup.classList.toggle("show_popup");
-
-      //   // COURSE ID LOGIC
-      //   this.$store.commit("SET_SELECTED_user_ID", {
-      //     id: userId
-      //   });
     }
   }
 };

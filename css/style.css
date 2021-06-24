@@ -8951,7 +8951,8 @@ button:focus {
 .admin_add_media_popup,
 .admin_add_focus_popup,
 .admin_edit_focus_popup,
-.admin_delete_focus_popup {
+.admin_delete_focus_popup,
+.admin_edit_img_focus_popup {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -8974,7 +8975,8 @@ button:focus {
 .admin_add_media_popup.show_popup,
 .admin_add_focus_popup.show_popup,
 .admin_edit_focus_popup.show_popup,
-.admin_delete_focus_popup.show_popup {
+.admin_delete_focus_popup.show_popup,
+.admin_edit_img_focus_popup.show_popup {
   opacity: 1;
   visibility: visible;
 }
@@ -8984,7 +8986,8 @@ button:focus {
 .admin_add_media_popup h2,
 .admin_add_focus_popup h2,
 .admin_edit_focus_popup h2,
-.admin_delete_focus_popup h2 {
+.admin_delete_focus_popup h2,
+.admin_edit_img_focus_popup h2 {
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 1.8;
@@ -8996,7 +8999,8 @@ button:focus {
 .admin_add_media_popup h2 span,
 .admin_add_focus_popup h2 span,
 .admin_edit_focus_popup h2 span,
-.admin_delete_focus_popup h2 span {
+.admin_delete_focus_popup h2 span,
+.admin_edit_img_focus_popup h2 span {
   color: #c94d24;
   font-weight: 500;
 }
@@ -9006,7 +9010,8 @@ button:focus {
 .admin_add_media_popup hr,
 .admin_add_focus_popup hr,
 .admin_edit_focus_popup hr,
-.admin_delete_focus_popup hr {
+.admin_delete_focus_popup hr,
+.admin_edit_img_focus_popup hr {
   margin: 2rem auto 4rem;
   background-color: #999999;
   height: 1.5px;
@@ -9024,7 +9029,9 @@ button:focus {
 .admin_edit_focus_popup__confirm,
 .admin_edit_focus_popup__cancel,
 .admin_delete_focus_popup__confirm,
-.admin_delete_focus_popup__cancel {
+.admin_delete_focus_popup__cancel,
+.admin_edit_img_focus_popup__confirm,
+.admin_edit_img_focus_popup__cancel {
   padding: 10px 30px;
   border-radius: 10px;
   font-size: 0.9375rem;
@@ -9035,7 +9042,8 @@ button:focus {
 .admin_add_media_popup__confirm,
 .admin_add_focus_popup__confirm,
 .admin_edit_focus_popup__confirm,
-.admin_delete_focus_popup__confirm {
+.admin_delete_focus_popup__confirm,
+.admin_edit_img_focus_popup__confirm {
   margin-right: 40px;
   border: 1px solid #c94d24;
   background-color: #c94d24;
@@ -9047,7 +9055,8 @@ button:focus {
 .admin_add_media_popup__cancel,
 .admin_add_focus_popup__cancel,
 .admin_edit_focus_popup__cancel,
-.admin_delete_focus_popup__cancel {
+.admin_delete_focus_popup__cancel,
+.admin_edit_img_focus_popup__cancel {
   border: 1px solid #080808;
   background-color: transparent;
   color: #080808;
@@ -9084,17 +9093,20 @@ button:focus {
 }
 
 .admin_add_focus_popup h2,
-.admin_edit_focus_popup h2 {
+.admin_edit_focus_popup h2,
+.admin_edit_img_focus_popup h2 {
   margin-bottom: 2rem;
 }
 
 .admin_add_focus_popup .form,
-.admin_edit_focus_popup .form {
+.admin_edit_focus_popup .form,
+.admin_edit_img_focus_popup .form {
   text-align: left;
 }
 
 .admin_add_focus_popup input,
-.admin_edit_focus_popup input {
+.admin_edit_focus_popup input,
+.admin_edit_img_focus_popup input {
   margin: 1rem 0;
   width: 100%;
   padding: 12px 26px;
@@ -9104,7 +9116,8 @@ button:focus {
 }
 
 .admin_add_focus_popup input:last-child,
-.admin_edit_focus_popup input:last-child {
+.admin_edit_focus_popup input:last-child,
+.admin_edit_img_focus_popup input:last-child {
   margin-bottom: 4rem;
 }
 
@@ -10245,7 +10258,7 @@ input[type="file"] {
   /* Handle on hover */
 }
 
-.admin_about__panel__overlay, .admin_about__panel__overlay2, .admin_about__panel__overlay3, .admin_about__panel__overlay4 {
+.admin_about__panel__overlay, .admin_about__panel__overlay2, .admin_about__panel__overlay3, .admin_about__panel__overlay4, .admin_about__panel__overlay5 {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -10259,7 +10272,7 @@ input[type="file"] {
   transition: all 0.4s;
 }
 
-.admin_about__panel__overlay.show_overlay, .admin_about__panel__overlay2.show_overlay, .admin_about__panel__overlay3.show_overlay, .admin_about__panel__overlay4.show_overlay {
+.admin_about__panel__overlay.show_overlay, .admin_about__panel__overlay2.show_overlay, .admin_about__panel__overlay3.show_overlay, .admin_about__panel__overlay4.show_overlay, .admin_about__panel__overlay5.show_overlay {
   opacity: 1;
   visibility: visible;
 }

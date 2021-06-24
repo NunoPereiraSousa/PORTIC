@@ -41,6 +41,8 @@ export const adminModule = {
     },
     addAreaFocusStatus: null,
     deleteAreaFocusStatus: null,
+    editAreaFocusIconStatus: null,
+    focusImg: null,
 
     // MEDIAS
     medias: [],
@@ -127,16 +129,18 @@ export const adminModule = {
       state.addAreaFocusForm.file = payload.file;
       state.addAreaFocusForm.description_pt = payload.description_pt;
       state.addAreaFocusForm.description_eng = payload.description_eng;
-
-      console.log(state.addAreaFocusForm);
     },
     SET_ADMIN_ADD_AREA_FOCUS_STATUS(state, payload) {
       state.addAreaFocusStatus = payload.status;
-
-      console.log(state.addAreaFocusStatus);
     },
     SET_ADMIN_REMOVE_AREA_FOCUS_STATUS(state, payload) {
       state.deleteAreaFocusStatus = payload.status;
+    },
+    SET_ADMIN_EDIT_AREA_FOCUS_ICON(state, payload) {
+      state.editAreaFocusIconStatus = payload.status;
+    },
+    SET_ADMIN_EDIT_IMG_AREA_FOCUS_FORM(state, payload) {
+      state.focusImg = payload.file;
     },
 
     // MEDIAS MUTATIONS
@@ -262,7 +266,6 @@ export const adminModule = {
       );
     },
     async setAdminAddAreasFocus({ commit, state }) {
-      console.log("DISPATCH");
       commit(
         "SET_ADMIN_ADD_AREA_FOCUS_STATUS",
         await adminAreasConfig.addAreaFocus(
@@ -274,12 +277,21 @@ export const adminModule = {
       );
     },
     async setAdminDeleteAreaFocus({ commit, state }) {
-      console.log(state.selectedAreaFocusId);
       commit(
         "SET_ADMIN_REMOVE_AREA_FOCUS_STATUS",
         await adminAreasConfig.deleteAreaFocus(
           JSON.parse(localStorage.getItem("token")),
           state.selectedAreaFocusId
+        )
+      );
+    },
+    async setAdminEditAreaFocusImg({ commit, state }) {
+      commit(
+        "SET_ADMIN_EDIT_AREA_FOCUS_ICON",
+        await adminAreasConfig.editAreaFocusImg(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedAreaFocusId,
+          state.focusImg
         )
       );
     },
@@ -354,7 +366,6 @@ export const adminModule = {
       );
     },
     async setAdminAddCourse({ commit, state }) {
-      console.log("DISPATCH PLEASE");
       commit(
         "SET_ADMIN_ADD_COURSE_STATUS",
         await adminCoursesConfig.addCourse(
