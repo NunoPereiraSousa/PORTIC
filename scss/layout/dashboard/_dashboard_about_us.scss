@@ -1,7 +1,10 @@
 .admin_about__panel {
   width: 100%;
 
-  &__overlay {
+  &__overlay,
+  &__overlay2,
+  &__overlay3,
+  &__overlay4 {
     position: fixed;
     top: 0%;
     left: 0%;

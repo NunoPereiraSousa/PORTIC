@@ -53,13 +53,15 @@ export default {
       });
     },
     showPopup(areaId) {
-      let admin_areas__panel__overlay = document.querySelector(
-        ".admin_areas__panel__overlay"
+      let admin_about__panel__overlay = document.querySelector(
+        ".admin_about__panel__overlay"
       );
 
-      let admin_delete_popup = document.querySelector(".admin_delete_popup");
+      let admin_delete_popup = document.querySelector(".admin_areas__popup");
 
-      admin_areas__panel__overlay.classList.toggle("show_overlay");
+      console.log(admin_about__panel__overlay, admin_delete_popup);
+
+      admin_about__panel__overlay.classList.toggle("show_overlay");
       admin_delete_popup.classList.toggle("show_popup");
 
       // AREA ID LOGIC

@@ -13,6 +13,10 @@
   background-color: rgba($color: $black, $alpha: 0.02);
   border-radius: 26px;
 
+  &.focus {
+    background-color: rgba($color: $black, $alpha: 0.15);
+  }
+
   @include breakpoint-up(large) {
     padding: 2.25rem 3.125rem;
   }

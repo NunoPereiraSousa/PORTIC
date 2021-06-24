@@ -1,8 +1,8 @@
 <template>
-  <div class="admin_areas__popup admin_delete_popup">
+  <div class="admin_focus__popup admin_delete_focus_popup">
     <h2>
       Tem a certeza que pretende eliminar a área <br />
-      <span>{{ areaName }}</span>
+      <span>{{ focusName }}</span>
     </h2>
 
     <div class="flex flex-ai-c flex-jc-sb">
@@ -18,9 +18,9 @@
 
 <script>
 export default {
-  name: "DashboardAreasPopup",
+  name: "DashboardDeleteFocusPopup",
   props: {
-    areaName: {
+    focusName: {
       type: String,
       required: false
     }
@@ -28,8 +28,8 @@ export default {
   methods: {
     async removeArea() {
       try {
-        await this.$store.dispatch("setAdminDeleteArea");
-        await this.$store.dispatch("setAdminAreas");
+        await this.$store.dispatch("setAdminDeleteAreaFocus");
+        await this.$store.dispatch("setAdminAreasFocus");
       } catch (error) {
         return error;
       }
@@ -38,10 +38,12 @@ export default {
     },
     closePopup() {
       let admin_about__panel__overlay = document.querySelector(
-        ".admin_about__panel__overlay"
+        ".admin_about__panel__overlay4"
       );
 
-      let admin_delete_popup = document.querySelector(".admin_delete_popup");
+      let admin_delete_popup = document.querySelector(
+        ".admin_delete_focus_popup"
+      );
 
       admin_about__panel__overlay.classList.toggle("show_overlay");
       admin_delete_popup.classList.toggle("show_popup");

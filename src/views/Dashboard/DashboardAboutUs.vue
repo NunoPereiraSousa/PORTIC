@@ -4,9 +4,9 @@
 
     <div class="admin_about__panel">
       <DashboardTopHeader />
-      <DashboardFocusPopup :focusName="focusName" />
+      <!-- <DashboardFocusPopup :focusName="focusName" /> -->
 
-      <div class="admin_about__panel__overlay" @click="closePopup"></div>
+      <!-- <div class="admin_about__panel__overlay" @click="closePopup"></div> -->
 
       <div class="admin_about__panel__grid">
         <div class="admin_actions_panel__form">
@@ -117,15 +117,15 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardFocusCard from "@/components/Dashboard/DashboardFocusCard.vue";
-import DashboardFocusPopup from "@/components/Dashboard/Popup/DashboardFocusPopup.vue";
+// import DashboardFocusPopup from "@/components/Dashboard/Popup/DashboardFocusPopup.vue";
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
-    DashboardFocusCard,
-    DashboardFocusPopup
+    DashboardFocusCard
+    // DashboardFocusPopup
   },
   data: () => {
     return {

@@ -8,6 +8,8 @@ import { adminCoursesConfig } from "../../config/api/adminCourses";
 export const adminModule = {
   state: {
     headerSvg: headerSvg,
+
+    // AREAS
     areas: [],
     selectedAreaId: null,
     editAreaForm: {
@@ -25,6 +27,20 @@ export const adminModule = {
     },
     addAreaStatus: null,
     removeAreaStatus: null,
+    areasFocus: [],
+    selectedAreaFocusId: null,
+    editAreaFocusForm: {
+      description_pt: null,
+      description_eng: null
+    },
+    editAreaFocusStatus: null,
+    addAreaFocusForm: {
+      file: null,
+      description_pt: null,
+      description_eng: null
+    },
+    addAreaFocusStatus: null,
+    deleteAreaFocusStatus: null,
 
     // MEDIAS
     medias: [],
@@ -94,6 +110,34 @@ export const adminModule = {
     SET_ADMIN_REMOVE_AREA_STATUS(state, payload) {
       state.removeAreaStatus = payload.status;
     },
+    SET_ADMIN_AREAS_FOCUS(state, payload) {
+      state.areasFocus = payload.focus;
+    },
+    SET_SELECTED_ADMIN_AREA_FOCUS_ID(state, payload) {
+      state.selectedAreaFocusId = payload.id;
+    },
+    SET_ADMIN_EDIT_AREA_FOCUS(state, payload) {
+      state.editAreaFocusForm.description_pt = payload.description_pt;
+      state.editAreaFocusForm.description_eng = payload.description_eng;
+    },
+    SET_ADMIN_EDIT_AREA_FOCUS_STATUS(state, payload) {
+      state.editAreaFocusStatus = payload.status;
+    },
+    SET_ADMIN_ADD_AREA_FOCUS_FORM(state, payload) {
+      state.addAreaFocusForm.file = payload.file;
+      state.addAreaFocusForm.description_pt = payload.description_pt;
+      state.addAreaFocusForm.description_eng = payload.description_eng;
+
+      console.log(state.addAreaFocusForm);
+    },
+    SET_ADMIN_ADD_AREA_FOCUS_STATUS(state, payload) {
+      state.addAreaFocusStatus = payload.status;
+
+      console.log(state.addAreaFocusStatus);
+    },
+    SET_ADMIN_REMOVE_AREA_FOCUS_STATUS(state, payload) {
+      state.deleteAreaFocusStatus = payload.status;
+    },
 
     // MEDIAS MUTATIONS
     SET_ADMIN_MEDIAS(state, payload) {
@@ -134,36 +178,22 @@ export const adminModule = {
     },
     SET_SELECTED_ADMIN_COURSE_ID(state, payload) {
       state.selectedCourseId = payload.id;
-
-      console.log(state.selectedCourseId);
     },
     SET_ADMIN_EDIT_COURSE_STATUS(state, payload) {
       state.editCourseStatus = payload.status;
-
-      console.log(state.editCourseStatus);
     },
     SET_ADMIN_EDIT_COURSE(state, payload) {
       state.editCourseForm.designation = payload.designation;
       state.editCourseForm.html_structure_eng = payload.html_structure_eng;
       state.editCourseForm.html_structure_pt = payload.html_structure_pt;
-
-      console.log(state.editCourseForm);
     },
     SET_ADMIN_ADD_COURSE_STATUS(state, payload) {
       state.addCourseStatus = payload.status;
-
-      console.log(state.addCourseStatus);
     },
     SET_ADMIN_ADD_COURSE(state, payload) {
       state.addCourseForm.designation = payload.designation;
       state.addCourseForm.html_structure_eng = payload.html_structure_eng;
       state.addCourseForm.html_structure_pt = payload.html_structure_pt;
-
-      console.log(
-        state.addCourseForm.designation,
-        state.addCourseForm.html_structure_eng,
-        state.addCourseForm.html_structure_pt
-      );
     },
     SET_ADMIN_REMOVE_COURSE_STATUS(state, payload) {
       state.removeCourseStatus = payload.status;
@@ -212,6 +242,48 @@ export const adminModule = {
         )
       );
     },
+    async setAdminAreasFocus({ commit }) {
+      commit(
+        "SET_ADMIN_AREAS_FOCUS",
+        await adminAreasConfig.getAreasFocus(
+          JSON.parse(localStorage.getItem("token"))
+        )
+      );
+    },
+    async setAdminEditAreasFocus({ commit, state }) {
+      commit(
+        "SET_ADMIN_EDIT_AREA_FOCUS_STATUS",
+        await adminAreasConfig.editAreaFocus(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedAreaFocusId,
+          state.editAreaFocusForm.description_pt,
+          state.editAreaFocusForm.description_eng
+        )
+      );
+    },
+    async setAdminAddAreasFocus({ commit, state }) {
+      console.log("DISPATCH");
+      commit(
+        "SET_ADMIN_ADD_AREA_FOCUS_STATUS",
+        await adminAreasConfig.addAreaFocus(
+          JSON.parse(localStorage.getItem("token")),
+          state.addAreaFocusForm.file,
+          state.addAreaFocusForm.description_pt,
+          state.addAreaFocusForm.description_eng
+        )
+      );
+    },
+    async setAdminDeleteAreaFocus({ commit, state }) {
+      console.log(state.selectedAreaFocusId);
+      commit(
+        "SET_ADMIN_REMOVE_AREA_FOCUS_STATUS",
+        await adminAreasConfig.deleteAreaFocus(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedAreaFocusId
+        )
+      );
+    },
+
     // MEDIA ACTIONS
     async setAdminMedias({ commit }) {
       commit(
@@ -292,13 +364,6 @@ export const adminModule = {
           state.addCourseForm.html_structure_pt
         )
       );
-
-      console.log(
-        JSON.parse(localStorage.getItem("token")),
-        state.addCourseForm.designation,
-        state.addCourseForm.html_structure_eng,
-        state.addCourseForm.html_structure_pt
-      );
     },
     async setAdminDeleteCourse({ commit, state }) {
       commit(
@@ -316,6 +381,13 @@ export const adminModule = {
     getAdminSelectedAreaId: state => state.selectedAreaId,
     getAdminAreaById: state => id =>
       state.areas.find(area => area.id_area === id),
+    getAdminAreasFocus: state =>
+      state.areasFocus != "" ? state.areasFocus : [],
+    getAdminSelectedAreaFocusId: state => state.selectedAreaFocusId,
+    getAdminAreaFocusById: state => id =>
+      state.areasFocus.find(focus => focus.id_areas_focus === id),
+    getAdminAreaFocusByName: state => name =>
+      state.areasFocus.find(focus => focus.description_pt === name),
 
     // MEDIAS GETTERS
     getAdminMedias: state => (state.medias != "" ? state.medias : []),

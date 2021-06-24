@@ -2,10 +2,20 @@
   <div class="admin_areas flex">
     <DashboardHeader />
     <div class="admin_areas__panel">
-      <div class="admin_areas__panel__overlay" @click="closePopup"></div>
+      <div class="admin_about__panel__overlay" @click="closePopup"></div>
+      <div class="admin_about__panel__overlay2" @click="closeAddPopup"></div>
+      <div class="admin_about__panel__overlay3" @click="closeEditPopup"></div>
+      <div class="admin_about__panel__overlay4" @click="closeDeletePopup"></div>
 
       <DashboardTopHeader />
       <DashboardAreasPopup :areaName="areaName" />
+      <DashboardFocusPopup :focusName="focusName" />
+      <DashboardAddFocusPopup />
+      <DashboardDeleteFocusPopup :focusName="focusName" />
+      <DashboardEditFocusPopup
+        :focusName="focusName"
+        :focusNameEn="focusNameEn"
+      />
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c" v-show="currentTab === 0">
@@ -52,10 +62,21 @@
           </p>
         </div>
 
-        <button class="edit_confirm_button" v-show="currentTab === 1">
+        <button class="edit_confirm_button" v-show="currentTab === 2">
           Confirmar
         </button>
 
+        <div v-show="currentTab === 1">
+          <button class="edit_confirm_button">
+            Confirmar
+          </button>
+          <button class="edit_confirm_button" @click="openAddFocusPopup">
+            Adicionar
+          </button>
+        </div>
+        <button class="edit_confirm_button" v-show="currentTab === 2">
+          Adicionar
+        </button>
         <div class="flex flex-ai-c">
           <button
             v-for="(tab, index) in tabs"
@@ -93,7 +114,7 @@
         </div>
       </div>
 
-      <div class="admin_areas__panel__grid grid" v-show="currentTab === 1">
+      <div class="admin_areas__panel__grid grid" v-show="currentTab === 2">
         <div class="">
           <h3 class="dashboard_subheader">
             Informação geral das áreas
@@ -107,6 +128,17 @@
             </quill-editor>
           </div>
         </div>
+      </div>
+
+      <div class="admin_areas__panel__grid grid" v-show="currentTab === 1">
+        <DashboardAreasFocus
+          v-for="focus in getFocus"
+          :key="focus.id_areas_focus"
+          :id="focus.id_areas_focus"
+          :image="focus.img"
+          :content="focus.description_pt"
+          :contentEn="focus.description_eng"
+        />
       </div>
 
       <div class="admin_areas__panel__grid grid" v-show="currentTab === 0">
@@ -126,7 +158,12 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardAreasCard from "@/components/Dashboard/DashboardAreasCard.vue";
+import DashboardAreasFocus from "@/components/Dashboard/DashboardAreasFocus.vue";
 import DashboardAreasPopup from "@/components/Dashboard/Popup/DashboardAreasPopup.vue";
+import DashboardFocusPopup from "@/components/Dashboard/Popup/DashboardFocusPopup.vue";
+import DashboardAddFocusPopup from "@/components/Dashboard/Popup/DashboardAddFocusPopup.vue";
+import DashboardEditFocusPopup from "@/components/Dashboard/Popup/DashboardEditFocusPopup.vue";
+import DashboardDeleteFocusPopup from "@/components/Dashboard/Popup/DashboardDeleteFocusPopup.vue";
 
 import { mapGetters } from "vuex";
 
@@ -135,14 +172,19 @@ export default {
     DashboardHeader,
     DashboardTopHeader,
     DashboardAreasCard,
-    DashboardAreasPopup
+    DashboardAreasFocus,
+    DashboardAreasPopup,
+    DashboardFocusPopup,
+    DashboardAddFocusPopup,
+    DashboardEditFocusPopup,
+    DashboardDeleteFocusPopup
   },
   data: () => {
     return {
       institution: "PORTIC",
       areaTxt: "",
       areas: "",
-      tabs: ["Áreas", "Informações"],
+      tabs: ["Áreas", "Focus", "Informações"],
       currentTab: 0,
       content: "",
       editorOption: {
@@ -188,8 +230,9 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setAdminAreas");
+      await this.$store.dispatch("setAdminAreasFocus");
 
-      console.log(this.getAdminAreas);
+      console.log(this.$store.getters.getAdminAreasFocus);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
@@ -199,7 +242,9 @@ export default {
     ...mapGetters([
       "getAdminSelectedAreaId",
       "getAdminAreaById",
-      "getAdminAreas"
+      "getAdminAreas",
+      "getAdminSelectedAreaFocusId",
+      "getAdminAreaFocusById"
     ]),
     areaName() {
       let id = this.getAdminSelectedAreaId;
@@ -226,18 +271,79 @@ export default {
 
         return search;
       });
+    },
+    getFocus() {
+      return this.$store.getters.getAdminAreasFocus;
+    },
+    focusName() {
+      let id = this.getAdminSelectedAreaFocusId;
+
+      let focus = this.getAdminAreaFocusById(id);
+
+      let name;
+
+      if (focus) {
+        name = focus.description_pt;
+      }
+
+      return name;
+    },
+    focusNameEn() {
+      let id = this.getAdminSelectedAreaFocusId;
+
+      let focus = this.getAdminAreaFocusById(id);
+
+      let name;
+
+      if (focus) {
+        name = focus.description_eng;
+      }
+
+      return name;
     }
   },
   methods: {
     closePopup() {
-      let admin_areas__panel__overlay = document.querySelector(
-        ".admin_areas__panel__overlay"
+      let admin_about__panel__overlay = document.querySelector(
+        ".admin_about__panel__overlay"
       );
 
       let admin_delete_popup = document.querySelector(".admin_delete_popup");
 
-      admin_areas__panel__overlay.classList.toggle("show_overlay");
+      admin_about__panel__overlay.classList.toggle("show_overlay");
       admin_delete_popup.classList.toggle("show_popup");
+    },
+    openAddFocusPopup() {
+      let overlay = document.querySelector(".admin_about__panel__overlay2");
+
+      let addPopup = document.querySelector(".admin_add_focus_popup");
+
+      overlay.classList.toggle("show_overlay");
+      addPopup.classList.toggle("show_popup");
+    },
+    closeAddPopup() {
+      let overlay = document.querySelector(".admin_about__panel__overlay2");
+
+      let addPopup = document.querySelector(".admin_add_focus_popup");
+
+      overlay.classList.toggle("show_overlay");
+      addPopup.classList.toggle("show_popup");
+    },
+    closeEditPopup() {
+      let overlay = document.querySelector(".admin_about__panel__overlay3");
+
+      let addPopup = document.querySelector(".admin_add_focus_popup");
+
+      overlay.classList.toggle("show_overlay");
+      addPopup.classList.toggle("show_popup");
+    },
+    closeDeletePopup() {
+      let overlay = document.querySelector(".admin_about__panel__overlay4");
+
+      let deletePopup = document.querySelector(".admin_delete_focus_popup");
+
+      overlay.classList.toggle("show_overlay");
+      deletePopup.classList.toggle("show_popup");
     }
   }
 };
