@@ -6,7 +6,9 @@
     </h2>
 
     <div class="flex flex-ai-c flex-jc-sb">
-      <button class="admin_delete_popup__confirm">Confimar</button>
+      <button class="admin_delete_popup__confirm" @click="deleteCourse">
+        Confimar
+      </button>
       <button class="admin_delete_popup__cancel" @click="closePopup">
         Cancelar
       </button>
@@ -24,6 +26,17 @@ export default {
     }
   },
   methods: {
+    async deleteCourse() {
+      try {
+        this.$store.dispatch("setAdminDeleteCourse");
+        this.$store.dispatch("setAdminCourses");
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
+
+      this.closePopup();
+    },
     closePopup() {
       let overlay = document.querySelector(".admin_courses__panel__overlay");
       let popup = document.querySelector(".admin_delete_popup");

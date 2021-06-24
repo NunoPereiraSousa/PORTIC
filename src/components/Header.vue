@@ -179,12 +179,13 @@ export default {
   computed: {
     displayLogo() {
       if (!this.loading) {
-        let arr = this.$store.getters.getEntityImage;
+        let image = this.$store.getters.getEntityData.img;
+        console.log(image);
 
-        var arrayBufferView = new Uint8Array(arr);
-        var blob = new Blob([arrayBufferView], { type: "image/png" });
-        var urlCreator = window.URL || window.webkitURL;
-        var image = urlCreator.createObjectURL(blob);
+        // var arrayBufferView = new Uint8Array(arr);
+        // var blob = new Blob([arrayBufferView], { type: "image/png" });
+        // var urlCreator = window.URL || window.webkitURL;
+        // var image = urlCreator.createObjectURL(blob);
         return image;
       }
 

@@ -22,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addCourse">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -35,13 +35,13 @@
         <h3 class="dashboard_subheader">
           Nome do curso
         </h3>
-        <input type="text" placeholder="Nome do curso" />
+        <input type="text" placeholder="Nome do curso" v-model="add.name" />
         <h3 class="dashboard_subheader">
           Conteúdo do curso
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="add.contentPt"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -70,7 +70,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addCourse">
             Confirm
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -83,13 +83,13 @@
         <h3 class="dashboard_subheader">
           Course name
         </h3>
-        <input type="text" placeholder="Nome do curso" />
+        <input type="text" placeholder="Nome do curso" v-model="add.name" />
         <h3 class="dashboard_subheader">
           Course information
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="add.contentEn"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -111,8 +111,11 @@ export default {
     return {
       tabs: ["Português", "Inglês"],
       currentTab: 0,
-      content: "",
-      contentEN: "",
+      add: {
+        name: "",
+        contentPt: "",
+        contentEn: ""
+      },
       editorOption: {
         modules: {
           toolbar: [
@@ -149,17 +152,32 @@ export default {
     };
   },
   mounted() {
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    // let arr = document.querySelectorAll(".admin_actions_panel");
-
-    // arr.forEach(i => {
-    //   i.style.paddingLeft = `${navbar_width}px`;
-    // });
-
     this.styleEditorHeight();
   },
   methods: {
+    async addCourse() {
+      this.$store.commit("SET_ADMIN_ADD_COURSE", {
+        designation: this.add.name,
+        html_structure_eng: this.add.contentEn,
+        html_structure_pt: this.add.contentPt
+      });
+
+      console.log(this.add.name, this.add.contentPt, this.add.contentEn);
+
+      try {
+        await this.$store.dispatch("setAdminAddCourse");
+        await this.$store.dispatch("setAdminCourses");
+
+        console.log(1);
+
+        // this.$router.push({
+        //   name: "DashboardCourses"
+        // });
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
+    },
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");
       let height = editor.offsetHeight;
@@ -181,9 +199,6 @@ export default {
       this.$router.push({
         name: "DashboardCourses"
       });
-    },
-    save() {
-      console.log(this.content);
     }
   }
 };

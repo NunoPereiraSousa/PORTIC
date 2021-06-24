@@ -107,6 +107,8 @@ export default {
         await this.$store.dispatch("setEntityId");
         await this.$store.dispatch("setData");
         await this.$store.dispatch("setMenus");
+
+        console.log(this.getEntityData);
       } catch (error) {
         console.log(`App: ${error}`);
         return error;

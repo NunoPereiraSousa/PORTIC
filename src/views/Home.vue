@@ -116,7 +116,6 @@ import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
 // import { background } from "../../js/background";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export default {
   name: "Home",
@@ -147,20 +146,22 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setNews");
+
+      console.log(this.getNews);
     } catch (error) {
       console.log(error);
       return error;
     }
-  },
-  mounted() {
+
     this.newsArr = this.getNews;
     this.newsContent = this.getNewsById;
-
+  },
+  mounted() {
     const SCREEN_WIDTH = window.innerWidth,
       SCREEN_HEIGHT = window.innerHeight,
       r = 450;
 
-    let camera, scene, renderer, controls;
+    let camera, scene, renderer;
     let threeJsScene = document.querySelector(".scene");
 
     init();
@@ -215,20 +216,18 @@ export default {
 
       threeJsScene.appendChild(renderer.domElement);
 
-      controls = new OrbitControls(camera, renderer.domElement);
-
-      if (window.innerWidth >= 1500) {
-        controls.minDistance = 400;
-        controls.maxDistance = 900;
-      } else {
-        controls.minDistance = 500;
-        controls.maxDistance = 800;
-      }
+      // if (window.innerWidth >= 1500) {
+      //   controls.minDistance = 400;
+      //   controls.maxDistance = 900;
+      // } else {
+      //   controls.minDistance = 500;
+      //   controls.maxDistance = 800;
+      // }
 
       // controls.minDistance = 500;
       // controls.maxDistance = 800;
-      controls.enableRotate = true;
-      controls.addEventListener("change", render);
+      // controls.enableRotate = true;
+      // controls.addEventListener("change", render);
 
       document.body.style.touchAction = "none";
       document.body.addEventListener("pointermove", onPointerMove);
@@ -300,7 +299,7 @@ export default {
       scene.rotation.y += 0.0002;
       scene.rotation.z += 0.0002;
 
-      controls.update();
+      // controls.update();
 
       render();
     }

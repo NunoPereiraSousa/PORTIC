@@ -22,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="editCourse">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -35,13 +35,13 @@
         <h3 class="dashboard_subheader">
           Nome do curso
         </h3>
-        <input type="text" :placeholder="courseName" v-model="courseTxt" />
+        <input type="text" :placeholder="courseName" v-model="edit.name" />
         <h3 class="dashboard_subheader">
           Conteúdo do curso
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="edit.contentPt"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -70,7 +70,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="editCourse">
             Confirm
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -83,13 +83,14 @@
         <h3 class="dashboard_subheader">
           Course name
         </h3>
-        <input type="text" :placeholder="courseName" v-model="courseTxt" />
+        <input type="text" :placeholder="courseName" v-model="edit.name" />
         <h3 class="dashboard_subheader">
-          Course information
+          Course name
         </h3>
+        <input type="text" :placeholder="courseName" v-model="edit.name" />
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="edit.contentEn"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -112,10 +113,11 @@ export default {
     return {
       tabs: ["Português", "Inglês"],
       currentTab: 0,
-      content: "",
-      contentEN: "",
-      courseName: "",
-      courseTxt: "",
+      edit: {
+        name: "",
+        contentPt: "",
+        contentEn: ""
+      },
       editorOption: {
         modules: {
           toolbar: [
@@ -152,24 +154,44 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getSelectedCourseByID", "getCourseByID"])
+    ...mapGetters(["getAdminSelectedCourseId", "getAdminCourseById"]),
+    courseName() {
+      return this.getAdminCourseById(this.getAdminSelectedCourseId).designation;
+    }
   },
   mounted() {
-    this.courseName = this.getCourseByID(
-      this.getSelectedCourseByID
-    ).designation;
-
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    // let arr = document.querySelectorAll(".admin_actions_panel");
-
-    // arr.forEach(i => {
-    //   i.style.paddingLeft = `${navbar_width}px`;
-    // });
+    this.edit.name = this.courseName;
+    this.edit.contentPt = this.getAdminCourseById(
+      this.getAdminSelectedCourseId
+    ).html_structure_pt;
+    this.edit.contentEn = this.getAdminCourseById(
+      this.getAdminSelectedCourseId
+    ).html_structure_eng;
 
     this.styleEditorHeight();
   },
   methods: {
+    async editCourse() {
+      this.$store.commit("SET_ADMIN_EDIT_COURSE", {
+        designation: this.edit.name,
+        html_structure_eng: this.edit.contentEn,
+        html_structure_pt: this.edit.contentPt
+      });
+
+      console.log(this.edit.name, this.edit.contentPt, this.edit.contentEn);
+
+      try {
+        await this.$store.dispatch("setAdminEditCourse");
+        await this.$store.dispatch("setAdminCourses");
+
+        this.$router.push({
+          name: "DashboardCourses"
+        });
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
+    },
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");
       let height = editor.offsetHeight;
@@ -189,11 +211,8 @@ export default {
     },
     goBack() {
       this.$router.push({
-        name: "DashboardAreas"
+        name: "DashboardCourses"
       });
-    },
-    save() {
-      console.log(this.content);
     }
   }
 };

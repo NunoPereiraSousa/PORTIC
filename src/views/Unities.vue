@@ -15,7 +15,7 @@
           v-for="(unity, index) in getUnitiesArr"
           :key="index + 1"
           :counter="`0${index + 1}`"
-          :imageUrl="convertImage(unity.img.data)"
+          :imageUrl="unity.img"
           :unityName="unity.designation"
           :unityDesc="unity.description"
           :id="unity.id_unity"
@@ -69,6 +69,8 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setUnities");
+
+      console.log(this.getUnities);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;

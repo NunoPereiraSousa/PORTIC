@@ -1,6 +1,7 @@
 import { headerSvg } from "../../config/admin_header";
 import { adminAreasConfig } from "../../config/api/adminAreas";
 import { adminMediasConfig } from "../../config/api/adminMedia";
+import { adminCoursesConfig } from "../../config/api/adminCourses";
 
 // import { usersModule } from "../../store/modules/usersModule";
 
@@ -46,7 +47,24 @@ export const adminModule = {
       appearance_case: null,
       youtube_path: null
     },
-    removeMediaStatus: null
+    removeMediaStatus: null,
+
+    // COURSES
+    courses: [],
+    selectedCourseId: null,
+    editCourseStatus: null,
+    editCourseForm: {
+      designation: null,
+      html_structure_eng: null,
+      html_structure_pt: null
+    },
+    addCourseStatus: null,
+    addCourseForm: {
+      designation: null,
+      html_structure_eng: null,
+      html_structure_pt: null
+    },
+    removeCourseStatus: null
   },
   mutations: {
     SET_ADMIN_AREAS(state, payload) {
@@ -76,6 +94,7 @@ export const adminModule = {
     SET_ADMIN_REMOVE_AREA_STATUS(state, payload) {
       state.removeAreaStatus = payload.status;
     },
+
     // MEDIAS MUTATIONS
     SET_ADMIN_MEDIAS(state, payload) {
       state.medias = payload.medias;
@@ -107,6 +126,47 @@ export const adminModule = {
     },
     SET_ADMIN_REMOVE_MEDIA_STATUS(state, payload) {
       state.removeMediaStatus = payload.status;
+    },
+
+    // COURSES MUTATIONS
+    SET_ADMIN_COURSES(state, payload) {
+      state.courses = payload.courses;
+    },
+    SET_SELECTED_ADMIN_COURSE_ID(state, payload) {
+      state.selectedCourseId = payload.id;
+
+      console.log(state.selectedCourseId);
+    },
+    SET_ADMIN_EDIT_COURSE_STATUS(state, payload) {
+      state.editCourseStatus = payload.status;
+
+      console.log(state.editCourseStatus);
+    },
+    SET_ADMIN_EDIT_COURSE(state, payload) {
+      state.editCourseForm.designation = payload.designation;
+      state.editCourseForm.html_structure_eng = payload.html_structure_eng;
+      state.editCourseForm.html_structure_pt = payload.html_structure_pt;
+
+      console.log(state.editCourseForm);
+    },
+    SET_ADMIN_ADD_COURSE_STATUS(state, payload) {
+      state.addCourseStatus = payload.status;
+
+      console.log(state.addCourseStatus);
+    },
+    SET_ADMIN_ADD_COURSE(state, payload) {
+      state.addCourseForm.designation = payload.designation;
+      state.addCourseForm.html_structure_eng = payload.html_structure_eng;
+      state.addCourseForm.html_structure_pt = payload.html_structure_pt;
+
+      console.log(
+        state.addCourseForm.designation,
+        state.addCourseForm.html_structure_eng,
+        state.addCourseForm.html_structure_pt
+      );
+    },
+    SET_ADMIN_REMOVE_COURSE_STATUS(state, payload) {
+      state.removeCourseStatus = payload.status;
     }
   },
   actions: {
@@ -175,15 +235,6 @@ export const adminModule = {
           state.editMediaForm.youtube_path
         )
       );
-
-      console.log(
-        state.editMediaForm.title_eng,
-        state.editMediaForm.title_pt,
-        state.editMediaForm.description_pt,
-        state.editMediaForm.description_eng,
-        state.editMediaForm.appearance_case,
-        state.editMediaForm.youtube_path
-      );
     },
     async setAdminAddMedia({ commit, state }) {
       commit(
@@ -207,6 +258,56 @@ export const adminModule = {
           state.selectedMediaId
         )
       );
+    },
+
+    // COURSES ACTIONS
+    async setAdminCourses({ commit }) {
+      commit(
+        "SET_ADMIN_COURSES",
+        await adminCoursesConfig.getCourses(
+          JSON.parse(localStorage.getItem("token"))
+        )
+      );
+    },
+    async setAdminEditCourse({ commit, state }) {
+      commit(
+        "SET_ADMIN_EDIT_COURSE_STATUS",
+        await adminCoursesConfig.editCourse(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedCourseId,
+          state.editCourseForm.designation,
+          state.editCourseForm.html_structure_eng,
+          state.editCourseForm.html_structure_pt
+        )
+      );
+    },
+    async setAdminAddCourse({ commit, state }) {
+      console.log("DISPATCH PLEASE");
+      commit(
+        "SET_ADMIN_ADD_COURSE_STATUS",
+        await adminCoursesConfig.addCourse(
+          JSON.parse(localStorage.getItem("token")),
+          state.addCourseForm.designation,
+          state.addCourseForm.html_structure_eng,
+          state.addCourseForm.html_structure_pt
+        )
+      );
+
+      console.log(
+        JSON.parse(localStorage.getItem("token")),
+        state.addCourseForm.designation,
+        state.addCourseForm.html_structure_eng,
+        state.addCourseForm.html_structure_pt
+      );
+    },
+    async setAdminDeleteCourse({ commit, state }) {
+      commit(
+        "SET_ADMIN_REMOVE_COURSE_STATUS",
+        await adminCoursesConfig.deleteCourse(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedCourseId
+        )
+      );
     }
   },
   getters: {
@@ -215,9 +316,17 @@ export const adminModule = {
     getAdminSelectedAreaId: state => state.selectedAreaId,
     getAdminAreaById: state => id =>
       state.areas.find(area => area.id_area === id),
+
+    // MEDIAS GETTERS
     getAdminMedias: state => (state.medias != "" ? state.medias : []),
     getAdminSelectedMediaId: state => state.selectedMediaId,
     getAdminMediaById: state => id =>
-      state.medias.find(media => media.id_media === id)
+      state.medias.find(media => media.id_media === id),
+
+    // COURSES GETTERS
+    getAdminCourses: state => (state.courses != "" ? state.courses : []),
+    getAdminSelectedCourseId: state => state.selectedCourseId,
+    getAdminCourseById: state => id =>
+      state.courses.find(course => course.id_course === id)
   }
 };

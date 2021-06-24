@@ -186,25 +186,25 @@ export default {
 
     try {
       await this.$store.dispatch("setEntityId");
-      await this.$store.dispatch("setCourses");
-      console.log(this.getCourses);
+      await this.$store.dispatch("setAdminCourses");
+
+      console.log(this.getAdminCourses);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
     }
-
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    // document.querySelector(
-    //   ".admin_courses__panel"
-    // ).style.paddingLeft = `${navbar_width}px`;
   },
   computed: {
-    ...mapGetters(["getSelectedCourseByID", "getCourseByID", "getCourses"]),
+    ...mapGetters([
+      "getAdminSelectedCourseId",
+      "getAdminCourseById",
+      "getAdminCourses"
+    ]),
     courseName() {
-      let id = this.getSelectedCourseByID;
+      console.log(this.getAdminSelectedCourseId);
+      let id = this.getAdminSelectedCourseId;
 
-      let course = this.getCourseByID(id);
+      let course = this.getAdminCourseById(id);
 
       let name;
 
@@ -215,7 +215,7 @@ export default {
       return name;
     },
     searchFilter() {
-      return this.getCourses.filter(course => {
+      return this.getAdminCourses.filter(course => {
         let search = true;
 
         if (this.courseTxt != "") {

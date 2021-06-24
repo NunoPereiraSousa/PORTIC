@@ -69,7 +69,9 @@ export default new Vuex.Store({
         "adminModule.areas",
         "adminModule.selectedAreaId",
         "adminModule.medias",
-        "adminModule.selectedMediaId"
+        "adminModule.selectedMediaId",
+        "adminModule.courses",
+        "adminModule.selectedCourseId"
       ]
     })
   ]
