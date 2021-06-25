@@ -22,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addUnit">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -41,9 +41,10 @@
             type="text"
             placeholder="Nome da unidade"
             style="margin-right: 2rem;"
+            v-model="add.designation"
           />
           <label class="custom-file-upload">
-            <input type="file" />
+            <input type="file" @change="uploadImage" />
             Upload de imagens
           </label>
         </div>
@@ -54,7 +55,7 @@
 
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="add.description_pt"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -83,7 +84,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addUnit">
             Confirm
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -102,11 +103,8 @@
             type="text"
             placeholder="Unity name"
             style="margin-right: 2rem;"
+            v-model="add.designation"
           />
-          <label class="custom-file-upload">
-            <input type="file" />
-            Images upload
-          </label>
         </div>
 
         <h3 class="dashboard_subheader">
@@ -115,7 +113,7 @@
 
         <div class="area_edit_editor">
           <quill-editor
-            v-model="contentEN"
+            v-model="add.description_eng"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -137,8 +135,12 @@ export default {
     return {
       tabs: ["Português", "Inglês"],
       currentTab: 0,
-      content: "",
-      contentEN: "",
+      add: {
+        designation: "",
+        description_pt: "",
+        description_eng: "",
+        image: ""
+      },
       editorOption: {
         modules: {
           toolbar: [
@@ -175,17 +177,29 @@ export default {
     };
   },
   mounted() {
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    // let arr = document.querySelectorAll(".admin_actions_panel");
-
-    // arr.forEach(i => {
-    //   i.style.paddingLeft = `${navbar_width}px`;
-    // });
-
     this.styleEditorHeight();
   },
   methods: {
+    async addUnit() {
+      this.$store.commit("SET_UNITS_ADD_FORM", {
+        file: this.add.image,
+        designation: this.add.designation,
+        description_pt: this.add.description_pt,
+        description_eng: this.add.description_eng
+      });
+
+      try {
+        await this.$store.dispatch("setAdminAddUnits");
+        await this.$store.dispatch("setAdminUnits");
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
+    },
+    uploadImage(e) {
+      const image = e.target.files[0];
+      this.add.image = image;
+    },
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");
       let height = editor.offsetHeight;
@@ -207,9 +221,6 @@ export default {
       this.$router.push({
         name: "DashboardUnities"
       });
-    },
-    save() {
-      console.log(this.content);
     }
   }
 };

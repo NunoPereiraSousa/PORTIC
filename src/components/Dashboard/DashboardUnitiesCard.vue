@@ -1,8 +1,10 @@
 <template>
   <div class="admin_unities__panel__grid__card flex flex-ai-c flex-jc-sb">
     <div class="flex flex-ai-c">
-      <h5 v-if="counter < 10">Unidade 0{{ counter }}</h5>
-      <h5 v-else>Unidade {{ counter }}</h5>
+      <div
+        class="admin_users__panel__grid__card__img"
+        :style="imageStyle"
+      ></div>
       <h2>
         {{ unityName }}
       </h2>
@@ -32,13 +34,18 @@ export default {
       type: String,
       required: true
     },
-    counter: {
-      type: Number,
+    image: {
+      type: String,
       required: true
     },
     id: {
       type: String,
       required: false
+    }
+  },
+  computed: {
+    imageStyle() {
+      return `background-image: url('${this.image}')`;
     }
   },
   methods: {

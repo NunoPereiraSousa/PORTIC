@@ -2,6 +2,7 @@ import { headerSvg } from "../../config/admin_header";
 import { adminAreasConfig } from "../../config/api/adminAreas";
 import { adminMediasConfig } from "../../config/api/adminMedia";
 import { adminCoursesConfig } from "../../config/api/adminCourses";
+import { adminUnitsConfig } from "../../config/api/adminUnits";
 
 // import { usersModule } from "../../store/modules/usersModule";
 
@@ -82,7 +83,17 @@ export const adminModule = {
       html_structure_eng: null,
       html_structure_pt: null
     },
-    removeCourseStatus: null
+    removeCourseStatus: null,
+
+    // UNITS
+    units: [],
+    addUnitStatus: null,
+    addUnitForm: {
+      file: null,
+      designation: null,
+      description_pt: null,
+      description_eng: null
+    }
   },
   mutations: {
     SET_ADMIN_AREAS(state, payload) {
@@ -201,6 +212,27 @@ export const adminModule = {
     },
     SET_ADMIN_REMOVE_COURSE_STATUS(state, payload) {
       state.removeCourseStatus = payload.status;
+    },
+
+    // UNITS MUTATIONS
+    SET_UNITS(state, payload) {
+      state.units = payload.units;
+    },
+    SET_UNITS_ADD_STATUS(state, payload) {
+      state.addUnitStatus = payload.status;
+    },
+    SET_UNITS_ADD_FORM(state, payload) {
+      state.addUnitForm.file = payload.file;
+      state.addUnitForm.designation = payload.designation;
+      state.addUnitForm.description_pt = payload.description_pt;
+      state.addUnitForm.description_eng = payload.description_eng;
+
+      console.log(
+        state.addUnitForm.file,
+        state.addUnitForm.designation,
+        state.addUnitForm.description_pt,
+        state.addUnitForm.description_eng
+      );
     }
   },
   actions: {
@@ -384,6 +416,28 @@ export const adminModule = {
           state.selectedCourseId
         )
       );
+    },
+
+    // UNITS ACTIONS
+    async setAdminUnits({ commit }) {
+      commit(
+        "SET_UNITS",
+        await adminUnitsConfig.getUnits(
+          JSON.parse(localStorage.getItem("token"))
+        )
+      );
+    },
+    async setAdminAddUnits({ commit, state }) {
+      commit(
+        "SET_UNITS_ADD_STATUS",
+        await adminUnitsConfig.addUnit(
+          JSON.parse(localStorage.getItem("token")),
+          state.addUnitForm.file,
+          state.addUnitForm.designation,
+          state.addUnitForm.description_pt,
+          state.addUnitForm.description_eng
+        )
+      );
     }
   },
   getters: {
@@ -413,6 +467,9 @@ export const adminModule = {
     getAdminCourses: state => (state.courses != "" ? state.courses : []),
     getAdminSelectedCourseId: state => state.selectedCourseId,
     getAdminCourseById: state => id =>
-      state.courses.find(course => course.id_course === id)
+      state.courses.find(course => course.id_course === id),
+
+    // UNITS GETTERS
+    getAdminUnits: state => (state.units != "" ? state.units : [])
   }
 };

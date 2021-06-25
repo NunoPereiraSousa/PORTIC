@@ -75,10 +75,10 @@
 
       <div class="admin_courses__panel__grid grid" v-show="currentTab === 0">
         <DashboardUnitiesCard
-          v-for="(unity, index) in searchFilter"
+          v-for="unity in searchFilter"
           :key="unity.id_unity"
           :id="unity.id_unity"
-          :counter="index + 1"
+          :image="unity.img"
           :unityName="unity.designation"
         />
       </div>
@@ -145,23 +145,18 @@ export default {
     };
   },
   async mounted() {
-    // this.$store.commit("SET_SELECTED_UNITIES_LANG", {
-    //   lang: "pt"
-    // });
-    // try {
-    //   await this.$store.dispatch("setEntityId");
-    //   await this.$store.dispatch("setUnities");
-    // } catch (error) {
-    //   console.log(`App: ${error}`);
-    //   return error;
-    // }
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-    // document.querySelector(
-    //   ".admin_unities__panel"
-    // ).style.paddingLeft = `${navbar_width}px`;
+    this.$store.commit("SET_SELECTED_AREAS_LANG", {
+      lang: "pt"
+    });
+
+    try {
+      await this.$store.dispatch("setAdminUnits");
+    } catch (error) {
+      return error;
+    }
   },
   computed: {
-    ...mapGetters(["getSelectedUnityId", "getUnityById", "getUnities"]),
+    ...mapGetters(["getSelectedUnityId", "getUnityById", "getAdminUnits"]),
     unityName() {
       let id = this.getSelectedUnityId;
 
@@ -176,7 +171,7 @@ export default {
       return name;
     },
     searchFilter() {
-      return this.getUnities.filter(unity => {
+      return this.getAdminUnits.filter(unity => {
         let search = true;
 
         if (this.unityTxt != "") {

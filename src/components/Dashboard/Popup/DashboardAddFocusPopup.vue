@@ -67,12 +67,6 @@ export default {
     uploadImage(e) {
       const image = e.target.files[0];
       this.add.file = image;
-
-      // const reader = new FileReader();
-      // reader.readAsDataURL(image);
-      // reader.onload = e => {
-      //   this.add.file = e.target.result;
-      // };
     },
     closePopup() {
       let overlay = document.querySelector(".admin_about__panel__overlay2");

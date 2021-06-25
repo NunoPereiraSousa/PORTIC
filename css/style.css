@@ -8946,6 +8946,11 @@ button:focus {
   fill: #666666;
 }
 
+.admin_users__panel__grid__card__img {
+  height: 3.5rem;
+  width: 8rem;
+}
+
 .admin_delete_popup,
 .admin_edit_popup,
 .admin_add_media_popup,
