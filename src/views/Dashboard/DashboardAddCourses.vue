@@ -162,21 +162,15 @@ export default {
         html_structure_pt: this.add.contentPt
       });
 
-      console.log(this.add.name, this.add.contentPt, this.add.contentEn);
-
       try {
         await this.$store.dispatch("setAdminAddCourse");
         await this.$store.dispatch("setAdminCourses");
-
-        console.log(1);
-
-        // this.$router.push({
-        //   name: "DashboardCourses"
-        // });
       } catch (error) {
         console.log(error);
         return error;
       }
+
+      this.goBack();
     },
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");

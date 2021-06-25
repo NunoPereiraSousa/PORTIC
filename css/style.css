@@ -9871,6 +9871,10 @@ input[type="file"] {
   font-size: 1rem;
 }
 
+.ql-toolbar button {
+  width: 3rem !important;
+}
+
 .ql-container {
   height: -webkit-fit-content !important;
   height: -moz-fit-content !important;
@@ -11134,12 +11138,13 @@ svg .st15 {
 }
 
 .admin_profile__panel__grid button {
-  position: fixed;
+  position: absolute;
   right: 5%;
-  top: 50%;
+  top: 10%;
   font-family: "Porto Sans";
   border: none;
-  background-color: #ffffff;
+  background-color: #c94d24;
+  color: #ffffff;
   border-radius: 8px;
   -webkit-box-shadow: rgba(8, 8, 8, 0.1) 0px 5px 24px;
           box-shadow: rgba(8, 8, 8, 0.1) 0px 5px 24px;

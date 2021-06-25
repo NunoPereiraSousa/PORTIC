@@ -11,15 +11,13 @@
         class="admin_profile__panel__banner"
         src="../../../assets/porticbanner.png"
         alt="PORTIC BANNER"
+                    :src="convertImage(getProfileImg)"
+
       /> -->
 
       <div v-if="!isHidden" class="admin_profile__panel__grid grid">
         <div class="admin__info">
-          <!-- <img
-            id="profilePic"
-            :src="convertImage(getProfileImg)"
-            alt="Profile Img"
-          /> -->
+          <img id="profilePic" alt="Profile Img" />
 
           <div class="flex flex-ai-c flex-jc-sb">
             <h3>{{ getUserInfo.full_name }}</h3>
@@ -64,7 +62,7 @@
       <div v-if="isHidden" class="admin_profile__panel__grid grid">
         <div class="admin__info">
           <label class="custom-file-upload">
-            <input type="file" @change="onImageChange" />
+            <input type="file" @change="uploadImage" />
             <!-- <img :src="convertImage(getProfileImg)" alt="Profile Img" /> -->
           </label>
 
@@ -212,6 +210,7 @@ export default {
       "getUserStatus"
     ]),
     getUserInfo() {
+      console.log(this.getUser);
       return this.getUser;
     },
     getProfileImg() {
@@ -235,9 +234,15 @@ export default {
         fullName: this.form.fullName
       });
 
+      this.$store.commit("SET_USER_IMG", {
+        image: this.image
+      });
+
       try {
         // edit profile
         await this.$store.dispatch("setEditProfile");
+        // edit profile image
+        // await this.$store.dispatch("setUserImg");
 
         // get profile data
         await this.$store.dispatch("setUser");
@@ -246,15 +251,9 @@ export default {
         return error;
       }
     },
-    onImageChange(e) {
-      let files = e.target.files || e.dataTransfer.files;
-      if (!files.length) return;
-
-      console.log(files);
-
-      this.createImage(files[0]);
-
-      console.log(this.createImage(files[0]));
+    uploadImage(e) {
+      const image = e.target.files[0];
+      this.image = image;
     },
     createImage(file) {
       this.image = new Image();

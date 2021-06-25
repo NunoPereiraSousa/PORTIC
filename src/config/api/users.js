@@ -1,16 +1,11 @@
 import axios from "axios";
+import FormData from "form-data";
 
-// import { API_URL, API_URL2 } from "./config";
 import { API_URL } from "./config";
 
 let headers = {
   "Access-Control-Allow-Origin": "*"
 };
-
-// let headerToken = {
-//   "Access-Control-Allow-Origin": "*",
-//   authorization: `Bearer ${token}`
-// };
 
 export const usersConfig = {
   singIn: async (username, password) => {
@@ -130,17 +125,6 @@ export const usersConfig = {
       }
     };
 
-    console.log(
-      username,
-      description_pt,
-      description_eng,
-      email,
-      phone_numb,
-      facebook_url,
-      linkedIn_url,
-      fullname
-    );
-
     return await axios
       .put(
         `${API_URL}/users/profile`,
@@ -166,22 +150,21 @@ export const usersConfig = {
       });
   },
   editProfileImg: async (token, image) => {
-    console.log(image);
     let config = {
       headers: {
+        "Content-Type": "multipart/form-data",
         "Access-Control-Allow-Origin": "*",
         authorization: `Bearer ${token}`
       }
     };
 
+    console.log(image);
+
+    let data = new FormData();
+    data.append("picture", image);
+
     return await axios
-      .patch(
-        `${API_URL}/users/profile/picture`,
-        {
-          file: image
-        },
-        config
-      )
+      .patch(`${API_URL}/users/profile/picture`, data, config)
       .then(response => {
         console.log(response);
         return {
@@ -190,6 +173,7 @@ export const usersConfig = {
         };
       })
       .catch(error => {
+        console.log(error);
         return error;
       });
   }

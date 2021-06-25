@@ -19,6 +19,7 @@ export const usersModule = {
       phoneNumber: null
     },
     user: {},
+    userImg: null,
     userStatus: null,
     userImgStatus: null,
     signInStatus: null,
@@ -48,11 +49,14 @@ export const usersModule = {
     SET_USER(state, payload) {
       state.user = payload.user;
       state.userStatus = payload.status;
-
-      console.log(state.user, state.userStatus);
     },
     SET_USER_IMG_STATUS(state, payload) {
       state.userImgStatus = payload.status;
+    },
+    SET_USER_IMG(state, payload) {
+      state.userImg = payload.image;
+
+      console.log(state.userImg);
     },
     SET_LOGGED_USER(state, payload) {
       state.loggedUser = payload.user;

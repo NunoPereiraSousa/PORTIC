@@ -144,12 +144,13 @@
     }
 
     button {
-      position: fixed;
+      position: absolute;
       right: 5%;
-      top: 50%;
+      top: 10%;
       font-family: $portoSans;
       border: none;
-      background-color: $white;
+      background-color: $orange;
+      color: $white;
       border-radius: 8px;
       box-shadow: rgba($color: $black, $alpha: 0.1) 0px 5px 24px;
       padding: 1rem 2rem;

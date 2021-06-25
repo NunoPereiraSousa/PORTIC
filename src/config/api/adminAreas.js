@@ -196,14 +196,6 @@ export const adminAreasConfig = {
       }
     };
 
-    console.log(file);
-
-    // router.patch("/areas/focus/:id/icon", async (req, res) => {
-    //   token
-    //  id_area_focus =  req.params.id
-    //  req.files.file = nova imagem imagems
-    // })
-
     let data = new FormData();
     data.append("file", file);
 

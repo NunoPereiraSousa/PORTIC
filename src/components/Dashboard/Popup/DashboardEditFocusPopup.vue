@@ -74,6 +74,8 @@ export default {
         console.log(error);
         return error;
       }
+
+      this.closePopup();
     },
     closePopup() {
       let overlay = document.querySelector(".admin_about__panel__overlay3");

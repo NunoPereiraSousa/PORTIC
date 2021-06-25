@@ -178,15 +178,11 @@ export default {
         html_structure_pt: this.edit.contentPt
       });
 
-      console.log(this.edit.name, this.edit.contentPt, this.edit.contentEn);
-
       try {
         await this.$store.dispatch("setAdminEditCourse");
         await this.$store.dispatch("setAdminCourses");
 
-        this.$router.push({
-          name: "DashboardCourses"
-        });
+        this.goBack();
       } catch (error) {
         console.log(error);
         return error;

@@ -72,9 +72,9 @@
         </button>
 
         <div v-show="currentTab === 1">
-          <button class="edit_confirm_button">
+          <!-- <button class="edit_confirm_button">
             Confirmar
-          </button>
+          </button> -->
           <button class="edit_confirm_button" @click="openAddFocusPopup">
             Adicionar
           </button>

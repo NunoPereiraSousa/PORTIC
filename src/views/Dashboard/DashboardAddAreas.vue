@@ -163,14 +163,6 @@ export default {
     };
   },
   mounted() {
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    // let arr = document.querySelectorAll(".admin_actions_panel");
-
-    // arr.forEach(i => {
-    //   i.style.paddingLeft = `${navbar_width}px`;
-    // });
-
     this.styleEditorHeight();
   },
   methods: {
@@ -182,18 +174,20 @@ export default {
         contentEn: this.addEn.conten !== "" ? this.addEn.areaName : ""
       });
 
-      console.log(
-        `${this.addPt.areaName} - ${this.addPt.content}
-        ${this.addEn.areaName} - ${this.addEn.content}`
-      );
-
       try {
-        this.$store.dispatch("setAdminAddArea");
-        this.$store.dispatch("setAdminAreas");
+        await this.$store.dispatch("setAdminAddArea");
+        await this.$store.dispatch("setAdminAreas");
+
+        // notifications
+        this.$store.getters.getAddAreaStatus === 201
+          ? this.notificationSuccess()
+          : this.notificationError();
       } catch (error) {
         console.log(error);
         return error;
       }
+
+      this.goBack();
     },
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");
@@ -215,6 +209,38 @@ export default {
     goBack() {
       this.$router.push({
         name: "DashboardAreas"
+      });
+    },
+    notificationSuccess() {
+      this.$toast.success("Área adiciona com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
       });
     }
   }

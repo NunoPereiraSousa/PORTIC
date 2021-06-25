@@ -399,6 +399,9 @@ export const adminModule = {
       state.areasFocus.find(focus => focus.id_areas_focus === id),
     getAdminAreaFocusByName: state => name =>
       state.areasFocus.find(focus => focus.description_pt === name),
+    getAddAreaStatus: state => state.addAreaStatus,
+    getEditAreaStatus: state => state.editAreaStatus,
+    getDeleteAreaStatus: state => state.removeAreaStatus,
 
     // MEDIAS GETTERS
     getAdminMedias: state => (state.medias != "" ? state.medias : []),
