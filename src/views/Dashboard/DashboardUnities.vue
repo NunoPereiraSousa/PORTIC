@@ -156,11 +156,15 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getSelectedUnityId", "getUnityById", "getAdminUnits"]),
+    ...mapGetters([
+      "getAdminSelectedUnitId",
+      "getAdminUnitById",
+      "getAdminUnits"
+    ]),
     unityName() {
-      let id = this.getSelectedUnityId;
+      let id = this.getAdminSelectedUnitId;
 
-      let unity = this.getUnityById(id);
+      let unity = this.getAdminUnitById(id);
 
       let name;
 

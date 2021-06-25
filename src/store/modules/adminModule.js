@@ -101,7 +101,8 @@ export const adminModule = {
       description_eng: null,
       image: null
     },
-    editUnitStatus: null
+    editUnitStatus: null,
+    deleteUnitStatus: null
   },
   mutations: {
     SET_ADMIN_AREAS(state, payload) {
@@ -245,7 +246,10 @@ export const adminModule = {
       state.editUnitForm.image = payload.image;
     },
     SET_UNITS_EDIT_STATUS(state, payload) {
-      state.editUnitStatus = payload.id;
+      state.editUnitStatus = payload.status;
+    },
+    SET_UNITS_DELETE_STATUS(state, payload) {
+      state.deleteUnitStatus = payload.status;
     }
   },
   actions: {
@@ -471,6 +475,15 @@ export const adminModule = {
           JSON.parse(localStorage.getItem("token")),
           state.selectedUnitId,
           state.editUnitForm.image
+        )
+      );
+    },
+    async setAdminDeleteUnit({ commit, state }) {
+      commit(
+        "SET_UNITS_DELETE_STATUS",
+        await adminUnitsConfig.deleteUnit(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedUnitId
         )
       );
     }

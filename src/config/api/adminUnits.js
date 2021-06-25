@@ -106,60 +106,28 @@ export const adminUnitsConfig = {
       .catch(error => {
         return error;
       });
+  },
+  deleteUnit: async (token, id) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    console.log(id);
+
+    return await axios
+      .delete(`${API_URL}/units/${id}`, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.error(error);
+        return error;
+      });
   }
-  // addArea: async (
-  //   token,
-  //   designation_pt,
-  //   designation_eng,
-  //   description_pt,
-  //   description_eng
-  // ) => {
-  //   let config = {
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //       authorization: `Bearer ${token}`
-  //     }
-  //   };
-
-  //   return await axios
-  //     .post(
-  //       `${API_URL}/areas`,
-  //       {
-  //         designation_pt: designation_pt,
-  //         designation_eng: designation_eng,
-  //         description_pt: description_pt,
-  //         description_eng: description_eng
-  //       },
-  //       config
-  //     )
-  //     .then(response => {
-  //       return {
-  //         status: response.status
-  //       };
-  //     })
-  //     .catch(error => {
-  //       return error;
-  //     });
-  // },
-  // deleteArea: async (token, id) => {
-  //   let config = {
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //       authorization: `Bearer ${token}`
-  //     }
-  //   };
-
-  //   console.log(id);
-
-  //   return await axios
-  //     .delete(`${API_URL}/areas/${id}`, config)
-  //     .then(response => {
-  //       return {
-  //         status: response.status
-  //       };
-  //     })
-  //     .catch(error => {
-  //       return error;
-  //     });
-  // }
 };

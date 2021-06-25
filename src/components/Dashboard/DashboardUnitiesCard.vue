@@ -66,7 +66,7 @@ export default {
       popup.classList.toggle("show_popup");
 
       // COURSE ID LOGIC
-      this.$store.commit("SET_SELECTED_UNITY_ID", {
+      this.$store.commit("SET_SELECTED_ADMIN_UNIT_ID", {
         id: unityId
       });
     }
