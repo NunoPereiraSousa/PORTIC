@@ -22,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="editUnit">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -35,12 +35,12 @@
         <h3 class="dashboard_subheader">
           Nome da unidade
         </h3>
-        <input type="text" :placeholder="unityName" v-model="unityTxt" />
+        <input type="text" v-model="edit.designation" />
         <h3 class="dashboard_subheader">
           Imagem da unidade
         </h3>
         <label class="custom-file-upload">
-          <input type="file" />
+          <input type="file" @change="uploadImage" />
           Selecionar imagem
         </label>
         <h3 class="dashboard_subheader">
@@ -48,7 +48,7 @@
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="edit.description_pt"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -77,7 +77,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="editUnit">
             Confirm
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -90,20 +90,13 @@
         <h3 class="dashboard_subheader">
           Unity name
         </h3>
-        <input type="text" :placeholder="unityName" v-model="unityTxt" />
-        <h3 class="dashboard_subheader">
-          Unity image
-        </h3>
-        <label class="custom-file-upload">
-          <input type="file" />
-          Select an image
-        </label>
+        <input type="text" v-model="edit.designation" />
         <h3 class="dashboard_subheader">
           Unity information
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="contentEN"
+            v-model="edit.description_eng"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -127,8 +120,12 @@ export default {
       unityName: "",
       tabs: ["Português", "Inglês"],
       currentTab: 0,
-      content: "",
-      contentEN: "",
+      edit: {
+        designation: "",
+        description_pt: "",
+        description_eng: "",
+        image: ""
+      },
       unityTxt: "",
       editorOption: {
         modules: {
@@ -166,23 +163,50 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getSelectedUnityId", "getUnityById"])
+    ...mapGetters(["getAdminSelectedUnitId", "getAdminUnitById"])
   },
   created() {
-    this.unityName = this.getUnityById(this.getSelectedUnityId).designation;
+    this.unityName = this.getAdminUnitById(
+      this.getAdminSelectedUnitId
+    ).designation;
   },
   mounted() {
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    // let arr = document.querySelectorAll(".admin_actions_panel");
-
-    // arr.forEach(i => {
-    //   i.style.paddingLeft = `${navbar_width}px`;
-    // });
-
     this.styleEditorHeight();
+
+    this.edit.designation = this.unityName;
+
+    this.edit.description_pt = this.getAdminUnitById(
+      this.getAdminSelectedUnitId
+    ).description_pt;
+
+    this.edit.description_eng = this.getAdminUnitById(
+      this.getAdminSelectedUnitId
+    ).description_eng;
   },
   methods: {
+    async editUnit() {
+      this.$store.commit("SET_UNITS_EDIT_FORM", {
+        designation: this.edit.designation,
+        description_pt: this.edit.description_pt,
+        description_eng: this.edit.description_eng,
+        image: this.edit.image
+      });
+
+      try {
+        await this.$store.dispatch("setAdminEditUnits");
+        await this.$store.dispatch("setAdminEditUnitImg");
+        await this.$store.dispatch("setAdminUnits");
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
+
+      this.goBack();
+    },
+    uploadImage(e) {
+      const image = e.target.files[0];
+      this.edit.image = image;
+    },
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");
       let height = editor.offsetHeight;
@@ -204,9 +228,6 @@ export default {
       this.$router.push({
         name: "DashboardUnities"
       });
-    },
-    save() {
-      console.log(this.content);
     }
   }
 };

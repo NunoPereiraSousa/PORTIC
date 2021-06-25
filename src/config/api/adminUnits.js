@@ -46,12 +46,59 @@ export const adminUnitsConfig = {
     data.append("description_eng", description_eng);
     data.append("file", file);
 
-    console.log(file, designation, description_pt, description_eng);
-
     return await axios
       .post(`${API_URL}/units`, data, config)
       .then(response => {
-        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        return error;
+      });
+  },
+  editUnit: async (token, id, designation, description_pt, description_eng) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .put(
+        `${API_URL}/units/${id}`,
+        {
+          designation: designation,
+          description_pt: description_pt,
+          description_eng: description_eng
+        },
+        config
+      )
+      .then(response => {
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        return error;
+      });
+  },
+  editUnitImg: async (token, id, file) => {
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    let data = new FormData();
+    data.append("file", file);
+
+    return await axios
+      .patch(`${API_URL}/units/${id}/picture`, data, config)
+      .then(response => {
         return {
           status: response.status
         };
@@ -60,41 +107,6 @@ export const adminUnitsConfig = {
         return error;
       });
   }
-  // editArea: async (
-  //   token,
-  //   id,
-  //   designation_pt,
-  //   designation_eng,
-  //   description_pt,
-  //   description_eng
-  // ) => {
-  //   let config = {
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //       authorization: `Bearer ${token}`
-  //     }
-  //   };
-
-  //   return await axios
-  //     .put(
-  //       `${API_URL}/areas/${id}`,
-  //       {
-  //         designation_pt: designation_pt,
-  //         designation_eng: designation_eng,
-  //         description_pt: description_pt,
-  //         description_eng: description_eng
-  //       },
-  //       config
-  //     )
-  //     .then(response => {
-  //       return {
-  //         status: response.status
-  //       };
-  //     })
-  //     .catch(error => {
-  //       return error;
-  //     });
-  // },
   // addArea: async (
   //   token,
   //   designation_pt,

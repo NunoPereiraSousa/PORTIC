@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     openPage(unityId, unityName) {
-      this.$store.commit("SET_SELECTED_UNITY_ID", {
+      this.$store.commit("SET_SELECTED_ADMIN_UNIT_ID", {
         id: unityId
       });
 

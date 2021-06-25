@@ -93,7 +93,15 @@ export const adminModule = {
       designation: null,
       description_pt: null,
       description_eng: null
-    }
+    },
+    selectedUnitId: null,
+    editUnitForm: {
+      designation: null,
+      description_pt: null,
+      description_eng: null,
+      image: null
+    },
+    editUnitStatus: null
   },
   mutations: {
     SET_ADMIN_AREAS(state, payload) {
@@ -226,13 +234,18 @@ export const adminModule = {
       state.addUnitForm.designation = payload.designation;
       state.addUnitForm.description_pt = payload.description_pt;
       state.addUnitForm.description_eng = payload.description_eng;
-
-      console.log(
-        state.addUnitForm.file,
-        state.addUnitForm.designation,
-        state.addUnitForm.description_pt,
-        state.addUnitForm.description_eng
-      );
+    },
+    SET_SELECTED_ADMIN_UNIT_ID(state, payload) {
+      state.selectedUnitId = payload.id;
+    },
+    SET_UNITS_EDIT_FORM(state, payload) {
+      state.editUnitForm.designation = payload.designation;
+      state.editUnitForm.description_pt = payload.description_pt;
+      state.editUnitForm.description_eng = payload.description_eng;
+      state.editUnitForm.image = payload.image;
+    },
+    SET_UNITS_EDIT_STATUS(state, payload) {
+      state.editUnitStatus = payload.id;
     }
   },
   actions: {
@@ -438,6 +451,28 @@ export const adminModule = {
           state.addUnitForm.description_eng
         )
       );
+    },
+    async setAdminEditUnits({ commit, state }) {
+      commit(
+        "SET_UNITS_EDIT_STATUS",
+        await adminUnitsConfig.editUnit(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedUnitId,
+          state.editUnitForm.designation,
+          state.editUnitForm.description_pt,
+          state.editUnitForm.description_eng
+        )
+      );
+    },
+    async setAdminEditUnitImg({ commit, state }) {
+      commit(
+        "SET_UNITS_EDIT_STATUS",
+        await adminUnitsConfig.editUnitImg(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedUnitId,
+          state.editUnitForm.image
+        )
+      );
     }
   },
   getters: {
@@ -470,6 +505,9 @@ export const adminModule = {
       state.courses.find(course => course.id_course === id),
 
     // UNITS GETTERS
-    getAdminUnits: state => (state.units != "" ? state.units : [])
+    getAdminUnits: state => (state.units != "" ? state.units : []),
+    getAdminSelectedUnitId: state => state.selectedUnitId,
+    getAdminUnitById: state => id =>
+      state.units.find(unit => unit.id_unity === id)
   }
 };
