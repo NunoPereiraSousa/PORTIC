@@ -4,9 +4,6 @@
 
     <div class="admin_about__panel">
       <DashboardTopHeader />
-      <!-- <DashboardFocusPopup :focusName="focusName" /> -->
-
-      <!-- <div class="admin_about__panel__overlay" @click="closePopup"></div> -->
 
       <div class="admin_about__panel__grid">
         <div class="admin_actions_panel__form">
@@ -94,19 +91,6 @@
               </div>
             </div>
           </div>
-          <h3 class="dashboard_subheader">
-            Focos
-          </h3>
-
-          <div class="admin_actions_panel__form__grid grid">
-            <DashboardFocusCard
-              v-for="focus in focusesPT"
-              :key="focus.id"
-              :counter="focus.id"
-              :id="focus.id"
-              :focusName="focus.text"
-            />
-          </div>
         </div>
       </div>
     </div>
@@ -116,16 +100,12 @@
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
-import DashboardFocusCard from "@/components/Dashboard/DashboardFocusCard.vue";
-// import DashboardFocusPopup from "@/components/Dashboard/Popup/DashboardFocusPopup.vue";
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     DashboardHeader,
-    DashboardTopHeader,
-    DashboardFocusCard
-    // DashboardFocusPopup
+    DashboardTopHeader
   },
   data: () => {
     return {
@@ -185,20 +165,7 @@ export default {
       "getFocusesEN",
       "getSelectedFocusByID",
       "getFocusByID"
-    ]),
-    focusName() {
-      let id = this.getSelectedFocusByID;
-
-      let focus = this.getFocusByID(id);
-
-      let name;
-
-      if (focus) {
-        name = focus.text;
-      }
-
-      return name;
-    }
+    ])
   },
   created() {
     console.clear();
@@ -207,7 +174,6 @@ export default {
     this.contacts = this.getContacts;
     this.content = this.getDescription;
     this.coordinates = this.getCoordinates;
-    this.focusesPT = this.getFocusesPT;
 
     this.getSocials.forEach(social => {
       this.edit.link = social.link;
@@ -219,16 +185,6 @@ export default {
 
     this.edit.latitude = this.coordinates[0].lat;
     this.edit.longitude = this.coordinates[1].lon;
-  },
-  mounted() {},
-  methods: {
-    closePopup() {
-      let overlay = document.querySelector(".admin_about__panel__overlay");
-      let popup = document.querySelector(".admin_delete_popup");
-
-      overlay.classList.toggle("show_overlay");
-      popup.classList.toggle("show_popup");
-    }
   }
 };
 </script>

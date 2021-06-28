@@ -42,13 +42,6 @@
           style="width: 30vw;"
         />
         <h3 class="dashboard_subheader">
-          Imagem da notícia
-        </h3>
-        <label class="custom-file-upload" style="width: fit-content;">
-          <input type="file" @change="uploadImage" />
-          Selecionar imagem
-        </label>
-        <h3 class="dashboard_subheader">
           Conteúdo da notícia
         </h3>
         <div class="area_edit_editor">
@@ -102,13 +95,6 @@
           style="width: 30vw;"
         />
         <h3 class="dashboard_subheader">
-          News image
-        </h3>
-        <label class="custom-file-upload" style="width: fit-content;">
-          <input type="file" @change="uploadImage" />
-          Upload an image
-        </label>
-        <h3 class="dashboard_subheader">
           News content
         </h3>
         <div class="area_edit_editor">
@@ -142,7 +128,6 @@ export default {
         titleEn: "",
         contentPt: "",
         contentEn: "",
-        image: "",
         date: ""
       },
       editorOption: {
@@ -196,8 +181,6 @@ export default {
     this.edit.contentEn = this.getAdminNewsById(
       this.getAdminSelectedNewsId
     ).description_eng;
-
-    this.edit.image = this.getAdminNewsById(this.getAdminSelectedNewsId).cover;
   },
   computed: {
     ...mapGetters(["getAdminSelectedNewsId", "getAdminNewsById"]),
@@ -229,7 +212,6 @@ export default {
     },
     async editNews() {
       this.$store.commit("SET_ADMIN_EDIT_NEWS", {
-        file: this.edit.image,
         title_pt: this.edit.titlePt,
         title_eng: this.edit.titleEn,
         description_pt: this.edit.contentPt,
@@ -240,11 +222,12 @@ export default {
 
       try {
         await this.$store.dispatch("setAdminEditNews");
-        await this.$store.dispatch("setAdminEditNewsImg");
         await this.$store.dispatch("setAdminNews");
       } catch (error) {
         return error;
       }
+
+      this.goBack();
     },
     getDateTime() {
       let dateTime = new Date();

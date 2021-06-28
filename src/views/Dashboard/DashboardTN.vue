@@ -6,6 +6,7 @@
 
       <DashboardTopHeader />
       <DashboardNewsPopup :newsName="newsName" />
+      <DashboardNewsEditImgPopup :newsName="newsName" />
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c" v-show="currentTab === 0">
@@ -126,6 +127,7 @@ import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 // import DashboardTestimonialCard from "@/components/Dashboard/DashboardTestimonialCard.vue";
 import DashboardNewsCard from "@/components/Dashboard/DashboardNewsCard.vue";
 import DashboardNewsPopup from "@/components/Dashboard/Popup/DashboardNewsPopup.vue";
+import DashboardNewsEditImgPopup from "@/components/Dashboard/Popup/DashboardNewsEditImgPopup.vue";
 
 import { mapGetters } from "vuex";
 
@@ -135,7 +137,8 @@ export default {
     DashboardTopHeader,
     // DashboardTestimonialCard,
     DashboardNewsPopup,
-    DashboardNewsCard
+    DashboardNewsCard,
+    DashboardNewsEditImgPopup
   },
   data: () => {
     return {
@@ -214,7 +217,7 @@ export default {
   methods: {
     closePopup() {
       let overlay = document.querySelector(".admin_tn__panel__overlay");
-      let popup = document.querySelector(".admin_delete_popup");
+      let popup = document.querySelector(".admin_edit_img_focus_popup");
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");

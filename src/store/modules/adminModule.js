@@ -264,6 +264,8 @@ export const adminModule = {
       state.editNewsForm.description_eng = payload.description_eng;
       state.editNewsForm.published_date = payload.published_date;
       state.editNewsForm.project_only = payload.project_only;
+
+      console.log(state.editNewsForm.file);
     },
     SET_ADMIN_EDIT_NEWS_STATUS(state, payload) {
       state.editAdminEditNewsStatus = payload.status;
@@ -509,7 +511,6 @@ export const adminModule = {
         await adminNewsConfig.editNews(
           JSON.parse(localStorage.getItem("token")),
           state.selectedNewsId,
-          // state.editNewsForm.file,
           state.editNewsForm.title_pt,
           state.editNewsForm.title_eng,
           state.editNewsForm.description_pt,
@@ -609,6 +610,13 @@ export const adminModule = {
   getters: {
     getHeaderLinks: state => state.headerSvg,
     getAdminAreas: state => (state.areas != "" ? state.areas : []),
+    getAdminAreasLength: state => {
+      return state.areas != ""
+        ? state.areas.length != undefined
+          ? state.areas.length
+          : 0
+        : 0;
+    },
     getAdminSelectedAreaId: state => state.selectedAreaId,
     getAdminAreaById: state => id =>
       state.areas.find(area => area.id_area === id),
@@ -625,23 +633,51 @@ export const adminModule = {
 
     // MEDIAS GETTERS
     getAdminMedias: state => (state.medias != "" ? state.medias : []),
+    getAdminMediasLength: state => {
+      return state.medias != ""
+        ? state.medias.length != undefined
+          ? state.medias.length
+          : 0
+        : 0;
+    },
     getAdminSelectedMediaId: state => state.selectedMediaId,
     getAdminMediaById: state => id =>
       state.medias.find(media => media.id_media === id),
 
     // COURSES GETTERS
     getAdminCourses: state => (state.courses != "" ? state.courses : []),
+    getAdminCoursesLength: state => {
+      return state.courses != ""
+        ? state.courses.length != undefined
+          ? state.courses.length
+          : 0
+        : 0;
+    },
     getAdminSelectedCourseId: state => state.selectedCourseId,
     getAdminCourseById: state => id =>
       state.courses.find(course => course.id_course === id),
 
     // NEWS GETTERS
     getAdminNews: state => (state.news != "" ? state.news : []),
+    getAdminNewsLength: state => {
+      return state.news != ""
+        ? state.news.length != undefined
+          ? state.news.length
+          : 0
+        : 0;
+    },
     getAdminSelectedNewsId: state => state.selectedNewsId,
     getAdminNewsById: state => id => state.news.find(n => n.id_news === id),
 
     // UNITS GETTERS
     getAdminUnits: state => (state.units != "" ? state.units : []),
+    getAdminUnitsLength: state => {
+      return state.units != ""
+        ? state.units.length != undefined
+          ? state.units.length
+          : 0
+        : 0;
+    },
     getAdminSelectedUnitId: state => state.selectedUnitId,
     getAdminUnitById: state => id =>
       state.units.find(unit => unit.id_unity === id)

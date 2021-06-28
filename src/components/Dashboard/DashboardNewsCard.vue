@@ -10,6 +10,12 @@
       </div>
       <div class="flex flex-ai-c">
         <button
+          class="admin_users__panel__grid__card__block"
+          @click="showEditImgPopup(id)"
+        >
+          Mudar Imagem
+        </button>
+        <button
           class="admin_tn__panel__grid__card__edit"
           @click="openPage(id, newsName)"
         >
@@ -78,6 +84,17 @@ export default {
       popup.classList.toggle("show_popup");
 
       // NEWS ID LOGIC
+
+      this.$store.commit("SET_SELECTED_ADMIN_NEWS_ID", {
+        id: newsId
+      });
+    },
+    showEditImgPopup(newsId) {
+      let overlay = document.querySelector(".admin_tn__panel__overlay");
+      let popup = document.querySelector(".admin_edit_img_focus_popup");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
 
       this.$store.commit("SET_SELECTED_ADMIN_NEWS_ID", {
         id: newsId

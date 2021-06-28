@@ -78,6 +78,8 @@ export const adminNewsConfig = {
     let data = new FormData();
     data.append("file", file);
 
+    console.log(file);
+
     return await axios
       .patch(`${API_URL}/pt/news/${id}/picture`, data, config)
       .then(response => {

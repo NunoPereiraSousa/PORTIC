@@ -48,12 +48,12 @@
         <div class="admin_home__panel__card barChart">
           <BarChart
             :data="[
-              areasLength,
-              coursesLength,
-              $store.getters.getMediasLength,
-              $store.getters.getNProjectsLength,
-              $store.getters.getAreasLength,
-              $store.getters.getUnitiesLength
+              $store.getters.getAdminAreasLength,
+              $store.getters.getAdminCoursesLength,
+              $store.getters.getAdminMediasLength,
+              $store.getters.getAdminUnitsLength,
+              $store.getters.getAdminUnitsLength,
+              $store.getters.getAdminUnitsLength
             ]"
           />
         </div>
@@ -98,7 +98,7 @@ export default {
 
     try {
       await this.$store.dispatch("setWeather");
-      await this.$store.dispatch("setUsers");
+      await this.$store.dispatch("setAdminMedias");
 
       console.log(this.$store.getters.getUsers);
     } catch (error) {

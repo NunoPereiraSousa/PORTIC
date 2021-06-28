@@ -36,7 +36,7 @@ export default {
             {
               ticks: {
                 min: 0,
-                max: 30,
+                max: 16,
                 reverse: false,
                 beginAtZero: true
               }
