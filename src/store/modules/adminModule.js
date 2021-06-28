@@ -3,6 +3,7 @@ import { adminAreasConfig } from "../../config/api/adminAreas";
 import { adminMediasConfig } from "../../config/api/adminMedia";
 import { adminCoursesConfig } from "../../config/api/adminCourses";
 import { adminUnitsConfig } from "../../config/api/adminUnits";
+import { adminNewsConfig } from "../../config/api/adminNews";
 
 // import { usersModule } from "../../store/modules/usersModule";
 
@@ -84,6 +85,31 @@ export const adminModule = {
       html_structure_pt: null
     },
     removeCourseStatus: null,
+
+    // NEWS
+    news: [],
+    selectedNewsId: null,
+    editNewsForm: {
+      file: null,
+      title_pt: null,
+      title_eng: null,
+      description_pt: null,
+      description_eng: null,
+      published_date: null,
+      project_only: null
+    },
+    editAdminEditNewsStatus: null,
+    addNewsForm: {
+      file: null,
+      title_pt: null,
+      title_eng: null,
+      description_pt: null,
+      description_eng: null,
+      published_date: null
+      //  project_only: null
+    },
+    addAdminEditNewsStatus: null,
+    addAdminDeleteNewsStatus: null,
 
     // UNITS
     units: [],
@@ -223,6 +249,41 @@ export const adminModule = {
       state.removeCourseStatus = payload.status;
     },
 
+    // NEWS MUTATIONS
+    SET_ADMIN_NEWS(state, payload) {
+      state.news = payload.news;
+    },
+    SET_SELECTED_ADMIN_UNIT_ID(state, payload) {
+      state.selectedUnitId = payload.id;
+    },
+    SET_ADMIN_EDIT_NEWS(state, payload) {
+      state.editNewsForm.file = payload.file;
+      state.editNewsForm.title_pt = payload.title_pt;
+      state.editNewsForm.title_eng = payload.title_eng;
+      state.editNewsForm.description_pt = payload.description_pt;
+      state.editNewsForm.description_eng = payload.description_eng;
+      state.editNewsForm.published_date = payload.published_date;
+      state.editNewsForm.project_only = payload.project_only;
+    },
+    SET_ADMIN_EDIT_NEWS_STATUS(state, payload) {
+      state.editAdminEditNewsStatus = payload.status;
+    },
+    SET_ADMIN_ADD_NEWS(state, payload) {
+      state.addNewsForm.file = payload.file;
+      state.addNewsForm.title_pt = payload.title_pt;
+      state.addNewsForm.title_eng = payload.title_eng;
+      state.addNewsForm.description_pt = payload.description_pt;
+      state.addNewsForm.description_eng = payload.description_eng;
+      state.addNewsForm.published_date = payload.published_date;
+      //  state.addNewsForm.project_only = payload.project_only;
+    },
+    SET_ADMIN_ADD_NEWS_STATUS(state, payload) {
+      state.addAdminEditNewsStatus = payload.status;
+    },
+    SET_ADMIN_DELETE_NEWS_STATUS(state, payload) {
+      state.addAdminDeleteNewsStatus = payload.status;
+    },
+
     // UNITS MUTATIONS
     SET_UNITS(state, payload) {
       state.units = payload.units;
@@ -236,8 +297,8 @@ export const adminModule = {
       state.addUnitForm.description_pt = payload.description_pt;
       state.addUnitForm.description_eng = payload.description_eng;
     },
-    SET_SELECTED_ADMIN_UNIT_ID(state, payload) {
-      state.selectedUnitId = payload.id;
+    SET_SELECTED_ADMIN_NEWS_ID(state, payload) {
+      state.selectedNewsId = payload.id;
     },
     SET_UNITS_EDIT_FORM(state, payload) {
       state.editUnitForm.designation = payload.designation;
@@ -435,6 +496,63 @@ export const adminModule = {
       );
     },
 
+    // NEWS ACTIONS
+    async setAdminNews({ commit }) {
+      commit(
+        "SET_ADMIN_NEWS",
+        await adminNewsConfig.getNews(JSON.parse(localStorage.getItem("token")))
+      );
+    },
+    async setAdminEditNews({ commit, state }) {
+      commit(
+        "SET_ADMIN_EDIT_NEWS_STATUS",
+        await adminNewsConfig.editNews(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedNewsId,
+          // state.editNewsForm.file,
+          state.editNewsForm.title_pt,
+          state.editNewsForm.title_eng,
+          state.editNewsForm.description_pt,
+          state.editNewsForm.description_eng,
+          state.editNewsForm.published_date,
+          state.editNewsForm.project_only
+        )
+      );
+    },
+    async setAdminEditNewsImg({ commit, state }) {
+      commit(
+        "SET_ADMIN_EDIT_NEWS_STATUS",
+        await adminNewsConfig.editNewsImg(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedNewsId,
+          state.editNewsForm.file
+        )
+      );
+    },
+    async setAdminAddNews({ commit, state }) {
+      commit(
+        "SET_ADMIN_ADD_NEWS_STATUS",
+        await adminNewsConfig.addNews(
+          JSON.parse(localStorage.getItem("token")),
+          state.addNewsForm.file,
+          state.addNewsForm.title_pt,
+          state.addNewsForm.title_eng,
+          state.addNewsForm.description_pt,
+          state.addNewsForm.description_eng,
+          state.addNewsForm.published_date
+        )
+      );
+    },
+    async setAdminDeleteNews({ commit, state }) {
+      commit(
+        "SET_ADMIN_DELETE_NEWS_STATUS",
+        await adminNewsConfig.deleteNews(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedNewsId
+        )
+      );
+    },
+
     // UNITS ACTIONS
     async setAdminUnits({ commit }) {
       commit(
@@ -516,6 +634,11 @@ export const adminModule = {
     getAdminSelectedCourseId: state => state.selectedCourseId,
     getAdminCourseById: state => id =>
       state.courses.find(course => course.id_course === id),
+
+    // NEWS GETTERS
+    getAdminNews: state => (state.news != "" ? state.news : []),
+    getAdminSelectedNewsId: state => state.selectedNewsId,
+    getAdminNewsById: state => id => state.news.find(n => n.id_news === id),
 
     // UNITS GETTERS
     getAdminUnits: state => (state.units != "" ? state.units : []),

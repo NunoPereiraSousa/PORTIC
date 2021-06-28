@@ -35,7 +35,8 @@ export const usersModule = {
       phone_numb: null,
       facebook_url: null,
       linkedIn_url: null,
-      full_name: null
+      full_name: null,
+      image: null
     },
     editProfileStatus: null
   },
@@ -98,6 +99,7 @@ export const usersModule = {
       state.editProfileForm.facebook_url = payload.facebook_url;
       state.editProfileForm.linkedIn_url = payload.linkedIn_url;
       state.editProfileForm.full_name = payload.fullName;
+      state.editProfileForm.image = payload.image;
     }
   },
   actions: {
@@ -148,7 +150,10 @@ export const usersModule = {
     async setUserImg({ commit, state }) {
       commit(
         "SET_USER_IMG_STATUS",
-        await usersConfig.editProfileImg(state.token, state.userImg)
+        await usersConfig.editProfileImg(
+          state.token,
+          state.editProfileForm.image
+        )
       );
     }
   },

@@ -17,7 +17,7 @@
         </button>
         <button
           class="admin_tn__panel__grid__card__remove"
-          @click="showPopup(newsName)"
+          @click="showPopup(id)"
         >
           Remover
         </button>
@@ -49,7 +49,7 @@ export default {
       required: true
     },
     id: {
-      type: Number,
+      type: String,
       required: false
     }
   },
@@ -60,7 +60,8 @@ export default {
   },
   methods: {
     openPage(newsId, newsName) {
-      this.$store.commit("SET_SELECTED_NEWS_ID", {
+      console.log(newsId, newsName);
+      this.$store.commit("SET_SELECTED_ADMIN_NEWS_ID", {
         id: newsId
       });
 
@@ -69,7 +70,7 @@ export default {
         params: { name: newsName }
       });
     },
-    showPopup(newsName) {
+    showPopup(newsId) {
       let overlay = document.querySelector(".admin_tn__panel__overlay");
       let popup = document.querySelector(".admin_delete_popup");
 
@@ -78,8 +79,8 @@ export default {
 
       // NEWS ID LOGIC
 
-      this.$store.commit("SET_SELECTED_NEWS", {
-        title: newsName
+      this.$store.commit("SET_SELECTED_ADMIN_NEWS_ID", {
+        id: newsId
       });
     },
     toggleInfo() {

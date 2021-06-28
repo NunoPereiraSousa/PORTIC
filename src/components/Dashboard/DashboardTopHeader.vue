@@ -696,7 +696,8 @@ export default {
       this.$router.push({
         name: "DashboardAddNews"
       });
-    }
+    },
+    addTestimonialsPage() {}
   }
 };
 </script>

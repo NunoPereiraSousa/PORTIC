@@ -163,27 +163,11 @@ export default {
         email: "",
         phoneNumber: "",
         image: ""
-      },
-      image: ""
+      }
     };
   },
   created() {
     this.loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-
-    // console.log(
-    //   JSON.parse(localStorage.getItem("loggedUser")),
-    //   this.loggedUser
-    // );
-
-    // if (JSON.parse(localStorage.getItem("loggedUser"))) {
-    //   this.$store.commit("SET_LOGGED_USER", {
-    //     user: JSON.parse(localStorage.getItem("loggedUser")),
-    //     token: JSON.parse(localStorage.getItem("loggedUser")).token,
-    //     status: 200
-    //   });
-    // }
-
-    // console.log(this.getUser.picture);
 
     this.form = {
       fullName: this.getUserInfo.full_name,
@@ -195,10 +179,6 @@ export default {
       phoneNumber: this.getUserInfo.phone_numb
       // image: this.convertImage(this.getUserInfo.picture.data)
     };
-
-    // console.log(this.form.image);
-
-    // console.log(this.getUserStatus);
   },
   computed: {
     ...mapGetters([
@@ -231,18 +211,19 @@ export default {
         phone_numb: this.form.phoneNumber,
         facebook_url: "https://www.linkedin.com/",
         linkedIn_url: "https://www.linkedin.com/",
-        fullName: this.form.fullName
+        fullName: this.form.fullName,
+        image: this.form.image
       });
 
-      this.$store.commit("SET_USER_IMG", {
-        image: this.image
-      });
+      // this.$store.commit("SET_USER_IMG", {
+      //   image: this.image
+      // });
 
       try {
         // edit profile
         await this.$store.dispatch("setEditProfile");
         // edit profile image
-        // await this.$store.dispatch("setUserImg");
+        await this.$store.dispatch("setUserImg");
 
         // get profile data
         await this.$store.dispatch("setUser");
@@ -253,35 +234,7 @@ export default {
     },
     uploadImage(e) {
       const image = e.target.files[0];
-      this.image = image;
-    },
-    createImage(file) {
-      this.image = new Image();
-      var reader = new FileReader();
-
-      reader.onload = async e => {
-        this.form.image = e.target.result;
-
-        try {
-          await this.$store.dispatch("setEditProfile");
-
-          // get profile data
-          await this.$store.dispatch("setUser");
-        } catch (error) {
-          console.log(`ERROR: ${error}`);
-          return error;
-        }
-      };
-
-      reader.readAsDataURL(file);
-    },
-    convertImage(img) {
-      let arrayBufferView = new Uint8Array(img);
-      let blob = new Blob([arrayBufferView], { type: "image/png" });
-      let urlCreator = window.URL || window.webkitURL;
-      let image = urlCreator.createObjectURL(blob);
-
-      return image;
+      this.form.image = image;
     }
   }
 };

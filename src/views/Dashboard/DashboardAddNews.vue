@@ -22,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addNews">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -37,14 +37,18 @@
             <h3 class="dashboard_subheader">
               Nome da notícia
             </h3>
-            <input type="text" placeholder="Nome da área" />
+            <input
+              type="text"
+              placeholder="Nome da área"
+              v-model="add.titlePt"
+            />
           </div>
           <div>
             <h3 class="dashboard_subheader">
               Imagem da notícia
             </h3>
             <label class="custom-file-upload">
-              <input type="file" />
+              <input type="file" @change="uploadImage" />
               Image
             </label>
           </div>
@@ -54,7 +58,7 @@
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="add.contentPt"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -79,11 +83,11 @@
         </div>
         <div>
           <h3>
-            Add area
+            Add news
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addNews">
             Confirm
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -94,15 +98,15 @@
 
       <div class="admin_actions_panel__form">
         <h3 class="dashboard_subheader">
-          Area name
+          News name
         </h3>
-        <input type="text" placeholder="Nome da área" />
+        <input type="text" placeholder="Nome da área" v-model="add.titleEn" />
         <h3 class="dashboard_subheader">
-          Area information
+          News information
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="contentEN"
+            v-model="add.contentEn"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -124,8 +128,13 @@ export default {
     return {
       tabs: ["Português", "Inglês"],
       currentTab: 0,
-      content: "",
-      contentEN: "",
+      add: {
+        titlePt: "",
+        titleEn: "",
+        contentPt: "",
+        contentEn: "",
+        image: ""
+      },
       editorOption: {
         modules: {
           toolbar: [
@@ -164,6 +173,23 @@ export default {
   mounted() {
     this.styleEditorHeight();
   },
+  computed: {
+    getMonth() {
+      let today = this.getDateTime();
+
+      return today.getMonth() < 10 ? `0${today.getMonth()}` : today.getMonth();
+    },
+    getDay() {
+      let today = this.getDateTime();
+
+      return today.getDate() < 10 ? `0${today.getDate()}` : today.getDate();
+    },
+    getYear() {
+      let today = this.getDateTime();
+
+      return today.getFullYear();
+    }
+  },
   methods: {
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");
@@ -184,11 +210,38 @@ export default {
     },
     goBack() {
       this.$router.push({
-        name: "DashboardAreas"
+        name: "DashboardTN"
       });
     },
-    save() {
-      console.log(this.content);
+    uploadImage(e) {
+      const image = e.target.files[0];
+      this.add.image = image;
+    },
+    async addNews() {
+      console.log(`${this.getDay}-${this.getMonth}-${this.getYear}`);
+
+      this.$store.commit("SET_ADMIN_ADD_NEWS", {
+        file: this.add.image,
+        title_pt: this.add.titlePt,
+        title_eng: this.add.titleEn,
+        description_pt: this.add.contentPt,
+        description_eng: this.add.contentEn,
+        published_date: `${this.getDay}-${this.getMonth}-${this.getYear}`
+        // project_only: 1
+      });
+
+      try {
+        await this.$store.dispatch("setAdminAddNews");
+        await this.$store.dispatch("setAdminNews");
+      } catch (error) {
+        return error;
+      }
+
+      this.goBack();
+    },
+    getDateTime() {
+      let dateTime = new Date();
+      return dateTime;
     }
   }
 };

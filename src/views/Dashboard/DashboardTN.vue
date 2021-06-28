@@ -97,23 +97,23 @@
       </div>
 
       <div class="admin_tn__panel__grid grid" v-show="currentTab === 0">
-        <DashboardTestimonialCard
+        <!-- <DashboardTestimonialCard
           v-for="news in searchFilter"
           :key="news.id"
           :id="news.id"
           :counter="news.id"
           :newsName="news.title"
           :newsContent="news.content"
-        />
+        /> -->
       </div>
       <div class="admin_tn__panel__grid grid" v-show="currentTab === 1">
         <DashboardNewsCard
-          v-for="news in newsSearchFilter"
-          :key="news.id"
-          :id="news.id"
-          :counter="news.id"
-          :newsName="news.title"
-          :newsContent="news.content"
+          v-for="(news, counter) in newsSearchFilter"
+          :key="news.id_news"
+          :id="news.id_news"
+          :counter="counter + 1"
+          :newsName="news.title_pt"
+          :newsContent="news.description_pt"
         />
       </div>
     </div>
@@ -123,7 +123,7 @@
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
-import DashboardTestimonialCard from "@/components/Dashboard/DashboardTestimonialCard.vue";
+// import DashboardTestimonialCard from "@/components/Dashboard/DashboardTestimonialCard.vue";
 import DashboardNewsCard from "@/components/Dashboard/DashboardNewsCard.vue";
 import DashboardNewsPopup from "@/components/Dashboard/Popup/DashboardNewsPopup.vue";
 
@@ -133,7 +133,7 @@ export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
-    DashboardTestimonialCard,
+    // DashboardTestimonialCard,
     DashboardNewsPopup,
     DashboardNewsCard
   },
@@ -147,8 +147,17 @@ export default {
       currentTab: 0
     };
   },
-  created() {
+  async created() {
     this.news = this.getNews;
+
+    try {
+      await this.$store.dispatch("setAdminNews");
+
+      console.log(this.getAdminNews);
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
   },
   mounted() {
     // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
@@ -158,20 +167,29 @@ export default {
   },
   computed: {
     ...mapGetters([
-      "getNewsById",
-      "getSelectedNewsId",
-      "getNews",
-      "getSelectedNewsTitle"
+      "getAdminNewsById",
+      "getAdminNews",
+      "getAdminSelectedNewsId"
     ]),
     newsName() {
-      return this.getSelectedNewsTitle;
+      let id = this.getAdminSelectedNewsId;
+
+      let news = this.getAdminNewsById(id);
+
+      let name;
+
+      if (news) {
+        name = news.title_pt;
+      }
+
+      return name;
     },
     searchFilter() {
-      return this.news.filter(n => {
+      return this.getAdminNews.filter(n => {
         let search = true;
 
         if (this.testimonialsTxt != "") {
-          search = n.title
+          search = n.title_pt
             .toLowerCase()
             .includes(this.testimonialsTxt.toLowerCase());
         }
@@ -180,11 +198,13 @@ export default {
       });
     },
     newsSearchFilter() {
-      return this.news.filter(n => {
+      return this.getAdminNews.filter(n => {
         let search = true;
 
         if (this.newsTxt != "") {
-          search = n.title.toLowerCase().includes(this.newsTxt.toLowerCase());
+          search = n.title_pt
+            .toLowerCase()
+            .includes(this.newsTxt.toLowerCase());
         }
 
         return search;

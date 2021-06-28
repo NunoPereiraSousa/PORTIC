@@ -149,7 +149,7 @@ export const usersConfig = {
         return error;
       });
   },
-  editProfileImg: async (token, image) => {
+  editProfileImg: async (token, file) => {
     let config = {
       headers: {
         "Content-Type": "multipart/form-data",
@@ -158,10 +158,10 @@ export const usersConfig = {
       }
     };
 
-    console.log(image);
+    console.log(file);
 
     let data = new FormData();
-    data.append("picture", image);
+    data.append("file", file);
 
     return await axios
       .patch(`${API_URL}/users/profile/picture`, data, config)

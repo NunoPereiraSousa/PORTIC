@@ -2,15 +2,18 @@
   <div class="admin_actions flex">
     <DashboardHeader />
 
-    <div class="admin_actions_panel">
+    <div class="admin_actions_panel" v-show="currentTab === 0">
       <div class="admin_actions_panel__header flex flex-jc-sb flex-ai-c">
         <div
           class="admin_actions_panel__header__languages flex flex-jc-sb flex-ai-c"
         >
-          <button class="pt selected">Português</button>
-          <hr />
-          <button class="en">
-            Inglês
+          <button
+            v-for="(tab, index) in tabs"
+            :key="tab"
+            @click="currentTab = index"
+            :class="{ active: currentTab === index }"
+          >
+            {{ tab }}
           </button>
         </div>
         <div>
@@ -19,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="editNews">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -32,13 +35,85 @@
         <h3 class="dashboard_subheader">
           Título da notícia
         </h3>
-        <input type="text" :placeholder="newsName" v-model="newsTxt" />
+        <input
+          type="text"
+          :placeholder="newsName"
+          v-model="edit.titlePt"
+          style="width: 30vw;"
+        />
+        <h3 class="dashboard_subheader">
+          Imagem da notícia
+        </h3>
+        <label class="custom-file-upload" style="width: fit-content;">
+          <input type="file" @change="uploadImage" />
+          Selecionar imagem
+        </label>
         <h3 class="dashboard_subheader">
           Conteúdo da notícia
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="edit.contentPt"
+            :options="editorOption"
+            ref="quillEditor"
+          >
+          </quill-editor>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin_actions_panel" v-show="currentTab === 1">
+      <div class="admin_actions_panel__header flex flex-jc-sb flex-ai-c">
+        <div
+          class="admin_actions_panel__header__languages flex flex-jc-sb flex-ai-c"
+        >
+          <button
+            v-for="(tab, index) in tabs"
+            :key="tab"
+            @click="currentTab = index"
+            :class="{ active: currentTab === index }"
+          >
+            {{ tab }}
+          </button>
+        </div>
+        <div>
+          <h3>
+            Notícia <span>{{ newsName }}</span>
+          </h3>
+        </div>
+        <div>
+          <button class="edit_confirm_button" @click="editNews">
+            Confirmar
+          </button>
+          <button class="edit_cancel_button" @click="goBack">
+            Cancelar
+          </button>
+        </div>
+      </div>
+
+      <div class="admin_actions_panel__form">
+        <h3 class="dashboard_subheader">
+          News title
+        </h3>
+        <input
+          type="text"
+          :placeholder="newsName"
+          v-model="edit.titleEn"
+          style="width: 30vw;"
+        />
+        <h3 class="dashboard_subheader">
+          News image
+        </h3>
+        <label class="custom-file-upload" style="width: fit-content;">
+          <input type="file" @change="uploadImage" />
+          Upload an image
+        </label>
+        <h3 class="dashboard_subheader">
+          News content
+        </h3>
+        <div class="area_edit_editor">
+          <quill-editor
+            v-model="edit.contentEn"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -59,9 +134,17 @@ export default {
   },
   data: () => {
     return {
+      tabs: ["Português", "Inglês"],
+      currentTab: 0,
       newsName: "",
-      content: "",
-      newsTxt: "",
+      edit: {
+        titlePt: "",
+        titleEn: "",
+        contentPt: "",
+        contentEn: "",
+        image: "",
+        date: ""
+      },
       editorOption: {
         modules: {
           toolbar: [
@@ -97,19 +180,42 @@ export default {
       }
     };
   },
-  computed: {
-    ...mapGetters(["getSelectedNewsId", "getNewsById"])
-  },
   created() {
-    this.newsName = this.getNewsById(this.getSelectedNewsId).title;
+    this.edit.titlePt = this.newsName = this.getAdminNewsById(
+      this.getAdminSelectedNewsId
+    ).title_pt;
 
-    this.content = this.getNewsById(this.getSelectedNewsId).content;
+    this.edit.titleEn = this.getAdminNewsById(
+      this.getAdminSelectedNewsId
+    ).title_eng;
+
+    this.edit.contentPt = this.getAdminNewsById(
+      this.getAdminSelectedNewsId
+    ).description_pt;
+
+    this.edit.contentEn = this.getAdminNewsById(
+      this.getAdminSelectedNewsId
+    ).description_eng;
+
+    this.edit.image = this.getAdminNewsById(this.getAdminSelectedNewsId).cover;
   },
-  mounted() {
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-    // document.querySelector(
-    //   ".admin_actions_panel"
-    // ).style.paddingLeft = `${navbar_width}px`;
+  computed: {
+    ...mapGetters(["getAdminSelectedNewsId", "getAdminNewsById"]),
+    getMonth() {
+      let today = this.getDateTime();
+
+      return today.getMonth() < 10 ? `0${today.getMonth()}` : today.getMonth();
+    },
+    getDay() {
+      let today = this.getDateTime();
+
+      return today.getDate() < 10 ? `0${today.getDate()}` : today.getDate();
+    },
+    getYear() {
+      let today = this.getDateTime();
+
+      return today.getFullYear();
+    }
   },
   methods: {
     goBack() {
@@ -117,8 +223,32 @@ export default {
         name: "DashboardTN"
       });
     },
-    save() {
-      console.log(this.content);
+    uploadImage(e) {
+      const image = e.target.files[0];
+      this.edit.image = image;
+    },
+    async editNews() {
+      this.$store.commit("SET_ADMIN_EDIT_NEWS", {
+        file: this.edit.image,
+        title_pt: this.edit.titlePt,
+        title_eng: this.edit.titleEn,
+        description_pt: this.edit.contentPt,
+        description_eng: this.edit.contentEn,
+        published_date: `${this.getDay}-${this.getMonth}-${this.getYear}`,
+        project_only: 1
+      });
+
+      try {
+        await this.$store.dispatch("setAdminEditNews");
+        await this.$store.dispatch("setAdminEditNewsImg");
+        await this.$store.dispatch("setAdminNews");
+      } catch (error) {
+        return error;
+      }
+    },
+    getDateTime() {
+      let dateTime = new Date();
+      return dateTime;
     }
   }
 };

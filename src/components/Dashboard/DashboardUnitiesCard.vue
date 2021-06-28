@@ -2,7 +2,7 @@
   <div class="admin_unities__panel__grid__card flex flex-ai-c flex-jc-sb">
     <div class="flex flex-ai-c">
       <div
-        class="admin_users__panel__grid__card__img"
+        class="admin_users__panel__grid__card__img units_img"
         :style="imageStyle"
       ></div>
       <h2>
