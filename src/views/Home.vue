@@ -11,7 +11,7 @@
         <NewsCard
           v-for="news in setNews"
           :key="news.id_news"
-          :image="convertImage(news.cover.data)"
+          :image="news.cover"
           :title="news.title"
           :content="news.description"
           :date="news.published_date"

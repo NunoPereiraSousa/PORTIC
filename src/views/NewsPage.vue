@@ -57,9 +57,7 @@ export default {
   computed: {
     ...mapGetters(["getNewsById", "getSelectedNewsId"]),
     imageStyle() {
-      return `background-image: url('${this.convertImage(
-        this.getCurrentNews.cover.data
-      )}')`;
+      return `background-image: url('${this.getCurrentNews.cover}')`;
     },
     getCurrentNews() {
       let selectedNews = this.$store.getters.getNews;

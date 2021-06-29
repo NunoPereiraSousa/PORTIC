@@ -197,7 +197,7 @@
         <IconCard
           v-for="card in getIcons"
           :key="card.id_areas_focus"
-          :icon="convertImage(card.img.data)"
+          :icon="card.img"
           :content="card.description"
         />
       </div>
