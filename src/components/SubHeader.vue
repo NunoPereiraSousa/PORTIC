@@ -216,18 +216,20 @@ export default {
         case "SiteMap":
           try {
             await this.$store.dispatch("setAreas");
+            await this.$store.dispatch("setCourses");
+            await this.$store.dispatch("setMedias");
             await this.$store.dispatch("setMenus");
+            await this.$store.dispatch("setProjects");
             await this.$store.dispatch("setUnities");
           } catch (error) {
-            console.log(`App: ${error}`);
             return error;
           }
           break;
         case "Unities":
           try {
             await this.$store.dispatch("setMenus");
+            await this.$store.dispatch("setUnities");
           } catch (error) {
-            console.log(`App: ${error}`);
             return error;
           }
           break;

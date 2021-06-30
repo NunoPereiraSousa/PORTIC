@@ -51,17 +51,13 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setCareers");
-      await this.$store.dispatch("setCareerTips");
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
     }
   },
   computed: {
-    ...mapGetters(["getCareerTips", "getPositionsNames"]),
-    getTips() {
-      return this.getCareerTips;
-    }
+    ...mapGetters(["getPositionsNames"])
   }
 };
 </script>

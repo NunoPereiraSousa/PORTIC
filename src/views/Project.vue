@@ -101,7 +101,7 @@
             v-for="(news, index) in getCurrentProjects.news"
             :key="index"
             :id="news.id_news"
-            :image="convertImage(news.cover.data)"
+            :image="news.cover"
             :title="news.title"
             :content="news.description"
             :date="news.published_date"
@@ -191,11 +191,16 @@ export default {
     this.project.gallery = this.getCurrentProject.gallery_imgs;
     this.project.news = this.getCurrentProject.news;
     this.project.team = this.getCurrentProject.project_team;
-
-    console.log(this.getCurrentProject.news);
   },
   mounted() {
     this.changeCarousel();
+
+    console.log(
+      this.setPartnersArr(
+        this.getCurrentProjects.outside_investors,
+        this.getCurrentProjects.outside_investors
+      )
+    );
   },
   computed: {
     ...mapGetters([
@@ -206,11 +211,7 @@ export default {
     getCurrentProjects() {
       let selectedProjects = this.getProjects;
 
-      console.log(this.getSelectedProjectByID);
-
-      console.log(
-        selectedProjects.find(n => n.id_project === this.getSelectedProjectByID)
-      );
+      // console.log(this.getSelectedProjectByID);
 
       return selectedProjects.find(
         n => n.id_project === this.getSelectedProjectByID
@@ -261,31 +262,34 @@ export default {
       return `${n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}€`;
     },
     changeCarousel() {
-      let parners = this.project.partners.length;
+      let partners = this.setPartnersArr(
+        this.getCurrentProjects.outside_investors,
+        this.getCurrentProjects.outside_investors
+      ).length;
 
       let slideTrack = document.querySelector(".slide-track");
       let slide = document.querySelectorAll(".slide");
 
       if (window.innerWidth >= 1024 && window.innerWidth < 1500) {
-        slideTrack.style.width = `calc(250px * ${parners * 2})`;
+        slideTrack.style.width = `calc(250px * ${partners * 2})`;
 
-        slideTrack.style.animation = `carouselDesktop${parners} 20s linear infinite`;
+        slideTrack.style.animation = `carouselDesktop${partners} 20s linear infinite`;
 
         slide.forEach(s => {
           s.style.width = "250px";
         });
       } else if (window.innerWidth >= 1500) {
-        slideTrack.style.width = `calc(350px * ${parners * 2})`;
+        slideTrack.style.width = `calc(350px * ${partners * 2})`;
 
-        slideTrack.style.animation = `carouselDesktopBig${parners} 20s linear infinite`;
+        slideTrack.style.animation = `carouselDesktopBig${partners} 20s linear infinite`;
 
         slide.forEach(s => {
           s.style.width = "350px";
         });
       } else {
-        slideTrack.style.width = `calc(125px * ${parners * 2})`;
+        slideTrack.style.width = `calc(125px * ${partners * 2})`;
 
-        slideTrack.style.animation = `carousel${parners} 20s linear infinite`;
+        slideTrack.style.animation = `carousel${partners} 20s linear infinite`;
 
         slide.forEach(s => {
           s.style.width = "125px";

@@ -25,6 +25,10 @@ export const unitiesConfig = {
       });
   },
   getUnities: async (selectedLang, entityId) => {
+    console.log(
+      selectedLang,
+      `${API_URL}/${selectedLang}/entities/${entityId}/unities`
+    );
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entityId}/unities`, {
         headers

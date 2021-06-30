@@ -62,9 +62,13 @@
 
         <div class="site_map_list flex flex-fd-c">
           <ul>
-            <li v-for="project in setProjects" :key="project.id_project">
+            <li
+              v-for="project in setProjects"
+              :key="project.id_project"
+              @click="visitProjectPage(project.id_project, project.title)"
+            >
               <p>
-                {{ project.title }}
+                {{ project.initials }}
               </p>
             </li>
           </ul>
@@ -77,9 +81,9 @@
         <div class="site_map_list flex flex-fd-c">
           <ul>
             <li v-for="unit in setUnits" :key="unit.id_unit">
-              <p>
+              <router-link :to="{ name: 'Unities' }">
                 {{ unit.designation }}
-              </p>
+              </router-link>
             </li>
           </ul>
         </div>
@@ -125,10 +129,7 @@ export default {
       await this.$store.dispatch("setMenus");
       await this.$store.dispatch("setProjects");
       await this.$store.dispatch("setUnities");
-
-      console.log(this.getUnities);
     } catch (error) {
-      console.log(`App: ${error}`);
       return error;
     }
   },
@@ -163,14 +164,14 @@ export default {
     }
   },
   methods: {
-    visitProjectPage(name) {
-      this.$store.commit("SET_SELECTED_PROJECT", {
-        initials: name
+    visitProjectPage(id, name) {
+      this.$store.commit("SET_SELECTED_PROJECT_ID", {
+        id: id
       });
 
       this.$router.push({
         name: "Project",
-        params: { name: name }
+        params: { id: name }
       });
     }
   }
