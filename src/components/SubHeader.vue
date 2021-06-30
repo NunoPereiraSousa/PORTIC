@@ -213,6 +213,16 @@ export default {
           }
 
           break;
+        case "SiteMap":
+          try {
+            await this.$store.dispatch("setAreas");
+            await this.$store.dispatch("setMenus");
+            await this.$store.dispatch("setUnities");
+          } catch (error) {
+            console.log(`App: ${error}`);
+            return error;
+          }
+          break;
         case "Unities":
           try {
             await this.$store.dispatch("setMenus");
@@ -247,11 +257,7 @@ export default {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
-      this.$store.commit("SET_SELECTED_COURSES_LANG", {
-        lang: this.$i18n.locale == "en" ? "en" : "pt"
-      });
-
-      this.$store.commit("SET_SELECTED_UNITIES_LANG", {
+      this.$store.commit("SET_SELECTED_AREAS_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
@@ -259,11 +265,23 @@ export default {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
-      this.$store.commit("SET_SELECTED_PROJECTS_LANG", {
+      this.$store.commit("SET_SELECTED_COURSES_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_MEDIAS_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
       this.$store.commit("SET_SELECTED_NEWS_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_PROJECTS_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_UNITIES_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
@@ -284,11 +302,7 @@ export default {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
-      this.$store.commit("SET_SELECTED_COURSES_LANG", {
-        lang: this.$i18n.locale == "en" ? "en" : "pt"
-      });
-
-      this.$store.commit("SET_SELECTED_UNITIES_LANG", {
+      this.$store.commit("SET_SELECTED_AREAS_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
@@ -296,11 +310,23 @@ export default {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
-      this.$store.commit("SET_SELECTED_PROJECTS_LANG", {
+      this.$store.commit("SET_SELECTED_COURSES_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_MEDIAS_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
       this.$store.commit("SET_SELECTED_NEWS_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_PROJECTS_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_UNITIES_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 

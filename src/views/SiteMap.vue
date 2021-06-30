@@ -1,20 +1,91 @@
 <template>
   <div>
-    <div class="site_map">
-      <SubHeaderTitle :text="$t('sitemap')" />
+    <div class="site_map grid">
+      <div>
+        <SubHeaderTitle :text="$t('sitemap')" />
 
-      <div class="site_map_list flex flex-fd-c">
-        <router-link
-          v-for="menu in setMenus"
-          :key="menu.id_menu"
-          :to="{ name: menu.router_link }"
-        >
-          {{ menu.menu_designation }}
-        </router-link>
+        <div class="site_map_list flex flex-fd-c">
+          <ul>
+            <li v-for="menu in setMenus" :key="menu.id_menu">
+              <router-link :to="{ name: menu.router_link }">
+                {{ menu.menu_designation }}
+              </router-link>
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <SubHeaderTitle :text="$t('sitemap')" />
+      <div>
+        <SubHeaderTitle :text="$t('areas.mainTitle')" />
+
+        <div class="site_map_list flex flex-fd-c">
+          <ul>
+            <li v-for="area in setAreas" :key="area.id_area">
+              <router-link :to="{ name: 'Contacts' }">
+                {{ area.designation }}
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <SubHeaderTitle :text="$t('courses.courseKey')" />
+
+        <div class="site_map_list flex flex-fd-c">
+          <ul>
+            <li v-for="course in setCourses" :key="course.id_course">
+              <router-link :to="{ name: 'Courses' }">
+                {{ course.designation }}
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <SubHeaderTitle :text="$t('medias.video')" />
+
+        <div class="site_map_list flex flex-fd-c">
+          <ul>
+            <li v-for="media in setMedias" :key="media.id_media">
+              <router-link :to="{ name: 'Media' }">
+                {{ media.description }}
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <SubHeaderTitle :text="$t('projects.title')" />
+
+        <div class="site_map_list flex flex-fd-c">
+          <ul>
+            <li v-for="project in setProjects" :key="project.id_project">
+              <p>
+                {{ project.title }}
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <SubHeaderTitle :text="$t('unities.unitiesKey')" />
+
+        <div class="site_map_list flex flex-fd-c">
+          <ul>
+            <li v-for="unit in setUnits" :key="unit.id_unit">
+              <p>
+                {{ unit.designation }}
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+
     <Footer />
   </div>
 </template>
@@ -30,49 +101,65 @@ export default {
     Footer
   },
   async mounted() {
+    this.$store.commit("SET_SELECTED_AREAS_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
+    this.$store.commit("SET_SELECTED_COURSES_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
+    this.$store.commit("SET_SELECTED_MEDIAS_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
+    this.$store.commit("SET_SELECTED_PROJECTS_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
     this.$store.commit("SET_SELECTED_UNITIES_LANG", {
       lang: this.$i18n.locale == "en" ? "en" : "pt"
     });
 
     try {
       await this.$store.dispatch("setEntityId");
-      await this.$store.dispatch("setUnities");
+      await this.$store.dispatch("setAreas");
+      await this.$store.dispatch("setCourses");
+      await this.$store.dispatch("setMedias");
       await this.$store.dispatch("setMenus");
+      await this.$store.dispatch("setProjects");
+      await this.$store.dispatch("setUnities");
 
-      console.log(this.getMenus);
+      console.log(this.getUnities);
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
     }
   },
   computed: {
-    ...mapGetters(["getUnities", "getProjects", "getMenus"]),
+    ...mapGetters([
+      "getAreas",
+      "getCourses",
+      "getMedias",
+      "getMenus",
+      "getProjects",
+      "getUnities"
+    ]),
     setMenus() {
       let menus = this.getMenus;
 
       return this.$i18n.locale == "pt" ? menus : menus;
     },
     setAreas() {
-      let areasPT = this.getAreasPT;
-      let areasEN = this.getAreasEN;
-
-      return this.$i18n.locale == "pt" ? areasPT : areasEN;
-    },
-    setUnities() {
-      let unities = this.getUnities;
-
-      return this.$i18n.locale == "pt" ? unities : unities;
+      return this.getAreas;
     },
     setCourses() {
-      let coursesPT = this.getCoursesPT;
-      let coursesEN = this.getCoursesEN;
-
-      return this.$i18n.locale == "pt" ? coursesPT : coursesEN;
+      return this.getCourses;
+    },
+    setMedias() {
+      return this.getMedias;
     },
     setProjects() {
-      let projects = this.getProjects;
-
-      return this.$i18n.locale == "pt" ? projects : projects;
+      return this.getProjects;
+    },
+    setUnits() {
+      return this.getUnities;
     }
   },
   methods: {

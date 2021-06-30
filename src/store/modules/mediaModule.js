@@ -1,11 +1,8 @@
 import { mediasConfig } from "../../config/api/medias";
-// import { entityModule } from "./entityModule";
 
 export const mediaModule = {
   state: {
     medias: [],
-    // mediasPT: mediasPT,
-    // mediasEN: mediasEN,
     selectedId: null,
     dataBody: {
       selectedLang: ""
@@ -18,6 +15,8 @@ export const mediaModule = {
     SET_MEDIAS(state, payload) {
       state.medias = payload.medias;
       state.dataStatus = payload.status;
+
+      console.log(state.medias);
     },
     SET_SELECTED_MEDIAS_LANG(state, payload) {
       state.dataBody.selectedLang = payload.lang;
@@ -35,8 +34,6 @@ export const mediaModule = {
     }
   },
   getters: {
-    getMediasPT: state => state.mediasPT,
-    getMediasEN: state => state.mediasEN,
     getMedias: state => {
       return state.medias != "" ? state.medias : [];
     },

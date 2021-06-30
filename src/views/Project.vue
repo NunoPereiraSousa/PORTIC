@@ -58,7 +58,7 @@
         <SubHeaderTitle text="Descrição" />
         <div v-html="getCurrentProjects.desc_html_structure"></div>
       </section>
-      <section class="project__gallery">
+      <section class="project__gallery" v-if="checkImgExistence">
         <SubHeaderTitle text="Galeria de projeto" class="light" />
         <div class="project__gallery__grid" v-if="checkImgExistence">
           <vue-glide
@@ -89,14 +89,14 @@
             </vue-glide-slide>
           </vue-glide>
         </div>
-        <div v-else style="color: #fff">
+        <!-- <div v-else style="color: #fff">
           Não existem imagens associadas ao projeto
-        </div>
+        </div> -->
       </section>
-      <section class="project__news">
+      <section class="project__news" v-if="checkNewsExistence">
         <SubHeaderTitle text="Últimas notícias" class="light" />
 
-        <div class="project__news__grid grid" v-if="checkNewsExistence">
+        <div class="project__news__grid grid">
           <NewsCard
             v-for="(news, index) in getCurrentProjects.news"
             :key="index"
@@ -112,9 +112,6 @@
             :author="author"
           />
         </div>
-        <div v-else style="color: #080808">
-          Não existem notícias associadas ao projeto
-        </div>
       </section>
       <section class="project__team">
         <SubHeaderTitle text="Equipa de projeto" />
@@ -125,7 +122,7 @@
             :key="member.id_user"
             image="https://upload.wikimedia.org/wikipedia/commons/f/f0/Fredrick_Douglass_Housing_Project_Towers_2010.jpg"
             :name="member.full_name"
-            :number="member.phone_number"
+            :number="member.email"
           />
         </div>
       </section>

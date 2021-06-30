@@ -1,12 +1,18 @@
 .site_map {
   margin-top: calc(4.1875rem + 2vw);
   padding: calc(6.1875rem + 2vw) 2rem 0;
+  row-gap: 2rem;
 
   @include breakpoint-up(tablet) {
+    grid-template-columns: 1fr 1fr;
     padding: calc(6.1875rem + 2vw) 8vw 0;
+    column-gap: 4rem;
+    row-gap: 4rem;
   }
 
   @include breakpoint-up(desktop) {
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 6rem;
     padding: calc(6.1875rem + 2vw) 11vw 0;
   }
 
@@ -14,28 +20,34 @@
     padding: calc(6.1875rem + 2vw) 10vw 0;
   }
 
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
   &_list {
     padding-left: 0;
-
     @include breakpoint-up(desktop) {
       grid-template-columns: 1fr 1fr;
     }
 
-    a {
+    a,
+    p {
       color: $black;
       list-style-type: none;
       line-height: 1.5;
       font-family: $portoSans;
+      margin: 0;
 
       cursor: pointer;
 
       @include breakpoint-up(desktop) {
-        font-size: $_18px;
+        font-size: $_17px;
         line-height: 1.7;
       }
 
-      @include breakpoint-up(desktop) {
-        font-size: $_20px;
+      @include breakpoint-up(large) {
+        font-size: $_18px;
         line-height: 1.7;
       }
 
@@ -45,12 +57,8 @@
         }
       }
 
-      a {
-        color: $black;
-
-        &:hover {
-          color: $orange;
-        }
+      &:hover {
+        color: $orange;
       }
     }
   }
