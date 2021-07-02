@@ -91,7 +91,7 @@ export const entityModule = {
     getEntityPhoneNumberLink: state => {
       let number = state.data != "" ? state.data.contacts[0].number : "";
 
-      return number.slice(6).replace(/\s/g, "");
+      return number;
     },
     getEntityEmail: state => {
       return state.data != "" ? state.data.emails[0].email : "";

@@ -94,57 +94,54 @@
         <div class="footer__grid__socials__media grid">
           <div class="first__cells">
             <a
-              v-for="media in $store.getters.getEntityDataSliced"
-              :key="media.social_media_type"
+              v-for="media in socialSlided"
+              :key="media.name"
               :href="media.url"
               target="_blank"
               class="flex flex-ai-c"
             >
-              <div
-                v-if="media.social_media_type == 'Twitter'"
-                class="flex flex-ai-c"
-              >
+              <div v-if="media.name == 'Twitter'">
                 <i class="fab fa-twitter"></i>
               </div>
-              <div v-else-if="media.social_media_type == 'Facebook'">
+              <div v-else-if="media.name == 'Facebook'">
                 <i class="fab fa-facebook-square"></i>
               </div>
-              <div v-else-if="media.social_media_type == 'LinkedIn'">
+              <div v-else-if="media.name == 'LinkedIn'">
                 <i class="fab fa-linkedin"></i>
               </div>
-              <div v-else-if="media.social_media_type == 'Youtube'">
+              <div v-else-if="media.name == 'Youtube'">
                 <i class="fab fa-youtube"></i>
               </div>
-              <div v-else-if="media.social_media_type == 'Instagram'">
+              <div v-else-if="media.name == 'Instagram'">
                 <i class="fab fa-instagram"></i>
               </div>
-              <p>{{ media.social_media_type }}</p>
+              <p>{{ media.name }}</p>
             </a>
           </div>
           <div class="second__cells">
             <a
-              v-for="media in $store.getters.getEntityDataSliced2"
-              :key="media.social_media_type"
+              v-for="media in socialSlided2"
+              :key="media.name"
               :href="media.url"
               target="_blank"
               class="flex flex-ai-c"
             >
-              <div v-if="media.social_media_type == 'Twitter'">
+              <div v-if="media.name == 'Twitter'">
                 <i class="fab fa-twitter"></i>
               </div>
-              <div v-else-if="media.social_media_type == 'Facebook'">
+              <div v-else-if="media.name == 'Facebook'">
                 <i class="fab fa-facebook-square"></i>
               </div>
-              <div v-else-if="media.social_media_type == 'LinkedIn'">
+              <div v-else-if="media.name == 'LinkedIn'">
                 <i class="fab fa-linkedin"></i>
               </div>
-              <div v-else-if="media.social_media_type == 'Youtube'">
+              <div v-else-if="media.name == 'Youtube'">
                 <i class="fab fa-youtube"></i>
               </div>
-              <div v-else-if="media.social_media_type == 'Instagram'">
+              <div v-else-if="media.name == 'Instagram'">
                 <i class="fab fa-instagram"></i>
               </div>
-              <p>{{ media.social_media_type }}</p>
+              <p>{{ media.name }}</p>
             </a>
           </div>
         </div>
@@ -196,6 +193,22 @@ export default {
     clearInterval(this.updateTimes);
   },
   computed: {
+    socialSlided() {
+      return this.$store.getters.getEntityData != ""
+        ? this.$store.getters.getEntitySocials.slice(
+            0,
+            this.$store.getters.getEntitySocials.length / 2 + 1
+          )
+        : [];
+    },
+    socialSlided2() {
+      return this.$store.getters.getEntityData != ""
+        ? this.$store.getters.getEntitySocials.slice(
+            this.$store.getters.getEntitySocials.length / 2 + 1,
+            this.$store.getters.getEntitySocials.length
+          )
+        : [];
+    },
     getWeekDay() {
       let today = this.getDateTime();
 

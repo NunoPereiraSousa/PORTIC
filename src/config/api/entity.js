@@ -36,8 +36,6 @@ export const entityConfig = {
         };
       })
       .catch(error => {
-        console.log(error);
-
         return error;
       });
   },

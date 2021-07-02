@@ -300,36 +300,36 @@
         <h3>{{ $t("aboutUs.contactUs") }}</h3>
         <div>
           <h2>
-            <a :href="`tel:+351${$store.getters.getEntityPhoneNumberLink}`">{{
-              $store.getters.getEntityPhoneNumber
+            <a :href="`tel:+351${$store.getters.getEntityData.contacts[0]}`">{{
+              $store.getters.getEntityData.contacts[0]
             }}</a>
           </h2>
           <h2>
-            <a :href="`mailto:${$store.getters.getEntityEmail}`">{{
-              $store.getters.getEntityEmail
+            <a :href="`mailto:${$store.getters.getEntityData.emails[0]}`">{{
+              $store.getters.getEntityData.emails[0]
             }}</a>
           </h2>
         </div>
         <div class="contacts__form__contacts__socials grid">
           <a
             v-for="media in $store.getters.getEntitySocials"
-            :key="media.social_media_type"
+            :key="media.name"
             :href="media.url"
             target="_blank"
           >
-            <div v-if="media.social_media_type == 'Twitter'">
+            <div v-if="media.name == 'Twitter'">
               <i class="fab fa-twitter"></i>
             </div>
-            <div v-else-if="media.social_media_type == 'Facebook'">
+            <div v-else-if="media.name == 'Facebook'">
               <i class="fab fa-facebook-square"></i>
             </div>
-            <div v-else-if="media.social_media_type == 'LinkedIn'">
+            <div v-else-if="media.name == 'LinkedIn'">
               <i class="fab fa-linkedin"></i>
             </div>
-            <div v-else-if="media.social_media_type == 'Youtube'">
+            <div v-else-if="media.name == 'Youtube'">
               <i class="fab fa-youtube"></i>
             </div>
-            <div v-else-if="media.social_media_type == 'Instagram'">
+            <div v-else-if="media.name == 'Instagram'">
               <i class="fab fa-instagram"></i>
             </div>
           </a>
