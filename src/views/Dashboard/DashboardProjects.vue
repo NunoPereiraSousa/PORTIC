@@ -183,7 +183,7 @@ export default {
     };
   },
   created() {
-    this.projects = this.getProjects;
+    // this.projects = this.getAdminProjects;
     this.images = [
       "https://wp.zillowstatic.com/streeteasy/2/Amazon-building-10b3c7.jpg",
       "https://www.gannett-cdn.com/presto/2019/07/18/PSAL/4010fe7f-35e9-4108-9954-96f6f521bab1-AmazonFulfillmentCenter_ar_01.JPG?auto=webp&crop=2399,1349,x1,y86&format=pjpg&width=1200",
@@ -192,9 +192,23 @@ export default {
 
     console.log(this.images);
   },
-  mounted() {},
+  async mounted() {
+    // this.$store.commit("SET_SELECTED_PROJECTS_LANG", {
+    //   lang: "pt"
+    // });
+
+    try {
+      await this.$store.dispatch("setAdminProjects");
+    } catch (error) {
+      return error;
+    }
+  },
   computed: {
-    ...mapGetters(["getSelectedProjectByID", "getProjectByID", "getProjects"]),
+    ...mapGetters([
+      "getSelectedProjectByID",
+      "getProjectByID",
+      "getAdminProjects"
+    ]),
     projectName() {
       let id = this.getSelectedProjectByID;
 
@@ -209,7 +223,7 @@ export default {
       return name;
     },
     searchFilter() {
-      return this.projects.filter(project => {
+      return this.getAdminProjects.filter(project => {
         let search = true;
 
         if (this.projectTxt != "") {

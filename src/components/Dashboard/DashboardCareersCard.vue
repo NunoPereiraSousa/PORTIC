@@ -36,8 +36,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   name: "DashboardCareersCard",
   props: {
@@ -63,12 +61,9 @@ export default {
       hide: true
     };
   },
-  computed: {
-    ...mapGetters(["getSelectedCourseByID", "getCourseByID"])
-  },
   methods: {
     openPage(careerId, careerName) {
-      this.$store.commit("SET_SELECTED_CAREER_ID", {
+      this.$store.commit("SET_SELECTED_ADMIN_CAREER_ID", {
         id: careerId
       });
 
@@ -84,9 +79,7 @@ export default {
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
 
-      // COURSE ID LOGIC
-
-      this.$store.commit("SET_SELECTED_CAREER_ID", {
+      this.$store.commit("SET_SELECTED_ADMIN_CAREER_ID", {
         id: careerId
       });
     },

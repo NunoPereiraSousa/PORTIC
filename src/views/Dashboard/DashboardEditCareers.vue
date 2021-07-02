@@ -22,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="editCarrer">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -31,17 +31,33 @@
         </div>
       </div>
 
-      <div class="admin_actions_panel__form">
+      <div class="admin_actions_panel__form careers">
         <h3 class="dashboard_subheader">
           Nome da carreira
         </h3>
-        <input type="text" :placeholder="careerName" v-model="careerTxt" />
+        <input type="text" v-model="edit.titlePt" />
+        <div>
+          <h3 class="dashboard_subheader">
+            Categorias
+          </h3>
+          <input
+            type="text"
+            v-model="edit.category_1"
+            style="margin-right: 2rem;"
+          />
+          <input
+            type="text"
+            v-model="edit.category_2"
+            style="margin-right: 2rem;"
+          />
+          <input type="text" v-model="edit.category_3" />
+        </div>
         <h3 class="dashboard_subheader">
           Conteúdo da carreira
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="edit.contentPt"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -70,7 +86,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="editCarrer">
             Confirm
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -83,13 +99,13 @@
         <h3 class="dashboard_subheader">
           Career name
         </h3>
-        <input type="text" :placeholder="careerName" v-model="careerTxt" />
+        <input type="text" v-model="edit.titleEn" />
         <h3 class="dashboard_subheader">
           Career information
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="contentEN"
+            v-model="edit.contentEn"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -113,9 +129,15 @@ export default {
       careerName: "",
       tabs: ["Português", "Inglês"],
       currentTab: 0,
-      content: "",
-      contentEN: "",
-      careerTxt: "",
+      edit: {
+        titlePt: "",
+        titleEn: "",
+        contentPt: "",
+        contentEn: "",
+        category_1: "",
+        category_2: "",
+        category_3: ""
+      },
       editorOption: {
         modules: {
           toolbar: [
@@ -151,30 +173,80 @@ export default {
       }
     };
   },
-  computed: {
-    ...mapGetters(["getSelectedCareerByID", "getCareerByID"])
-  },
-  created() {
-    this.careerName = this.getCareerByID(
-      this.getSelectedCareerByID
-    ).designation;
-
-    this.content = this.getCareerByID(
-      this.getSelectedCareerByID
-    ).desc_html_structure;
-    this.contentEN = this.getCareerByID(
-      this.getSelectedCareerByID
-    ).desc_html_structure;
-  },
+  created() {},
   mounted() {
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-    // let arr = document.querySelectorAll(".admin_actions_panel");
-    // arr.forEach(i => {
-    //   i.style.paddingLeft = `${navbar_width}px`;
-    // });
-    // this.styleEditorHeight();
+    // let id = this.getAdminSelectedCareerId;
+
+    // let career = this.getAdminCareerById(this.getAdminSelectedCareerId);
+
+    console.log(this.getAdminCareerById(this.getAdminSelectedCareerId));
+    // console.log(career);
+
+    this.careerName = this.getAdminCareerById(
+      this.getAdminSelectedCareerId
+    ).designation_pt;
+
+    this.edit.titlePt = this.getAdminCareerById(
+      this.getAdminSelectedCareerId
+    ).designation_pt;
+    this.edit.titleEn = this.getAdminCareerById(
+      this.getAdminSelectedCareerId
+    ).designation_eng;
+    this.edit.contentPt = this.getAdminCareerById(
+      this.getAdminSelectedCareerId
+    ).desc_html_structure_pt;
+    this.edit.contentEn = this.getAdminCareerById(
+      this.getAdminSelectedCareerId
+    ).desc_html_structure_eng;
+    this.edit.category_1 = this.getAdminCareerById(
+      this.getAdminSelectedCareerId
+    ).categories[0];
+    this.edit.category_2 = this.getAdminCareerById(
+      this.getAdminSelectedCareerId
+    ).categories[1];
+    this.edit.category_3 = this.getAdminCareerById(
+      this.getAdminSelectedCareerId
+    ).categories[2];
+  },
+  computed: {
+    ...mapGetters(["getAdminSelectedCareerId", "getAdminCareerById"])
   },
   methods: {
+    async editCarrer() {
+      this.$store.commit("SET_ADMIN_EDIT_CAREERS_FORM", {
+        designation_pt: this.edit.titlePt,
+        designation_eng: this.edit.titleEn,
+        category_1: this.edit.category_1,
+        category_2: this.edit.category_2,
+        category_3: this.edit.category_3,
+        desc_html_structure_pt: this.edit.contentPt,
+        desc_html_structure_eng: this.edit.contentEn,
+        pdf_path: "link",
+        candidacy_link: "link"
+      });
+
+      // console.log(
+      //   this.edit.titlePt,
+      //   this.edit.titleEn,
+      //   this.edit.category_1,
+      //   this.edit.category_2,
+      //   this.edit.category_3,
+      //   this.edit.contentPt,
+      //   this.edit.contentEn
+      // );
+
+      try {
+        await this.$store.dispatch("setAdminEditCareer");
+        await this.$store.dispatch("setAdminCareers");
+
+        this.$store.getters.getAdminEditCareerStatus === 200
+          ? this.notificationSuccess()
+          : this.notificationError();
+      } catch (error) {
+        console.log("error", error);
+        return error;
+      }
+    },
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");
       let height = editor.offsetHeight;
@@ -189,8 +261,37 @@ export default {
         name: "DashboardCareers"
       });
     },
-    save() {
-      console.log(this.content);
+    notificationSuccess() {
+      this.$toast.success("Posição editada com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
     }
   }
 };

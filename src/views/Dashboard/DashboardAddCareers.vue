@@ -22,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addCareer">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -37,18 +37,35 @@
             <h3 class="dashboard_subheader">
               Nome da carreira
             </h3>
-            <input type="text" placeholder="Nome da carreira" />
+            <input
+              type="text"
+              placeholder="Nome da carreira"
+              v-model="add.titlePt"
+            />
           </div>
           <div>
             <h3 class="dashboard_subheader">
               Categorias
             </h3>
-            <select>
-              <option value="">Business</option>
-              <option value="">Tech</option>
-              <option value="">Health</option>
-              <option value="">Arts</option>
-            </select>
+            <div class="flex">
+              <input
+                type="text"
+                placeholder="Categoria 1"
+                v-model="add.category_1"
+                style="margin-right: 2rem;"
+              />
+              <input
+                type="text"
+                placeholder="Categoria 2"
+                v-model="add.category_2"
+                style="margin-right: 2rem;"
+              />
+              <input
+                type="text"
+                placeholder="Categoria 3"
+                v-model="add.category_3"
+              />
+            </div>
           </div>
         </div>
         <h3 class="dashboard_subheader">
@@ -56,7 +73,7 @@
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="content"
+            v-model="add.contentPt"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -85,7 +102,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addCareer">
             Confirm
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -100,7 +117,11 @@
             <h3 class="dashboard_subheader">
               Career name
             </h3>
-            <input type="text" placeholder="Career name" />
+            <input
+              type="text"
+              placeholder="Career name"
+              v-model="add.titleEn"
+            />
           </div>
           <div>
             <h3 class="dashboard_subheader">
@@ -119,7 +140,7 @@
         </h3>
         <div class="area_edit_editor">
           <quill-editor
-            v-model="contentEN"
+            v-model="add.contentEn"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -141,8 +162,15 @@ export default {
     return {
       tabs: ["Português", "Inglês"],
       currentTab: 0,
-      content: "",
-      contentEN: "",
+      add: {
+        titlePt: "",
+        titleEn: "",
+        contentPt: "",
+        contentEn: "",
+        category_1: "",
+        category_2: "",
+        category_3: ""
+      },
       editorOption: {
         modules: {
           toolbar: [
@@ -179,17 +207,34 @@ export default {
     };
   },
   mounted() {
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-
-    // let arr = document.querySelectorAll(".admin_actions_panel");
-
-    // arr.forEach(i => {
-    //   i.style.paddingLeft = `${navbar_width}px`;
-    // });
-
     this.styleEditorHeight();
   },
   methods: {
+    async addCareer() {
+      this.$store.commit("SET_ADMIN_ADD_CAREERS_FORM", {
+        designation_pt: this.add.titlePt,
+        designation_eng: this.add.titleEn,
+        category_1: this.add.category_1,
+        category_2: this.add.category_2,
+        category_3: this.add.category_3,
+        desc_html_structure_pt: this.add.contentPt,
+        desc_html_structure_eng: this.add.contentEn,
+        pdf_path: "link",
+        candidacy_link: "link"
+      });
+
+      try {
+        await this.$store.dispatch("setAdminAddCareer");
+        await this.$store.dispatch("setAdminCareers");
+
+        this.notificationSuccess();
+      } catch (error) {
+        this.notificationError();
+        return error;
+      }
+
+      this.goBack();
+    },
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");
       let height = editor.offsetHeight;
@@ -212,8 +257,37 @@ export default {
         name: "DashboardCareers"
       });
     },
-    save() {
-      console.log(this.content);
+    notificationSuccess() {
+      this.$toast.success("Posição adicionada com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
     }
   }
 };

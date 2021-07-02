@@ -4,6 +4,8 @@ import { adminMediasConfig } from "../../config/api/adminMedia";
 import { adminCoursesConfig } from "../../config/api/adminCourses";
 import { adminUnitsConfig } from "../../config/api/adminUnits";
 import { adminNewsConfig } from "../../config/api/adminNews";
+import { adminProjectsConfig } from "../../config/api/adminProjects";
+import { adminCareersConfig } from "../../config/api/adminCareers";
 
 // import { usersModule } from "../../store/modules/usersModule";
 
@@ -69,6 +71,35 @@ export const adminModule = {
     },
     removeMediaStatus: null,
 
+    // CAREERS
+    careers: [],
+    selectedCareerId: null,
+    editCareerForm: {
+      designation_pt: null,
+      designation_eng: null,
+      category_1: null,
+      category_2: null,
+      category_3: null,
+      desc_html_structure_pt: null,
+      desc_html_structure_eng: null,
+      pdf_path: null,
+      candidacy_link: null
+    },
+    editCareerStatus: null,
+    addCareerStatus: null,
+    addCareerForm: {
+      designation_pt: null,
+      designation_eng: null,
+      category_1: null,
+      category_2: null,
+      category_3: null,
+      desc_html_structure_pt: null,
+      desc_html_structure_eng: null,
+      pdf_path: null,
+      candidacy_link: null
+    },
+    deleteCareerStatus: null,
+
     // COURSES
     courses: [],
     selectedCourseId: null,
@@ -110,6 +141,23 @@ export const adminModule = {
     },
     addAdminEditNewsStatus: null,
     addAdminDeleteNewsStatus: null,
+
+    // PROJECTS
+    projects: [],
+    selectedProjectId: null,
+    addProjectForm: {
+      title: null,
+      initials: null,
+      reference: null,
+      desc_html_structure_eng: null,
+      desc_html_structure_pt: null,
+      project_contact: null,
+      project_email: null,
+      start_date: null,
+      end_date: null,
+      pdf_path: null
+    },
+    addProjectStatus: null,
 
     // UNITS
     units: [],
@@ -222,6 +270,49 @@ export const adminModule = {
       state.removeMediaStatus = payload.status;
     },
 
+    //CAREERS MUTATIONS
+    SET_ADMIN_CAREERS(state, payload) {
+      state.careers = payload.careers;
+    },
+    SET_SELECTED_ADMIN_CAREER_ID(state, payload) {
+      state.selectedCareerId = payload.id;
+    },
+    SET_ADMIN_EDIT_CAREERS_STATUS(state, payload) {
+      state.editCareerStatus = payload.status;
+    },
+    SET_ADMIN_EDIT_CAREERS_FORM(state, payload) {
+      state.editCareerForm.designation_pt = payload.designation_pt;
+      state.editCareerForm.designation_eng = payload.designation_eng;
+      state.editCareerForm.category_1 = payload.category_1;
+      state.editCareerForm.category_2 = payload.category_2;
+      state.editCareerForm.category_3 = payload.category_3;
+      state.editCareerForm.desc_html_structure_pt =
+        payload.desc_html_structure_pt;
+      state.editCareerForm.desc_html_structure_eng =
+        payload.desc_html_structure_eng;
+      state.editCareerForm.pdf_path = payload.pdf_path;
+      state.editCareerForm.candidacy_link = payload.candidacy_link;
+    },
+    SET_ADMIN_ADD_CAREERS_STATUS(state, payload) {
+      state.addCareerStatus = payload.status;
+    },
+    SET_ADMIN_ADD_CAREERS_FORM(state, payload) {
+      state.addCareerForm.designation_pt = payload.designation_pt;
+      state.addCareerForm.designation_eng = payload.designation_eng;
+      state.addCareerForm.category_1 = payload.category_1;
+      state.addCareerForm.category_2 = payload.category_2;
+      state.addCareerForm.category_3 = payload.category_3;
+      state.addCareerForm.desc_html_structure_pt =
+        payload.desc_html_structure_pt;
+      state.addCareerForm.desc_html_structure_eng =
+        payload.desc_html_structure_eng;
+      state.addCareerForm.pdf_path = payload.pdf_path;
+      state.addCareerForm.candidacy_link = payload.candidacy_link;
+    },
+    SET_ADMIN_DELETE_CAREERS_STATUS(state, payload) {
+      state.deleteCareerStatus = payload.status;
+    },
+
     // COURSES MUTATIONS
     SET_ADMIN_COURSES(state, payload) {
       state.courses = payload.courses;
@@ -264,8 +355,6 @@ export const adminModule = {
       state.editNewsForm.description_eng = payload.description_eng;
       state.editNewsForm.published_date = payload.published_date;
       state.editNewsForm.project_only = payload.project_only;
-
-      console.log(state.editNewsForm.file);
     },
     SET_ADMIN_EDIT_NEWS_STATUS(state, payload) {
       state.editAdminEditNewsStatus = payload.status;
@@ -286,6 +375,31 @@ export const adminModule = {
       state.addAdminDeleteNewsStatus = payload.status;
     },
 
+    // PROJECTS MUTATIONS
+    SET_ADMIN_PROJECTS(state, payload) {
+      state.projects = payload.projects;
+    },
+    SET_SELECTED_ADMIN_NEWS_ID(state, payload) {
+      state.selectedNewsId = payload.id;
+    },
+    SET_PROJECTS_ADD_FORM(state, payload) {
+      state.addProjectForm.title = payload.title;
+      state.addProjectForm.initials = payload.initials;
+      state.addProjectForm.reference = payload.reference;
+      state.addProjectForm.desc_html_structure_eng =
+        payload.desc_html_structure_eng;
+      state.addProjectForm.desc_html_structure_pt =
+        payload.desc_html_structure_pt;
+      state.addProjectForm.project_contact = payload.project_contact;
+      state.addProjectForm.project_email = payload.project_email;
+      state.addProjectForm.start_date = payload.start_date;
+      state.addProjectForm.end_date = payload.end_date;
+      state.addProjectForm.pdf_path = payload.pdf_path;
+    },
+    SET_PROJECTS_ADD_STATUS(state, payload) {
+      state.addProjectStatus = payload.status;
+    },
+
     // UNITS MUTATIONS
     SET_UNITS(state, payload) {
       state.units = payload.units;
@@ -299,8 +413,8 @@ export const adminModule = {
       state.addUnitForm.description_pt = payload.description_pt;
       state.addUnitForm.description_eng = payload.description_eng;
     },
-    SET_SELECTED_ADMIN_NEWS_ID(state, payload) {
-      state.selectedNewsId = payload.id;
+    SET_SELECTED_ADMIN_PROJECTS_ID(state, payload) {
+      state.selectedProjectId = payload.id;
     },
     SET_UNITS_EDIT_FORM(state, payload) {
       state.editUnitForm.designation = payload.designation;
@@ -404,6 +518,60 @@ export const adminModule = {
           JSON.parse(localStorage.getItem("token")),
           state.selectedAreaFocusId,
           state.focusImg
+        )
+      );
+    },
+
+    // CAREER ACTIONS
+    async setAdminCareers({ commit }) {
+      commit(
+        "SET_ADMIN_CAREERS",
+        await adminCareersConfig.getCareers(
+          JSON.parse(localStorage.getItem("token"))
+        )
+      );
+    },
+    async setAdminEditCareer({ commit, state }) {
+      commit(
+        "SET_ADMIN_EDIT_CAREERS_STATUS",
+        await adminCareersConfig.editCareer(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedCareerId,
+          state.editCareerForm.designation_pt,
+          state.editCareerForm.designation_eng,
+          state.editCareerForm.category_1,
+          state.editCareerForm.category_2,
+          state.editCareerForm.category_3,
+          state.editCareerForm.desc_html_structure_pt,
+          state.editCareerForm.desc_html_structure_eng,
+          state.editCareerForm.pdf_path,
+          state.editCareerForm.candidacy_link
+        )
+      );
+    },
+    async setAdminAddCareer({ commit, state }) {
+      commit(
+        "SET_ADMIN_ADD_CAREERS_STATUS",
+        await adminCareersConfig.addCareer(
+          JSON.parse(localStorage.getItem("token")),
+          state.addCareerForm.designation_pt,
+          state.addCareerForm.designation_eng,
+          state.addCareerForm.category_1,
+          state.addCareerForm.category_2,
+          state.addCareerForm.category_3,
+          state.addCareerForm.desc_html_structure_pt,
+          state.addCareerForm.desc_html_structure_eng,
+          state.addCareerForm.pdf_path,
+          state.addCareerForm.candidacy_link
+        )
+      );
+    },
+    async setAdminDeleteCareer({ commit, state }) {
+      commit(
+        "SET_ADMIN_DELETE_CAREERS_STATUS",
+        await adminCareersConfig.deleteCareer(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedCareerId
         )
       );
     },
@@ -554,6 +722,34 @@ export const adminModule = {
       );
     },
 
+    // PROJECTS ACTIONS
+    async setAdminProjects({ commit }) {
+      commit(
+        "SET_ADMIN_PROJECTS",
+        await adminProjectsConfig.getProjects(
+          JSON.parse(localStorage.getItem("token"))
+        )
+      );
+    },
+    async setAdminAddProjects({ commit, state }) {
+      commit(
+        "SET_PROJECTS_ADD_STATUS",
+        await adminProjectsConfig.addProject(
+          JSON.parse(localStorage.getItem("token")),
+          state.addProjectForm.title,
+          state.addProjectForm.initials,
+          state.addProjectForm.reference,
+          state.addProjectForm.desc_html_structure_eng,
+          state.addProjectForm.desc_html_structure_pt,
+          state.addProjectForm.project_contact,
+          state.addProjectForm.project_email,
+          state.addProjectForm.start_date,
+          state.addProjectForm.end_date,
+          state.addProjectForm.pdf_path
+        )
+      );
+    },
+
     // UNITS ACTIONS
     async setAdminUnits({ commit }) {
       commit(
@@ -631,6 +827,22 @@ export const adminModule = {
     getEditAreaStatus: state => state.editAreaStatus,
     getDeleteAreaStatus: state => state.removeAreaStatus,
 
+    // CAREERS GETTERS
+    getAdminCareers: state => (state.careers != "" ? state.careers : []),
+    getAdminCareersLength: state => {
+      return state.careers != ""
+        ? state.careers.length != undefined
+          ? state.careers.length
+          : 0
+        : 0;
+    },
+    getAdminSelectedCareerId: state => state.selectedCareerId,
+    getAdminCareerById: state => id =>
+      state.careers.find(c => c.id_available_position === id),
+    getAdminEditCareerStatus: state => state.editCareerStatus,
+    getAdminAddCareerStatus: state => state.addCareerStatus,
+    getAdminDeleteCareerStatus: state => state.deleteCareerStatus,
+
     // MEDIAS GETTERS
     getAdminMedias: state => (state.medias != "" ? state.medias : []),
     getAdminMediasLength: state => {
@@ -668,6 +880,19 @@ export const adminModule = {
     },
     getAdminSelectedNewsId: state => state.selectedNewsId,
     getAdminNewsById: state => id => state.news.find(n => n.id_news === id),
+
+    // PROJECTS GETTERS
+    getAdminProjects: state => (state.projects != "" ? state.projects : []),
+    getAdminProjectsLength: state => {
+      return state.projects != ""
+        ? state.projects.length != undefined
+          ? state.projects.length
+          : 0
+        : 0;
+    },
+    getAdminSelectedProjectId: state => state.selectedProjectId,
+    getAdminProjectById: state => id =>
+      state.projects.find(unit => unit.id_project === id),
 
     // UNITS GETTERS
     getAdminUnits: state => (state.units != "" ? state.units : []),

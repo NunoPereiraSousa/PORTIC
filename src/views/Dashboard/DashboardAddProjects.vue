@@ -37,9 +37,33 @@
         </h3>
 
         <div class="projects_panel__form__inputs flex">
-          <input type="text" placeholder="Nome do projeto" />
-          <input type="text" placeholder="Contacto telefónico" />
-          <input type="text" placeholder="E-mail" />
+          <input
+            type="text"
+            placeholder="Título do projeto"
+            v-model="add.title"
+          />
+          <input
+            type="text"
+            placeholder="Iniciais do projeto"
+            v-model="add.initials"
+          />
+          <input
+            type="text"
+            placeholder="Referência do projeto"
+            v-model="add.reference"
+          />
+          <input
+            type="number"
+            placeholder="Contacto telefónico"
+            v-model="add.number"
+          />
+          <input type="email" placeholder="E-mail" v-model="add.email" />
+          <input
+            type="date"
+            placeholder="Data de início"
+            v-model="add.startDate"
+          />
+          <input type="date" placeholder="Data de fim" v-model="add.endDate" />
         </div>
 
         <h3 class="dashboard_subheader">
@@ -48,7 +72,7 @@
 
         <div class="area_edit_editor margin_bottom">
           <quill-editor
-            v-model="content"
+            v-model="add.ContentPt"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -56,13 +80,17 @@
         </div>
 
         <h3 class="dashboard_subheader">
-          Galeria
+          Galeria & Ficha de Projeto
         </h3>
 
         <div class="admin_add_slider__images">
-          <label class="custom-file-upload">
-            <input type="file" />
+          <label class="custom-file-upload" style="margin-right: 2rem;">
+            <input type="file" @change="uploadImage" />
             Upload de imagens
+          </label>
+          <label class="custom-file-upload">
+            <input type="file" @change="uploadPdf" />
+            Upload da ficha de projeto
           </label>
         </div>
 
@@ -140,9 +168,33 @@
         </h3>
 
         <div class="projects_panel__form__inputs flex">
-          <input type="text" placeholder="Project name" />
-          <input type="text" placeholder="Project phone contact" />
-          <input type="text" placeholder="E-mail" />
+          <input type="text" placeholder="Project title" v-model="add.title" />
+          <input
+            type="text"
+            placeholder="Project initials"
+            v-model="add.initials"
+          />
+          <input
+            type="text"
+            placeholder="Project reference"
+            v-model="add.reference"
+          />
+          <input
+            type="number"
+            placeholder="Project mobile phone"
+            v-model="add.number"
+          />
+          <input
+            type="email"
+            placeholder="Project e-mail"
+            v-model="add.email"
+          />
+          <input
+            type="date"
+            placeholder="Starting date"
+            v-model="add.startDate"
+          />
+          <input type="date" placeholder="Ending date" v-model="add.endDate" />
         </div>
 
         <h3 class="dashboard_subheader">
@@ -151,7 +203,7 @@
 
         <div class="area_edit_editor margin_bottom">
           <quill-editor
-            v-model="contentEN"
+            v-model="add.contentEn"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -159,13 +211,17 @@
         </div>
 
         <h3 class="dashboard_subheader">
-          Galery
+          Images & Project file
         </h3>
 
         <div class="admin_add_slider__images">
-          <label class="custom-file-upload">
-            <input type="file" />
+          <label class="custom-file-upload" style="margin-right: 2rem;">
+            <input type="file" @change="uploadImage" />
             Images upload
+          </label>
+          <label class="custom-file-upload">
+            <input type="file" @change="uploadPdf" />
+            Project file upload
           </label>
         </div>
 
@@ -221,8 +277,19 @@ export default {
     return {
       tabs: ["Português", "Inglês"],
       currentTab: 0,
-      content: "",
-      contentEN: "",
+      add: {
+        title: "",
+        initials: "",
+        reference: "",
+        number: "",
+        email: "",
+        startDate: "",
+        endDate: "",
+        contentPt: "",
+        contentEn: "",
+        image: "",
+        pdf: ""
+      },
       editorOption: {
         modules: {
           toolbar: [
@@ -284,6 +351,14 @@ export default {
       let editor = document.querySelector(".ql-editor");
 
       editor.style.height += `${height - toolbar.offsetHeight}px`;
+    },
+    uploadImage(e) {
+      const image = e.target.files[0];
+      this.add.image = image;
+    },
+    uploadPdf(e) {
+      const pdf = e.target.files[0];
+      this.add.pdf = pdf;
     },
     goBack() {
       this.$router.push({

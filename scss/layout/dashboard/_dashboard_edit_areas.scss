@@ -239,6 +239,7 @@
     height: 100%;
 
     &__inputs {
+      flex-wrap: wrap;
       column-gap: 2rem;
     }
 
@@ -381,4 +382,8 @@ input[type="file"] {
       row-gap: 2rem;
     }
   }
+}
+
+.admin_actions_panel__form.careers {
+  grid-template-rows: min-content min-content min-content min-content 1fr;
 }

@@ -757,6 +757,7 @@ body {
   -ms-touch-action: pan-y !important;
       touch-action: pan-y !important;
   -webkit-overflow-scrolling: touch;
+  -webkit-appearance: none;
 }
 
 .panel-open {
@@ -9696,6 +9697,8 @@ button:focus {
 }
 
 .projects_panel__form__inputs {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-column-gap: 2rem;
           column-gap: 2rem;
 }
@@ -9839,6 +9842,12 @@ input[type="file"] {
 .admin_about__panel .admin_actions_panel__form__grid:last-child {
   padding-bottom: 4rem;
   row-gap: 2rem;
+}
+
+.admin_actions_panel__form.careers {
+  -ms-grid-rows: min-content min-content min-content min-content 1fr;
+      grid-template-rows: -webkit-min-content -webkit-min-content -webkit-min-content -webkit-min-content 1fr;
+      grid-template-rows: min-content min-content min-content min-content 1fr;
 }
 
 .admin_careers__panel {

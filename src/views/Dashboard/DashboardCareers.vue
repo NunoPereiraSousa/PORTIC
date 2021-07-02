@@ -115,8 +115,8 @@
           :key="career.id_available_position"
           :id="career.id_available_position"
           :counter="index + 1"
-          :careerName="career.designation"
-          :careerContent="career.desc_html_structure"
+          :careerName="career.designation_pt"
+          :careerContent="career.desc_html_structure_pt"
         />
       </div>
     </div>
@@ -186,34 +186,37 @@ export default {
 
     try {
       await this.$store.dispatch("setEntityId");
-      await this.$store.dispatch("setCareers");
-      await this.$store.dispatch("setCareerTips");
+      await this.$store.dispatch("setAdminCareers");
     } catch (error) {
       console.log(`App: ${error}`);
       return error;
     }
   },
   computed: {
-    ...mapGetters(["getSelectedCareerByID", "getCareerByID", "getCareers"]),
+    ...mapGetters([
+      "getAdminSelectedCareerId",
+      "getAdminCareerById",
+      "getAdminCareers"
+    ]),
     careerName() {
-      let id = this.getSelectedCareerByID;
+      let id = this.getAdminSelectedCareerId;
 
-      let career = this.getCareerByID(id);
+      let career = this.getAdminCareerById(id);
 
       let name;
 
       if (career) {
-        name = career.designation;
+        name = career.designation_pt;
       }
 
       return name;
     },
     searchFilter() {
-      return this.getCareers.filter(career => {
+      return this.getAdminCareers.filter(career => {
         let search = true;
 
         if (this.careerTxt != "") {
-          search = career.designation
+          search = career.designation_pt
             .toLowerCase()
             .includes(this.careerTxt.toLowerCase());
         }

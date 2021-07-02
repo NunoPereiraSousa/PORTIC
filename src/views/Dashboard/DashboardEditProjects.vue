@@ -37,9 +37,33 @@
         </h3>
 
         <div class="projects_panel__form__inputs flex">
-          <input type="text" :placeholder="project.initials" />
-          <input type="text" :placeholder="project.contact" />
-          <input type="text" :placeholder="project.email" />
+          <input
+            type="text"
+            placeholder="Título do projeto"
+            v-model="edit.title"
+          />
+          <input
+            type="text"
+            placeholder="Iniciais do projeto"
+            v-model="edit.initials"
+          />
+          <input
+            type="text"
+            placeholder="Referência do projeto"
+            v-model="edit.reference"
+          />
+          <input
+            type="number"
+            placeholder="Contacto telefónico"
+            v-model="edit.number"
+          />
+          <input type="email" placeholder="E-mail" v-model="edit.email" />
+          <input
+            type="date"
+            placeholder="Data de início"
+            v-model="edit.startDate"
+          />
+          <input type="date" placeholder="Data de fim" v-model="edit.endDate" />
         </div>
 
         <h3 class="dashboard_subheader">
@@ -48,18 +72,18 @@
 
         <div class="area_edit_editor margin_bottom">
           <quill-editor
-            v-model="content"
+            v-model="edit.contentPt"
             :options="editorOption"
             ref="quillEditor"
           >
           </quill-editor>
         </div>
 
-        <h3 class="dashboard_subheader">
-          Galeria
-        </h3>
+        <!-- <h3 class="dashboard_subheader">
+          Galeria & Ficha de projeto
+        </h3> -->
 
-        <div
+        <!-- <div
           class="projects_panel__form__images grid"
           v-if="imagesArrLength > 0"
         >
@@ -85,12 +109,17 @@
         </div>
         <div v-else>
           <p>Não existem imagens associadas a este projeto</p>
-        </div>
+        </div> -->
 
-        <label class="custom-file-upload">
-          <input type="file" />
+        <!-- <label class="custom-file-upload">
+          <input type="file" @change="uploadImage" />
           Upload de imagens
         </label>
+
+        <label class="custom-file-upload" style="margin-right: 2rem;">
+          <input type="file" @change="uploadPdf" />
+          Upload de pdf
+        </label> -->
 
         <h3 class="dashboard_subheader">
           Equipa de projeto
@@ -166,9 +195,33 @@
         </h3>
 
         <div class="projects_panel__form__inputs flex">
-          <input type="text" :placeholder="project.initials" />
-          <input type="text" :placeholder="project.contact" />
-          <input type="text" :placeholder="project.email" />
+          <input type="text" placeholder="Project title" v-model="edit.title" />
+          <input
+            type="text"
+            placeholder="Project initials"
+            v-model="edit.initials"
+          />
+          <input
+            type="text"
+            placeholder="Project reference"
+            v-model="edit.reference"
+          />
+          <input
+            type="number"
+            placeholder="Project mobile phone"
+            v-model="edit.number"
+          />
+          <input
+            type="email"
+            placeholder="Project e-mail"
+            v-model="edit.email"
+          />
+          <input
+            type="date"
+            placeholder="Starting date"
+            v-model="edit.startDate"
+          />
+          <input type="date" placeholder="Ending date" v-model="edit.endDate" />
         </div>
 
         <h3 class="dashboard_subheader">
@@ -177,18 +230,18 @@
 
         <div class="area_edit_editor margin_bottom">
           <quill-editor
-            v-model="contentEN"
+            v-model="edit.contentEn"
             :options="editorOption"
             ref="quillEditor"
           >
           </quill-editor>
         </div>
 
-        <h3 class="dashboard_subheader">
-          Galery
-        </h3>
+        <!-- <h3 class="dashboard_subheader">
+          Galery & Project files
+        </h3> -->
 
-        <div
+        <!-- <div
           class="projects_panel__form__images grid"
           v-if="imagesArrLength > 0"
         >
@@ -214,12 +267,17 @@
         </div>
         <div v-else>
           <p>There are no images for this project</p>
-        </div>
+        </div> -->
 
-        <label class="custom-file-upload">
-          <input type="file" />
-          Images upload
+        <!-- <label class="custom-file-upload">
+          <input type="file" @change="uploadImage" />
+          Images upload+
         </label>
+
+        <label class="custom-file-upload" style="margin-right: 2rem;">
+          <input type="file" @change="uploadPdf" />
+          PDF upload
+        </label> -->
 
         <h3 class="dashboard_subheader">
           Project team
@@ -277,8 +335,19 @@ export default {
     return {
       tabs: ["Português", "Inglês"],
       currentTab: 0,
-      content: "",
-      contentEN: "",
+      edit: {
+        title: "",
+        initials: "",
+        reference: "",
+        number: "",
+        email: "",
+        startDate: "",
+        endDate: "",
+        contentPt: "",
+        contentEn: "",
+        image: "",
+        pdf: ""
+      },
       teamRows: [1],
       project: {
         name: "",
@@ -379,6 +448,14 @@ export default {
       let editor = document.querySelector(".ql-editor");
 
       editor.style.height += `${height - toolbar.offsetHeight}px`;
+    },
+    uploadImage(e) {
+      const image = e.target.files[0];
+      this.add.image = image;
+    },
+    uploadPdf(e) {
+      const pdf = e.target.files[0];
+      this.add.pdf = pdf;
     },
     imageStyle(image) {
       return `background-image: url('${image}')`;
