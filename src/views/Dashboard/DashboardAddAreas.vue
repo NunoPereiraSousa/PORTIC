@@ -179,11 +179,9 @@ export default {
         await this.$store.dispatch("setAdminAreas");
 
         // notifications
-        this.$store.getters.getAddAreaStatus === 201
-          ? this.notificationSuccess()
-          : this.notificationError();
+        this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
 
@@ -212,7 +210,7 @@ export default {
       });
     },
     notificationSuccess() {
-      this.$toast.success("Área adiciona com sucesso!", {
+      this.$toast.success("Área adicionada com sucesso!", {
         position: "top-right",
         timeout: 3000,
         closeOnClick: true,

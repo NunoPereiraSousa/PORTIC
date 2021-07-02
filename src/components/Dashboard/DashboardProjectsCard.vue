@@ -39,7 +39,7 @@ export default {
       required: true
     },
     id: {
-      type: Number,
+      type: String,
       required: false
     }
   },
@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     openPage(projectId, projectName) {
-      this.$store.commit("SET_SELECTED_PROJECT_ID", {
+      this.$store.commit("SET_SELECTED_ADMIN_PROJECTS_ID", {
         id: projectId
       });
 
@@ -64,7 +64,7 @@ export default {
       popup.classList.toggle("show_popup");
 
       // COURSE ID LOGIC
-      this.$store.commit("SET_SELECTED_PROJECT_ID", {
+      this.$store.commit("SET_SELECTED_ADMIN_PROJECTS_ID", {
         id: projectId
       });
     }

@@ -71,42 +71,64 @@ export const adminProjectsConfig = {
         console.log(error);
         return error;
       });
-  }
-  // editArea: async (
-  //   token,
-  //   id,
-  //   designation_pt,
-  //   designation_eng,
-  //   description_pt,
-  //   description_eng
-  // ) => {
-  //   let config = {
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //       authorization: `Bearer ${token}`
-  //     }
-  //   };
+  },
+  editProject: async (
+    token,
+    id,
+    title,
+    initials,
+    reference,
+    desc_html_structure_eng,
+    desc_html_structure_pt,
+    start_date,
+    end_date,
+    project_contact,
+    project_email
+  ) => {
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
 
-  //   return await axios
-  //     .put(
-  //       `${API_URL}/areas/${id}`,
-  //       {
-  //         designation_pt: designation_pt,
-  //         designation_eng: designation_eng,
-  //         description_pt: description_pt,
-  //         description_eng: description_eng
-  //       },
-  //       config
-  //     )
-  //     .then(response => {
-  //       return {
-  //         status: response.status
-  //       };
-  //     })
-  //     .catch(error => {
-  //       return error;
-  //     });
-  // },
+    let data = new FormData();
+    data.append("title", title);
+    data.append("initials", initials);
+    data.append("reference", reference);
+    data.append("desc_html_structure_eng", desc_html_structure_eng);
+    data.append("desc_html_structure_pt", desc_html_structure_pt);
+    data.append("start_date", start_date);
+    data.append("end_date", end_date);
+    data.append("project_contact", project_contact);
+    data.append("project_email", project_email);
+
+    console.log(
+      title,
+      initials,
+      reference,
+      desc_html_structure_eng,
+      desc_html_structure_pt,
+      start_date,
+      end_date,
+      project_contact,
+      project_email
+    );
+
+    return await axios
+      .put(`${API_URL}/projects/${id}`, data, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
+  }
 
   // deleteArea: async (token, id) => {
   //   let config = {

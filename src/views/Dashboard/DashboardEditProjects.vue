@@ -22,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="editProject">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -37,33 +37,70 @@
         </h3>
 
         <div class="projects_panel__form__inputs flex">
-          <input
-            type="text"
-            placeholder="Título do projeto"
-            v-model="edit.title"
-          />
-          <input
-            type="text"
-            placeholder="Iniciais do projeto"
-            v-model="edit.initials"
-          />
-          <input
-            type="text"
-            placeholder="Referência do projeto"
-            v-model="edit.reference"
-          />
-          <input
-            type="number"
-            placeholder="Contacto telefónico"
-            v-model="edit.number"
-          />
-          <input type="email" placeholder="E-mail" v-model="edit.email" />
-          <input
-            type="date"
-            placeholder="Data de início"
-            v-model="edit.startDate"
-          />
-          <input type="date" placeholder="Data de fim" v-model="edit.endDate" />
+          <div>
+            <label for="titleTxt">Título</label><br />
+            <input
+              id="titleTxt"
+              type="text"
+              placeholder="Título do projeto"
+              v-model="edit.title"
+            />
+          </div>
+          <div>
+            <label for="initialsTxt">Iniciais</label><br />
+            <input
+              id="initialsTxt"
+              type="text"
+              placeholder="Iniciais do projeto"
+              v-model="edit.initials"
+            />
+          </div>
+          <div>
+            <label for="referenceTxt">Referência</label><br />
+            <input
+              id="referenceTxt"
+              type="text"
+              placeholder="Referência do projeto"
+              v-model="edit.reference"
+            />
+          </div>
+          <div>
+            <label for="numberTxt">Contacto telefónico</label><br />
+            <input
+              id="numberTxt"
+              type="text"
+              max="9"
+              placeholder="Contacto telefónico"
+              v-model="edit.number"
+            />
+          </div>
+          <div>
+            <label for="emailTxt">Email</label><br />
+            <input
+              type="email"
+              id="emailTxt"
+              placeholder="E-mail"
+              v-model="edit.email"
+            />
+          </div>
+          <div>
+            <label for="sdTxt">Data de início</label><br />
+            <input
+              id="sdTxt"
+              type="date"
+              placeholder="Data de início"
+              v-model="edit.startDate"
+            />
+          </div>
+          <div>
+            <label for="edTxt">Data de término</label><br />
+            <input
+              type="date"
+              id="edTxt"
+              placeholder="Data de fim"
+              v-model="edit.endDate"
+            />
+          </div>
         </div>
 
         <h3 class="dashboard_subheader">
@@ -121,7 +158,7 @@
           Upload de pdf
         </label> -->
 
-        <h3 class="dashboard_subheader">
+        <!-- <h3 class="dashboard_subheader">
           Equipa de projeto
         </h3>
 
@@ -156,7 +193,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -180,7 +217,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="editProject">
             Confirm
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -207,7 +244,8 @@
             v-model="edit.reference"
           />
           <input
-            type="number"
+            type="text"
+            max="9"
             placeholder="Project mobile phone"
             v-model="edit.number"
           />
@@ -279,11 +317,11 @@
           PDF upload
         </label> -->
 
-        <h3 class="dashboard_subheader">
+        <!-- <h3 class="dashboard_subheader">
           Project team
-        </h3>
+        </h3> -->
 
-        <div class="projects_panel__form__team">
+        <!-- <div class="projects_panel__form__team">
           <div v-for="index in teamRows" :key="index">
             <div
               :id="index"
@@ -314,7 +352,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -393,12 +431,52 @@ export default {
     };
   },
   created() {
-    this.project = this.getProjectByID(this.getSelectedProjectByID);
-
-    this.content = this.project.description;
-    this.contentEN = this.project.description;
+    this.project = this.getAdminProjectById(this.getAdminSelectedProjectId);
 
     console.log(this.project);
+
+    this.edit.title = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).title;
+
+    this.edit.initials = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).initials;
+
+    this.edit.reference = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).reference;
+
+    this.edit.number = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).project_contact;
+
+    this.edit.email = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).project_email;
+
+    this.edit.startDate = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).start_date;
+
+    this.edit.endDate = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).end_date;
+
+    this.edit.contentPt = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).desc_html_structure_pt;
+
+    this.edit.contentEn = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).desc_html_structure_eng;
+
+    console.log(
+      this.edit.number,
+      this.edit.email,
+      this.edit.startDate,
+      this.edit.endDate
+    );
 
     // THE NEXT FOLLOWING LINE IS JUST FOR TESTING REASONS
     this.images = [
@@ -419,7 +497,7 @@ export default {
     // this.styleEditorHeight();
   },
   computed: {
-    ...mapGetters(["getSelectedProjectByID", "getProjectByID"]),
+    ...mapGetters(["getAdminSelectedProjectId", "getAdminProjectById"]),
     teamRowsLength() {
       let length = this.teamRows.length;
 
@@ -439,6 +517,33 @@ export default {
     }
   },
   methods: {
+    async editProject() {
+      this.$store.commit("SET_PROJECTS_EDIT_FORM", {
+        title: this.edit.title,
+        initials: this.edit.initials,
+        reference: this.edit.reference,
+        desc_html_structure_eng: this.edit.contentEn,
+        desc_html_structure_pt: this.edit.contentPt,
+        start_date: this.edit.startDate,
+        end_date: this.edit.endDate,
+        project_contact: this.edit.number,
+        project_email: this.edit.email
+      });
+
+      console.log(this.edit.initials, this.edit.startDate, this.edit.number);
+
+      try {
+        await this.$store.dispatch("setAdminEditProjects");
+        await this.$store.dispatch("setAdminProjects");
+
+        this.notificationSuccess();
+      } catch (error) {
+        this.notificationError();
+        return error;
+      }
+
+      this.goBack();
+    },
     styleEditorHeight() {
       let height = document.querySelector(".area_edit_editor").offsetHeight;
 
@@ -465,17 +570,46 @@ export default {
         name: "DashboardProjects"
       });
     },
-    save() {
-      console.log(this.content);
+    notificationSuccess() {
+      this.$toast.success("Projeto adicionado com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
     },
-    addHtmlTeamRow(index) {
-      console.log(index);
-
-      this.teamRows.push(index + 1);
-    },
-    removeHtmlTeamRow(index) {
-      this.teamRows = this.teamRows.filter(row => row !== index);
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
     }
+    // addHtmlTeamRow(index) {
+    //   console.log(index);
+
+    //   this.teamRows.push(index + 1);
+    // },
+    // removeHtmlTeamRow(index) {
+    //   this.teamRows = this.teamRows.filter(row => row !== index);
+    // }
   }
 };
 </script>

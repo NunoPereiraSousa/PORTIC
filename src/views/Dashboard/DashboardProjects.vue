@@ -112,10 +112,10 @@
 
       <div class="admin_courses__panel__grid grid" v-show="currentTab === 0">
         <DashboardProjectsCard
-          v-for="project in searchFilter"
-          :key="project.id"
-          :id="project.id"
-          :counter="project.id"
+          v-for="(project, index) in searchFilter"
+          :key="project.id_project"
+          :id="project.id_project"
+          :counter="index + 1"
           :projectName="project.initials"
         />
       </div>

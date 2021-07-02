@@ -158,6 +158,17 @@ export const adminModule = {
       pdf_path: null
     },
     addProjectStatus: null,
+    editProjectForm: {
+      title: null,
+      initials: null,
+      reference: null,
+      desc_html_structure_eng: null,
+      desc_html_structure_pt: null,
+      start_date: null,
+      end_date: null,
+      project_contact: null,
+      project_email: null
+    },
 
     // UNITS
     units: [],
@@ -398,6 +409,22 @@ export const adminModule = {
     },
     SET_PROJECTS_ADD_STATUS(state, payload) {
       state.addProjectStatus = payload.status;
+    },
+    SET_PROJECTS_EDIT_FORM(state, payload) {
+      state.editProjectForm.title = payload.title;
+      state.editProjectForm.initials = payload.initials;
+      state.editProjectForm.reference = payload.reference;
+      state.editProjectForm.desc_html_structure_eng =
+        payload.desc_html_structure_eng;
+      state.editProjectForm.desc_html_structure_pt =
+        payload.desc_html_structure_pt;
+      state.editProjectForm.start_date = payload.start_date;
+      state.editProjectForm.end_date = payload.end_date;
+      state.editProjectForm.project_contact = payload.project_contact;
+      state.editProjectForm.project_email = payload.project_email;
+    },
+    SET_PROJECTS_EDIT_STATUS(state, payload) {
+      state.editProjectStatus = payload.status;
     },
 
     // UNITS MUTATIONS
@@ -749,6 +776,24 @@ export const adminModule = {
         )
       );
     },
+    async setAdminEditProjects({ commit, state }) {
+      commit(
+        "SET_PROJECTS_EDIT_STATUS",
+        await adminProjectsConfig.editProject(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.editProjectForm.title,
+          state.editProjectForm.initials,
+          state.editProjectForm.reference,
+          state.editProjectForm.desc_html_structure_eng,
+          state.editProjectForm.desc_html_structure_pt,
+          state.editProjectForm.start_date,
+          state.editProjectForm.end_date,
+          state.editProjectForm.project_contact,
+          state.editProjectForm.project_email
+        )
+      );
+    },
 
     // UNITS ACTIONS
     async setAdminUnits({ commit }) {
@@ -892,7 +937,7 @@ export const adminModule = {
     },
     getAdminSelectedProjectId: state => state.selectedProjectId,
     getAdminProjectById: state => id =>
-      state.projects.find(unit => unit.id_project === id),
+      state.projects.find(project => project.id_project === id),
 
     // UNITS GETTERS
     getAdminUnits: state => (state.units != "" ? state.units : []),
