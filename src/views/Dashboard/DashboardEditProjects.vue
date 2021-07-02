@@ -232,34 +232,70 @@
         </h3>
 
         <div class="projects_panel__form__inputs flex">
-          <input type="text" placeholder="Project title" v-model="edit.title" />
-          <input
-            type="text"
-            placeholder="Project initials"
-            v-model="edit.initials"
-          />
-          <input
-            type="text"
-            placeholder="Project reference"
-            v-model="edit.reference"
-          />
-          <input
-            type="text"
-            max="9"
-            placeholder="Project mobile phone"
-            v-model="edit.number"
-          />
-          <input
-            type="email"
-            placeholder="Project e-mail"
-            v-model="edit.email"
-          />
-          <input
-            type="date"
-            placeholder="Starting date"
-            v-model="edit.startDate"
-          />
-          <input type="date" placeholder="Ending date" v-model="edit.endDate" />
+          <div>
+            <label for="titleTxt2">Título</label><br />
+            <input
+              id="titleTxt2"
+              type="text"
+              placeholder="Project title"
+              v-model="edit.title"
+            />
+          </div>
+          <div>
+            <label for="initialsTxt2">Iniciais</label><br />
+            <input
+              id="initialsTxt2"
+              type="text"
+              placeholder="Project initials"
+              v-model="edit.initials"
+            />
+          </div>
+          <div>
+            <label for="referenceTxt2">Referência</label><br />
+            <input
+              id="referenceTxt2"
+              type="text"
+              placeholder="Project reference"
+              v-model="edit.reference"
+            />
+          </div>
+          <div>
+            <label for="numberTxt2">Contacto telefónico</label><br />
+            <input
+              id="numberTxt2"
+              type="text"
+              max="9"
+              placeholder="Project mobile phone"
+              v-model="edit.number"
+            />
+          </div>
+          <div>
+            <label for="emailTxt2">Email</label><br />
+            <input
+              type="email"
+              id="emailTxt2"
+              placeholder="E-mail"
+              v-model="edit.email"
+            />
+          </div>
+          <div>
+            <label for="sdTxt2">Data de início</label><br />
+            <input
+              id="sdTxt2"
+              type="date"
+              placeholder="Starting date"
+              v-model="edit.startDate"
+            />
+          </div>
+          <div>
+            <label for="edTxt2">Data de término</label><br />
+            <input
+              type="date"
+              id="edTxt2"
+              placeholder="Ending date"
+              v-model="edit.endDate"
+            />
+          </div>
         </div>
 
         <h3 class="dashboard_subheader">
@@ -433,8 +469,6 @@ export default {
   created() {
     this.project = this.getAdminProjectById(this.getAdminSelectedProjectId);
 
-    console.log(this.project);
-
     this.edit.title = this.getAdminProjectById(
       this.getAdminSelectedProjectId
     ).title;
@@ -471,13 +505,6 @@ export default {
       this.getAdminSelectedProjectId
     ).desc_html_structure_eng;
 
-    console.log(
-      this.edit.number,
-      this.edit.email,
-      this.edit.startDate,
-      this.edit.endDate
-    );
-
     // THE NEXT FOLLOWING LINE IS JUST FOR TESTING REASONS
     this.images = [
       "https://wp.zillowstatic.com/streeteasy/2/Amazon-building-10b3c7.jpg",
@@ -511,8 +538,6 @@ export default {
         length = images.length;
       }
 
-      console.log(length);
-
       return length;
     }
   },
@@ -530,8 +555,6 @@ export default {
         project_email: this.edit.email
       });
 
-      console.log(this.edit.initials, this.edit.startDate, this.edit.number);
-
       try {
         await this.$store.dispatch("setAdminEditProjects");
         await this.$store.dispatch("setAdminProjects");
@@ -546,8 +569,6 @@ export default {
     },
     styleEditorHeight() {
       let height = document.querySelector(".area_edit_editor").offsetHeight;
-
-      console.log(height);
 
       let toolbar = document.querySelector(".ql-toolbar");
       let editor = document.querySelector(".ql-editor");
@@ -571,7 +592,7 @@ export default {
       });
     },
     notificationSuccess() {
-      this.$toast.success("Projeto adicionado com sucesso!", {
+      this.$toast.success("Projeto editado com sucesso!", {
         position: "top-right",
         timeout: 3000,
         closeOnClick: true,

@@ -34,9 +34,13 @@
           ><br />
           <select v-model="status" id="status">
             <option value="">{{ $t("projects.input.status") }}</option>
-            <option value="completed">Not Started</option>
-            <option value="underDev">Under development</option>
-            <option value="finished">Finished</option>
+            <option value="completed" style="color: #28aa2d"
+              >Not Started</option
+            >
+            <option value="underDev" style="color: #eecb5a"
+              >Under development
+            </option>
+            <option value="finished" style="color: #ee5a5a">Finished </option>
           </select>
         </div>
         <!-- <div>
@@ -158,9 +162,16 @@ export default {
       }
     },
     setStatus(start_date, end_date) {
-      if (start_date < end_date) {
+      // console.log(start_date);
+      if (
+        start_date < this.getCurrentDate() &&
+        end_date > this.getCurrentDate()
+      ) {
         return "finished";
-      } else if (start_date > end_date) {
+      } else if (
+        start_date > this.getCurrentDate() &&
+        end_date < this.getCurrentDate()
+      ) {
         return "completed";
       } else {
         return "underDev";

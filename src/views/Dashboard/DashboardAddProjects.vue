@@ -22,7 +22,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addProject">
             Confirmar
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -37,33 +37,70 @@
         </h3>
 
         <div class="projects_panel__form__inputs flex">
-          <input
-            type="text"
-            placeholder="Título do projeto"
-            v-model="add.title"
-          />
-          <input
-            type="text"
-            placeholder="Iniciais do projeto"
-            v-model="add.initials"
-          />
-          <input
-            type="text"
-            placeholder="Referência do projeto"
-            v-model="add.reference"
-          />
-          <input
-            type="number"
-            placeholder="Contacto telefónico"
-            v-model="add.number"
-          />
-          <input type="email" placeholder="E-mail" v-model="add.email" />
-          <input
-            type="date"
-            placeholder="Data de início"
-            v-model="add.startDate"
-          />
-          <input type="date" placeholder="Data de fim" v-model="add.endDate" />
+          <div>
+            <label for="titleTxt">Título</label><br />
+            <input
+              id="titleTxt"
+              type="text"
+              placeholder="Título do projeto"
+              v-model="add.title"
+            />
+          </div>
+          <div>
+            <label for="initialsTxt">Iniciais</label><br />
+            <input
+              id="initialsTxt"
+              type="text"
+              placeholder="Iniciais do projeto"
+              v-model="add.initials"
+            />
+          </div>
+          <div>
+            <label for="referenceTxt">Referência</label><br />
+            <input
+              id="referenceTxt"
+              type="text"
+              placeholder="Referência do projeto"
+              v-model="add.reference"
+            />
+          </div>
+          <div>
+            <label for="numberTxt">Contacto telefónico</label><br />
+            <input
+              id="numberTxt"
+              type="text"
+              max="9"
+              placeholder="Contacto telefónico"
+              v-model="add.number"
+            />
+          </div>
+          <div>
+            <label for="emailTxt">Email</label><br />
+            <input
+              type="email"
+              id="emailTxt"
+              placeholder="E-mail"
+              v-model="add.email"
+            />
+          </div>
+          <div>
+            <label for="sdTxt">Data de início</label><br />
+            <input
+              id="sdTxt"
+              type="date"
+              placeholder="Data de início"
+              v-model="add.startDate"
+            />
+          </div>
+          <div>
+            <label for="edTxt">Data de término</label><br />
+            <input
+              type="date"
+              id="edTxt"
+              placeholder="Data de fim"
+              v-model="add.endDate"
+            />
+          </div>
         </div>
 
         <h3 class="dashboard_subheader">
@@ -72,7 +109,7 @@
 
         <div class="area_edit_editor margin_bottom">
           <quill-editor
-            v-model="add.ContentPt"
+            v-model="add.contentPt"
             :options="editorOption"
             ref="quillEditor"
           >
@@ -153,7 +190,7 @@
           </h3>
         </div>
         <div>
-          <button class="edit_confirm_button" @click="save">
+          <button class="edit_confirm_button" @click="addProject">
             Confirm
           </button>
           <button class="edit_cancel_button" @click="goBack">
@@ -168,33 +205,70 @@
         </h3>
 
         <div class="projects_panel__form__inputs flex">
-          <input type="text" placeholder="Project title" v-model="add.title" />
-          <input
-            type="text"
-            placeholder="Project initials"
-            v-model="add.initials"
-          />
-          <input
-            type="text"
-            placeholder="Project reference"
-            v-model="add.reference"
-          />
-          <input
-            type="number"
-            placeholder="Project mobile phone"
-            v-model="add.number"
-          />
-          <input
-            type="email"
-            placeholder="Project e-mail"
-            v-model="add.email"
-          />
-          <input
-            type="date"
-            placeholder="Starting date"
-            v-model="add.startDate"
-          />
-          <input type="date" placeholder="Ending date" v-model="add.endDate" />
+          <div>
+            <label for="titleTxt2">Título</label><br />
+            <input
+              id="titleTxt2"
+              type="text"
+              placeholder="Project title"
+              v-model="add.title"
+            />
+          </div>
+          <div>
+            <label for="initialsTxt2">Iniciais</label><br />
+            <input
+              id="initialsTxt2"
+              type="text"
+              placeholder="Project initials"
+              v-model="add.initials"
+            />
+          </div>
+          <div>
+            <label for="referenceTxt2">Referência</label><br />
+            <input
+              id="referenceTxt2"
+              type="text"
+              placeholder="Project reference"
+              v-model="add.reference"
+            />
+          </div>
+          <div>
+            <label for="numberTxt2">Contacto telefónico</label><br />
+            <input
+              id="numberTxt2"
+              type="text"
+              max="9"
+              placeholder="Project mobile phone"
+              v-model="add.number"
+            />
+          </div>
+          <div>
+            <label for="emailTxt2">Email</label><br />
+            <input
+              type="email"
+              id="emailTxt2"
+              placeholder="E-mail"
+              v-model="add.email"
+            />
+          </div>
+          <div>
+            <label for="sdTxt2">Data de início</label><br />
+            <input
+              id="sdTxt2"
+              type="date"
+              placeholder="Starting date"
+              v-model="add.startDate"
+            />
+          </div>
+          <div>
+            <label for="edTxt2">Data de término</label><br />
+            <input
+              type="date"
+              id="edTxt2"
+              placeholder="Ending date"
+              v-model="add.endDate"
+            />
+          </div>
         </div>
 
         <h3 class="dashboard_subheader">
@@ -342,6 +416,35 @@ export default {
     }
   },
   methods: {
+    async addProject() {
+      this.$store.commit("SET_PROJECTS_ADD_FORM", {
+        title: this.add.title,
+        initials: this.add.initials,
+        reference: this.add.reference,
+        desc_html_structure_eng: this.add.contentEn,
+        desc_html_structure_pt: this.add.contentPt,
+        project_contact: this.add.number,
+        project_email: this.add.email,
+        start_date: this.add.startDate,
+        end_date: this.add.endDate,
+        pdf_path: this.add.pdf
+      });
+
+      console.log("add");
+
+      try {
+        await this.$store.dispatch("setAdminAddProjects");
+        await this.$store.dispatch("setAdminProjects");
+
+        // this.notificationSuccess();
+      } catch (error) {
+        console.log(error);
+        // this.notificationError();
+        return error;
+      }
+
+      this.goBack();
+    },
     styleEditorHeight() {
       let height = document.querySelector(".area_edit_editor").offsetHeight;
 
@@ -359,14 +462,13 @@ export default {
     uploadPdf(e) {
       const pdf = e.target.files[0];
       this.add.pdf = pdf;
+
+      console.log(this.add.pdf);
     },
     goBack() {
       this.$router.push({
         name: "DashboardProjects"
       });
-    },
-    save() {
-      console.log(this.content);
     },
     addHtmlTeamRow(index) {
       console.log(index);
@@ -375,6 +477,38 @@ export default {
     },
     removeHtmlTeamRow(index) {
       this.teamRows = this.teamRows.filter(row => row !== index);
+    },
+    notificationSuccess() {
+      this.$toast.success("Projeto editado com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
     }
   }
 };

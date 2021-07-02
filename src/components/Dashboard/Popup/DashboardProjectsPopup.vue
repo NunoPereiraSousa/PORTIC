@@ -1,12 +1,14 @@
 <template>
   <div class="admin_projects__popup admin_delete_popup">
     <h2>
-      Tem a certeza que pretende eliminar o curso <br />
+      Tem a certeza que pretende eliminar o projeto <br />
       <span>{{ projectName }}</span>
     </h2>
 
     <div class="flex flex-ai-c flex-jc-sb">
-      <button class="admin_delete_popup__confirm">Confimar</button>
+      <button class="admin_delete_popup__confirm" @click="deleteProject">
+        Confimar
+      </button>
       <button class="admin_delete_popup__cancel" @click="closePopup">
         Cancelar
       </button>
@@ -29,6 +31,16 @@ export default {
     ...mapGetters(["getSelectedProjectByID", "getProjectByID"])
   },
   methods: {
+    async deleteProject() {
+      try {
+        await this.$store.dispatch("setAdminDeleteProject");
+        await this.$store.dispatch("setAdminProjects");
+      } catch (error) {
+        return error;
+      }
+
+      this.closePopup();
+    },
     closePopup() {
       let overlay = document.querySelector(".admin_projects__panel__overlay");
       let popup = document.querySelector(".admin_delete_popup");

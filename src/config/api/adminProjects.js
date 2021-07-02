@@ -15,14 +15,12 @@ export const adminProjectsConfig = {
     return await axios
       .get(`${API_URL}/projects`, config)
       .then(response => {
-        console.log(response.data.processResult);
         return {
           projects: response.data.processResult,
           status: response.status
         };
       })
       .catch(error => {
-        console.log(error);
         return error;
       });
   },
@@ -58,6 +56,19 @@ export const adminProjectsConfig = {
     data.append("start_date", start_date);
     data.append("end_date", end_date);
     data.append("pdf_path", pdf_path);
+
+    console.log(
+      title,
+      initials,
+      reference,
+      desc_html_structure_eng,
+      desc_html_structure_pt,
+      project_contact,
+      project_email,
+      start_date,
+      end_date,
+      pdf_path
+    );
 
     return await axios
       .post(`${API_URL}/projects`, data, config)
@@ -104,20 +115,29 @@ export const adminProjectsConfig = {
     data.append("project_contact", project_contact);
     data.append("project_email", project_email);
 
-    console.log(
-      title,
-      initials,
-      reference,
-      desc_html_structure_eng,
-      desc_html_structure_pt,
-      start_date,
-      end_date,
-      project_contact,
-      project_email
-    );
-
     return await axios
       .put(`${API_URL}/projects/${id}`, data, config)
+      .then(response => {
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        return error;
+      });
+  },
+  deleteProject: async (token, id) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    console.log(id);
+
+    return await axios
+      .delete(`${API_URL}/projects/${id}`, config)
       .then(response => {
         console.log(response.status);
         return {
@@ -125,32 +145,10 @@ export const adminProjectsConfig = {
         };
       })
       .catch(error => {
-        console.log(error);
+        console.error(error);
         return error;
       });
   }
-
-  // deleteArea: async (token, id) => {
-  //   let config = {
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //       authorization: `Bearer ${token}`
-  //     }
-  //   };
-
-  //   console.log(id);
-
-  //   return await axios
-  //     .delete(`${API_URL}/areas/${id}`, config)
-  //     .then(response => {
-  //       return {
-  //         status: response.status
-  //       };
-  //     })
-  //     .catch(error => {
-  //       return error;
-  //     });
-  // },
   // getAreasFocus: async token => {
   //   let config = {
   //     headers: {

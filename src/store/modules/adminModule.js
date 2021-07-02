@@ -169,6 +169,7 @@ export const adminModule = {
       project_contact: null,
       project_email: null
     },
+    deleteProjectStatus: null,
 
     // UNITS
     units: [],
@@ -406,9 +407,13 @@ export const adminModule = {
       state.addProjectForm.start_date = payload.start_date;
       state.addProjectForm.end_date = payload.end_date;
       state.addProjectForm.pdf_path = payload.pdf_path;
+
+      console.log(state.addProjectForm);
     },
     SET_PROJECTS_ADD_STATUS(state, payload) {
       state.addProjectStatus = payload.status;
+
+      console.log(state.addProjectStatus);
     },
     SET_PROJECTS_EDIT_FORM(state, payload) {
       state.editProjectForm.title = payload.title;
@@ -425,6 +430,9 @@ export const adminModule = {
     },
     SET_PROJECTS_EDIT_STATUS(state, payload) {
       state.editProjectStatus = payload.status;
+    },
+    SET_PROJECTS_DELETE_STATUS(state, payload) {
+      state.deleteProjectStatus = payload.status;
     },
 
     // UNITS MUTATIONS
@@ -791,6 +799,15 @@ export const adminModule = {
           state.editProjectForm.end_date,
           state.editProjectForm.project_contact,
           state.editProjectForm.project_email
+        )
+      );
+    },
+    async setAdminDeleteProject({ commit, state }) {
+      commit(
+        "SET_PROJECTS_DELETE_STATUS",
+        await adminProjectsConfig.deleteProject(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId
         )
       );
     },

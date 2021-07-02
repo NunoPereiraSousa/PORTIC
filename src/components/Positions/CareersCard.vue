@@ -17,8 +17,8 @@
     </div>
 
     <ul class="categories">
-      <li v-for="category in categories" :key="category.id">
-        {{ category.designation }}
+      <li v-for="category in categories" :key="category">
+        {{ category === null ? "..." : category }}
       </li>
     </ul>
 

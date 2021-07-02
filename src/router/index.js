@@ -73,7 +73,7 @@ const routes = [
     component: Media
   },
   {
-    path: "/positions",
+    path: "/careers",
     name: "Positions",
     component: Positions
   },

@@ -205,14 +205,14 @@ export default {
   },
   computed: {
     ...mapGetters([
-      "getSelectedProjectByID",
-      "getProjectByID",
+      "getAdminSelectedProjectId",
+      "getAdminProjectById",
       "getAdminProjects"
     ]),
     projectName() {
-      let id = this.getSelectedProjectByID;
+      let id = this.getAdminSelectedProjectId;
 
-      let project = this.getProjectByID(id);
+      let project = this.getAdminProjectById(id);
 
       let name;
 
