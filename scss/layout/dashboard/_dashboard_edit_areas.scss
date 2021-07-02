@@ -308,6 +308,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         height: 34vh;
+        width: 20vw;
 
         &__actions {
           width: 100%;
@@ -382,6 +383,10 @@ input[type="file"] {
       row-gap: 2rem;
     }
   }
+}
+
+.projects_panel__form__images {
+  grid-template-columns: 1fr 1fr 1fr !important;
 }
 
 .admin_actions_panel__form.careers {

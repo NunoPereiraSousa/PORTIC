@@ -189,6 +189,194 @@ export const adminProjectsConfig = {
         console.log(error);
         return error;
       });
+  },
+  deleteProjectImg: async (token, id, id_picture) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .delete(`${API_URL}/projects/${id}/pictures/${id_picture}`, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
+  },
+  addPartner: async (token, id, investor_name, file) => {
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    let data = new FormData();
+    data.append("investor_name", investor_name);
+    data.append("file", file);
+
+    console.log(id, investor_name, file);
+
+    return await axios
+      .post(`${API_URL}/projects/${id}/investors`, data, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
+  },
+  deletePartner: async (token, id, id_investor) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    console.log(id, id_investor);
+
+    return await axios
+      .delete(`${API_URL}/projects/${id}/investors/${id_investor}`, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
+  },
+  addProjectNews: async (
+    token,
+    id,
+    title_pt,
+    title_eng,
+    description_pt,
+    description_eng,
+    published_date,
+    file
+  ) => {
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    let data = new FormData();
+    data.append("title_pt", title_pt);
+    data.append("title_eng", title_eng);
+    data.append("description_pt", description_pt);
+    data.append("description_eng", description_eng);
+    data.append("published_date", published_date);
+    data.append("file", file);
+
+    return await axios
+      .post(`${API_URL}/projects/${id}/news`, data, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
+  },
+  addProjectTeam: async (token, id, name, can_edit) => {
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .post(
+        `${API_URL}/projects/${id}/members`,
+        {
+          name: name,
+          can_edit: can_edit
+        },
+        config
+      )
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
+  },
+  editProjectTeamMember: async (token, id, id_team_member, can_edit) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    console.log(id, id_team_member, can_edit);
+
+    return await axios
+      .patch(
+        `${API_URL}/projects/${id}/members/${id_team_member}`,
+        {
+          can_edit: can_edit
+        },
+        config
+      )
+      .then(response => {
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        return error;
+      });
+  },
+  deleteProjectTeamMember: async (token, id, id_team_member) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    console.log(id, id_team_member);
+
+    return await axios
+      .delete(`${API_URL}/projects/${id}/members/${id_team_member}`, config)
+      .then(response => {
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        return error;
+      });
   }
   // addAreaFocus: async (token, file, description_pt, description_eng) => {
   //   let config = {

@@ -1,5 +1,5 @@
 <template>
-  <div class="admin_focus__popup admin_add_focus_popup">
+  <div class="admin_add_focus_popup admin_add_focus_popup">
     <h2>
       Adicionar um novo focus
     </h2>

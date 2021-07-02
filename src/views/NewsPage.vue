@@ -60,6 +60,7 @@ export default {
       return `background-image: url('${this.getCurrentNews.cover}')`;
     },
     getCurrentNews() {
+      console.log(this.$store.getters.getNews);
       let selectedNews = this.$store.getters.getNews;
       console.log(
         selectedNews.find(n => n.id_news === this.getSelectedNewsId).title

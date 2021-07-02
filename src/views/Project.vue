@@ -106,11 +106,6 @@
             :content="news.description"
             :date="news.published_date"
           />
-          <SlidePanel
-            :title="newsSelectedTitle"
-            :content="newsSelectedContent"
-            :author="author"
-          />
         </div>
       </section>
       <section class="project__team">
@@ -135,7 +130,6 @@
 import SubHeaderTitle from "@/components/SubHeaderTitle.vue";
 import Slide from "@/components/Project/Slide.vue";
 import NewsCard from "@/components/NewsCard.vue";
-import SlidePanel from "@/components/SlidePanel.vue";
 import TeamCard from "@/components/Project/TeamCard.vue";
 import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
@@ -148,7 +142,6 @@ export default {
     Slide,
     NewsCard,
     TeamCard,
-    SlidePanel,
     Footer,
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide
@@ -235,8 +228,7 @@ export default {
       return images > 0 ? true : false;
     },
     checkNewsExistence() {
-      let news = this.project.news.length;
-      console.log(news);
+      let news = this.getCurrentProjects.news.length;
 
       return news > 0 ? true : false;
     }

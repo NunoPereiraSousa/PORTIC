@@ -7747,12 +7747,24 @@ button:focus {
   font-weight: 400;
   margin-top: 1rem;
   font-size: 1.125rem;
+  text-align: center;
 }
 
 .project__team__grid__card a {
   margin-top: 0.2rem;
   font-size: 1rem;
   color: #666666;
+  text-align: center;
+}
+
+.project__team__grid__card .remove_button {
+  background-color: #c94d24;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  border: none;
+  padding: 0.6rem 1rem;
 }
 
 .slide__panel {
@@ -8838,6 +8850,7 @@ button:focus {
   .admin_tn__panel__grid__card__remove,
   .admin_tn__panel__grid__card__block {
     font-size: 1.0625rem;
+    width: 8.5rem;
   }
 }
 
@@ -8996,8 +9009,10 @@ button:focus {
 .admin_add_focus_popup,
 .admin_edit_focus_popup,
 .admin_delete_focus_popup,
-.admin_edit_img_focus_popup {
-  position: absolute;
+.admin_edit_img_focus_popup,
+.add_partner,
+.add_team {
+  position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -9020,7 +9035,9 @@ button:focus {
 .admin_add_focus_popup.show_popup,
 .admin_edit_focus_popup.show_popup,
 .admin_delete_focus_popup.show_popup,
-.admin_edit_img_focus_popup.show_popup {
+.admin_edit_img_focus_popup.show_popup,
+.add_partner.show_popup,
+.add_team.show_popup {
   opacity: 1;
   visibility: visible;
 }
@@ -9031,7 +9048,9 @@ button:focus {
 .admin_add_focus_popup h2,
 .admin_edit_focus_popup h2,
 .admin_delete_focus_popup h2,
-.admin_edit_img_focus_popup h2 {
+.admin_edit_img_focus_popup h2,
+.add_partner h2,
+.add_team h2 {
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 1.8;
@@ -9044,7 +9063,9 @@ button:focus {
 .admin_add_focus_popup h2 span,
 .admin_edit_focus_popup h2 span,
 .admin_delete_focus_popup h2 span,
-.admin_edit_img_focus_popup h2 span {
+.admin_edit_img_focus_popup h2 span,
+.add_partner h2 span,
+.add_team h2 span {
   color: #c94d24;
   font-weight: 500;
 }
@@ -9055,7 +9076,9 @@ button:focus {
 .admin_add_focus_popup hr,
 .admin_edit_focus_popup hr,
 .admin_delete_focus_popup hr,
-.admin_edit_img_focus_popup hr {
+.admin_edit_img_focus_popup hr,
+.add_partner hr,
+.add_team hr {
   margin: 2rem auto 4rem;
   background-color: #999999;
   height: 1.5px;
@@ -9075,7 +9098,11 @@ button:focus {
 .admin_delete_focus_popup__confirm,
 .admin_delete_focus_popup__cancel,
 .admin_edit_img_focus_popup__confirm,
-.admin_edit_img_focus_popup__cancel {
+.admin_edit_img_focus_popup__cancel,
+.add_partner__confirm,
+.add_partner__cancel,
+.add_team__confirm,
+.add_team__cancel {
   padding: 10px 30px;
   border-radius: 10px;
   font-size: 0.9375rem;
@@ -9087,7 +9114,9 @@ button:focus {
 .admin_add_focus_popup__confirm,
 .admin_edit_focus_popup__confirm,
 .admin_delete_focus_popup__confirm,
-.admin_edit_img_focus_popup__confirm {
+.admin_edit_img_focus_popup__confirm,
+.add_partner__confirm,
+.add_team__confirm {
   margin-right: 40px;
   border: 1px solid #c94d24;
   background-color: #c94d24;
@@ -9100,7 +9129,9 @@ button:focus {
 .admin_add_focus_popup__cancel,
 .admin_edit_focus_popup__cancel,
 .admin_delete_focus_popup__cancel,
-.admin_edit_img_focus_popup__cancel {
+.admin_edit_img_focus_popup__cancel,
+.add_partner__cancel,
+.add_team__cancel {
   border: 1px solid #080808;
   background-color: transparent;
   color: #080808;
@@ -9138,19 +9169,25 @@ button:focus {
 
 .admin_add_focus_popup h2,
 .admin_edit_focus_popup h2,
-.admin_edit_img_focus_popup h2 {
+.admin_edit_img_focus_popup h2,
+.add_partner h2,
+.add_team h2 {
   margin-bottom: 2rem;
 }
 
 .admin_add_focus_popup .form,
 .admin_edit_focus_popup .form,
-.admin_edit_img_focus_popup .form {
+.admin_edit_img_focus_popup .form,
+.add_partner .form,
+.add_team .form {
   text-align: left;
 }
 
 .admin_add_focus_popup input,
 .admin_edit_focus_popup input,
-.admin_edit_img_focus_popup input {
+.admin_edit_img_focus_popup input,
+.add_partner input,
+.add_team input {
   margin: 1rem 0;
   width: 100%;
   padding: 12px 26px;
@@ -9161,7 +9198,9 @@ button:focus {
 
 .admin_add_focus_popup input:last-child,
 .admin_edit_focus_popup input:last-child,
-.admin_edit_img_focus_popup input:last-child {
+.admin_edit_img_focus_popup input:last-child,
+.add_partner input:last-child,
+.add_team input:last-child {
   margin-bottom: 4rem;
 }
 
@@ -9238,7 +9277,7 @@ button:focus {
   /* Handle on hover */
 }
 
-.admin_projects__panel__overlay, .admin_projects__panel__overlay2, .admin_projects__panel__overlay_slide, .admin_projects__panel__overlay_add {
+.admin_projects__panel__overlay, .admin_projects__panel__overlay2, .admin_projects__panel__overlay3, .admin_projects__panel__overlay4, .admin_projects__panel__overlay5, .admin_projects__panel__overlay_slide, .admin_projects__panel__overlay_add {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -9252,7 +9291,7 @@ button:focus {
   transition: all 0.4s;
 }
 
-.admin_projects__panel__overlay2.show_overlay, .admin_projects__panel__overlay.show_overlay {
+.admin_projects__panel__overlay5.show_overlay, .admin_projects__panel__overlay4.show_overlay, .admin_projects__panel__overlay3.show_overlay, .admin_projects__panel__overlay2.show_overlay, .admin_projects__panel__overlay.show_overlay {
   opacity: 1;
   visibility: visible;
 }
@@ -9344,6 +9383,18 @@ button:focus {
 
 .admin_projects__panel ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(8, 8, 8, 0.1);
+}
+
+.investors__grid {
+  -ms-grid-columns: 1fr 1fr 1fr !important;
+      grid-template-columns: 1fr 1fr 1fr !important;
+  row-gap: 3rem;
+}
+
+.team__grid {
+  -ms-grid-columns: (1fr)[6] !important;
+      grid-template-columns: repeat(6, 1fr) !important;
+  row-gap: 3rem;
 }
 
 .admin_unities__panel {
@@ -9775,6 +9826,7 @@ button:focus {
   background-repeat: no-repeat;
   background-size: cover;
   height: 34vh;
+  width: 20vw;
 }
 
 .projects_panel__form__images__img__actions {
@@ -9845,6 +9897,11 @@ input[type="file"] {
 .admin_about__panel .admin_actions_panel__form__grid:last-child {
   padding-bottom: 4rem;
   row-gap: 2rem;
+}
+
+.projects_panel__form__images {
+  -ms-grid-columns: 1fr 1fr 1fr !important;
+      grid-template-columns: 1fr 1fr 1fr !important;
 }
 
 .admin_actions_panel__form.careers {
@@ -10095,6 +10152,53 @@ input[type="file"] {
 .admin_careers__panel__grid__card p li,
 .admin_tn__panel__grid__card p li {
   margin: 0;
+}
+
+.investor__card {
+  width: 100%;
+  padding: 2rem 3rem;
+  background-color: rgba(8, 8, 8, 0.02);
+  border-radius: 26px;
+}
+
+.investor__card.focus {
+  background-color: rgba(8, 8, 8, 0.15);
+}
+
+@media (min-width: 120em) {
+  .investor__card {
+    padding: 2.25rem 3.125rem;
+  }
+}
+
+.investor__card h2 {
+  font-weight: 400;
+  margin: 0;
+  color: #c94d24;
+  font-size: 1.125rem;
+}
+
+@media (min-width: 120em) {
+  .investor__card h2 {
+    font-size: 1.25rem;
+  }
+}
+
+.investor__card__remove {
+  background-color: rgba(153, 153, 153, 0.25);
+  color: #080808;
+  border-radius: 0.75rem;
+  border: none;
+  white-space: nowrap;
+  padding: 0.75rem 1.875rem;
+  font-family: "Porto Sans";
+  font-size: 1rem;
+}
+
+@media (min-width: 120em) {
+  .investor__card__remove {
+    font-size: 1.0625rem;
+  }
 }
 
 .admin_users__panel {

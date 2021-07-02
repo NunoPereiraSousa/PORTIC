@@ -39,7 +39,7 @@
             </h3>
             <input
               type="text"
-              placeholder="Nome da notícia"
+              placeholder="Título da notícia"
               v-model="add.titlePt"
             />
           </div>
@@ -47,10 +47,13 @@
             <h3 class="dashboard_subheader">
               Imagem da notícia
             </h3>
-            <label class="custom-file-upload">
-              <input type="file" @change="uploadImage" />
-              Image
-            </label>
+            <div class="flex">
+              <label class="custom-file-upload" style="margin-right: 2rem;">
+                <input type="file" @change="uploadImage" />
+                Image
+              </label>
+              {{ name }}
+            </div>
           </div>
         </div>
         <h3 class="dashboard_subheader">
@@ -98,9 +101,9 @@
 
       <div class="admin_actions_panel__form">
         <h3 class="dashboard_subheader">
-          News title
+          News name
         </h3>
-        <input type="text" placeholder="News title" v-model="add.titleEn" />
+        <input type="text" placeholder="Nome da área" v-model="add.titleEn" />
         <h3 class="dashboard_subheader">
           News information
         </h3>
@@ -128,6 +131,7 @@ export default {
     return {
       tabs: ["Português", "Inglês"],
       currentTab: 0,
+      name: "",
       add: {
         titlePt: "",
         titleEn: "",
@@ -210,28 +214,29 @@ export default {
     },
     goBack() {
       this.$router.push({
-        name: "DashboardTN"
+        name: "DashboardProjects"
       });
     },
     uploadImage(e) {
       const image = e.target.files[0];
       this.add.image = image;
+      this.name = image.name;
     },
     async addNews() {
       console.log(`${this.getDay}-${this.getMonth}-${this.getYear}`);
 
-      this.$store.commit("SET_ADMIN_ADD_NEWS", {
-        file: this.add.image,
+      this.$store.commit("SET_ADD_PROJECT_NEWS_FORM", {
         title_pt: this.add.titlePt,
         title_eng: this.add.titleEn,
         description_pt: this.add.contentPt,
         description_eng: this.add.contentEn,
-        published_date: `${this.getDay}-${this.getMonth}-${this.getYear}`
-        // project_only: 1
+        published_date: `${this.getDay}-${this.getMonth}-${this.getYear}`,
+        file: this.add.image
       });
 
       try {
-        await this.$store.dispatch("setAdminAddNews");
+        await this.$store.dispatch("setAdminAddProjectNews");
+        await this.$store.dispatch("setAdminProjects");
         await this.$store.dispatch("setAdminNews");
       } catch (error) {
         return error;

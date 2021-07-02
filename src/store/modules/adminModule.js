@@ -174,6 +174,32 @@ export const adminModule = {
     deleteProjectStatus: null,
     addImgStatus: null,
     images: [],
+    selectedProjectImg: null,
+    deleteImgStatus: null,
+    addPartnerStatus: null,
+    addPartnerForm: {
+      investor: null,
+      file: null
+    },
+    deletePartnerStatus: null,
+    selectedPartnerId: null,
+    addNewsProjectForm: {
+      title_pt: null,
+      title_eng: null,
+      description_pt: null,
+      description_eng: null,
+      published_date: null
+    },
+    addNewsProjectStatus: null,
+    addProjectTeamForm: {
+      name: null,
+      can_edit: null
+    },
+    editProjectTeamForm: {
+      can_edit: null
+    },
+    deleteTeamMemberStatus: null,
+    selectedTeamMemberId: null,
 
     // UNITS
     units: [],
@@ -445,6 +471,52 @@ export const adminModule = {
     },
     SET_ADD_PROJECTS_IMGS(state, payload) {
       state.images.push(payload.images);
+    },
+    SET_DELETE_PROJECT_IMG(state, payload) {
+      state.selectedProjectImg = payload.id;
+    },
+    SET_DELETE_PROJECTS_IMG_STATUS(state, payload) {
+      state.deleteImgStatus = payload.status;
+    },
+    SET_ADD_PROJECT_PARTNER_STATUS(state, payload) {
+      state.addPartnerStatus = payload.status;
+    },
+    SET_ADD_PROJECT_PARTNER_FORM(state, payload) {
+      state.addPartnerForm.investor = payload.investor;
+      state.addPartnerForm.file = payload.file;
+    },
+    SET_DELETE_PROJECT_PARTNER_STATUS(state, payload) {
+      state.deletePartnerStatus = payload.status;
+    },
+    SET_SELECTED_PARTNER_ID(state, payload) {
+      state.selectedPartnerId = payload.id;
+    },
+    SET_ADD_PROJECT_NEWS_FORM(state, payload) {
+      state.addNewsProjectForm.title_pt = payload.title_pt;
+      state.addNewsProjectForm.title_eng = payload.title_eng;
+      state.addNewsProjectForm.description_pt = payload.description_pt;
+      state.addNewsProjectForm.description_eng = payload.description_eng;
+      state.addNewsProjectForm.published_date = payload.published_date;
+      state.addNewsProjectForm.file = payload.file;
+    },
+    SET_ADD_NEWS_PROJECT_STATUS(state, payload) {
+      state.addNewsProjectStatus = payload.status;
+    },
+    SET_ADD_PROJECT_TEAM_STATUS(state, payload) {
+      state.addProjectTeamStatus = payload.status;
+    },
+    SET_ADD_PROJECT_TEAM_FORM(state, payload) {
+      state.addProjectTeamForm.name = payload.name;
+      state.addProjectTeamForm.can_edit = payload.can_edit;
+    },
+    SET_EDIT_PROJECT_TEAM_FORM(state, payload) {
+      state.editProjectTeamForm.can_edit = payload.can_edit;
+    },
+    SET_DELETE_PROJECT_TEAM_STATUS(state, payload) {
+      state.deleteTeamMemberStatus = payload.status;
+    },
+    SET_SELECTED_TEAM_MEMBER_ID(state, payload) {
+      state.selectedTeamMemberId = payload.id;
     },
 
     // UNITS MUTATIONS
@@ -840,6 +912,83 @@ export const adminModule = {
           JSON.parse(localStorage.getItem("token")),
           state.selectedProjectId,
           state.addProjectForm.images
+        )
+      );
+    },
+    async setAdminDeleteProjectImg({ commit, state }) {
+      commit(
+        "SET_DELETE_PROJECTS_IMG_STATUS",
+        await adminProjectsConfig.deleteProjectImg(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.selectedProjectImg
+        )
+      );
+    },
+    async setAdminAddProjectPartner({ commit, state }) {
+      commit(
+        "SET_ADD_PROJECT_PARTNER_STATUS",
+        await adminProjectsConfig.addPartner(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.addPartnerForm.investor,
+          state.addPartnerForm.file
+        )
+      );
+    },
+    async setAdminDeleteProjectPartner({ commit, state }) {
+      commit(
+        "SET_DELETE_PROJECT_PARTNER_STATUS",
+        await adminProjectsConfig.deletePartner(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.selectedPartnerId
+        )
+      );
+    },
+    async setAdminAddProjectNews({ commit, state }) {
+      commit(
+        "SET_DELETE_PROJECT_PARTNER_STATUS",
+        await adminProjectsConfig.addProjectNews(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.addNewsProjectForm.title_pt,
+          state.addNewsProjectForm.title_eng,
+          state.addNewsProjectForm.description_pt,
+          state.addNewsProjectForm.description_eng,
+          state.addNewsProjectForm.published_date,
+          state.addNewsProjectForm.file
+        )
+      );
+    },
+    async setAdminAddProjectTeam({ commit, state }) {
+      commit(
+        "SET_ADD_PROJECT_TEAM_STATUS",
+        await adminProjectsConfig.addProjectTeam(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.addProjectTeamForm.name,
+          state.addProjectTeamForm.can_edit
+        )
+      );
+    },
+    async setAdminEditProjectTeam({ commit, state }) {
+      commit(
+        "SET_ADD_PROJECT_TEAM_STATUS",
+        await adminProjectsConfig.editProjectTeamMember(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.editProjectTeamForm.can_edit
+        )
+      );
+    },
+    async setAdminDeleteProjectTeam({ commit, state }) {
+      commit(
+        "SET_DELETE_PROJECT_TEAM_STATUS",
+        await adminProjectsConfig.deleteProjectTeamMember(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.selectedTeamMemberId
         )
       );
     },

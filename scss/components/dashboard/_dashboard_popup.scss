@@ -4,8 +4,10 @@
 .admin_add_focus_popup,
 .admin_edit_focus_popup,
 .admin_delete_focus_popup,
-.admin_edit_img_focus_popup {
-  position: absolute;
+.admin_edit_img_focus_popup,
+.add_partner,
+.add_team {
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -103,7 +105,9 @@
 
 .admin_add_focus_popup,
 .admin_edit_focus_popup,
-.admin_edit_img_focus_popup {
+.admin_edit_img_focus_popup,
+.add_partner,
+.add_team {
   h2 {
     margin-bottom: 2rem;
   }

@@ -1,0 +1,43 @@
+.investor__card {
+  width: 100%;
+  padding: 2rem 3rem;
+
+  background-color: rgba($color: $black, $alpha: 0.02);
+  border-radius: 26px;
+
+  &.focus {
+    background-color: rgba($color: $black, $alpha: 0.15);
+  }
+
+  @include breakpoint-up(large) {
+    padding: 2.25rem 3.125rem;
+  }
+
+  h2 {
+    font-weight: 400;
+    margin: 0;
+    color: $orange;
+    font-size: $_18px;
+
+    @include breakpoint-up(large) {
+      font-size: $_20px;
+    }
+  }
+
+  &__remove {
+    background-color: rgba($color: $grey, $alpha: 0.25);
+    color: $black;
+    border-radius: 0.75rem;
+    border: none;
+    white-space: nowrap;
+
+    padding: 0.75rem 1.875rem;
+
+    font-family: $portoSans;
+    font-size: $_16px;
+
+    @include breakpoint-up(large) {
+      font-size: $_17px;
+    }
+  }
+}

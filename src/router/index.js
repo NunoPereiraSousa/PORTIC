@@ -32,6 +32,7 @@ import DashboardUsers from "../views/Dashboard/DashboardUsers.vue";
 import DashboardTN from "../views/Dashboard/DashboardTN.vue";
 import DashboardProjectFiles from "../views/Dashboard/DashboardProjectFiles.vue";
 import DashboardAddNews from "../views/Dashboard/DashboardAddNews.vue";
+import DashboardAddProjectNews from "../views/Dashboard/DashboardAddProjectNews.vue";
 import SignIn from "../views/Dashboard/SignIn.vue";
 import Register from "../views/Dashboard/Register.vue";
 import Home from "../views/Home.vue";
@@ -270,6 +271,11 @@ const routes = [
     path: "/dashboard-add-news",
     name: "DashboardAddNews",
     component: DashboardAddNews
+  },
+  {
+    path: "/dashboard-add-project-news",
+    name: "DashboardAddProjectNews",
+    component: DashboardAddProjectNews
   }
 ];
 

@@ -4,9 +4,13 @@
     <div class="admin_projects__panel">
       <div class="admin_projects__panel__overlay" @click="closePopup"></div>
       <div class="admin_projects__panel__overlay2" @click="closePopup2"></div>
+      <div class="admin_projects__panel__overlay4" @click="closePopup3"></div>
+      <div class="admin_projects__panel__overlay5" @click="closePopup4"></div>
 
       <DashboardProjectsPopup :projectName="projectName" />
       <DashboardAddImgPopup />
+      <DashboardAddPartner />
+      <DashboardAddTeam />
 
       <DashboardTopHeader />
 
@@ -114,10 +118,9 @@
 
       <div class="admin_courses__panel__grid grid" v-show="currentTab === 0">
         <DashboardProjectsCard
-          v-for="(project, index) in searchFilter"
+          v-for="project in searchFilter"
           :key="project.id_project"
           :id="project.id_project"
-          :counter="index + 1"
           :projectName="project.initials"
         />
       </div>
@@ -131,6 +134,8 @@ import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardProjectsCard from "@/components/Dashboard/DashboardProjectsCard.vue";
 import DashboardProjectsPopup from "@/components/Dashboard/Popup/DashboardProjectsPopup.vue";
 import DashboardAddImgPopup from "@/components/Dashboard/Popup/DashboardAddImgPopup.vue";
+import DashboardAddPartner from "@/components/Dashboard/Popup/DashboardAddPartner.vue";
+import DashboardAddTeam from "@/components/Dashboard/Popup/DashboardAddTeam.vue";
 
 import { mapGetters } from "vuex";
 
@@ -140,7 +145,9 @@ export default {
     DashboardTopHeader,
     DashboardProjectsPopup,
     DashboardProjectsCard,
-    DashboardAddImgPopup
+    DashboardAddImgPopup,
+    DashboardAddPartner,
+    DashboardAddTeam
   },
   data: () => {
     return {
@@ -204,7 +211,6 @@ export default {
     try {
       await this.$store.dispatch("setAdminProjects");
       console.log(this.getAdminProjects);
-      console.log(this.$store.getters.getProjectImgs);
     } catch (error) {
       return error;
     }
@@ -253,6 +259,20 @@ export default {
     closePopup2() {
       let overlay = document.querySelector(".admin_projects__panel__overlay2");
       let popup = document.querySelector(".editImg");
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
+    closePopup3() {
+      let overlay = document.querySelector(".admin_projects__panel__overlay4");
+      let popup = document.querySelector(".add_partner");
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
+    closePopup4() {
+      let overlay = document.querySelector(".admin_projects__panel__overlay5");
+
+      let popup = document.querySelector(".add_team");
+
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
     }

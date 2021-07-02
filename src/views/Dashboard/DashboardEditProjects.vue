@@ -1,6 +1,8 @@
 <template>
   <div class="admin_actions admin_projects_actions flex">
     <DashboardHeader />
+    <DashboardDeleteImgPopup />
+    <div class="admin_projects__panel__overlay3" @click="closePopup3"></div>
 
     <div class="admin_actions_panel projects_panel" v-show="currentTab === 0">
       <div class="admin_actions_panel__header flex flex-jc-sb flex-ai-c">
@@ -138,26 +140,27 @@
           </div>
         </div>
 
-        <!-- <h3 class="dashboard_subheader">
+        <h3 class="dashboard_subheader">
           Galeria & Ficha de projeto
-        </h3> -->
+        </h3>
 
-        <!-- <div
+        <div
           class="projects_panel__form__images grid"
           v-if="imagesArrLength > 0"
         >
           <div
-            v-for="image in images"
+            v-for="image in getImages"
             :key="image"
             class="projects_panel__form__images__img"
             :style="imageStyle(image)"
+            @click="openEditPopup(image)"
           >
             <div
-              class="projects_panel__form__images__img__actions flex flex-ai-c flex-jc-sb"
+              class="projects_panel__form__images__img__actions flex flex-ai-c flex-jc-c"
             >
-              <button class="projects_panel__form__images__img__actions__edit">
+              <!-- <button class="projects_panel__form__images__img__actions__edit">
                 Editar
-              </button>
+              </button> -->
               <button
                 class="projects_panel__form__images__img__actions__remove"
               >
@@ -168,7 +171,30 @@
         </div>
         <div v-else>
           <p>Não existem imagens associadas a este projeto</p>
-        </div> -->
+        </div>
+
+        <h3 class="dashboard_subheader" style="margin-top: 3rem">
+          Investidores
+        </h3>
+
+        <div class="investors__grid grid">
+          <InvestorsCard
+            v-for="investor in getInvestors"
+            :key="investor.id_investor"
+            :id="investor.id_investor"
+            :name="investor.designation"
+          />
+        </div>
+
+        <h3 class="dashboard_subheader" style="margin-top: 3rem">
+          Equipa de projeto
+        </h3>
+
+        <!-- NÃO ESQUECER DESTE COMPONENTE PARA EDITAR UM TEAM MEMBER -->
+
+        <div class="team__grid grid">
+          <DashboardTeamCard v-for="i in 8" :key="i" />
+        </div>
 
         <!-- <label class="custom-file-upload">
           <input type="file" @change="uploadImage" />
@@ -333,38 +359,6 @@
           </quill-editor>
         </div>
 
-        <!-- <h3 class="dashboard_subheader">
-          Galery & Project files
-        </h3> -->
-
-        <!-- <div
-          class="projects_panel__form__images grid"
-          v-if="imagesArrLength > 0"
-        >
-          <div
-            v-for="image in images"
-            :key="image"
-            class="projects_panel__form__images__img"
-            :style="imageStyle(image)"
-          >
-            <div
-              class="projects_panel__form__images__img__actions flex flex-ai-c flex-jc-sb"
-            >
-              <button class="projects_panel__form__images__img__actions__edit">
-                Edit
-              </button>
-              <button
-                class="projects_panel__form__images__img__actions__remove"
-              >
-                Remove
-              </button>
-            </div>
-          </div>
-        </div>
-        <div v-else>
-          <p>There are no images for this project</p>
-        </div> -->
-
         <!-- <label class="custom-file-upload">
           <input type="file" @change="uploadImage" />
           Images upload+
@@ -418,12 +412,19 @@
 
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
+import DashboardDeleteImgPopup from "@/components/Dashboard/Popup/DashboardDeleteImgPopup.vue";
+import InvestorsCard from "@/components/Dashboard/InvestorsCard.vue";
+import DashboardTeamCard from "@/components/Dashboard/DashboardTeamCard.vue";
+
 import { Glide, GlideSlide } from "vue-glide-js";
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     DashboardHeader,
+    DashboardDeleteImgPopup,
+    InvestorsCard,
+    DashboardTeamCard,
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide
   },
@@ -491,6 +492,8 @@ export default {
   created() {
     this.project = this.getAdminProjectById(this.getAdminSelectedProjectId);
 
+    console.log(this.getAdminProjectById(this.getAdminSelectedProjectId));
+
     this.edit.title = this.getAdminProjectById(
       this.getAdminSelectedProjectId
     ).title;
@@ -537,14 +540,6 @@ export default {
       "https://www.gannett-cdn.com/presto/2019/07/18/PSAL/4010fe7f-35e9-4108-9954-96f6f521bab1-AmazonFulfillmentCenter_ar_01.JPG?auto=webp&crop=2399,1349,x1,y86&format=pjpg&width=1200"
     ];
   },
-  mounted() {
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-    // let arr = document.querySelectorAll(".admin_actions_panel");
-    // arr.forEach(i => {
-    //   i.style.paddingLeft = `${navbar_width}px`;
-    // });
-    // this.styleEditorHeight();
-  },
   computed: {
     ...mapGetters(["getAdminSelectedProjectId", "getAdminProjectById"]),
     teamRowsLength() {
@@ -553,7 +548,8 @@ export default {
       return length;
     },
     imagesArrLength() {
-      let images = this.images;
+      let images = this.getAdminProjectById(this.getAdminSelectedProjectId)
+        .gallery_imgs;
       let length;
 
       if (images) {
@@ -561,7 +557,21 @@ export default {
       }
 
       return length;
+    },
+    getImages() {
+      return this.getAdminProjectById(this.getAdminSelectedProjectId)
+        .gallery_imgs;
+    },
+    getInvestors() {
+      return this.getAdminProjectById(this.getAdminSelectedProjectId)
+        .outside_investors;
     }
+    // getInvestors() {
+    //   let project = this.getAdminProjectById(this.getAdminSelectedProjectId)
+    //   this.setPartnersArr(project. ,project.outside_investors)
+    //   return this.getAdminProjectById(this.getAdminSelectedProjectId)
+    //     .gallery_imgs;
+    // }
   },
   methods: {
     async editProject() {
@@ -602,6 +612,9 @@ export default {
       } catch (error) {
         return error;
       }
+    },
+    setPartnersArr(internals, externals) {
+      return [...internals, ...externals];
     },
     openEditFilePopup() {},
     styleEditorHeight() {
@@ -654,6 +667,27 @@ export default {
         closeButton: "button",
         icon: true,
         rtl: false
+      });
+    },
+    closePopup3() {
+      let overlay = document.querySelector(".admin_projects__panel__overlay3");
+      let popup = document.querySelector(".delete_img");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
+    openEditPopup(id) {
+      let overlay = document.querySelector(".admin_projects__panel__overlay3");
+
+      let popup = document.querySelector(".delete_img");
+
+      console.log(overlay, popup);
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+
+      this.$store.commit("SET_DELETE_PROJECT_IMG", {
+        id: id
       });
     }
     // addHtmlTeamRow(index) {
