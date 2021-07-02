@@ -771,11 +771,14 @@ a:focus {
   text-decoration: none;
 }
 
+select,
+option,
 input,
 textarea,
 button,
 select,
 a {
+  -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -9235,7 +9238,7 @@ button:focus {
   /* Handle on hover */
 }
 
-.admin_projects__panel__overlay, .admin_projects__panel__overlay_slide, .admin_projects__panel__overlay_add {
+.admin_projects__panel__overlay, .admin_projects__panel__overlay2, .admin_projects__panel__overlay_slide, .admin_projects__panel__overlay_add {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -9249,7 +9252,7 @@ button:focus {
   transition: all 0.4s;
 }
 
-.admin_projects__panel__overlay.show_overlay {
+.admin_projects__panel__overlay2.show_overlay, .admin_projects__panel__overlay.show_overlay {
   opacity: 1;
   visibility: visible;
 }

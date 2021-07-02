@@ -57,18 +57,7 @@ export const adminProjectsConfig = {
     data.append("end_date", end_date);
     data.append("pdf_path", pdf_path);
 
-    console.log(
-      title,
-      initials,
-      reference,
-      desc_html_structure_eng,
-      desc_html_structure_pt,
-      project_contact,
-      project_email,
-      start_date,
-      end_date,
-      pdf_path
-    );
+    console.log(pdf_path);
 
     return await axios
       .post(`${API_URL}/projects`, data, config)
@@ -148,27 +137,59 @@ export const adminProjectsConfig = {
         console.error(error);
         return error;
       });
+  },
+  editProjectPdf: async (token, id, file) => {
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    let data = new FormData();
+    data.append("file", file);
+
+    console.log(file);
+
+    return await axios
+      .patch(`${API_URL}/projects/${id}/file`, data, config)
+      .then(response => {
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        return error;
+      });
+  },
+  addProjectImg: async (token, id, file) => {
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    let data = new FormData();
+    data.append("file", file);
+
+    console.log(file);
+
+    return await axios
+      .post(`${API_URL}/projects/${id}/pictures`, data, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
   }
-  // getAreasFocus: async token => {
-  //   let config = {
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //       authorization: `Bearer ${token}`
-  //     }
-  //   };
-  //   return await axios
-  //     .get(`${API_URL}/areas/focus`, config)
-  //     .then(response => {
-  //       console.log(response.data.processResult);
-  //       return {
-  //         focus: response.data.processResult,
-  //         status: response.status
-  //       };
-  //     })
-  //     .catch(error => {
-  //       return error;
-  //     });
-  // },
   // addAreaFocus: async (token, file, description_pt, description_eng) => {
   //   let config = {
   //     headers: {

@@ -2,6 +2,7 @@
   width: 100%;
 
   &__overlay,
+  &__overlay2,
   &__overlay_slide,
   &__overlay_add {
     position: fixed;
@@ -17,6 +18,7 @@
     transition: all 0.4s;
   }
 
+  &__overlay2,
   &__overlay {
     &.show_overlay {
       opacity: 1;

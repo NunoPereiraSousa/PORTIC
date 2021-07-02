@@ -195,12 +195,7 @@ export default {
   mounted() {
     this.changeCarousel();
 
-    console.log(
-      this.setPartnersArr(
-        this.getCurrentProjects.outside_investors,
-        this.getCurrentProjects.outside_investors
-      )
-    );
+    console.log(this.getCurrentProject);
   },
   computed: {
     ...mapGetters([

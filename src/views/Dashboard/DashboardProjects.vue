@@ -3,8 +3,10 @@
     <DashboardHeader />
     <div class="admin_projects__panel">
       <div class="admin_projects__panel__overlay" @click="closePopup"></div>
+      <div class="admin_projects__panel__overlay2" @click="closePopup2"></div>
 
       <DashboardProjectsPopup :projectName="projectName" />
+      <DashboardAddImgPopup />
 
       <DashboardTopHeader />
 
@@ -128,6 +130,7 @@ import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardProjectsCard from "@/components/Dashboard/DashboardProjectsCard.vue";
 import DashboardProjectsPopup from "@/components/Dashboard/Popup/DashboardProjectsPopup.vue";
+import DashboardAddImgPopup from "@/components/Dashboard/Popup/DashboardAddImgPopup.vue";
 
 import { mapGetters } from "vuex";
 
@@ -136,7 +139,8 @@ export default {
     DashboardHeader,
     DashboardTopHeader,
     DashboardProjectsPopup,
-    DashboardProjectsCard
+    DashboardProjectsCard,
+    DashboardAddImgPopup
   },
   data: () => {
     return {
@@ -199,6 +203,8 @@ export default {
 
     try {
       await this.$store.dispatch("setAdminProjects");
+      console.log(this.getAdminProjects);
+      console.log(this.$store.getters.getProjectImgs);
     } catch (error) {
       return error;
     }
@@ -241,6 +247,12 @@ export default {
       let overlay = document.querySelector(".admin_projects__panel__overlay");
       let popup = document.querySelector(".admin_delete_popup");
 
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
+    closePopup2() {
+      let overlay = document.querySelector(".admin_projects__panel__overlay2");
+      let popup = document.querySelector(".editImg");
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
     }

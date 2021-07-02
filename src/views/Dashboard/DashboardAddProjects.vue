@@ -120,15 +120,22 @@
           Galeria & Ficha de Projeto
         </h3>
 
-        <div class="admin_add_slider__images">
+        <div class="admin_add_slider__images flex">
           <label class="custom-file-upload" style="margin-right: 2rem;">
             <input type="file" @change="uploadImage" />
             Upload de imagens
           </label>
-          <label class="custom-file-upload">
+          <div>
+            <label class="custom-file-upload">
+              <input type="file" @change="uploadPdf" />
+              Upload da ficha de projeto
+            </label>
+            {{ add.pdf.name }}
+          </div>
+          <!-- <label class="custom-file-upload">
             <input type="file" @change="uploadPdf" />
             Upload da ficha de projeto
-          </label>
+          </label> -->
         </div>
 
         <h3 class="dashboard_subheader">
@@ -429,8 +436,6 @@ export default {
         end_date: this.add.endDate,
         pdf_path: this.add.pdf
       });
-
-      console.log("add");
 
       try {
         await this.$store.dispatch("setAdminAddProjects");

@@ -35,7 +35,7 @@
             <input
               style="width: 30vw;"
               type="text"
-              placeholder="Nome da área"
+              placeholder="Nome do media"
               v-model="add.description_pt"
             />
           </div>

@@ -90,6 +90,42 @@
                 </div>
               </div>
             </div>
+
+            <div>
+              <h3 class="dashboard_subheader">
+                Highlights
+              </h3>
+
+              <div class="flex flex-ai-c">
+                <div>
+                  <label>Highlight 1</label>
+                  <br />
+                  <input
+                    type="text"
+                    :id="highlights[0]"
+                    v-model="edit.highlight1"
+                  />
+                </div>
+                <div>
+                  <label>Highlight 2</label>
+                  <br />
+                  <input
+                    type="text"
+                    :id="highlights[1]"
+                    v-model="edit.highlight2"
+                  />
+                </div>
+                <div>
+                  <label>Highlight 3</label>
+                  <br />
+                  <input
+                    type="text"
+                    :id="highlights[2]"
+                    v-model="edit.highlight3"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -113,12 +149,14 @@ export default {
       socials: "",
       contacts: "",
       coordinates: "",
-      focusesPT: "",
+      highlights: "",
       edit: {
         link: "",
         contactLink: "",
         latitude: "",
-        longitude: ""
+        longitude: "",
+        highlight1: "",
+        highlight2: ""
       },
       editorOption: {
         modules: {
@@ -161,10 +199,7 @@ export default {
       "getDescription",
       "getContacts",
       "getCoordinates",
-      "getFocusesPT",
-      "getFocusesEN",
-      "getSelectedFocusByID",
-      "getFocusByID"
+      "getEntityHighlights"
     ])
   },
   created() {
@@ -174,6 +209,12 @@ export default {
     this.contacts = this.getContacts;
     this.content = this.getDescription;
     this.coordinates = this.getCoordinates;
+    this.highlights = this.getEntityHighlights;
+    this.edit.highlight1 = this.highlights[0];
+    this.edit.highlight2 = this.highlights[1];
+    this.edit.highlight3 = this.highlights[2];
+
+    console.log(this.highlights);
 
     this.getSocials.forEach(social => {
       this.edit.link = social.link;

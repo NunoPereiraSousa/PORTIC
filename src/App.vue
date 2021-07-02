@@ -107,9 +107,6 @@ export default {
         await this.$store.dispatch("setEntityId");
         await this.$store.dispatch("setData");
         await this.$store.dispatch("setMenus");
-
-        // console.log(this.$store.getters.getEntitySocials);
-        console.log(this.getEntityData.emails);
       } catch (error) {
         return error;
       }

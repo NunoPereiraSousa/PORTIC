@@ -155,7 +155,8 @@ export const adminModule = {
       project_email: null,
       start_date: null,
       end_date: null,
-      pdf_path: null
+      pdf_path: null,
+      images: []
     },
     addProjectStatus: null,
     editProjectForm: {
@@ -167,9 +168,12 @@ export const adminModule = {
       start_date: null,
       end_date: null,
       project_contact: null,
-      project_email: null
+      project_email: null,
+      pdf_path: null
     },
     deleteProjectStatus: null,
+    addImgStatus: null,
+    images: [],
 
     // UNITS
     units: [],
@@ -407,8 +411,9 @@ export const adminModule = {
       state.addProjectForm.start_date = payload.start_date;
       state.addProjectForm.end_date = payload.end_date;
       state.addProjectForm.pdf_path = payload.pdf_path;
+      state.addProjectForm.images = payload.gallery_imgs;
 
-      console.log(state.addProjectForm);
+      console.log(state.addProjectForm.images);
     },
     SET_PROJECTS_ADD_STATUS(state, payload) {
       state.addProjectStatus = payload.status;
@@ -427,12 +432,19 @@ export const adminModule = {
       state.editProjectForm.end_date = payload.end_date;
       state.editProjectForm.project_contact = payload.project_contact;
       state.editProjectForm.project_email = payload.project_email;
+      state.editProjectForm.pdf_path = payload.pdf_path;
     },
     SET_PROJECTS_EDIT_STATUS(state, payload) {
       state.editProjectStatus = payload.status;
     },
     SET_PROJECTS_DELETE_STATUS(state, payload) {
       state.deleteProjectStatus = payload.status;
+    },
+    SET_ADD_PROJECTS_IMGS_STATUS(state, payload) {
+      state.addImgStatus = payload.status;
+    },
+    SET_ADD_PROJECTS_IMGS(state, payload) {
+      state.images.push(payload.images);
     },
 
     // UNITS MUTATIONS
@@ -808,6 +820,26 @@ export const adminModule = {
         await adminProjectsConfig.deleteProject(
           JSON.parse(localStorage.getItem("token")),
           state.selectedProjectId
+        )
+      );
+    },
+    async setAdminEditProjectPdf({ commit, state }) {
+      commit(
+        "SET_PROJECTS_EDIT_STATUS",
+        await adminProjectsConfig.editProjectPdf(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.editProjectForm.pdf_path
+        )
+      );
+    },
+    async setAdminAddProjectImg({ commit, state }) {
+      commit(
+        "SET_ADD_PROJECTS_IMGS_STATUS",
+        await adminProjectsConfig.addProjectImg(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.addProjectForm.images
         )
       );
     },

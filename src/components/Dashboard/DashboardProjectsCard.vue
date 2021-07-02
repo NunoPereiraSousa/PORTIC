@@ -10,6 +10,12 @@
     <div class="flex flex-ai-c">
       <button
         class="admin_projects__panel__grid__card__edit"
+        @click="showPopup2(id)"
+      >
+        Adicionar imagem
+      </button>
+      <button
+        class="admin_projects__panel__grid__card__edit"
         @click="openPage(id, projectName)"
       >
         Editar
@@ -59,7 +65,18 @@ export default {
     },
     showPopup(projectId) {
       let overlay = document.querySelector(".admin_projects__panel__overlay");
-      let popup = document.querySelector(".admin_delete_popup");
+      let popup = document.querySelector(".editImg");
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+
+      // COURSE ID LOGIC
+      this.$store.commit("SET_SELECTED_ADMIN_PROJECTS_ID", {
+        id: projectId
+      });
+    },
+    showPopup2(projectId) {
+      let overlay = document.querySelector(".admin_projects__panel__overlay2");
+      let popup = document.querySelector(".editImg");
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
 

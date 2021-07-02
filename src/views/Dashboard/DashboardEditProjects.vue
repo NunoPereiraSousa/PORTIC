@@ -116,6 +116,28 @@
           </quill-editor>
         </div>
 
+        <div>
+          <h3 class="dashboard_subheader">
+            Editar ficha de projeto
+          </h3>
+
+          <div>
+            <label class="custom-file-upload" style="margin-right: 2rem;">
+              <input type="file" @change="uploadPdf" />
+              PDF upload
+            </label>
+            {{ edit.pdf.name }}
+
+            <button
+              class="edit_confirm_button"
+              style="margin-left: 2rem;"
+              @click="editPdf"
+            >
+              Editar
+            </button>
+          </div>
+        </div>
+
         <!-- <h3 class="dashboard_subheader">
           Galeria & Ficha de projeto
         </h3> -->
@@ -567,6 +589,21 @@ export default {
 
       this.goBack();
     },
+    async editPdf() {
+      this.$store.commit("SET_PROJECTS_EDIT_FORM", {
+        pdf_path: this.edit.pdf
+      });
+
+      console.log(this.edit.pdf);
+
+      try {
+        await this.$store.dispatch("setAdminEditProjectPdf");
+        await this.$store.dispatch("setAdminProjects");
+      } catch (error) {
+        return error;
+      }
+    },
+    openEditFilePopup() {},
     styleEditorHeight() {
       let height = document.querySelector(".area_edit_editor").offsetHeight;
 
@@ -575,13 +612,9 @@ export default {
 
       editor.style.height += `${height - toolbar.offsetHeight}px`;
     },
-    uploadImage(e) {
-      const image = e.target.files[0];
-      this.add.image = image;
-    },
     uploadPdf(e) {
       const pdf = e.target.files[0];
-      this.add.pdf = pdf;
+      this.edit.pdf = pdf;
     },
     imageStyle(image) {
       return `background-image: url('${image}')`;

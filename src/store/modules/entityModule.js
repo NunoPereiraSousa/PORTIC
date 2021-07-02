@@ -105,6 +105,8 @@ export const entityModule = {
     getEntitySlogan: state => {
       return state.data != "" ? state.data.designation : "Carregar...";
     },
+    getEntityHighlights: state =>
+      state.data != "" ? state.data.highlights : "Carregar...",
     getEntityFocuses: state => (state.focuses != "" ? state.focuses : []),
     getMenus: state => (state.menus != "" ? state.menus : ""),
     getMenuDescByMenuID: state => id =>
