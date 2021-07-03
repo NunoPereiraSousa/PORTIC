@@ -150,10 +150,10 @@
         >
           <div
             v-for="image in getImages"
-            :key="image"
+            :key="image.id_picture"
             class="projects_panel__form__images__img"
-            :style="imageStyle(image)"
-            @click="openEditPopup(image)"
+            :style="imageStyle(image.img)"
+            @click="openEditPopup(image.id_picture)"
           >
             <div
               class="projects_panel__form__images__img__actions flex flex-ai-c flex-jc-c"
@@ -193,7 +193,13 @@
         <!-- NÃO ESQUECER DESTE COMPONENTE PARA EDITAR UM TEAM MEMBER -->
 
         <div class="team__grid grid">
-          <DashboardTeamCard v-for="i in 8" :key="i" />
+          <DashboardTeamCard
+            v-for="user in getUsers"
+            :key="user.id_user"
+            :id="user.id_user"
+            :name="user.full_name"
+            :image="user.picture"
+          />
         </div>
 
         <!-- <label class="custom-file-upload">
@@ -559,12 +565,19 @@ export default {
       return length;
     },
     getImages() {
+      console.log(
+        this.getAdminProjectById(this.getAdminSelectedProjectId).gallery_imgs
+      );
       return this.getAdminProjectById(this.getAdminSelectedProjectId)
         .gallery_imgs;
     },
     getInvestors() {
       return this.getAdminProjectById(this.getAdminSelectedProjectId)
         .outside_investors;
+    },
+    getUsers() {
+      return this.getAdminProjectById(this.getAdminSelectedProjectId)
+        .project_team;
     }
     // getInvestors() {
     //   let project = this.getAdminProjectById(this.getAdminSelectedProjectId)

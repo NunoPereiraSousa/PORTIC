@@ -66,7 +66,7 @@
           :userImg="
             user.picture == null
               ? 'https://usercontent.one/wp/adtpest.com/wp-content/uploads/2018/08/default-avatar.jpg'
-              : convertImage(user.picture.data)
+              : user.picture
           "
           :userType="user.user_level"
           :userRole="user.user_status"

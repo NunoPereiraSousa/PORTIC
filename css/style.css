@@ -9188,10 +9188,15 @@ button:focus {
 }
 
 .admin_add_focus_popup input,
+.admin_add_focus_popup select,
 .admin_edit_focus_popup input,
+.admin_edit_focus_popup select,
 .admin_edit_img_focus_popup input,
+.admin_edit_img_focus_popup select,
 .add_partner input,
-.add_team input {
+.add_partner select,
+.add_team input,
+.add_team select {
   margin: 1rem 0;
   width: 100%;
   padding: 12px 26px;
@@ -9201,10 +9206,15 @@ button:focus {
 }
 
 .admin_add_focus_popup input:last-child,
+.admin_add_focus_popup select:last-child,
 .admin_edit_focus_popup input:last-child,
+.admin_edit_focus_popup select:last-child,
 .admin_edit_img_focus_popup input:last-child,
+.admin_edit_img_focus_popup select:last-child,
 .add_partner input:last-child,
-.add_team input:last-child {
+.add_partner select:last-child,
+.add_team input:last-child,
+.add_team select:last-child {
   margin-bottom: 4rem;
 }
 
@@ -9396,8 +9406,8 @@ button:focus {
 }
 
 .team__grid {
-  -ms-grid-columns: (1fr)[6] !important;
-      grid-template-columns: repeat(6, 1fr) !important;
+  -ms-grid-columns: (1fr)[5] !important;
+      grid-template-columns: repeat(5, 1fr) !important;
   row-gap: 3rem;
 }
 

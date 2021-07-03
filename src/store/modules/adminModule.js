@@ -192,10 +192,11 @@ export const adminModule = {
     },
     addNewsProjectStatus: null,
     addProjectTeamForm: {
-      name: null,
+      user_id: null,
       can_edit: null
     },
     editProjectTeamForm: {
+      user_id: null,
       can_edit: null
     },
     deleteTeamMemberStatus: null,
@@ -506,10 +507,11 @@ export const adminModule = {
       state.addProjectTeamStatus = payload.status;
     },
     SET_ADD_PROJECT_TEAM_FORM(state, payload) {
-      state.addProjectTeamForm.name = payload.name;
+      state.addProjectTeamForm.user_id = payload.user_id;
       state.addProjectTeamForm.can_edit = payload.can_edit;
     },
     SET_EDIT_PROJECT_TEAM_FORM(state, payload) {
+      state.editProjectTeamForm.user_id = payload.user_id;
       state.editProjectTeamForm.can_edit = payload.can_edit;
     },
     SET_DELETE_PROJECT_TEAM_STATUS(state, payload) {
@@ -967,7 +969,7 @@ export const adminModule = {
         await adminProjectsConfig.addProjectTeam(
           JSON.parse(localStorage.getItem("token")),
           state.selectedProjectId,
-          state.addProjectTeamForm.name,
+          state.addProjectTeamForm.user_id,
           state.addProjectTeamForm.can_edit
         )
       );
@@ -978,6 +980,7 @@ export const adminModule = {
         await adminProjectsConfig.editProjectTeamMember(
           JSON.parse(localStorage.getItem("token")),
           state.selectedProjectId,
+          state.editProjectTeamForm.user_id,
           state.editProjectTeamForm.can_edit
         )
       );

@@ -302,20 +302,21 @@ export const adminProjectsConfig = {
         return error;
       });
   },
-  addProjectTeam: async (token, id, name, can_edit) => {
+  addProjectTeam: async (token, id, id_team_member, can_edit) => {
     let config = {
       headers: {
-        "Content-Type": "multipart/form-data",
         "Access-Control-Allow-Origin": "*",
         authorization: `Bearer ${token}`
       }
     };
 
+    console.log(id, id_team_member, can_edit);
+
     return await axios
       .post(
         `${API_URL}/projects/${id}/members`,
         {
-          name: name,
+          id_team_member: id_team_member,
           can_edit: can_edit
         },
         config

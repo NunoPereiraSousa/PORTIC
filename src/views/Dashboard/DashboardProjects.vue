@@ -210,6 +210,8 @@ export default {
 
     try {
       await this.$store.dispatch("setAdminProjects");
+      await this.$store.dispatch("setUsers");
+
       console.log(this.getAdminProjects);
     } catch (error) {
       return error;

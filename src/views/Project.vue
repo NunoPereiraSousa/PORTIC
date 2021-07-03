@@ -89,9 +89,6 @@
             </vue-glide-slide>
           </vue-glide>
         </div>
-        <div v-else style="color: #000">
-          Não existem imagens associadas ao projeto
-        </div>
       </section>
       <section class="project__news" v-if="checkNewsExistence">
         <SubHeaderTitle text="Últimas notícias" class="light" />
@@ -223,7 +220,8 @@ export default {
       return status == 200 ? true : false;
     },
     checkImgExistence() {
-      let images = this.project.gallery;
+      let images = this.getCurrentProjects.gallery_imgs.length;
+      console.log(images);
 
       return images > 0 ? true : false;
     },

@@ -6,7 +6,14 @@
 
     <div class="form">
       <label for="fullnameTxt">Nome</label> <br />
-      <input type="text" id="fullnameTxt" v-model="add.name" />
+      <select v-model="add.permition" id="fullnameTxt">
+        <option
+          v-for="user in getUsers"
+          :key="user.id_user"
+          :value="user.id_user"
+          >{{ user.full_name }}</option
+        >
+      </select>
     </div>
 
     <div class="flex flex-ai-c flex-jc-sb">
@@ -26,15 +33,21 @@ export default {
   data: () => {
     return {
       add: {
-        name: ""
+        permition: ""
       }
     };
+  },
+  computed: {
+    getUsers() {
+      console.log(this.$store.getters.getUsers);
+      return this.$store.getters.getUsers;
+    }
   },
   methods: {
     async addTeamMember() {
       this.$store.commit("SET_ADD_PROJECT_TEAM_FORM", {
-        name: this.add.name,
-        can_edit: true
+        user_id: this.add.permition,
+        can_edit: 1
       });
 
       try {
@@ -54,6 +67,8 @@ export default {
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
+
+      this.add.permition = "";
     }
   }
 };
