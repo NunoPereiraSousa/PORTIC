@@ -606,13 +606,27 @@
 
     <div class="admin_nav__logout">
       <hr />
-      <button class="logout__btn">Logout</button>
+      <button class="logout__btn" @click="logout">Logout</button>
     </div>
   </nav>
 </template>
 
 <script>
 export default {
-  name: "DashboardHeader"
+  name: "DashboardHeader",
+  methods: {
+    logout() {
+      localStorage.removeItem("loggedUser");
+      localStorage.removeItem("token");
+
+      this.$store.commit("SET_LOGIN_STATUS", {
+        status: false
+      });
+
+      this.$router.push({
+        name: "Home"
+      });
+    }
+  }
 };
 </script>

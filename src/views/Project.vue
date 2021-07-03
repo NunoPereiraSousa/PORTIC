@@ -85,13 +85,13 @@
               v-for="(image, index) in getCurrentProjects.gallery_imgs"
               :key="index"
             >
-              <img :src="image" alt="Project Image" />
+              <img :src="image.img" alt="Project Image" />
             </vue-glide-slide>
           </vue-glide>
         </div>
-        <!-- <div v-else style="color: #fff">
+        <div v-else style="color: #000">
           Não existem imagens associadas ao projeto
-        </div> -->
+        </div>
       </section>
       <section class="project__news" v-if="checkNewsExistence">
         <SubHeaderTitle text="Últimas notícias" class="light" />

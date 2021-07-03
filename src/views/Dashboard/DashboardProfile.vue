@@ -17,7 +17,7 @@
 
       <div v-if="!isHidden" class="admin_profile__panel__grid grid">
         <div class="admin__info">
-          <img id="profilePic" alt="Profile Img" />
+          <img :src="getProfileImg" id="profilePic" alt="Profile Img" />
 
           <div class="flex flex-ai-c flex-jc-sb">
             <h3>{{ getUserInfo.full_name }}</h3>
@@ -48,10 +48,10 @@
               getUserInfo.phone_numb
             }}
           </p>
-          <p><span>Nível: </span> <br />{{ getUserInfo.user_level }}</p>
+          <!-- <p><span>Nível: </span> <br />{{ getUserInfo.user_level }}</p>
           <p>
             <span>Estado da conta: </span> <br />{{ getUserInfo.user_status }}
-          </p>
+          </p> -->
         </div>
 
         <button class="edit_profile active" @click="isHidden = !isHidden">
@@ -63,7 +63,7 @@
         <div class="admin__info">
           <label class="custom-file-upload">
             <input type="file" @change="uploadImage" />
-            <!-- <img :src="convertImage(getProfileImg)" alt="Profile Img" /> -->
+            <img :src="getProfileImg" alt="Profile Img" />
           </label>
 
           <div class="flex flex-ai-c flex-jc-sb">
@@ -176,8 +176,8 @@ export default {
       linkedInUrl: this.getUserInfo.linkedIn_url,
       facebookUrl: this.getUserInfo.facebook_url,
       email: this.getUserInfo.email,
-      phoneNumber: this.getUserInfo.phone_numb
-      // image: this.convertImage(this.getUserInfo.picture.data)
+      phoneNumber: this.getUserInfo.phone_numb,
+      image: this.getUserInfo.picture
     };
   },
   computed: {
@@ -194,9 +194,10 @@ export default {
       return this.getUser;
     },
     getProfileImg() {
-      return this.getUser.picture.data == undefined
+      console.log(this.getUser);
+      return this.getUser.picture == undefined
         ? "https://digimedia.web.ua.pt/wp-content/uploads/2017/05/default-user-image.png"
-        : this.getUser.picture.data;
+        : this.getUser.picture;
     }
   },
   methods: {

@@ -6,6 +6,7 @@ export const usersModule = {
     users: [],
     token: null,
     loggedUser: null,
+    loggedStatus: false,
     loginForm: {
       input: null,
       password: null
@@ -72,6 +73,11 @@ export const usersModule = {
 
       localStorage.setItem("token", JSON.stringify(state.token));
     },
+    SET_LOGIN_STATUS(state, payload) {
+      state.loggedStatus = payload.status;
+
+      console.log(state.loggedStatus);
+    },
     SET_LOGIN_FORM(state, payload) {
       state.loginForm.username = payload.username;
       state.loginForm.password = payload.password;
@@ -100,6 +106,8 @@ export const usersModule = {
       state.editProfileForm.linkedIn_url = payload.linkedIn_url;
       state.editProfileForm.full_name = payload.fullName;
       state.editProfileForm.image = payload.image;
+
+      console.log(state.editProfileForm.image);
     }
   },
   actions: {
@@ -170,7 +178,10 @@ export const usersModule = {
     getNUsers: state => {
       return state.users.length;
     },
-    getLoggedUser: state => state.loggedUser,
+    getLoggedStatus: state => state.loggedStatus,
+    getLoggedUser: state => {
+      return state.loggedUser;
+    },
     getLoginStatus: state => state.signInStatus,
     getLoginToken: state => state.token,
     getRegisterStatus: state => state.signUpStatus,

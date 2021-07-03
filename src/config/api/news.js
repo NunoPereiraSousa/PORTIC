@@ -8,6 +8,7 @@ let headers = {
 
 export const newsConfig = {
   getNews: async (selectedLang, entity_id) => {
+    console.log(`${API_URL}/${selectedLang}/entities/${entity_id}/news`);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entity_id}/news`, {
         headers

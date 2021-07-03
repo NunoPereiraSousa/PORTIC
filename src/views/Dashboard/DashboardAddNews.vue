@@ -52,6 +52,33 @@
               Image
             </label>
           </div>
+          <div>
+            <h3 class="dashboard_subheader">
+              Estado da notícia
+            </h3>
+            <div>
+              <div>
+                <input
+                  type="radio"
+                  id="global"
+                  name="global"
+                  value="0"
+                  v-model="add.project_only"
+                />
+                <label for="global">Global</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="project"
+                  name="project"
+                  value="1"
+                  v-model="add.project_only"
+                />
+                <label for="project">Apenas de project</label>
+              </div>
+            </div>
+          </div>
         </div>
         <h3 class="dashboard_subheader">
           Conteúdo da notícia
@@ -133,7 +160,8 @@ export default {
         titleEn: "",
         contentPt: "",
         contentEn: "",
-        image: ""
+        image: "",
+        project_only: ""
       },
       editorOption: {
         modules: {
@@ -226,8 +254,8 @@ export default {
         title_eng: this.add.titleEn,
         description_pt: this.add.contentPt,
         description_eng: this.add.contentEn,
-        published_date: `${this.getDay}-${this.getMonth}-${this.getYear}`
-        // project_only: 1
+        published_date: `${this.getDay}-${this.getMonth}-${this.getYear}`,
+        project_only: this.add.project_only == "" ? 1 : this.add.project_only
       });
 
       try {

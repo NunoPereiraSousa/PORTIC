@@ -782,6 +782,10 @@ a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+input[type="radio"] {
+  -webkit-appearance: checkbox;
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1512,7 +1516,7 @@ button:focus {
 
 .navbar__hamburger__lines {
   height: 2px;
-  background-color: #ffffff;
+  background-color: #080808;
   position: absolute;
   z-index: 999;
   right: 0%;
@@ -9625,6 +9629,12 @@ button:focus {
   -ms-grid-rows: min-content min-content 1fr;
       grid-template-rows: -webkit-min-content -webkit-min-content 1fr;
       grid-template-rows: min-content min-content 1fr;
+}
+
+.admin_actions_panel__form.addNews > .grid {
+  -ms-grid-columns: min-content min-content 1fr;
+      grid-template-columns: -webkit-min-content -webkit-min-content 1fr;
+      grid-template-columns: min-content min-content 1fr;
 }
 
 .admin_actions_panel__unities__form {

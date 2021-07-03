@@ -155,6 +155,7 @@ export const adminProjectsConfig = {
     return await axios
       .patch(`${API_URL}/projects/${id}/file`, data, config)
       .then(response => {
+        console.log(response.status);
         return {
           status: response.status
         };

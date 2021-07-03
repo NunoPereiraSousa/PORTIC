@@ -166,7 +166,7 @@ export const usersConfig = {
     return await axios
       .patch(`${API_URL}/users/profile/picture`, data, config)
       .then(response => {
-        console.log(response);
+        console.log(response.status);
         return {
           image: response.data.processResult,
           status: response.status

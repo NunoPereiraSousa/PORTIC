@@ -107,6 +107,10 @@
     &.addNews {
       grid-template-rows: min-content min-content 1fr;
     }
+
+    &.addNews > .grid {
+      grid-template-columns: min-content min-content 1fr;
+    }
   }
 
   &__unities__form {

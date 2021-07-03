@@ -942,6 +942,10 @@ export default {
         password: this.passwordTxt
       });
 
+      this.$store.commit("SET_LOGIN_STATUS", {
+        status: true
+      });
+
       console.log(this.usernameTxt, this.passwordTxt);
 
       try {
