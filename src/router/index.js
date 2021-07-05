@@ -9,6 +9,7 @@ import DashboardAddCourses from "../views/Dashboard/DashboardAddCourses.vue";
 import DashboardAddProjects from "../views/Dashboard/DashboardAddProjects.vue";
 import DashboardAddUnities from "../views/Dashboard/DashboardAddUnities.vue";
 import DashboardAddUsers from "../views/Dashboard/DashboardAddUsers.vue";
+import DashboardEditUser from "../views/Dashboard/DashboardEditUser.vue";
 import DashboardAreas from "../views/Dashboard/DashboardAreas.vue";
 import DashboardMedia from "../views/Dashboard/DashboardMedia.vue";
 import DashboardComponents from "../views/Dashboard/DashboardComponents.vue";
@@ -261,6 +262,12 @@ const routes = [
     path: "/dashboard-add-users",
     name: "DashboardAddUsers",
     component: DashboardAddUsers
+  },
+  {
+    path: "/dashboard-edit-users/:name",
+    name: "DashboardEditUser",
+    component: DashboardEditUser,
+    props: true
   },
   {
     path: "/dashboard-page",

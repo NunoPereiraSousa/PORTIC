@@ -79,14 +79,14 @@ export default {
     openPage(userId, userName) {
       console.log(userId);
       console.log(userName);
-      //   this.$store.commit("SET_SELECTED_user_ID", {
-      //     id: userId
-      //   });
+      this.$store.commit("SET_SELECTED_USER_ID", {
+        id: userId
+      });
 
-      //   this.$router.push({
-      //     name: "DashboardEditusers",
-      //     params: { name: userName }
-      //   });
+      this.$router.push({
+        name: "DashboardEditUser",
+        params: { name: userName }
+      });
     },
     showPopup(userId) {
       console.log(userId);

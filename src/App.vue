@@ -51,7 +51,8 @@
             this.$route.name !== 'DashboardUnitConnection' &&
             this.$route.name !== 'DashboardCourseConnection' &&
             this.$route.name !== 'DashboardProjectConnection' &&
-            this.$route.name !== 'DashboardCareerConnection'
+            this.$route.name !== 'DashboardCareerConnection' &&
+            this.$route.name !== 'DashboardEditUser'
         "
       >
         <SubHeader />

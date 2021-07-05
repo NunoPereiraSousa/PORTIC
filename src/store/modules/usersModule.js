@@ -11,6 +11,7 @@ export const usersModule = {
       input: null,
       password: null
     },
+    selectedUserId: null,
     registerForm: {
       username: null,
       firstName: null,
@@ -40,7 +41,8 @@ export const usersModule = {
       post: null,
       image: null
     },
-    editProfileStatus: null
+    editProfileStatus: null,
+    editProfileStatus2: null
   },
   mutations: {
     SET_USERS(state, payload) {
@@ -53,13 +55,14 @@ export const usersModule = {
       state.user = payload.user;
       state.userStatus = payload.status;
     },
+    SET_SELECTED_USER_ID(state, payload) {
+      state.selectedUserId = payload.id;
+    },
     SET_USER_IMG_STATUS(state, payload) {
       state.userImgStatus = payload.status;
     },
     SET_USER_IMG(state, payload) {
       state.userImg = payload.image;
-
-      console.log(state.userImg);
     },
     SET_LOGGED_USER(state, payload) {
       state.loggedUser = payload.user;
@@ -76,8 +79,6 @@ export const usersModule = {
     },
     SET_LOGIN_STATUS(state, payload) {
       state.loggedStatus = payload.status;
-
-      console.log(state.loggedStatus);
     },
     SET_LOGIN_FORM(state, payload) {
       state.loginForm.username = payload.username;
@@ -107,8 +108,9 @@ export const usersModule = {
       state.editProfileForm.full_name = payload.fullName;
       state.editProfileForm.post = payload.post;
       state.editProfileForm.image = payload.image;
-
-      console.log(state.editProfileForm.post);
+    },
+    SET_EDIT_PROFILE_STATUS2(state, payload) {
+      state.editProfileStatus2 = payload.status;
     }
   },
   actions: {
@@ -164,6 +166,23 @@ export const usersModule = {
           state.editProfileForm.image
         )
       );
+    },
+    async setAdminEditProfile({ commit, state }) {
+      commit(
+        "SET_EDIT_PROFILE_STATUS2",
+        await usersConfig.editAdminProfile(
+          state.token,
+          state.selectedUserId,
+          state.editProfileForm.username,
+          state.editProfileForm.description_pt,
+          state.editProfileForm.description_eng,
+          state.editProfileForm.email,
+          state.editProfileForm.phone_numb,
+          state.editProfileForm.linkedIn_url,
+          state.editProfileForm.full_name,
+          state.editProfileForm.post
+        )
+      );
     }
   },
   getters: {
@@ -191,6 +210,10 @@ export const usersModule = {
     getUserByUsernameAndEmail: state => username => email =>
       state.users.find(
         user => user.username === username && user.email === email
-      )
+      ),
+    getAdminSelectedUserId: state => state.selectedUserId,
+    getAdminUserById: state => id =>
+      state.users.find(user => user.id_user === id),
+    getEditProfileStatus2: state => state.editProfileStatus2
   }
 };

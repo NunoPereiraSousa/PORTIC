@@ -83,7 +83,9 @@ export default new Vuex.Store({
         "adminModule.careers",
         "adminModule.selectedCareerId",
         "adminModule.projects",
-        "adminModule.selectedProjectId"
+        "adminModule.selectedProjectId",
+        "usersModule.users",
+        "usersModule.selectedUserId"
       ]
     })
   ]

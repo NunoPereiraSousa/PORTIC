@@ -187,5 +187,59 @@ export const usersConfig = {
         console.log(error);
         return error;
       });
+  },
+  editAdminProfile: async (
+    token,
+    id_user,
+    username,
+    description_pt,
+    description_eng,
+    email,
+    phone_numb,
+    linkedIn_url,
+    fullname,
+    post
+  ) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    console.log(
+      username,
+      description_pt,
+      description_eng,
+      email,
+      phone_numb,
+      linkedIn_url,
+      fullname,
+      post
+    );
+
+    return await axios
+      .put(
+        `${API_URL}/users/${id_user}/profile`,
+        {
+          username: username,
+          description_pt: description_pt,
+          description_eng: description_eng,
+          email: email,
+          phone_numb: phone_numb,
+          linkedIn_url: linkedIn_url,
+          full_name: fullname,
+          post: post
+        },
+        config
+      )
+      .then(response => {
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        return error;
+      });
   }
 };
