@@ -111,6 +111,42 @@
     &.addNews > .grid {
       grid-template-columns: min-content min-content 1fr;
     }
+
+    &.connections {
+      display: block;
+      height: auto;
+      // grid-template-rows: repeat(8, min-content);
+      overflow-y: hidden;
+
+      .connections__grid {
+        margin-top: 3rem;
+        padding: 0 3rem 0 0;
+        row-gap: 2.25rem;
+      }
+
+      select {
+        width: 13rem;
+        margin-right: 8rem;
+      }
+
+      button {
+        border-radius: 10px;
+        border: 1.5px solid transparent;
+        background-color: $orange;
+        color: $white;
+        font-family: $portoSans;
+        font-size: $_15px;
+        padding: 0.75rem 1.40625rem;
+      }
+
+      .dashboard_subheader {
+        margin-top: 4rem;
+
+        // &:first-child {
+        //   margin-top: 0;
+        // }
+      }
+    }
   }
 
   &__unities__form {

@@ -23,10 +23,13 @@
           ><br />
           <button
             id="sortBtn"
-            class="projects_catalog__filters__sorting"
+            class="projects_catalog__filters__sorting flex flex-jc-sa"
             @click="order = !order"
           >
-            {{ $t("projects.input.filter") }}
+            <div>{{ $t("projects.input.filter") }}</div>
+            <div>
+              {{ order === true ? "A-Z" : "Z-A" }}
+            </div>
           </button>
         </div>
         <div>
@@ -103,7 +106,7 @@ export default {
   data: () => {
     return {
       selectedItem: null,
-      order: false,
+      order: true,
       order2: false,
       projectTxt: "",
       status: "",
@@ -155,14 +158,13 @@ export default {
       );
     },
     filterAlphabetically(projects) {
-      if (!this.order) {
+      if (this.order) {
         return projects;
       } else {
         return [...projects].sort(this.compareName);
       }
     },
     setStatus(start_date, end_date) {
-      // console.log(start_date);
       if (
         start_date < this.getCurrentDate() &&
         end_date > this.getCurrentDate()
@@ -256,14 +258,10 @@ export default {
 
       this.selectedItem.classList.remove("hovered");
     },
-    compareBudget(a, b) {
-      if (a.overallBudget > b.overallBudget) return -1;
-      if (a.overallBudget < b.overallBudget) return 1;
-      else return 0;
-    },
     compareName(a, b) {
-      if (a.initials < b.initials) return -1;
-      if (a.initials > b.initials) return 1;
+      console.log(a.initials, b.initials);
+      if (a.initials.toUpperCase() < b.initials.toUpperCase()) return -1;
+      if (a.initials.toUpperCase() > b.initials.toUpperCase()) return 1;
       else return 0;
     },
     setSelectedProject(name, id) {

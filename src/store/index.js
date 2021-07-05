@@ -5,6 +5,7 @@ import createPersistedState from "vuex-persistedstate";
 import { adminModule } from "./modules/adminModule";
 import { areaModule } from "./modules/areasModule";
 import { contactsModule } from "./modules/contactsModule";
+import { connectionsModule } from "./modules/connectionsModule";
 import { coursesModule } from "./modules/coursesModule";
 import { langModule } from "./modules/langModule";
 import { mediaModule } from "./modules/mediaModule";
@@ -35,7 +36,8 @@ export default new Vuex.Store({
     unityModule,
     usersModule,
     weatherModule,
-    adminModule
+    adminModule,
+    connectionsModule
   },
   getters: {},
   plugins: [

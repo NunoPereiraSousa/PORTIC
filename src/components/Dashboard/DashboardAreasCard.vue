@@ -9,6 +9,13 @@
     </div>
     <div class="flex flex-ai-c">
       <button
+        class="admin_areas__panel__grid__card__remove"
+        style="margin-right: 2rem;"
+        @click="openAddConnectionsPage(id, areaName)"
+      >
+        Gerir conecções
+      </button>
+      <button
         class="admin_areas__panel__grid__card__edit"
         @click="openPage(id, areaName)"
       >
@@ -68,6 +75,16 @@ export default {
 
       this.$store.commit("SET_SELECTED_ADMIN_AREA_ID", {
         id: areaId
+      });
+    },
+    openAddConnectionsPage(id, areaName) {
+      this.$store.commit("SET_SELECTED_ADMIN_AREA_ID", {
+        id: id
+      });
+
+      this.$router.push({
+        name: "DashboardAddAreaConnection",
+        params: { name: areaName }
       });
     }
     // formatRouterPath(title) {

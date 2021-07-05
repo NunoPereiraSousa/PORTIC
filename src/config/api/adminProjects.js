@@ -351,6 +351,7 @@ export const adminProjectsConfig = {
         config
       )
       .then(response => {
+        console.log(response.status);
         return {
           status: response.status
         };

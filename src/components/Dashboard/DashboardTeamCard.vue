@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "DashboardTeamCard",
   props: {
@@ -72,6 +73,14 @@ export default {
         permition: ""
       }
     };
+  },
+  created() {
+    this.project = this.getAdminProjectById(this.getAdminSelectedProjectId);
+
+    console.log(this.getAdminProjectById(this.getAdminSelectedProjectId));
+  },
+  computed: {
+    ...mapGetters(["getAdminProjectById", "getAdminSelectedProjectId"])
   },
   methods: {
     async editTeamMember(id) {

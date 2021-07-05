@@ -3935,7 +3935,7 @@ button:focus {
 
 @media (min-width: 120em) {
   .projects_catalog__filters button {
-    width: 13rem;
+    width: 15rem;
   }
 }
 
@@ -9645,6 +9645,37 @@ button:focus {
   -ms-grid-columns: min-content min-content 1fr;
       grid-template-columns: -webkit-min-content -webkit-min-content 1fr;
       grid-template-columns: min-content min-content 1fr;
+}
+
+.admin_actions_panel__form.connections {
+  display: block;
+  height: auto;
+  overflow-y: hidden;
+}
+
+.admin_actions_panel__form.connections .connections__grid {
+  margin-top: 3rem;
+  padding: 0 3rem 0 0;
+  row-gap: 2.25rem;
+}
+
+.admin_actions_panel__form.connections select {
+  width: 13rem;
+  margin-right: 8rem;
+}
+
+.admin_actions_panel__form.connections button {
+  border-radius: 10px;
+  border: 1.5px solid transparent;
+  background-color: #c94d24;
+  color: #ffffff;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.40625rem;
+}
+
+.admin_actions_panel__form.connections .dashboard_subheader {
+  margin-top: 4rem;
 }
 
 .admin_actions_panel__unities__form {
