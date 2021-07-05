@@ -33,7 +33,8 @@ import DashboardTN from "../views/Dashboard/DashboardTN.vue";
 import DashboardProjectFiles from "../views/Dashboard/DashboardProjectFiles.vue";
 import DashboardAddNews from "../views/Dashboard/DashboardAddNews.vue";
 import DashboardAddProjectNews from "../views/Dashboard/DashboardAddProjectNews.vue";
-import DashboardAddAreaConnection from "../views/Dashboard/DashboardAddAreaConnection.vue";
+import DashboardAreaConnection from "../views/Dashboard/DashboardAreaConnection.vue";
+import DashboardUnitConnection from "../views/Dashboard/DashboardUnitConnection.vue";
 import SignIn from "../views/Dashboard/SignIn.vue";
 import Register from "../views/Dashboard/Register.vue";
 import Home from "../views/Home.vue";
@@ -279,9 +280,15 @@ const routes = [
     component: DashboardAddProjectNews
   },
   {
-    path: "/dashboard-add-areas-connections",
-    name: "DashboardAddAreaConnection",
-    component: DashboardAddAreaConnection,
+    path: "/dashboard-area-connections/:name",
+    name: "DashboardAreaConnection",
+    component: DashboardAreaConnection,
+    props: true
+  },
+  {
+    path: "/dashboard-unit-connections/:name",
+    name: "DashboardUnitConnection",
+    component: DashboardUnitConnection,
     props: true
   }
 ];

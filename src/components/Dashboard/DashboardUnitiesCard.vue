@@ -11,6 +11,13 @@
     </div>
     <div class="flex flex-ai-c">
       <button
+        class="admin_areas__panel__grid__card__remove"
+        style="margin-right: 2rem;"
+        @click="openConnectionsPage(id, unityName)"
+      >
+        Gerir conecções
+      </button>
+      <button
         class="admin_unities__panel__grid__card__edit"
         @click="openPage(id, unityName)"
       >
@@ -68,6 +75,16 @@ export default {
       // COURSE ID LOGIC
       this.$store.commit("SET_SELECTED_ADMIN_UNIT_ID", {
         id: unityId
+      });
+    },
+    openConnectionsPage(unityId, unityName) {
+      this.$store.commit("SET_SELECTED_ADMIN_UNIT_ID", {
+        id: unityId
+      });
+
+      this.$router.push({
+        name: "DashboardUnitConnection",
+        params: { name: unityName }
       });
     }
   }

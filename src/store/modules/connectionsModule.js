@@ -17,9 +17,17 @@ export const connectionsModule = {
     careerId: null,
     acrDeleteStatus: null,
 
-    projectId: null
+    projectId: null,
 
     // COURSES
+    ucStatus: null,
+    ucDeleteStatus: null,
+
+    puStatus: null,
+    puDeleteStatus: null,
+
+    ucrStatus: null,
+    ucrDeleteStatus: null
   },
   mutations: {
     SET_SELECTED_AC(state, payload) {
@@ -32,6 +40,7 @@ export const connectionsModule = {
       state.acDeleteStatus = payload.status;
     },
     SET_SELECTED_AU(state, payload) {
+      state.areaId = payload.areaId;
       state.unitId = payload.unitId;
     },
     SET_AU_STATUS(state, payload) {
@@ -58,6 +67,36 @@ export const connectionsModule = {
     },
     SET_ACR_DELETE_STATUS(state, payload) {
       state.acrDeleteStatus = payload.status;
+    },
+    SET_UC_STATUS(state, payload) {
+      state.ucStatus = payload.status;
+    },
+    SET_UC_DELETE_STATUS(state, payload) {
+      state.ucDeleteStatus = payload.status;
+    },
+    SET_SELECTED_UC(state, payload) {
+      state.courseId = payload.courseId;
+      state.unitId = payload.unitId;
+    },
+    SET_PU_STATUS(state, payload) {
+      state.puStatus = payload.status;
+    },
+    SET_PU_DELETE_STATUS(state, payload) {
+      state.puDeleteStatus = payload.status;
+    },
+    SET_SELECTED_PU(state, payload) {
+      state.projectId = payload.projectId;
+      state.unitId = payload.unitId;
+    },
+    SET_SELECTED_UCR(state, payload) {
+      state.careerId = payload.careerId;
+      state.unitId = payload.unitId;
+    },
+    SET_UCR_STATUS(state, payload) {
+      state.ucrStatus = payload.status;
+    },
+    SET_UCR_DELETE_STATUS(state, payload) {
+      state.ucrDeleteStatus = payload.status;
     }
   },
   actions: {
@@ -66,8 +105,7 @@ export const connectionsModule = {
         "SET_AC_STATUS",
         await connectionsConfig.areasCourses(
           JSON.parse(localStorage.getItem("token")),
-          JSON.parse(localStorage.getItem("vuex_admin_areas")).adminModule
-            .selectedAreaId,
+          state.areaId,
           state.courseId
         )
       );
@@ -88,8 +126,7 @@ export const connectionsModule = {
         "SET_AU_STATUS",
         await connectionsConfig.areasUnits(
           JSON.parse(localStorage.getItem("token")),
-          JSON.parse(localStorage.getItem("vuex_admin_areas")).adminModule
-            .selectedAreaId,
+          state.areaId,
           state.unitId
         )
       );
@@ -99,8 +136,7 @@ export const connectionsModule = {
         "SET_AU_DELETE_STATUS",
         await connectionsConfig.areasUnitsDelete(
           JSON.parse(localStorage.getItem("token")),
-          JSON.parse(localStorage.getItem("vuex_admin_areas")).adminModule
-            .selectedAreaId,
+          state.areaId,
           state.unitId
         )
       );
@@ -146,6 +182,66 @@ export const connectionsModule = {
           JSON.parse(localStorage.getItem("vuex_admin_areas")).adminModule
             .selectedAreaId,
           state.careerId
+        )
+      );
+    },
+    async setAdminUC({ commit, state }) {
+      commit(
+        "SET_UC_STATUS",
+        await connectionsConfig.unitsCourses(
+          JSON.parse(localStorage.getItem("token")),
+          state.courseId,
+          state.unitId
+        )
+      );
+    },
+    async setAdminDeleteUC({ commit, state }) {
+      commit(
+        "SET_UC_DELETE_STATUS",
+        await connectionsConfig.unitsCoursesDelete(
+          JSON.parse(localStorage.getItem("token")),
+          state.courseId,
+          state.unitId
+        )
+      );
+    },
+    async setAdminPU({ commit, state }) {
+      commit(
+        "SET_PU_STATUS",
+        await connectionsConfig.projectsUnits(
+          JSON.parse(localStorage.getItem("token")),
+          state.projectId,
+          state.unitId
+        )
+      );
+    },
+    async setAdminDeletePU({ commit, state }) {
+      commit(
+        "SET_PU_DELETE_STATUS",
+        await connectionsConfig.projectsUnitsDelete(
+          JSON.parse(localStorage.getItem("token")),
+          state.projectId,
+          state.unitId
+        )
+      );
+    },
+    async setAdminUCR({ commit, state }) {
+      commit(
+        "SET_UCR_STATUS",
+        await connectionsConfig.careersUnits(
+          JSON.parse(localStorage.getItem("token")),
+          state.careerId,
+          state.unitId
+        )
+      );
+    },
+    async setAdminDeleteUCR({ commit, state }) {
+      commit(
+        "SET_UCR_DELETE_STATUS",
+        await connectionsConfig.careersUnitsDelete(
+          JSON.parse(localStorage.getItem("token")),
+          state.careerId,
+          state.unitId
         )
       );
     }

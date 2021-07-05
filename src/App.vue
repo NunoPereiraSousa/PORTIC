@@ -47,7 +47,8 @@
             this.$route.name !== 'DashboardProjectFiles' &&
             this.$route.name !== 'DashboardAddNews' &&
             this.$route.name !== 'DashboardAddProjectNews' &&
-            this.$route.name !== 'DashboardAddAreaConnection'
+            this.$route.name !== 'DashboardAreaConnection' &&
+            this.$route.name !== 'DashboardUnitConnection'
         "
       >
         <SubHeader />

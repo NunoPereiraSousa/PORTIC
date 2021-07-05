@@ -83,7 +83,7 @@ export default {
       });
 
       this.$router.push({
-        name: "DashboardAddAreaConnection",
+        name: "DashboardAreaConnection",
         params: { name: areaName }
       });
     }
