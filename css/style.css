@@ -11524,8 +11524,7 @@ svg .st15 {
 }
 
 .admin_profile__panel__grid .admin__details {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  margin-top: 7rem;
 }
 
 .admin_profile__panel__grid .admin__details span {

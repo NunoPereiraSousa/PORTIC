@@ -29,7 +29,11 @@
           </p>
 
           <div class="socials flex">
-            <a :href="getUserInfo.linkedIn_url" class="socials__circle">
+            <a
+              :href="getUserInfo.linkedIn_url"
+              class="socials__circle"
+              target="_blank"
+            >
               <i class="fab fa-linkedin"></i>
             </a>
           </div>
@@ -37,11 +41,11 @@
 
         <div class="admin__details">
           <p><span>Cargo: </span> <br />{{ getUserInfo.post }}</p>
-          <p>
+          <p v-if="getUserInfo.email">
             <span>Email: </span> <br />
             {{ getUserInfo.email }}
           </p>
-          <p>
+          <p v-if="getUserInfo.phone_numb">
             <span>Número de telemóvel: </span> <br />{{
               getUserInfo.phone_numb
             }}
@@ -83,12 +87,18 @@
 
           <br />
           <label for="descTxt">Sobre mim</label>
-          <textarea id="descTxt" cols="30" rows="4" v-model="form.desc">
+          <textarea id="descTxt" cols="30" rows="4" v-model="form.descPt">
+          </textarea>
+
+          <br />
+          <label for="descTxt">About me</label>
+          <textarea id="descTxt" cols="30" rows="4" v-model="form.descEn">
           </textarea>
 
           <input
             type="text"
             placeholder="LinkedIn"
+            style="width: 60%"
             v-model="form.linkedInUrl"
           />
         </div>
@@ -141,7 +151,8 @@ export default {
       form: {
         fullName: "",
         username: "",
-        desc: "",
+        descPt: "",
+        descEn: "",
         linkedInUrl: "",
         email: "",
         phoneNumber: "",
@@ -156,7 +167,8 @@ export default {
     this.form = {
       fullName: this.getUserInfo.full_name,
       username: this.getUserInfo.username,
-      desc: this.getUserInfo.description_pt,
+      descPt: this.getUserInfo.description_pt,
+      descEn: this.getUserInfo.description_eng,
       linkedInUrl: this.getUserInfo.linkedIn_url,
       email: this.getUserInfo.email,
       phoneNumber: this.getUserInfo.phone_numb,
@@ -190,11 +202,11 @@ export default {
 
       this.$store.commit("SET_EDIT_PROFILE_FORM", {
         username: this.form.username,
-        description_pt: this.form.desc,
-        description_eng: "Englishhhh",
+        description_pt: this.form.descPt,
+        description_eng: this.form.descEn,
         email: this.form.email,
         phone_numb: this.form.phoneNumber,
-        linkedIn_url: "https://www.linkedin.com/",
+        linkedIn_url: this.form.linkedInUrl,
         fullName: this.form.fullName,
         post: this.form.role,
         image: this.form.image
