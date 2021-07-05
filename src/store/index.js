@@ -53,7 +53,9 @@ export default new Vuex.Store({
         "newsModule.news",
         "usersModule.token",
         "usersModule.loggedUser",
-        "usersModule.user"
+        "usersModule.user",
+        "unityModule.unities",
+        "unityModule.selectedUnityId"
       ]
       //   storage: {
       //     getItem: key => {

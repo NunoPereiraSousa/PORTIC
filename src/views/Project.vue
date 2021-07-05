@@ -57,6 +57,53 @@
       <section class="project__objective">
         <SubHeaderTitle text="Descrição" />
         <div v-html="getCurrentProjects.desc_html_structure"></div>
+        <div class="connections__info">
+          <div v-if="getAreas.length > 0">
+            <u>{{ $t("areas.mainTitle") }}:</u>
+            <ul>
+              <li v-for="area in getAreas" :key="area.id_area">
+                <router-link :to="{ name: 'Contacts' }">
+                  {{ area.designation }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
+          <div v-if="getCareers.length > 0">
+            <u>{{ $t("careers.careersKey") }}:</u>
+            <ul>
+              <li
+                v-for="career in getCareers"
+                :key="career.id_available_position"
+              >
+                <router-link :to="{ name: 'Positions' }">
+                  {{ career.desigantion }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
+          <div v-if="getCourses.length > 0">
+            <u>{{ $t("courses.courseKey") }}:</u>
+            <ul>
+              <li v-for="course in getCourses" :key="course.id_course">
+                <router-link :to="{ name: 'Courses' }">
+                  {{ course.designation }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
+          <div v-if="getUnits.length > 0">
+            <u>{{ $t("unities.unitiesKey") }}:</u>
+            <ul>
+              <li
+                v-for="unit in getUnits"
+                :key="unit.id_unity"
+                @click="getUnityId(unit.id_unity, unit.designation)"
+              >
+                {{ unit.designation }}
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
       <section class="project__gallery" v-if="checkImgExistence">
         <SubHeaderTitle text="Galeria de projeto" class="light" />
@@ -229,6 +276,18 @@ export default {
       let news = this.getCurrentProjects.news.length;
 
       return news > 0 ? true : false;
+    },
+    getAreas() {
+      return this.getCurrentProjects.area_tags;
+    },
+    getCareers() {
+      return this.getCurrentProjects.recruitment_tags;
+    },
+    getCourses() {
+      return this.getCurrentProjects.course_tags;
+    },
+    getUnits() {
+      return this.getCurrentProjects.unity_tags;
     }
   },
   methods: {
@@ -278,6 +337,21 @@ export default {
 
         slide.forEach(s => {
           s.style.width = "125px";
+        });
+      }
+    },
+    formatRouterPath(title) {
+      return title.replace(/\s/g, "%20");
+    },
+    getUnityId(id, title) {
+      this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
+
+      let formatedTitle = this.formatRouterPath(title);
+
+      if (this.$route.path != `/unities/${formatedTitle}`) {
+        this.$router.push({
+          name: "UnitiesPage",
+          params: { name: title }
         });
       }
     }

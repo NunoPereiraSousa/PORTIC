@@ -17,6 +17,10 @@ PORTIC includes units and groups with activities in different stages of the know
           :card_id="`card_${index}`"
           :courseName="course.designation"
           :courseDesc="course.html_structure"
+          :areas="course.area_tags"
+          :careers="course.recruitment_tags"
+          :projects="course.project_tags"
+          :units="course.unity_tags"
         />
       </div>
     </section>

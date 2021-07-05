@@ -11,6 +11,10 @@
           :title="position.designation"
           :categories="position.categories"
           :content="position.desc_html_structure"
+          :areas="position.area_tags"
+          :courses="position.course_tags"
+          :projects="position.project_tags"
+          :units="position.unity_tags"
         />
       </div>
     </section>

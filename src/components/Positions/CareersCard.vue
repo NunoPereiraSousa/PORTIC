@@ -39,6 +39,52 @@
       class="positions__available__card__info positions__available__card__toggle collapse"
     >
       <p v-html="content"></p>
+      <div class="connections__info">
+        <div v-if="areas.length > 0">
+          <u>{{ $t("areas.mainTitle") }}:</u>
+          <ul>
+            <li v-for="area in areas" :key="area.id_area">
+              <router-link :to="{ name: 'Contacts' }">
+                {{ area.designation }}
+              </router-link>
+            </li>
+          </ul>
+        </div>
+        <div v-if="courses.length > 0">
+          <u>{{ $t("courses.courseKey") }}:</u>
+          <ul>
+            <li v-for="course in courses" :key="course.id_course">
+              <router-link :to="{ name: 'Courses' }">
+                {{ course.designation }}
+              </router-link>
+            </li>
+          </ul>
+        </div>
+        <div v-if="projects.length > 0">
+          <u>{{ $t("projects.title") }}:</u>
+          <ul>
+            <li
+              v-for="project in projects"
+              :key="project.id_project"
+              @click="openProjectPage(project.title, project.id_project)"
+            >
+              {{ project.title }}
+            </li>
+          </ul>
+        </div>
+        <div v-if="units.length > 0">
+          <u>{{ $t("unities.unitiesKey") }}:</u>
+          <ul>
+            <li
+              v-for="unit in units"
+              :key="unit.id_unity"
+              @click="getUnityId(unit.id_unity, unit.designation)"
+            >
+              {{ unit.designation }}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <a
@@ -74,6 +120,22 @@ export default {
     index: {
       type: Number,
       required: true
+    },
+    areas: {
+      type: Array,
+      required: false
+    },
+    courses: {
+      type: Array,
+      required: false
+    },
+    projects: {
+      type: Array,
+      required: false
+    },
+    units: {
+      type: Array,
+      required: false
     }
   },
   data: () => {
@@ -82,6 +144,31 @@ export default {
     };
   },
   methods: {
+    openProjectPage(name, id) {
+      this.$store.commit("SET_SELECTED_PROJECT_ID", {
+        id: id
+      });
+
+      this.$router.push({
+        name: "Project",
+        params: { name: name }
+      });
+    },
+    formatRouterPath(title) {
+      return title.replace(/\s/g, "%20");
+    },
+    getUnityId(id, title) {
+      this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
+
+      let formatedTitle = this.formatRouterPath(title);
+
+      if (this.$route.path != `/unities/${formatedTitle}`) {
+        this.$router.push({
+          name: "UnitiesPage",
+          params: { name: title }
+        });
+      }
+    },
     toggleInfo(index) {
       // this.hide = !this.hide;
 

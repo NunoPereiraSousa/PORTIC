@@ -18,6 +18,52 @@
           class="courses__grid__card__content__paragraph"
           v-html="courseDesc"
         ></p>
+        <div class="connections__info">
+          <div v-if="areas.length > 0">
+            <u>{{ $t("areas.mainTitle") }}:</u>
+            <ul>
+              <li v-for="area in areas" :key="area.id_areas">
+                <router-link :to="{ name: 'Contacts' }">
+                  {{ area.designation }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
+          <div v-if="careers.length > 0">
+            <u>{{ $t("careers.careersKey") }}:</u>
+            <ul>
+              <li v-for="career in careers" :key="career.id_available_position">
+                <router-link :to="{ name: 'Contacts' }">
+                  {{ career.designation }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
+          <div v-if="projects.length > 0">
+            <u>{{ $t("projects.title") }}:</u>
+            <ul>
+              <li
+                v-for="project in projects"
+                :key="project.id_project"
+                @click="openProjectPage(project.title, project.id_project)"
+              >
+                {{ project.title }}
+              </li>
+            </ul>
+          </div>
+          <div v-if="units.length > 0">
+            <u>{{ $t("unities.unitiesKey") }}:</u>
+            <ul>
+              <li
+                v-for="unit in units"
+                :key="unit.id_unity"
+                @click="getUnityId(unit.id_unity, unit.designation)"
+              >
+                {{ unit.designation }}
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <!-- <div class="courses__grid__card__buttons flex flex-ai-c flex-jc-sb">
@@ -54,6 +100,22 @@ export default {
     index: {
       type: Number,
       required: true
+    },
+    areas: {
+      type: Array,
+      required: false
+    },
+    careers: {
+      type: Array,
+      required: false
+    },
+    projects: {
+      type: Array,
+      required: false
+    },
+    units: {
+      type: Array,
+      required: false
     }
   },
   components: {
@@ -65,6 +127,31 @@ export default {
     };
   },
   methods: {
+    openProjectPage(name, id) {
+      this.$store.commit("SET_SELECTED_PROJECT_ID", {
+        id: id
+      });
+
+      this.$router.push({
+        name: "Project",
+        params: { name: name }
+      });
+    },
+    formatRouterPath(title) {
+      return title.replace(/\s/g, "%20");
+    },
+    getUnityId(id, title) {
+      this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
+
+      let formatedTitle = this.formatRouterPath(title);
+
+      if (this.$route.path != `/unities/${formatedTitle}`) {
+        this.$router.push({
+          name: "UnitiesPage",
+          params: { name: title }
+        });
+      }
+    },
     expand(index) {
       this.selectedItem = index;
 

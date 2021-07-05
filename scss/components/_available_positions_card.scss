@@ -230,6 +230,46 @@
     }
   }
 
+  .connections__info {
+    margin-top: 2rem;
+
+    u {
+      font-size: $_17px;
+      margin: 0.5rem 0;
+
+      @include breakpoint-up(desktop) {
+        font-size: $_18px;
+        margin: 1rem 0;
+      }
+    }
+
+    li {
+      font-size: $_16px;
+      letter-spacing: 0.2px;
+      line-height: 1.6;
+
+      &:last-child {
+        margin-top: 0;
+      }
+
+      &:hover {
+        color: $orange;
+      }
+
+      a {
+        color: $black;
+
+        &:hover {
+          color: $orange;
+        }
+      }
+
+      @include breakpoint-up(desktop) {
+        font-size: $_17px;
+      }
+    }
+  }
+
   &__apply_btn {
     width: fit-content;
     height: fit-content;

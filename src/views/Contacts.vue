@@ -214,6 +214,10 @@
           :card_id="`card_${index}`"
           :areaName="area.designation"
           :areaDesc="area.description"
+          :careers="area.recruitment_tags"
+          :courses="area.course_tags"
+          :projects="area.project_tags"
+          :units="area.unity_tags"
         />
       </div>
     </section>

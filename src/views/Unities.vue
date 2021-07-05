@@ -108,6 +108,8 @@ export default {
     getUnityId(id, title) {
       this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
 
+      console.log(id);
+
       let formatedTitle = this.formatRouterPath(title);
 
       if (this.$route.path != `/unities/${formatedTitle}`) {

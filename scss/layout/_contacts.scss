@@ -185,8 +185,10 @@
       position: absolute;
       z-index: -1;
       top: 0%;
+      display: none;
 
       @include breakpoint-up(iPadPro) {
+        display: block;
         width: 1.5px;
         background-color: rgba($color: $black, $alpha: 0.25);
       }
