@@ -221,6 +221,7 @@ export default {
     },
     async addCareerCon() {
       this.$store.commit("SET_SELECTED_ACR", {
+        areaId: this.getAdminSelectedAreaId,
         careerId: this.con.areaCareer
       });
 

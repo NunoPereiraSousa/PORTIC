@@ -10,6 +10,13 @@
       </div>
       <div class="flex flex-ai-c">
         <button
+          class="admin_areas__panel__grid__card__remove"
+          style="margin-right: 2rem;"
+          @click="openAddConnectionsPage(id, careerName)"
+        >
+          Gerir conecções
+        </button>
+        <button
           class="admin_careers__panel__grid__card__edit"
           @click="openPage(id, careerName)"
         >
@@ -85,6 +92,16 @@ export default {
     },
     toggleInfo() {
       this.hide = !this.hide;
+    },
+    openAddConnectionsPage(careerId, careerName) {
+      this.$store.commit("SET_SELECTED_ADMIN_CAREER_ID", {
+        id: careerId
+      });
+
+      this.$router.push({
+        name: "DashboardCareerConnection",
+        params: { name: careerName }
+      });
     }
   }
 };

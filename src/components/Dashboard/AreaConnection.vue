@@ -76,6 +76,7 @@ export default {
         }
       } else {
         this.$store.commit("SET_SELECTED_ACR", {
+          areaId: this.$store.getters.getAdminSelectedAreaId,
           careerId: this.id
         });
 

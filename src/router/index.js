@@ -37,6 +37,7 @@ import DashboardAreaConnection from "../views/Dashboard/DashboardAreaConnection.
 import DashboardUnitConnection from "../views/Dashboard/DashboardUnitConnection.vue";
 import DashboardCourseConnection from "../views/Dashboard/DashboardCourseConnection.vue";
 import DashboardProjectConnection from "../views/Dashboard/DashboardProjectConnection.vue";
+import DashboardCareerConnection from "../views/Dashboard/DashboardCareerConnection.vue";
 import SignIn from "../views/Dashboard/SignIn.vue";
 import Register from "../views/Dashboard/Register.vue";
 import Home from "../views/Home.vue";
@@ -303,6 +304,12 @@ const routes = [
     path: "/dashboard-project-connections/:name",
     name: "DashboardProjectConnection",
     component: DashboardProjectConnection,
+    props: true
+  },
+  {
+    path: "/dashboard-career-connections/:name",
+    name: "DashboardCareerConnection",
+    component: DashboardCareerConnection,
     props: true
   }
 ];

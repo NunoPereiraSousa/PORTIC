@@ -65,6 +65,7 @@ export const connectionsModule = {
       console.log(state.apDeleteStatus);
     },
     SET_SELECTED_ACR(state, payload) {
+      state.areaId = payload.areaId;
       state.careerId = payload.careerId;
     },
     SET_ACR_STATUS(state, payload) {
@@ -200,8 +201,7 @@ export const connectionsModule = {
         "SET_ACR_STATUS",
         await connectionsConfig.areasCareers(
           JSON.parse(localStorage.getItem("token")),
-          JSON.parse(localStorage.getItem("vuex_admin_areas")).adminModule
-            .selectedAreaId,
+          state.areaId,
           state.careerId
         )
       );
@@ -211,8 +211,7 @@ export const connectionsModule = {
         "SET_ACR_DELETE_STATUS",
         await connectionsConfig.areasCareersDelete(
           JSON.parse(localStorage.getItem("token")),
-          JSON.parse(localStorage.getItem("vuex_admin_areas")).adminModule
-            .selectedAreaId,
+          state.areaId,
           state.careerId
         )
       );
