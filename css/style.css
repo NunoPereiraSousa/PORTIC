@@ -10048,6 +10048,13 @@ button:focus {
   margin-top: 1rem;
 }
 
+.projects_panel__form textarea {
+  padding: 12px 26px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
 .projects_panel__form__images {
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);

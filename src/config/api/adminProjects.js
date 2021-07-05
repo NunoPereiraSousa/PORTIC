@@ -31,6 +31,8 @@ export const adminProjectsConfig = {
     reference,
     desc_html_structure_eng,
     desc_html_structure_pt,
+    summary_eng,
+    summary_pt,
     project_contact,
     project_email,
     start_date,
@@ -51,6 +53,8 @@ export const adminProjectsConfig = {
     data.append("reference", reference);
     data.append("desc_html_structure_eng", desc_html_structure_eng);
     data.append("desc_html_structure_pt", desc_html_structure_pt);
+    data.append("summary_eng", summary_eng);
+    data.append("summary_pt", summary_pt);
     data.append("project_contact", project_contact);
     data.append("project_email", project_email);
     data.append("start_date", start_date);
@@ -80,10 +84,12 @@ export const adminProjectsConfig = {
     reference,
     desc_html_structure_eng,
     desc_html_structure_pt,
-    start_date,
-    end_date,
+    summary_eng,
+    summary_pt,
     project_contact,
-    project_email
+    project_email,
+    start_date,
+    end_date
   ) => {
     let config = {
       headers: {
@@ -99,14 +105,17 @@ export const adminProjectsConfig = {
     data.append("reference", reference);
     data.append("desc_html_structure_eng", desc_html_structure_eng);
     data.append("desc_html_structure_pt", desc_html_structure_pt);
-    data.append("start_date", start_date);
-    data.append("end_date", end_date);
+    data.append("summary_eng", summary_eng);
+    data.append("summary_pt", summary_pt);
     data.append("project_contact", project_contact);
     data.append("project_email", project_email);
+    data.append("start_date", start_date);
+    data.append("end_date", end_date);
 
     return await axios
       .put(`${API_URL}/projects/${id}`, data, config)
       .then(response => {
+        console.log(response.status);
         return {
           status: response.status
         };

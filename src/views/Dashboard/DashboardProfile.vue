@@ -32,13 +32,11 @@
             <a :href="getUserInfo.linkedIn_url" class="socials__circle">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a :href="getUserInfo.facebook_url" class="socials__circle">
-              <i class="fab fa-facebook-square"></i>
-            </a>
           </div>
         </div>
 
         <div class="admin__details">
+          <p><span>Cargo: </span> <br />{{ getUserInfo.post }}</p>
           <p>
             <span>Email: </span> <br />
             {{ getUserInfo.email }}
@@ -48,10 +46,6 @@
               getUserInfo.phone_numb
             }}
           </p>
-          <!-- <p><span>Nível: </span> <br />{{ getUserInfo.user_level }}</p>
-          <p>
-            <span>Estado da conta: </span> <br />{{ getUserInfo.user_status }}
-          </p> -->
         </div>
 
         <button class="edit_profile active" @click="isHidden = !isHidden">
@@ -63,7 +57,7 @@
         <div class="admin__info">
           <label class="custom-file-upload">
             <input type="file" @change="uploadImage" />
-            <img :src="getProfileImg" alt="Profile Img" />
+            <img id="image" :src="getProfileImg" alt="Profile Img" />
           </label>
 
           <div class="flex flex-ai-c flex-jc-sb">
@@ -90,22 +84,12 @@
           <br />
           <label for="descTxt">Sobre mim</label>
           <textarea id="descTxt" cols="30" rows="4" v-model="form.desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugit
-            vitae esse temporibus obcaecati, minus odio. Vel, exercitationem et
-            aperiam numquam beatae mollitia. At quae inventore porro illo ex
-            eaque!
           </textarea>
 
           <input
             type="text"
             placeholder="LinkedIn"
             v-model="form.linkedInUrl"
-          />
-          <input
-            type="text"
-            placeholder="Facebook"
-            v-model="form.facebookUrl"
-            style="margin-left: 2rem;"
           />
         </div>
 
@@ -126,8 +110,8 @@
             v-model="form.phoneNumber"
           /><br />
 
-          <label for="levelTxt">Nível</label> <br />
-          <input type="number" id="levelTxt" placeholder="Super Admin" />
+          <label for="roleTxt">Cargo</label> <br />
+          <input type="text" id="roleTxt" v-model="form.role" />
         </div>
 
         <button class="edit_profile active" @click="editProfile">
@@ -159,9 +143,9 @@ export default {
         username: "",
         desc: "",
         linkedInUrl: "",
-        facebookUrl: "",
         email: "",
         phoneNumber: "",
+        role: "",
         image: ""
       }
     };
@@ -174,9 +158,9 @@ export default {
       username: this.getUserInfo.username,
       desc: this.getUserInfo.description_pt,
       linkedInUrl: this.getUserInfo.linkedIn_url,
-      facebookUrl: this.getUserInfo.facebook_url,
       email: this.getUserInfo.email,
       phoneNumber: this.getUserInfo.phone_numb,
+      role: this.getUserInfo.post,
       image: this.getUserInfo.picture
     };
   },
@@ -210,11 +194,13 @@ export default {
         description_eng: "Englishhhh",
         email: this.form.email,
         phone_numb: this.form.phoneNumber,
-        facebook_url: "https://www.linkedin.com/",
         linkedIn_url: "https://www.linkedin.com/",
         fullName: this.form.fullName,
+        post: this.form.role,
         image: this.form.image
       });
+
+      console.log(this.form.role, this.form.image);
 
       // this.$store.commit("SET_USER_IMG", {
       //   image: this.image
@@ -236,6 +222,7 @@ export default {
     uploadImage(e) {
       const image = e.target.files[0];
       this.form.image = image;
+      document.querySelector("#image").src = URL.createObjectURL(image);
     }
   }
 };

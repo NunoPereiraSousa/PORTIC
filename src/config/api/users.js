@@ -111,12 +111,12 @@ export const usersConfig = {
     token,
     username,
     description_pt,
-    description_eng = "English desc",
+    description_eng,
     email,
     phone_numb,
-    facebook_url,
     linkedIn_url,
-    fullname
+    fullname,
+    post
   ) => {
     let config = {
       headers: {
@@ -124,6 +124,17 @@ export const usersConfig = {
         authorization: `Bearer ${token}`
       }
     };
+
+    console.log(
+      username,
+      description_pt,
+      description_eng,
+      email,
+      phone_numb,
+      linkedIn_url,
+      fullname,
+      post
+    );
 
     return await axios
       .put(
@@ -134,9 +145,9 @@ export const usersConfig = {
           description_eng: description_eng,
           email: email,
           phone_numb: phone_numb,
-          facebook_url: facebook_url,
           linkedIn_url: linkedIn_url,
-          full_name: fullname
+          full_name: fullname,
+          post: post
         },
         config
       )

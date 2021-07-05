@@ -117,6 +117,19 @@
         </div>
 
         <h3 class="dashboard_subheader">
+          Resumo do projeto
+        </h3>
+
+        <textarea
+          id=""
+          cols="30"
+          rows="6"
+          maxlength="100"
+          placeholder="Resumo do projeto"
+          v-model="add.resumePt"
+        ></textarea>
+
+        <h3 class="dashboard_subheader">
           Galeria & Ficha de Projeto
         </h3>
 
@@ -131,47 +144,6 @@
               Upload da ficha de projeto
             </label>
             {{ add.pdf.name }}
-          </div>
-          <!-- <label class="custom-file-upload">
-            <input type="file" @change="uploadPdf" />
-            Upload da ficha de projeto
-          </label> -->
-        </div>
-
-        <h3 class="dashboard_subheader">
-          Equipa de projeto
-        </h3>
-
-        <div class="projects_panel__form__team">
-          <div v-for="index in teamRows" :key="index">
-            <div
-              :id="index"
-              class="projects_panel__form__team__form flex flex-ai-c flex-jc-sb"
-            >
-              <div class="projects_panel__form__team__form__grid grid">
-                <input type="text" placeholder="Cargo no projeto" />
-                <input type="text" placeholder="Nome" />
-                <label class="custom-file-upload">
-                  <input type="file" />
-                  Fotografia
-                </label>
-              </div>
-              <div>
-                <button
-                  class="projects_panel__form__team__form__grid__add"
-                  @click="addHtmlTeamRow(index)"
-                >
-                  +1 Membro
-                </button>
-                <button
-                  class="projects_panel__form__team__form__grid__remove"
-                  v-if="teamRowsLength > 1"
-                  @click="removeHtmlTeamRow(index)"
-                >
-                  -1 Membro
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -292,6 +264,19 @@
         </div>
 
         <h3 class="dashboard_subheader">
+          Project summary
+        </h3>
+
+        <textarea
+          id=""
+          cols="30"
+          rows="6"
+          maxlength="100"
+          placeholder="Project summary"
+          v-model="add.resumeEn"
+        ></textarea>
+
+        <h3 class="dashboard_subheader">
           Images & Project file
         </h3>
 
@@ -304,43 +289,6 @@
             <input type="file" @change="uploadPdf" />
             Project file upload
           </label>
-        </div>
-
-        <h3 class="dashboard_subheader">
-          Project team
-        </h3>
-
-        <div class="projects_panel__form__team">
-          <div v-for="index in teamRows" :key="index">
-            <div
-              :id="index"
-              class="projects_panel__form__team__form flex flex-ai-c flex-jc-sb"
-            >
-              <div class="projects_panel__form__team__form__grid grid">
-                <input type="text" placeholder="Project role" />
-                <input type="text" placeholder="Name" />
-                <label class="custom-file-upload">
-                  <input type="file" />
-                  Image
-                </label>
-              </div>
-              <div>
-                <button
-                  class="projects_panel__form__team__form__grid__add"
-                  @click="addHtmlTeamRow(index)"
-                >
-                  +1 Member
-                </button>
-                <button
-                  class="projects_panel__form__team__form__grid__remove"
-                  v-if="teamRowsLength > 1"
-                  @click="removeHtmlTeamRow(index)"
-                >
-                  -1 Member
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -369,6 +317,8 @@ export default {
         contentPt: "",
         contentEn: "",
         image: "",
+        resumePt: "",
+        resumeEn: "",
         pdf: ""
       },
       editorOption: {
@@ -430,6 +380,8 @@ export default {
         reference: this.add.reference,
         desc_html_structure_eng: this.add.contentEn,
         desc_html_structure_pt: this.add.contentPt,
+        summary_eng: this.add.resumeEn,
+        summary_pt: this.add.resumePt,
         project_contact: this.add.number,
         project_email: this.add.email,
         start_date: this.add.startDate,

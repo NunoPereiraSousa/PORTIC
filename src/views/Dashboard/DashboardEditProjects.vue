@@ -118,6 +118,19 @@
           </quill-editor>
         </div>
 
+        <h3 class="dashboard_subheader">
+          Resumo do projeto
+        </h3>
+
+        <textarea
+          id=""
+          cols="30"
+          rows="6"
+          maxlength="100"
+          placeholder="Resumo do projeto"
+          v-model="edit.resumePt"
+        ></textarea>
+
         <div>
           <h3 class="dashboard_subheader">
             Editar ficha de projeto
@@ -365,6 +378,19 @@
           </quill-editor>
         </div>
 
+        <h3 class="dashboard_subheader">
+          Project summary
+        </h3>
+
+        <textarea
+          id=""
+          cols="30"
+          rows="6"
+          maxlength="100"
+          placeholder="Project summary"
+          v-model="edit.resumeEn"
+        ></textarea>
+
         <!-- <label class="custom-file-upload">
           <input type="file" @change="uploadImage" />
           Images upload+
@@ -448,6 +474,8 @@ export default {
         endDate: "",
         contentPt: "",
         contentEn: "",
+        resumePt: "",
+        resumeEn: "",
         image: "",
         pdf: ""
       },
@@ -536,6 +564,14 @@ export default {
       this.getAdminSelectedProjectId
     ).desc_html_structure_eng;
 
+    this.edit.resumeEn = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).summary_eng;
+
+    this.edit.resumePt = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).summary_pt;
+
     // THE NEXT FOLLOWING LINE IS JUST FOR TESTING REASONS
     this.images = [
       "https://wp.zillowstatic.com/streeteasy/2/Amazon-building-10b3c7.jpg",
@@ -594,19 +630,22 @@ export default {
         reference: this.edit.reference,
         desc_html_structure_eng: this.edit.contentEn,
         desc_html_structure_pt: this.edit.contentPt,
-        start_date: this.edit.startDate,
-        end_date: this.edit.endDate,
+        summary_eng: this.edit.resumeEn,
+        summary_pt: this.edit.resumePt,
         project_contact: this.edit.number,
-        project_email: this.edit.email
+        project_email: this.edit.email,
+        start_date: this.edit.startDate,
+        end_date: this.edit.endDate
       });
 
       try {
         await this.$store.dispatch("setAdminEditProjects");
         await this.$store.dispatch("setAdminProjects");
 
-        this.notificationSuccess();
+        if (this.$store.getters.getEditProjectStatus === 200)
+          this.notificationSuccess();
+        else this.notificationError();
       } catch (error) {
-        this.notificationError();
         return error;
       }
 

@@ -37,6 +37,7 @@ export const usersModule = {
       facebook_url: null,
       linkedIn_url: null,
       full_name: null,
+      post: null,
       image: null
     },
     editProfileStatus: null
@@ -102,12 +103,12 @@ export const usersModule = {
       state.editProfileForm.description_eng = payload.description_eng;
       state.editProfileForm.email = payload.email;
       state.editProfileForm.phone_numb = payload.phone_numb;
-      state.editProfileForm.facebook_url = payload.facebook_url;
       state.editProfileForm.linkedIn_url = payload.linkedIn_url;
       state.editProfileForm.full_name = payload.fullName;
+      state.editProfileForm.post = payload.post;
       state.editProfileForm.image = payload.image;
 
-      console.log(state.editProfileForm.image);
+      console.log(state.editProfileForm.post);
     }
   },
   actions: {
@@ -149,9 +150,9 @@ export const usersModule = {
           state.editProfileForm.description_eng,
           state.editProfileForm.email,
           state.editProfileForm.phone_numb,
-          state.editProfileForm.facebook_url,
           state.editProfileForm.linkedIn_url,
-          state.editProfileForm.full_name
+          state.editProfileForm.full_name,
+          state.editProfileForm.post
         )
       );
     },

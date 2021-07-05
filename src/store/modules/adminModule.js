@@ -151,6 +151,8 @@ export const adminModule = {
       reference: null,
       desc_html_structure_eng: null,
       desc_html_structure_pt: null,
+      summary_eng: null,
+      summary_pt: null,
       project_contact: null,
       project_email: null,
       start_date: null,
@@ -165,6 +167,8 @@ export const adminModule = {
       reference: null,
       desc_html_structure_eng: null,
       desc_html_structure_pt: null,
+      summary_eng: null,
+      summary_pt: null,
       start_date: null,
       end_date: null,
       project_contact: null,
@@ -433,14 +437,14 @@ export const adminModule = {
         payload.desc_html_structure_eng;
       state.addProjectForm.desc_html_structure_pt =
         payload.desc_html_structure_pt;
+      state.addProjectForm.summary_eng = payload.summary_eng;
+      state.addProjectForm.summary_pt = payload.summary_pt;
       state.addProjectForm.project_contact = payload.project_contact;
       state.addProjectForm.project_email = payload.project_email;
       state.addProjectForm.start_date = payload.start_date;
       state.addProjectForm.end_date = payload.end_date;
       state.addProjectForm.pdf_path = payload.pdf_path;
       state.addProjectForm.images = payload.gallery_imgs;
-
-      console.log(state.addProjectForm.images);
     },
     SET_PROJECTS_ADD_STATUS(state, payload) {
       state.addProjectStatus = payload.status;
@@ -455,6 +459,8 @@ export const adminModule = {
         payload.desc_html_structure_eng;
       state.editProjectForm.desc_html_structure_pt =
         payload.desc_html_structure_pt;
+      state.editProjectForm.summary_eng = payload.summary_eng;
+      state.editProjectForm.summary_pt = payload.summary_pt;
       state.editProjectForm.start_date = payload.start_date;
       state.editProjectForm.end_date = payload.end_date;
       state.editProjectForm.project_contact = payload.project_contact;
@@ -862,6 +868,8 @@ export const adminModule = {
           state.addProjectForm.reference,
           state.addProjectForm.desc_html_structure_eng,
           state.addProjectForm.desc_html_structure_pt,
+          state.addProjectForm.summary_eng,
+          state.addProjectForm.summary_pt,
           state.addProjectForm.project_contact,
           state.addProjectForm.project_email,
           state.addProjectForm.start_date,
@@ -881,10 +889,12 @@ export const adminModule = {
           state.editProjectForm.reference,
           state.editProjectForm.desc_html_structure_eng,
           state.editProjectForm.desc_html_structure_pt,
-          state.editProjectForm.start_date,
-          state.editProjectForm.end_date,
+          state.editProjectForm.summary_eng,
+          state.editProjectForm.summary_pt,
           state.editProjectForm.project_contact,
-          state.editProjectForm.project_email
+          state.editProjectForm.project_email,
+          state.editProjectForm.start_date,
+          state.editProjectForm.end_date
         )
       );
     },
@@ -1139,6 +1149,7 @@ export const adminModule = {
     getAdminSelectedProjectId: state => state.selectedProjectId,
     getAdminProjectById: state => id =>
       state.projects.find(project => project.id_project === id),
+    getEditProjectStatus: state => state.editProjectStatus,
 
     // UNITS GETTERS
     getAdminUnits: state => (state.units != "" ? state.units : []),
