@@ -38,7 +38,7 @@
             Conecção área - unidade
           </h3>
           <div class="flex">
-            <select id="areaUnit">
+            <select id="areaUnit" v-model="con.areaUnit">
               <option value="">Selecionar unidade</option>
               <option
                 v-for="unit in getAdminUnits"
@@ -50,40 +50,74 @@
 
             <button @click="addUnitCon">Guardar</button>
           </div>
+
+          <div class="connections__grid grid">
+            <AreaConnection
+              v-for="unit in getAreasUnits"
+              :key="unit.id_unity"
+              :id="unit.id_unity"
+              category="Unidade"
+              :name="unit.designation"
+            />
+          </div>
         </div>
 
-        <h3 class="dashboard_subheader">
-          Conecção área - projeto
-        </h3>
-        <div class="flex">
-          <select id="areaProject">
-            <option value="">Selecionar projeto</option>
-            <option
-              v-for="project in getAdminProjects"
+        <div>
+          <h3 class="dashboard_subheader">
+            Conecção área - projeto
+          </h3>
+          <div class="flex">
+            <select id="areaProject" v-model="con.areaProject">
+              <option value="">Selecionar projeto</option>
+              <option
+                v-for="project in getAdminProjects"
+                :key="project.id_project"
+                :value="project.id_project"
+                >{{ project.initials }}</option
+              >
+            </select>
+
+            <button @click="addProjectCon">Guardar</button>
+          </div>
+
+          <div class="connections__grid grid">
+            <AreaConnection
+              v-for="project in getAreasProjects"
               :key="project.id_project"
-              :value="project.id_project"
-              >{{ project.initials }}</option
-            >
-          </select>
-
-          <button>Guardar</button>
+              :id="project.id_project"
+              category="Projeto"
+              :name="project.title"
+            />
+          </div>
         </div>
 
-        <h3 class="dashboard_subheader">
-          Conecção área - recrutamento
-        </h3>
-        <div class="flex">
-          <select id="areaCareer">
-            <option value="">Selecionar posição</option>
-            <option
-              v-for="career in getAdminCareers"
-              :key="career.id_available_position"
-              :value="career.id_available_position"
-              >{{ career.designation_pt }}</option
-            >
-          </select>
+        <div>
+          <h3 class="dashboard_subheader">
+            Conecção área - recrutamento
+          </h3>
+          <div class="flex">
+            <select id="areaCareer" v-model="con.areaCareer">
+              <option value="">Selecionar posição</option>
+              <option
+                v-for="career in getAdminCareers"
+                :key="career.id_available_position"
+                :value="career.id_available_position"
+                >{{ career.designation_pt }}</option
+              >
+            </select>
 
-          <button>Guardar</button>
+            <button @click="addCareerCon">Guardar</button>
+          </div>
+
+          <div class="connections__grid grid">
+            <AreaConnection
+              v-for="career in getAreasCareers"
+              :key="career.id_available_position"
+              :id="career.id_available_position"
+              category="Posições"
+              :name="career.designation"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -112,13 +146,28 @@ export default {
     ]),
     getAreasCourses() {
       return this.getAdminAreaById(this.getAdminSelectedAreaId).course_tags;
+    },
+    getAreasUnits() {
+      return this.getAdminAreaById(this.getAdminSelectedAreaId).unity_tags;
+    },
+    getAreasProjects() {
+      return this.getAdminAreaById(this.getAdminSelectedAreaId).project_tags;
+    },
+    getAreasCareers() {
+      console.log(
+        this.getAdminAreaById(this.getAdminSelectedAreaId).recruitment_tags
+      );
+      return this.getAdminAreaById(this.getAdminSelectedAreaId)
+        .recruitment_tags;
     }
   },
   data: () => {
     return {
       con: {
         areaCourse: "",
-        areaUnit: ""
+        areaUnit: "",
+        areaProject: "",
+        areaCareer: ""
       }
     };
   },
@@ -131,11 +180,9 @@ export default {
         courseId: this.con.areaCourse
       });
 
-      console.log(this.con.areaCourse);
-
       try {
-        this.$store.dispatch("setAdminAC");
-        this.$store.dispatch("setAdminAreas");
+        await this.$store.dispatch("setAdminAC");
+        await this.$store.dispatch("setAdminAreas");
       } catch (error) {
         return error;
       }
@@ -145,11 +192,38 @@ export default {
         unitId: this.con.areaUnit
       });
 
-      console.log(this.con.areaUnit);
+      try {
+        await this.$store.dispatch("setAdminAU");
+        await this.$store.dispatch("setAdminAreas");
+      } catch (error) {
+        return error;
+      }
+    },
+    async addProjectCon() {
+      this.$store.commit("SET_SELECTED_AP", {
+        projectId: this.con.areaProject
+      });
+
+      console.log(this.con.areaProject);
 
       try {
-        this.$store.dispatch("setAdminAU");
-        this.$store.dispatch("setAdminAreas");
+        await this.$store.dispatch("setAdminAP");
+        await this.$store.dispatch("setAdminAreas");
+      } catch (error) {
+        return error;
+      }
+    },
+    async addCareerCon() {
+      this.$store.commit("SET_SELECTED_ACR", {
+        careerId: this.con.areaCareer
+      });
+
+      console.log(this.con.areaCareer);
+
+      try {
+        await this.$store.dispatch("setAdminACR");
+        await this.$store.dispatch("setAdminAreas");
+        await this.$store.dispatch("setAdminCareers");
       } catch (error) {
         return error;
       }

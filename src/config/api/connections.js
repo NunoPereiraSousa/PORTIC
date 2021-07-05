@@ -68,5 +68,115 @@ export const connectionsConfig = {
 
         return error;
       });
+  },
+  areasUnitsDelete: async (token, id_area, id_unit) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .delete(`${API_URL}/areas/${id_area}/units/${id_unit}`, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
+  },
+  areasProjects: async (token, id_area, id_project) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .post(`${API_URL}/projects/${id_project}/areas/${id_area}`, "", config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
+  },
+  areasProjectsDelete: async (token, id_area, id_project) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .delete(`${API_URL}/projects/${id_project}/areas/${id_area}`, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
+  },
+  areasCareers: async (token, id_area, id_career) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .post(`${API_URL}/areas/${id_area}/positions/${id_career}`, "", config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
+  },
+  areasCareersDelete: async (token, id_area, id_career) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .delete(`${API_URL}/areas/${id_area}/positions/${id_career}`, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
   }
 };

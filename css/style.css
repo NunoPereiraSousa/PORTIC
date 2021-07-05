@@ -8794,6 +8794,18 @@ button:focus {
   }
 }
 
+.admin_areas__panel__grid__card span,
+.admin_courses__panel__grid__card span,
+.admin_careers__panel__grid__card span,
+.admin_projects__panel__grid__card span,
+.admin_unities__panel__grid__card span,
+.admin_users__panel__grid__card span,
+.admin_medias__panel__grid__card span,
+.admin_about__panel__grid__card span,
+.admin_tn__panel__grid__card span {
+  margin-right: 2rem;
+}
+
 .admin_areas__panel__grid__card__edit, .admin_areas__panel__grid__card__remove, .admin_areas__panel__grid__card__block,
 .admin_courses__panel__grid__card__edit,
 .admin_courses__panel__grid__card__remove,
