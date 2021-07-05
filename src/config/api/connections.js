@@ -416,5 +416,58 @@ export const connectionsConfig = {
 
         return error;
       });
+  },
+
+  // PROJECT CAREERS
+  projectCareers: async (token, id_project, id_careers) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .post(
+        `${API_URL}/projects/${id_project}/positions/${id_careers}`,
+        "",
+        config
+      )
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
+  },
+  projectCareersDelete: async (token, id_project, id_careers) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .delete(
+        `${API_URL}/projects/${id_project}/positions/${id_careers}`,
+        config
+      )
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
   }
 };

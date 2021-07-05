@@ -205,6 +205,7 @@ export default {
     },
     async addProjectCon() {
       this.$store.commit("SET_SELECTED_AP", {
+        areaId: this.getAdminSelectedAreaId,
         projectId: this.con.areaProject
       });
 

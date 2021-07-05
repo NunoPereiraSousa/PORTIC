@@ -57,6 +57,7 @@ export const connectionsModule = {
       state.apStatus = payload.status;
     },
     SET_SELECTED_AP(state, payload) {
+      state.areaId = payload.areaId;
       state.projectId = payload.projectId;
     },
     SET_AP_DELETE_STATUS(state, payload) {
@@ -121,6 +122,16 @@ export const connectionsModule = {
     SET_SELECTED_CCR(state, payload) {
       state.careerId = payload.careerId;
       state.courseId = payload.courseId;
+    },
+    SET_PC_STATUS(state, payload) {
+      state.pcStatus = payload.status;
+    },
+    SET_PC_DELETE_STATUS(state, payload) {
+      state.pcDeleteStatus = payload.status;
+    },
+    SET_SELECTED_PC(state, payload) {
+      state.projectId = payload.projectId;
+      state.careerId = payload.careerId;
     }
   },
   actions: {
@@ -169,8 +180,7 @@ export const connectionsModule = {
         "SET_AP_STATUS",
         await connectionsConfig.areasProjects(
           JSON.parse(localStorage.getItem("token")),
-          JSON.parse(localStorage.getItem("vuex_admin_areas")).adminModule
-            .selectedAreaId,
+          state.areaId,
           state.projectId
         )
       );
@@ -180,8 +190,7 @@ export const connectionsModule = {
         "SET_AP_DELETE_STATUS",
         await connectionsConfig.areasProjectsDelete(
           JSON.parse(localStorage.getItem("token")),
-          JSON.parse(localStorage.getItem("vuex_admin_areas")).adminModule
-            .selectedAreaId,
+          state.areaId,
           state.projectId
         )
       );
@@ -305,6 +314,26 @@ export const connectionsModule = {
           JSON.parse(localStorage.getItem("token")),
           state.careerId,
           state.courseId
+        )
+      );
+    },
+    async setAdminPC({ commit, state }) {
+      commit(
+        "SET_PC_STATUS",
+        await connectionsConfig.projectCareers(
+          JSON.parse(localStorage.getItem("token")),
+          state.projectId,
+          state.careerId
+        )
+      );
+    },
+    async setAdminDeletePC({ commit, state }) {
+      commit(
+        "SET_PC_DELETE_STATUS",
+        await connectionsConfig.projectCareersDelete(
+          JSON.parse(localStorage.getItem("token")),
+          state.projectId,
+          state.careerId
         )
       );
     }

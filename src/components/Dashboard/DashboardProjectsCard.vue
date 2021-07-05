@@ -5,6 +5,13 @@
     </h2>
     <div class="flex flex-ai-c">
       <button
+        class="admin_areas__panel__grid__card__remove"
+        style="margin-right: 2rem;"
+        @click="openAddConnectionsPage(id, projectName)"
+      >
+        Gerir conecções
+      </button>
+      <button
         class="admin_projects__panel__grid__card__block"
         @click="showPopup5(id)"
       >
@@ -129,6 +136,16 @@ export default {
 
       this.$store.commit("SET_SELECTED_ADMIN_PROJECTS_ID", {
         id: id
+      });
+    },
+    openAddConnectionsPage(projectId, projectName) {
+      this.$store.commit("SET_SELECTED_ADMIN_PROJECTS_ID", {
+        id: projectId
+      });
+
+      this.$router.push({
+        name: "DashboardProjectConnection",
+        params: { name: projectName }
       });
     }
   }

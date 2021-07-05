@@ -6,10 +6,7 @@
     </div>
 
     <div class="flex flex-ai-c">
-      <button
-        class="admin_areas__panel__grid__card__remove"
-        @click="deleteAreaCon"
-      >
+      <button class="admin_areas__panel__grid__card__remove" @click="deleteCon">
         Remover
       </button>
     </div>
@@ -18,7 +15,7 @@
 
 <script>
 export default {
-  name: "AreaConnection",
+  name: "ProjectConnection",
   props: {
     category: {
       type: String,
@@ -34,37 +31,11 @@ export default {
     }
   },
   methods: {
-    async deleteAreaCon() {
-      if (this.category === "Curso") {
-        this.$store.commit("SET_SELECTED_AC", {
-          areaId: this.$store.getters.getAdminSelectedAreaId,
-          courseId: this.id
-        });
-
-        try {
-          await this.$store.dispatch("setAdminDeleteAC");
-          await this.$store.dispatch("setAdminAreas");
-          await this.$store.dispatch("setAdminCourses");
-        } catch (error) {
-          return error;
-        }
-      } else if (this.category === "Unidade") {
-        this.$store.commit("SET_SELECTED_AU", {
-          areaId: this.$store.getters.getAdminSelectedAreaId,
-          unitId: this.id
-        });
-
-        try {
-          await this.$store.dispatch("setAdminDeleteAU");
-          await this.$store.dispatch("setAdminAreas");
-          await this.$store.dispatch("setAdminUnits");
-        } catch (error) {
-          return error;
-        }
-      } else if (this.category === "Projeto") {
+    async deleteCon() {
+      if (this.category === "Area") {
         this.$store.commit("SET_SELECTED_AP", {
-          areaId: this.$store.getters.getAdminSelectedAreaId,
-          projectId: this.id
+          areaId: this.id,
+          projectId: this.$store.getters.getAdminSelectedProjectId
         });
 
         try {
@@ -74,15 +45,42 @@ export default {
         } catch (error) {
           return error;
         }
+      } else if (this.category === "Unidade") {
+        this.$store.commit("SET_SELECTED_PU", {
+          projectId: this.$store.getters.getAdminSelectedProjectId,
+          unitId: this.id
+        });
+
+        try {
+          await this.$store.dispatch("setAdminDeletePU");
+          await this.$store.dispatch("setAdminProjects");
+          await this.$store.dispatch("setAdminUnits");
+        } catch (error) {
+          return error;
+        }
+      } else if (this.category === "Curso") {
+        this.$store.commit("SET_SELECTED_CP", {
+          projectId: this.$store.getters.getAdminSelectedProjectId,
+          courseId: this.id
+        });
+
+        try {
+          await this.$store.dispatch("setAdminDeleteCP");
+          await this.$store.dispatch("setAdminCourses");
+          await this.$store.dispatch("setAdminProjects");
+        } catch (error) {
+          return error;
+        }
       } else {
-        this.$store.commit("SET_SELECTED_ACR", {
+        this.$store.commit("SET_SELECTED_PC", {
+          projectId: this.$store.getters.getAdminSelectedProjectId,
           careerId: this.id
         });
 
         try {
-          await this.$store.dispatch("setAdminDeleteACR");
-          await this.$store.dispatch("setAdminAreas");
+          await this.$store.dispatch("setAdminDeletePC");
           await this.$store.dispatch("setAdminCareers");
+          await this.$store.dispatch("setAdminProjects");
         } catch (error) {
           return error;
         }
