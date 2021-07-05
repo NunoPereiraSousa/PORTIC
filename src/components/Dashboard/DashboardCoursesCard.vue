@@ -9,6 +9,13 @@
     </div>
     <div class="flex flex-ai-c">
       <button
+        class="admin_areas__panel__grid__card__remove"
+        style="margin-right: 2rem;"
+        @click="openAddConnectionsPage(id, courseName)"
+      >
+        Gerir conecções
+      </button>
+      <button
         class="admin_courses__panel__grid__card__edit"
         @click="openPage(id, courseName)"
       >
@@ -68,6 +75,16 @@ export default {
 
       this.$store.commit("SET_SELECTED_ADMIN_COURSE_ID", {
         id: courseId
+      });
+    },
+    openAddConnectionsPage(courseId, courseName) {
+      this.$store.commit("SET_SELECTED_ADMIN_COURSE_ID", {
+        id: courseId
+      });
+
+      this.$router.push({
+        name: "DashboardCourseConnection",
+        params: { name: courseName }
       });
     }
   }

@@ -27,10 +27,14 @@ export const connectionsModule = {
     puDeleteStatus: null,
 
     ucrStatus: null,
-    ucrDeleteStatus: null
+    ucrDeleteStatus: null,
+
+    ccrStatus: null,
+    ccrDeleteStatus: null
   },
   mutations: {
     SET_SELECTED_AC(state, payload) {
+      state.areaId = payload.areaId;
       state.courseId = payload.courseId;
     },
     SET_AC_STATUS(state, payload) {
@@ -97,6 +101,26 @@ export const connectionsModule = {
     },
     SET_UCR_DELETE_STATUS(state, payload) {
       state.ucrDeleteStatus = payload.status;
+    },
+    SET_CP_STATUS(state, payload) {
+      state.cpStatus = payload.status;
+    },
+    SET_CP_DELETE_STATUS(state, payload) {
+      state.cpDeleteStatus = payload.status;
+    },
+    SET_SELECTED_CP(state, payload) {
+      state.projectId = payload.projectId;
+      state.courseId = payload.courseId;
+    },
+    SET_CCR_STATUS(state, payload) {
+      state.ccrStatus = payload.status;
+    },
+    SET_CCR_DELETE_STATUS(state, payload) {
+      state.ccrDeleteStatus = payload.status;
+    },
+    SET_SELECTED_CCR(state, payload) {
+      state.careerId = payload.careerId;
+      state.courseId = payload.courseId;
     }
   },
   actions: {
@@ -115,8 +139,7 @@ export const connectionsModule = {
         "SET_AC_DELETE_STATUS",
         await connectionsConfig.areasCoursesDelete(
           JSON.parse(localStorage.getItem("token")),
-          JSON.parse(localStorage.getItem("vuex_admin_areas")).adminModule
-            .selectedAreaId,
+          state.areaId,
           state.courseId
         )
       );
@@ -242,6 +265,46 @@ export const connectionsModule = {
           JSON.parse(localStorage.getItem("token")),
           state.careerId,
           state.unitId
+        )
+      );
+    },
+    async setAdminCP({ commit, state }) {
+      commit(
+        "SET_CP_STATUS",
+        await connectionsConfig.coursesProjects(
+          JSON.parse(localStorage.getItem("token")),
+          state.projectId,
+          state.courseId
+        )
+      );
+    },
+    async setAdminDeleteCP({ commit, state }) {
+      commit(
+        "SET_CP_DELETE_STATUS",
+        await connectionsConfig.coursesProjectsDelete(
+          JSON.parse(localStorage.getItem("token")),
+          state.projectId,
+          state.courseId
+        )
+      );
+    },
+    async setAdminCCR({ commit, state }) {
+      commit(
+        "SET_CCR_STATUS",
+        await connectionsConfig.careersCourses(
+          JSON.parse(localStorage.getItem("token")),
+          state.careerId,
+          state.courseId
+        )
+      );
+    },
+    async setAdminDeleteCCR({ commit, state }) {
+      commit(
+        "SET_CCR_DELETE_STATUS",
+        await connectionsConfig.careersCoursesDelete(
+          JSON.parse(localStorage.getItem("token")),
+          state.careerId,
+          state.courseId
         )
       );
     }

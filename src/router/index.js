@@ -35,6 +35,7 @@ import DashboardAddNews from "../views/Dashboard/DashboardAddNews.vue";
 import DashboardAddProjectNews from "../views/Dashboard/DashboardAddProjectNews.vue";
 import DashboardAreaConnection from "../views/Dashboard/DashboardAreaConnection.vue";
 import DashboardUnitConnection from "../views/Dashboard/DashboardUnitConnection.vue";
+import DashboardCourseConnection from "../views/Dashboard/DashboardCourseConnection.vue";
 import SignIn from "../views/Dashboard/SignIn.vue";
 import Register from "../views/Dashboard/Register.vue";
 import Home from "../views/Home.vue";
@@ -289,6 +290,12 @@ const routes = [
     path: "/dashboard-unit-connections/:name",
     name: "DashboardUnitConnection",
     component: DashboardUnitConnection,
+    props: true
+  },
+  {
+    path: "/dashboard-course-connections/:name",
+    name: "DashboardCourseConnection",
+    component: DashboardCourseConnection,
     props: true
   }
 ];

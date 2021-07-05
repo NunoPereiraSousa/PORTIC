@@ -316,5 +316,105 @@ export const connectionsConfig = {
 
         return error;
       });
+  },
+
+  // COURSES PROJECTS
+  coursesProjects: async (token, id_project, id_course) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .post(
+        `${API_URL}/projects/${id_project}/courses/${id_course}`,
+        "",
+        config
+      )
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
+  },
+  coursesProjectsDelete: async (token, id_project, id_course) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .delete(`${API_URL}/projects/${id_project}/courses/${id_course}`, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
+  },
+
+  // CAREERS COURSES
+  careersCourses: async (token, id_career, id_course) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .post(
+        `${API_URL}/positions/${id_career}/courses/${id_course}`,
+        "",
+        config
+      )
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
+  },
+  careersCoursesDelete: async (token, id_career, id_course) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .delete(`${API_URL}/positions/${id_career}/courses/${id_course}`, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
   }
 };

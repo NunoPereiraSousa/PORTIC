@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: "AreaConnection",
+  name: "CourseConnection",
   props: {
     category: {
       type: String,
@@ -35,10 +35,10 @@ export default {
   },
   methods: {
     async deleteAreaCon() {
-      if (this.category === "Curso") {
+      if (this.category === "Area") {
         this.$store.commit("SET_SELECTED_AC", {
-          areaId: this.$store.getters.getAdminSelectedAreaId,
-          courseId: this.id
+          areaId: this.id,
+          courseId: this.$store.getters.getAdminSelectedCourseId
         });
 
         try {
@@ -49,39 +49,41 @@ export default {
           return error;
         }
       } else if (this.category === "Unidade") {
-        this.$store.commit("SET_SELECTED_AU", {
-          areaId: this.$store.getters.getAdminSelectedAreaId,
+        this.$store.commit("SET_SELECTED_UC", {
+          courseId: this.$store.getters.getAdminSelectedCourseId,
           unitId: this.id
         });
 
         try {
-          await this.$store.dispatch("setAdminDeleteAU");
-          await this.$store.dispatch("setAdminAreas");
-          await this.$store.dispatch("setAdminUnits");
+          await this.$store.dispatch("setAdminDeleteUC");
+          await this.$store.dispatch("setAdminCourses");
+          await this.$store.dispatch("setAdminCourses");
         } catch (error) {
           return error;
         }
       } else if (this.category === "Projeto") {
-        this.$store.commit("SET_SELECTED_AP", {
-          unitId: this.id
+        this.$store.commit("SET_SELECTED_CP", {
+          projectId: this.id,
+          courseId: this.$store.getters.getAdminSelectedCourseId
         });
 
         try {
-          await this.$store.dispatch("setAdminDeleteAP");
-          await this.$store.dispatch("setAdminAreas");
+          await this.$store.dispatch("setAdminDeleteCP");
+          await this.$store.dispatch("setAdminCourses");
           await this.$store.dispatch("setAdminProjects");
         } catch (error) {
           return error;
         }
       } else {
-        this.$store.commit("SET_SELECTED_ACR", {
-          careerId: this.id
+        this.$store.commit("SET_SELECTED_CCR", {
+          careerId: this.id,
+          courseId: this.$store.getters.getAdminSelectedCourseId
         });
 
         try {
-          await this.$store.dispatch("setAdminDeleteACR");
-          await this.$store.dispatch("setAdminAreas");
+          await this.$store.dispatch("setAdminDeleteCCR");
           await this.$store.dispatch("setAdminCareers");
+          await this.$store.dispatch("setAdminCourses");
         } catch (error) {
           return error;
         }

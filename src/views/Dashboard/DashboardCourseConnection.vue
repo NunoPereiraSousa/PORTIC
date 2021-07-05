@@ -6,40 +6,40 @@
       <div class="admin_actions_panel__form connections">
         <div>
           <h3 class="dashboard_subheader">
-            Conecções área - curso
+            Conecção curso - área
           </h3>
           <div class="flex">
-            <select id="areaCourse" v-model="con.areaCourse">
-              <option value="">Selecionar curso</option>
+            <select id="courseArea" v-model="con.courseArea">
+              <option value="">Selecionar área</option>
               <option
-                v-for="course in getAdminCourses"
-                :key="course.id_course"
-                :value="course.id_course"
-                >{{ course.designation }}</option
+                v-for="area in getAdminAreas"
+                :key="area.id_area"
+                :value="area.id_area"
+                >{{ area.designation_pt }}</option
               >
             </select>
 
-            <button @click="addCourseCon">Guardar</button>
+            <button @click="addAreaCon">Guardar</button>
           </div>
 
           <div class="connections__grid grid">
-            <AreaConnection
-              v-for="course in getAreasCourses"
-              :key="course.id_course"
-              :id="course.id_course"
-              category="Curso"
-              :name="course.designation"
+            <CourseConnection
+              v-for="area in getCoursesAreas"
+              :key="area.id_area"
+              :id="area.id_area"
+              category="Area"
+              :name="area.designation"
             />
           </div>
         </div>
 
         <div>
           <h3 class="dashboard_subheader">
-            Conecção área - unidade
+            Conecções curso - unidade
           </h3>
           <div class="flex">
-            <select id="areaUnit" v-model="con.areaUnit">
-              <option value="">Selecionar unidade</option>
+            <select id="areaCourse" v-model="con.unitCourse">
+              <option value="">Selecionar curso</option>
               <option
                 v-for="unit in getAdminUnits"
                 :key="unit.id_unity"
@@ -52,8 +52,8 @@
           </div>
 
           <div class="connections__grid grid">
-            <AreaConnection
-              v-for="unit in getAreasUnits"
+            <CourseConnection
+              v-for="unit in getCoursesUnits"
               :key="unit.id_unity"
               :id="unit.id_unity"
               category="Unidade"
@@ -64,10 +64,10 @@
 
         <div>
           <h3 class="dashboard_subheader">
-            Conecção área - projeto
+            Conecção curso - projeto
           </h3>
           <div class="flex">
-            <select id="areaProject" v-model="con.areaProject">
+            <select id="areaProject" v-model="con.courseProject">
               <option value="">Selecionar projeto</option>
               <option
                 v-for="project in getAdminProjects"
@@ -81,8 +81,8 @@
           </div>
 
           <div class="connections__grid grid">
-            <AreaConnection
-              v-for="project in getAreasProjects"
+            <CourseConnection
+              v-for="project in getCoursesProjects"
               :key="project.id_project"
               :id="project.id_project"
               category="Projeto"
@@ -93,10 +93,10 @@
 
         <div>
           <h3 class="dashboard_subheader">
-            Conecção área - recrutamento
+            Conecção curso - recrutamento
           </h3>
           <div class="flex">
-            <select id="areaCareer" v-model="con.areaCareer">
+            <select id="areaCareer" v-model="con.courseCareer">
               <option value="">Selecionar posição</option>
               <option
                 v-for="career in getAdminCareers"
@@ -110,8 +110,8 @@
           </div>
 
           <div class="connections__grid grid">
-            <AreaConnection
-              v-for="career in getAreasCareers"
+            <CourseConnection
+              v-for="career in getCoursesCareers"
               :key="career.id_available_position"
               :id="career.id_available_position"
               category="Posições"
@@ -126,48 +126,49 @@
 
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
-import AreaConnection from "@/components/Dashboard/AreaConnection.vue";
+import CourseConnection from "@/components/Dashboard/CourseConnection.vue";
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     DashboardHeader,
-    AreaConnection
+    CourseConnection
   },
   computed: {
     ...mapGetters([
       "getAdminAreas",
-      "getAdminSelectedAreaId",
-      "getAdminAreaById",
+      "getAdminSelectedCourseId",
+      "getAdminCourseById",
       "getAdminCourses",
       "getAdminCareers",
       "getAdminProjects",
       "getAdminUnits"
     ]),
-    getAreasCourses() {
-      return this.getAdminAreaById(this.getAdminSelectedAreaId).course_tags;
+    getCoursesAreas() {
+      return this.getAdminCourseById(this.getAdminSelectedCourseId).area_tags;
     },
-    getAreasUnits() {
-      return this.getAdminAreaById(this.getAdminSelectedAreaId).unity_tags;
+    getCoursesUnits() {
+      return this.getAdminCourseById(this.getAdminSelectedCourseId).unity_tags;
     },
-    getAreasProjects() {
-      return this.getAdminAreaById(this.getAdminSelectedAreaId).project_tags;
-    },
-    getAreasCareers() {
+    getCoursesProjects() {
       console.log(
-        this.getAdminAreaById(this.getAdminSelectedAreaId).recruitment_tags
+        this.getAdminCourseById(this.getAdminSelectedCourseId).project_tags
       );
-      return this.getAdminAreaById(this.getAdminSelectedAreaId)
+      return this.getAdminCourseById(this.getAdminSelectedCourseId)
+        .project_tags;
+    },
+    getCoursesCareers() {
+      return this.getAdminCourseById(this.getAdminSelectedCourseId)
         .recruitment_tags;
     }
   },
   data: () => {
     return {
       con: {
-        areaCourse: "",
-        areaUnit: "",
-        areaProject: "",
-        areaCareer: ""
+        unitCourse: "",
+        courseArea: "",
+        courseProject: "",
+        courseCareer: ""
       }
     };
   },
@@ -175,10 +176,10 @@ export default {
     console.log(this.getAdminAreas);
   },
   methods: {
-    async addCourseCon() {
+    async addAreaCon() {
       this.$store.commit("SET_SELECTED_AC", {
-        areaId: this.getAdminSelectedAreaId,
-        courseId: this.con.areaCourse
+        areaId: this.con.courseArea,
+        courseId: this.getAdminSelectedCourseId
       });
 
       try {
@@ -190,45 +191,45 @@ export default {
       }
     },
     async addUnitCon() {
-      this.$store.commit("SET_SELECTED_AU", {
-        areaId: this.getAdminSelectedAreaId,
-        unitId: this.con.areaUnit
+      this.$store.commit("SET_SELECTED_UC", {
+        courseId: this.getAdminSelectedCourseId,
+        unitId: this.con.unitCourse
       });
 
       try {
-        await this.$store.dispatch("setAdminAU");
-        await this.$store.dispatch("setAdminAreas");
+        await this.$store.dispatch("setAdminUC");
+        await this.$store.dispatch("setAdminCourses");
         await this.$store.dispatch("setAdminUnits");
       } catch (error) {
         return error;
       }
     },
     async addProjectCon() {
-      this.$store.commit("SET_SELECTED_AP", {
-        projectId: this.con.areaProject
+      this.$store.commit("SET_SELECTED_CP", {
+        projectId: this.con.courseProject,
+        courseId: this.getAdminSelectedCourseId
       });
 
-      console.log(this.con.areaProject);
-
       try {
-        await this.$store.dispatch("setAdminAP");
-        await this.$store.dispatch("setAdminAreas");
+        await this.$store.dispatch("setAdminCP");
+        await this.$store.dispatch("setAdminCourses");
         await this.$store.dispatch("setAdminProjects");
       } catch (error) {
         return error;
       }
     },
     async addCareerCon() {
-      this.$store.commit("SET_SELECTED_ACR", {
-        careerId: this.con.areaCareer
+      this.$store.commit("SET_SELECTED_CCR", {
+        careerId: this.con.courseCareer,
+        courseId: this.getAdminSelectedCourseId
       });
 
-      console.log(this.con.areaCareer);
+      console.log(this.con.courseCareer);
 
       try {
-        await this.$store.dispatch("setAdminACR");
-        await this.$store.dispatch("setAdminAreas");
+        await this.$store.dispatch("setAdminCCR");
         await this.$store.dispatch("setAdminCareers");
+        await this.$store.dispatch("setAdminCourses");
       } catch (error) {
         return error;
       }
