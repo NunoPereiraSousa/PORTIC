@@ -31,16 +31,47 @@
         </div>
       </div>
 
-      <div class="admin_actions_panel__form">
-        <h3 class="dashboard_subheader">
-          Título da notícia
-        </h3>
-        <input
-          type="text"
-          :placeholder="newsName"
-          v-model="edit.titlePt"
-          style="width: 30vw;"
-        />
+      <div class="admin_actions_panel__form addNews">
+        <div class="grid">
+          <div>
+            <h3 class="dashboard_subheader">
+              Título da notícia
+            </h3>
+            <input
+              type="text"
+              :placeholder="newsName"
+              v-model="edit.titlePt"
+              style="width: 30vw;"
+            />
+          </div>
+          <div>
+            <h3 class="dashboard_subheader">
+              Estado da notícia
+            </h3>
+            <div>
+              <div>
+                <input
+                  type="radio"
+                  id="global"
+                  name="global"
+                  value="0"
+                  v-model="edit.project_only"
+                />
+                <label for="global">Global</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="project"
+                  name="project"
+                  value="1"
+                  v-model="edit.project_only"
+                />
+                <label for="project">Apenas de project</label>
+              </div>
+            </div>
+          </div>
+        </div>
         <h3 class="dashboard_subheader">
           Conteúdo da notícia
         </h3>
@@ -128,8 +159,10 @@ export default {
         titleEn: "",
         contentPt: "",
         contentEn: "",
+        project_only: "",
         date: ""
       },
+      checked: false,
       editorOption: {
         modules: {
           toolbar: [
@@ -181,6 +214,12 @@ export default {
     this.edit.contentEn = this.getAdminNewsById(
       this.getAdminSelectedNewsId
     ).description_eng;
+
+    this.edit.project_only =
+      this.getAdminNewsById(this.getAdminSelectedNewsId).project_show_only ===
+      false
+        ? 0
+        : 1;
   },
   computed: {
     ...mapGetters(["getAdminSelectedNewsId", "getAdminNewsById"]),
@@ -217,7 +256,7 @@ export default {
         description_pt: this.edit.contentPt,
         description_eng: this.edit.contentEn,
         published_date: `${this.getDay}-${this.getMonth}-${this.getYear}`,
-        project_only: 1
+        project_only: this.edit.project_only
       });
 
       try {

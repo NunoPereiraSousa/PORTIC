@@ -5,7 +5,7 @@
         <div class="project__entry__grid grid">
           <h1>
             <a>Projeto</a>
-            <div>{{ getCurrentProjects.initials }}</div>
+            <div>{{ selected.initials }}</div>
           </h1>
 
           <div class="project__entry__grid__circle flex flex-ai-c flex-jc-c">
@@ -28,13 +28,13 @@
             </h3>
 
             <h2>
-              <a :href="`tel:+351${getCurrentProjects.project_contact}`">{{
-                getCurrentProjects.project_contact
+              <a :href="`tel:+351${selected.project_contact}`">{{
+                selected.project_contact
               }}</a>
             </h2>
             <h2>
-              <a :href="`mailto:${getCurrentProjects.project_email}`">{{
-                getCurrentProjects.project_email
+              <a :href="`mailto:${selected.project_email}`">{{
+                selected.project_email
               }}</a>
             </h2>
           </div>
@@ -44,8 +44,8 @@
             <div class="flex" v-for="i in 2" :key="i">
               <Slide
                 v-for="(partner, index) in setPartnersArr(
-                  getCurrentProjects.outside_investors,
-                  getCurrentProjects.outside_investors
+                  selected.outside_investors,
+                  selected.outside_investors
                 )"
                 :key="index + 1"
                 :slideText="partner.designation"
@@ -56,7 +56,7 @@
       </section>
       <section class="project__objective">
         <SubHeaderTitle text="Descrição" />
-        <div v-html="getCurrentProjects.desc_html_structure"></div>
+        <div v-html="selected.desc_html_structure"></div>
         <div class="connections__info">
           <div v-if="getAreas.length > 0">
             <u>{{ $t("areas.mainTitle") }}:</u>
@@ -129,7 +129,7 @@
             :infinite="false"
           >
             <vue-glide-slide
-              v-for="(image, index) in getCurrentProjects.gallery_imgs"
+              v-for="(image, index) in selected.gallery_imgs"
               :key="index"
             >
               <img :src="image.img" alt="Project Image" />
@@ -142,7 +142,7 @@
 
         <div class="project__news__grid grid">
           <NewsCard
-            v-for="(news, index) in getCurrentProjects.news"
+            v-for="(news, index) in selected.news"
             :key="index"
             :id="news.id_news"
             :image="news.cover"
@@ -157,7 +157,7 @@
 
         <div class="project__team__grid grid">
           <TeamCard
-            v-for="member in getCurrentProjects.project_team"
+            v-for="member in selected.project_team"
             :key="member.id_user"
             :id="member.id_user"
             :image="member.picture"
@@ -166,11 +166,8 @@
           />
         </div>
       </section>
-
       <section class="project__file">
-        <a :href="getCurrentProject.pdf_path" target="_blank"
-          >Ficha de projeto</a
-        >
+        <a :href="selected.pdf_path" target="_blank">Ficha de projeto</a>
       </section>
     </div>
     <Footer />
@@ -202,6 +199,7 @@ export default {
       projects: [],
       selectedProject: null,
       selectedId: null,
+      selected: {},
       project: {
         id: null,
         initials: null,
@@ -221,38 +219,45 @@ export default {
     };
   },
   created() {
-    this.selectedId = this.getSelectedProjectByID;
+    // this.selectedId = this.getSelectedProjectByID;
 
-    this.projects = JSON.parse(localStorage.getItem("projects"));
+    // this.projects = JSON.parse(localStorage.getItem("projects"));
 
-    this.project.initials = this.getCurrentProject.initials;
-    this.project.phoneNumber = this.getCurrentProject.project_contact;
-    this.project.email = this.getCurrentProject.project_email;
-    this.project.partners = this.setPartnersArr(
-      this.getCurrentProject.inside_investors,
-      this.getCurrentProject.outside_investors
-    );
-    this.project.description = this.getCurrentProject.desc_html_structure;
-    this.project.gallery = this.getCurrentProject.gallery_imgs;
-    this.project.news = this.getCurrentProject.news;
-    this.project.team = this.getCurrentProject.project_team;
-    this.project.pdf_path = this.getCurrentProject.pdf_path;
+    this.selected = this.getProjectByID(this.getSelectedProjectByID);
+
+    console.log(this.selected);
+
+    this.project.initials = this.selected.initials;
+    this.project.phoneNumber = this.selected.project_contact;
+    this.project.email = this.selected.project_email;
+    // this.project.partners = this.setPartnersArr(
+    //   this.selected.inside_investors,
+    //   this.selected.outside_investors
+    // );
+    this.project.description = this.selected.desc_html_structure;
+    this.project.gallery = this.selected.gallery_imgs;
+    this.project.news = this.selected.news;
+    this.project.team = this.selected.project_team;
+    this.project.pdf_path = this.selected.pdf_path;
+
+    console.log(this.project.pdf_path);
   },
   mounted() {
     this.changeCarousel();
-
-    console.log(this.getCurrentProject);
-
-    console.log(this.getCurrentProject.pdf_path);
+    // console.log(this.getCurrentProject);
+    // console.log(this.getCurrentProject.pdf_path);
   },
   computed: {
     ...mapGetters([
       "getProjects",
       "getSelectedProjectByID",
+      "getProjectByID",
       "getProjectsStatus"
     ]),
     getCurrentProjects() {
       let selectedProjects = this.getProjects;
+
+      console.log("HERE!");
 
       // console.log(this.getSelectedProjectByID);
 
@@ -278,27 +283,27 @@ export default {
       return status == 200 ? true : false;
     },
     checkImgExistence() {
-      let images = this.getCurrentProjects.gallery_imgs.length;
+      let images = this.selected.gallery_imgs.length;
       console.log(images);
 
       return images > 0 ? true : false;
     },
     checkNewsExistence() {
-      let news = this.getCurrentProjects.news.length;
+      let news = this.selected.news.length;
 
       return news > 0 ? true : false;
     },
     getAreas() {
-      return this.getCurrentProjects.area_tags;
+      return this.selected.area_tags;
     },
     getCareers() {
-      return this.getCurrentProjects.recruitment_tags;
+      return this.selected.recruitment_tags;
     },
     getCourses() {
-      return this.getCurrentProjects.course_tags;
+      return this.selected.course_tags;
     },
     getUnits() {
-      return this.getCurrentProjects.unity_tags;
+      return this.selected.unity_tags;
     }
   },
   methods: {
@@ -318,8 +323,8 @@ export default {
     },
     changeCarousel() {
       let partners = this.setPartnersArr(
-        this.getCurrentProjects.outside_investors,
-        this.getCurrentProjects.outside_investors
+        this.selected.outside_investors,
+        this.selected.outside_investors
       ).length;
 
       let slideTrack = document.querySelector(".slide-track");

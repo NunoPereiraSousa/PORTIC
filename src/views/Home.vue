@@ -142,10 +142,18 @@ export default {
     this.$store.commit("SET_SELECTED_NEWS_LANG", {
       lang: this.$i18n.locale == "en" ? "en" : "pt"
     });
+    this.$store.commit("SET_SELECTED_PROJECTS_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
+    this.$store.commit("SET_SELECTED_UNITIES_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
 
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setNews");
+      await this.$store.dispatch("setProjects");
+      await this.$store.dispatch("setUnities");
 
       console.log(this.getNews);
     } catch (error) {

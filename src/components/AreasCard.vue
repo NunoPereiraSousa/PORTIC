@@ -45,7 +45,7 @@
             <li
               v-for="project in projects"
               :key="project.id_project"
-              @click="openProjectPage(project.title, project.id_project)"
+              @click="openProjectPage(project.id_project)"
             >
               {{ project.title }}
             </li>
@@ -127,14 +127,16 @@ export default {
     ...mapGetters(["getAreas"])
   },
   methods: {
-    openProjectPage(name, id) {
+    openProjectPage(id) {
       this.$store.commit("SET_SELECTED_PROJECT_ID", {
         id: id
       });
 
+      console.log(id);
+
       this.$router.push({
         name: "Project",
-        params: { name: name }
+        params: { id: id }
       });
     },
     formatRouterPath(title) {

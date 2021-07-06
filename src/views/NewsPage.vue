@@ -24,9 +24,7 @@
           </p>
         </div>
       </div>
-      <p class="news_page__content">
-        {{ currNews.description }}
-      </p>
+      <div class="news_page__content" v-html="currNews.description"></div>
     </div>
 
     <Footer />

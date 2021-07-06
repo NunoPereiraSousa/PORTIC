@@ -840,6 +840,11 @@ input[type="radio"] {
           align-items: flex-end;
 }
 
+.flex-wr-w {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .grid {
   display: -ms-grid;
   display: grid;
@@ -3356,42 +3361,53 @@ button:focus {
   }
 }
 
-.news__cards__card p {
+.news__cards__card .cut {
   margin: 2rem 0 0 0;
   font-family: "Porto Sans";
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 100;
+  color: #080808;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.project__news .news__cards__card p {
+.project__news .news__cards__card .cut {
   color: #080808;
 }
 
+.news__cards__card .cut p,
+.news__cards__card .cut h1,
+.news__cards__card .cut h2,
+.news__cards__card .cut h3,
+.news__cards__card .cut h4,
+.news__cards__card .cut h5,
+.news__cards__card .cut h6 {
+  margin: 0;
+}
+
 @media (min-width: 48em) {
-  .news__cards__card p {
+  .news__cards__card .cut {
     margin: 0;
   }
 }
 
 @media (min-width: 75em) {
-  .news__cards__card p {
+  .news__cards__card .cut {
     font-size: 1.25rem;
     line-height: 1.7;
   }
 }
 
 @media (min-width: 120em) {
-  .news__cards__card p {
+  .news__cards__card .cut {
     font-size: 1.375rem;
   }
 }
 
-.news__cards__card p.date {
+.news__cards__card .date {
   font-size: 0.9375rem;
   font-style: italic;
   color: #999999;
@@ -3399,13 +3415,13 @@ button:focus {
 }
 
 @media (min-width: 75em) {
-  .news__cards__card p.date {
+  .news__cards__card .date {
     font-size: 1rem;
   }
 }
 
 @media (min-width: 120em) {
-  .news__cards__card p.date {
+  .news__cards__card .date {
     font-size: 1.125rem;
   }
 }
@@ -7643,7 +7659,7 @@ button:focus {
 
 .project__news__grid h2,
 .project__news__grid p {
-  color: #ffffff;
+  color: #080808;
 }
 
 .project__team {
@@ -10345,6 +10361,11 @@ input[type="file"] {
   cursor: pointer;
 }
 
+.socials_wrapper {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .admin_about__panel .admin_actions_panel__form label {
   font-size: 1.0625rem;
 }
@@ -10907,15 +10928,8 @@ input[type="file"] {
 
 .admin_about__panel__grid {
   padding: 0 3rem 0 0;
-  max-height: 80vh;
   overflow-y: auto;
   row-gap: 2.25rem;
-}
-
-@media (min-width: 120em) {
-  .admin_about__panel__grid {
-    max-height: 87vh;
-  }
 }
 
 .admin_about__panel ::-webkit-scrollbar {

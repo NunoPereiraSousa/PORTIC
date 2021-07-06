@@ -81,9 +81,7 @@
           :id="project.id_project"
           :initials="project.initials"
           :title="project.title"
-          :description="
-            checkCurrLang == 'en' ? project.summary_eng : project.summary_pt
-          "
+          :description="project.summary"
           :status="setStatus(project.start_date, project.end_date)"
           :reference="project.reference"
           @mouseover.native="onHover"

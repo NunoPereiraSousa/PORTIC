@@ -3,7 +3,7 @@
     <div class="news__cards__card__image" :style="imageStyle"></div>
     <div class="news__cars__card__content flex flex-fd-c flex-jc-sb">
       <h2>{{ title }}</h2>
-      <p v-html="content"></p>
+      <div class="cut" v-html="content"></div>
       <div class="flex flex-ai-c flex-jc-sb">
         <p class="date">{{ date }}</p>
         <button @click="setSelectedNews(title, id)">

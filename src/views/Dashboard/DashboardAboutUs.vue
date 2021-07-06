@@ -12,14 +12,55 @@
               <h3 class="dashboard_subheader">
                 Redes sociais
               </h3>
-              <div class="flex flex-ai-c">
-                <div v-for="social in socials" :key="social.id">
-                  <label for="facebook">Link {{ social.name }}</label>
+              <div class="flex flex-ai-c socials_wrapper">
+                <div>
+                  <label for="facebook">URL Facebook</label>
                   <br />
                   <input
+                    id="facebook"
                     type="url"
-                    :placeholder="social.link"
-                    v-model="edit.link"
+                    placeholder="Facebook"
+                    v-model="edit.fb"
+                  />
+                </div>
+                <div>
+                  <label for="linkedin">URL LinkedIn</label>
+                  <br />
+                  <input
+                    id="linkedin"
+                    type="url"
+                    placeholder="LinkedIn"
+                    v-model="edit.ln"
+                  />
+                </div>
+                <div>
+                  <label for="instagram">URL Instagram</label>
+                  <br />
+                  <input
+                    id="instagram"
+                    type="url"
+                    placeholder="Instagram"
+                    v-model="edit.ig"
+                  />
+                </div>
+                <div>
+                  <label for="twitter">URL Twitter</label>
+                  <br />
+                  <input
+                    id="twitter"
+                    type="url"
+                    placeholder="Twitter"
+                    v-model="edit.tt"
+                  />
+                </div>
+                <div>
+                  <label for="youtube">URL YouTube</label>
+                  <br />
+                  <input
+                    id="youtube"
+                    type="url"
+                    placeholder="YouTube"
+                    v-model="edit.yt"
                   />
                 </div>
               </div>
@@ -30,15 +71,35 @@
                 Contactos
               </h3>
 
-              <div class="flex flex-ai-c">
-                <div v-for="contact in contacts" :key="contact.id">
-                  <label :for="contact.name">{{ contact.name }}</label>
+              <div class="flex flex-ai-c flex-wr-w">
+                <div>
+                  <label for="phone">Contacto telefónico</label>
                   <br />
                   <input
+                    id="phone"
                     type="number"
-                    :id="contact.name"
-                    :placeholder="contact.info"
-                    v-model="edit.contactLink"
+                    placeholder="YouTube"
+                    v-model="edit.phone_numb"
+                  />
+                </div>
+                <div>
+                  <label for="email">Email principal</label>
+                  <br />
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="E-mail principal"
+                    v-model="edit.email"
+                  />
+                </div>
+                <div>
+                  <label for="email2">E-mail secundário</label>
+                  <br />
+                  <input
+                    id="email2"
+                    type="email"
+                    placeholder="E-mail secundário"
+                    v-model="edit.email2"
                   />
                 </div>
               </div>
@@ -151,8 +212,15 @@ export default {
       coordinates: "",
       highlights: "",
       edit: {
+        fb: "",
+        ln: "",
+        ig: "",
+        tt: "",
+        yt: "",
         link: "",
-        contactLink: "",
+        phone_numb: "",
+        email: "",
+        email2: "",
         latitude: "",
         longitude: "",
         highlight1: "",

@@ -19,6 +19,8 @@ export const projectsModule = {
     },
     SET_SELECTED_PROJECT_ID(state, payload) {
       state.selectedId = payload.id;
+
+      console.log(state.selectedId);
     },
     SET_SELECTED_PROJECTS_LANG(state, payload) {
       state.dataBody.selectedLang = payload.lang;

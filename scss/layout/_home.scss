@@ -135,12 +135,13 @@
         }
       }
 
-      p {
+      .cut {
         margin: 2rem 0 0 0;
         font-family: $portoSans;
         font-size: $_16px;
         line-height: 1.5;
         font-weight: 100;
+        color: $black;
 
         display: -webkit-box;
         -webkit-line-clamp: 3;
@@ -149,6 +150,16 @@
 
         .project__news & {
           color: $black;
+        }
+
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          margin: 0;
         }
 
         @include breakpoint-up(tablet) {
@@ -164,20 +175,20 @@
         @include breakpoint-up(large) {
           font-size: $_22px;
         }
+      }
 
-        &.date {
-          font-size: $_15px;
-          font-style: italic;
-          color: $grey;
-          margin: 2rem 0 0 0;
+      .date {
+        font-size: $_15px;
+        font-style: italic;
+        color: $grey;
+        margin: 2rem 0 0 0;
 
-          @include breakpoint-up(desktop) {
-            font-size: $_16px;
-          }
+        @include breakpoint-up(desktop) {
+          font-size: $_16px;
+        }
 
-          @include breakpoint-up(large) {
-            font-size: $_18px;
-          }
+        @include breakpoint-up(large) {
+          font-size: $_18px;
         }
       }
 

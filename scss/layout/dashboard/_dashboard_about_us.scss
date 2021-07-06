@@ -27,14 +27,15 @@
   &__grid {
     padding: 0 3rem 0 0;
 
-    max-height: 80vh;
+    // max-height: 80vh;
+    // padding-top: 20vh;
     overflow-y: auto;
 
     row-gap: 2.25rem;
 
-    @include breakpoint-up(large) {
-      max-height: 87vh;
-    }
+    // @include breakpoint-up(large) {
+    //   max-height: 87vh;
+    // }
   }
   ::-webkit-scrollbar {
     width: 10px;
