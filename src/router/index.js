@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Areas from "../views/Areas.vue";
 import Contacts from "../views/Contacts.vue";
 import Courses from "../views/Courses.vue";
+import News from "../views/News.vue";
 import DashboardAddAreas from "../views/Dashboard/DashboardAddAreas.vue";
 import DashboardAddCareers from "../views/Dashboard/DashboardAddCareers.vue";
 import DashboardAddCourses from "../views/Dashboard/DashboardAddCourses.vue";
@@ -108,6 +109,11 @@ const routes = [
     name: "NewsPage",
     component: NewsPage,
     props: true
+  },
+  {
+    path: "/news-catalog",
+    name: "News",
+    component: News
   },
   {
     path: "/site-map",

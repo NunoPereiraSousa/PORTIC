@@ -28,6 +28,9 @@
       "desc": "Estamos a coletar testemunhos..."
     }
   },
+  "news": {
+    "title": "Notícias"
+  },
   "footer": {
     "timezoneArea": {
       "title": "{weekDay}, {day} de {month}."

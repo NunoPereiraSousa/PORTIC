@@ -1,0 +1,40 @@
+.news_catalog {
+  padding: 12rem 2rem 0;
+
+  @include breakpoint-down(phone) {
+    padding: calc(11.1875rem + 2vw) 0 0 14vw;
+  }
+
+  @include breakpoint-up(tablet) {
+    padding: calc(6.1875rem + 2vw) 8vw;
+  }
+
+  @include breakpoint-up(desktop) {
+    padding: calc(6.1875rem + 2vw) 11vw;
+  }
+
+  @include breakpoint-up(large) {
+    padding: calc(6.1875rem + 2vw) 10vw;
+  }
+
+  .news__cards {
+    margin-top: 0;
+
+    &__card {
+      padding-top: 0;
+      box-shadow: 0 0 50px rgba($color: $black, $alpha: 0.1);
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &__content {
+        padding: 1rem;
+
+        h2 {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

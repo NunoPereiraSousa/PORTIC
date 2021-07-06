@@ -28,6 +28,9 @@
       "desc": "We are collecting testimonials..."
     }
   },
+  "news": {
+    "title": "News"
+  },
   "footer": {
     "timezoneArea": {
       "title": "{weekDay}, {month} {day}."

@@ -281,6 +281,11 @@
     &__inputs {
       flex-wrap: wrap;
       column-gap: 2rem;
+
+      select,
+      input {
+        height: 2.5rem;
+      }
     }
 
     &__team {

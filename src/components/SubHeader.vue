@@ -169,6 +169,18 @@ export default {
             return error;
           }
           break;
+        case "News":
+          try {
+            await this.$store.dispatch("setNews");
+
+            localStorage.setItem(
+              "news",
+              JSON.stringify(this.$store.getters.getNews)
+            );
+          } catch (error) {
+            return error;
+          }
+          break;
         case "ProjectsCatalog":
           try {
             await this.$store.dispatch("setProjects");

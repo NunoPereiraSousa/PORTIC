@@ -1,7 +1,7 @@
 <template>
   <div class="news__cards__card grid">
     <div class="news__cards__card__image" :style="imageStyle"></div>
-    <div class="news__cars__card__content flex flex-fd-c flex-jc-sb">
+    <div class="news__cards__card__content flex flex-fd-c flex-jc-sb">
       <h2>{{ title }}</h2>
       <div class="cut" v-html="content"></div>
       <div class="flex flex-ai-c flex-jc-sb">

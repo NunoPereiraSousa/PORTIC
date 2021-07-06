@@ -37,7 +37,8 @@ export const adminProjectsConfig = {
     project_email,
     start_date,
     end_date,
-    pdf_path
+    pdf_path,
+    coordinator
   ) => {
     let config = {
       headers: {
@@ -60,8 +61,9 @@ export const adminProjectsConfig = {
     data.append("start_date", start_date);
     data.append("end_date", end_date);
     data.append("pdf_path", pdf_path);
+    data.append("coordinator", coordinator);
 
-    console.log(pdf_path);
+    console.log(coordinator);
 
     return await axios
       .post(`${API_URL}/projects`, data, config)
@@ -89,7 +91,8 @@ export const adminProjectsConfig = {
     project_contact,
     project_email,
     start_date,
-    end_date
+    end_date,
+    coordinator
   ) => {
     let config = {
       headers: {
@@ -111,6 +114,7 @@ export const adminProjectsConfig = {
     data.append("project_email", project_email);
     data.append("start_date", start_date);
     data.append("end_date", end_date);
+    data.append("coordinator", coordinator);
 
     return await axios
       .put(`${API_URL}/projects/${id}`, data, config)

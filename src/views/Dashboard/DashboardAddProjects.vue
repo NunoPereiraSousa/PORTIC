@@ -101,6 +101,18 @@
               v-model="add.endDate"
             />
           </div>
+          <div>
+            <label for="coordinatorTxt">Coordenador</label><br />
+            <select id="coordinatorTxt" v-model="add.coordinator">
+              <option value="">Selecionar coordenador</option>
+              <option
+                v-for="user in $store.getters.getUsers"
+                :key="user.id_user"
+                :value="user.id_user"
+                >{{ user.full_name }}</option
+              >
+            </select>
+          </div>
         </div>
 
         <h3 class="dashboard_subheader">
@@ -357,13 +369,13 @@ export default {
       teamRows: [1]
     };
   },
-  mounted() {
-    // let navbar_width = document.querySelector(".admin_nav").offsetWidth;
-    // let arr = document.querySelectorAll(".admin_actions_panel");
-    // arr.forEach(i => {
-    //   i.style.paddingLeft = `${navbar_width}px`;
-    // });
-    // this.styleEditorHeight();
+  async created() {
+    try {
+      await this.$store.dispatch("setUsers");
+      console.log(this.$store.getters.getUsers);
+    } catch (error) {
+      return error;
+    }
   },
   computed: {
     teamRowsLength() {
@@ -386,7 +398,8 @@ export default {
         project_email: this.add.email,
         start_date: this.add.startDate,
         end_date: this.add.endDate,
-        pdf_path: this.add.pdf
+        pdf_path: this.add.pdf,
+        coordinator: this.add.coordinator
       });
 
       try {

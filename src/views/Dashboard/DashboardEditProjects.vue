@@ -103,6 +103,18 @@
               v-model="edit.endDate"
             />
           </div>
+          <div>
+            <label for="coordinatorTxt">Coordenador</label><br />
+            <select id="coordinatorTxt" v-model="edit.coordinator">
+              <option value="">Selecionar coordenador</option>
+              <option
+                v-for="user in $store.getters.getUsers"
+                :key="user.id_user"
+                :value="user.id_user"
+                >{{ user.full_name }}</option
+              >
+            </select>
+          </div>
         </div>
 
         <h3 class="dashboard_subheader">
@@ -523,7 +535,14 @@ export default {
       }
     };
   },
-  created() {
+  async created() {
+    try {
+      await this.$store.dispatch("setUsers");
+      console.log(this.$store.getters.getUsers);
+    } catch (error) {
+      return error;
+    }
+
     this.project = this.getAdminProjectById(this.getAdminSelectedProjectId);
 
     console.log(this.getAdminProjectById(this.getAdminSelectedProjectId));
@@ -635,7 +654,8 @@ export default {
         project_contact: this.edit.number,
         project_email: this.edit.email,
         start_date: this.edit.startDate,
-        end_date: this.edit.endDate
+        end_date: this.edit.endDate,
+        coordinator: this.edit.coordinator
       });
 
       try {

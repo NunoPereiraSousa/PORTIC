@@ -158,6 +158,7 @@ export const adminModule = {
       start_date: null,
       end_date: null,
       pdf_path: null,
+      coordinator: null,
       images: []
     },
     addProjectStatus: null,
@@ -173,6 +174,7 @@ export const adminModule = {
       end_date: null,
       project_contact: null,
       project_email: null,
+      coordinator: null,
       pdf_path: null
     },
     deleteProjectStatus: null,
@@ -444,6 +446,7 @@ export const adminModule = {
       state.addProjectForm.start_date = payload.start_date;
       state.addProjectForm.end_date = payload.end_date;
       state.addProjectForm.pdf_path = payload.pdf_path;
+      state.addProjectForm.coordinator = payload.coordinator;
       state.addProjectForm.images = payload.gallery_imgs;
     },
     SET_PROJECTS_ADD_STATUS(state, payload) {
@@ -466,6 +469,7 @@ export const adminModule = {
       state.editProjectForm.project_contact = payload.project_contact;
       state.editProjectForm.project_email = payload.project_email;
       state.editProjectForm.pdf_path = payload.pdf_path;
+      state.editProjectForm.coordinator = payload.coordinator;
     },
     SET_PROJECTS_EDIT_STATUS(state, payload) {
       state.editProjectStatus = payload.status;
@@ -874,7 +878,8 @@ export const adminModule = {
           state.addProjectForm.project_email,
           state.addProjectForm.start_date,
           state.addProjectForm.end_date,
-          state.addProjectForm.pdf_path
+          state.addProjectForm.pdf_path,
+          state.addProjectForm.coordinator
         )
       );
     },
@@ -894,7 +899,8 @@ export const adminModule = {
           state.editProjectForm.project_contact,
           state.editProjectForm.project_email,
           state.editProjectForm.start_date,
-          state.editProjectForm.end_date
+          state.editProjectForm.end_date,
+          state.editProjectForm.coordinator
         )
       );
     },
