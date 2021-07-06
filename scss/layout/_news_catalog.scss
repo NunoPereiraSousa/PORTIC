@@ -6,30 +6,43 @@
   }
 
   @include breakpoint-up(tablet) {
-    padding: calc(6.1875rem + 2vw) 8vw;
+    padding: 12rem 8vw 0;
   }
 
   @include breakpoint-up(desktop) {
-    padding: calc(6.1875rem + 2vw) 11vw;
+    padding: 14rem 5rem 0;
   }
 
   @include breakpoint-up(large) {
-    padding: calc(6.1875rem + 2vw) 10vw;
+    padding: 12rem 10vw 0;
   }
 
   .news__cards {
     margin-top: 0;
 
+    @include breakpoint-up(tablet) {
+      padding: 0;
+    }
+
+    @include breakpoint-up(iPadPro) {
+      column-gap: 4rem;
+    }
+
     &__card {
-      padding-top: 0;
+      padding: 0;
       box-shadow: 0 0 50px rgba($color: $black, $alpha: 0.1);
 
-      &:first-child {
+      &:first-child,
+      &:nth-child(2) {
         margin-top: 0;
       }
 
       &__content {
         padding: 1rem;
+
+        @include breakpoint-up(iPadPro) {
+          padding: 2rem;
+        }
 
         h2 {
           margin-top: 0;
