@@ -44,6 +44,7 @@ import Register from "../views/Dashboard/Register.vue";
 import Home from "../views/Home.vue";
 import Media from "../views/Media.vue";
 import NewsPage from "../views/NewsPage.vue";
+import Profile from "../views/Profile.vue";
 import Positions from "../views/Positions.vue";
 import Project from "../views/Project.vue";
 import ProjectsCatalog from "../views/ProjectsCatalog.vue";
@@ -78,6 +79,12 @@ const routes = [
     path: "/media",
     name: "Media",
     component: Media
+  },
+  {
+    path: "/profile/:id",
+    name: "Profile",
+    component: Profile,
+    props: true
   },
   {
     path: "/careers",

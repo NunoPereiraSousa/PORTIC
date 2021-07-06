@@ -292,5 +292,34 @@ export const usersConfig = {
         console.log(error);
         return error;
       });
+  },
+  editUserLevel: async (token, id, user_level) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    console.log(id, user_level);
+
+    return await axios
+      .patch(
+        `${API_URL}/users/${id}/profile/level`,
+        {
+          user_level: user_level
+        },
+        config
+      )
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
   }
 };

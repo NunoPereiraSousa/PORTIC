@@ -1493,11 +1493,13 @@ button:focus {
 
 .navbar__logo img {
   width: 8.25rem;
+  padding: 0.4rem 0;
 }
 
 @media (min-width: 64em) {
   .navbar__logo img {
     width: 13vw;
+    padding: 0.75rem 0;
   }
 }
 
@@ -7646,6 +7648,7 @@ button:focus {
 
 .project__team {
   padding-top: calc(5.1875rem + 2vw);
+  cursor: pointer;
 }
 
 .project__team__grid {
@@ -7962,7 +7965,7 @@ button:focus {
   text-align: center;
 }
 
-.project__team__grid__card a {
+.project__team__grid__card p {
   margin-top: 0.2rem;
   font-size: 1rem;
   color: #666666;
@@ -8421,6 +8424,165 @@ button:focus {
 @media (min-width: 75em) {
   .news_page__author {
     font-size: 1rem;
+  }
+}
+
+.profile {
+  position: relative;
+  height: 100vh;
+  padding-top: calc(4.1875rem + 2vw);
+  overflow-y: hidden;
+}
+
+.profile__banner {
+  height: 18rem;
+  width: 100%;
+  background-image: url("../assets/porticbanner.png");
+  background-position: 50% 90%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 75em) {
+  .profile__banner {
+    background-position: 50% 30%;
+  }
+}
+
+@media (min-width: 120em) {
+  .profile__banner {
+    height: 20rem;
+  }
+}
+
+.profile__content {
+  padding: calc((13.5rem - 5px) / 3) 2rem calc(6.1875rem + 2vw);
+}
+
+@media (min-width: 48em) {
+  .profile__content {
+    padding: calc(6.1875rem + 2vw) 8vw;
+  }
+}
+
+@media (min-width: 75em) {
+  .profile__content {
+    padding: calc((13.5rem - 5px) / 3) 5rem calc(6.1875rem + 2vw);
+  }
+}
+
+@media (min-width: 120em) {
+  .profile__content {
+    padding: calc((20rem - 5px) / 3 + 2vw) 10vw;
+  }
+}
+
+.profile__img {
+  left: calc(2rem - 5px);
+  background-color: #666666;
+  border-style: solid;
+  border-radius: 60px;
+  border-width: 5px;
+  border-color: #ffffff;
+  -o-object-position: center center;
+     object-position: center center;
+  position: absolute;
+  top: calc(0% + (20rem - 5px));
+  width: 6rem;
+  height: 6rem;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+@media (min-width: 48em) {
+  .profile__img {
+    left: calc(8vw - 5px);
+  }
+}
+
+@media (min-width: 75em) {
+  .profile__img {
+    left: calc(5rem - 5px);
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .profile__img {
+    width: 9rem;
+    height: 9rem;
+    left: calc(10vw - 5px);
+    top: calc(0% + (22.5rem - 5px));
+  }
+}
+
+.profile__name {
+  font-size: 1.25rem;
+  color: #c94d24;
+  font-weight: 400;
+}
+
+@media (min-width: 120em) {
+  .profile__name {
+    font-size: 1.625rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .profile__desc {
+    font-size: 1.25rem;
+  }
+}
+
+.profile__socials__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (min-width: 75em) {
+  .profile__socials__wrapper {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin-top: 4rem;
+  }
+}
+
+.profile__socials {
+  color: #080808;
+}
+
+@media (min-width: 75em) {
+  .profile__socials {
+    margin-right: 4rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .profile__socials {
+    font-size: 1.25rem;
+  }
+}
+
+.profile__socials:hover {
+  color: #c94d24;
+}
+
+.profile__role {
+  color: #999999;
+}
+
+@media (min-width: 120em) {
+  .profile__role {
+    font-size: 1.25rem;
   }
 }
 

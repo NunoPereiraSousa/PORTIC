@@ -159,6 +159,7 @@
           <TeamCard
             v-for="member in getCurrentProjects.project_team"
             :key="member.id_user"
+            :id="member.id_user"
             :image="member.picture"
             :name="member.full_name"
             :number="member.post"

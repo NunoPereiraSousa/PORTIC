@@ -1,0 +1,123 @@
+.profile {
+  position: relative;
+  height: 100vh;
+  padding-top: calc(4.1875rem + 2vw);
+  overflow-y: hidden;
+
+  &__banner {
+    height: 18rem;
+    width: 100%;
+    background-image: url("../assets/porticbanner.png");
+    background-position: 50% 90%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include breakpoint-up(desktop) {
+      background-position: 50% 30%;
+    }
+
+    @include breakpoint-up(large) {
+      height: 20rem;
+    }
+  }
+
+  &__content {
+    padding: calc((13.5rem - 5px) / 3) 2rem calc(6.1875rem + 2vw);
+
+    @include breakpoint-up(tablet) {
+      padding: calc(6.1875rem + 2vw) 8vw;
+    }
+
+    @include breakpoint-up(desktop) {
+      padding: calc((13.5rem - 5px) / 3) 5rem calc(6.1875rem + 2vw);
+    }
+
+    @include breakpoint-up(large) {
+      padding: calc((20rem - 5px) / 3 + 2vw) 10vw;
+    }
+  }
+
+  &__img {
+    left: calc(2rem - 5px);
+    background-color: $lightGrey;
+    border-style: solid;
+    border-radius: 60px;
+    border-width: 5px;
+    border-color: $white;
+    object-position: center center;
+    position: absolute;
+    // top: calc(0% + (12rem - 5px));
+    top: calc(0% + (20rem - 5px));
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover !important;
+
+    @include breakpoint-up(tablet) {
+      left: calc(8vw - 5px);
+    }
+
+    @include breakpoint-up(desktop) {
+      left: calc(5rem - 5px);
+      width: 8rem;
+      height: 8rem;
+    }
+
+    @include breakpoint-up(large) {
+      width: 9rem;
+      height: 9rem;
+      left: calc(10vw - 5px);
+      top: calc(0% + (22.5rem - 5px));
+    }
+  }
+
+  &__name {
+    font-size: $_20px;
+    color: $orange;
+    font-weight: 400;
+
+    @include breakpoint-up(large) {
+      font-size: $_26px;
+    }
+  }
+
+  &__desc {
+    @include breakpoint-up(large) {
+      font-size: $_20px;
+    }
+  }
+
+  &__socials__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint-up(desktop) {
+      justify-content: flex-start;
+      margin-top: 4rem;
+    }
+  }
+
+  &__socials {
+    color: $black;
+
+    @include breakpoint-up(desktop) {
+      margin-right: 4rem;
+    }
+
+    @include breakpoint-up(large) {
+      font-size: $_20px;
+    }
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  &__role {
+    color: $grey;
+
+    @include breakpoint-up(large) {
+      font-size: $_20px;
+    }
+  }
+}

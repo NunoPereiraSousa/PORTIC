@@ -6,7 +6,7 @@
 
     <div class="form">
       <label for="levelTxt">Nível de utilizador</label> <br />
-      <select id="levelTxt">
+      <select id="levelTxt" v-model="edit.user_level">
         <option value="">Escolher nível de utilizador</option>
         <option
           v-for="level in levels"
@@ -43,25 +43,28 @@ export default {
   },
   data: () => {
     return {
-      add: {
-        name: ""
+      edit: {
+        user_level: ""
       }
     };
   },
   methods: {
     async submitLevel() {
-      // this.$store.commit("SET_ADD_PROJECT_PARTNER_FORM", {
-      //   investor: this.add.name,
-      //   file: ""
-      // });
+      this.$store.commit("SET_EDIT_USER_LEVEL", {
+        user_level: this.edit.user_level
+      });
 
-      // try {
-      //   await this.$store.dispatch("setAdminAddProjectPartner");
-      //   await this.$store.dispatch("setAdminProjects");
-      // } catch (error) {
-      //   console.log(error);
-      //   return error;
-      // }
+      try {
+        await this.$store.dispatch("setAdminEditUserLevel");
+        await this.$store.dispatch("setUsers");
+
+        if (this.$store.getters.getEditUserLevelStatus === 201)
+          this.notificationSuccess();
+        else this.notificationError();
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
 
       this.closePopup();
     },
@@ -72,6 +75,38 @@ export default {
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
+    },
+    notificationSuccess() {
+      this.$toast.success("Utilizador editado com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
     }
   }
 };

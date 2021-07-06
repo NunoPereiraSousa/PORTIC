@@ -474,6 +474,7 @@
 
   &__team {
     padding-top: calc(5.1875rem + 2vw);
+    cursor: pointer;
 
     &__grid {
       grid-template-columns: repeat(2, 1fr);
