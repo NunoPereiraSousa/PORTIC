@@ -568,6 +568,8 @@ export default {
 
     this.loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
     this.users = JSON.parse(localStorage.getItem("users"));
+
+    console.log(this.$store.getters.getUser);
   },
   mounted() {
     this.updateTime = setInterval(() => {
@@ -579,7 +581,11 @@ export default {
   },
   computed: {
     imageStyle() {
-      return `background-image: url('https://www.hypeness.com.br/1/2020/01/Kobe_Bryant_04.jpg')`;
+      return `background-image: url('${this.getUserImg}')`;
+    },
+    getUserImg() {
+      return this.$store.getters.getUserByUsername(this.loggedUser.username)
+        .picture;
     }
   },
   methods: {

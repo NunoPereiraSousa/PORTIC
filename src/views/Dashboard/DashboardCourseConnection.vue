@@ -145,6 +145,7 @@ export default {
       "getAdminUnits"
     ]),
     getCoursesAreas() {
+      console.log(this.getAdminCareers);
       return this.getAdminCourseById(this.getAdminSelectedCourseId).area_tags;
     },
     getCoursesUnits() {

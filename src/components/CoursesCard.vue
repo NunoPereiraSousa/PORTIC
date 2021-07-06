@@ -141,6 +141,7 @@ export default {
       return title.replace(/\s/g, "%20");
     },
     getUnityId(id, title) {
+      console.log(id, title);
       this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
 
       let formatedTitle = this.formatRouterPath(title);

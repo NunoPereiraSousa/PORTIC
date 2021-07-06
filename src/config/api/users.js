@@ -37,8 +37,10 @@ export const usersConfig = {
     password,
     lastName,
     email,
-    phoneNumber
+    phoneNumber = "911111111"
   ) => {
+    console.log(username, firstName, password, lastName, email, phoneNumber);
+
     return await axios
       .post(
         `${API_URL}/users/register`,
@@ -125,17 +127,6 @@ export const usersConfig = {
       }
     };
 
-    console.log(
-      username,
-      description_pt,
-      description_eng,
-      email,
-      phone_numb,
-      linkedIn_url,
-      fullname,
-      post
-    );
-
     return await axios
       .put(
         `${API_URL}/users/profile`,
@@ -169,7 +160,7 @@ export const usersConfig = {
       }
     };
 
-    console.log(file);
+    console.log(token, file);
 
     let data = new FormData();
     data.append("file", file);
@@ -207,17 +198,6 @@ export const usersConfig = {
       }
     };
 
-    console.log(
-      username,
-      description_pt,
-      description_eng,
-      email,
-      phone_numb,
-      linkedIn_url,
-      fullname,
-      post
-    );
-
     return await axios
       .put(
         `${API_URL}/users/${id_user}/profile`,
@@ -239,6 +219,33 @@ export const usersConfig = {
         };
       })
       .catch(error => {
+        return error;
+      });
+  },
+  editUserStatus: async (token, id_user, new_status) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .patch(
+        `${API_URL}/users/${id_user}/profile/status`,
+        {
+          new_status: new_status
+        },
+        config
+      )
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
         return error;
       });
   }

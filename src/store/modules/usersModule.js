@@ -42,7 +42,10 @@ export const usersModule = {
       image: null
     },
     editProfileStatus: null,
-    editProfileStatus2: null
+    editProfileStatus2: null,
+    newUserStatus: null,
+    userId: null,
+    newUserStatusStatus: null
   },
   mutations: {
     SET_USERS(state, payload) {
@@ -111,6 +114,13 @@ export const usersModule = {
     },
     SET_EDIT_PROFILE_STATUS2(state, payload) {
       state.editProfileStatus2 = payload.status;
+    },
+    SET_NEW_USER_STATUS(state, payload) {
+      state.userId = payload.id;
+      state.newUserStatus = payload.newStatus;
+    },
+    SET_NEW_USER_STATUS_RESPONSE(state, payload) {
+      state.newUserStatusStatus = payload.status;
     }
   },
   actions: {
@@ -183,6 +193,16 @@ export const usersModule = {
           state.editProfileForm.post
         )
       );
+    },
+    async setAdminEditUserStatus({ commit, state }) {
+      commit(
+        "SET_NEW_USER_STATUS_RESPONSE",
+        await usersConfig.editUserStatus(
+          state.token,
+          state.userId,
+          state.newUserStatus
+        )
+      );
     }
   },
   getters: {
@@ -198,6 +218,9 @@ export const usersModule = {
     getNUsers: state => {
       return state.users.length;
     },
+    getNPendentUsers: state =>
+      state.users.filter(user => user.user_status === "Pendent Creation")
+        .length,
     getLoggedStatus: state => state.loggedStatus,
     getLoggedUser: state => {
       return state.loggedUser;

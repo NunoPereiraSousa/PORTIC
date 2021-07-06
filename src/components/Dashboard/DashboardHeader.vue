@@ -618,6 +618,8 @@ export default {
     logout() {
       localStorage.removeItem("loggedUser");
       localStorage.removeItem("token");
+      localStorage.removeItem("vuex_admin_areas");
+      localStorage.removeItem("users");
 
       this.$store.commit("SET_LOGIN_STATUS", {
         status: false

@@ -78,6 +78,7 @@ export default {
     };
   },
   mounted() {
+    console.log(1);
     let unity = this.getUnityById(this.getSelectedUnityId);
 
     this.unity.title = unity.designation;

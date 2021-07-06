@@ -22,17 +22,14 @@
       >
         Bloquear
       </button> -->
-      <button
-        class="admin_users__panel__grid__card__edit"
-        @click="openPage(id, userName)"
-      >
-        Editar
+      <button class="admin_users__panel__grid__card__edit" @click="accept(id)">
+        Aceitar
       </button>
       <button
         class="admin_users__panel__grid__card__remove"
-        @click="showPopup(id)"
+        @click="decline(id)"
       >
-        Remover
+        Recusar
       </button>
     </div>
   </div>
@@ -73,32 +70,33 @@ export default {
     }
   },
   methods: {
-    // showBlockPopup(userId) {
-    //   console.log(userId);
-    // },
-    openPage(userId, userName) {
-      console.log(userId);
-      console.log(userName);
-      this.$store.commit("SET_SELECTED_USER_ID", {
-        id: userId
+    async accept(id) {
+      this.$store.commit("SET_NEW_USER_STATUS", {
+        id: id,
+        newStatus: "Normal"
       });
 
-      this.$router.push({
-        name: "DashboardEditUser",
-        params: { name: userName }
-      });
+      console.log(id);
+
+      try {
+        await this.$store.dispatch("setAdminEditUserStatus");
+        await this.$store.dispatch("setUsers");
+      } catch (error) {
+        return error;
+      }
     },
-    showPopup(userId) {
-      console.log(userId);
-      //   let overlay = document.querySelector(".admin_users__panel__overlay");
-      //   let popup = document.querySelector(".admin_delete_popup");
-      //   overlay.classList.toggle("show_overlay");
-      //   popup.classList.toggle("show_popup");
+    async decline(id) {
+      this.$store.commit("SET_NEW_USER_STATUS", {
+        id: id,
+        newStatus: "Archived"
+      });
 
-      //   // COURSE ID LOGIC
-      //   this.$store.commit("SET_SELECTED_user_ID", {
-      //     id: userId
-      //   });
+      try {
+        await this.$store.dispatch("setAdminEditUserStatus");
+        await this.$store.dispatch("setUsers");
+      } catch (error) {
+        return error;
+      }
     }
   }
 };

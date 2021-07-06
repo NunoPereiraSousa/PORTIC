@@ -15,8 +15,8 @@
                 v-for="area in getAdminAreas"
                 :key="area.id_area"
                 :value="area.id_area"
-                >{{ area.designation_pt }} - {{ area.id_area }}</option
-              >
+                >{{ area.designation_pt }}
+              </option>
             </select>
 
             <button @click="addAreaCon">Guardar</button>

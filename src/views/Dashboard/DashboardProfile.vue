@@ -167,12 +167,22 @@ export default {
     this.form = {
       fullName: this.getUserInfo.full_name,
       username: this.getUserInfo.username,
-      descPt: this.getUserInfo.description_pt,
-      descEn: this.getUserInfo.description_eng,
-      linkedInUrl: this.getUserInfo.linkedIn_url,
+      descPt:
+        this.getUserInfo.description_pt == ""
+          ? "Por definir..."
+          : this.getUserInfo.description_pt,
+      descEn:
+        this.getUserInfo.description_eng == ""
+          ? "Not written yet..."
+          : this.getUserInfo.description_eng,
+      linkedInUrl:
+        this.getUserInfo.linkedIn_url == ""
+          ? "https://www.linkedin.com/"
+          : this.getUserInfo.linkedIn_url,
       email: this.getUserInfo.email,
       phoneNumber: this.getUserInfo.phone_numb,
-      role: this.getUserInfo.post,
+      role:
+        this.getUserInfo.post == "" ? "Por definir..." : this.getUserInfo.post,
       image: this.getUserInfo.picture
     };
   },
@@ -202,13 +212,18 @@ export default {
 
       this.$store.commit("SET_EDIT_PROFILE_FORM", {
         username: this.form.username,
-        description_pt: this.form.descPt,
-        description_eng: this.form.descEn,
+        description_pt:
+          this.form.descPt == "" ? "Por definir..." : this.form.descPt,
+        description_eng:
+          this.form.descEn == "" ? "Por definir..." : this.form.descEn,
         email: this.form.email,
         phone_numb: this.form.phoneNumber,
-        linkedIn_url: this.form.linkedInUrl,
+        linkedIn_url:
+          this.form.linkedInUrl == null
+            ? "https://www.linkedin.com/"
+            : this.form.linkedInUrl,
         fullName: this.form.fullName,
-        post: this.form.role,
+        post: this.form.role == "" ? "Por definir..." : this.form.role,
         image: this.form.image
       });
 
