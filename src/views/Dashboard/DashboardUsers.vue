@@ -4,9 +4,14 @@
 
     <div class="admin_users__panel">
       <div class="admin_users__panel__overlay" @click="closePopup"></div>
+      <div class="admin_users__panel__overlay2" @click="closeStatusPopup"></div>
+
       <DashboardTopHeader />
-      <!-- <DashboardUsersPopup :userName="userName" />
-      <DashboardUsersBlockPopup :userName="userName" /> -->
+      <DashboardUserStatePopup
+        :username="getUsername"
+        :levels="getUserLevels"
+      />
+      <!--<DashboardUsersBlockPopup :userName="userName" /> -->
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c">
@@ -100,7 +105,7 @@ import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardUsersCard from "@/components/Dashboard/DashboardUsersCard.vue";
 import DashboardUsersPendentCard from "@/components/Dashboard/DashboardUsersPendentCard.vue";
-// import DashboardUsersPopup from "@/components/Dashboard/Popup/DashboardUsersPopup.vue";
+import DashboardUserStatePopup from "@/components/Dashboard/Popup/DashboardUserStatePopup.vue";
 // import DashboardUsersBlockPopup from "@/components/Dashboard/Popup/DashboardUsersBlockPopup.vue";
 import { mapGetters } from "vuex";
 
@@ -109,8 +114,8 @@ export default {
     DashboardHeader,
     DashboardTopHeader,
     DashboardUsersCard,
-    DashboardUsersPendentCard
-    // DashboardUsersPopup,
+    DashboardUsersPendentCard,
+    DashboardUserStatePopup
     // DashboardUsersBlockPopup
   },
   data: () => {
@@ -125,30 +130,41 @@ export default {
   async mounted() {
     try {
       await this.$store.dispatch("setUsers");
+      await this.$store.dispatch("setAdminUserLevels");
 
       console.log(this.$store.getters.getUsers);
+      console.log(this.getUserLevels);
     } catch (error) {
       return error;
     }
   },
   computed: {
-    ...mapGetters(["getSelectedUserByID", "getUsers", "getNPendentUsers"]),
+    ...mapGetters([
+      "getAdminSelectedUserId",
+      "getAdminUserById",
+      "getUsers",
+      "getNPendentUsers",
+      "getUserLevels"
+    ]),
     setUsersArr() {
       return this.getUsers;
     },
-    // userName() {
-    //   let id = this.getSelectedUserByID;
+    getUsername() {
+      let id = this.getAdminSelectedUserId;
 
-    //   let user = this.getUserByID(id);
+      let user = this.getAdminUserById(id);
+      console.log(user);
 
-    //   let name;
+      let name;
 
-    //   if (user) {
-    //     name = user.userName;
-    //   }
+      if (user) {
+        name = user.full_name;
+      }
 
-    //   return name;
-    // },
+      console.log(name);
+
+      return name;
+    },
     searchFilter() {
       return this.setUsersArr.filter(user => {
         let search = true;
@@ -184,13 +200,12 @@ export default {
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
     },
-    convertImage(img) {
-      let arrayBufferView = new Uint8Array(img);
-      let blob = new Blob([arrayBufferView], { type: "image/png" });
-      let urlCreator = window.URL || window.webkitURL;
-      let image = urlCreator.createObjectURL(blob);
+    closeStatusPopup() {
+      let overlay = document.querySelector(".admin_users__panel__overlay2");
+      let popup = document.querySelector(".change_status");
 
-      return image;
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
     }
   }
 };

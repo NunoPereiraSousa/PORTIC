@@ -4,7 +4,8 @@
   &__gallery,
   &__news,
   &__team,
-  &__contacts {
+  &__contacts,
+  &__file {
     padding: 0 8vw calc(6.1875rem + 2vw);
 
     @include breakpoint-down(phone) {
@@ -541,6 +542,32 @@
 
       @include breakpoint-up(iPadPro) {
         font-size: $_24px;
+      }
+    }
+  }
+
+  &__file {
+    padding-bottom: 0;
+    padding-top: 0;
+    // padding-top: calc(5.1875rem + 2vw);
+
+    a {
+      width: fit-content;
+      height: fit-content;
+      display: table;
+      background-color: $orange;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 20px;
+      color: $white;
+      letter-spacing: 0.1px;
+      font-size: $_14px;
+      cursor: pointer;
+
+      @include breakpoint-up(iPadPro) {
+        justify-self: center;
+        white-space: nowrap;
+        font-size: $_16px;
       }
     }
   }

@@ -12,6 +12,8 @@ export const usersModule = {
       password: null
     },
     selectedUserId: null,
+    userStatusArr: [],
+    userLevels: [],
     registerForm: {
       username: null,
       firstName: null,
@@ -74,6 +76,12 @@ export const usersModule = {
 
       localStorage.setItem("loggedUser", JSON.stringify(state.loggedUser));
       localStorage.setItem("token", JSON.stringify(state.token));
+    },
+    SET_USERS_STATUS(state, payload) {
+      state.userStatusArr = payload.userStatus;
+    },
+    SET_USER_LEVELS(state, payload) {
+      state.userLevels = payload.userLevels;
     },
     SET_TOKEN(state, payload) {
       state.token = payload.token;
@@ -203,6 +211,12 @@ export const usersModule = {
           state.newUserStatus
         )
       );
+    },
+    async setAdminUsersStatus({ commit, state }) {
+      commit("SET_USERS_STATUS", await usersConfig.getUsersStatus(state.token));
+    },
+    async setAdminUserLevels({ commit, state }) {
+      commit("SET_USER_LEVELS", await usersConfig.getUserLevels(state.token));
     }
   },
   getters: {
@@ -218,6 +232,9 @@ export const usersModule = {
     getNUsers: state => {
       return state.users.length;
     },
+    getUserStatusArr: state =>
+      state.userStatusArr != "" ? state.userStatusArr : [],
+    getUserLevels: state => (state.userLevels != "" ? state.userLevels : []),
     getNPendentUsers: state =>
       state.users.filter(user => user.user_status === "Pendent Creation")
         .length,

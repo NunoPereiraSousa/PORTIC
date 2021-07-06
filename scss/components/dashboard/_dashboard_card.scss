@@ -39,6 +39,11 @@
     @include breakpoint-up(large) {
       font-size: $_20px;
     }
+
+    div {
+      color: $black;
+      font-size: $_15px;
+    }
   }
 
   span {

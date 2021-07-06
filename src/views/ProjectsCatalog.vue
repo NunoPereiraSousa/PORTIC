@@ -23,7 +23,7 @@
           ><br />
           <button
             id="sortBtn"
-            class="projects_catalog__filters__sorting flex flex-jc-sa"
+            class="projects_catalog__filters__sorting flex flex-ai-c flex-jc-sa"
             @click="order = !order"
           >
             <div>{{ $t("projects.input.filter") }}</div>
@@ -81,8 +81,11 @@
           :id="project.id_project"
           :initials="project.initials"
           :title="project.title"
-          :description="project.desc_html_structure"
+          :description="
+            checkCurrLang == 'en' ? project.summary_eng : project.summary_pt
+          "
           :status="setStatus(project.start_date, project.end_date)"
+          :reference="project.reference"
           @mouseover.native="onHover"
           @mouseleave.native="notHover"
         />
@@ -140,6 +143,9 @@ export default {
       return this.filterAlphabetically(
         this.filterProjectsByName(this.filterProjectsByCategory(this.projects))
       );
+    },
+    checkCurrLang() {
+      return this.$i18n.locale == "en" ? "en" : "pt";
     }
   },
   methods: {

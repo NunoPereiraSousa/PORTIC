@@ -159,11 +159,17 @@
           <TeamCard
             v-for="member in getCurrentProjects.project_team"
             :key="member.id_user"
-            image="https://upload.wikimedia.org/wikipedia/commons/f/f0/Fredrick_Douglass_Housing_Project_Towers_2010.jpg"
+            :image="member.picture"
             :name="member.full_name"
-            :number="member.email"
+            :number="member.post"
           />
         </div>
+      </section>
+
+      <section class="project__file">
+        <a :href="getCurrentProject.pdf_path" target="_blank"
+          >Ficha de projeto</a
+        >
       </section>
     </div>
     <Footer />
@@ -205,7 +211,8 @@ export default {
         partners: [],
         news: [],
         gallery: [],
-        team: []
+        team: [],
+        pdf_path: ""
       },
       newsSelectedTitle: null,
       newsSelectedContent: null,
@@ -228,11 +235,14 @@ export default {
     this.project.gallery = this.getCurrentProject.gallery_imgs;
     this.project.news = this.getCurrentProject.news;
     this.project.team = this.getCurrentProject.project_team;
+    this.project.pdf_path = this.getCurrentProject.pdf_path;
   },
   mounted() {
     this.changeCarousel();
 
     console.log(this.getCurrentProject);
+
+    console.log(this.getCurrentProject.pdf_path);
   },
   computed: {
     ...mapGetters([

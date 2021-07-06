@@ -172,8 +172,10 @@
       }
     }
 
-    .input_date {
-      padding: 0.5rem 1.5rem;
+    input,
+    select,
+    button {
+      height: 3rem;
     }
 
     &__sorting {

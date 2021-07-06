@@ -3962,8 +3962,10 @@ button:focus {
   }
 }
 
-.projects_catalog__filters .input_date {
-  padding: 0.5rem 1.5rem;
+.projects_catalog__filters input,
+.projects_catalog__filters select,
+.projects_catalog__filters button {
+  height: 3rem;
 }
 
 .projects_catalog__filters__sorting {
@@ -7116,24 +7118,24 @@ button:focus {
   }
 }
 
-.project__entry, .project__objective, .project__gallery, .project__news, .project__team, .project__contacts {
+.project__entry, .project__objective, .project__gallery, .project__news, .project__team, .project__contacts, .project__file {
   padding: 0 8vw calc(6.1875rem + 2vw);
 }
 
 @media (max-width: 23.375em) {
-  .project__entry, .project__objective, .project__gallery, .project__news, .project__team, .project__contacts {
+  .project__entry, .project__objective, .project__gallery, .project__news, .project__team, .project__contacts, .project__file {
     padding: calc(10.1875rem + 2vw) 8vw calc(6.1875rem + 2vw);
   }
 }
 
 @media (min-width: 48em) {
-  .project__entry, .project__objective, .project__gallery, .project__news, .project__team, .project__contacts {
+  .project__entry, .project__objective, .project__gallery, .project__news, .project__team, .project__contacts, .project__file {
     padding: calc(14.1875rem + 2vw) 8vw calc(6.1875rem + 2vw);
   }
 }
 
 @media (min-width: 64em) {
-  .project__entry, .project__objective, .project__gallery, .project__news, .project__team, .project__contacts {
+  .project__entry, .project__objective, .project__gallery, .project__news, .project__team, .project__contacts, .project__file {
     padding: calc(11.5875rem + 2vw) 8vw calc(6.1875rem + 2vw);
   }
 }
@@ -7730,6 +7732,38 @@ button:focus {
 @media (min-width: 64em) {
   .project__contacts a {
     font-size: 1.5rem;
+  }
+}
+
+.project__file {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.project__file a {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: table;
+  background-color: #c94d24;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  color: #ffffff;
+  letter-spacing: 0.1px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+@media (min-width: 64em) {
+  .project__file a {
+    -ms-grid-column-align: center;
+        justify-self: center;
+    white-space: nowrap;
+    font-size: 1rem;
   }
 }
 
@@ -8968,6 +9002,19 @@ button:focus {
   }
 }
 
+.admin_areas__panel__grid__card h2 div,
+.admin_courses__panel__grid__card h2 div,
+.admin_careers__panel__grid__card h2 div,
+.admin_projects__panel__grid__card h2 div,
+.admin_unities__panel__grid__card h2 div,
+.admin_users__panel__grid__card h2 div,
+.admin_medias__panel__grid__card h2 div,
+.admin_about__panel__grid__card h2 div,
+.admin_tn__panel__grid__card h2 div {
+  color: #080808;
+  font-size: 0.9375rem;
+}
+
 .admin_areas__panel__grid__card span,
 .admin_courses__panel__grid__card span,
 .admin_careers__panel__grid__card span,
@@ -9201,6 +9248,7 @@ button:focus {
 .admin_delete_focus_popup,
 .admin_edit_img_focus_popup,
 .add_partner,
+.change_status,
 .add_team {
   position: fixed;
   top: 50%;
@@ -9227,6 +9275,7 @@ button:focus {
 .admin_delete_focus_popup.show_popup,
 .admin_edit_img_focus_popup.show_popup,
 .add_partner.show_popup,
+.change_status.show_popup,
 .add_team.show_popup {
   opacity: 1;
   visibility: visible;
@@ -9240,6 +9289,7 @@ button:focus {
 .admin_delete_focus_popup h2,
 .admin_edit_img_focus_popup h2,
 .add_partner h2,
+.change_status h2,
 .add_team h2 {
   font-weight: 400;
   font-size: 1.25rem;
@@ -9255,6 +9305,7 @@ button:focus {
 .admin_delete_focus_popup h2 span,
 .admin_edit_img_focus_popup h2 span,
 .add_partner h2 span,
+.change_status h2 span,
 .add_team h2 span {
   color: #c94d24;
   font-weight: 500;
@@ -9268,6 +9319,7 @@ button:focus {
 .admin_delete_focus_popup hr,
 .admin_edit_img_focus_popup hr,
 .add_partner hr,
+.change_status hr,
 .add_team hr {
   margin: 2rem auto 4rem;
   background-color: #999999;
@@ -9291,6 +9343,8 @@ button:focus {
 .admin_edit_img_focus_popup__cancel,
 .add_partner__confirm,
 .add_partner__cancel,
+.change_status__confirm,
+.change_status__cancel,
 .add_team__confirm,
 .add_team__cancel {
   padding: 10px 30px;
@@ -9306,6 +9360,7 @@ button:focus {
 .admin_delete_focus_popup__confirm,
 .admin_edit_img_focus_popup__confirm,
 .add_partner__confirm,
+.change_status__confirm,
 .add_team__confirm {
   margin-right: 40px;
   border: 1px solid #c94d24;
@@ -9321,6 +9376,7 @@ button:focus {
 .admin_delete_focus_popup__cancel,
 .admin_edit_img_focus_popup__cancel,
 .add_partner__cancel,
+.change_status__cancel,
 .add_team__cancel {
   border: 1px solid #080808;
   background-color: transparent;
@@ -9361,6 +9417,7 @@ button:focus {
 .admin_edit_focus_popup h2,
 .admin_edit_img_focus_popup h2,
 .add_partner h2,
+.change_status h2,
 .add_team h2 {
   margin-bottom: 2rem;
 }
@@ -9369,6 +9426,7 @@ button:focus {
 .admin_edit_focus_popup .form,
 .admin_edit_img_focus_popup .form,
 .add_partner .form,
+.change_status .form,
 .add_team .form {
   text-align: left;
 }
@@ -9381,6 +9439,8 @@ button:focus {
 .admin_edit_img_focus_popup select,
 .add_partner input,
 .add_partner select,
+.change_status input,
+.change_status select,
 .add_team input,
 .add_team select {
   margin: 1rem 0;
@@ -9399,6 +9459,8 @@ button:focus {
 .admin_edit_img_focus_popup select:last-child,
 .add_partner input:last-child,
 .add_partner select:last-child,
+.change_status input:last-child,
+.change_status select:last-child,
 .add_team input:last-child,
 .add_team select:last-child {
   margin-bottom: 4rem;
@@ -10452,7 +10514,7 @@ input[type="file"] {
   /* Handle on hover */
 }
 
-.admin_users__panel__overlay, .admin_users__panel__overlay_slide, .admin_users__panel__overlay_add {
+.admin_users__panel__overlay, .admin_users__panel__overlay2, .admin_users__panel__overlay_slide, .admin_users__panel__overlay_add {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -10466,7 +10528,7 @@ input[type="file"] {
   transition: all 0.4s;
 }
 
-.admin_users__panel__overlay.show_overlay {
+.admin_users__panel__overlay.show_overlay, .admin_users__panel__overlay2.show_overlay {
   opacity: 1;
   visibility: visible;
 }
@@ -11146,6 +11208,47 @@ input[type="file"] {
   .unities_page__content {
     font-size: 1.125rem;
     line-height: 1.7;
+  }
+}
+
+.unities_page .connections__info {
+  margin-top: 2rem;
+}
+
+.unities_page .connections__info u {
+  font-size: 1.0625rem;
+  margin: 0.5rem 0;
+}
+
+@media (min-width: 75em) {
+  .unities_page .connections__info u {
+    font-size: 1.125rem;
+    margin: 1rem 0;
+  }
+}
+
+.unities_page .connections__info li {
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.unities_page .connections__info li:hover {
+  color: #c94d24;
+}
+
+.unities_page .connections__info li a {
+  color: #080808;
+}
+
+.unities_page .connections__info li a:hover {
+  color: #c94d24;
+}
+
+@media (min-width: 75em) {
+  .unities_page .connections__info li {
+    font-size: 1.0625rem;
   }
 }
 

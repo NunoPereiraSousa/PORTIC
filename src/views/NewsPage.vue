@@ -3,7 +3,7 @@
     <div class="news_page grid">
       <div>
         <h1 class="news_page__title">
-          {{ getCurrentNews.title }}
+          {{ currNews.title }}
         </h1>
         <div class="news_page__img" :style="imageStyle"></div>
         <div class="news_page__details flex flex-ai-c flex-jc-sb">
@@ -19,13 +19,13 @@
             </a>
           </div>
           <p class="news_page__author">
-            {{ getCurrentNews.writer }},
-            <span>{{ getCurrentNews.published_date }}</span>
+            {{ currNews.writer }},
+            <span>{{ currNews.published_date }}</span>
           </p>
         </div>
       </div>
       <p class="news_page__content">
-        {{ getCurrentNews.description }}
+        {{ currNews.description }}
       </p>
     </div>
 
@@ -70,7 +70,10 @@ export default {
     }
   },
   created() {
-    localStorage.setItem("currNews", JSON.stringify(this.getCurrentNews));
+    // localStorage.setItem("currNews", JSON.stringify(this.getCurrentNews));
+    this.currNews = this.getNewsById(this.getSelectedNewsId);
+
+    console.log(this.currNews);
   },
   methods: {
     convertImage(img) {

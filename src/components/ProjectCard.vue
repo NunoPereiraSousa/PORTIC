@@ -3,7 +3,7 @@
     <div class="projects__grid__card__normal_state">
       <h1>{{ initials }}</h1>
       <p>{{ title }}</p>
-      <h3>Referência 1234567</h3>
+      <h3>Referência {{ reference }}</h3>
       <div class="state" :style="backgroudColor"></div>
     </div>
     <div class="projects__grid__card__hovered_state hide-for-mobile">
@@ -11,7 +11,7 @@
         <div class="projects__grid__card__hovered_state__overlay"></div>
         <div class="top">
           <h1>/ {{ initials }}</h1>
-          <p v-html="description"></p>
+          <p>{{ description }}</p>
         </div>
         <div class="bottom">
           <button @click="setSelectedProject(id, initials)">
@@ -45,6 +45,10 @@ export default {
       required: true
     },
     status: {
+      type: String,
+      required: false
+    },
+    reference: {
       type: String,
       required: false
     }

@@ -248,5 +248,49 @@ export const usersConfig = {
         console.log(error);
         return error;
       });
+  },
+  getUsersStatus: async token => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .get(`${API_URL}/users/status`, config)
+      .then(response => {
+        console.log(response.data.processResult, response.status);
+        return {
+          userStatus: response.data.processResult,
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
+  },
+  getUserLevels: async token => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .get(`${API_URL}/users/levels`, config)
+      .then(response => {
+        console.log(response.data.processResult, response.status);
+        return {
+          userLevels: response.data.processResult,
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
   }
 };
