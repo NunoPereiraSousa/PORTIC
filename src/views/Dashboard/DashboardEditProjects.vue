@@ -489,7 +489,8 @@ export default {
         resumePt: "",
         resumeEn: "",
         image: "",
-        pdf: ""
+        pdf: "",
+        coordinator: ""
       },
       teamRows: [1],
       project: {
@@ -589,6 +590,10 @@ export default {
     this.edit.resumePt = this.getAdminProjectById(
       this.getAdminSelectedProjectId
     ).summary_pt;
+
+    this.edit.coordinator = this.getAdminProjectById(
+      this.getAdminSelectedProjectId
+    ).coordinator;
 
     // THE NEXT FOLLOWING LINE IS JUST FOR TESTING REASONS
     this.images = [

@@ -1,7 +1,7 @@
 <template>
   <div class="admin_delete_popup add_team">
     <h2>
-      Adicionar um parceiro
+      Adicionar um membro de equipa
     </h2>
 
     <div class="form">
@@ -53,8 +53,11 @@ export default {
       try {
         await this.$store.dispatch("setAdminAddProjectTeam");
         await this.$store.dispatch("setAdminProjects");
+
+        if (this.$store.getters.getAddProjectPartnerStatus === 201)
+          this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
 
@@ -69,6 +72,38 @@ export default {
       popup.classList.toggle("show_popup");
 
       this.add.permition = "";
+    },
+    notificationSuccess() {
+      this.$toast.success("Membro da equipa inserido com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
     }
   }
 };

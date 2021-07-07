@@ -82,7 +82,7 @@ export default {
     },
     showPopup(projectId) {
       let overlay = document.querySelector(".admin_projects__panel__overlay");
-      let popup = document.querySelector(".editImg");
+      let popup = document.querySelector(".admin_delete_popup");
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
 

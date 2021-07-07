@@ -238,7 +238,11 @@ export default {
         await this.$store.dispatch("setAdminAddProjectNews");
         await this.$store.dispatch("setAdminProjects");
         await this.$store.dispatch("setAdminNews");
+
+        if (this.$store.getters.getAddProjectNewsStatus === 200)
+          this.notificationSuccess();
       } catch (error) {
+        this.notificationError();
         return error;
       }
 
@@ -247,6 +251,38 @@ export default {
     getDateTime() {
       let dateTime = new Date();
       return dateTime;
+    },
+    notificationSuccess() {
+      this.$toast.success("Membro da equipa inserido com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
     }
   }
 };

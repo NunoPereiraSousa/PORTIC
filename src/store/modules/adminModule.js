@@ -209,6 +209,7 @@ export const adminModule = {
     },
     deleteTeamMemberStatus: null,
     selectedTeamMemberId: null,
+    addProjectNewsStatus: null,
 
     // UNITS
     units: [],
@@ -455,8 +456,6 @@ export const adminModule = {
     },
     SET_PROJECTS_ADD_STATUS(state, payload) {
       state.addProjectStatus = payload.status;
-
-      console.log(state.addProjectStatus);
     },
     SET_PROJECTS_EDIT_FORM(state, payload) {
       state.editProjectForm.title = payload.title;
@@ -533,6 +532,9 @@ export const adminModule = {
     },
     SET_SELECTED_TEAM_MEMBER_ID(state, payload) {
       state.selectedTeamMemberId = payload.id;
+    },
+    SET_ADD_PROJECT_NEWS_STATUS(state, payload) {
+      state.addProjectNewsStatus = payload.status;
     },
 
     // UNITS MUTATIONS
@@ -972,7 +974,7 @@ export const adminModule = {
     },
     async setAdminAddProjectNews({ commit, state }) {
       commit(
-        "SET_DELETE_PROJECT_PARTNER_STATUS",
+        "SET_ADD_PROJECT_NEWS_STATUS",
         await adminProjectsConfig.addProjectNews(
           JSON.parse(localStorage.getItem("token")),
           state.selectedProjectId,
@@ -1165,6 +1167,11 @@ export const adminModule = {
     getAdminProjectById: state => id =>
       state.projects.find(project => project.id_project === id),
     getEditProjectStatus: state => state.editProjectStatus,
+    getAddProjectStatus: state => state.addProjectStatus,
+    getDeleteProjectStatus: state => state.deleteProjectStatus,
+    getAddProjectImgStatus: state => state.addImgStatus,
+    getAddProjectPartnerStatus: state => state.addPartnerStatus,
+    getAddProjectNewsStatus: state => state.addProjectNewsStatus,
 
     // UNITS GETTERS
     getAdminUnits: state => (state.units != "" ? state.units : []),

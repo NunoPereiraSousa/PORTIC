@@ -406,10 +406,10 @@ export default {
         await this.$store.dispatch("setAdminAddProjects");
         await this.$store.dispatch("setAdminProjects");
 
-        // this.notificationSuccess();
+        if (this.$store.getters.getAddProjectStatus === 201)
+          this.notificationSuccess();
       } catch (error) {
-        console.log(error);
-        // this.notificationError();
+        this.notificationError();
         return error;
       }
 
@@ -449,7 +449,7 @@ export default {
       this.teamRows = this.teamRows.filter(row => row !== index);
     },
     notificationSuccess() {
-      this.$toast.success("Projeto editado com sucesso!", {
+      this.$toast.success("Projeto inserido com sucesso!", {
         position: "top-right",
         timeout: 3000,
         closeOnClick: true,

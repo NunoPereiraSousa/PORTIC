@@ -35,7 +35,11 @@ export default {
       try {
         await this.$store.dispatch("setAdminDeleteProject");
         await this.$store.dispatch("setAdminProjects");
+
+        if (this.$store.getters.getDeleteProjectStatus === 200)
+          this.notificationSuccess();
       } catch (error) {
+        this.notificationError();
         return error;
       }
 
@@ -47,6 +51,38 @@ export default {
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
+    },
+    notificationSuccess() {
+      this.$toast.success("Projeto removido com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
     }
   }
 };

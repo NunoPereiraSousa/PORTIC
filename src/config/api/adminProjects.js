@@ -116,6 +116,8 @@ export const adminProjectsConfig = {
     data.append("end_date", end_date);
     data.append("coordinator", coordinator);
 
+    console.log(coordinator);
+
     return await axios
       .put(`${API_URL}/projects/${id}`, data, config)
       .then(response => {
