@@ -2,6 +2,8 @@
   <div class="admin_actions flex">
     <DashboardHeader />
 
+    <!-- {{ name }} -->
+
     <div class="admin_actions_panel">
       <div class="admin_actions_panel__form connections">
         <div>
@@ -165,11 +167,14 @@ export default {
         areaUnit: "",
         unitProject: "",
         unitCareer: ""
-      }
+      },
+      name: ""
     };
   },
   mounted() {
-    console.log(this.getAdminAreas);
+    console.log(this.getAdminCareers);
+
+    this.name = this.getAdminUnitById(this.getAdminSelectedUnitId).designation;
   },
   methods: {
     async addAreaCon() {

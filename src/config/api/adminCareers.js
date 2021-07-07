@@ -15,7 +15,7 @@ export const adminCareersConfig = {
     return await axios
       .get(`${API_URL}/positions`, config)
       .then(response => {
-        console.log(response.data.processResult);
+        console.log("RESP" + response.data.processResult);
         return {
           careers: response.data.processResult,
           status: response.status

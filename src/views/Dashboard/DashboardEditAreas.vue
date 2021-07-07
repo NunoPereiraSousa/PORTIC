@@ -202,11 +202,10 @@ export default {
         this.$store.dispatch("setAdminAreas");
 
         // notifications
-        this.$store.getters.getEditAreaStatus === 200
-          ? this.notificationSuccess()
-          : this.notificationError();
+        if (this.$store.getters.getEditAreaStatus === 200)
+          this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
 

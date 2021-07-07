@@ -50,6 +50,7 @@ export const adminAreasConfig = {
         config
       )
       .then(response => {
+        console.log(response.status);
         return {
           status: response.status
         };

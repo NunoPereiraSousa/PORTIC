@@ -178,8 +178,8 @@ export default {
         await this.$store.dispatch("setAdminAddArea");
         await this.$store.dispatch("setAdminAreas");
 
-        // notifications
-        this.notificationSuccess();
+        if (this.$store.getters.getAddAreaStatus === 201)
+          this.notificationSuccess();
       } catch (error) {
         this.notificationError();
         return error;

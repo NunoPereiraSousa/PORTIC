@@ -116,8 +116,10 @@ export default {
 
     try {
       await this.$store.dispatch("setWeather");
-      if (this.level === "Super Admin")
+      if (this.level === "Super Admin") {
         await this.$store.dispatch("setAdminMedias");
+        await this.$store.dispatch("setAdminCareers");
+      }
 
       console.log(this.$store.getters.getUsers);
     } catch (error) {
