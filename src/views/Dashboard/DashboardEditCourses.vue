@@ -216,11 +216,14 @@ export default {
         await this.$store.dispatch("setAdminEditCourse");
         await this.$store.dispatch("setAdminCourses");
 
-        this.goBack();
+        if (this.$store.getters.getEditCourseStatus === 200)
+          this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
+
+      this.goBack();
     },
     styleEditorHeight() {
       let editor = document.querySelector(".area_edit_editor");
@@ -242,6 +245,38 @@ export default {
     goBack() {
       this.$router.push({
         name: "DashboardCourses"
+      });
+    },
+    notificationSuccess() {
+      this.$toast.success("Curso editado com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
       });
     }
   }

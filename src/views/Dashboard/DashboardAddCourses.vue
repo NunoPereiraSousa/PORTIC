@@ -196,8 +196,11 @@ export default {
       try {
         await this.$store.dispatch("setAdminAddCourse");
         await this.$store.dispatch("setAdminCourses");
+
+        if (this.$store.getters.getAddCourseStatus === 201)
+          this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
 
@@ -223,6 +226,38 @@ export default {
     goBack() {
       this.$router.push({
         name: "DashboardCourses"
+      });
+    },
+    notificationSuccess() {
+      this.$toast.success("Curso inserido com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
       });
     }
   }

@@ -9,13 +9,16 @@
       <input type="text" id="namePtTxt" v-model="add.namePt" />
 
       <label for="image">Imagem</label><br />
-      <label
-        class="custom-file-upload"
-        style="margin-bottom: 0; margin-top: 1rem"
-      >
-        <input type="file" @change="uploadImage" />
-        Upload de imagens
-      </label>
+      <div>
+        <label
+          class="custom-file-upload"
+          style="margin-bottom: 0; margin-top: 1rem"
+        >
+          <input type="file" @change="uploadImage" />
+          Upload de imagens
+        </label>
+        {{ add.file.name }}
+      </div>
       <br />
       <br />
       <label for="nameEnTxt">Name</label><br />
@@ -41,7 +44,7 @@ export default {
       add: {
         namePt: "",
         nameEn: "",
-        file: null
+        file: ""
       }
     };
   },

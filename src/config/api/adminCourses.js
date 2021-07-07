@@ -39,13 +39,6 @@ export const adminCoursesConfig = {
       }
     };
 
-    console.log(
-      designation,
-      html_structure_eng,
-      html_structure_pt,
-      coordinator
-    );
-
     return await axios
       .put(
         `${API_URL}/courses/${id}`,
@@ -80,13 +73,6 @@ export const adminCoursesConfig = {
       }
     };
 
-    console.log(
-      designation,
-      html_structure_eng,
-      html_structure_pt,
-      coordinator
-    );
-
     return await axios
       .post(
         `${API_URL}/courses`,
@@ -99,13 +85,11 @@ export const adminCoursesConfig = {
         config
       )
       .then(response => {
-        console.log(response.status);
         return {
           status: response.status
         };
       })
       .catch(error => {
-        console.log(error);
         return error;
       });
   },

@@ -1136,6 +1136,9 @@ export const adminModule = {
     getAdminSelectedCourseId: state => state.selectedCourseId,
     getAdminCourseById: state => id =>
       state.courses.find(course => course.id_course === id),
+    getAddCourseStatus: state => state.addCourseStatus,
+    getEditCourseStatus: state => state.editCourseStatus,
+    getDeleteCourseStatus: state => state.removeCourseStatus,
 
     // NEWS GETTERS
     getAdminNews: state => (state.news != "" ? state.news : []),
