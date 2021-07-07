@@ -126,12 +126,17 @@ export default {
       );
 
       try {
-        this.$store.dispatch("setAdminAddMedia");
-        this.$store.dispatch("setAdminMedias");
+        await this.$store.dispatch("setAdminAddMedia");
+        await this.$store.dispatch("setAdminMedias");
+
+        if (this.$store.getters.getAddMediaStatus === 201)
+          this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
+
+      this.goBack();
     },
     getCurrentLang() {
       let lang = JSON.parse(localStorage.getItem("vuex")).langModule.lang;
@@ -141,6 +146,38 @@ export default {
     goBack() {
       this.$router.push({
         name: "DashboardMedia"
+      });
+    },
+    notificationSuccess() {
+      this.$toast.success("Media inserida com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
       });
     }
   }

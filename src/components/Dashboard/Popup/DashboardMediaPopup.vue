@@ -46,10 +46,13 @@ export default {
   methods: {
     async deleteMedia() {
       try {
-        this.$store.dispatch("setAdminDeleteMedia");
-        this.$store.dispatch("setAdminMedias");
+        await this.$store.dispatch("setAdminDeleteMedia");
+        await this.$store.dispatch("setAdminMedias");
+
+        if (this.$store.getters.getDeleteMediaStatus === 200)
+          this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
 
@@ -61,6 +64,38 @@ export default {
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
+    },
+    notificationSuccess() {
+      this.$toast.success("Media removida com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
     }
   }
 };

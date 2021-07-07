@@ -1125,6 +1125,9 @@ export const adminModule = {
     getAdminSelectedMediaId: state => state.selectedMediaId,
     getAdminMediaById: state => id =>
       state.medias.find(media => media.id_media === id),
+    getAddMediaStatus: state => state.addMediaStatus,
+    getEditMediaStatus: state => state.editMediaStatus,
+    getDeleteMediaStatus: state => state.removeMediaStatus,
 
     // COURSES GETTERS
     getAdminCourses: state => (state.courses != "" ? state.courses : []),
