@@ -160,7 +160,11 @@
             v-for="member in selected.project_team"
             :key="member.id_user"
             :id="member.id_user"
-            :image="member.picture"
+            :image="
+              member.picture == null
+                ? 'https://digimedia.web.ua.pt/wp-content/uploads/2017/05/default-user-image.png'
+                : member.picture
+            "
             :name="member.full_name"
             :number="member.post"
           />
