@@ -45,7 +45,10 @@
             />
           </div>
         </div>
-        <div class="admin_home__panel__card barChart">
+        <div
+          class="admin_home__panel__card barChart"
+          v-if="level == 'Super Admin'"
+        >
           <BarChart
             :data="[
               $store.getters.getAdminAreasLength,
@@ -57,7 +60,10 @@
             ]"
           />
         </div>
-        <div class="admin_home__panel__card barChart">
+        <div
+          class="admin_home__panel__card barChart"
+          v-if="level === 'Super Admin'"
+        >
           <PieChart />
         </div>
       </div>
@@ -86,19 +92,32 @@ export default {
       temperature: "",
       weatherBroadcast: [],
       days: [],
-      loggedUser: {}
+      loggedUser: {},
+      level: ""
     };
   },
   created() {
     // get loggedUser from localStorage
     this.loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+
+    this.level = this.$store.getters.getLoggedUser.user_level;
+
+    console.log(this.level);
   },
   async mounted() {
     // this.height();
 
+    if (
+      document.querySelector(".admin_nav").offsetHeight < window.innerHeight
+    ) {
+      document.querySelector(".admin_nav").style.height = "100vh";
+      console.log(document.querySelector(".admin_nav"));
+    }
+
     try {
       await this.$store.dispatch("setWeather");
-      await this.$store.dispatch("setAdminMedias");
+      if (this.level === "Super Admin")
+        await this.$store.dispatch("setAdminMedias");
 
       console.log(this.$store.getters.getUsers);
     } catch (error) {
@@ -111,7 +130,7 @@ export default {
 
     this.weather = this.getWeather;
 
-    let broadcastArr = this.weather.daily;
+    let broadcastArr = this.getWeather.daily;
 
     this.convertWeekDaysArr().forEach(d => {
       this.days.push(d);

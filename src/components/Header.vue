@@ -129,23 +129,23 @@
             <div class="flex flex-ai-c">
               <a
                 v-for="media in socials"
-                :key="media.social_media_type"
+                :key="media.name"
                 :href="media.url"
                 target="_blank"
               >
-                <div v-if="media.social_media_type == 'Twitter'">
+                <div v-if="media.name == 'Twitter'">
                   <i class="fab fa-twitter"></i>
                 </div>
-                <div v-else-if="media.social_media_type == 'Facebook'">
+                <div v-else-if="media.name == 'Facebook'">
                   <i class="fab fa-facebook-square"></i>
                 </div>
-                <div v-else-if="media.social_media_type == 'LinkedIn'">
+                <div v-else-if="media.name == 'LinkedIn'">
                   <i class="fab fa-linkedin"></i>
                 </div>
-                <div v-else-if="media.social_media_type == 'Youtube'">
+                <div v-else-if="media.name == 'Youtube'">
                   <i class="fab fa-youtube"></i>
                 </div>
-                <div v-else-if="media.social_media_type == 'Instagram'">
+                <div v-else-if="media.name == 'Instagram'">
                   <i class="fab fa-instagram"></i>
                 </div>
               </a>
@@ -192,6 +192,7 @@ export default {
       return null;
     },
     socials() {
+      console.log(this.$store.getters.getEntityData.social_medias);
       return this.$store.getters.getEntityData.social_medias;
     },
     menus() {

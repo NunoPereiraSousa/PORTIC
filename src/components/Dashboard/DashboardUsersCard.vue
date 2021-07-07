@@ -8,12 +8,20 @@
       <h2>
         {{ userName }}
         <div>{{ userType }}</div>
+        <div>{{ entity }}</div>
       </h2>
-      <h3>
+      <!-- <h3>
         {{ userRole == null ? "Por definir" : userRole }}
-      </h3>
+      </h3> -->
     </div>
     <div class="flex flex-ai-c">
+      <button
+        style="margin-right: 2rem;"
+        class="admin_users__panel__grid__card__remove"
+        @click="openEntityPopup(id)"
+      >
+        Entidade
+      </button>
       <button
         style="margin-right: 2rem;"
         class="admin_users__panel__grid__card__remove"
@@ -54,6 +62,10 @@ export default {
       required: false
     },
     userRole: {
+      type: String,
+      required: false
+    },
+    entity: {
       type: String,
       required: false
     },
@@ -107,6 +119,18 @@ export default {
       let overlay = document.querySelector(".admin_users__panel__overlay2");
 
       let popup = document.querySelector(".change_status");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
+    openEntityPopup(id) {
+      this.$store.commit("SET_SELECTED_USER_ID", {
+        id: id
+      });
+
+      let overlay = document.querySelector(".admin_users__panel__overlay3");
+
+      let popup = document.querySelector(".edit_entity_popup");
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");

@@ -33,9 +33,31 @@
 
       <div class="admin_actions_panel__form">
         <h3 class="dashboard_subheader">
-          Nome do curso
+          Informações gerais
         </h3>
-        <input type="text" :placeholder="courseName" v-model="edit.name" />
+        <div class="flex flex-ai-fs">
+          <div style="margin-right: 2rem;">
+            <label for="nameTxt">Nome do curso</label><br />
+            <input
+              type="text"
+              id="nameTxt"
+              :placeholder="courseName"
+              v-model="edit.name"
+            />
+          </div>
+          <div>
+            <label for="coordinatorTxt">Coordenador</label><br />
+            <select id="coordinatorTxt" v-model="edit.coordinator">
+              <option value="">Selecionar coordenador</option>
+              <option
+                v-for="user in $store.getters.getUsers"
+                :key="user.id_user"
+                :value="user.id_user"
+                >{{ user.full_name }}</option
+              >
+            </select>
+          </div>
+        </div>
         <h3 class="dashboard_subheader">
           Conteúdo do curso
         </h3>
@@ -116,7 +138,8 @@ export default {
       edit: {
         name: "",
         contentPt: "",
-        contentEn: ""
+        contentEn: "",
+        coordinator: ""
       },
       editorOption: {
         modules: {
@@ -159,6 +182,13 @@ export default {
       return this.getAdminCourseById(this.getAdminSelectedCourseId).designation;
     }
   },
+  async created() {
+    try {
+      await this.$store.dispatch("setUsers");
+    } catch (error) {
+      return error;
+    }
+  },
   mounted() {
     this.edit.name = this.courseName;
     this.edit.contentPt = this.getAdminCourseById(
@@ -167,6 +197,9 @@ export default {
     this.edit.contentEn = this.getAdminCourseById(
       this.getAdminSelectedCourseId
     ).html_structure_eng;
+    this.edit.coordinator = this.getAdminCourseById(
+      this.getAdminSelectedCourseId
+    ).coordinator;
 
     this.styleEditorHeight();
   },
@@ -175,7 +208,8 @@ export default {
       this.$store.commit("SET_ADMIN_EDIT_COURSE", {
         designation: this.edit.name,
         html_structure_eng: this.edit.contentEn,
-        html_structure_pt: this.edit.contentPt
+        html_structure_pt: this.edit.contentPt,
+        coordinator: this.edit.coordinator
       });
 
       try {

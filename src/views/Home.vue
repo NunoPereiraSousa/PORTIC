@@ -19,16 +19,12 @@
           @click.native="getNewsId"
         />
       </div>
-      <SlidePanel
-        :title="newsSelectedTitle"
-        :content="newsSelectedContent"
-        :author="author"
-      />
-      <!-- <KnowMoreBtn
-        type="know__more dark"
-        text="All news"
-        route="ProjectsCatalog"
-      /> -->
+
+      <div class="flex flex-ai-c flex-jc-c">
+        <router-link :to="{ name: 'News' }" class="know__more dark">
+          {{ $t("homepage.news.moreNews") }}
+        </router-link>
+      </div>
     </section>
     <section class="testimonials">
       <!-- <h1 class="testimonials__title">
@@ -109,12 +105,10 @@ import { mapGetters } from "vuex";
 import Intro from "@/components/Intro.vue";
 import Quote from "@/components/Quote.vue";
 import NewsCard from "@/components/NewsCard.vue";
-import SlidePanel from "@/components/SlidePanel.vue";
-// import KnowMoreBtn from "@/components/KnowMoreBtn.vue";
 // import TestimonialCard from "@/components/TestimonialCard.vue";
 import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
-// import { background } from "../../js/background";
+
 import * as THREE from "three";
 
 export default {
@@ -122,9 +116,7 @@ export default {
   components: {
     Intro,
     Quote,
-    // KnowMoreBtn,
     NewsCard,
-    SlidePanel,
     // TestimonialCard,
     Footer,
     [Glide.name]: Glide,

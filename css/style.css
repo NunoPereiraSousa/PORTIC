@@ -1693,6 +1693,7 @@ button:focus {
   font-size: 1rem;
   color: #ffffff;
   margin-right: 2rem;
+  margin-top: 0;
 }
 
 @media (min-width: 48em) {
@@ -3367,7 +3368,6 @@ button:focus {
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 100;
-  color: #080808;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -7697,13 +7697,16 @@ button:focus {
 }
 
 .project__news {
-  background-color: #ffffff;
-  padding-top: calc(3.1875rem + 2vw);
-  padding-bottom: 0;
+  background-color: #080808;
+  padding: calc(3.1875rem + 2vw) 8vw;
 }
 
 .project__news .news__cards__card {
   margin-top: 0;
+}
+
+.project__news .sub__header__title {
+  color: #ffffff;
 }
 
 .project__news__grid {
@@ -7726,9 +7729,9 @@ button:focus {
   }
 }
 
-.project__news__grid h2,
-.project__news__grid p {
-  color: #080808;
+.project__news h2,
+.project__news p {
+  color: #ffffff !important;
 }
 
 .project__team {
@@ -9496,6 +9499,7 @@ button:focus {
 .admin_edit_img_focus_popup,
 .add_partner,
 .change_status,
+.edit_entity_popup,
 .add_team {
   position: fixed;
   top: 50%;
@@ -9523,6 +9527,7 @@ button:focus {
 .admin_edit_img_focus_popup.show_popup,
 .add_partner.show_popup,
 .change_status.show_popup,
+.edit_entity_popup.show_popup,
 .add_team.show_popup {
   opacity: 1;
   visibility: visible;
@@ -9537,6 +9542,7 @@ button:focus {
 .admin_edit_img_focus_popup h2,
 .add_partner h2,
 .change_status h2,
+.edit_entity_popup h2,
 .add_team h2 {
   font-weight: 400;
   font-size: 1.25rem;
@@ -9553,6 +9559,7 @@ button:focus {
 .admin_edit_img_focus_popup h2 span,
 .add_partner h2 span,
 .change_status h2 span,
+.edit_entity_popup h2 span,
 .add_team h2 span {
   color: #c94d24;
   font-weight: 500;
@@ -9567,6 +9574,7 @@ button:focus {
 .admin_edit_img_focus_popup hr,
 .add_partner hr,
 .change_status hr,
+.edit_entity_popup hr,
 .add_team hr {
   margin: 2rem auto 4rem;
   background-color: #999999;
@@ -9592,6 +9600,8 @@ button:focus {
 .add_partner__cancel,
 .change_status__confirm,
 .change_status__cancel,
+.edit_entity_popup__confirm,
+.edit_entity_popup__cancel,
 .add_team__confirm,
 .add_team__cancel {
   padding: 10px 30px;
@@ -9608,6 +9618,7 @@ button:focus {
 .admin_edit_img_focus_popup__confirm,
 .add_partner__confirm,
 .change_status__confirm,
+.edit_entity_popup__confirm,
 .add_team__confirm {
   margin-right: 40px;
   border: 1px solid #c94d24;
@@ -9624,6 +9635,7 @@ button:focus {
 .admin_edit_img_focus_popup__cancel,
 .add_partner__cancel,
 .change_status__cancel,
+.edit_entity_popup__cancel,
 .add_team__cancel {
   border: 1px solid #080808;
   background-color: transparent;
@@ -9665,6 +9677,7 @@ button:focus {
 .admin_edit_img_focus_popup h2,
 .add_partner h2,
 .change_status h2,
+.edit_entity_popup h2,
 .add_team h2 {
   margin-bottom: 2rem;
 }
@@ -9674,6 +9687,7 @@ button:focus {
 .admin_edit_img_focus_popup .form,
 .add_partner .form,
 .change_status .form,
+.edit_entity_popup .form,
 .add_team .form {
   text-align: left;
 }
@@ -9688,6 +9702,8 @@ button:focus {
 .add_partner select,
 .change_status input,
 .change_status select,
+.edit_entity_popup input,
+.edit_entity_popup select,
 .add_team input,
 .add_team select {
   margin: 1rem 0;
@@ -9708,6 +9724,8 @@ button:focus {
 .add_partner select:last-child,
 .change_status input:last-child,
 .change_status select:last-child,
+.edit_entity_popup input:last-child,
+.edit_entity_popup select:last-child,
 .add_team input:last-child,
 .add_team select:last-child {
   margin-bottom: 4rem;
@@ -10094,6 +10112,11 @@ button:focus {
       grid-template-rows: min-content min-content min-content 1fr;
   height: 90vh;
   padding: 30px 60px;
+}
+
+.admin_actions_panel__form input,
+.admin_actions_panel__form select {
+  height: 2.5rem;
 }
 
 .admin_actions_panel__form input {
@@ -10771,7 +10794,7 @@ input[type="file"] {
   /* Handle on hover */
 }
 
-.admin_users__panel__overlay, .admin_users__panel__overlay2, .admin_users__panel__overlay_slide, .admin_users__panel__overlay_add {
+.admin_users__panel__overlay, .admin_users__panel__overlay2, .admin_users__panel__overlay3, .admin_users__panel__overlay_slide, .admin_users__panel__overlay_add {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -10785,7 +10808,7 @@ input[type="file"] {
   transition: all 0.4s;
 }
 
-.admin_users__panel__overlay.show_overlay, .admin_users__panel__overlay2.show_overlay {
+.admin_users__panel__overlay.show_overlay, .admin_users__panel__overlay2.show_overlay, .admin_users__panel__overlay3.show_overlay {
   opacity: 1;
   visibility: visible;
 }

@@ -49,7 +49,9 @@ export const usersModule = {
     userId: null,
     newUserStatusStatus: null,
     editUserLevelStatus: null,
-    editUserLevel: null
+    editUserLevel: null,
+    newUserEntity: null,
+    newUserEntityStatus: null
   },
   mutations: {
     SET_USERS(state, payload) {
@@ -137,6 +139,12 @@ export const usersModule = {
     },
     SET_EDIT_USER_LEVEL(state, payload) {
       state.editUserLevel = payload.user_level;
+    },
+    SET_NEW_USER_ENTITY(state, payload) {
+      state.newUserEntity = payload.entity;
+    },
+    SET_NEW_USER_ENTITY_STATUS(state, payload) {
+      state.newUserEntityStatus = payload.status;
     }
   },
   actions: {
@@ -235,6 +243,16 @@ export const usersModule = {
           state.editUserLevel
         )
       );
+    },
+    async setNewUserEntity({ commit, state }) {
+      commit(
+        "SET_NEW_USER_ENTITY_STATUS",
+        await usersConfig.editUserEntity(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedUserId,
+          state.newUserEntity
+        )
+      );
     }
   },
   getters: {
@@ -273,6 +291,7 @@ export const usersModule = {
     getAdminUserById: state => id =>
       state.users.find(user => user.id_user === id),
     getEditProfileStatus2: state => state.editProfileStatus2,
-    getEditUserLevelStatus: state => state.editUserLevelStatus
+    getEditUserLevelStatus: state => state.editUserLevelStatus,
+    getNewUserEntityStatus: state => state.newUserEntityStatus
   }
 };

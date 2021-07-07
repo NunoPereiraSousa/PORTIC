@@ -21,7 +21,8 @@
     "introTwo": " - Porto Research, Technology & Innovation Center.",
     "news": {
       "title": "Últimas notícias",
-      "button": "Saber mais"
+      "button": "Saber mais",
+      "moreNews": "Ver todas as notícias"
     },
     "testimonials": {
       "title": "Clientes que confiam em nós",

@@ -5,11 +5,16 @@
     <div class="admin_users__panel">
       <div class="admin_users__panel__overlay" @click="closePopup"></div>
       <div class="admin_users__panel__overlay2" @click="closeStatusPopup"></div>
+      <div class="admin_users__panel__overlay3" @click="closeEntityPopup"></div>
 
       <DashboardTopHeader />
       <DashboardUserStatePopup
         :username="getUsername"
         :levels="getUserLevels"
+      />
+      <DashboardEditUserEntity
+        :username="getUsername"
+        :initials="getEntityInitials"
       />
       <!--<DashboardUsersBlockPopup :userName="userName" /> -->
 
@@ -77,6 +82,7 @@
           "
           :userType="user.user_level"
           :userRole="user.post"
+          :entity="user.user_entity"
         />
       </div>
 
@@ -106,7 +112,7 @@ import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardUsersCard from "@/components/Dashboard/DashboardUsersCard.vue";
 import DashboardUsersPendentCard from "@/components/Dashboard/DashboardUsersPendentCard.vue";
 import DashboardUserStatePopup from "@/components/Dashboard/Popup/DashboardUserStatePopup.vue";
-// import DashboardUsersBlockPopup from "@/components/Dashboard/Popup/DashboardUsersBlockPopup.vue";
+import DashboardEditUserEntity from "@/components/Dashboard/Popup/DashboardEditUserEntity.vue";
 import { mapGetters } from "vuex";
 
 export default {
@@ -115,8 +121,8 @@ export default {
     DashboardTopHeader,
     DashboardUsersCard,
     DashboardUsersPendentCard,
-    DashboardUserStatePopup
-    // DashboardUsersBlockPopup
+    DashboardUserStatePopup,
+    DashboardEditUserEntity
   },
   data: () => {
     return {
@@ -131,9 +137,10 @@ export default {
     try {
       await this.$store.dispatch("setUsers");
       await this.$store.dispatch("setAdminUserLevels");
+      await this.$store.dispatch("setEntityInitials");
 
-      console.log(this.$store.getters.getUsers);
-      console.log(this.getUserLevels);
+      console.log(this.getEntityInitials);
+      console.log(this.getUsers);
     } catch (error) {
       return error;
     }
@@ -144,7 +151,8 @@ export default {
       "getAdminUserById",
       "getUsers",
       "getNPendentUsers",
-      "getUserLevels"
+      "getUserLevels",
+      "getEntityInitials"
     ]),
     setUsersArr() {
       return this.getUsers;
@@ -203,6 +211,13 @@ export default {
     closeStatusPopup() {
       let overlay = document.querySelector(".admin_users__panel__overlay2");
       let popup = document.querySelector(".change_status");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
+    closeEntityPopup() {
+      let overlay = document.querySelector(".admin_users__panel__overlay3");
+      let popup = document.querySelector(".edit_entity_popup");
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");

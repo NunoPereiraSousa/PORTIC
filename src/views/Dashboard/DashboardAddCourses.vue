@@ -33,9 +33,31 @@
 
       <div class="admin_actions_panel__form">
         <h3 class="dashboard_subheader">
-          Nome do curso
+          Informações gerais
         </h3>
-        <input type="text" placeholder="Nome do curso" v-model="add.name" />
+        <div class="flex flex-ai-fs">
+          <div style="margin-right: 2rem;">
+            <label for="nameTxt">Nome do curso</label><br />
+            <input
+              type="text"
+              id="nameTxt"
+              placeholder="Nome do curso"
+              v-model="add.name"
+            />
+          </div>
+          <div>
+            <label for="coordinatorTxt">Coordenador</label><br />
+            <select id="coordinatorTxt" v-model="add.coordinator">
+              <option value="">Selecionar coordenador</option>
+              <option
+                v-for="user in $store.getters.getUsers"
+                :key="user.id_user"
+                :value="user.id_user"
+                >{{ user.full_name }}</option
+              >
+            </select>
+          </div>
+        </div>
         <h3 class="dashboard_subheader">
           Conteúdo do curso
         </h3>
@@ -114,7 +136,8 @@ export default {
       add: {
         name: "",
         contentPt: "",
-        contentEn: ""
+        contentEn: "",
+        coordinator: ""
       },
       editorOption: {
         modules: {
@@ -151,6 +174,13 @@ export default {
       }
     };
   },
+  async created() {
+    try {
+      await this.$store.dispatch("setUsers");
+    } catch (error) {
+      return error;
+    }
+  },
   mounted() {
     this.styleEditorHeight();
   },
@@ -159,7 +189,8 @@ export default {
       this.$store.commit("SET_ADMIN_ADD_COURSE", {
         designation: this.add.name,
         html_structure_eng: this.add.contentEn,
-        html_structure_pt: this.add.contentPt
+        html_structure_pt: this.add.contentPt,
+        coordinator: this.add.coordinator
       });
 
       try {

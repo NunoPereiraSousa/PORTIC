@@ -29,7 +29,8 @@ export const adminCoursesConfig = {
     id,
     designation,
     html_structure_eng,
-    html_structure_pt
+    html_structure_pt,
+    coordinator
   ) => {
     let config = {
       headers: {
@@ -38,7 +39,12 @@ export const adminCoursesConfig = {
       }
     };
 
-    console.log(designation, html_structure_eng, html_structure_pt);
+    console.log(
+      designation,
+      html_structure_eng,
+      html_structure_pt,
+      coordinator
+    );
 
     return await axios
       .put(
@@ -46,7 +52,8 @@ export const adminCoursesConfig = {
         {
           designation: designation,
           html_structure_eng: html_structure_eng,
-          html_structure_pt: html_structure_pt
+          html_structure_pt: html_structure_pt,
+          coordinator: coordinator
         },
         config
       )
@@ -63,7 +70,8 @@ export const adminCoursesConfig = {
     token,
     designation,
     html_structure_eng,
-    html_structure_pt
+    html_structure_pt,
+    coordinator
   ) => {
     let config = {
       headers: {
@@ -72,7 +80,12 @@ export const adminCoursesConfig = {
       }
     };
 
-    console.log(designation, html_structure_eng, html_structure_pt);
+    console.log(
+      designation,
+      html_structure_eng,
+      html_structure_pt,
+      coordinator
+    );
 
     return await axios
       .post(
@@ -80,7 +93,8 @@ export const adminCoursesConfig = {
         {
           designation: designation,
           html_structure_eng: html_structure_eng,
-          html_structure_pt: html_structure_pt
+          html_structure_pt: html_structure_pt,
+          coordinator: coordinator
         },
         config
       )

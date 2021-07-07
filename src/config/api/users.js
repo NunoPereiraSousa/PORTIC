@@ -321,5 +321,34 @@ export const usersConfig = {
         console.log(error);
         return error;
       });
+  },
+  editUserEntity: async (token, id, entity_initials) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    console.log(id, entity_initials);
+
+    return await axios
+      .patch(
+        `${API_URL}/users/${id}/profile/entity`,
+        {
+          entity_initials: entity_initials
+        },
+        config
+      )
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
   }
 };

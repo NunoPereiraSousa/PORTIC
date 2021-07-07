@@ -538,7 +538,6 @@ export default {
   async created() {
     try {
       await this.$store.dispatch("setUsers");
-      console.log(this.$store.getters.getUsers);
     } catch (error) {
       return error;
     }

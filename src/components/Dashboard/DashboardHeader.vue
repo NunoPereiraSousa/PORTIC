@@ -1,6 +1,7 @@
 <template>
   <nav class="admin_nav">
     <div>
+      <!-- HOME -->
       <router-link
         :to="{ name: 'DashboardHome' }"
         class="flex flex-ai-c admin_nav__link router-link-active"
@@ -44,7 +45,14 @@
 
         DASHBOARD
       </router-link>
+
+      <!-- ABOUT: SUPER ADMIN, COORD. ENTIDADE, ADMIN GLOBAL -->
       <router-link
+        v-if="
+          userLevel === 'Super Admin' ||
+            userLevel === 'Coord. Entidade' ||
+            userLevel === 'Admin global'
+        "
         :to="{ name: 'DashboardAboutUs' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -87,7 +95,10 @@
 
         Sobre nós
       </router-link>
+
+      <!-- UNITS: SUPER ADMIN -->
       <router-link
+        v-if="userLevel === 'Super Admin'"
         :to="{ name: 'DashboardUnities' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -137,7 +148,10 @@
 
         Unidades
       </router-link>
+
+      <!-- AREAS: SUPER ADMIN -->
       <router-link
+        v-if="userLevel === 'Super Admin'"
         :to="{ name: 'DashboardAreas' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -179,7 +193,15 @@
 
         Áreas
       </router-link>
+
+      <!-- COURSES: SUPER ADMIN, COORD CURSO, COORD GLOBAL -->
       <router-link
+        v-if="
+          userLevel === 'Super Admin' ||
+            userLevel === 'Coord. curso' ||
+            userLevel === 'Coord. global' ||
+            userLevel === 'Admin global'
+        "
         :to="{ name: 'DashboardCourses' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -199,7 +221,15 @@
 
         Cursos
       </router-link>
+
+      <!-- PROJECTS: SUPER ADMIN, COORD PROJETO, COORD GLOBAL, ADMIN GLOBAL -->
       <router-link
+        v-if="
+          userLevel === 'Super Admin' ||
+            userLevel === 'Coord. projeto' ||
+            userLevel === 'Coord. global' ||
+            userLevel === 'Admin global'
+        "
         :to="{ name: 'DashboardProjects' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -219,7 +249,14 @@
 
         Projetos
       </router-link>
+
+      <!-- MEDIA: SUPER ADMIN, COORD ENTIDADE, ADMIN GLOBAL -->
       <router-link
+        v-if="
+          userLevel === 'Super Admin' ||
+            userLevel === 'Coord. Entidade' ||
+            userLevel === 'Admin global'
+        "
         :to="{ name: 'DashboardMedia' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -276,7 +313,17 @@
 
         Mídia
       </router-link>
+
+      <!-- CAREERS: SUPER ADMIN, COORD ENTIDADE, COORD PROJETO, COORD CURSO, COORD GLOBAL, ADMIN GLOBAL -->
       <router-link
+        v-if="
+          userLevel === 'Super Admin' ||
+            userLevel === 'Coord. Entidade' ||
+            userLevel === 'Coord. projeto' ||
+            userLevel === 'Coord. curso' ||
+            userLevel === 'Coord. global' ||
+            userLevel === 'Admin global'
+        "
         :to="{ name: 'DashboardCareers' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -424,7 +471,9 @@
 
         Recrutamento
       </router-link>
-      <router-link
+
+      <!-- COMPONENTS -->
+      <!-- <router-link
         :to="{ name: 'DashboardComponents' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -474,8 +523,11 @@
         </svg>
 
         Componentes
-      </router-link>
+      </router-link> -->
+
+      <!-- TN: SUPER ADMIN, COORD ENTIDADE -->
       <router-link
+        v-if="userLevel === 'Super Admin' || userLevel === 'Coord. Entidade'"
         :to="{ name: 'DashboardTN' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -504,7 +556,10 @@
 
         Ratings e Notícias
       </router-link>
+
+      <!-- USERS: SUPER ADMIN -->
       <router-link
+        v-if="userLevel === 'Super Admin'"
         :to="{ name: 'DashboardUsers' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -524,7 +579,14 @@
 
         Utilizadores
       </router-link>
+
+      <!-- ADD PAGE: SUPER ADMIN, COORD ENTIDADE, ADMIN GLOBAL -->
       <router-link
+        v-if="
+          userLevel === 'Super Admin' ||
+            userLevel === 'Coord. Entidade' ||
+            userLevel === 'Admin global'
+        "
         :to="{ name: 'DashboardAddPage' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -550,7 +612,10 @@
 
         Adicionar Página
       </router-link>
+
+      <!-- PROJECT FILES -->
       <router-link
+        v-if="userLevel === 'Super Admin'"
         :to="{ name: 'DashboardProjectFiles' }"
         class="flex flex-ai-c admin_nav__link"
       >
@@ -576,32 +641,6 @@
 
         Fichas de projeto
       </router-link>
-      <!-- <router-link
-        :to="{ name: 'DashboardAddPage' }"
-        class="flex flex-ai-c admin_nav__link"
-      >
-        <svg
-          height="560pt"
-          viewBox="-78 -18 560 560.00187"
-          width="560pt"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="m260.722656 3.878906-.128906-.125c-2.355469-2.429687-5.605469-3.7890622-8.996094-3.74999975-.417968-.01953125-.839844.01953125-1.25.12890575h-191.953125c-34.503906.007813-62.46875 27.976563-62.484375 62.484376v399.898437c.015625 34.503906 27.980469 62.472656 62.484375 62.484375h278.308594c34.503906-.011719 62.472656-27.980469 62.484375-62.484375v-315.175781c-.023438-3.308594-1.320312-6.484375-3.625-8.867188zm3.371094 38.742188 92.726562 92.476562h-55.234374c-20.679688-.0625-37.433594-16.8125-37.492188-37.488281zm72.734375 457.261718h-278.433594c-20.679687-.058593-37.425781-16.8125-37.492187-37.492187v-399.902344c.066406-20.675781 16.8125-37.429687 37.492187-37.488281h180.707031v72.609375c.011719 34.5 27.980469 62.46875 62.484376 62.484375h72.609374v302.296875c.039063 20.671875-16.695312 37.464844-37.367187 37.492187zm0 0"
-          />
-          <path
-            d="m76.015625 241.195312h135.09375c6.898437 0 12.5-5.59375 12.5-12.496093 0-6.902344-5.601563-12.496094-12.5-12.496094h-135.09375c-6.902344 0-12.496094 5.59375-12.496094 12.496094 0 6.902343 5.59375 12.496093 12.496094 12.496093zm0 0"
-          />
-          <path
-            d="m319.207031 310.679688h-243.191406c-6.902344 0-12.496094 5.59375-12.496094 12.496093 0 6.898438 5.59375 12.496094 12.496094 12.496094h243.191406c6.898438 0 12.5-5.597656 12.5-12.496094 0-6.902343-5.601562-12.496093-12.5-12.496093zm0 0"
-          />
-          <path
-            d="m319.207031 405.28125h-243.191406c-6.902344 0-12.496094 5.59375-12.496094 12.496094s5.59375 12.496094 12.496094 12.496094h243.191406c6.898438 0 12.5-5.59375 12.5-12.496094s-5.601562-12.496094-12.5-12.496094zm0 0"
-          />
-        </svg>
-
-        Adicionar Página
-      </router-link> -->
     </div>
 
     <div class="admin_nav__logout">
@@ -614,6 +653,19 @@
 <script>
 export default {
   name: "DashboardHeader",
+  data: () => {
+    return {
+      userLevel: ""
+    };
+  },
+  created() {
+    this.userLevel = this.$store.getters.getLoggedUser.user_level;
+
+    console.log(this.userLevel);
+    console.log(
+      document.querySelector(".admin_nav").offsetHeight < window.innerHeight
+    );
+  },
   methods: {
     logout() {
       localStorage.removeItem("loggedUser");

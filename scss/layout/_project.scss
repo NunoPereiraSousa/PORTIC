@@ -445,12 +445,15 @@
   }
 
   &__news {
-    background-color: $white;
-    padding-top: calc(3.1875rem + 2vw);
-    padding-bottom: 0;
+    background-color: $black;
+    padding: calc(3.1875rem + 2vw) 8vw;
 
     .news__cards__card {
       margin-top: 0;
+    }
+
+    .sub__header__title {
+      color: $white;
     }
 
     &__grid {
@@ -464,11 +467,11 @@
       @include breakpoint-up(iPadPro) {
         column-gap: 4rem;
       }
+    }
 
-      h2,
-      p {
-        color: $black;
-      }
+    h2,
+    p {
+      color: $white !important;
     }
   }
 

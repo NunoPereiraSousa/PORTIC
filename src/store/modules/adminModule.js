@@ -107,13 +107,15 @@ export const adminModule = {
     editCourseForm: {
       designation: null,
       html_structure_eng: null,
-      html_structure_pt: null
+      html_structure_pt: null,
+      coordinator: null
     },
     addCourseStatus: null,
     addCourseForm: {
       designation: null,
       html_structure_eng: null,
-      html_structure_pt: null
+      html_structure_pt: null,
+      coordinator: null
     },
     removeCourseStatus: null,
 
@@ -376,6 +378,7 @@ export const adminModule = {
       state.editCourseForm.designation = payload.designation;
       state.editCourseForm.html_structure_eng = payload.html_structure_eng;
       state.editCourseForm.html_structure_pt = payload.html_structure_pt;
+      state.editCourseForm.coordinator = payload.coordinator;
     },
     SET_ADMIN_ADD_COURSE_STATUS(state, payload) {
       state.addCourseStatus = payload.status;
@@ -384,6 +387,7 @@ export const adminModule = {
       state.addCourseForm.designation = payload.designation;
       state.addCourseForm.html_structure_eng = payload.html_structure_eng;
       state.addCourseForm.html_structure_pt = payload.html_structure_pt;
+      state.addCourseForm.coordinator = payload.coordinator;
     },
     SET_ADMIN_REMOVE_COURSE_STATUS(state, payload) {
       state.removeCourseStatus = payload.status;
@@ -772,7 +776,8 @@ export const adminModule = {
           state.selectedCourseId,
           state.editCourseForm.designation,
           state.editCourseForm.html_structure_eng,
-          state.editCourseForm.html_structure_pt
+          state.editCourseForm.html_structure_pt,
+          state.editCourseForm.coordinator
         )
       );
     },
@@ -783,7 +788,8 @@ export const adminModule = {
           JSON.parse(localStorage.getItem("token")),
           state.addCourseForm.designation,
           state.addCourseForm.html_structure_eng,
-          state.addCourseForm.html_structure_pt
+          state.addCourseForm.html_structure_pt,
+          state.addCourseForm.coordinator
         )
       );
     },
@@ -1168,6 +1174,9 @@ export const adminModule = {
     },
     getAdminSelectedUnitId: state => state.selectedUnitId,
     getAdminUnitById: state => id =>
-      state.units.find(unit => unit.id_unity === id)
+      state.units.find(unit => unit.id_unity === id),
+    getAddUnitStatus: state => state.addUnitStatus,
+    getDeleteUnitStatus: state => state.deleteUnitStatus,
+    getEditUnitStatus: state => state.editUnitStatus
   }
 };

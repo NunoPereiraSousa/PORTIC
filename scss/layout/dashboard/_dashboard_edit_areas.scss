@@ -73,6 +73,11 @@
     height: 90vh;
     padding: 30px 60px;
 
+    input,
+    select {
+      height: 2.5rem;
+    }
+
     input {
       margin-bottom: 2rem;
 

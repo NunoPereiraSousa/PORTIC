@@ -3,6 +3,7 @@
 
   &__overlay,
   &__overlay2,
+  &__overlay3,
   &__overlay_slide,
   &__overlay_add {
     position: fixed;
@@ -19,7 +20,8 @@
   }
 
   &__overlay,
-  &__overlay2 {
+  &__overlay2,
+  &__overlay3 {
     &.show_overlay {
       opacity: 1;
       visibility: visible;

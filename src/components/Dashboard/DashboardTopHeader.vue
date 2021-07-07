@@ -584,8 +584,7 @@ export default {
       return `background-image: url('${this.getUserImg}')`;
     },
     getUserImg() {
-      return this.$store.getters.getUserByUsername(this.loggedUser.username)
-        .picture;
+      return this.$store.getters.getUser.picture;
     }
   },
   methods: {

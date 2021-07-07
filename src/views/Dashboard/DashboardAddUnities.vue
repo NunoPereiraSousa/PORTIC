@@ -43,14 +43,17 @@
             style="margin-right: 2rem;"
             v-model="add.designation"
           />
-          <label class="custom-file-upload">
-            <input type="file" @change="uploadImage" />
-            Upload de imagens
-          </label>
+          <div>
+            <label class="custom-file-upload">
+              <input type="file" @change="uploadImage" />
+              Upload de imagens
+            </label>
+            {{ add.image.name }}
+          </div>
         </div>
 
         <h3 class="dashboard_subheader">
-          Conteúdo do projeto
+          Conteúdo da unidade
         </h3>
 
         <div class="area_edit_editor">
@@ -191,10 +194,15 @@ export default {
       try {
         await this.$store.dispatch("setAdminAddUnits");
         await this.$store.dispatch("setAdminUnits");
+
+        if (this.$store.getters.getAddUnitStatus === 201)
+          this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
+
+      this.goBack();
     },
     uploadImage(e) {
       const image = e.target.files[0];
@@ -220,6 +228,38 @@ export default {
     goBack() {
       this.$router.push({
         name: "DashboardUnities"
+      });
+    },
+    notificationSuccess() {
+      this.$toast.success("Unidade inserida com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
       });
     }
   }

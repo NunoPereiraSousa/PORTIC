@@ -400,7 +400,11 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getRegisterStatus", "getUserByUsernameAndEmail"])
+    ...mapGetters([
+      "getRegisterStatus",
+      "getUserByUsernameAndEmail",
+      "getRegisterStatus"
+    ])
   },
   methods: {
     async signUp() {
@@ -429,7 +433,7 @@ export default {
       try {
         await this.$store.dispatch("setRegisterUser");
 
-        let status = this.getLoginStatus;
+        let status = this.getRegisterStatus;
 
         if (status == 201) {
           this.notificationSuccess();

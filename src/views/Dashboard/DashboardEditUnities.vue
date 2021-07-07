@@ -39,10 +39,13 @@
         <h3 class="dashboard_subheader">
           Imagem da unidade
         </h3>
-        <label class="custom-file-upload">
-          <input type="file" @change="uploadImage" />
-          Selecionar imagem
-        </label>
+        <div>
+          <label class="custom-file-upload">
+            <input type="file" @change="uploadImage" />
+            Selecionar imagem
+          </label>
+          {{ edit.image.name }}
+        </div>
         <h3 class="dashboard_subheader">
           Conteúdo da unidade
         </h3>
@@ -196,8 +199,11 @@ export default {
         await this.$store.dispatch("setAdminEditUnits");
         await this.$store.dispatch("setAdminEditUnitImg");
         await this.$store.dispatch("setAdminUnits");
+
+        if (this.$store.getters.getEditUnitStatus === 200)
+          this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
 
@@ -227,6 +233,38 @@ export default {
     goBack() {
       this.$router.push({
         name: "DashboardUnities"
+      });
+    },
+    notificationSuccess() {
+      this.$toast.success("Unidade editada com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
       });
     }
   }

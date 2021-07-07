@@ -16,6 +16,7 @@ import { unityModule } from "./modules/unitiesModule";
 import { weatherModule } from "./modules/weatherModule";
 import { entityModule } from "./modules/entityModule";
 import { usersModule } from "./modules/usersModule";
+import { adminEntitiesModule } from "./modules/adminEntitiesModule";
 
 Vue.use(Vuex);
 
@@ -37,7 +38,8 @@ export default new Vuex.Store({
     usersModule,
     weatherModule,
     adminModule,
-    connectionsModule
+    connectionsModule,
+    adminEntitiesModule
   },
   getters: {},
   plugins: [
