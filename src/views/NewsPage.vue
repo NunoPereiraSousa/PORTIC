@@ -49,13 +49,14 @@ export default {
         author: null
       },
       selectedId: null,
-      selectedNews: {}
+      selectedNews: {},
+      currNews: {}
     };
   },
   computed: {
-    ...mapGetters(["getNewsById", "getSelectedNewsId"]),
+    ...mapGetters(["getAdminNewsById", "getSelectedNewsId"]),
     imageStyle() {
-      return `background-image: url('${this.getCurrentNews.cover}')`;
+      return `background-image: url('${this.currNews.cover}')`;
     },
     getCurrentNews() {
       console.log(this.$store.getters.getNews);
@@ -68,10 +69,10 @@ export default {
     }
   },
   created() {
-    // localStorage.setItem("currNews", JSON.stringify(this.getCurrentNews));
-    this.currNews = this.getNewsById(this.getSelectedNewsId);
-
-    console.log(this.currNews);
+    let news = JSON.parse(localStorage.getItem("currNews"));
+    let id = JSON.parse(localStorage.getItem("vuex"));
+    console.log(news, id.newsModule.selectedNewsId);
+    this.currNews = this.findNews(news, id.newsModule.selectedNewsId);
   },
   methods: {
     convertImage(img) {
@@ -81,6 +82,9 @@ export default {
       let image = urlCreator.createObjectURL(blob);
 
       return image;
+    },
+    findNews(array, id) {
+      return array.find(n => n.id_news === id);
     }
   }
 };

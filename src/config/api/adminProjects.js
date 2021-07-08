@@ -116,8 +116,6 @@ export const adminProjectsConfig = {
     data.append("end_date", end_date);
     data.append("coordinator", coordinator);
 
-    console.log(coordinator);
-
     return await axios
       .put(`${API_URL}/projects/${id}`, data, config)
       .then(response => {
@@ -325,8 +323,6 @@ export const adminProjectsConfig = {
       }
     };
 
-    console.log(id, id_team_member, can_edit);
-
     return await axios
       .post(
         `${API_URL}/projects/${id}/members`,
@@ -383,8 +379,6 @@ export const adminProjectsConfig = {
       }
     };
 
-    console.log(id, id_team_member);
-
     return await axios
       .delete(`${API_URL}/projects/${id}/members/${id_team_member}`, config)
       .then(response => {
@@ -395,106 +389,32 @@ export const adminProjectsConfig = {
       .catch(error => {
         return error;
       });
+  },
+  addProjectInvestor: async (token, id, file) => {
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    let data = new FormData();
+    data.append("file", file);
+
+    console.log(token, id, file);
+
+    return await axios
+      .post(`${API_URL}/projects/${id}/gov/investors`, data, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
   }
-  // addAreaFocus: async (token, file, description_pt, description_eng) => {
-  //   let config = {
-  //     headers: {
-  //       "Content-Type": "multipart/form-data",
-  //       "Access-Control-Allow-Origin": "*",
-  //       authorization: `Bearer ${token}`
-  //     }
-  //   };
-
-  //   let data = new FormData();
-  //   data.append("description_pt", description_pt);
-  //   data.append("description_eng", description_eng);
-  //   data.append("file", file);
-
-  //   return await axios
-  //     .post(`${API_URL}/areas/focus`, data, config)
-  //     .then(response => {
-  //       console.log(response.status);
-  //       return {
-  //         status: response.status
-  //       };
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //       return error;
-  //     });
-  // },
-  // editAreaFocus: async (token, id, description_pt, description_eng) => {
-  //   let config = {
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //       authorization: `Bearer ${token}`
-  //     }
-  //   };
-
-  //   return await axios
-  //     .put(
-  //       `${API_URL}/areas/focus/${id}`,
-  //       {
-  //         description_pt: description_pt,
-  //         description_eng: description_eng
-  //       },
-  //       config
-  //     )
-  //     .then(response => {
-  //       console.log(response.status);
-  //       return {
-  //         status: response.status
-  //       };
-  //     })
-  //     .catch(error => {
-  //       return error;
-  //     });
-  // },
-  // editAreaFocusImg: async (token, id, file) => {
-  //   let config = {
-  //     headers: {
-  //       "Content-Type": "multipart/form-data",
-  //       "Access-Control-Allow-Origin": "*",
-  //       authorization: `Bearer ${token}`
-  //     }
-  //   };
-
-  //   let data = new FormData();
-  //   data.append("file", file);
-
-  //   return await axios
-  //     .patch(`${API_URL}/areas/focus/${id}/icon`, data, config)
-  //     .then(response => {
-  //       console.log(response.status);
-  //       return {
-  //         status: response.status
-  //       };
-  //     })
-  //     .catch(error => {
-  //       return error;
-  //     });
-  // },
-  // deleteAreaFocus: async (token, id) => {
-  //   let config = {
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //       authorization: `Bearer ${token}`
-  //     }
-  //   };
-
-  //   console.log(id);
-
-  //   return await axios
-  //     .delete(`${API_URL}/areas/focus/${id}`, config)
-  //     .then(response => {
-  //       console.log(response.status);
-  //       return {
-  //         status: response.status
-  //       };
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //       return error;
-  //     });
-  // }
 };

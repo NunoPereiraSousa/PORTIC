@@ -3,7 +3,7 @@
     <h2>
       {{ projectName }}
     </h2>
-    <div class="flex flex-ai-c">
+    <div class="project__card__grid grid">
       <button
         class="admin_areas__panel__grid__card__remove"
         style="margin-right: 2rem;"
@@ -28,6 +28,12 @@
         @click="showPopup3(id)"
       >
         Adicionar parceiro
+      </button>
+      <button
+        class="admin_projects__panel__grid__card__block"
+        @click="showPopup6(id)"
+      >
+        Adicionar investidor
       </button>
       <button
         class="admin_projects__panel__grid__card__block"
@@ -130,6 +136,17 @@ export default {
       let overlay = document.querySelector(".admin_projects__panel__overlay5");
 
       let popup = document.querySelector(".add_team");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+
+      this.$store.commit("SET_SELECTED_ADMIN_PROJECTS_ID", {
+        id: id
+      });
+    },
+    showPopup6(id) {
+      let overlay = document.querySelector(".admin_projects__panel__overlay6");
+      let popup = document.querySelector(".add_investor");
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");

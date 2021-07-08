@@ -30,7 +30,9 @@ export default {
     };
   },
   created() {
-    this.user = this.getAdminUserById(this.getAdminSelectedUserId);
+    let id = JSON.parse(localStorage.getItem("vuex"));
+    console.log(id.usersModule.selectedUserId);
+    this.user = this.getAdminUserById(id.usersModule.selectedUserId);
 
     console.log(this.user);
   },

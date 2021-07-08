@@ -27,15 +27,15 @@
       </div>
     </section>
     <section class="testimonials">
-      <!-- <h1 class="testimonials__title">
+      <h1 class="testimonials__title">
         {{ $t("homepage.testimonials.title") }}
       </h1>
 
       <h1 class="alert">
         {{ $t("homepage.testimonials.desc") }}
         <span>coming soon!</span>
-      </h1> -->
-      <!-- <div class="testimonials__cards">
+      </h1>
+      <div class="testimonials__cards">
         <vue-glide
           :startAt="1"
           :gap="40"
@@ -57,7 +57,7 @@
           :bound="true"
           :infinite="false"
         >
-          <vue-glide-slide v-for="i in 10" :key="i">
+          <vue-glide-slide v-for="i in 6" :key="i">
             <TestimonialCard
               name="Alex Poporov"
               company="Apple inc"
@@ -68,8 +68,8 @@
                     incididunt. Lorem ipsum dolor sit amet, 
                     adipiscing elit, sed do eiusmod tempor."
           /></vue-glide-slide>
-          <template slot="control">
-            <button data-glide-dir="<">
+          <template slot="control" class="btnFlex">
+            <button data-glide-dir="<" class="arrowBtn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 400.004 400.004"
@@ -80,7 +80,7 @@
                 ></path>
               </svg>
             </button>
-            <button data-glide-dir=">">
+            <button data-glide-dir=">" class="arrowBtn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 268.832 268.832"
@@ -93,7 +93,7 @@
             </button>
           </template>
         </vue-glide>
-      </div> -->
+      </div>
     </section>
     <Footer />
   </div>
@@ -105,7 +105,7 @@ import { mapGetters } from "vuex";
 import Intro from "@/components/Intro.vue";
 import Quote from "@/components/Quote.vue";
 import NewsCard from "@/components/NewsCard.vue";
-// import TestimonialCard from "@/components/TestimonialCard.vue";
+import TestimonialCard from "@/components/TestimonialCard.vue";
 import Footer from "@/components/Footer.vue";
 import { Glide, GlideSlide } from "vue-glide-js";
 
@@ -117,7 +117,7 @@ export default {
     Intro,
     Quote,
     NewsCard,
-    // TestimonialCard,
+    TestimonialCard,
     Footer,
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide
@@ -157,6 +157,10 @@ export default {
     this.newsContent = this.getNewsById;
   },
   mounted() {
+    let div = document.querySelector(".arrowBtn").parentElement;
+    div.style.display = "flex";
+    div.style.justifyContent = "center";
+
     const SCREEN_WIDTH = window.innerWidth,
       SCREEN_HEIGHT = window.innerHeight,
       r = 450;

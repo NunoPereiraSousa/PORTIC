@@ -108,33 +108,31 @@
       <section class="project__gallery" v-if="checkImgExistence">
         <SubHeaderTitle text="Galeria de projeto" class="light" />
         <div class="project__gallery__grid" v-if="checkImgExistence">
-          <vue-glide
-            v-if="galleryStatus"
-            :bullet="true"
-            :startAt="1"
-            :gap="40"
+          <vueper-slides
+            :visible-slides="3"
+            autoplay
+            :pause-on-hover="pauseOnHover"
+            @autoplay-pause="internalAutoPlaying = false"
+            @autoplay-resume="internalAutoPlaying = true"
+            :gap="3"
+            :slide-ratio="1 / 4"
+            :dragging-distance="200"
             :breakpoints="{
-              450: {
-                perView: 1
+              2500: {
+                autoplay: false
               },
-              768: {
-                perView: 2
-              },
-              1200: {
-                perView: 3
-              }
+              800: { visibleSlides: 2, slideMultiple: 2 },
+              500: { visibleSlides: 1, slideMultiple: 1 }
             }"
-            :rewind="false"
-            :bound="true"
-            :infinite="false"
+            :bullets="true"
           >
-            <vue-glide-slide
-              v-for="(image, index) in selected.gallery_imgs"
+            <vueper-slide
+              v-for="(image, index) in images"
               :key="index"
-            >
-              <img :src="image.img" alt="Project Image" />
-            </vue-glide-slide>
-          </vue-glide>
+              :image="image.img"
+              alt="Project Image"
+            />
+          </vueper-slides>
         </div>
       </section>
       <section class="project__news" v-if="checkNewsExistence">
@@ -171,7 +169,14 @@
         </div>
       </section>
       <section class="project__file">
-        <a :href="selected.pdf_path" target="_blank">Ficha de projeto</a>
+        <div class="flex flex-wr-w flex-jc-sb flex-ai-c">
+          <a :href="selected.pdf_path" target="_blank">Ficha de projeto</a>
+
+          <img
+            src="https://www.portoglobalhub.ipp.pt/financing-logos.png"
+            alt=""
+          />
+        </div>
       </section>
     </div>
     <Footer />
@@ -184,8 +189,9 @@ import Slide from "@/components/Project/Slide.vue";
 import NewsCard from "@/components/NewsCard.vue";
 import TeamCard from "@/components/Project/TeamCard.vue";
 import Footer from "@/components/Footer.vue";
-import { Glide, GlideSlide } from "vue-glide-js";
 import { mapGetters } from "vuex";
+import { VueperSlides, VueperSlide } from "vueperslides";
+import "vueperslides/dist/vueperslides.css";
 
 export default {
   name: "Project",
@@ -195,8 +201,8 @@ export default {
     NewsCard,
     TeamCard,
     Footer,
-    [Glide.name]: Glide,
-    [GlideSlide.name]: GlideSlide
+    VueperSlides,
+    VueperSlide
   },
   data: () => {
     return {
@@ -219,7 +225,11 @@ export default {
       },
       newsSelectedTitle: null,
       newsSelectedContent: null,
-      author: null
+      author: null,
+      images: [],
+      pauseOnHover: true,
+      autoPlaying: true,
+      internalAutoPlaying: true
     };
   },
   created() {
@@ -244,7 +254,11 @@ export default {
     this.project.team = this.selected.project_team;
     this.project.pdf_path = this.selected.pdf_path;
 
-    console.log(this.project.pdf_path);
+    this.images = this.selected.gallery_imgs;
+
+    console.log(this.images);
+
+    localStorage.setItem("currNews", JSON.stringify(this.project.news));
   },
   mounted() {
     this.changeCarousel();

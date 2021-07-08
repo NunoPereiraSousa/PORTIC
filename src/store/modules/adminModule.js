@@ -210,6 +210,8 @@ export const adminModule = {
     deleteTeamMemberStatus: null,
     selectedTeamMemberId: null,
     addProjectNewsStatus: null,
+    addProjectInvestor: null,
+    addProjectInvestorStatus: null,
 
     // UNITS
     units: [],
@@ -535,6 +537,12 @@ export const adminModule = {
     },
     SET_ADD_PROJECT_NEWS_STATUS(state, payload) {
       state.addProjectNewsStatus = payload.status;
+    },
+    SET_ADD_PROJECT_INVESTOR_FORM(state, payload) {
+      state.addProjectInvestor = payload.image;
+    },
+    SET_ADD_PROJECT_INVESTOR_STATUS(state, payload) {
+      state.addProjectInvestorStatus = payload.status;
     },
 
     // UNITS MUTATIONS
@@ -1019,6 +1027,18 @@ export const adminModule = {
         )
       );
     },
+    async setAdminAddProjectInvestor({ commit, state }) {
+      commit(
+        "SET_ADD_PROJECT_INVESTOR_STATUS",
+        await adminProjectsConfig.addProjectInvestor(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.addProjectInvestor
+        )
+      );
+
+      console.log(state.addProjectInvestor);
+    },
 
     // UNITS ACTIONS
     async setAdminUnits({ commit }) {
@@ -1155,7 +1175,14 @@ export const adminModule = {
         : 0;
     },
     getAdminSelectedNewsId: state => state.selectedNewsId,
-    getAdminNewsById: state => id => state.news.find(n => n.id_news === id),
+    getAdminNewsById: state => id =>
+      state.news.find(n => {
+        console.log(n.id_news == id);
+        if (n.id_news == id) {
+          console.log(n);
+          return n;
+        }
+      }),
 
     // PROJECTS GETTERS
     getAdminProjects: state => (state.projects != "" ? state.projects : []),
@@ -1175,6 +1202,7 @@ export const adminModule = {
     getAddProjectImgStatus: state => state.addImgStatus,
     getAddProjectPartnerStatus: state => state.addPartnerStatus,
     getAddProjectNewsStatus: state => state.addProjectNewsStatus,
+    getAddProjectInvestorStatus: state => state.addProjectInvestorStatus,
 
     // UNITS GETTERS
     getAdminUnits: state => (state.units != "" ? state.units : []),

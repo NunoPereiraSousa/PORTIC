@@ -186,3 +186,9 @@
   height: 3.5rem;
   width: 8rem;
 }
+
+.project__card__grid {
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 4rem;
+  row-gap: 2rem;
+}

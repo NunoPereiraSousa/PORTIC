@@ -3116,6 +3116,7 @@ button:focus {
 @media (min-width: 75em) {
   .know__more {
     margin-top: 6.75rem;
+    font-size: 1.125rem;
   }
 }
 
@@ -3627,16 +3628,7 @@ button:focus {
   cursor: grabbing;
 }
 
-.glide__track + div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.glide__track + div .controls > button {
+.arrowBtn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -3650,41 +3642,41 @@ button:focus {
   transition: all 0.25s ease;
 }
 
-.glide__track + div .controls > button:focus {
+.arrowBtn:focus {
   outline: none;
 }
 
-.glide__track + div .controls > button:hover {
+.arrowBtn:hover {
   -webkit-box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.08), -2px -2px 10px 0px rgba(0, 0, 0, 0.08);
           box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.08), -2px -2px 10px 0px rgba(0, 0, 0, 0.08);
 }
 
-.glide__track + div .controls > button:hover .left__arrow,
-.glide__track + div .controls > button:hover .right__arrow {
+.arrowBtn:hover .left__arrow,
+.arrowBtn:hover .right__arrow {
   fill: #c94d24;
 }
 
-.glide__track + div .controls > button .left__arrow,
-.glide__track + div .controls > button .right__arrow {
+.arrowBtn .left__arrow,
+.arrowBtn .right__arrow {
   width: 20px;
   margin-top: 4px;
 }
 
 @media (min-width: 64em) {
-  .glide__track + div .controls > button .left__arrow,
-  .glide__track + div .controls > button .right__arrow {
+  .arrowBtn .left__arrow,
+  .arrowBtn .right__arrow {
     margin-top: 5px;
   }
 }
 
 @media (min-width: 48em) {
-  .glide__track + div .controls > button {
+  .arrowBtn {
     margin: 1.875rem 1.25rem;
   }
 }
 
 @media (min-width: 64em) {
-  .glide__track + div .controls > button {
+  .arrowBtn {
     margin: 1.875rem 10px;
   }
 }
@@ -7858,6 +7850,12 @@ button:focus {
   }
 }
 
+.vueperslide,
+.vueperslides__parallax-wrapper,
+.vueperslides__track-inner {
+  height: 40vh !important;
+}
+
 .site_map {
   margin-top: calc(4.1875rem + 2vw);
   padding: calc(6.1875rem + 2vw) 2rem 0;
@@ -9490,6 +9488,14 @@ button:focus {
   width: 8rem;
 }
 
+.project__card__grid {
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -webkit-column-gap: 4rem;
+          column-gap: 4rem;
+  row-gap: 2rem;
+}
+
 .admin_delete_popup,
 .admin_edit_popup,
 .admin_add_media_popup,
@@ -9498,6 +9504,7 @@ button:focus {
 .admin_delete_focus_popup,
 .admin_edit_img_focus_popup,
 .add_partner,
+.add_investor,
 .change_status,
 .edit_entity_popup,
 .add_team {
@@ -9526,6 +9533,7 @@ button:focus {
 .admin_delete_focus_popup.show_popup,
 .admin_edit_img_focus_popup.show_popup,
 .add_partner.show_popup,
+.add_investor.show_popup,
 .change_status.show_popup,
 .edit_entity_popup.show_popup,
 .add_team.show_popup {
@@ -9541,6 +9549,7 @@ button:focus {
 .admin_delete_focus_popup h2,
 .admin_edit_img_focus_popup h2,
 .add_partner h2,
+.add_investor h2,
 .change_status h2,
 .edit_entity_popup h2,
 .add_team h2 {
@@ -9558,6 +9567,7 @@ button:focus {
 .admin_delete_focus_popup h2 span,
 .admin_edit_img_focus_popup h2 span,
 .add_partner h2 span,
+.add_investor h2 span,
 .change_status h2 span,
 .edit_entity_popup h2 span,
 .add_team h2 span {
@@ -9573,6 +9583,7 @@ button:focus {
 .admin_delete_focus_popup hr,
 .admin_edit_img_focus_popup hr,
 .add_partner hr,
+.add_investor hr,
 .change_status hr,
 .edit_entity_popup hr,
 .add_team hr {
@@ -9598,6 +9609,8 @@ button:focus {
 .admin_edit_img_focus_popup__cancel,
 .add_partner__confirm,
 .add_partner__cancel,
+.add_investor__confirm,
+.add_investor__cancel,
 .change_status__confirm,
 .change_status__cancel,
 .edit_entity_popup__confirm,
@@ -9617,6 +9630,7 @@ button:focus {
 .admin_delete_focus_popup__confirm,
 .admin_edit_img_focus_popup__confirm,
 .add_partner__confirm,
+.add_investor__confirm,
 .change_status__confirm,
 .edit_entity_popup__confirm,
 .add_team__confirm {
@@ -9634,6 +9648,7 @@ button:focus {
 .admin_delete_focus_popup__cancel,
 .admin_edit_img_focus_popup__cancel,
 .add_partner__cancel,
+.add_investor__cancel,
 .change_status__cancel,
 .edit_entity_popup__cancel,
 .add_team__cancel {
@@ -9678,6 +9693,7 @@ button:focus {
 .add_partner h2,
 .change_status h2,
 .edit_entity_popup h2,
+.add_investor h2,
 .add_team h2 {
   margin-bottom: 2rem;
 }
@@ -9688,6 +9704,7 @@ button:focus {
 .add_partner .form,
 .change_status .form,
 .edit_entity_popup .form,
+.add_investor .form,
 .add_team .form {
   text-align: left;
 }
@@ -9704,6 +9721,8 @@ button:focus {
 .change_status select,
 .edit_entity_popup input,
 .edit_entity_popup select,
+.add_investor input,
+.add_investor select,
 .add_team input,
 .add_team select {
   margin: 1rem 0;
@@ -9726,6 +9745,8 @@ button:focus {
 .change_status select:last-child,
 .edit_entity_popup input:last-child,
 .edit_entity_popup select:last-child,
+.add_investor input:last-child,
+.add_investor select:last-child,
 .add_team input:last-child,
 .add_team select:last-child {
   margin-bottom: 4rem;
@@ -9804,7 +9825,7 @@ button:focus {
   /* Handle on hover */
 }
 
-.admin_projects__panel__overlay, .admin_projects__panel__overlay2, .admin_projects__panel__overlay3, .admin_projects__panel__overlay4, .admin_projects__panel__overlay5, .admin_projects__panel__overlay_slide, .admin_projects__panel__overlay_add {
+.admin_projects__panel__overlay, .admin_projects__panel__overlay2, .admin_projects__panel__overlay3, .admin_projects__panel__overlay4, .admin_projects__panel__overlay5, .admin_projects__panel__overlay6, .admin_projects__panel__overlay_slide, .admin_projects__panel__overlay_add {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -9818,7 +9839,7 @@ button:focus {
   transition: all 0.4s;
 }
 
-.admin_projects__panel__overlay5.show_overlay, .admin_projects__panel__overlay4.show_overlay, .admin_projects__panel__overlay3.show_overlay, .admin_projects__panel__overlay2.show_overlay, .admin_projects__panel__overlay.show_overlay {
+.admin_projects__panel__overlay6.show_overlay, .admin_projects__panel__overlay5.show_overlay, .admin_projects__panel__overlay4.show_overlay, .admin_projects__panel__overlay3.show_overlay, .admin_projects__panel__overlay2.show_overlay, .admin_projects__panel__overlay.show_overlay {
   opacity: 1;
   visibility: visible;
 }

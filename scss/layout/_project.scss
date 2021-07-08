@@ -576,3 +576,9 @@
     }
   }
 }
+
+.vueperslide,
+.vueperslides__parallax-wrapper,
+.vueperslides__track-inner {
+  height: 40vh !important;
+}

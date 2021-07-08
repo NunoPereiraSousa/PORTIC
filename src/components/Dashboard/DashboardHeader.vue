@@ -660,11 +660,6 @@ export default {
   },
   created() {
     this.userLevel = this.$store.getters.getLoggedUser.user_level;
-
-    console.log(this.userLevel);
-    console.log(
-      document.querySelector(".admin_nav").offsetHeight < window.innerHeight
-    );
   },
   methods: {
     logout() {

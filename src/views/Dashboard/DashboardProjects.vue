@@ -6,11 +6,13 @@
       <div class="admin_projects__panel__overlay2" @click="closePopup2"></div>
       <div class="admin_projects__panel__overlay4" @click="closePopup3"></div>
       <div class="admin_projects__panel__overlay5" @click="closePopup4"></div>
+      <div class="admin_projects__panel__overlay6" @click="closePopup5"></div>
 
       <DashboardProjectsPopup :projectName="projectName" />
       <DashboardAddImgPopup />
       <DashboardAddPartner />
       <DashboardAddTeam />
+      <DashboardAddInvestor />
 
       <DashboardTopHeader />
 
@@ -136,6 +138,7 @@ import DashboardProjectsPopup from "@/components/Dashboard/Popup/DashboardProjec
 import DashboardAddImgPopup from "@/components/Dashboard/Popup/DashboardAddImgPopup.vue";
 import DashboardAddPartner from "@/components/Dashboard/Popup/DashboardAddPartner.vue";
 import DashboardAddTeam from "@/components/Dashboard/Popup/DashboardAddTeam.vue";
+import DashboardAddInvestor from "@/components/Dashboard/Popup/DashboardAddInvestor.vue";
 
 import { mapGetters } from "vuex";
 
@@ -147,7 +150,8 @@ export default {
     DashboardProjectsCard,
     DashboardAddImgPopup,
     DashboardAddPartner,
-    DashboardAddTeam
+    DashboardAddTeam,
+    DashboardAddInvestor
   },
   data: () => {
     return {
@@ -274,6 +278,14 @@ export default {
       let overlay = document.querySelector(".admin_projects__panel__overlay5");
 
       let popup = document.querySelector(".add_team");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
+    closePopup5() {
+      let overlay = document.querySelector(".admin_projects__panel__overlay6");
+
+      let popup = document.querySelector(".add_investor");
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
