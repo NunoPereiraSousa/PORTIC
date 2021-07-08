@@ -7,6 +7,12 @@
     <div class="form">
       <label for="nameTxt">Nome</label> <br />
       <input type="text" id="nameTxt" v-model="add.name" />
+      <label class="custom-file-upload" style="margin: 0 auto 2rem;">
+        <input type="file" @change="uploadImg" />
+        Upload de imagens
+      </label>
+
+      {{ imgName }}
     </div>
 
     <div class="flex flex-ai-c flex-jc-sb">
@@ -32,15 +38,17 @@ export default {
   data: () => {
     return {
       add: {
-        name: ""
-      }
+        name: "",
+        img: ""
+      },
+      imgName: ""
     };
   },
   methods: {
     async addPartner() {
       this.$store.commit("SET_ADD_PROJECT_PARTNER_FORM", {
         investor: this.add.name,
-        file: ""
+        file: this.add.img
       });
 
       try {
@@ -55,6 +63,12 @@ export default {
       }
 
       this.closePopup();
+    },
+    uploadImg(e) {
+      const img = e.target.files[0];
+      this.add.img = img;
+
+      this.imgName = img.name;
     },
     closePopup() {
       let overlay = document.querySelector(".admin_projects__panel__overlay4");

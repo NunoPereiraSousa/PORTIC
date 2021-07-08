@@ -145,6 +145,15 @@
   }
 }
 
+@keyframes carousel12 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-125px * 11));
+  }
+}
+
 @keyframes carouselDesktop3 {
   0% {
     transform: translateX(0);
@@ -226,6 +235,15 @@
   }
 }
 
+@keyframes carouselDesktop12 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 11));
+  }
+}
+
 @keyframes carouselDesktopBig3 {
   0% {
     transform: translateX(0);
@@ -299,6 +317,15 @@
 }
 
 @keyframes carouselDesktopBig11 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 11));
+  }
+}
+
+@keyframes carouselDesktopBig12 {
   0% {
     transform: translateX(0);
   }

@@ -264,6 +264,15 @@
             color: $orange;
           }
 
+          img {
+            height: 3rem;
+            margin-left: 1rem;
+
+            @include breakpoint-up(iPadPro) {
+              height: 4.5rem;
+            }
+          }
+
           // &::after {
           //   content: "";
           //   position: absolute;

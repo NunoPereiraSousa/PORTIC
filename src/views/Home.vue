@@ -31,10 +31,10 @@
         {{ $t("homepage.testimonials.title") }}
       </h1>
 
-      <h1 class="alert">
+      <!-- <h1 class="alert">
         {{ $t("homepage.testimonials.desc") }}
         <span>coming soon!</span>
-      </h1>
+      </h1> -->
       <div class="testimonials__cards">
         <vue-glide
           :startAt="1"

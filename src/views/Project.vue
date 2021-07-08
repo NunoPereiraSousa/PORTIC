@@ -49,6 +49,7 @@
                 )"
                 :key="index + 1"
                 :slideText="partner.designation"
+                :image="partner.logo"
               />
             </div>
           </div>
