@@ -153,6 +153,8 @@ export const adminModule = {
       image: null
     },
     addReviewStatus: null,
+    removeTestimonialStatus: null,
+    selectedReviewId: null,
 
     // PROJECTS
     projects: [],
@@ -452,6 +454,12 @@ export const adminModule = {
     },
     SET_ADMIN_ADD_REVIEWS_FORM(state, payload) {
       state.addReviewStatus = payload.status;
+    },
+    SET_ADMIN_REMOVE_REVIEWS_STATUS(state, payload) {
+      state.removeTestimonialStatus = payload.status;
+    },
+    SET_SELECTED_REVIEW_ID(state, payload) {
+      state.selectedReviewId = payload.id;
     },
 
     // PROJECTS MUTATIONS
@@ -891,6 +899,8 @@ export const adminModule = {
         )
       );
     },
+
+    // REVIEWS ACTIONS
     async setAdminReviews({ commit }) {
       commit(
         "SET_ADMIN_REVIEWS",
@@ -909,6 +919,15 @@ export const adminModule = {
           state.addReview.testimonial_text_pt,
           state.addReview.testimonial_text_eng,
           state.addReview.image
+        )
+      );
+    },
+    async setAdminDeleteReviews({ commit, state }) {
+      commit(
+        "SET_ADMIN_REMOVE_REVIEWS_STATUS",
+        await adminReviewsConfig.deleteTestimonial(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedReviewId
         )
       );
     },
@@ -1228,6 +1247,10 @@ export const adminModule = {
     getAdminTestimonials: state =>
       state.testimonials !== "" ? state.testimonials : [],
     getAdminAddTestimonialsStatus: state => state.addReviewStatus,
+    getDeleteTestimonialStatus: state => state.removeTestimonialStatus,
+    getAdminReviewId: state => state.selectedReviewId,
+    getAdminReviewById: state => id =>
+      state.testimonials.find(t => t.id_testimonial === id),
 
     // PROJECTS GETTERS
     getAdminProjects: state => (state.projects != "" ? state.projects : []),

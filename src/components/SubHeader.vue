@@ -160,6 +160,7 @@ export default {
         case "Home":
           try {
             await this.$store.dispatch("setNews");
+            await this.$store.dispatch("setReviews");
 
             localStorage.setItem(
               "news",
@@ -299,6 +300,10 @@ export default {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 
+      this.$store.commit("SET_SELECTED_REVIEWS_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
       this.handleAPI();
     },
     changeLangPT() {
@@ -341,6 +346,10 @@ export default {
       });
 
       this.$store.commit("SET_SELECTED_UNITIES_LANG", {
+        lang: this.$i18n.locale == "en" ? "en" : "pt"
+      });
+
+      this.$store.commit("SET_SELECTED_REVIEWS_LANG", {
         lang: this.$i18n.locale == "en" ? "en" : "pt"
       });
 

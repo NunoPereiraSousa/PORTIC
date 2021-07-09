@@ -67,5 +67,24 @@ export const adminReviewsConfig = {
       .catch(error => {
         return error;
       });
+  },
+  deleteTestimonial: async (token, id) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .delete(`${API_URL}/testimonials/${id}`, config)
+      .then(response => {
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        return error;
+      });
   }
 };

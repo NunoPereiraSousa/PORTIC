@@ -3,11 +3,13 @@
     <DashboardHeader />
     <div class="admin_tn__panel">
       <div class="admin_tn__panel__overlay" @click="closePopup"></div>
+      <div class="admin_tn__panel__overlay2" @click="closePopup2"></div>
 
       <DashboardTopHeader />
       <DashboardNewsPopup :newsName="newsName" />
       <DashboardNewsEditImgPopup :newsName="newsName" />
       <DashboardAddReview />
+      <DashboardDeleteReview :name="reviewName" />
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c" v-show="currentTab === 0">
@@ -98,8 +100,8 @@
         </div>
       </div>
 
-      <div class="admin_tn__panel__grid grid" v-show="currentTab === 0">
-        <div v-if="getAdminTestimonials">
+      <div v-show="currentTab === 0">
+        <div v-if="getAdminTestimonials" class="admin_tn__panel__grid grid">
           <DashboardTestimonialCard
             v-for="(testimonial, index) in searchFilter"
             :key="testimonial.id_testimonial"
@@ -108,9 +110,6 @@
             :company="testimonial.institution_name"
             :content="testimonial.testimonial_text_pt"
           />
-        </div>
-        <div>
-          Ainda não existem testemunhos disponíveis
         </div>
       </div>
       <div class="admin_tn__panel__grid grid" v-show="currentTab === 1">
@@ -135,6 +134,7 @@ import DashboardNewsCard from "@/components/Dashboard/DashboardNewsCard.vue";
 import DashboardNewsPopup from "@/components/Dashboard/Popup/DashboardNewsPopup.vue";
 import DashboardNewsEditImgPopup from "@/components/Dashboard/Popup/DashboardNewsEditImgPopup.vue";
 import DashboardAddReview from "@/components/Dashboard/Popup/DashboardAddReview.vue";
+import DashboardDeleteReview from "@/components/Dashboard/Popup/DashboardDeleteReview.vue";
 
 import { mapGetters } from "vuex";
 
@@ -146,7 +146,8 @@ export default {
     DashboardNewsPopup,
     DashboardNewsCard,
     DashboardNewsEditImgPopup,
-    DashboardAddReview
+    DashboardAddReview,
+    DashboardDeleteReview
   },
   data: () => {
     return {
@@ -182,7 +183,9 @@ export default {
       "getAdminNewsById",
       "getAdminNews",
       "getAdminSelectedNewsId",
-      "getAdminTestimonials"
+      "getAdminTestimonials",
+      "getAdminReviewId",
+      "getAdminReviewById"
     ]),
     newsName() {
       let id = this.getAdminSelectedNewsId;
@@ -196,6 +199,20 @@ export default {
       }
 
       return name;
+    },
+    reviewName() {
+      let id = this.getAdminReviewId;
+
+      let news = this.getAdminReviewById(id);
+
+      let name, company;
+
+      if (news) {
+        name = news.person_name;
+        company = news.institution_name;
+      }
+
+      return `${name} - ${company}`;
     },
     searchFilter() {
       return this.getAdminTestimonials.filter(n => {
@@ -228,6 +245,13 @@ export default {
     closePopup() {
       let overlay = document.querySelector(".admin_tn__panel__overlay");
       let popup = document.querySelector(".add_review");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    },
+    closePopup2() {
+      let overlay = document.querySelector(".admin_tn__panel__overlay2");
+      let popup = document.querySelector(".remove_review");
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");

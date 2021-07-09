@@ -30,6 +30,7 @@
           cols="30"
           rows="6"
           placeholder="Texto em português"
+          maxlength="246"
           v-model="add.testimonial_text_pt"
         ></textarea>
       </div>
@@ -40,6 +41,7 @@
           rows="6"
           id="engTxt"
           placeholder="Texto em inglês"
+          maxlength="246"
           v-model="add.testimonial_text_eng"
         ></textarea>
       </div>
@@ -100,6 +102,7 @@ export default {
         return error;
       }
 
+      this.resetForm();
       this.closePopup();
     },
     uploadImg(e) {
@@ -146,6 +149,14 @@ export default {
         icon: true,
         rtl: false
       });
+    },
+    resetForm() {
+      this.add.person_name = "";
+      this.add.institution_name = "";
+      this.add.testimonial_text_pt = "";
+      this.add.testimonial_text_eng = "";
+      this.add.img = "";
+      this.imgName = "";
     }
   }
 };

@@ -165,11 +165,6 @@ export default {
     this.newsContent = this.getNewsById;
   },
   mounted() {
-    let div = document.querySelector(".arrowBtn").parentElement;
-    console.log(div);
-    div.style.display = "flex";
-    div.style.justifyContent = "center";
-
     const SCREEN_WIDTH = window.innerWidth,
       SCREEN_HEIGHT = window.innerHeight,
       r = 450;
