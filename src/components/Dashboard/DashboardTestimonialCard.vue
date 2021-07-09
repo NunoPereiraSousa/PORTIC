@@ -2,16 +2,16 @@
   <div class="admin_careers__panel__grid__card grid">
     <div class="flex flex-ai-c flex-jc-sb">
       <div class="flex flex-ai-c">
-        <h5 v-if="counter < 10">Notícia 0{{ counter }}</h5>
-        <h5 v-else>Notícia {{ counter }}</h5>
+        <h5 v-if="counter < 10">Testemunho 0{{ counter }}</h5>
+        <h5 v-else>Testemunho {{ counter }}</h5>
         <h2>
-          {{ newsName }}
+          {{ company }}
         </h2>
       </div>
       <div class="flex flex-ai-c">
         <button
           class="admin_careers__panel__grid__card__edit"
-          @click="openPage(id, newsName)"
+          @click="openPage(id, company)"
         >
           Editar
         </button>
@@ -31,7 +31,7 @@
         Ler mais
       </button>
     </div>
-    <p v-html="newsContent" v-if="!hide"></p>
+    <p v-html="content" v-if="!hide"></p>
   </div>
 </template>
 
@@ -39,11 +39,11 @@
 export default {
   name: "DashboardTestimonialCard",
   props: {
-    newsName: {
+    company: {
       type: String,
       required: true
     },
-    newsContent: {
+    content: {
       type: String,
       required: true
     },

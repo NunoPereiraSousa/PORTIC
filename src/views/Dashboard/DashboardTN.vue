@@ -98,14 +98,19 @@
       </div>
 
       <div class="admin_tn__panel__grid grid" v-show="currentTab === 0">
-        <!-- <DashboardTestimonialCard
-          v-for="news in searchFilter"
-          :key="news.id"
-          :id="news.id"
-          :counter="news.id"
-          :newsName="news.title"
-          :newsContent="news.content"
-        /> -->
+        <div v-if="getAdminTestimonials">
+          <DashboardTestimonialCard
+            v-for="testimonial in searchFilter"
+            :key="testimonial.id_testimonial"
+            :id="testimonial.id_testimonial"
+            :counter="testimonial.id_testimonial"
+            :company="testimonial.institution_name"
+            :content="testimonial.testimonial_text_pt"
+          />
+        </div>
+        <div>
+          Ainda não existem testemunhos disponíveis
+        </div>
       </div>
       <div class="admin_tn__panel__grid grid" v-show="currentTab === 1">
         <DashboardNewsCard
@@ -124,7 +129,7 @@
 <script>
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
-// import DashboardTestimonialCard from "@/components/Dashboard/DashboardTestimonialCard.vue";
+import DashboardTestimonialCard from "@/components/Dashboard/DashboardTestimonialCard.vue";
 import DashboardNewsCard from "@/components/Dashboard/DashboardNewsCard.vue";
 import DashboardNewsPopup from "@/components/Dashboard/Popup/DashboardNewsPopup.vue";
 import DashboardNewsEditImgPopup from "@/components/Dashboard/Popup/DashboardNewsEditImgPopup.vue";
@@ -135,7 +140,7 @@ export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
-    // DashboardTestimonialCard,
+    DashboardTestimonialCard,
     DashboardNewsPopup,
     DashboardNewsCard,
     DashboardNewsEditImgPopup
@@ -155,8 +160,9 @@ export default {
 
     try {
       await this.$store.dispatch("setAdminNews");
+      await this.$store.dispatch("setAdminReviews");
 
-      console.log(this.getAdminNews);
+      console.log(this.getAdminTestimonials.length);
     } catch (error) {
       console.log(error);
       return error;
@@ -172,7 +178,8 @@ export default {
     ...mapGetters([
       "getAdminNewsById",
       "getAdminNews",
-      "getAdminSelectedNewsId"
+      "getAdminSelectedNewsId",
+      "getAdminTestimonials"
     ]),
     newsName() {
       let id = this.getAdminSelectedNewsId;
@@ -188,11 +195,11 @@ export default {
       return name;
     },
     searchFilter() {
-      return this.getAdminNews.filter(n => {
+      return this.getAdminTestimonials.filter(n => {
         let search = true;
 
         if (this.testimonialsTxt != "") {
-          search = n.title_pt
+          search = n.institution_name
             .toLowerCase()
             .includes(this.testimonialsTxt.toLowerCase());
         }

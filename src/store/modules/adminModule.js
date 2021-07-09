@@ -6,6 +6,7 @@ import { adminUnitsConfig } from "../../config/api/adminUnits";
 import { adminNewsConfig } from "../../config/api/adminNews";
 import { adminProjectsConfig } from "../../config/api/adminProjects";
 import { adminCareersConfig } from "../../config/api/adminCareers";
+import { adminReviewsConfig } from "../../config/api/adminTestimonials";
 
 // import { usersModule } from "../../store/modules/usersModule";
 
@@ -143,6 +144,7 @@ export const adminModule = {
     },
     addAdminEditNewsStatus: null,
     addAdminDeleteNewsStatus: null,
+    testimonials: null,
 
     // PROJECTS
     projects: [],
@@ -429,6 +431,9 @@ export const adminModule = {
     },
     SET_ADMIN_DELETE_NEWS_STATUS(state, payload) {
       state.addAdminDeleteNewsStatus = payload.status;
+    },
+    SET_ADMIN_REVIEWS(state, payload) {
+      state.testimonials = payload.testimonials;
     },
 
     // PROJECTS MUTATIONS
@@ -868,6 +873,14 @@ export const adminModule = {
         )
       );
     },
+    async setAdminReviews({ commit }) {
+      commit(
+        "SET_ADMIN_REVIEWS",
+        await adminReviewsConfig.getTestimonials(
+          JSON.parse(localStorage.getItem("token"))
+        )
+      );
+    },
 
     // PROJECTS ACTIONS
     async setAdminProjects({ commit }) {
@@ -1183,6 +1196,8 @@ export const adminModule = {
           return n;
         }
       }),
+    getAdminTestimonials: state =>
+      state.testimonials !== "" ? state.testimonials : [],
 
     // PROJECTS GETTERS
     getAdminProjects: state => (state.projects != "" ? state.projects : []),
