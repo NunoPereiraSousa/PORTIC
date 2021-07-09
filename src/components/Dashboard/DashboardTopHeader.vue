@@ -702,7 +702,13 @@ export default {
         name: "DashboardAddNews"
       });
     },
-    addTestimonialsPage() {}
+    addTestimonialsPage() {
+      let overlay = document.querySelector(".admin_tn__panel__overlay");
+      let popup = document.querySelector(".add_review");
+
+      overlay.classList.toggle("show_overlay");
+      popup.classList.toggle("show_popup");
+    }
   }
 };
 </script>

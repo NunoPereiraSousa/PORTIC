@@ -7,6 +7,7 @@
 .admin_edit_img_focus_popup,
 .add_partner,
 .add_investor,
+.add_review,
 .change_status,
 .edit_entity_popup,
 .add_team {
@@ -113,6 +114,7 @@
 .change_status,
 .edit_entity_popup,
 .add_investor,
+.add_review,
 .add_team {
   h2 {
     margin-bottom: 2rem;
@@ -132,6 +134,29 @@
     border: 1px solid rgba($color: $black, $alpha: 0.3);
 
     &:last-child {
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+.add_review {
+  .review_form {
+    text-align: left;
+    column-gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+
+    input,
+    textarea {
+      margin: 1rem 0;
+      width: 100%;
+      padding: 12px 26px;
+      font-family: $portoSans;
+      font-size: $_15px;
+      border: 1px solid rgba($color: $black, $alpha: 0.3);
+    }
+
+    .custom-file-upload {
+      margin-top: 0.5rem;
       margin-bottom: 4rem;
     }
   }

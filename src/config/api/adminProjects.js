@@ -402,8 +402,6 @@ export const adminProjectsConfig = {
     let data = new FormData();
     data.append("file", file);
 
-    console.log(token, id, file);
-
     return await axios
       .post(`${API_URL}/projects/${id}/gov/investors`, data, config)
       .then(response => {

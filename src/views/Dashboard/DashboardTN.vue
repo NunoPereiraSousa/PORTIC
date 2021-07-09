@@ -7,6 +7,7 @@
       <DashboardTopHeader />
       <DashboardNewsPopup :newsName="newsName" />
       <DashboardNewsEditImgPopup :newsName="newsName" />
+      <DashboardAddReview />
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <div class="flex flex-ai-c" v-show="currentTab === 0">
@@ -100,10 +101,10 @@
       <div class="admin_tn__panel__grid grid" v-show="currentTab === 0">
         <div v-if="getAdminTestimonials">
           <DashboardTestimonialCard
-            v-for="testimonial in searchFilter"
+            v-for="(testimonial, index) in searchFilter"
             :key="testimonial.id_testimonial"
             :id="testimonial.id_testimonial"
-            :counter="testimonial.id_testimonial"
+            :counter="index + 1"
             :company="testimonial.institution_name"
             :content="testimonial.testimonial_text_pt"
           />
@@ -133,6 +134,7 @@ import DashboardTestimonialCard from "@/components/Dashboard/DashboardTestimonia
 import DashboardNewsCard from "@/components/Dashboard/DashboardNewsCard.vue";
 import DashboardNewsPopup from "@/components/Dashboard/Popup/DashboardNewsPopup.vue";
 import DashboardNewsEditImgPopup from "@/components/Dashboard/Popup/DashboardNewsEditImgPopup.vue";
+import DashboardAddReview from "@/components/Dashboard/Popup/DashboardAddReview.vue";
 
 import { mapGetters } from "vuex";
 
@@ -143,7 +145,8 @@ export default {
     DashboardTestimonialCard,
     DashboardNewsPopup,
     DashboardNewsCard,
-    DashboardNewsEditImgPopup
+    DashboardNewsEditImgPopup,
+    DashboardAddReview
   },
   data: () => {
     return {
@@ -224,7 +227,7 @@ export default {
   methods: {
     closePopup() {
       let overlay = document.querySelector(".admin_tn__panel__overlay");
-      let popup = document.querySelector(".admin_edit_img_focus_popup");
+      let popup = document.querySelector(".add_review");
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");

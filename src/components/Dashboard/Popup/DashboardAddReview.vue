@@ -1,20 +1,60 @@
 <template>
-  <div class="admin_delete_popup add_investor">
+  <div class="admin_delete_popup add_review">
     <h2>
       Adicionar uma review
     </h2>
 
-    <div class="form">
-      <label class="custom-file-upload" style="margin: 0 auto 2rem;">
-        <input type="file" @change="uploadImg" />
-        Upload da imagem
-      </label>
+    <div class="review_form grid">
+      <div>
+        <label for="nameTxt">Nome</label>
+        <input
+          type="text"
+          id="nameTxt"
+          placeholder="Nome da pessoa"
+          v-model="add.person_name"
+        />
+      </div>
+      <div>
+        <label for="companyTxt">Empresa</label>
+        <input
+          type="text"
+          id="companyTxt"
+          placeholder="Nome da empresa"
+          v-model="add.institution_name"
+        />
+      </div>
+      <div>
+        <label for="ptTxt">Texto em português</label>
+        <textarea
+          id="ptTxt"
+          cols="30"
+          rows="6"
+          placeholder="Texto em português"
+          v-model="add.testimonial_text_pt"
+        ></textarea>
+      </div>
+      <div>
+        <label for="engTxt">Texto em inglês</label>
+        <textarea
+          cols="30"
+          rows="6"
+          id="engTxt"
+          placeholder="Texto em inglês"
+          v-model="add.testimonial_text_eng"
+        ></textarea>
+      </div>
+      <div>
+        <label class="custom-file-upload">
+          <input type="file" @change="uploadImg" />
+          Upload da imagem
+        </label>
 
-      {{ imgName }}
+        {{ imgName }}
+      </div>
     </div>
 
     <div class="flex flex-ai-c flex-jc-sb">
-      <button class="admin_delete_popup__confirm" @click="addInvestor">
+      <button class="admin_delete_popup__confirm" @click="addReview">
         Confimar
       </button>
       <button class="admin_delete_popup__cancel" @click="closePopup">
@@ -30,22 +70,30 @@ export default {
   data: () => {
     return {
       add: {
+        person_name: "",
+        institution_name: "",
+        testimonial_text_pt: "",
+        testimonial_text_eng: "",
         img: ""
       },
       imgName: ""
     };
   },
   methods: {
-    async addInvestor() {
-      this.$store.commit("SET_ADD_PROJECT_INVESTOR_FORM", {
+    async addReview() {
+      this.$store.commit("SET_ADD_REVIEW_FORM", {
+        person_name: this.add.person_name,
+        institution_name: this.add.institution_name,
+        testimonial_text_pt: this.add.testimonial_text_pt,
+        testimonial_text_eng: this.add.testimonial_text_eng,
         image: this.add.img
       });
 
       try {
-        await this.$store.dispatch("setAdminAddProjectInvestor");
-        await this.$store.dispatch("setAdminProjects");
+        await this.$store.dispatch("setAdminAddReview");
+        await this.$store.dispatch("setAdminReviews");
 
-        if (this.$store.getters.getAddProjectInvestorStatus === 201)
+        if (this.$store.getters.getAdminAddTestimonialsStatus === 201)
           this.notificationSuccess();
       } catch (error) {
         this.notificationError();
@@ -61,15 +109,14 @@ export default {
       this.imgName = img.name;
     },
     closePopup() {
-      let overlay = document.querySelector(".admin_projects__panel__overlay6");
-
-      let popup = document.querySelector(".add_investor");
+      let overlay = document.querySelector(".admin_tn__panel__overlay");
+      let popup = document.querySelector(".add_review");
 
       overlay.classList.toggle("show_overlay");
       popup.classList.toggle("show_popup");
     },
     notificationSuccess() {
-      this.$toast.success("Investidor inserido com sucesso!", {
+      this.$toast.success("Testemunho inserido com sucesso!", {
         position: "top-right",
         timeout: 3000,
         closeOnClick: true,

@@ -145,6 +145,14 @@ export const adminModule = {
     addAdminEditNewsStatus: null,
     addAdminDeleteNewsStatus: null,
     testimonials: null,
+    addReview: {
+      person_name: null,
+      institution_name: null,
+      testimonial_text_pt: null,
+      testimonial_text_eng: null,
+      image: null
+    },
+    addReviewStatus: null,
 
     // PROJECTS
     projects: [],
@@ -434,6 +442,16 @@ export const adminModule = {
     },
     SET_ADMIN_REVIEWS(state, payload) {
       state.testimonials = payload.testimonials;
+    },
+    SET_ADD_REVIEW_FORM(state, payload) {
+      state.addReview.person_name = payload.person_name;
+      state.addReview.institution_name = payload.institution_name;
+      state.addReview.testimonial_text_pt = payload.testimonial_text_pt;
+      state.addReview.testimonial_text_eng = payload.testimonial_text_eng;
+      state.addReview.image = payload.image;
+    },
+    SET_ADMIN_ADD_REVIEWS_FORM(state, payload) {
+      state.addReviewStatus = payload.status;
     },
 
     // PROJECTS MUTATIONS
@@ -881,6 +899,19 @@ export const adminModule = {
         )
       );
     },
+    async setAdminAddReview({ commit, state }) {
+      commit(
+        "SET_ADMIN_ADD_REVIEWS_FORM",
+        await adminReviewsConfig.addTestimonials(
+          JSON.parse(localStorage.getItem("token")),
+          state.addReview.person_name,
+          state.addReview.institution_name,
+          state.addReview.testimonial_text_pt,
+          state.addReview.testimonial_text_eng,
+          state.addReview.image
+        )
+      );
+    },
 
     // PROJECTS ACTIONS
     async setAdminProjects({ commit }) {
@@ -1049,8 +1080,6 @@ export const adminModule = {
           state.addProjectInvestor
         )
       );
-
-      console.log(state.addProjectInvestor);
     },
 
     // UNITS ACTIONS
@@ -1198,6 +1227,7 @@ export const adminModule = {
       }),
     getAdminTestimonials: state =>
       state.testimonials !== "" ? state.testimonials : [],
+    getAdminAddTestimonialsStatus: state => state.addReviewStatus,
 
     // PROJECTS GETTERS
     getAdminProjects: state => (state.projects != "" ? state.projects : []),

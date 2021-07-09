@@ -9615,6 +9615,7 @@ button:focus {
 .admin_edit_img_focus_popup,
 .add_partner,
 .add_investor,
+.add_review,
 .change_status,
 .edit_entity_popup,
 .add_team {
@@ -9644,6 +9645,7 @@ button:focus {
 .admin_edit_img_focus_popup.show_popup,
 .add_partner.show_popup,
 .add_investor.show_popup,
+.add_review.show_popup,
 .change_status.show_popup,
 .edit_entity_popup.show_popup,
 .add_team.show_popup {
@@ -9660,6 +9662,7 @@ button:focus {
 .admin_edit_img_focus_popup h2,
 .add_partner h2,
 .add_investor h2,
+.add_review h2,
 .change_status h2,
 .edit_entity_popup h2,
 .add_team h2 {
@@ -9678,6 +9681,7 @@ button:focus {
 .admin_edit_img_focus_popup h2 span,
 .add_partner h2 span,
 .add_investor h2 span,
+.add_review h2 span,
 .change_status h2 span,
 .edit_entity_popup h2 span,
 .add_team h2 span {
@@ -9694,6 +9698,7 @@ button:focus {
 .admin_edit_img_focus_popup hr,
 .add_partner hr,
 .add_investor hr,
+.add_review hr,
 .change_status hr,
 .edit_entity_popup hr,
 .add_team hr {
@@ -9721,6 +9726,8 @@ button:focus {
 .add_partner__cancel,
 .add_investor__confirm,
 .add_investor__cancel,
+.add_review__confirm,
+.add_review__cancel,
 .change_status__confirm,
 .change_status__cancel,
 .edit_entity_popup__confirm,
@@ -9741,6 +9748,7 @@ button:focus {
 .admin_edit_img_focus_popup__confirm,
 .add_partner__confirm,
 .add_investor__confirm,
+.add_review__confirm,
 .change_status__confirm,
 .edit_entity_popup__confirm,
 .add_team__confirm {
@@ -9759,6 +9767,7 @@ button:focus {
 .admin_edit_img_focus_popup__cancel,
 .add_partner__cancel,
 .add_investor__cancel,
+.add_review__cancel,
 .change_status__cancel,
 .edit_entity_popup__cancel,
 .add_team__cancel {
@@ -9804,6 +9813,7 @@ button:focus {
 .change_status h2,
 .edit_entity_popup h2,
 .add_investor h2,
+.add_review h2,
 .add_team h2 {
   margin-bottom: 2rem;
 }
@@ -9815,6 +9825,7 @@ button:focus {
 .change_status .form,
 .edit_entity_popup .form,
 .add_investor .form,
+.add_review .form,
 .add_team .form {
   text-align: left;
 }
@@ -9833,6 +9844,8 @@ button:focus {
 .edit_entity_popup select,
 .add_investor input,
 .add_investor select,
+.add_review input,
+.add_review select,
 .add_team input,
 .add_team select {
   margin: 1rem 0;
@@ -9857,8 +9870,33 @@ button:focus {
 .edit_entity_popup select:last-child,
 .add_investor input:last-child,
 .add_investor select:last-child,
+.add_review input:last-child,
+.add_review select:last-child,
 .add_team input:last-child,
 .add_team select:last-child {
+  margin-bottom: 4rem;
+}
+
+.add_review .review_form {
+  text-align: left;
+  -webkit-column-gap: 4rem;
+          column-gap: 4rem;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.add_review .review_form input,
+.add_review .review_form textarea {
+  margin: 1rem 0;
+  width: 100%;
+  padding: 12px 26px;
+  font-family: "Porto Sans";
+  font-size: 0.9375rem;
+  border: 1px solid rgba(8, 8, 8, 0.3);
+}
+
+.add_review .review_form .custom-file-upload {
+  margin-top: 0.5rem;
   margin-bottom: 4rem;
 }
 
