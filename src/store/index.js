@@ -16,6 +16,7 @@ import { unityModule } from "./modules/unitiesModule";
 import { weatherModule } from "./modules/weatherModule";
 import { entityModule } from "./modules/entityModule";
 import { usersModule } from "./modules/usersModule";
+import { testimonialsModule } from "./modules/testimonialsModule";
 import { adminEntitiesModule } from "./modules/adminEntitiesModule";
 
 Vue.use(Vuex);
@@ -32,6 +33,7 @@ export default new Vuex.Store({
     langModule,
     mediaModule,
     newsModule,
+    testimonialsModule,
     projectsModule,
     careersModule,
     unityModule,

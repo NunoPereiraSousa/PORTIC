@@ -13,6 +13,11 @@
   }
 }
 
+.glide__track + div {
+  display: flex;
+  justify-content: center;
+}
+
 // .glide__slide {
 //   width: 318px;
 //   margin-left: 6px;

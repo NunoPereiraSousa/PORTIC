@@ -6,19 +6,22 @@ let headers = {
   "Access-Control-Allow-Origin": "*"
 };
 
-export const newsConfig = {
-  getNews: async (selectedLang, entity_id) => {
+export const testimonialsConfig = {
+  getTestimonials: async (selectedLang, entity_id) => {
     return await axios
-      .get(`${API_URL}/${selectedLang}/entities/${entity_id}/news`, {
+      .get(`${API_URL}/${selectedLang}/entities/${entity_id}/testimonials`, {
         headers
       })
       .then(response => {
+        console.log(response.data.processResult, response.status);
         return {
-          news: response.data.processResult,
+          testimonials: response.data.processResult,
           status: response.status
         };
       })
       .catch(error => {
+        console.log(error);
+
         return error;
       });
   }

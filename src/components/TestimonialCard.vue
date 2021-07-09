@@ -1,6 +1,6 @@
 <template>
   <div class="testimonials__cards__card">
-    <img src="../../assets/stevejobs.jpg" alt="Testimonial Author" />
+    <img :src="image" alt="Testimonial Author" />
     <h3>{{ name }}</h3>
     <h4>{{ company }}</h4>
     <div class="testimonials__cards__card__text">

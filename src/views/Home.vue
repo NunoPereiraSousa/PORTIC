@@ -35,64 +35,65 @@
         {{ $t("homepage.testimonials.desc") }}
         <span>coming soon!</span>
       </h1> -->
-      <div class="testimonials__cards">
-        <vue-glide
-          :startAt="1"
-          :gap="40"
-          :breakpoints="{
-            450: {
-              perView: 1
-            },
-            768: {
-              perView: 2
-            },
-            1024: {
-              perView: 2
-            },
-            1300: {
-              perView: 3
-            }
-          }"
-          :rewind="false"
-          :bound="true"
-          :infinite="false"
-        >
-          <vue-glide-slide v-for="i in 6" :key="i">
-            <TestimonialCard
-              name="Alex Poporov"
-              company="Apple inc"
-              content="Lorem ipsum dolor sit amet, consectetur 
-                    adipiscing elit, sed do eiusmod tempor 
-                    incididunt. Lorem ipsum dolor sit amet, 
-                    adipiscing elit, sed do eiusmod tempor 
-                    incididunt. Lorem ipsum dolor sit amet, 
-                    adipiscing elit, sed do eiusmod tempor."
-          /></vue-glide-slide>
-          <template slot="control" class="btnFlex">
-            <button data-glide-dir="<" class="arrowBtn">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 400.004 400.004"
-                class="left__arrow"
-              >
-                <path
-                  d="M382.688 182.686H59.116l77.209-77.214c6.764-6.76 6.764-17.726 0-24.485-6.764-6.764-17.73-6.764-24.484 0L5.073 187.757c-6.764 6.76-6.764 17.727 0 24.485l106.768 106.775a17.252 17.252 0 0012.242 5.072c4.43 0 8.861-1.689 12.242-5.072 6.764-6.76 6.764-17.726 0-24.484l-77.209-77.218h323.572c9.562 0 17.316-7.753 17.316-17.315 0-9.562-7.753-17.314-17.316-17.314z"
-                ></path>
-              </svg>
-            </button>
-            <button data-glide-dir=">" class="arrowBtn">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 268.832 268.832"
-                class="right__arrow"
-              >
-                <path
-                  d="M265.171 125.577l-80-80c-4.881-4.881-12.797-4.881-17.678 0-4.882 4.882-4.882 12.796 0 17.678l58.661 58.661H12.5c-6.903 0-12.5 5.597-12.5 12.5 0 6.902 5.597 12.5 12.5 12.5h213.654l-58.659 58.661c-4.882 4.882-4.882 12.796 0 17.678 2.44 2.439 5.64 3.661 8.839 3.661s6.398-1.222 8.839-3.661l79.998-80c4.882-4.882 4.882-12.796 0-17.678z"
-                ></path>
-              </svg>
-            </button>
-          </template>
-        </vue-glide>
+      <div v-if="loadedReviews == true">
+        <div class="testimonials__cards">
+          <vue-glide
+            :startAt="0"
+            :gap="40"
+            :breakpoints="{
+              450: {
+                perView: 1
+              },
+              768: {
+                perView: 2
+              },
+              1024: {
+                perView: 2
+              },
+              1300: {
+                perView: 3
+              }
+            }"
+            :rewind="false"
+            :bound="true"
+            :infinite="false"
+          >
+            <vue-glide-slide
+              v-for="(review, index) in getTestimonials"
+              :key="index + 1"
+            >
+              <TestimonialCard
+                :name="review.person_name"
+                :company="review.institution_name"
+                :content="review.testimonial_text"
+                :image="review.picture"
+            /></vue-glide-slide>
+            <template slot="control" class="btnFlex">
+              <button data-glide-dir="<" class="arrowBtn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 400.004 400.004"
+                  class="left__arrow"
+                >
+                  <path
+                    d="M382.688 182.686H59.116l77.209-77.214c6.764-6.76 6.764-17.726 0-24.485-6.764-6.764-17.73-6.764-24.484 0L5.073 187.757c-6.764 6.76-6.764 17.727 0 24.485l106.768 106.775a17.252 17.252 0 0012.242 5.072c4.43 0 8.861-1.689 12.242-5.072 6.764-6.76 6.764-17.726 0-24.484l-77.209-77.218h323.572c9.562 0 17.316-7.753 17.316-17.315 0-9.562-7.753-17.314-17.316-17.314z"
+                  ></path>
+                </svg>
+              </button>
+              <button data-glide-dir=">" class="arrowBtn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 268.832 268.832"
+                  class="right__arrow"
+                >
+                  <path
+                    d="M265.171 125.577l-80-80c-4.881-4.881-12.797-4.881-17.678 0-4.882 4.882-4.882 12.796 0 17.678l58.661 58.661H12.5c-6.903 0-12.5 5.597-12.5 12.5 0 6.902 5.597 12.5 12.5 12.5h213.654l-58.659 58.661c-4.882 4.882-4.882 12.796 0 17.678 2.44 2.439 5.64 3.661 8.839 3.661s6.398-1.222 8.839-3.661l79.998-80c4.882-4.882 4.882-12.796 0-17.678z"
+                  ></path>
+                </svg>
+              </button>
+            </template>
+          </vue-glide>
+        </div>
       </div>
     </section>
     <Footer />
@@ -127,7 +128,9 @@ export default {
       newsArr: null,
       newsSelectedTitle: null,
       newsSelectedContent: null,
-      author: null
+      author: null,
+      loaded: false,
+      testimonials: []
     };
   },
   async created() {
@@ -140,14 +143,19 @@ export default {
     this.$store.commit("SET_SELECTED_UNITIES_LANG", {
       lang: this.$i18n.locale == "en" ? "en" : "pt"
     });
+    this.$store.commit("SET_SELECTED_REVIEWS_LANG", {
+      lang: this.$i18n.locale == "en" ? "en" : "pt"
+    });
 
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setNews");
       await this.$store.dispatch("setProjects");
+      await this.$store.dispatch("setReviews");
       await this.$store.dispatch("setUnities");
 
-      console.log(this.getNews);
+      this.testimonials = this.getTestimonials;
+      console.log(this.testimonials);
     } catch (error) {
       console.log(error);
       return error;
@@ -158,6 +166,7 @@ export default {
   },
   mounted() {
     let div = document.querySelector(".arrowBtn").parentElement;
+    console.log(div);
     div.style.display = "flex";
     div.style.justifyContent = "center";
 
@@ -334,9 +343,28 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getNews", "getNewsById", "getSelectedNewsId"]),
+    ...mapGetters([
+      "getNews",
+      "getNewsById",
+      "getSelectedNewsId",
+      "getTestimonials",
+      "getReviewsStatus"
+    ]),
     setNews() {
       return this.getNews;
+    },
+    loadedReviews() {
+      let load = this.loaded;
+
+      console.log(this.getReviewsStatus);
+
+      if (this.getReviewsStatus == 200) {
+        load = true;
+
+        console.log(load);
+      }
+
+      return load;
     }
   },
   methods: {
@@ -353,14 +381,6 @@ export default {
       this.newsSelectedTitle = news.title;
       this.newsSelectedContent = news.content;
       this.author = news.author;
-    },
-    convertImage(img) {
-      let arrayBufferView = new Uint8Array(img);
-      let blob = new Blob([arrayBufferView], { type: "image/png" });
-      let urlCreator = window.URL || window.webkitURL;
-      let image = urlCreator.createObjectURL(blob);
-
-      return image;
     }
   }
 };

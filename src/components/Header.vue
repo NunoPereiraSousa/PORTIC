@@ -180,19 +180,12 @@ export default {
     displayLogo() {
       if (!this.loading) {
         let image = this.$store.getters.getEntityData.img;
-        console.log(image);
-
-        // var arrayBufferView = new Uint8Array(arr);
-        // var blob = new Blob([arrayBufferView], { type: "image/png" });
-        // var urlCreator = window.URL || window.webkitURL;
-        // var image = urlCreator.createObjectURL(blob);
         return image;
       }
 
       return null;
     },
     socials() {
-      console.log(this.$store.getters.getEntityData.social_medias);
       return this.$store.getters.getEntityData.social_medias;
     },
     menus() {
