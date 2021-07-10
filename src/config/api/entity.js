@@ -30,6 +30,7 @@ export const entityConfig = {
         headers
       })
       .then(response => {
+        console.log(response.data.processResult[0]);
         return {
           data: response.data.processResult[0],
           status: response.status

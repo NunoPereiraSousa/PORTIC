@@ -2,13 +2,7 @@
   <div>
     <SubPageIntro
       :categoryTitle="$t('medias.mediasKey')"
-      :title1="$t('medias.nMedias')"
-      :text1="$t('medias.nMediasDesc', { n: $store.getters.getMediasLength })"
-      :title2="$t('medias.mediasTitle2')"
-      :text2="$t('medias.mediasTitle2Desc')"
-      content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.
-PORTIC includes units and groups with activities in different stages of the knowledge and innovation chain, in several areas of knowledge."
-      :categoryDescription="$t('medias.infoDesc')"
+      :content="getCurrentMenus.page_description"
     />
     <MainTitle className="main__title" :text="$t('medias.title')" />
     <section class="media">
@@ -54,12 +48,25 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getMediasPT", "getMediasEN"]),
+    ...mapGetters([
+      "getMediasPT",
+      "getMediasEN",
+      "getSelectedMenuID",
+      "getMenus"
+    ]),
     getMedias() {
       let mediasPT = this.getMediasPT;
       let mediasEN = this.getMediasEN;
 
       return this.$i18n.locale == "pt" ? mediasPT : mediasEN;
+    },
+    getCurrentMenus() {
+      let menus = this.getMenus;
+      console.log(menus);
+
+      return menus
+        .filter(menu => menu.id_menu === this.getSelectedMenuID)
+        .find(n => n.id_menu === this.getSelectedMenuID);
     }
   },
   methods: {

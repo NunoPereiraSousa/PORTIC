@@ -3,8 +3,7 @@
     <!-- <div class="scene"></div> -->
     <SubPageIntro
       :categoryTitle="$t('courses.courseKey')"
-      content="Research and development, technology and knowledge transfer, innovation and creativity, entrepreneurship, incubation, spin-offs, startups – these are all part of Research, Technology & Innovation, a holistic chain of interrelated activities.
-PORTIC includes units and groups with activities in different stages of the knowledge and innovation chain, in several areas of knowledge."
+      :content="getCurrentMenus.page_description"
     />
     <section class="courses">
       <SubHeaderTitle :text="$t('courses.title')" />
@@ -44,9 +43,17 @@ export default {
     Footer
   },
   computed: {
-    ...mapGetters(["getCourses"]),
+    ...mapGetters(["getCourses", "getMenus", "getSelectedMenuID"]),
     courses() {
       return this.getCourses;
+    },
+    getCurrentMenus() {
+      let menus = this.getMenus;
+      console.log(menus);
+
+      return menus
+        .filter(menu => menu.id_menu === this.getSelectedMenuID)
+        .find(n => n.id_menu === this.getSelectedMenuID);
     }
   },
   async mounted() {

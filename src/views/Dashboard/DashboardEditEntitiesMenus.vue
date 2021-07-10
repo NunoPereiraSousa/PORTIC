@@ -652,6 +652,8 @@ export default {
         page_description_pt: this.courses.page_description_pt
       });
 
+      console.log(this.courses.page_description_pt);
+
       try {
         await this.$store.dispatch("setAdminEditEntityMenu");
         await this.$store.dispatch("setAdminEntities");
