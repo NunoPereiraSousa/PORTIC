@@ -13,7 +13,9 @@ import DashboardAddUsers from "../views/Dashboard/DashboardAddUsers.vue";
 import DashboardEditUser from "../views/Dashboard/DashboardEditUser.vue";
 import DashboardAreas from "../views/Dashboard/DashboardAreas.vue";
 import DashboardMedia from "../views/Dashboard/DashboardMedia.vue";
-import DashboardComponents from "../views/Dashboard/DashboardComponents.vue";
+import DashboardEntities from "../views/Dashboard/DashboardEntities.vue";
+import DashboardAddEntities from "../views/Dashboard/DashboardAddEntities.vue";
+import DashboardEditEntities from "../views/Dashboard/DashboardEditEntities.vue";
 import DashboardAboutUs from "../views/Dashboard/DashboardAboutUs.vue";
 import DashboardCareers from "../views/Dashboard/DashboardCareers.vue";
 import DashboardCourses from "../views/Dashboard/DashboardCourses.vue";
@@ -215,9 +217,19 @@ const routes = [
     component: DashboardAboutUs
   },
   {
-    path: "/dashboard-components",
-    name: "DashboardComponents",
-    component: DashboardComponents
+    path: "/dashboard-entities",
+    name: "DashboardEntities",
+    component: DashboardEntities
+  },
+  {
+    path: "/dashboard-add-entities",
+    name: "DashboardAddEntities",
+    component: DashboardAddEntities
+  },
+  {
+    path: "/dashboard-edit-entity/:name",
+    name: "DashboardEditEntities",
+    component: DashboardEditEntities
   },
   {
     path: "/dashboard-media",

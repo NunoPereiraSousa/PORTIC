@@ -235,6 +235,59 @@
         </button>
       </div>
 
+      <div v-else-if="$route.name == 'DashboardEntities'">
+        <button
+          class="top_header__actions__add flex flex-ai-c"
+          @click="addEntitiesPage"
+        >
+          <svg
+            id="building"
+            xmlns="http://www.w3.org/2000/svg"
+            width="19.297"
+            height="20.477"
+            style="width: 20px"
+            viewBox="0 0 19.297 20.477"
+          >
+            <path
+              id="Path_18"
+              data-name="Path 18"
+              d="M33.413,19.278h-1.58V.6a.6.6,0,0,0-.6-.6H17.5a.6.6,0,0,0-.6.6V19.278H15.316a.6.6,0,0,0,0,1.2h18.1a.6.6,0,1,0,0-1.2Zm-11.1,0V15.185h4.093v4.093Zm5.29,0v-4.69a.6.6,0,0,0-.6-.6H21.719a.6.6,0,0,0-.6.6v4.69H18.1V1.2H30.634V19.278Z"
+              transform="translate(-14.716)"
+              fill="#fff"
+            />
+            <path
+              id="Path_19"
+              data-name="Path 19"
+              d="M138.78,66.309h-2.94a.6.6,0,0,0-.6.6v2.94a.6.6,0,0,0,.6.6h2.94a.6.6,0,0,0,.6-.6v-2.94A.6.6,0,0,0,138.78,66.309Zm-.6,2.94h-1.74V67.508h1.74Z"
+              transform="translate(-130.42 -63.657)"
+              fill="#fff"
+            />
+            <path
+              id="Path_20"
+              data-name="Path 20"
+              d="M276.792,66.309h-2.94a.6.6,0,0,0-.6.6v2.94a.6.6,0,0,0,.6.6h2.94a.6.6,0,0,0,.6-.6v-2.94A.6.6,0,0,0,276.792,66.309Zm-.6,2.94h-1.74V67.508h1.74Z"
+              transform="translate(-262.912 -63.657)"
+              fill="#fff"
+            />
+            <path
+              id="Path_21"
+              data-name="Path 21"
+              d="M138.78,205.954h-2.94a.6.6,0,0,0-.6.6v2.94a.6.6,0,0,0,.6.6h2.94a.6.6,0,0,0,.6-.6v-2.94a.6.6,0,0,0-.6-.6Zm-.6,2.94h-1.74v-1.741h1.74Z"
+              transform="translate(-130.42 -197.717)"
+              fill="#fff"
+            />
+            <path
+              id="Path_22"
+              data-name="Path 22"
+              d="M276.792,205.954h-2.94a.6.6,0,0,0-.6.6v2.94a.6.6,0,0,0,.6.6h2.94a.6.6,0,0,0,.6-.6v-2.94a.6.6,0,0,0-.6-.6Zm-.6,2.94h-1.74v-1.741h1.74Z"
+              transform="translate(-262.912 -197.717)"
+              fill="#fff"
+            />
+          </svg>
+          Adicionar
+        </button>
+      </div>
+
       <div v-else-if="$route.name == 'DashboardCareers'">
         <button
           class="top_header__actions__add flex flex-ai-c"
@@ -568,8 +621,6 @@ export default {
 
     this.loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
     this.users = JSON.parse(localStorage.getItem("users"));
-
-    console.log(this.$store.getters.getUser);
   },
   mounted() {
     this.updateTime = setInterval(() => {
@@ -700,6 +751,11 @@ export default {
     addNewsPage() {
       this.$router.push({
         name: "DashboardAddNews"
+      });
+    },
+    addEntitiesPage() {
+      this.$router.push({
+        name: "DashboardAddEntities"
       });
     },
     addTestimonialsPage() {

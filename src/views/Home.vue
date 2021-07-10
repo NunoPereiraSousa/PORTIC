@@ -27,7 +27,10 @@
       </div>
     </section>
     <section class="testimonials">
-      <h1 class="testimonials__title">
+      <h1
+        class="testimonials__title"
+        v-if="loadedReviews == true && getTestimonials.length > 0"
+      >
         {{ $t("homepage.testimonials.title") }}
       </h1>
 
@@ -35,7 +38,7 @@
         {{ $t("homepage.testimonials.desc") }}
         <span>coming soon!</span>
       </h1> -->
-      <div v-if="loadedReviews == true">
+      <div v-if="loadedReviews == true && getTestimonials.length > 0">
         <div class="testimonials__cards">
           <vue-glide
             :startAt="0"

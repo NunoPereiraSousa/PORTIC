@@ -39,7 +39,9 @@
             this.$route.name !== 'DashboardProfile' &&
             this.$route.name !== 'DashboardUsers' &&
             this.$route.name !== 'DashboardAddUsers' &&
-            this.$route.name !== 'DashboardComponents' &&
+            this.$route.name !== 'DashboardEntities' &&
+            this.$route.name !== 'DashboardAddEntities' &&
+            this.$route.name !== 'DashboardEditEntities' &&
             this.$route.name !== 'DashboardAboutUs' &&
             this.$route.name !== 'DashboardTN' &&
             this.$route.name !== 'DashboardEditNews' &&

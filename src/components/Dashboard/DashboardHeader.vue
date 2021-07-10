@@ -472,9 +472,9 @@
         Recrutamento
       </router-link>
 
-      <!-- COMPONENTS -->
-      <!-- <router-link
-        :to="{ name: 'DashboardComponents' }"
+      <!-- ENTITIES -->
+      <router-link
+        :to="{ name: 'DashboardEntities' }"
         class="flex flex-ai-c admin_nav__link"
       >
         <svg
@@ -522,8 +522,8 @@
           </g>
         </svg>
 
-        Componentes
-      </router-link> -->
+        Entidades
+      </router-link>
 
       <!-- TN: SUPER ADMIN, COORD ENTIDADE -->
       <router-link

@@ -414,5 +414,26 @@ export const adminProjectsConfig = {
         console.log(error);
         return error;
       });
+  },
+  deleteProjectInvestor: async (token, id, id_investor) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    return await axios
+      .delete(`${API_URL}/projects/${id}/gov/investors/${id_investor}`, config)
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
   }
 };

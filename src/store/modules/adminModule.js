@@ -224,6 +224,8 @@ export const adminModule = {
     addProjectNewsStatus: null,
     addProjectInvestor: null,
     addProjectInvestorStatus: null,
+    selectedProjectInvestorId: null,
+    deleteProjectInvestorStatus: null,
 
     // UNITS
     units: [],
@@ -574,6 +576,12 @@ export const adminModule = {
     },
     SET_ADD_PROJECT_INVESTOR_STATUS(state, payload) {
       state.addProjectInvestorStatus = payload.status;
+    },
+    SET_DELETE_PROJECT_INVESTOR_STATUS(state, payload) {
+      state.deleteProjectInvestorStatus = payload.status;
+    },
+    SET_PROJECT_INVESTOR_ID(state, payload) {
+      state.selectedProjectInvestorId = payload.id;
     },
 
     // UNITS MUTATIONS
@@ -1100,6 +1108,16 @@ export const adminModule = {
         )
       );
     },
+    async setAdminDeleteProjectInvestor({ commit, state }) {
+      commit(
+        "SET_DELETE_PROJECT_INVESTOR_STATUS",
+        await adminProjectsConfig.deleteProjectInvestor(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedProjectId,
+          state.selectedProjectInvestorId
+        )
+      );
+    },
 
     // UNITS ACTIONS
     async setAdminUnits({ commit }) {
@@ -1271,6 +1289,7 @@ export const adminModule = {
     getAddProjectPartnerStatus: state => state.addPartnerStatus,
     getAddProjectNewsStatus: state => state.addProjectNewsStatus,
     getAddProjectInvestorStatus: state => state.addProjectInvestorStatus,
+    getDeleteProjectInvestorStatus: state => state.deleteProjectInvestorStatus,
 
     // UNITS GETTERS
     getAdminUnits: state => (state.units != "" ? state.units : []),

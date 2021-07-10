@@ -48,14 +48,6 @@ export const adminReviewsConfig = {
     data.append("testimonial_text_eng", testimonial_text_eng);
     data.append("file", file);
 
-    console.log(
-      person_name,
-      institution_name,
-      testimonial_text_pt,
-      testimonial_text_eng,
-      file
-    );
-
     return await axios
       .post(`${API_URL}/testimonials`, data, config)
       .then(response => {
