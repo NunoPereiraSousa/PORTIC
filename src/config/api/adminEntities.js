@@ -270,15 +270,6 @@ export const adminEntitiesConfig = {
       }
     };
 
-    console.log(
-      id,
-      id_menu,
-      designation_pt,
-      designation_eng,
-      page_description_eng,
-      page_description_pt
-    );
-
     return await axios
       .put(
         `${API_URL}/entities/${id}/menus/${id_menu}`,

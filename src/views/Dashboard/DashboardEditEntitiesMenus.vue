@@ -611,24 +611,16 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getAdminEntityById", "getAdminEntityId"]),
+    ...mapGetters([
+      "getAdminEntityById",
+      "getAdminEntityId",
+      "getEditEntityMenuStatus"
+    ]),
     getCurrentEntity() {
       return this.getAdminEntityById(this.getAdminEntityId);
     }
   },
   methods: {
-    async addEntity() {
-      // try {
-      //   await this.$store.dispatch("setAddEntity");
-      //   await this.$store.dispatch("setAdminEntities");
-      // } catch (error) {
-      //   console.log(error);
-      //   return error;
-      // }
-    },
-
-    //"u3uyjgsfkqy5tc3g_Menu" -- asd
-    // "u3uyjgsfkqy5qwjx_Menu" -- portic
     async editContactsMenu() {
       this.$store.commit("SET_ENTITIES_MENU_FORM", {
         id: this.getCurrentEntity.menus[0].id_menu,
@@ -641,8 +633,10 @@ export default {
       try {
         await this.$store.dispatch("setAdminEditEntityMenu");
         await this.$store.dispatch("setAdminEntities");
+
+        if (this.getEditEntityMenuStatus === 200) this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
     },
@@ -661,8 +655,10 @@ export default {
       try {
         await this.$store.dispatch("setAdminEditEntityMenu");
         await this.$store.dispatch("setAdminEntities");
+
+        if (this.getEditEntityMenuStatus === 200) this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
     },
@@ -681,8 +677,10 @@ export default {
       try {
         await this.$store.dispatch("setAdminEditEntityMenu");
         await this.$store.dispatch("setAdminEntities");
+
+        if (this.getEditEntityMenuStatus === 200) this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
     },
@@ -698,8 +696,10 @@ export default {
       try {
         await this.$store.dispatch("setAdminEditEntityMenu");
         await this.$store.dispatch("setAdminEntities");
+
+        if (this.getEditEntityMenuStatus === 200) this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
     },
@@ -718,8 +718,10 @@ export default {
       try {
         await this.$store.dispatch("setAdminEditEntityMenu");
         await this.$store.dispatch("setAdminEntities");
+
+        if (this.getEditEntityMenuStatus === 200) this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
     },
@@ -738,8 +740,10 @@ export default {
       try {
         await this.$store.dispatch("setAdminEditEntityMenu");
         await this.$store.dispatch("setAdminEntities");
+
+        if (this.getEditEntityMenuStatus === 200) this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
     },
@@ -755,8 +759,10 @@ export default {
       try {
         await this.$store.dispatch("setAdminEditEntityMenu");
         await this.$store.dispatch("setAdminEntities");
+
+        if (this.getEditEntityMenuStatus === 200) this.notificationSuccess();
       } catch (error) {
-        console.log(error);
+        this.notificationError();
         return error;
       }
     },
@@ -769,6 +775,38 @@ export default {
       if (this.getCurrentEntity.id_entity === "u3uyjgsfkqy5qwe8_Entity")
         return 1;
       return 0;
+    },
+    notificationSuccess() {
+      this.$toast.success("Menu editado com sucesso!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    },
+    notificationError() {
+      this.$toast.error("Oops... erro!", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
     }
   }
 };

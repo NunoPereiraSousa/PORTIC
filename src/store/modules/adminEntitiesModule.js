@@ -247,6 +247,7 @@ export const adminEntitiesModule = {
     getAdminEntityId: state => state.selectedEntityId,
     getAdminEntityById: state => id =>
       state.entities.find(e => e.id_entity === id),
-    getEntityInitials: state => (state.initials != "" ? state.initials : {})
+    getEntityInitials: state => (state.initials != "" ? state.initials : {}),
+    getEditEntityMenuStatus: state => state.editEntityMenusStatus
   }
 };
