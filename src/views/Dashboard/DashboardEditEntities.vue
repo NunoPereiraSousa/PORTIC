@@ -233,7 +233,6 @@
             <input
               id="color1"
               type="color"
-              value="#c94d24"
               style="padding: 0; width: 4rem;"
               v-model="edit.color1"
             />
@@ -243,7 +242,6 @@
             <input
               id="color2"
               type="color"
-              value="#666666"
               style="padding: 0; width: 4rem;"
               v-model="edit.color2"
             />
@@ -253,7 +251,6 @@
             <input
               id="color3"
               type="color"
-              value="#999999"
               style="padding: 0; width: 4rem;"
               v-model="edit.color3"
             />
@@ -359,14 +356,14 @@ export default {
         instagram: this.edit.instagram,
         youtube: this.edit.youtube,
         twitter: this.edit.twitter,
-        optional_course_menu:
-          this.edit.optional_course_menu === "" ? false : true,
-        optional_project_menu:
-          this.edit.optional_project_menu === "" ? false : true,
+        optional_course_menu: this.edit.optional_course_menu == "" ? 0 : 1,
+        optional_project_menu: this.edit.optional_project_menu == "" ? 0 : 1,
         optional_recruitment_menu:
-          this.edit.optional_recruitment_menu === "" ? false : true,
-        optional_media_menu: this.edit.optional_media_menu === "" ? false : true
+          this.edit.optional_recruitment_menu == "" ? 0 : 1,
+        optional_media_menu: this.edit.optional_media_menu == "" ? 0 : 1
       });
+
+      console.log(this.edit.color1);
 
       try {
         await this.$store.dispatch("setEditEntity");

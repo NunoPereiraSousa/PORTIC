@@ -101,7 +101,10 @@
       </div>
 
       <div v-show="currentTab === 0">
-        <div v-if="getAdminTestimonials" class="admin_tn__panel__grid grid">
+        <div
+          v-if="getAdminTestimonials.length > 0"
+          class="admin_tn__panel__grid grid"
+        >
           <DashboardTestimonialCard
             v-for="(testimonial, index) in searchFilter"
             :key="testimonial.id_testimonial"

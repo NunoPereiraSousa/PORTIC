@@ -13,6 +13,13 @@
       <button
         class="admin_entities__panel__grid__card__remove"
         style="margin-right: 2rem;"
+        @click="openMenusPage(id, name)"
+      >
+        Editar menus
+      </button>
+      <button
+        class="admin_entities__panel__grid__card__remove"
+        style="margin-right: 2rem;"
         @click="showImgPopup(id)"
       >
         Editar logo
@@ -63,6 +70,16 @@ export default {
 
       this.$router.push({
         name: "DashboardEditEntities",
+        params: { name: name }
+      });
+    },
+    openMenusPage(id, name) {
+      this.$store.commit("SET_SELECTED_ADMIN_ENTITY_ID", {
+        id: id
+      });
+
+      this.$router.push({
+        name: "DashboardEditEntitiesMenus",
         params: { name: name }
       });
     },

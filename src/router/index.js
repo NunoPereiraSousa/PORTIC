@@ -16,6 +16,7 @@ import DashboardMedia from "../views/Dashboard/DashboardMedia.vue";
 import DashboardEntities from "../views/Dashboard/DashboardEntities.vue";
 import DashboardAddEntities from "../views/Dashboard/DashboardAddEntities.vue";
 import DashboardEditEntities from "../views/Dashboard/DashboardEditEntities.vue";
+import DashboardEditEntitiesMenus from "../views/Dashboard/DashboardEditEntitiesMenus.vue";
 import DashboardAboutUs from "../views/Dashboard/DashboardAboutUs.vue";
 import DashboardCareers from "../views/Dashboard/DashboardCareers.vue";
 import DashboardCourses from "../views/Dashboard/DashboardCourses.vue";
@@ -230,6 +231,11 @@ const routes = [
     path: "/dashboard-edit-entity/:name",
     name: "DashboardEditEntities",
     component: DashboardEditEntities
+  },
+  {
+    path: "/dashboard-edit-menu-entity/:name",
+    name: "DashboardEditEntitiesMenus",
+    component: DashboardEditEntitiesMenus
   },
   {
     path: "/dashboard-media",

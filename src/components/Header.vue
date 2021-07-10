@@ -189,6 +189,7 @@ export default {
       return this.$store.getters.getEntityData.social_medias;
     },
     menus() {
+      console.log(this.$store.getters.getEntityData);
       return this.$store.getters.getEntityData.menus;
     }
   },

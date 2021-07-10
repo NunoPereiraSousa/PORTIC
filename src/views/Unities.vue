@@ -69,10 +69,7 @@ export default {
     try {
       await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setUnities");
-
-      console.log(this.getUnities);
     } catch (error) {
-      console.log(`App: ${error}`);
       return error;
     }
   },
@@ -80,6 +77,7 @@ export default {
     ...mapGetters(["getUnities", "getSelectedMenuID", "getMenus"]),
     getCurrentMenus() {
       let menus = this.getMenus;
+      console.log(menus);
 
       return menus
         .filter(menu => menu.id_menu === this.getSelectedMenuID)
@@ -107,8 +105,6 @@ export default {
     },
     getUnityId(id, title) {
       this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
-
-      console.log(id);
 
       let formatedTitle = this.formatRouterPath(title);
 

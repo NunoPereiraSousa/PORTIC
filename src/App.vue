@@ -42,6 +42,7 @@
             this.$route.name !== 'DashboardEntities' &&
             this.$route.name !== 'DashboardAddEntities' &&
             this.$route.name !== 'DashboardEditEntities' &&
+            this.$route.name !== 'DashboardEditEntitiesMenus' &&
             this.$route.name !== 'DashboardAboutUs' &&
             this.$route.name !== 'DashboardTN' &&
             this.$route.name !== 'DashboardEditNews' &&

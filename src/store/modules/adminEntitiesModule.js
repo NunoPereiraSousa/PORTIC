@@ -51,7 +51,15 @@ export const adminEntitiesModule = {
       file: null
     },
     editEntityStatus: null,
-    editEntityImgStatus: null
+    editEntityImgStatus: null,
+    entitiesMenu: {
+      id: null,
+      designation_pt: null,
+      designation_eng: null,
+      page_description_eng: null,
+      page_description_pt: null
+    },
+    editEntityMenusStatus: null
   },
   mutations: {
     SET_ENTITIES(state, payload) {
@@ -89,6 +97,7 @@ export const adminEntitiesModule = {
       state.addEntityForm.optional_recruitment_menu =
         payload.optional_recruitment_menu;
       state.addEntityForm.optional_media_menu = payload.optional_media_menu;
+      state.addEntityForm.file = payload.file;
 
       console.log(state.addEntityForm);
     },
@@ -123,6 +132,16 @@ export const adminEntitiesModule = {
     },
     SET_ENTITY_IMG_STATUS(state, payload) {
       state.editEntityImgStatus = payload.status;
+    },
+    SET_ENTITIES_MENU_FORM(state, payload) {
+      state.entitiesMenu.id = payload.id;
+      state.entitiesMenu.designation_pt = payload.designation_pt;
+      state.entitiesMenu.designation_eng = payload.designation_eng;
+      state.entitiesMenu.page_description_eng = payload.page_description_eng;
+      state.entitiesMenu.page_description_pt = payload.page_description_pt;
+    },
+    SET_ENTITIES_MENU_FORM_STATUS(state, payload) {
+      state.editEntityMenusStatus = payload.status;
     }
   },
   actions: {
@@ -165,7 +184,8 @@ export const adminEntitiesModule = {
           state.addEntityForm.optional_course_menu,
           state.addEntityForm.optional_project_menu,
           state.addEntityForm.optional_recruitment_menu,
-          state.addEntityForm.optional_media_menu
+          state.addEntityForm.optional_media_menu,
+          state.addEntityForm.file
         )
       );
     },
@@ -204,6 +224,20 @@ export const adminEntitiesModule = {
           JSON.parse(localStorage.getItem("token")),
           state.selectedEntityId,
           state.editEntityForm.file
+        )
+      );
+    },
+    async setAdminEditEntityMenu({ commit, state }) {
+      commit(
+        "SET_ENTITIES_MENU_FORM_STATUS",
+        await adminEntitiesConfig.editEntityMenu(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedEntityId,
+          state.entitiesMenu.id,
+          state.entitiesMenu.designation_pt,
+          state.entitiesMenu.designation_eng,
+          state.entitiesMenu.page_description_eng,
+          state.entitiesMenu.page_description_pt
         )
       );
     }

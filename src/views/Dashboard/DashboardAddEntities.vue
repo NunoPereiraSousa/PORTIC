@@ -225,6 +225,19 @@
         </div>
 
         <h3 class="dashboard_subheader">
+          Logotipo
+        </h3>
+
+        <div class="projects_panel__form__inputs">
+          <label class="custom-file-upload" style="margin: 0 auto 2rem;">
+            <input type="file" @change="uploadImg" />
+            Upload do logotipo
+          </label>
+
+          {{ imgName }}
+        </div>
+
+        <h3 class="dashboard_subheader">
           Cores
         </h3>
 
@@ -295,8 +308,10 @@ export default {
         optional_course_menu: "",
         optional_project_menu: "",
         optional_recruitment_menu: "",
-        optional_media_menu: ""
-      }
+        optional_media_menu: "",
+        file: ""
+      },
+      imgName: ""
     };
   },
   methods: {
@@ -327,7 +342,8 @@ export default {
           this.add.optional_project_menu === "" ? false : true,
         optional_recruitment_menu:
           this.add.optional_recruitment_menu === "" ? false : true,
-        optional_media_menu: this.add.optional_media_menu === "" ? false : true
+        optional_media_menu: this.add.optional_media_menu === "" ? false : true,
+        file: this.add.file
       });
 
       try {
@@ -342,6 +358,12 @@ export default {
       this.$router.push({
         name: "DashboardEntities"
       });
+    },
+    uploadImg(e) {
+      const img = e.target.files[0];
+      this.add.file = img;
+
+      this.imgName = img.name;
     }
   }
 };
