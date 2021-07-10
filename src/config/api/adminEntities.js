@@ -1,5 +1,5 @@
 import axios from "axios";
-// import FormData from "form-data";
+import FormData from "form-data";
 
 import { API_URL } from "./config";
 
@@ -215,6 +215,33 @@ export const adminEntitiesConfig = {
         },
         config
       )
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
+  },
+  editEntityImg: async (toke, id, file) => {
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${toke}`
+      }
+    };
+
+    let data = new FormData();
+    data.append("file", file);
+
+    console.log(id, file);
+
+    return await axios
+      .patch(`${API_URL}/entities/${id}/logo`, data, config)
       .then(response => {
         console.log(response.status);
         return {

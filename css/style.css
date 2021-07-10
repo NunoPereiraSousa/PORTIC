@@ -9518,6 +9518,15 @@ button:focus {
   color: #080808;
 }
 
+.admin_entities__panel__grid__card__img {
+  height: 4rem;
+  width: 100%;
+  margin-right: 3.125rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .admin_users__panel__grid__card__img {
   height: 3.5rem;
   width: 3.5rem;
@@ -9648,6 +9657,7 @@ button:focus {
 .remove_review,
 .change_status,
 .edit_entity_popup,
+.entity_img_popup,
 .add_team {
   position: fixed;
   top: 50%;
@@ -9679,6 +9689,7 @@ button:focus {
 .remove_review.show_popup,
 .change_status.show_popup,
 .edit_entity_popup.show_popup,
+.entity_img_popup.show_popup,
 .add_team.show_popup {
   opacity: 1;
   visibility: visible;
@@ -9697,6 +9708,7 @@ button:focus {
 .remove_review h2,
 .change_status h2,
 .edit_entity_popup h2,
+.entity_img_popup h2,
 .add_team h2 {
   font-weight: 400;
   font-size: 1.25rem;
@@ -9717,6 +9729,7 @@ button:focus {
 .remove_review h2 span,
 .change_status h2 span,
 .edit_entity_popup h2 span,
+.entity_img_popup h2 span,
 .add_team h2 span {
   color: #c94d24;
   font-weight: 500;
@@ -9735,6 +9748,7 @@ button:focus {
 .remove_review hr,
 .change_status hr,
 .edit_entity_popup hr,
+.entity_img_popup hr,
 .add_team hr {
   margin: 2rem auto 4rem;
   background-color: #999999;
@@ -9768,6 +9782,8 @@ button:focus {
 .change_status__cancel,
 .edit_entity_popup__confirm,
 .edit_entity_popup__cancel,
+.entity_img_popup__confirm,
+.entity_img_popup__cancel,
 .add_team__confirm,
 .add_team__cancel {
   padding: 10px 30px;
@@ -9788,6 +9804,7 @@ button:focus {
 .remove_review__confirm,
 .change_status__confirm,
 .edit_entity_popup__confirm,
+.entity_img_popup__confirm,
 .add_team__confirm {
   margin-right: 40px;
   border: 1px solid #c94d24;
@@ -9808,6 +9825,7 @@ button:focus {
 .remove_review__cancel,
 .change_status__cancel,
 .edit_entity_popup__cancel,
+.entity_img_popup__cancel,
 .add_team__cancel {
   border: 1px solid #080808;
   background-color: transparent;
@@ -9853,6 +9871,7 @@ button:focus {
 .add_investor h2,
 .add_review h2,
 .remove_review h2,
+.entity_img_popup h2,
 .add_team h2 {
   margin-bottom: 2rem;
 }
@@ -9866,6 +9885,7 @@ button:focus {
 .add_investor .form,
 .add_review .form,
 .remove_review .form,
+.entity_img_popup .form,
 .add_team .form {
   text-align: left;
 }
@@ -9888,6 +9908,8 @@ button:focus {
 .add_review select,
 .remove_review input,
 .remove_review select,
+.entity_img_popup input,
+.entity_img_popup select,
 .add_team input,
 .add_team select {
   margin: 1rem 0;
@@ -9916,6 +9938,8 @@ button:focus {
 .add_review select:last-child,
 .remove_review input:last-child,
 .remove_review select:last-child,
+.entity_img_popup input:last-child,
+.entity_img_popup select:last-child,
 .add_team input:last-child,
 .add_team select:last-child {
   margin-bottom: 4rem;

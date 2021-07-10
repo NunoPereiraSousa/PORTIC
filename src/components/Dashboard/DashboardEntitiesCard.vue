@@ -1,13 +1,22 @@
 <template>
   <div class="admin_entities__panel__grid__card flex flex-ai-c flex-jc-sb">
     <div class="flex flex-ai-c">
-      <h5 v-if="counter < 10">Entidade 0{{ counter }}</h5>
-      <h5 v-else>Entidade {{ counter }}</h5>
+      <div
+        class="admin_entities__panel__grid__card__img"
+        :style="imageStyle"
+      ></div>
       <h2>
         {{ name }}
       </h2>
     </div>
     <div class="flex flex-ai-c">
+      <button
+        class="admin_entities__panel__grid__card__remove"
+        style="margin-right: 2rem;"
+        @click="showImgPopup(id)"
+      >
+        Editar logo
+      </button>
       <button
         class="admin_entities__panel__grid__card__edit"
         @click="openPage(id, name)"
@@ -32,13 +41,18 @@ export default {
       type: String,
       required: true
     },
-    counter: {
-      type: Number,
-      required: true
+    image: {
+      type: String,
+      required: false
     },
     id: {
       type: String,
       required: false
+    }
+  },
+  computed: {
+    imageStyle() {
+      return `background-image: url('${this.image}')`;
     }
   },
   methods: {
@@ -78,22 +92,17 @@ export default {
       //   name: "DashboardAreaConnection",
       //   params: { name: name }
       // });
+    },
+    showImgPopup() {
+      let admin_entities__panel__overlay = document.querySelector(
+        ".admin__entities__panel__overlay2"
+      );
+
+      let admin_delete_popup = document.querySelector(".entity_img_popup");
+
+      admin_entities__panel__overlay.classList.toggle("show_overlay");
+      admin_delete_popup.classList.toggle("show_popup");
     }
-    // formatRouterPath(title) {
-    //   return title.replace(/\s/g, "%20");
-    // },
-    // getUnityId(id, title) {
-    //   this.$store.commit("SET_SELECTED_UNITY_ID", { id: id });
-
-    //   let formatedTitle = this.formatRouterPath(title);
-
-    //   if (this.$route.path != `/unities/${formatedTitle}`) {
-    //     this.$router.push({
-    //       name: "UnitiesPage",
-    //       params: { name: title }
-    //     });
-    //   }
-    // }
   }
 };
 </script>

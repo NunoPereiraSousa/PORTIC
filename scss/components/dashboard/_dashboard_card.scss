@@ -87,6 +87,15 @@
   }
 }
 
+.admin_entities__panel__grid__card__img {
+  height: 4rem;
+  width: 100%;
+  margin-right: 3.125rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .admin_users__panel__grid__card {
   &__img {
     height: 3.5rem;

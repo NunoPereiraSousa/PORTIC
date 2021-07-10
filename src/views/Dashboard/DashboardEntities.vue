@@ -3,7 +3,14 @@
     <DashboardHeader />
 
     <div class="admin__entities__panel">
+      <!-- <div class="admin_about__panel__overlay" @click="closePopup"></div> -->
+      <div
+        class="admin__entities__panel__overlay2"
+        @click="closeImgPopup"
+      ></div>
+
       <DashboardTopHeader />
+      <DashboardEntityImgPopup />
 
       <div class="dashboard_tools flex flex-ai-c flex-jc-sb">
         <input
@@ -15,10 +22,10 @@
 
       <div class="admin__entities__panel__grid grid">
         <DashboardEntitiesCard
-          v-for="(entity, index) in searchFilter"
+          v-for="entity in searchFilter"
           :key="entity.id_entity"
           :id="entity.id_entity"
-          :counter="index + 1"
+          :image="entity.img"
           :name="entity.designation"
         />
       </div>
@@ -30,13 +37,16 @@
 import DashboardHeader from "@/components/Dashboard/DashboardHeader.vue";
 import DashboardTopHeader from "@/components/Dashboard/DashboardTopHeader.vue";
 import DashboardEntitiesCard from "@/components/Dashboard/DashboardEntitiesCard.vue";
+import DashboardEntityImgPopup from "@/components/Dashboard/Popup/DashboardEntityImgPopup.vue";
+
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     DashboardHeader,
     DashboardTopHeader,
-    DashboardEntitiesCard
+    DashboardEntitiesCard,
+    DashboardEntityImgPopup
   },
   data: () => {
     return {
@@ -67,6 +77,18 @@ export default {
 
         return search;
       });
+    }
+  },
+  methods: {
+    closeImgPopup() {
+      let admin_entities__panel__overlay = document.querySelector(
+        ".admin__entities__panel__overlay2"
+      );
+
+      let admin_delete_popup = document.querySelector(".entity_img_popup");
+
+      admin_entities__panel__overlay.classList.toggle("show_overlay");
+      admin_delete_popup.classList.toggle("show_popup");
     }
   }
 };

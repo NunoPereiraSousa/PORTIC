@@ -47,9 +47,11 @@ export const adminEntitiesModule = {
       optional_course_menu: null,
       optional_project_menu: null,
       optional_recruitment_menu: null,
-      optional_media_menu: null
+      optional_media_menu: null,
+      file: null
     },
-    editEntityStatus: null
+    editEntityStatus: null,
+    editEntityImgStatus: null
   },
   mutations: {
     SET_ENTITIES(state, payload) {
@@ -115,8 +117,12 @@ export const adminEntitiesModule = {
       state.editEntityForm.optional_recruitment_menu =
         payload.optional_recruitment_menu;
       state.editEntityForm.optional_media_menu = payload.optional_media_menu;
+      state.editEntityForm.file = payload.file;
 
       console.log(state.editEntityForm);
+    },
+    SET_ENTITY_IMG_STATUS(state, payload) {
+      state.editEntityImgStatus = payload.status;
     }
   },
   actions: {
@@ -188,6 +194,16 @@ export const adminEntitiesModule = {
           state.editEntityForm.optional_project_menu,
           state.editEntityForm.optional_recruitment_menu,
           state.editEntityForm.optional_media_menu
+        )
+      );
+    },
+    async setAdminEditEntityImg({ commit, state }) {
+      commit(
+        "SET_ENTITY_IMG_STATUS",
+        await adminEntitiesConfig.editEntityImg(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedEntityId,
+          state.editEntityForm.file
         )
       );
     }
