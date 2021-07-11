@@ -3,7 +3,7 @@
     <!-- <div class="scene"></div> -->
     <SubPageIntro
       :categoryTitle="$t('courses.courseKey')"
-      :content="getCurrentMenus.page_description"
+      :content="setMenuInfo.page_description"
     />
     <section class="courses">
       <SubHeaderTitle :text="$t('courses.title')" />
@@ -43,9 +43,17 @@ export default {
     Footer
   },
   computed: {
-    ...mapGetters(["getCourses", "getMenus", "getSelectedMenuID"]),
+    ...mapGetters([
+      "getCourses",
+      "getMenus",
+      "getSelectedMenuID",
+      "getCurrentMenuInfo"
+    ]),
     courses() {
       return this.getCourses;
+    },
+    setMenuInfo() {
+      return this.getCurrentMenuInfo;
     },
     getCurrentMenus() {
       let menus = this.getMenus;

@@ -2,7 +2,7 @@
   <div>
     <SubPageIntro
       :categoryTitle="$t('medias.mediasKey')"
-      :content="getCurrentMenus.page_description"
+      :content="setMenuInfo.page_description"
     />
     <MainTitle className="main__title" :text="$t('medias.title')" />
     <section class="media">
@@ -52,8 +52,12 @@ export default {
       "getMediasPT",
       "getMediasEN",
       "getSelectedMenuID",
-      "getMenus"
+      "getMenus",
+      "getCurrentMenuInfo"
     ]),
+    setMenuInfo() {
+      return this.getCurrentMenuInfo;
+    },
     getMedias() {
       let mediasPT = this.getMediasPT;
       let mediasEN = this.getMediasEN;
