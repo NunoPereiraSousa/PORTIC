@@ -99,8 +99,6 @@ export default {
 
     this.currLang = this.getCurrLang;
     this.getLang();
-
-    console.log(this.getEntityData);
   },
   computed: {
     ...mapGetters(["getCurrLang", "getEntityData"]),
@@ -126,7 +124,7 @@ export default {
         await this.$store.dispatch("setData");
         await this.$store.dispatch("setMenus");
 
-        console.log(this.getEntityData);
+        console.log(this.$store.getters.getMenus);
       } catch (error) {
         return error;
       }

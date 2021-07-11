@@ -11,6 +11,7 @@ export const entityModule = {
     entityId: null,
     focuses: [],
     menus: [],
+    menuStatus: null,
     selectedMenuId: null,
     secEntities: [],
     selectedSecEntityId: null
@@ -22,8 +23,6 @@ export const entityModule = {
     },
     SET_ENTITY_ID(state, payload) {
       state.entityId = payload.entity_id;
-
-      console.log(state.entityId);
     },
     SET_SELECTED_LANG(state, payload) {
       state.dataBody.selectedLang = payload.lang;
@@ -33,6 +32,7 @@ export const entityModule = {
     },
     SET_MENUS(state, payload) {
       state.menus = payload.menus;
+      state.menuStatus = payload.status;
 
       localStorage.setItem("menus", JSON.stringify(state.menus));
     },
@@ -51,10 +51,6 @@ export const entityModule = {
       commit("SET_ENTITY_ID", await entityConfig.getEntityId());
     },
     async setData({ commit, state }) {
-      console.log(
-        "SET DATA: " +
-          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
-      );
       commit(
         "SET_DATA",
         await entityConfig.getEntityData(
@@ -79,7 +75,6 @@ export const entityModule = {
   getters: {
     getSelectedLang: state => state.dataBody.selectedLang,
     getEntityId: state => {
-      console.log(state.entityId);
       return state.entityId;
     },
     getEntityStatus: state => state.dataStatus,
@@ -119,9 +114,7 @@ export const entityModule = {
     getEntitySocials: state => {
       return state.data.social_medias != "" ? state.data.social_medias : [];
     },
-    getEntityMenus: state => {
-      return state.data.menus;
-    },
+    getEntityMenus: state => (state.data.menus != "" ? state.menus : []),
     getEntitySlogan: state => {
       return state.data != "" ? state.data.designation : "Carregar...";
     },
@@ -135,6 +128,11 @@ export const entityModule = {
 
     // Secondary entities
     getSecondaryEntities: state =>
-      state.secEntities !== "" ? state.secEntities : []
+      state.secEntities !== "" ? state.secEntities : [],
+    getMenuStatus: state => state.menuStatus,
+    getCurrentMenuInfo: state =>
+      state.menus
+        .filter(menu => menu.id_menu === state.selectedMenuId)
+        .find(m => m.id_menu === state.selectedMenuId)
   }
 };

@@ -40,7 +40,7 @@ export default {
     });
 
     try {
-      await this.$store.dispatch("setEntityId");
+      // await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setMedias");
     } catch (error) {
       console.log(`App: ${error}`);

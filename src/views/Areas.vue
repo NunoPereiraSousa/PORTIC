@@ -72,7 +72,7 @@ export default {
     });
 
     try {
-      await this.$store.dispatch("setEntityId");
+      // await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setAreas");
       await this.$store.dispatch("setAreasGroups");
       console.log(this.getAreasGroups);

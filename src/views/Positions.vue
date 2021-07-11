@@ -53,7 +53,7 @@ export default {
     });
 
     try {
-      await this.$store.dispatch("setEntityId");
+      // await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setCareers");
 
       console.log(this.$store.getters.getCareers);

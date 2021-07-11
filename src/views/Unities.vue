@@ -2,7 +2,7 @@
   <div>
     <SubPageIntro
       :categoryTitle="$t('unities.unitiesKey')"
-      :content="getCurrentMenus.page_description"
+      :content="setMenuInfo.page_description"
     />
 
     <section class="unities">
@@ -55,35 +55,52 @@ export default {
       unitySelectedContent: null,
       loadedData: false,
       menu: {},
-      loading: false
+      loading: true,
+      description: ""
     };
   },
-  created() {
+  async created() {
     this.unities = this.getUnities;
-  },
-  async mounted() {
     this.$store.commit("SET_SELECTED_UNITIES_LANG", {
       lang: this.$i18n.locale == "en" ? "en" : "pt"
     });
 
     try {
-      await this.$store.dispatch("setEntityId");
+      // await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setUnities");
     } catch (error) {
       return error;
     }
+
+    this.description = this.getCurrentMenus.page_description;
+
+    console.log(this.getMenus, this.getCurrentMenuInfo);
   },
+  async mounted() {},
   computed: {
-    ...mapGetters(["getUnities", "getSelectedMenuID", "getMenus"]),
+    ...mapGetters([
+      "getUnities",
+      "getSelectedMenuID",
+      "getMenus",
+      "getMenuStatus",
+      "getCurrentMenuInfo"
+    ]),
+    loadingMenu() {
+      return this.getMenuStatus;
+    },
+    setMenuInfo() {
+      return this.getCurrentMenuInfo;
+    },
     getCurrentMenus() {
-      let menus = this.getMenus;
       console.log(
-        menus
+        this.getMenus,
+        this.getSelectedMenuID,
+        this.getMenus
           .filter(menu => menu.id_menu === this.getSelectedMenuID)
           .find(n => n.id_menu === this.getSelectedMenuID).page_description
       );
 
-      return menus
+      return this.getMenus
         .filter(menu => menu.id_menu === this.getSelectedMenuID)
         .find(n => n.id_menu === this.getSelectedMenuID);
     },

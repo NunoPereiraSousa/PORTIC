@@ -66,7 +66,7 @@ export default {
     });
 
     try {
-      await this.$store.dispatch("setEntityId");
+      // await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setCourses");
     } catch (error) {
       console.log(`App: ${error}`);

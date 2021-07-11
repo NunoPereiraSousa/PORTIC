@@ -361,18 +361,15 @@ export default {
       "getEntityId"
     ]),
     currEntity() {
-      console.log(
-        this.getEntityData,
-        this.getEntityData.id_entity,
-        this.getEntityData.initials
-      );
+      // console.log(
+      //   this.getEntityData,
+      //   this.getEntityData.id_entity,
+      //   this.getEntityData.initials
+      // );
 
       if (this.getEntityId === this.getEntityData.id_entity) {
-        console.log("YES");
+        // console.log("YES");
         return this.getEntityData;
-      } else {
-        console.log("NOOOOOOOOO");
-        this.$forceUpdate();
       }
       return "";
     },

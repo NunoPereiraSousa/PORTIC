@@ -123,7 +123,7 @@ export default {
     });
 
     try {
-      await this.$store.dispatch("setEntityId");
+      // await this.$store.dispatch("setEntityId");
       await this.$store.dispatch("setProjects");
 
       console.log(this.getProjects);
