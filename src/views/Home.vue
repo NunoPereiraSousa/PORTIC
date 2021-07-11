@@ -159,7 +159,9 @@ export default {
         JSON.parse(localStorage.getItem("vuex")).entityModule.entityId === null
       ) {
         await this.$store.dispatch("setEntityId");
+        // await this.$store.dispatch("setMenus");
       }
+      await this.$store.dispatch("setMenus");
       await this.$store.dispatch("setData");
       await this.$store.dispatch("setNews");
       await this.$store.dispatch("setProjects");

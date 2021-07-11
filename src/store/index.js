@@ -49,6 +49,7 @@ export default new Vuex.Store({
       paths: [
         "entityModule.entityId",
         "entityModule.menus",
+        "entityModule.data",
         "entityModule.selectedMenuId",
         "projectsModule.projects",
         "projectsModule.selectedId",

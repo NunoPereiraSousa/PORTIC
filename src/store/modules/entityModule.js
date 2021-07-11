@@ -34,7 +34,9 @@ export const entityModule = {
       state.menus = payload.menus;
       state.menuStatus = payload.status;
 
-      localStorage.setItem("menus", JSON.stringify(state.menus));
+      // localStorage.setItem("menus", JSON.stringify(state.menus));
+
+      console.log(state.menus);
     },
     SET_SELECTED_MENU(state, payload) {
       state.selectedMenuId = payload.id;
@@ -54,8 +56,8 @@ export const entityModule = {
       commit(
         "SET_DATA",
         await entityConfig.getEntityData(
-          state.dataBody.selectedLang,
-          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
+          JSON.parse(localStorage.getItem("vuex")).langModule.lang,
+          state.entityId
         )
       );
     },
@@ -63,7 +65,7 @@ export const entityModule = {
       commit(
         "SET_MENUS",
         await entityConfig.getEntitiesMenus(
-          state.dataBody.selectedLang,
+          JSON.parse(localStorage.getItem("vuex")).langModule.lang,
           state.entityId
         )
       );
@@ -114,7 +116,7 @@ export const entityModule = {
     getEntitySocials: state => {
       return state.data.social_medias != "" ? state.data.social_medias : [];
     },
-    getEntityMenus: state => (state.data.menus != "" ? state.menus : []),
+    getEntityMenus: state => (state.data.menus != "" ? state.data.menus : []),
     getEntitySlogan: state => {
       return state.data != "" ? state.data.designation : "Carregar...";
     },

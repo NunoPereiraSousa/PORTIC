@@ -28,7 +28,7 @@
           </div>
           <div v-else>
             <router-link
-              v-for="menu in menus"
+              v-for="menu in $store.getters.getEntityMenus"
               :key="menu.id_menu"
               :to="{ name: menu.router_link }"
               @click.native="setMenu(menu.id_menu)"
@@ -103,7 +103,7 @@
             <hr />
             <div class="navbar__content__main_links__grid grid">
               <router-link
-                v-for="menu in menus"
+                v-for="menu in $store.getters.getEntityMenus"
                 :key="menu.id_menu"
                 :to="{ name: menu.router_link }"
                 @click.native="closeNavbarOnPageTransition(menu.id_menu)"
@@ -116,11 +116,19 @@
             <hr />
             <h3>{{ $t("footer.links.title") }}</h3>
             <router-link
+              style="margin-right: 2rem"
               @click.native="closeNavbarOnPageTransition(0)"
               class="navbar__mobile_menu__grid__links__link"
               :to="{ name: 'Contacts' }"
             >
               {{ $t("navbar.items[0]") }}
+            </router-link>
+            <router-link
+              @click.native="closeNavbarOnPageTransition"
+              class="navbar__mobile_menu__grid__links__link"
+              :to="{ name: 'Home' }"
+            >
+              PORTIC
             </router-link>
           </div>
           <div class="navbar__content__socials">
@@ -128,7 +136,7 @@
             <h3>{{ $t("footer.socials.title") }}</h3>
             <div class="flex flex-ai-c">
               <a
-                v-for="media in socials"
+                v-for="media in $store.getters.getEntitySocials"
                 :key="media.name"
                 :href="media.url"
                 target="_blank"
@@ -176,6 +184,9 @@ export default {
       required: false
     }
   },
+  created() {
+    console.log(this.$store.getters.getEntityData);
+  },
   computed: {
     displayLogo() {
       if (!this.loading) {
@@ -187,10 +198,10 @@ export default {
     },
     socials() {
       return this.$store.getters.getEntityData.social_medias;
-    },
-    menus() {
-      return this.$store.getters.getEntityData.menus;
     }
+    // menus() {
+    //   return this.$store.getters.getEntityData.menus;
+    // }
   },
   methods: {
     toggleNavbar() {

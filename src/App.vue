@@ -121,8 +121,9 @@ export default {
         ) {
           await this.$store.dispatch("setEntityId");
         }
-        await this.$store.dispatch("setData");
+
         await this.$store.dispatch("setMenus");
+        await this.$store.dispatch("setData");
 
         console.log(this.$store.getters.getMenus);
       } catch (error) {

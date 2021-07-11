@@ -25,7 +25,6 @@ export const entityConfig = {
       });
   },
   getEntityData: async (selectedLang, entityId) => {
-    // console.log(`${API_URL}/${selectedLang}/entities/${entityId}`);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entityId}`, {
         headers
@@ -42,6 +41,10 @@ export const entityConfig = {
       });
   },
   getEntitiesMenus: async (selectedLang, entityId) => {
+    console.log(
+      selectedLang,
+      `${API_URL}/${selectedLang}/entities/${entityId}`
+    );
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entityId}`, {
         headers
