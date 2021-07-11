@@ -1,7 +1,7 @@
 <template>
   <section class="quote grid">
     <h1 class="quote__title">
-      {{ $t("homepage.introOne") }} <span>PORTIC</span>
+      {{ $t("homepage.introOne") }} <span>{{ initials }}</span>
       {{ $t("homepage.introTwo") }}
     </h1>
 
@@ -20,6 +20,12 @@
 
 <script>
 export default {
-  name: "quote"
+  name: "quote",
+  props: {
+    initials: {
+      type: String,
+      required: false
+    }
+  }
 };
 </script>

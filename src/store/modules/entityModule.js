@@ -11,7 +11,9 @@ export const entityModule = {
     entityId: null,
     focuses: [],
     menus: [],
-    selectedMenuId: null
+    selectedMenuId: null,
+    secEntities: [],
+    selectedSecEntityId: null
   },
   mutations: {
     SET_DATA(state, payload) {
@@ -20,6 +22,8 @@ export const entityModule = {
     },
     SET_ENTITY_ID(state, payload) {
       state.entityId = payload.entity_id;
+
+      console.log(state.entityId);
     },
     SET_SELECTED_LANG(state, payload) {
       state.dataBody.selectedLang = payload.lang;
@@ -34,6 +38,12 @@ export const entityModule = {
     },
     SET_SELECTED_MENU(state, payload) {
       state.selectedMenuId = payload.id;
+    },
+    SET_SEC_ENTITIES(state, payload) {
+      state.secEntities = payload.secEntities;
+    },
+    SET_SELECTED_SEC_ENTITY(state, payload) {
+      state.selectedSecEntityId = payload.id;
     }
   },
   actions: {
@@ -41,11 +51,15 @@ export const entityModule = {
       commit("SET_ENTITY_ID", await entityConfig.getEntityId());
     },
     async setData({ commit, state }) {
+      console.log(
+        "SET DATA: " +
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
+      );
       commit(
         "SET_DATA",
         await entityConfig.getEntityData(
           state.dataBody.selectedLang,
-          state.entityId
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
         )
       );
     },
@@ -57,11 +71,17 @@ export const entityModule = {
           state.entityId
         )
       );
+    },
+    async setSecEntities({ commit }) {
+      commit("SET_SEC_ENTITIES", await entityConfig.getSecEntities());
     }
   },
   getters: {
     getSelectedLang: state => state.dataBody.selectedLang,
-    getEntityId: state => state.entityId,
+    getEntityId: state => {
+      console.log(state.entityId);
+      return state.entityId;
+    },
     getEntityStatus: state => state.dataStatus,
     getEntityData: state => {
       return state.data != "" ? state.data : [];
@@ -111,6 +131,10 @@ export const entityModule = {
     getMenus: state => (state.menus != "" ? state.menus : []),
     getMenuDescByMenuID: state => id =>
       state.menus.find(menu => menu.id_menu === id),
-    getSelectedMenuID: state => state.selectedMenuId
+    getSelectedMenuID: state => state.selectedMenuId,
+
+    // Secondary entities
+    getSecondaryEntities: state =>
+      state.secEntities !== "" ? state.secEntities : []
   }
 };

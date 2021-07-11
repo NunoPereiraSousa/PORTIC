@@ -13,7 +13,6 @@ export const testimonialsConfig = {
         headers
       })
       .then(response => {
-        console.log(response.data.processResult, response.status);
         return {
           testimonials: response.data.processResult,
           status: response.status

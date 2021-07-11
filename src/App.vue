@@ -99,6 +99,8 @@ export default {
 
     this.currLang = this.getCurrLang;
     this.getLang();
+
+    console.log(this.getEntityData);
   },
   computed: {
     ...mapGetters(["getCurrLang", "getEntityData"]),
@@ -114,9 +116,17 @@ export default {
   methods: {
     async handleAPI() {
       try {
-        await this.$store.dispatch("setEntityId");
+        // await this.$store.dispatch("setEntityId");
+        if (
+          JSON.parse(localStorage.getItem("vuex")).entityModule.entityId ===
+          null
+        ) {
+          await this.$store.dispatch("setEntityId");
+        }
         await this.$store.dispatch("setData");
         await this.$store.dispatch("setMenus");
+
+        console.log(this.getEntityData);
       } catch (error) {
         return error;
       }

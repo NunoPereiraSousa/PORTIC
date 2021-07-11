@@ -12,8 +12,6 @@ export const testimonialsModule = {
     SET_REVIEWS(state, payload) {
       state.reviews = payload.testimonials;
       state.status = payload.status;
-
-      console.log(state.status);
     },
     SET_SELECTED_REVIEWS_LANG(state, payload) {
       state.dataBody.selectedLang = payload.lang;

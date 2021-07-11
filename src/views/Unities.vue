@@ -77,7 +77,11 @@ export default {
     ...mapGetters(["getUnities", "getSelectedMenuID", "getMenus"]),
     getCurrentMenus() {
       let menus = this.getMenus;
-      console.log(menus);
+      console.log(
+        menus
+          .filter(menu => menu.id_menu === this.getSelectedMenuID)
+          .find(n => n.id_menu === this.getSelectedMenuID).page_description
+      );
 
       return menus
         .filter(menu => menu.id_menu === this.getSelectedMenuID)

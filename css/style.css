@@ -4458,6 +4458,48 @@ button:focus {
   }
 }
 
+.entity__card button {
+  background-color: transparent;
+  border: none;
+  color: #080808;
+  font-family: "Porto Sans";
+  font-size: 1rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  position: relative;
+}
+
+@media (min-width: 75em) {
+  .entity__card button {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .entity__card button {
+    line-height: 1.7;
+    font-size: 1.0625rem;
+  }
+}
+
+.entity__card button::before {
+  content: "";
+  position: absolute;
+  bottom: calc(50% - 1px);
+  left: -30px;
+  background-color: #c94d24;
+  height: 2px;
+  width: 16px;
+}
+
+.entity__card button:hover::before {
+  left: -32px;
+}
+
+.entity__card button:hover {
+  letter-spacing: 0.4px;
+}
+
 .areas_information,
 .courses_information {
   background-color: #080808;

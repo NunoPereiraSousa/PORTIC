@@ -138,13 +138,14 @@ export default {
       }
     },
     async currentRouteName() {
-      await this.$store.dispatch("setEntityId");
+      // await this.$store.dispatch("setEntityId");
 
       switch (this.$route.name) {
         case "Contacts":
           try {
             await this.$store.dispatch("setAreas");
             await this.$store.dispatch("setAreasGroups");
+            await this.$store.dispatch("setMenus");
           } catch (error) {
             return error;
           }
@@ -153,6 +154,7 @@ export default {
           try {
             await this.$store.dispatch("setCourses");
             await this.$store.dispatch("setCoursesFocus");
+            await this.$store.dispatch("setMenus");
           } catch (error) {
             return error;
           }
@@ -161,6 +163,19 @@ export default {
           try {
             await this.$store.dispatch("setNews");
             await this.$store.dispatch("setReviews");
+
+            localStorage.setItem(
+              "news",
+              JSON.stringify(this.$store.getters.getNews)
+            );
+          } catch (error) {
+            return error;
+          }
+          break;
+        case "Media":
+          try {
+            await this.$store.dispatch("setMedias");
+            await this.$store.dispatch("setMenus");
 
             localStorage.setItem(
               "news",

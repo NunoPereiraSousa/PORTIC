@@ -4,6 +4,7 @@ import Areas from "../views/Areas.vue";
 import Contacts from "../views/Contacts.vue";
 import Courses from "../views/Courses.vue";
 import News from "../views/News.vue";
+import EntitiesCatalog from "../views/EntitiesCatalog.vue";
 import DashboardAddAreas from "../views/Dashboard/DashboardAddAreas.vue";
 import DashboardAddCareers from "../views/Dashboard/DashboardAddCareers.vue";
 import DashboardAddCourses from "../views/Dashboard/DashboardAddCourses.vue";
@@ -78,6 +79,11 @@ const routes = [
     path: "/contacts",
     name: "Contacts",
     component: Contacts
+  },
+  {
+    path: "/entities-catalog",
+    name: "EntitiesCatalog",
+    component: EntitiesCatalog
   },
   {
     path: "/media",

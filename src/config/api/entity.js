@@ -25,6 +25,7 @@ export const entityConfig = {
       });
   },
   getEntityData: async (selectedLang, entityId) => {
+    console.log(`${API_URL}/${selectedLang}/entities/${entityId}`);
     return await axios
       .get(`${API_URL}/${selectedLang}/entities/${entityId}`, {
         headers
@@ -48,6 +49,24 @@ export const entityConfig = {
       .then(response => {
         return {
           menus: response.data.processResult[0].menus,
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+
+        return error;
+      });
+  },
+  getSecEntities: async () => {
+    return await axios
+      .get(`${API_URL}/entities/secondaries`, {
+        headers
+      })
+      .then(response => {
+        console.log(response.data.processResult);
+        return {
+          secEntities: response.data.processResult,
           status: response.status
         };
       })

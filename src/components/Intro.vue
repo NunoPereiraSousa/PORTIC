@@ -126,7 +126,7 @@ export default {
   props: {
     keyword: {
       type: String,
-      required: true
+      required: false
     }
   }
 };

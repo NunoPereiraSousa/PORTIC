@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <div class="scene"></div>
-    <Intro keyword="PORTIC" />
-    <Quote />
+    <Intro />
+    <Quote :initials="getEntityData.initials" />
     <section class="news">
       <h1 class="news__title">
         {{ $t("homepage.news.title") }}
@@ -151,21 +151,30 @@ export default {
     });
 
     try {
-      await this.$store.dispatch("setEntityId");
+      // await this.$store.dispatch("setEntityId");
+      // console.log(
+      //   JSON.parse(localStorage.getItem("vuex")).entityModule.entityId
+      // );
+      if (
+        JSON.parse(localStorage.getItem("vuex")).entityModule.entityId === null
+      ) {
+        await this.$store.dispatch("setEntityId");
+      }
+      await this.$store.dispatch("setData");
       await this.$store.dispatch("setNews");
       await this.$store.dispatch("setProjects");
       await this.$store.dispatch("setReviews");
       await this.$store.dispatch("setUnities");
 
       this.testimonials = this.getTestimonials;
-      console.log(this.testimonials);
     } catch (error) {
       console.log(error);
       return error;
     }
-
     this.newsArr = this.getNews;
     this.newsContent = this.getNewsById;
+
+    console.log(this.getEntityId);
   },
   mounted() {
     const SCREEN_WIDTH = window.innerWidth,
@@ -346,20 +355,35 @@ export default {
       "getNewsById",
       "getSelectedNewsId",
       "getTestimonials",
-      "getReviewsStatus"
+      "getReviewsStatus",
+      "getEntityData",
+      "getEntityDataById",
+      "getEntityId"
     ]),
+    currEntity() {
+      console.log(
+        this.getEntityData,
+        this.getEntityData.id_entity,
+        this.getEntityData.initials
+      );
+
+      if (this.getEntityId === this.getEntityData.id_entity) {
+        console.log("YES");
+        return this.getEntityData;
+      } else {
+        console.log("NOOOOOOOOO");
+        this.$forceUpdate();
+      }
+      return "";
+    },
     setNews() {
       return this.getNews;
     },
     loadedReviews() {
       let load = this.loaded;
 
-      console.log(this.getReviewsStatus);
-
       if (this.getReviewsStatus == 200) {
         load = true;
-
-        console.log(load);
       }
 
       return load;

@@ -269,3 +269,42 @@
     }
   }
 }
+
+.entity__card button {
+  background-color: transparent;
+  border: none;
+  color: $black;
+  font-family: $portoSans;
+  font-size: $_16px;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  position: relative;
+
+  @include breakpoint-up(desktop) {
+    font-size: $_15px;
+  }
+
+  @include breakpoint-up(large) {
+    line-height: 1.7;
+    font-size: $_17px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: calc(50% - 1px);
+    left: -30px;
+    background-color: $orange;
+    height: 2px;
+    width: 16px;
+    // transition: all 0.5s ease;
+  }
+
+  &:hover::before {
+    left: -32px;
+  }
+
+  &:hover {
+    letter-spacing: 0.4px;
+  }
+}

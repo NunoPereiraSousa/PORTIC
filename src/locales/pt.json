@@ -83,6 +83,18 @@
     "mediasKey": "Medias",
     "title": "Explore os nossos vídeos"
   },
+  "entities": {
+    "title": "Entidades",
+    "desc": "Investigação, desenvolvimento e inovação.​",
+    "input": {
+      "placeholder": "Pesquisar entidade",
+      "filter": "Ordem alfabética"
+    },
+    "labels": {
+      "search": "Pesquisar",
+      "order": "Ordenar"
+    }
+  },
   "projects": {
     "title": "Projetos",
     "desc": "Projetos de Investigação, Desenvolvimento e Inovação .",
