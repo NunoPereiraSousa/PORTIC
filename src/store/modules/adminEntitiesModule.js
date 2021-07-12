@@ -59,7 +59,8 @@ export const adminEntitiesModule = {
       page_description_eng: null,
       page_description_pt: null
     },
-    editEntityMenusStatus: null
+    editEntityMenusStatus: null,
+    entityStatus: null
   },
   mutations: {
     SET_ENTITIES(state, payload) {
@@ -72,6 +73,9 @@ export const adminEntitiesModule = {
     },
     SET_ENTITY_INITIALS(state, payload) {
       state.initials = payload.initials;
+    },
+    SET_ENTITY_STATUS(state, payload) {
+      state.entityStatus = payload.entityStatus;
     },
     SET_ADD_ENTITY_STATUS(state, payload) {
       state.addEntityStatus = payload.status;
@@ -238,6 +242,16 @@ export const adminEntitiesModule = {
           state.entitiesMenu.designation_eng,
           state.entitiesMenu.page_description_eng,
           state.entitiesMenu.page_description_pt
+        )
+      );
+    },
+    async setAdminEditEntityStatus({ commit, state }) {
+      commit(
+        "SET_ENTITY_STATUS",
+        await adminEntitiesConfig.editEntityStatus(
+          JSON.parse(localStorage.getItem("token")),
+          state.selectedEntityId,
+          state.entityStatus
         )
       );
     }

@@ -32,7 +32,7 @@
       </button>
       <button
         class="admin_entities__panel__grid__card__remove"
-        @click="showPopup(id)"
+        @click="changeStatus(id)"
       >
         Remover
       </button>
@@ -83,18 +83,26 @@ export default {
         params: { name: name }
       });
     },
-    showPopup(id) {
-      let admin_entities__panel__overlay = document.querySelector(
-        ".admin_entities__panel__overlay"
+    async changeStatus(id) {
+      this.$store.commit("SET_SELECTED_ADMIN_ENTITY_ID", {
+        id: id
+      });
+
+      let currEntity = this.$store.getters.getAdminEntityById(
+        this.$store.getters.getAdminEntityId
       );
 
-      let admin_delete_popup = document.querySelector(".admin_areas__popup");
+      this.$store.commit("SET_ENTITY_STATUS", {
+        entityStatus:
+          currEntity.data_status === "Archived" ? "Published" : "Archived"
+      });
 
-      admin_entities__panel__overlay.classList.toggle("show_overlay");
-      admin_delete_popup.classList.toggle("show_popup");
-
-      // AREA ID LOGIC
-      console.log(id);
+      try {
+        await this.$store.dispatch("setAdminEditEntityStatus");
+        await this.$store.dispatch("setAdminEntities");
+      } catch (error) {
+        return error;
+      }
 
       // this.$store.commit("SET_SELECTED_ADMIN_AREA_ID", {
       //   id: id

@@ -300,5 +300,34 @@ export const adminEntitiesConfig = {
         console.log(error);
         return error;
       });
+  },
+  editEntityStatus: async (token, id, new_status) => {
+    let config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        authorization: `Bearer ${token}`
+      }
+    };
+
+    console.log(id, new_status);
+
+    return await axios
+      .patch(
+        `${API_URL}/entities/${id}/status`,
+        {
+          new_status: new_status
+        },
+        config
+      )
+      .then(response => {
+        console.log(response.status);
+        return {
+          status: response.status
+        };
+      })
+      .catch(error => {
+        console.log(error);
+        return error;
+      });
   }
 };
