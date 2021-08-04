@@ -79,9 +79,6 @@
           >
             {{ menu.menu_designation }}
           </router-link>
-          <router-link :to="{ name: 'DashboardHome' }">
-            Dashboard
-          </router-link>
           <router-link :to="{ name: 'SiteMap' }">
             SiteMap
           </router-link>

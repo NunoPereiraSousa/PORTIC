@@ -71,7 +71,7 @@ const routes = [
     component: Areas
   },
   {
-    path: "/courses",
+    path: "/our-courses",
     name: "Courses",
     component: Courses
   },
@@ -86,7 +86,7 @@ const routes = [
     component: EntitiesCatalog
   },
   {
-    path: "/media",
+    path: "/medias",
     name: "Media",
     component: Media
   },
